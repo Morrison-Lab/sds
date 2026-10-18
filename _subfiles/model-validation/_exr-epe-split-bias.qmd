@@ -4,10 +4,10 @@
 @eq-epe-after-noise leaves one term that still mixes two ideas:
 
 $$
-\E{\sqf{\truemeanfnf{\predvar} - \predval}}.
+\E{\sqf{\truemeanf{\predvar} - \predval}}.
 $$
 
-A prediction can miss $\truemeanfnf{\predvar}$ because its [expected prediction](#def-average-fit) is off,
+A prediction can miss $\truemeanf{\predvar}$ because its [expected prediction](#def-average-fit) is off,
 or because it gives a different result for every training set.
 These are different failures with different fixes,
 so the term should split into one piece for each.

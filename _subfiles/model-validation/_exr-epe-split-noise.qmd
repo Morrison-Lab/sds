@@ -6,7 +6,7 @@ Fix $\newpredvar = \predvar$.
 Let $\noise$ be the [noise](#def-noise) of $\newoutvar$.
 Let $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite.
 Take every expectation below to be conditional on $\newpredvar = \predvar$.
-Add and subtract $\truemeanfnf{\predvar}$ inside the square of the [expected prediction error](#def-epe),
+Add and subtract $\truemeanf{\predvar}$ inside the square of the [expected prediction error](#def-epe),
 
 $$
 \E{\sqf{\newoutvar - \predvalf{\predvar}}},

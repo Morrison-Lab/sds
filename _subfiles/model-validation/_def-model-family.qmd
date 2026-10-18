@@ -3,6 +3,6 @@
 
 A **mean-function model family** $\modelfam$ is a set of functions,
 each of which maps a [covariate](#def-covariate) value $\predvar$
-to a candidate for the value $\truemeanfnf{\predvar}$ of the [mean function](#def-mean-function) at $\predvar$.
+to a candidate for the value $\truemeanf{\predvar}$ of the [mean function](#def-mean-function) at $\predvar$.
 
 :::

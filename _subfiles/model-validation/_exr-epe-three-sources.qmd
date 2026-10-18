@@ -4,7 +4,7 @@
 A prediction $\predval$ at a covariate value $\predvar$ has
 squared bias $[\bias{\predval}]^2 = 1$
 and variance $\Var{\predval} = 2$.
-The new outcome is $\newoutvar = \truemeanfnf{\predvar} + \noise$,
+The new outcome is $\newoutvar = \truemeanf{\predvar} + \noise$,
 where $\noise$ has mean $0$ and variance $\varpar = 3$
 and is independent of $\predval$.
 
