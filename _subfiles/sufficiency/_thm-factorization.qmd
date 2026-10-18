@@ -17,7 +17,7 @@ Source: @wikipedia_sufficient_statistic.
 
 ::: proof
 
-Fix a sample $\vx$ and write $t \eqdef \statf{\vx}$.
+Let $\vx$ be a sample and write $t \eqdef \statf{\vx}$.
 The event $\vX = \vx$ lies inside the event $\statf{\vX} = t$.
 
 **Sufficient implies a factorization.**
