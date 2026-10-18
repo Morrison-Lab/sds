@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 14:36:39 (PDT)
+Last modified: 2026-10-18 15:56:22 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -547,7 +547,7 @@ Last modified: 2026-10-18 14:36:39 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 4 (Expected squared prediction error from three sources)** Let \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. Fix \\X\_{\*}= x\\. Take every expectation, bias and variance below to be conditional on \\X\_{\*}= x\\. A prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ at \\x\\ has squared [bias](#def-prediction-bias) \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2 = 1\\ and [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\\operatorname{Var}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} = 2\\. The [noise](#def-noise) of \\Y\_{\*}\\ has [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\\sigma^2= 3\\.
+> **Exercise 4 (Expected squared prediction error from three sources)** Let \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. Fix \\X\_{\*}= x\\. A [prediction](prediction.llms.md#def-prediction) \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ at \\x\\ has squared [bias](#def-prediction-bias) \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2 = 1\\ and [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\\operatorname{Var}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} = 2\\. The [noise](#def-noise) of \\Y\_{\*}\\ has [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\\sigma^2= 3\\.
 >
 > 1.  What is the [expected squared prediction error](#def-epe) \\\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^2 \mid X\_{\*}= x\right\]\mathclose{}\\?
 > 2.  If we could remove all bias and all variance of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, what would the expected squared prediction error at \\x\\ be?
@@ -557,11 +557,11 @@ Last modified: 2026-10-18 14:36:39 (PDT)
 >
 > *Solution 4*.
 >
-> 1.  The expected squared prediction error is the sum of the three sources: \\1 + 2 + 3 = 6\\.
+> 1.  The [expected squared prediction error](#def-epe) is the sum of the three sources: \\1 + 2 + 3 = 6\\.
 >
-> 2.  \\0 + 0 + 3 = 3\\. The noise variance \\\sigma^2= 3\\ remains, so \\3\\ is the smallest expected squared prediction error any prediction can have here.
+> 2.  \\0 + 0 + 3 = 3\\. The noise variance \\\sigma^2= 3\\ remains, so \\3\\ is the smallest expected squared prediction error any [prediction](prediction.llms.md#def-prediction) can have here.
 >
-> 3.  A better method can reduce the squared bias and the variance of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, because both depend on how \\g\\ is built. It cannot reduce \\\sigma^2\\, which is the variance of the noise \\\nu\\ in the new outcome.
+> 3.  A better method can reduce the squared [bias](#def-prediction-bias) and the variance of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, because both depend on how \\g\\ is built. It cannot reduce \\\sigma^2\\, which is the variance of the noise \\\nu\\ in the new outcome.
 
 > **NOTE:**
 >
@@ -1717,10 +1717,10 @@ Last modified: 2026-10-18 14:36:39 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    8.88178e-15    2.00000e+00
+> #>    7.10543e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
