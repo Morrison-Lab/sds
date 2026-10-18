@@ -220,26 +220,6 @@ format:
 
 {{< include sds/_subfiles/classification/_rem-kappa-prevalence.qmd >}}
 
-## Further reading {.unnumbered}
-
--   @wikipedia_statistical_classification --- classification rules and their evaluation
-
--   @wikipedia_sensitivity_and_specificity --- the two measures of a diagnostic test
-
--   @wikipedia_positive_and_negative_predictive_values --- predictive values and their dependence on prevalence
-
--   @wikipedia_confusion_matrix --- the table of predicted and true classes
-
--   @wikipedia_cohens_kappa --- agreement between two raters beyond chance
-
--   @wikipedia_receiver_operating_characteristic --- ROC curves and the area under them
-
--   @wikipedia_bayes_theorem --- the Wikipedia article on bayes' theorem
-
--   @wikipedia_harmonic_mean --- the Wikipedia article on harmonic mean
-
--   @wikipedia_prevalence --- the Wikipedia article on prevalence
-
 ## References {.unnumbered}
 
 ::: {#refs}

@@ -114,8 +114,6 @@ algebraically.
 
 {{< slidebreak >}}
 
-### Finding the MLE using the Newton-Raphson algorithm
-
 #### Iterative maximization {#sec-newton-raphson}
 
 {{< include sds/_subfiles/dobson-cyclone-example/_sec_iterative_maximization.qmd >}}

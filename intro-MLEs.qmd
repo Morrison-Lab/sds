@@ -308,8 +308,6 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-### Quantifying uncertainty about MLEs
-
 #### Confidence intervals for MLEs
 
 <!-- No slidebreak here: the heading shares its slide with the def-wald-ci div. -->
@@ -485,22 +483,6 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_exr-prac-exp-mle.qmd >}}
-
-## Further reading {.unnumbered}
-
--   @wikipedia_maximum_likelihood_estimation --- the method, its properties and its history
-
--   @wikipedia_likelihood_function --- likelihood and log-likelihood
-
--   @wikipedia_informant_function --- the score function and its properties
-
--   @wikipedia_fisher_information --- expected and observed information
-
--   @wikipedia_wald_test --- the Wald test and confidence interval
-
--   @wikipedia_likelihood_ratio_test --- the test and Wilks' theorem
-
--   @wikipedia_prediction_interval --- how it differs from a confidence interval
 
 ## References {.unnumbered}
 

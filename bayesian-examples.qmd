@@ -74,16 +74,6 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-bma.qmd >}}
 
-## Further reading {.unnumbered}
-
--   @wikipedia_bayesian_inference --- Bayesian updating, with examples
-
--   @wikipedia_bayesian_hierarchical_modeling --- random effects and hierarchical priors
-
--   @wikipedia_bayes_factor --- comparing models with the ratio of marginal likelihoods
-
--   @wikipedia_bayesian_information_criterion --- a large-sample approximation to the log marginal likelihood
-
 ## References {.unnumbered}
 
 ::: {#refs}

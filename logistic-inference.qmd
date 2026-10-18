@@ -138,16 +138,6 @@ format:
 
 {{< include sds/_subfiles/logistic-inference/_exm-logistic-odds-interval.qmd >}}
 
-## Further reading {.unnumbered}
-
--   @wikipedia_logistic_regression --- the model, its fitting and its interpretation
-
--   @wikipedia_deviance_statistics --- deviance and its use in model comparison
-
--   @wikipedia_saturated_model --- the saturated model
-
--   @wikipedia_likelihood_ratio_test --- comparing nested models
-
 ## References {.unnumbered}
 
 ::: {#refs}

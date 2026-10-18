@@ -18,8 +18,6 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_load-hers-short.qmd >}}
 
-## Correlation {#sec-correlation}
-
 ### Testing the Pearson correlation {#sec-pearson}
 
 <!-- No slidebreak here: the heading shares its slide with the def-population-correlation div. -->
@@ -54,8 +52,6 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-spearman.qmd >}}
-
-## Simple linear regression {#sec-simple-linear-regression}
 
 ### Model specification {#sec-slr-model}
 
@@ -339,20 +335,6 @@ The login for the video site is posted
 ### Further reading
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-slr-further-reading.qmd >}}
-
-## Further reading {.unnumbered}
-
--   @wikipedia_pearson_correlation_coefficient --- the coefficient and its properties
-
--   @wikipedia_spearmans_rank_correlation_coefficient --- a rank-based measure of association
-
--   @wikipedia_simple_linear_regression --- the model with one covariate
-
--   @wikipedia_linear_regression --- the model, its assumptions and its estimation
-
--   @wikipedia_ordinary_least_squares --- least squares estimation and its properties
-
--   @wikipedia_coefficient_of_determination --- R squared and its interpretation
 
 ## References {.unnumbered}
 

@@ -141,8 +141,6 @@ Group Study (WCGS) dataset and their types.
 
 {{< include sds/_subfiles/data/_tbl-wcgs-vartypes.qmd >}}
 
-## Random variables
-
 ### Binary variables {#sec-binary-vars}
 
 <!-- No slidebreak here: the heading shares its slide with the def-binary div. -->

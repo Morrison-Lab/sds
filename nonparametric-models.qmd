@@ -86,16 +86,6 @@ These readings look ahead from the empirical CDF to distribution-free tests, whi
 - @rice2007mathematical [Sec. 12.2.3, p. 488] covers the Kruskal--Wallis test.
 :::
 
-## Further reading {.unnumbered}
-
--   @wikipedia_empirical_distribution_function --- the empirical CDF and its convergence
-
--   @wikipedia_order_statistic --- order statistics and their distributions
-
--   @wikipedia_quantile --- quantiles and how they are estimated
-
--   @wikipedia_nonparametric_statistics --- the nonparametric approach to inference
-
 ## References {.unnumbered}
 
 ::: {#refs}
