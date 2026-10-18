@@ -62,6 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -333,6 +334,16 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-exm.callout {
   border-left-color: #6A1B9A;
 }
@@ -343,35 +354,19 @@ div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-def.callout {
-  border-left-color: #1B5E20;
+div.callout-reading.callout {
+  border-left-color: #00695C;
 }
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
+div.callout-reading.callout-style-default .callout-header {
+  background-color: rgba(0, 105, 92, 0.13);
 }
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-fig.callout {
-  border-left-color: #757575;
-}
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-solution.callout {
-  border-left-color: #4E342E;
-}
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
-}
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f518' !important;
+  background-image: none;
 }
 div.callout-exr.callout {
   border-left-color: #FFA500;
@@ -383,6 +378,26 @@ div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-prp.callout {
   border-left-color: #827717;
 }
@@ -392,16 +407,6 @@ div.callout-prp.callout-style-default .callout-header {
 div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-remark.callout {
   border-left-color: #AD1457;
@@ -423,15 +428,15 @@ div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-lem.callout {
-  border-left-color: #1565C0;
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
 }
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
 }
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-videos.callout {
   border-left-color: #283593;
@@ -457,29 +462,25 @@ div.callout-proof .callout-toggle::before {  background-image: url('data:image/s
 div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-reading.callout {
-  border-left-color: #00695C;
+div.callout-fig.callout {
+  border-left-color: #757575;
 }
-div.callout-reading.callout-style-default .callout-header {
-  background-color: rgba(0, 105, 92, 0.13);
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
 }
-div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f518' !important;
-  background-image: none;
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-cor.callout {
-  border-left-color: #00838F;
+div.callout-def.callout {
+  border-left-color: #1B5E20;
 }
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
 }
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -1067,7 +1068,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-18 00:41:17 (PDT)</p>
+      <p class="date">Last modified: 2026-10-18 11:35:52 (PDT)</p>
     </div>
   </div>
   
@@ -1125,16 +1126,16 @@ text-align: center;
 <blockquote class="blockquote">
 <p>…Essentially, all models are wrong, but some are useful. <strong>However, the approximate nature of the model must always be borne in mind.</strong></p>
 </blockquote>
-<p>[<span class="citation" data-cites="box_draper_1987">Box and Draper (<a href="#ref-box_draper_1987" role="doc-biblioref">1987</a>)</span>, p.&nbsp;424; emphasis added]</p>
+<p>[<span class="citation" data-cites="box_draper_1987">Box and Draper <a href="#ref-box_draper_1987" role="doc-biblioref">[1]</a></span>, p.&nbsp;424; emphasis added]</p>
 <div class="notes">
-<p>See also <span class="citation" data-cites="dunn2018generalized">(<a href="#ref-dunn2018generalized" role="doc-biblioref">Dunn and Smyth 2018, sec. 1.8</a>)</span>.</p>
+<p>See also <span class="citation" data-cites="dunn2018generalized"><a href="#ref-dunn2018generalized" role="doc-biblioref">[2, Sec. 1.8]</a></span>.</p>
 </div>
 </section><section id="statistical-analysis-of-scientific-models" class="level3" data-number="1.2"><h3 data-number="1.2" class="anchored" data-anchor-id="statistical-analysis-of-scientific-models">
 <span class="header-section-number">1.2</span> Statistical analysis of scientific models</h3>
 <p>When we perform statistical analyses, we use data to help us choose between models; specifically, to determine which models best explain those data.</p>
 <p>Physical processes do not produce data on their own. Data are only produced when scientists implement an <em>observation process</em> (that is, a <em>scientific study</em>), which is distinct from the underlying <em>physical process</em>. In some cases, the observation process and the physical process interact with each other; this interaction is called the <a href="https://en.wikipedia.org/wiki/Observer_effect">“observer effect”</a>.</p>
 <p>To learn about the physical processes we are ultimately interested in, we often need to account for the observation process that produced the data we are analyzing. In particular, if some of the planned observations in the study design were not completed, we will likely need to account for the incompleteness of the resulting data set in our analysis. If we are not sure why some observations are incomplete, we may need to model the observation process in addition to the physical process we were originally interested in. For example, if some participants in a study dropped out part-way through, we may need to investigate why those participants dropped out, as opposed to other participants who completed the study.</p>
-<p>These kinds of <em>missing data</em> issues are outside the scope of these notes; see <span class="citation" data-cites="van2018flexible">Van Buuren (<a href="#ref-van2018flexible" role="doc-biblioref">2018</a>)</span> for more details.</p>
+<p>These kinds of <em>missing data</em> issues are outside the scope of these notes; see <span class="citation" data-cites="van2018flexible">Van Buuren <a href="#ref-van2018flexible" role="doc-biblioref">[3]</a></span> for more details.</p>
 </section></section><section id="estimands-estimates-and-estimators" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="estimands-estimates-and-estimators">
 <span class="header-section-number">2</span> Estimands, estimates, and estimators</h2>
 <section id="estimands" class="level3" data-number="2.1"><h3 data-number="2.1" class="anchored" data-anchor-id="estimands">
@@ -1154,8 +1155,8 @@ text-align: center;
 <div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-estimand" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Estimand)</strong></span> An <strong>estimand</strong> is an unknown quantity <span class="math inline">\(\theta\)</span> whose value we want to know <span class="citation" data-cites="pohl2021estimands lawrance2020estimand">(<a href="#ref-pohl2021estimands" role="doc-biblioref">Pohl et al. 2021</a>; <a href="#ref-lawrance2020estimand" role="doc-biblioref">Lawrance et al. 2020</a>)</span>.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_estimand">Wikipedia contributors (<a href="#ref-wikipedia_estimand" role="doc-biblioref">2026b</a>)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2 (Estimand)</strong></span> An <strong>estimand</strong> is an unknown quantity <span class="math inline">\(\theta\)</span> whose value we want to know <span class="citation" data-cites="pohl2021estimands lawrance2020estimand"><a href="#ref-pohl2021estimands" role="doc-biblioref">[4]</a>, <a href="#ref-lawrance2020estimand" role="doc-biblioref">[5]</a></span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_estimand">Wikipedia contributors <a href="#ref-wikipedia_estimand" role="doc-biblioref">[6]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1256,7 +1257,7 @@ text-align: center;
 <p><span class="math display">\[
 \hat{\theta}(X_1, \ldots, X_n).
 \]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_estimator">Wikipedia contributors (<a href="#ref-wikipedia_estimator" role="doc-biblioref">2026c</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_estimator">Wikipedia contributors <a href="#ref-wikipedia_estimator" role="doc-biblioref">[7]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1328,7 +1329,7 @@ text-align: center;
 <div class="callout-body-container callout-body">
 <div id="def-sampling-distribution" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Sampling distribution)</strong></span> The <strong>sampling distribution</strong> of an <a href="#def-estimator">estimator</a> <span class="math inline">\(\hat{\theta}\)</span> is the probability distribution of <span class="math inline">\(\hat{\theta}(X_1, \ldots, X_n)\)</span> over repeated random samples <span class="math inline">\(X_1, \ldots, X_n\)</span> from the same population: the distribution of the values the estimator would take across all the samples we might have drawn.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_sampling_distribution">Wikipedia contributors (<a href="#ref-wikipedia_sampling_distribution" role="doc-biblioref">2026g</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_sampling_distribution">Wikipedia contributors <a href="#ref-wikipedia_sampling_distribution" role="doc-biblioref">[8]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1379,11 +1380,11 @@ text-align: center;
 <div class="callout-body-container callout-body">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#ref-hoggtanis2015" role="doc-biblioref">2019, sec. 6.4</a>, pp.&nbsp;264–276)</span> covers maximum likelihood and method of moments estimation.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#ref-hoggtanis2015" role="doc-biblioref">[9, Sec. 6.4]</a>, pp.&nbsp;264–276</span> covers maximum likelihood and method of moments estimation.</li>
 <li>
-<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002, sec. 7.2</a>, pp.&nbsp;312–329)</span> covers methods of finding estimators.</li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#ref-CaseBerg01" role="doc-biblioref">[10, Sec. 7.2]</a>, pp.&nbsp;312–329</span> covers methods of finding estimators.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, secs. 8.3–8.4</a>, pp.&nbsp;257–266)</span> covers parameter estimation and the method of moments.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#ref-rice2007mathematical" role="doc-biblioref">[11, Secs. 8.3–8.4]</a>, pp.&nbsp;257–266</span> covers parameter estimation and the method of moments.</li>
 </ul>
 </div>
 </div>
@@ -1470,7 +1471,7 @@ text-align: center;
 <div id="def-bias" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Bias)</strong></span> The <strong>bias</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> for an estimand <span class="math inline">\(\theta\)</span> is the expected value of the <a href="#def-estimation-error">estimation error</a>:</p>
 <p><span id="eq-bias-def"><span class="math display">\[\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right]\mathclose{} \tag{1}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_bias_of_an_estimator">Wikipedia contributors (<a href="#ref-wikipedia_bias_of_an_estimator" role="doc-biblioref">2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_bias_of_an_estimator">Wikipedia contributors <a href="#ref-wikipedia_bias_of_an_estimator" role="doc-biblioref">[12]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1629,7 +1630,7 @@ text-align: center;
 <div id="def-mse" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Mean squared error)</strong></span> The <strong>population mean squared error (pMSE)</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span>, also called its <strong>mean squared error</strong> or its <strong>expected squared estimation error (ESEE)</strong>, denoted <span class="math inline">\(\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span> or <span class="math inline">\(\operatorname{ESEE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span>, is the expectation of the square of the <a href="#def-estimation-error">estimation error</a>:</p>
 <p><span class="math display">\[\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right]\mathclose{}\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_mean_squared_error">Wikipedia contributors (<a href="#ref-wikipedia_mean_squared_error" role="doc-biblioref">2026e</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_mean_squared_error">Wikipedia contributors <a href="#ref-wikipedia_mean_squared_error" role="doc-biblioref">[13]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -2029,7 +2030,7 @@ text-align: center;
 <div id="def-rmse" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 9 (Root mean squared error)</strong></span> The <strong>population root mean squared error (pRMSE)</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span>, also called its <strong>root mean squared error</strong>, is the square root of its <a href="#def-mse">pMSE</a>:</p>
 <p><span class="math display">\[\operatorname{pRMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_root_mean_square_deviation">Wikipedia contributors (<a href="#ref-wikipedia_root_mean_square_deviation" role="doc-biblioref">2026f</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_root_mean_square_deviation">Wikipedia contributors <a href="#ref-wikipedia_root_mean_square_deviation" role="doc-biblioref">[14]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -2083,7 +2084,7 @@ text-align: center;
 </div>
 <div id="callout-43" class="callout-43-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p><span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002, sec. 7.3.1</a>, pp.&nbsp;330–333)</span> covers mean squared error.</p>
+<p><span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#ref-CaseBerg01" role="doc-biblioref">[10, Sec. 7.3.1]</a>, pp.&nbsp;330–333</span> covers mean squared error.</p>
 </div>
 </div>
 </div>
@@ -2399,7 +2400,7 @@ text-align: center;
 </div>
 <div id="callout-54" class="callout-54-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>5MinuteAI covers the <a href="https://www.youtube.com/watch?v=sUFpzYNDn3Q">properties of estimators</a>, including bias, following the University of Washington’s CSE 312 <span class="citation" data-cites="fiveminuteai_probstat">(<a href="#ref-fiveminuteai_probstat" role="doc-biblioref">5MinuteAI, n.d.</a>)</span>.</p>
+<p>5MinuteAI covers the <a href="https://www.youtube.com/watch?v=sUFpzYNDn3Q">properties of estimators</a>, including bias, following the University of Washington’s CSE 312 <span class="citation" data-cites="fiveminuteai_probstat"><a href="#ref-fiveminuteai_probstat" role="doc-biblioref">[15]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -2424,7 +2425,7 @@ text-align: center;
 <p><span class="math display">\[
 \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left|\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right|\mathclose{}\right]\mathclose{}
 \]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_mean_absolute_error">Wikipedia contributors (<a href="#ref-wikipedia_mean_absolute_error" role="doc-biblioref">2026d</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_mean_absolute_error">Wikipedia contributors <a href="#ref-wikipedia_mean_absolute_error" role="doc-biblioref">[16]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -2505,7 +2506,7 @@ text-align: center;
 <div id="def-SE" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13 (Standard error)</strong></span> The <strong>standard error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> is the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-sd">standard deviation</a> of <span class="math inline">\(\hat{\theta}\)</span>:</p>
 <p><span class="math display">\[\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_standard_error">Wikipedia contributors (<a href="#ref-wikipedia_standard_error" role="doc-biblioref">2026h</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_standard_error">Wikipedia contributors <a href="#ref-wikipedia_standard_error" role="doc-biblioref">[17]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -2805,63 +2806,91 @@ text-align: center;
 </div>
 </section></section><section id="further-reading" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="further-reading">Further reading</h2>
 <ul>
-<li><p><span class="citation" data-cites="wikipedia_estimator">Wikipedia contributors (<a href="#ref-wikipedia_estimator" role="doc-biblioref">2026c</a>)</span> — estimators and their properties</p></li>
-<li><p><span class="citation" data-cites="wikipedia_estimand">Wikipedia contributors (<a href="#ref-wikipedia_estimand" role="doc-biblioref">2026b</a>)</span> — the target of an estimate</p></li>
-<li><p><span class="citation" data-cites="wikipedia_bias_of_an_estimator">Wikipedia contributors (<a href="#ref-wikipedia_bias_of_an_estimator" role="doc-biblioref">2026a</a>)</span> — bias, with examples</p></li>
-<li><p><span class="citation" data-cites="wikipedia_mean_squared_error">Wikipedia contributors (<a href="#ref-wikipedia_mean_squared_error" role="doc-biblioref">2026e</a>)</span> — the mean squared error and its decomposition</p></li>
-<li><p><span class="citation" data-cites="wikipedia_sampling_distribution">Wikipedia contributors (<a href="#ref-wikipedia_sampling_distribution" role="doc-biblioref">2026g</a>)</span> — the distribution of a statistic across samples</p></li>
+<li><p><span class="citation" data-cites="wikipedia_estimator">Wikipedia contributors <a href="#ref-wikipedia_estimator" role="doc-biblioref">[7]</a></span> — estimators and their properties</p></li>
+<li><p><span class="citation" data-cites="wikipedia_estimand">Wikipedia contributors <a href="#ref-wikipedia_estimand" role="doc-biblioref">[6]</a></span> — the target of an estimate</p></li>
+<li><p><span class="citation" data-cites="wikipedia_bias_of_an_estimator">Wikipedia contributors <a href="#ref-wikipedia_bias_of_an_estimator" role="doc-biblioref">[12]</a></span> — bias, with examples</p></li>
+<li><p><span class="citation" data-cites="wikipedia_mean_squared_error">Wikipedia contributors <a href="#ref-wikipedia_mean_squared_error" role="doc-biblioref">[13]</a></span> — the mean squared error and its decomposition</p></li>
+<li><p><span class="citation" data-cites="wikipedia_sampling_distribution">Wikipedia contributors <a href="#ref-wikipedia_sampling_distribution" role="doc-biblioref">[8]</a></span> — the distribution of a statistic across samples</p></li>
 </ul></section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-fiveminuteai_probstat" class="csl-entry" role="listitem">
-5MinuteAI. n.d. <em>Probability &amp; Statistics</em>. Video playlist on YouTube. Accessed October 12, 2026. <a href="https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK">https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK</a>.
-</div>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-box_draper_1987" class="csl-entry" role="listitem">
-Box, George E. P., and Norman Richard. Draper. 1987. <em>Empirical Model-Building and Response Surfaces</em>. Wiley Series in Probability and Mathematical Statistics. Applied Probability and Statistics. Wiley.
-</div>
-<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
-Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">G. E. P. Box and N. Richard. Draper, <em>Empirical model-building and response surfaces</em>. in Wiley series in probability and mathematical statistics. Applied probability and statistics. New York: Wiley, 1987.</div>
 </div>
 <div id="ref-dunn2018generalized" class="csl-entry" role="listitem">
-Dunn, Peter K, and Gordon K Smyth. 2018. <em>Generalized Linear Models with Examples in <span>R</span></em>. Vol. 53. Springer. <a href="https://doi.org/10.1007/978-1-4419-0118-7">https://doi.org/10.1007/978-1-4419-0118-7</a>.
-</div>
-<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
-</div>
-<div id="ref-lawrance2020estimand" class="csl-entry" role="listitem">
-Lawrance, Rachael, Evgeny Degtyarev, Philip Griffiths, et al. 2020. <span>“What Is an Estimand, and How Does It Relate to Quantifying the Effect of Treatment on Patient-Reported Quality of Life Outcomes in Clinical Trials?”</span> <em>Journal of Patient-Reported Outcomes</em> 4 (1): 1–8. <a href="https://doi.org/10.1186/s41687-020-00218-5">https://doi.org/10.1186/s41687-020-00218-5</a>.
-</div>
-<div id="ref-pohl2021estimands" class="csl-entry" role="listitem">
-Pohl, Moritz, Lukas Baumann, Rouven Behnisch, Marietta Kirchner, Johannes Krisam, and Anja Sander. 2021. <span>“<span class="nocase">Estimands—A Basic Element for Clinical Trials</span>.”</span> <em>Deutsches <span>Ä</span>rzteblatt International</em> 118 (51-52): 883–88. <a href="https://doi.org/10.3238/arztebl.m2021.0373">https://doi.org/10.3238/arztebl.m2021.0373</a>.
-</div>
-<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
-Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">P. K. Dunn and G. K. Smyth, <em>Generalized linear models with examples in <span>R</span></em>, vol. 53. Springer, 2018. doi: <a href="https://doi.org/10.1007/978-1-4419-0118-7">10.1007/978-1-4419-0118-7</a>.</div>
 </div>
 <div id="ref-van2018flexible" class="csl-entry" role="listitem">
-Van Buuren, Stef. 2018. <em>Flexible Imputation of Missing Data</em>. CRC press. <a href="https://stefvanbuuren.name/fimd/">https://stefvanbuuren.name/fimd/</a>.
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">S. Van Buuren, <em>Flexible imputation of missing data</em>. CRC press, 2018. Available: <a href="https://stefvanbuuren.name/fimd/">https://stefvanbuuren.name/fimd/</a>
 </div>
-<div id="ref-wikipedia_bias_of_an_estimator" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Bias of an Estimator — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Bias_of_an_estimator">https://en.wikipedia.org/wiki/Bias_of_an_estimator</a>.
+</div>
+<div id="ref-pohl2021estimands" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">M. Pohl, L. Baumann, R. Behnisch, M. Kirchner, J. Krisam, and A. Sander, <span>“<span class="nocase">Estimands—A Basic Element for Clinical Trials</span>,”</span> <em>Deutsches <span>Ä</span>rzteblatt International</em>, vol. 118, no. 51–52, pp. 883–888, 2021, doi: <a href="https://doi.org/10.3238/arztebl.m2021.0373">10.3238/arztebl.m2021.0373</a>.</div>
+</div>
+<div id="ref-lawrance2020estimand" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">R. Lawrance <em>et al.</em>, <span>“What is an estimand, and how does it relate to quantifying the effect of treatment on patient-reported quality of life outcomes in clinical trials?”</span> <em>Journal of Patient-Reported Outcomes</em>, vol. 4, no. 1, pp. 1–8, 2020, doi: <a href="https://doi.org/10.1186/s41687-020-00218-5">10.1186/s41687-020-00218-5</a>.</div>
 </div>
 <div id="ref-wikipedia_estimand" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Estimand — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Estimand">https://en.wikipedia.org/wiki/Estimand</a>.
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Estimand — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Estimand">https://en.wikipedia.org/wiki/Estimand</a>
+</div>
 </div>
 <div id="ref-wikipedia_estimator" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026c. <em>Estimator — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Estimator">https://en.wikipedia.org/wiki/Estimator</a>.
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Estimator — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Estimator">https://en.wikipedia.org/wiki/Estimator</a>
 </div>
-<div id="ref-wikipedia_mean_absolute_error" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026d. <em>Mean Absolute Error — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Mean_absolute_error">https://en.wikipedia.org/wiki/Mean_absolute_error</a>.
-</div>
-<div id="ref-wikipedia_mean_squared_error" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026e. <em>Mean Squared Error — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Mean_squared_error">https://en.wikipedia.org/wiki/Mean_squared_error</a>.
-</div>
-<div id="ref-wikipedia_root_mean_square_deviation" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026f. <em>Root Mean Square Deviation — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Root_mean_square_deviation">https://en.wikipedia.org/wiki/Root_mean_square_deviation</a>.
 </div>
 <div id="ref-wikipedia_sampling_distribution" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026g. <em>Sampling Distribution — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Sampling_distribution">https://en.wikipedia.org/wiki/Sampling_distribution</a>.
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Sampling distribution — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Sampling_distribution">https://en.wikipedia.org/wiki/Sampling_distribution</a>
+</div>
+</div>
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, <em>Probability and statistical inference</em>, Tenth edition. Boston: Pearson, 2019.</div>
+</div>
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div>
+<div class="csl-right-inline">G. Casella and R. Berger, <em>Statistical inference</em>, 2nd ed. Cengage Learning, 2002. Available: <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>
+</div>
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div>
+<div class="csl-right-inline">J. A. Rice, <em>Mathematical statistics and data analysis</em>, 3rd ed. Belmont, CA: Cengage Learning, 2007.</div>
+</div>
+<div id="ref-wikipedia_bias_of_an_estimator" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[12] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Bias of an estimator — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Bias_of_an_estimator">https://en.wikipedia.org/wiki/Bias_of_an_estimator</a>
+</div>
+</div>
+<div id="ref-wikipedia_mean_squared_error" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[13] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Mean squared error — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Mean_squared_error">https://en.wikipedia.org/wiki/Mean_squared_error</a>
+</div>
+</div>
+<div id="ref-wikipedia_root_mean_square_deviation" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[14] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Root mean square deviation — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Root_mean_square_deviation">https://en.wikipedia.org/wiki/Root_mean_square_deviation</a>
+</div>
+</div>
+<div id="ref-fiveminuteai_probstat" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[15] </div>
+<div class="csl-right-inline">5MinuteAI, <span>“Probability &amp; statistics.”</span> Video playlist on YouTube. Accessed: Oct. 12, 2026. [Online]. Available: <a href="https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK">https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK</a>
+</div>
+</div>
+<div id="ref-wikipedia_mean_absolute_error" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[16] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Mean absolute error — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Mean_absolute_error">https://en.wikipedia.org/wiki/Mean_absolute_error</a>
+</div>
 </div>
 <div id="ref-wikipedia_standard_error" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026h. <em>Standard Error — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Standard_error">https://en.wikipedia.org/wiki/Standard_error</a>.
+<div class="csl-left-margin">[17] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Standard error — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Standard_error">https://en.wikipedia.org/wiki/Standard_error</a>
+</div>
 </div>
 </div>
 
