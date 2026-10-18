@@ -3,7 +3,7 @@
 
 The **maximum likelihood estimate** (MLE) of a parameter vector $\Param$,
 written $\hthml$,
-is the value of $\Param$ that maximizes the likelihood:
+is the value of $\Param$ that maximizes the likelihood [@wikipedia_maximum_likelihood_estimation]:
 
 $$\hthml \eqdef \argmax_\Th \Lik(\Th)$$ {#eq-mle}
 

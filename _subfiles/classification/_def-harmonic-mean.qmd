@@ -2,7 +2,7 @@
 #### Harmonic mean
 
 The **harmonic mean** of two positive numbers $x$ and $y$
-is the reciprocal of the average of their reciprocals:
+is the reciprocal of the average of their reciprocals [@wikipedia_harmonic_mean]:
 
 $$H(x, y) \eqdef \frac{2}{\frac{1}{x} + \frac{1}{y}}$$ {#eq-harmonic-mean}
 

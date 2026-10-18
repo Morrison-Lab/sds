@@ -6,7 +6,7 @@ Draw $B$ independent [bootstrap samples](#def-bootstrap-sample),
 and compute the statistic on each one,
 giving $\hparam^*_1, \ldots, \hparam^*_B$.
 The **bootstrap distribution** of $\hparam$
-is the empirical distribution of $\hparam^*_1, \ldots, \hparam^*_B$.
+is the empirical distribution of $\hparam^*_1, \ldots, \hparam^*_B$ [@wikipedia_bootstrapping_statistics].
 
 Source: @wikipedia_bootstrapping_statistics.
 :::

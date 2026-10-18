@@ -2,7 +2,7 @@
 #### Sample standard deviation
 
 The **sample standard deviation** is the square root of the
-[sample variance](#def-sample-variance):
+[sample variance](#def-sample-variance) [@wikipedia_standard_deviation]:
 
 $$s \eqdef \sqrt{s^2}$$
 

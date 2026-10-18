@@ -11,7 +11,7 @@ the hypergeometric probability
 
 $$p(x) \eqdef \frac{\binom{a+b}{x} \binom{c+d}{a+c-x}}{\binom{n}{a+c}}.$$
 
-**Fisher's exact test** of independence has p-value
+**Fisher's exact test** of independence has p-value [@wikipedia_fishers_exact_test]
 
 $$\sum_{x \,:\, p(x) \le p(a)} p(x),$$
 

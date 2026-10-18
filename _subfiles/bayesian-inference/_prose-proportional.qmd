@@ -1,6 +1,6 @@
 @thm-bayes-posterior is
 [Bayes' theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes)
-for events, restated for densities.
+for events, restated for densities [@wikipedia_bayes_theorem].
 Here $\p(\vy \mid \param)$, viewed as a function of $\param$,
 is the [likelihood](intro-MLEs.qmd#def-lik) $\Lik(\param)$.
 @cor-bayes-proportional is the workhorse of applied Bayesian analysis:

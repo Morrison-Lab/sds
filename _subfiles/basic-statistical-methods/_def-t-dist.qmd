@@ -9,5 +9,5 @@ The distribution of
 $$\frac{Z}{\sqrt{V/k}}$$
 
 is the **t-distribution with $k$ degrees of freedom**
-(or **Student's t-distribution**), written $t_k$.
+(or **Student's t-distribution**), written $t_k$ [@wikipedia_students_t_distribution].
 :::

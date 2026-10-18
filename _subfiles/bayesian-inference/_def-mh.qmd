@@ -5,7 +5,7 @@ Given a target posterior $\p(\vparam \mid \vy)$,
 a [proposal distribution](#def-proposal-distribution) $q(\cdot \mid \vparam)$,
 and a starting value $\vparam^{(1)}$,
 the **Metropolis--Hastings algorithm** produces $\vparam^{(t+1)}$ from $\vparam^{(t)}$ as follows
-[@dobson4e, Chapter 13, p. 291]:
+[@dobson4e, Chapter 13, p. 291] [@wikipedia_metropolis_hastings_algorithm]:
 
 1. Draw a candidate $\vparam^* \sim q(\cdot \mid \vparam^{(t)})$.
 2. Compute the [acceptance ratio](#def-acceptance-ratio) $\accept$.

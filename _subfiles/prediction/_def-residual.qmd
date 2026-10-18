@@ -2,7 +2,7 @@
 #### Residual
 
 The **residual** for observation $i$
-is its observed outcome minus its [fitted value](#def-fitted-value):
+is its observed outcome minus its [fitted value](#def-fitted-value) [@wikipedia_errors_and_residuals]:
 
 $$\resid_\iobs \eqdef \outvar_\iobs - \fitted_\iobs$$
 

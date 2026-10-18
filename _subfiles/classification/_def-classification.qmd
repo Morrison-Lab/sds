@@ -3,7 +3,7 @@
 
 A **classification problem** is a statistical problem in which
 we seek to assign each observation to one of two or more discrete categories
-based on its observed features or predictors $x$.
+based on its observed features or predictors $x$ [@wikipedia_statistical_classification].
 
 Source: @wikipedia_statistical_classification.
 :::

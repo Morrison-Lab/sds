@@ -10,7 +10,7 @@ rme's remark that k = 5 or 10 is typical is in @rem-choosing-k.
 :::{#def-kfold}
 #### $\nfolds$-fold cross-validation
 
-In **$\nfolds$-fold cross-validation**:
+In **$\nfolds$-fold cross-validation** [@wikipedia_cross_validation_statistics]:
 
 1. The data are randomly divided into $\nfolds$ [folds](#def-folds) of equal, or nearly equal, size.
 2. For each fold $\fold{\ifold}$, $\ifold = 1, \ldots, \nfolds$:

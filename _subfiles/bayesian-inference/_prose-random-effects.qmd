@@ -1,7 +1,7 @@
 The [hierarchical model](bayesian-inference.qmd#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.qmd#exm-two-level-normal)
 is the random-effects *model structure*,
 with group-level parameters $\param_j \sim \ndist{\mean, \sdbetween^2}$
-drawn from a common distribution.
+drawn from a common distribution [@wikipedia_bayesian_hierarchical_modeling].
 What changes here from a maximum likelihood fit is the *inference method*:
 the Bayesian analysis places priors on the hyperparameters $\mean$ and $\sdbetween$
 and samples their joint posterior together with the group-level parameters

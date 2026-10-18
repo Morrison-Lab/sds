@@ -3,7 +3,7 @@
 
 For a permutation $\pi$ of $\set{1, \ldots, n}$ and a vector $y = (y_1, \ldots, y_n)$,
 write $y_\pi \eqdef (y_{\pi(1)}, \ldots, y_{\pi(n)})$ for the vector with its entries reordered by $\pi$.
-Random variables $Y_1, \ldots, Y_n$ are **exchangeable** if reordering them does not change their joint distribution:
+Random variables $Y_1, \ldots, Y_n$ are **exchangeable** if reordering them does not change their joint distribution [@wikipedia_exchangeable_random_variables]:
 for every permutation $\pi$ and every set $A$ of vectors,
 
 $$\Pr(Y_\pi \in A) = \Pr(Y \in A).$$

@@ -4,7 +4,7 @@
 The **prior distribution** of a parameter $\param$,
 with density or probability mass function $\p(\param)$,
 is the probability distribution that describes
-what is believed about $\param$ before the data are observed.
+what is believed about $\param$ before the data are observed [@wikipedia_prior_probability].
 
 Source: @wikipedia_prior_probability.
 :::

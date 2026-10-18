@@ -2,7 +2,7 @@
 #### Sample median
 
 The **sample median** is the middle value
-when the observations are sorted in increasing order.
+when the observations are sorted in increasing order [@wikipedia_median].
 In terms of the [order statistics](nonparametric-models.qmd#def-order-statistics)
 $x_{(1)} \le \cdots \le x_{(n)}$:
 
