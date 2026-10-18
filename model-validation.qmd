@@ -576,17 +576,17 @@ format:
 
 -   @wikipedia_bias_variance_tradeoff --- the decomposition of the expected squared error
 
--   @wikipedia_overfitting --- overfitting and underfitting, with examples
+-   @wikipedia_overfitting --- [overfitting](#def-overfitting) and underfitting, with examples
 
 -   @wikipedia_model_selection --- the task and the main criteria
 
--   @wikipedia_generalization_error --- generalization error and how to estimate it
+-   @wikipedia_generalization_error --- [generalization error](#def-generalization-error) and how to [estimate](estimation.qmd#def-estimate) it
 
--   @wikipedia_hyperparameter_machine_learning --- the Wikipedia article on hyperparameter (machine learning)
+-   @wikipedia_hyperparameter_machine_learning --- the Wikipedia article on [hyperparameter](bayesian-inference.qmd#def-hyperparameter) (machine learning)
 
--   @wikipedia_leverage_statistics --- the Wikipedia article on leverage (statistics)
+-   @wikipedia_leverage_statistics --- the Wikipedia article on [leverage](#def-leverage) of an observation in regression
 
--   @wikipedia_random_seed --- the Wikipedia article on random seed
+-   @wikipedia_random_seed --- the Wikipedia article on [random seed](#def-random-seed)
 
 ## References {.unnumbered}
 
