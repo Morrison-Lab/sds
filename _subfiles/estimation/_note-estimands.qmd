@@ -5,5 +5,7 @@ models, or functions of model parameters.
 #### Notation for estimands
 
 Model parameters and other estimands are often symbolized using
-lower-case Greek letters: $\alpha, \beta, \gamma, \delta$, etc.
+lower-case Greek letters.
+The [notation choices page](https://morrison-lab.github.io/macros/notation-choices.html#sec-estimand-estimator-symbols)
+gives our convention and the alternatives.
 :::

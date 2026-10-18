@@ -7,7 +7,6 @@ We often omit the arguments $\vx$ and $\theta$,
 writing $\score \eqdef \score(\vx \mid \theta) \eqdef \score(\theta)$.
 Some sources write $U$ or $S$ for the score function instead of $\score$;
 for example, @dobson4e write $U$.
-These notes use $\score$,
-which keeps $U$ and $S$ free for other uses
-and needs no extra symbol to memorize.
+The [notation choices page](https://morrison-lab.github.io/macros/notation-choices.html#sec-score-notation)
+explains why these notes use $\score$.
 :::
