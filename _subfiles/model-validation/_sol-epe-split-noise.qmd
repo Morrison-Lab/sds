@@ -38,7 +38,7 @@ $$
 &= \varpar + \sqf{\E{\noise}}
 && \text{(variance identity)} \\
 &= \varpar + 0^2
-&& \text{(the noise has population mean } 0 \text{ by definition)} \\
+&& \text{(the noise has population mean } 0 \text{)} \\
 &= \varpar
 && \text{(} 0^2 = 0 \text{, and } \varpar + 0 = \varpar \text{)}
 \ea
@@ -59,7 +59,7 @@ $$
 &= 2 \E{\noise} \E{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
 && \text{(independence)} \\
 &= 2 \cdot 0 \cdot \E{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
-&& \text{(the noise has population mean } 0 \text{ by definition)} \\
+&& \text{(the noise has population mean } 0 \text{)} \\
 &= 0
 && \text{(zero times a number)}
 \ea
@@ -72,8 +72,8 @@ $$
 = \varpar + \E{\sqf{\truemeanfnf{\predvar} - \estmeanf{\predvar}}}.
 $$ {#eq-epe-after-noise}
 
-The noise has population mean $0$ by definition of the mean function,
-so the algebra used only one hypothesis: the new outcome is independent of the training set.
+The noise has population mean $0$ by @thm-noise-mean-zero,
+so the algebra used only one hypothesis about the new observation: it is independent of the training set.
 Independence holds for a fresh observation,
 and it fails for an observation the procedure was trained on,
 whose noise helped determine the prediction.

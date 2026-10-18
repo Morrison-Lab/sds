@@ -1,19 +1,10 @@
 :::{#exr-epe-split-noise}
 #### Separate the noise
 
-Fix a covariate value $\newpredvar = \predvar$.
-The **noise** is $\noise \eqdef \newoutvar - \truemeanfnf{\predvar}$.
-It is the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean)
-of the new outcome $\newoutvar$ from its [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) given $\newpredvar = \predvar$.
-That population mean is the [mean function](#def-mean-function) value $\truemeanfnf{\predvar}$.
-So $\newoutvar = \truemeanfnf{\predvar} + \noise$.
-The noise has population mean $0$.
-Its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) is $\varpar \eqdef \Var{\noise}$, which we take to be finite.
-
-Suppose that the new pair $\paren{\newpredvar, \newoutvar}$
-is drawn from the same population as the observations in the random [training set](#def-training-set) $\trainset$.
-Suppose also that it is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $\trainset$.
-
+Let $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$.
+Fix $\newpredvar = \predvar$.
+Let $\noise$ be the [noise](#def-noise) of $\newoutvar$.
+Let $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite.
 Take every expectation below to be conditional on $\newpredvar = \predvar$.
 Add and subtract $\truemeanfnf{\predvar}$ inside the square of the [expected prediction error](#def-epe),
 

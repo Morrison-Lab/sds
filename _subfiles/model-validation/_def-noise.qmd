@@ -1,0 +1,12 @@
+:::{#def-noise}
+#### Noise
+
+The **noise** $\noise$ of a [new observation](#def-new-observation) $\paren{\newpredvar, \newoutvar}$ at the covariate value $\newpredvar = \predvar$
+is the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean)
+of the new outcome $\newoutvar$ from the [mean function](#def-mean-function) value $\truemeanfnf{\predvar}$:
+
+$$
+\noise \eqdef \newoutvar - \truemeanfnf{\predvar}.
+$$ {#eq-noise}
+
+:::
