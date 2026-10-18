@@ -9,8 +9,10 @@ the result $\hparam(\dsn{X})$ is also a random variable.
 ::: callout-note
 #### Notation for estimators
 
-Estimators are often symbolized by placing a \^ ("hat") symbol on top of
-the corresponding estimand; for example, $\hparam$.
+Estimators are often symbolized by placing a hat over the symbol of the
+corresponding estimand; for example, $\hparam$.
+The [notation choices page](https://morrison-lab.github.io/macros/notation-choices.html#sec-estimand-estimator-symbols)
+gives our convention and the alternatives.
 
 Usually, their dependence on the data is implicit:
 
