@@ -2,6 +2,7 @@ profile:
   default: website
 
 bibliography: references.bib
+csl: latex-macros/citations/numeric-author.csl
 
 editor_options:
   chunk_output_type: console
@@ -23,6 +24,7 @@ filters:
   - code-language-labels
   - revealjs-level1-slide-breaks.lua
   - revealjs-html-links.lua
+  - latex-macros/citations/numeric-citations.lua
 
 format:
   pdf:
