@@ -11,7 +11,7 @@ $$ {#eq-noise-mean-zero}
 :::
 
 ::: proof
-Take every expectation to be conditional on $\newpredvar = \predvar$.
+Take every expectation to be [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) on $\newpredvar = \predvar$.
 The value $\truemeanfnf{\predvar}$ is a constant given $\newpredvar = \predvar$.
 
 $$

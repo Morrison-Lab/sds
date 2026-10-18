@@ -72,19 +72,19 @@ $$
 = \varpar + \E{\sqf{\truemeanfnf{\predvar} - \estmeanf{\predvar}}}.
 $$ {#eq-epe-after-noise}
 
-The noise has population mean $0$ by @thm-noise-mean-zero,
-so the algebra used only one hypothesis about the new observation: it is independent of the training set.
+The noise has [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $0$ by @thm-noise-mean-zero,
+so the algebra used only one hypothesis about the [new observation](#def-new-observation): it is independent of the [training set](#def-training-set).
 Independence holds for a fresh observation,
 and it fails for an observation the procedure was trained on,
 whose noise helped determine the prediction.
 It also fails when the new observation depends on the training data
 (for example, a later time in the same series),
-or when the same test set was used to choose the procedure.
+or when the same [test set](#def-test-set) was used to choose the procedure.
 
-The algebra did not use that the new pair has the same population distribution as the training data.
-Suppose the new pair came from a population whose mean function differed from the training population's.
+The algebra did not use that the new pair has the same [population distribution](exploratory-descriptive.qmd#def-population-distribution) as the training data.
+Suppose the new pair came from a [population](exploratory-descriptive.qmd#def-population) whose mean function differed from the training population's.
 Then @eq-epe-after-noise would still hold, with the new population's mean function and noise variance.
-Its estimation-error term would include the bias from that difference.
-So it would no longer measure how well the procedure estimates the training population's mean function.
+Its [estimation-error](estimation.qmd#def-estimation-error) term would include the [bias](estimation.qmd#def-bias) from that difference.
+So it would no longer measure how well the procedure [estimates](estimation.qmd#def-estimate) the training population's mean function.
 
 :::

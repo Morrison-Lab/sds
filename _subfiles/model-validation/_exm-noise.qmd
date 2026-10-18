@@ -1,8 +1,8 @@
 :::{#exm-noise}
 #### The noise of one new outcome
 
-Suppose the mean function value at $\predvar$ is $\truemeanfnf{\predvar} = 5$.
-A new outcome $\newoutvar = 5.3$ at $\predvar$ has noise $\noise = 5.3 - 5 = 0.3$.
+Suppose the [mean function](#def-mean-function) value at $\predvar$ is $\truemeanfnf{\predvar} = 5$.
+A new outcome $\newoutvar = 5.3$ at $\predvar$ has [noise](#def-noise) $\noise = 5.3 - 5 = 0.3$.
 A new outcome $\newoutvar = 4.6$ at $\predvar$ has noise $\noise = 4.6 - 5 = -0.4$.
 
 :::
