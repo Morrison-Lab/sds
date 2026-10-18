@@ -34,6 +34,8 @@ format:
 
 {{< include sds/_subfiles/estimation/_prose-statistical-analysis.qmd >}}
 
+## Estimands, estimates, and estimators
+
 ### Estimands
 
 \index{estimand}
@@ -97,6 +99,8 @@ format:
 - @CaseBerg01 [Sec. 7.2, pp. 312--329] covers methods of finding estimators.
 - @rice2007mathematical [Secs. 8.3--8.4, pp. 257--266] covers parameter estimation and the method of moments.
 :::
+
+## Accuracy of estimators {#sec-est-accuracy}
 
 ### Accuracy
 
@@ -289,6 +293,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/estimation/_cor-se-rmse-unbiased.qmd >}}
+
 
 ## References {.unnumbered}
 

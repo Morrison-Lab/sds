@@ -32,6 +32,8 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-summary.qmd >}}
 
+## Comparing two groups: continuous outcomes {#sec-two-group-continuous}
+
 ### Hypotheses {#sec-hypotheses}
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-hypotheses.qmd >}}
@@ -165,6 +167,7 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 - @CaseBerg01 [Sec. 11.2, pp. 522--538] covers oneway analysis of variance.
 - @rice2007mathematical [Sec. 12.2, pp. 477--488] covers the one-way layout.
 :::
+
 
 ## References {.unnumbered}
 

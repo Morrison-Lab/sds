@@ -18,6 +18,8 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_load-hers-short.qmd >}}
 
+## Bootstrap confidence intervals {#sec-bootstrap-ci}
+
 ### When to use the bootstrap {#sec-bootstrap-when}
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-bootstrap-when.qmd >}}
@@ -124,6 +126,7 @@ format:
 <!-- No slidebreak here: the heading shares its slide with the exm-hers-bootstrap div. -->
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-bootstrap.qmd >}}
+
 
 ## References {.unnumbered}
 

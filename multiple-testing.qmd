@@ -20,6 +20,8 @@ resources:
 
 {{< include sds/_subfiles/shared/_load-khan.qmd >}}
 
+## The multiplicity problem {#sec-multiplicity}
+
 ### The chance of a false positive {#sec-false-positive-chance}
 
 <!-- No slidebreak here: the heading shares its slide with the exr-no-rejection-prob div. -->
@@ -43,6 +45,8 @@ resources:
 {{< include sds/_subfiles/multiple-testing/_exm-khan-pvalues.qmd >}}
 
 {{< slidebreak >}}
+
+## Error rates for a family of tests {#sec-error-rates}
 
 ### Counting errors {#sec-rejection-counts}
 
@@ -100,6 +104,8 @@ resources:
 
 {{< slidebreak >}}
 
+## Controlling the family-wise error rate {#sec-fwer-control}
+
 ### The Bonferroni correction {#sec-bonferroni}
 
 <!-- No slidebreak here: the heading shares its slide with the def-bonferroni div. -->
@@ -149,6 +155,8 @@ resources:
 
 {{< slidebreak >}}
 
+## Controlling the false discovery rate {#sec-fdr-control}
+
 ### The Benjamini--Hochberg procedure {#sec-bh}
 
 <!-- No slidebreak here: the heading shares its slide with the def-bh-cutoff div. -->
@@ -187,6 +195,7 @@ resources:
 - Will Fithian's [Stat 212A, *Topics in Selective Inference*](https://www.stat.berkeley.edu/~wfithian/courses/stat212a/) (UC Berkeley, Fall 2015) has a syllabus, references and homework with solutions on inference after selection, including multiple testing.
 - The [permutation tests](permutation-tests.qmd) page computes valid p-values by relabeling the data,
   without a distributional model for the test statistic.
+
 
 ## References {.unnumbered}
 

@@ -18,6 +18,8 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_load-hers-short.qmd >}}
 
+## Comparing two groups: categorical outcomes {#sec-two-group-categorical}
+
 ### Contingency tables {#sec-contingency-tables}
 
 <!-- No slidebreak here: the heading shares its slide with the exm-hers-crosstab div. -->
@@ -86,6 +88,7 @@ format:
 ::: {.reading}
 @rice2007mathematical [Sec. 13.6, pp. 526--529] covers odds ratios.
 :::
+
 
 ## References {.unnumbered}
 

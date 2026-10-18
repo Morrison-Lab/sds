@@ -18,6 +18,8 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_load-hers-short.qmd >}}
 
+## Correlation {#sec-correlation}
+
 ### Testing the Pearson correlation {#sec-pearson}
 
 <!-- No slidebreak here: the heading shares its slide with the def-population-correlation div. -->
@@ -52,6 +54,8 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-spearman.qmd >}}
+
+## Simple linear regression {#sec-simple-linear-regression}
 
 ### Model specification {#sec-slr-model}
 
@@ -335,6 +339,7 @@ The login for the video site is posted
 ### Further reading
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-slr-further-reading.qmd >}}
+
 
 ## References {.unnumbered}
 
