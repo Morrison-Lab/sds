@@ -4,7 +4,7 @@
 The **population mean squared error (pMSE)** of an estimator $\hparam$,
 also called its **mean squared error** or its **expected squared estimation error (ESEE)**, denoted
 $\pMSE{\hparam}$ or $\ESEE{\hparam}$, is the expectation of the square
-of the [estimation error](#def-estimation-error):
+of the [estimation error](#def-estimation-error) [@wikipedia_mean_squared_error]:
 
 $$\pMSE{\hparam} \eqdef \E{\sqf{\erf{\hparam}}}$$
 

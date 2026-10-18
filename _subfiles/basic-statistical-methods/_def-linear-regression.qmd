@@ -5,7 +5,7 @@ A **linear regression model** is a homoskedastic (@def-homoskedastic)
 conditional Gaussian model (@def-cond-gaussian)
 whose mean function is linear in $p$ covariates,
 where observation $i$ has covariate values
-$\vpredvar_\iobs = (\predvar_{\iobs 1}, \ldots, \predvar_{\iobs p})$:
+$\vpredvar_\iobs = (\predvar_{\iobs 1}, \ldots, \predvar_{\iobs p})$ [@wikipedia_linear_regression]:
 
 $$\mean(x_1, \ldots, x_p) \eqdef \intcoef + \sumjp \coef{x_j} x_j.$$
 

@@ -3,7 +3,7 @@
 
 The **quartiles** are the **first quartile** $Q_1$ and the **third quartile** $Q_3$,
 the sample 0.25 and 0.75 quantiles
-([sample quantile](nonparametric-models.qmd#def-sample-quantile)).
+([sample quantile](nonparametric-models.qmd#def-sample-quantile)) [@wikipedia_quartile].
 The first quartile is also called the **25th percentile**,
 and the third quartile is also called the **75th percentile**.
 

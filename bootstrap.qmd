@@ -127,15 +127,6 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-bootstrap.qmd >}}
 
-## Further reading {.unnumbered}
-
--   @wikipedia_bootstrapping_statistics --- the bootstrap and its variants
-
--   @wikipedia_resampling_statistics --- the bootstrap, the jackknife and permutation tests
-
--   @wikipedia_standard_error --- standard errors and how to estimate them
-
--   @wikipedia_confidence_interval --- the definition and common misreadings
 
 ## References {.unnumbered}
 

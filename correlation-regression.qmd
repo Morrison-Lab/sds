@@ -340,19 +340,6 @@ The login for the video site is posted
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-slr-further-reading.qmd >}}
 
-## Further reading {.unnumbered}
-
--   @wikipedia_pearson_correlation_coefficient --- the coefficient and its properties
-
--   @wikipedia_spearmans_rank_correlation_coefficient --- a rank-based measure of association
-
--   @wikipedia_simple_linear_regression --- the model with one covariate
-
--   @wikipedia_linear_regression --- the model, its assumptions and its estimation
-
--   @wikipedia_ordinary_least_squares --- least squares estimation and its properties
-
--   @wikipedia_coefficient_of_determination --- R squared and its interpretation
 
 ## References {.unnumbered}
 

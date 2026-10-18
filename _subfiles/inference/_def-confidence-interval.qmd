@@ -3,7 +3,7 @@
 
 A $100(1-\siglevel)\%$ **confidence interval** for a parameter $\param$
 is a pair of statistics $L$ and $U$, computed from the data,
-such that for every possible value of $\param$:
+such that for every possible value of $\param$ [@wikipedia_confidence_interval]:
 
 $$\Pr(L \le \param \le U) = 1 - \siglevel$$
 

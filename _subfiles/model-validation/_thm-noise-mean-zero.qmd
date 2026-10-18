@@ -1,0 +1,31 @@
+:::{#thm-noise-mean-zero}
+#### The noise has population mean zero
+
+Given $\newpredvar = \predvar$,
+the [noise](#def-noise) $\noise$ has [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $0$:
+
+$$
+\E{\noise \mid \newpredvar = \predvar} = 0.
+$$ {#eq-noise-mean-zero}
+
+:::
+
+::: proof
+Take every expectation to be [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) on $\newpredvar = \predvar$.
+The value $\truemeanf{\predvar}$ is a constant given $\newpredvar = \predvar$.
+
+$$
+\ba
+\E{\noise}
+&= \E{\newoutvar - \truemeanf{\predvar}}
+&& \text{(definition of the noise)} \\
+&= \E{\newoutvar} - \truemeanf{\predvar}
+&& \text{(linearity of expectation; a constant is its own mean)} \\
+&= \truemeanf{\predvar} - \truemeanf{\predvar}
+&& \text{(definition of the mean function)} \\
+&= 0
+&& \text{(} a - a = 0 \text{)}
+\ea
+$$
+
+:::

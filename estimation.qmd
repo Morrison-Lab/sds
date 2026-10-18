@@ -294,17 +294,6 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< include sds/_subfiles/estimation/_cor-se-rmse-unbiased.qmd >}}
 
-## Further reading {.unnumbered}
-
--   @wikipedia_estimator --- estimators and their properties
-
--   @wikipedia_estimand --- the target of an estimate
-
--   @wikipedia_bias_of_an_estimator --- bias, with examples
-
--   @wikipedia_mean_squared_error --- the mean squared error and its decomposition
-
--   @wikipedia_sampling_distribution --- the distribution of a statistic across samples
 
 ## References {.unnumbered}
 

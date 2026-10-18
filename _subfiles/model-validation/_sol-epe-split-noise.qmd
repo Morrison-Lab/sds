@@ -1,13 +1,13 @@
 :::{#sol-epe-split-noise}
 
-Write the prediction error as noise plus the error of the prediction, used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\truemeanfnf{\predvar}$:
+Write the prediction error as noise plus the error of the prediction, used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\truemeanf{\predvar}$:
 
 $$
 \ba
 \newoutvar - \predvalf{\predvar}
-&= \paren{\newoutvar - \truemeanfnf{\predvar}} + \paren{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
-&& \text{(add and subtract } \truemeanfnf{\predvar} \text{)} \\
-&= \noise + \paren{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
+&= \paren{\newoutvar - \truemeanf{\predvar}} + \paren{\truemeanf{\predvar} - \estmeanf{\predvar}}
+&& \text{(add and subtract } \truemeanf{\predvar} \text{)} \\
+&= \noise + \paren{\truemeanf{\predvar} - \estmeanf{\predvar}}
 && \text{(definition of } \newoutvar \text{)}
 \ea
 $$
@@ -18,8 +18,8 @@ $$
 \ba
 \sqf{\newoutvar - \predvalf{\predvar}}
 &= \noise^2
-+ 2 \noise \paren{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
-+ \sqf{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
++ 2 \noise \paren{\truemeanf{\predvar} - \estmeanf{\predvar}}
++ \sqf{\truemeanf{\predvar} - \estmeanf{\predvar}}
 && \text{(expand the square of a sum)}
 \ea
 $$
@@ -38,28 +38,28 @@ $$
 &= \varpar + \sqf{\E{\noise}}
 && \text{(variance identity)} \\
 &= \varpar + 0^2
-&& \text{(the noise has mean } 0 \text{)} \\
+&& \text{(the noise has population mean } 0 \text{)} \\
 &= \varpar
 && \text{(} 0^2 = 0 \text{, and } \varpar + 0 = \varpar \text{)}
 \ea
 $$
 
 For the cross term,
-$\noise = \newoutvar - \truemeanfnf{\predvar}$ shifts $\newoutvar$ by a constant,
+$\noise = \newoutvar - \truemeanf{\predvar}$ shifts $\newoutvar$ by a constant,
 and $\newoutvar$ is independent of $\trainset$,
 so $\noise$ is independent of $\trainset$,
-and hence of $\predvalf{\predvar}$ and of $\truemeanfnf{\predvar} - \estmeanf{\predvar}$.
+and hence of $\predvalf{\predvar}$ and of $\truemeanf{\predvar} - \estmeanf{\predvar}$.
 The expectation of a product of independent random variables is the product of their expectations:
 
 $$
 \ba
-\E{2 \noise \paren{\truemeanfnf{\predvar} - \estmeanf{\predvar}}}
-&= 2 \E{\noise \paren{\truemeanfnf{\predvar} - \estmeanf{\predvar}}}
+\E{2 \noise \paren{\truemeanf{\predvar} - \estmeanf{\predvar}}}
+&= 2 \E{\noise \paren{\truemeanf{\predvar} - \estmeanf{\predvar}}}
 && \text{(constant factor 2)} \\
-&= 2 \E{\noise} \E{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
+&= 2 \E{\noise} \E{\truemeanf{\predvar} - \estmeanf{\predvar}}
 && \text{(independence)} \\
-&= 2 \cdot 0 \cdot \E{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
-&& \text{(the noise has mean } 0 \text{)} \\
+&= 2 \cdot 0 \cdot \E{\truemeanf{\predvar} - \estmeanf{\predvar}}
+&& \text{(the noise has population mean } 0 \text{)} \\
 &= 0
 && \text{(zero times a number)}
 \ea
@@ -69,14 +69,22 @@ Adding the three expectations,
 
 $$
 \E{\sqf{\newoutvar - \predvalf{\predvar}}}
-= \varpar + \E{\sqf{\truemeanfnf{\predvar} - \estmeanf{\predvar}}}.
+= \varpar + \E{\sqf{\truemeanf{\predvar} - \estmeanf{\predvar}}}.
 $$ {#eq-epe-after-noise}
 
-The cross term vanished because the noise has mean $0$ and,
-for a new outcome, is independent of the training set.
-Without the zero mean, independence alone would leave $2 \E{\noise}$ times $\E{\truemeanfnf{\predvar} - \estmeanf{\predvar}}$, which need not be zero.
-That holds for a fresh observation,
+The noise has [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $0$ by @thm-noise-mean-zero,
+so the algebra used only one hypothesis about the [new observation](#def-new-observation): it is independent of the [training set](#def-training-set).
+Independence holds for a fresh observation,
 and it fails for an observation the procedure was trained on,
 whose noise helped determine the prediction.
+It also fails when the new observation depends on the training data
+(for example, a later time in the same series),
+or when the same [test set](#def-test-set) was used to choose the procedure.
+
+The algebra did not use that the new pair has the same [population distribution](exploratory-descriptive.qmd#def-population-distribution) as the training data.
+Suppose the new pair came from a [population](exploratory-descriptive.qmd#def-population) whose mean function differed from the training population's.
+Then @eq-epe-after-noise would still hold, with the new population's mean function and noise variance.
+Its [estimation-error](estimation.qmd#def-estimation-error) term would include the [bias](estimation.qmd#def-bias) from that difference.
+So it would no longer measure how well the procedure [estimates](estimation.qmd#def-estimate) the training population's mean function.
 
 :::

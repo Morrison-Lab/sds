@@ -2,7 +2,7 @@
 #### Population correlation
 
 The **population correlation** of two random variables $X$ and $Y$
-with positive variances is
+with positive variances is [@wikipedia_pearson_correlation_coefficient]
 
 $$\corpar \eqdef \frac{\Cov{X, Y}}{\sqrt{\Var{X} \Var{Y}}},$$
 

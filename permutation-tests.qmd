@@ -93,13 +93,6 @@ resources:
 - Chapter 12 of the [*Computational and Inferential Thinking*](https://www.inferentialthinking.com/) textbook for UC Berkeley's Data 8 introduces permutation tests through plain-language A/B testing examples.
 - Chapter 13 of @james2021islr2e applies permutation and other resampling methods to multiple testing.
 
-### Online references
-
--   @wikipedia_permutation_test --- the test, its assumptions and its variants
-
--   @wikipedia_exchangeable_random_variables --- exchangeability and its role in permutation tests
-
--   @wikipedia_resampling_statistics --- permutation tests among the resampling methods
 
 ## References {.unnumbered}
 

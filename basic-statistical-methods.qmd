@@ -168,17 +168,6 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 - @rice2007mathematical [Sec. 12.2, pp. 477--488] covers the one-way layout.
 :::
 
-## Further reading {.unnumbered}
-
--   @wikipedia_students_t_test --- one-sample, paired and two-sample t-tests
-
--   @wikipedia_welchs_t_test --- the t-test for groups with unequal variances
-
--   @wikipedia_analysis_of_variance --- ANOVA and its F-test
-
--   @wikipedia_f_test --- F-tests and where they arise
-
--   @wikipedia_pooled_variance --- pooling the variances of several groups
 
 ## References {.unnumbered}
 
