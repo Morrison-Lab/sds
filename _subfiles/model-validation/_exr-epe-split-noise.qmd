@@ -1,10 +1,18 @@
 :::{#exr-epe-split-noise}
 #### Separate the noise
 
-Suppose that, given $\newpredvar = \predvar$,
-the new outcome is $\newoutvar = \truemeanfnf{\predvar} + \noise$,
-where the noise $\noise$ has mean $0$ and variance $\varpar$,
-and that $\newoutvar$ is independent of the random [training set](#def-training-set) $\trainset$.
+Given a covariate value $\newpredvar = \predvar$,
+the **noise** $\noise \eqdef \newoutvar - \truemeanfnf{\predvar}$
+is the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean)
+of the new outcome $\newoutvar$ from its [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) given $\newpredvar = \predvar$,
+the [mean function](#def-mean-function) value $\truemeanfnf{\predvar}$.
+So $\newoutvar = \truemeanfnf{\predvar} + \noise$,
+and $\noise$ has population mean $0$
+and [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar \eqdef \Var{\noise}$,
+which we take to be finite.
+Suppose that the new pair $\paren{\newpredvar, \newoutvar}$
+is drawn from the same population as the observations in the random [training set](#def-training-set) $\trainset$,
+and [independently](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $\trainset$.
 Take every expectation below to be conditional on $\newpredvar = \predvar$.
 Add and subtract $\truemeanfnf{\predvar}$ inside the square of the [expected prediction error](#def-epe),
 
@@ -16,6 +24,7 @@ expand it, and take the expectation term by term.
 
 Two of the three terms simplify.
 Say what each becomes,
-and name the assumptions that make the cross term zero.
+and name which facts about the noise hold by definition
+and which hypothesis makes the cross term zero.
 
 :::

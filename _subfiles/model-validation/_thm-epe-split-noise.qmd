@@ -1,10 +1,18 @@
 :::{#thm-epe-split-noise}
 #### The pMSE of a prediction is the pMSE of the mean estimate plus the noise variance
 
-Suppose that, given $\newpredvar = \predvar$,
-the new outcome is $\newoutvar = \truemeanfnf{\predvar} + \noise$,
-where the noise $\noise$ has mean $0$ and variance $\varpar$,
-and that $\newoutvar$ is independent of the random [training set](#def-training-set) $\trainset$.
+Given a covariate value $\newpredvar = \predvar$,
+the **noise** $\noise \eqdef \newoutvar - \truemeanfnf{\predvar}$
+is the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean)
+of the new outcome $\newoutvar$ from its [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) given $\newpredvar = \predvar$,
+the [mean function](#def-mean-function) value $\truemeanfnf{\predvar}$.
+So $\newoutvar = \truemeanfnf{\predvar} + \noise$,
+and $\noise$ has population mean $0$
+and [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar \eqdef \Var{\noise}$,
+which we take to be finite.
+Suppose that the new pair $\paren{\newpredvar, \newoutvar}$
+is drawn from the same population as the observations in the random [training set](#def-training-set) $\trainset$,
+and [independently](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $\trainset$.
 Then, given $\newpredvar = \predvar$,
 the [expected squared prediction error](#def-epe) (ESPE) of $\predvalf{\predvar}$
 is the [irreducible error](#def-irreducible-error) $\varpar$
