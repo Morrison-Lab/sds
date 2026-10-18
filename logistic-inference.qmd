@@ -142,10 +142,6 @@ format:
 
 -   @wikipedia_logistic_regression --- the model, its fitting and its interpretation
 
--   @wikipedia_deviance_statistics --- [deviance](#def-deviance) and its use in model comparison
-
--   @wikipedia_saturated_model --- the [saturated model](#def-saturated-model)
-
 -   @wikipedia_likelihood_ratio_test --- comparing nested models
 
 ## References {.unnumbered}
