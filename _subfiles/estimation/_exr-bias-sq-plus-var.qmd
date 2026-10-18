@@ -15,22 +15,25 @@ The variance is
 
 $$\var{\hparam} = \E{\hparam^2} - \sqf{\E{\hparam}}$$ {#eq-bias-sq-plus-var-exr}
 
-Add it to the squared bias from @exr-sq-bias-expand and simplify:
+Let $\mu = \E{\hparam}$.
+Then the variance is $\E{\hparam^2} - \mu^2$,
+and the squared bias from @exr-sq-bias-expand is $\mu^2 - 2\mu\param + \param^2$.
+Add them and simplify:
 
 $$
 \begin{aligned}
 \sqf{\bias{\hparam}} + \var{\hparam}
-&= \sqf{\E{\hparam}} - 2\E{\hparam}\param + \param^2 + \var{\hparam}
+&= \mu^2 - 2\mu\param + \param^2 + \var{\hparam}
 && \text{(substitute the squared bias)}\\
-&= \sqf{\E{\hparam}} - 2\E{\hparam}\param + \param^2 + \E{\hparam^2} - \sqf{\E{\hparam}}
+&= \mu^2 - 2\mu\param + \param^2 + \E{\hparam^2} - \mu^2
 && \text{(substitute the variance)}\\
-&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2 + \sqf{\E{\hparam}} - \sqf{\E{\hparam}}
+&= \E{\hparam^2} - 2\mu\param + \param^2 + \mu^2 - \mu^2
 && \text{(reorder the terms)}\\
-&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2 + \paren{\sqf{\E{\hparam}} - \sqf{\E{\hparam}}}
+&= \E{\hparam^2} - 2\mu\param + \param^2 + \paren{\mu^2 - \mu^2}
 && \text{(group the last two terms)}\\
-&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2 + 0
+&= \E{\hparam^2} - 2\mu\param + \param^2 + 0
 && \text{($a - a = 0$)}\\
-&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2
+&= \E{\hparam^2} - 2\mu\param + \param^2
 && \text{($a + 0 = a$)}
 \end{aligned}
 $$ {#eq-bias-sq-plus-var-exr-2}
