@@ -8,7 +8,8 @@ $$
 \Var{\hparam} = \frac{1}{\einf(\param)}
 $$
 
-Source: @CaseBerg01 [sec. 7.3.2].
+Source: @CaseBerg01 [sec.\ 7.3.2];
+@wikipedia_efficiency_statistics.
 :::
 
 {{< slidebreak >}}

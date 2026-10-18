@@ -14,5 +14,6 @@ In words, $\hparam_n$
 [converges in probability](https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability)
 to $\param$, which we write $\hparam_n \inprob \param$.
 
-Source: @CaseBerg01 [Def. 10.1.1].
+Source: @CaseBerg01 [Def.\ 10.1.1];
+@wikipedia_consistent_estimator.
 :::
