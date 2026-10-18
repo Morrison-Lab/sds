@@ -82,8 +82,9 @@ It also fails when the new observation depends on the training data
 or when the same test set was used to choose the procedure.
 
 The algebra did not use that the new pair has the same population distribution as the training data.
-If it came from a shifted population, the identity would still hold with that population's mean function and noise variance,
-but the shift would add bias to the estimation error,
-so the equation would no longer describe the training population.
+If the new pair came from a population whose mean function differed from the training population's,
+@eq-epe-after-noise would still hold, with the new population's mean function and noise variance,
+but its estimation-error term would include the bias from that difference,
+so it would no longer measure how well the procedure estimates the training population's mean function.
 
 :::
