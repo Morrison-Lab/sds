@@ -1,7 +1,7 @@
 :::{#exm-noise}
 #### The noise of one observation
 
-Suppose an observation has the covariate value $\Predvar = \predvar$ with [mean function](#def-mean-function) value $\truemeanf{\predvar} = 5$.
+Suppose an observation has the [covariate](#def-covariate) value $\Predvar = \predvar$ with [mean function](#def-mean-function) value $\truemeanf{\predvar} = 5$.
 If its outcome is $\Outvar = 5.3$, its [noise](#def-noise) is $\noise = 5.3 - 5 = 0.3$.
 If its outcome is $\Outvar = 4.6$, its noise is $\noise = 4.6 - 5 = -0.4$.
 The observation may belong to a [training set](#def-training-set) or be a [new observation](#def-new-observation):
