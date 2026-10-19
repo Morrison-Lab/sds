@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:34:20 (PDT)
+Last modified: 2026-10-19 00:53:49 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -22,7 +22,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Definition 1 (Statistic)** A **statistic** is a function of the sample, \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\, that does not depend on any unknown parameter [\[1\]](#ref-wikipedia_statistic). Its value at the observed data, \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{}\\, is a number or vector we can compute.
+> **Definition 1 (Statistic)** A **statistic** is a function of the sample, \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\, that does not depend on any unknown parameter. Its value at the observed data, \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{}\\, is a number or vector we can compute.
 >
 > Source: Wikipedia contributors [\[1\]](#ref-wikipedia_statistic).
 
@@ -32,7 +32,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Definition 2 (Sufficient statistic)** Let \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\\ be a discrete sample whose distribution depends on a parameter \\\theta\\. A [statistic](#def-statistic) \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\ is **sufficient** for \\\theta\\ if, for every sample \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ and every value \\t\\, the conditional probability of the sample given the statistic is the same for every value of \\\theta\\ at which the statistic takes the value \\t\\ with positive probability [\[2\]](#ref-wikipedia_sufficient_statistic):
+> **Definition 2 (Sufficient statistic)** Let \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\\ be a discrete sample whose distribution depends on a parameter \\\theta\\. A [statistic](#def-statistic) \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\ is **sufficient** for \\\theta\\ if, for every sample \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ and every value \\t\\, the conditional probability of the sample given the statistic is the same for every value of \\\theta\\ at which the statistic takes the value \\t\\ with positive probability:
 >
 > \\ \Pr\_{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{} \text{ does not depend on } \theta \quad \text{wherever } \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{} \> 0 \tag{1}\\
 >
@@ -64,7 +64,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> *Proof*. Fix a sample \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ and write \\t \stackrel{\text{def}}{=}T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{}\\. The event \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ lies inside the event \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\\.
+> *Proof*. Let \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ be a value of the [sample](exploratory-descriptive.llms.md#def-sample) \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\\ and write \\t \stackrel{\text{def}}{=}T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{}\\. The event \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ lies inside the event \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\\.
 >
 > **Sufficient implies a factorization.** Define \\g\mathopen{}\left(t ; \theta\right)\mathclose{} \stackrel{\text{def}}{=}\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{}\\ and let \\h\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{}\\ be the conditional probability \\\Pr\_{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{}\\ at any \\\theta\\ with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{} \> 0\\. By [sufficiency](#eq-sufficient), \\h\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{}\\ does not depend on which such \\\theta\\ we use. (If \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{} = 0\\ for every \\\theta\\, set \\h\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{} \stackrel{\text{def}}{=}0\\.) Both functions are nonnegative, and at a \\\theta\\ with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{} = 0\\ both sides of [Equation 2](#eq-factorization) are zero, because the event \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ lies inside the event \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\\. At every other \\\theta\\,
 >
@@ -106,7 +106,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> *Proof*. Take a discrete sample, and fix a value \\t\\ that \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\ takes with positive probability. Write \\\hat{\theta}= \hat{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\.
+> *Proof*. Take a [discrete](data.llms.md#def-discrete-var) [sample](exploratory-descriptive.llms.md#def-sample), and choose a value \\t\\ that the [statistic](#def-statistic) \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability). Write \\\hat{\theta}= \hat{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\.
 >
 > \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right\]\mathclose{}} &= \sum\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}} \hat{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{} \\ \Pr\_{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{} && \text{(conditional expectation)} \end{aligned} \\
 >
@@ -124,11 +124,11 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Theorem 3 (Rao–Blackwell theorem)** Let \\\hat{\theta}\\ be an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ with finite variance, and let \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. Then the [Rao–Blackwellized estimator](#def-rao-blackwellized) is unbiased and has variance no larger than that of \\\hat{\theta}\\, for every \\\theta\\ [\[6\]](#ref-wikipedia_rao_blackwell_theorem):
+> **Theorem 3 (Rao–Blackwell theorem)** Let \\\hat{\theta}\\ be an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ with finite variance, and let \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. Then the [Rao–Blackwellized estimator](#def-rao-blackwellized) is unbiased and has variance no larger than that of \\\hat{\theta}\\, for every \\\theta\\:
 >
 > \\ \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} \le \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
 >
-> Source: [\[7\]](#ref-rao1945information), [\[8\]](#ref-blackwell1947conditional), [\[4\]](#ref-CaseBerg01), Thm. 7.3.17, p. 342, [\[6\]](#ref-wikipedia_rao_blackwell_theorem).
+> Source: [\[6\]](#ref-rao1945information), [\[7\]](#ref-blackwell1947conditional), [\[4\]](#ref-CaseBerg01), Thm. 7.3.17, p. 342, [\[8\]](#ref-wikipedia_rao_blackwell_theorem).
 
 > **NOTE:**
 >
@@ -270,15 +270,15 @@ P. R. Halmos and L. J. Savage, “Application of the Radon–Nikodym theorem to 
 
 \[6\]
 
-Wikipedia contributors, “Rao–blackwell theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Rao%E2%80%93Blackwell_theorem>
+C. R. Rao, “Information and the accuracy attainable in the estimation of statistical parameters,” *Bulletin of the Calcutta Mathematical Society*, vol. 37, pp. 81–91, 1945.
 
 \[7\]
 
-C. R. Rao, “Information and the accuracy attainable in the estimation of statistical parameters,” *Bulletin of the Calcutta Mathematical Society*, vol. 37, pp. 81–91, 1945.
+D. Blackwell, “Conditional expectation and unbiased sequential estimation,” *The Annals of Mathematical Statistics*, vol. 18, no. 1, pp. 105–110, 1947, doi: [10.1214/aoms/1177730497](https://doi.org/10.1214/aoms/1177730497).
 
 \[8\]
 
-D. Blackwell, “Conditional expectation and unbiased sequential estimation,” *The Annals of Mathematical Statistics*, vol. 18, no. 1, pp. 105–110, 1947, doi: [10.1214/aoms/1177730497](https://doi.org/10.1214/aoms/1177730497).
+Wikipedia contributors, “Rao–blackwell theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Rao%E2%80%93Blackwell_theorem>
 
 \[9\]
 

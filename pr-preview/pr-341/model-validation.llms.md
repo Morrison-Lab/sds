@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:34:20 (PDT)
+Last modified: 2026-10-19 00:53:49 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -248,7 +248,7 @@ Last modified: 2026-10-19 00:34:20 (PDT)
 
 > **NOTE:**
 >
-> **Definition 19 (Generalization error)** The **generalization error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its expected [loss](#def-observation-loss) \\\ell\_{\*}\\ on a [new observation](#def-new-observation) \\(X\_{\*}, Y\_{\*})\\, with \\\mathcal{D}\_{\text{train}}\\ held fixed [\[4\]](#ref-wikipedia_generalization_error):
+> **Definition 19 (Generalization error)** The **generalization error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its expected [loss](#def-observation-loss) \\\ell\_{\*}\\ on a [new observation](#def-new-observation) \\(X\_{\*}, Y\_{\*})\\, with \\\mathcal{D}\_{\text{train}}\\ held fixed:
 >
 > \\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}. \tag{13}\\
 >
@@ -349,7 +349,7 @@ Last modified: 2026-10-19 00:34:20 (PDT)
 
 > **NOTE:**
 >
-> **Definition 23 (Overfitting)** **Overfitting** occurs when a [prediction rule](#def-prediction-rule) fits its [training set](#def-training-set) well but predicts poorly for new observations [\[6\]](#ref-wikipedia_overfitting).
+> **Definition 23 (Overfitting)** **Overfitting** occurs when a [prediction rule](#def-prediction-rule) fits its [training set](#def-training-set) well but predicts poorly for [new observations](#def-new-observation).
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_overfitting).
 
@@ -583,7 +583,18 @@ Last modified: 2026-10-19 00:34:20 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 7 (Separate the noise)** Let \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. Fix \\X\_{\*}= x\\. Let \\\nu\\ be the [noise](#def-noise) of \\Y\_{\*}\\. Let \\\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite. Take every expectation below to be conditional on \\X\_{\*}= x\\. Add and subtract \\\mu\mathopen{}\left(x\right)\mathclose{}\\ inside the square of the [expected prediction error](#def-epe),
+> **Exercise 7 (Separate the noise)** Let:
+>
+> - \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\,
+> - \\\nu\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
+> - \\\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+>
+> Assume:
+>
+> - the new [covariate](#def-covariate) value \\X\_{\*}\\ equals the covariate value \\x\\ of the [prediction](prediction.llms.md#def-prediction) and
+> - the population variance \\\sigma^2\\ is finite.
+>
+> Take every expectation below to be conditional on \\X\_{\*}= x\\. Add and subtract \\\mu\mathopen{}\left(x\right)\mathclose{}\\ inside the square of the [expected prediction error](#def-epe),
 >
 > \\ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}, \\
 >
@@ -621,7 +632,18 @@ Last modified: 2026-10-19 00:34:20 (PDT)
 
 > **NOTE:**
 >
-> **Theorem 3 (The pMSE of a prediction is the pMSE of the mean estimate plus the noise variance)** Let \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. Fix \\X\_{\*}= x\\. Let \\\nu\\ be the [noise](#def-noise) of \\Y\_{\*}\\. Let \\\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite. Then, given \\X\_{\*}= x\\, the [expected squared prediction error](#def-epe) (ESPE) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is the sum of two terms. The first is the [irreducible error](#def-irreducible-error) \\\sigma^2\\. The second is the [expected squared estimation error](estimation.llms.md#def-mse) (ESEE) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\:
+> **Theorem 3 (The pMSE of a prediction is the pMSE of the mean estimate plus the noise variance)** Let:
+>
+> - \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\,
+> - \\\nu\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
+> - \\\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+>
+> Assume:
+>
+> - the new [covariate](#def-covariate) value \\X\_{\*}\\ equals the covariate value \\x\\ of the [prediction](prediction.llms.md#def-prediction) and
+> - the population variance \\\sigma^2\\ is finite.
+>
+> Then, given \\X\_{\*}= x\\, the [expected squared prediction error](#def-epe) (ESPE) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is the sum of two terms. The first is the [irreducible error](#def-irreducible-error) \\\sigma^2\\. The second is the [expected squared estimation error](estimation.llms.md#def-mse) (ESEE) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\:
 >
 > \\ \operatorname{ESPE}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} = \sigma^2+ \operatorname{ESEE}\mathopen{}\left({\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}. \tag{32}\\
 
@@ -631,7 +653,7 @@ Last modified: 2026-10-19 00:34:20 (PDT)
 
 > **NOTE:**
 >
-> **Example 23 (The two pMSEs differ by the noise variance)** Take a population whose mean function is known: \\Y\mid X= x\sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\\ with \\\sigma= 0.3\\. Fix \\x= 0.25\\, where \\\mu\mathopen{}\left(x\right)\mathclose{} = 1\\, and fit a cubic polynomial by least squares to \\n= 30\\ observations. We draw \\5{,}000\\ training sets, each with its own new outcome at \\x\\, and average the squared errors of the two targets over them.
+> **Example 23 (The two pMSEs differ by the noise variance)** Take a population whose mean function is known: \\Y\mid X= x\sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\\ with \\\sigma= 0.3\\. Let the [covariate](#def-covariate) value be \\x= 0.25\\, where the mean function value is \\\mu\mathopen{}\left(x\right)\mathclose{} = 1\\, and fit a cubic polynomial by least squares to \\n= 30\\ observations. We draw \\5{,}000\\ training sets, each with its own new outcome at \\x\\, and average the squared errors of the two targets over them.
 >
 > ``` downlit
 > split_x0 <- 0.25
@@ -704,7 +726,19 @@ Last modified: 2026-10-19 00:34:20 (PDT)
 
 > **NOTE:**
 >
-> **Theorem 4 (Bias, variance and noise)** Let \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. Fix \\X\_{\*}= x\\. Let \\\nu\\ be the [noise](#def-noise) of \\Y\_{\*}\\. Let \\\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite. Suppose also that \\\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{} \< \infty\\. Then the [expected prediction error at \\x\\](#def-epe) is the squared [bias](#def-prediction-bias) of the prediction \\\hat{y}\\, used as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\\mu\mathopen{}\left(x\right)\mathclose{}\\, plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), plus \\\sigma^2\\:
+> **Theorem 4 (Bias, variance and noise)** Let:
+>
+> - \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\,
+> - \\\nu\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
+> - \\\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+>
+> Assume:
+>
+> - the new [covariate](#def-covariate) value \\X\_{\*}\\ equals the covariate value \\x\\ of the [prediction](prediction.llms.md#def-prediction),
+> - the population variance \\\sigma^2\\ is finite, and
+> - the expected squared prediction \\\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}\\ is finite.
+>
+> Then the [expected prediction error at \\x\\](#def-epe) is the squared [bias](#def-prediction-bias) of the prediction \\\hat{y}\\, used as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\\mu\mathopen{}\left(x\right)\mathclose{}\\, plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), plus \\\sigma^2\\:
 >
 > \\ \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^{2} + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} + \sigma^2. \tag{34}\\
 
@@ -746,7 +780,7 @@ Last modified: 2026-10-19 00:34:20 (PDT)
 
 > **NOTE:**
 >
-> **Definition 37 (Bias–variance trade-off)** Let \\g\_{1}, \ldots, g\_{L}\\ be [fitting procedures](#def-fitting-procedure), each [at least as flexible](#def-flexibility) as the one before, and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, with \\\mu\\ the [mean function](#def-mean-function), there is a **bias–variance trade-off** among them when, from each procedure to the next, the squared [bias](#def-prediction-bias) of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\, does not rise and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) does not fall [\[7\]](#ref-wikipedia_bias_variance_tradeoff):
+> **Definition 37 (Bias–variance trade-off)** Let \\g\_{1}, \ldots, g\_{L}\\ be [fitting procedures](#def-fitting-procedure), each [at least as flexible](#def-flexibility) as the one before, and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, with \\\mu\\ the [mean function](#def-mean-function), there is a **bias–variance trade-off** among them when, from each procedure to the next, the squared [bias](#def-prediction-bias) of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\, does not rise and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) does not fall:
 >
 > \\ \begin{aligned} {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^{2} &\le {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^{2}, \\ \operatorname{Var}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} &\ge \operatorname{Var}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}, \qquad l= 1, \ldots, L- 1. \end{aligned} \tag{36}\\
 >
@@ -902,7 +936,7 @@ Last modified: 2026-10-19 00:34:20 (PDT)
 
 > **NOTE:**
 >
-> **Definition 39 (Tuning parameter)** A **tuning parameter** of a [fitting procedure](#def-fitting-procedure) is a setting \\\lambda\\ that the procedure needs but does not compute from the [training set](#def-training-set) [\[8\]](#ref-wikipedia_hyperparameter_machine_learning):
+> **Definition 39 (Tuning parameter)** A **tuning parameter** of a [fitting procedure](#def-fitting-procedure) is a setting \\\lambda\\ that the procedure needs but does not compute from the [training set](#def-training-set):
 >
 > \\ {\hat y\mathopen{}\left(x\right)\mathclose{}} = {{\hat y\_{\lambda}}\mathopen{}\left(x\right)\mathclose{}}. \tag{38}\\
 >
@@ -914,7 +948,7 @@ Last modified: 2026-10-19 00:34:20 (PDT)
 
 > **NOTE:**
 >
-> **Definition 40 (Model selection)** **Model selection** is choosing one [fitted model](#def-fitted-model) from a set of candidate fitted models from different [model families](#def-model-family), using observations that were [held out](#def-held-out-set) from fitting [\[9\]](#ref-wikipedia_model_selection).
+> **Definition 40 (Model selection)** **Model selection** is choosing one [fitted model](#def-fitted-model) from a set of candidate fitted models from different [model families](#def-model-family), using observations that were [held out](#def-held-out-set) from fitting.
 >
 > Source: Wikipedia contributors [\[9\]](#ref-wikipedia_model_selection).
 
@@ -1283,7 +1317,7 @@ Last modified: 2026-10-19 00:34:20 (PDT)
 
 > **NOTE:**
 >
-> **Definition 50 (\\k\\-fold cross-validation)** In **\\k\\-fold cross-validation** [\[10\]](#ref-wikipedia_cross_validation_statistics):
+> **Definition 50 (\\k\\-fold cross-validation)** In **\\k\\-fold cross-validation**:
 >
 > 1.  The data are randomly divided into \\k\\ [folds](#def-folds) of equal, or nearly equal, size.
 > 2.  For each fold \\\mathcal{F}\_{j}\\, \\j= 1, \ldots, k\\:
