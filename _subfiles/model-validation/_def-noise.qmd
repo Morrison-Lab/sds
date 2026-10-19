@@ -5,7 +5,7 @@ Let $\paren{\Predvar, \Outvar}$ be the [covariate](#def-covariate) and the outco
 
 The **noise** $\noise$ of the observation
 is the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean)
-of the outcome $\Outvar$ from the [mean function](#def-mean-function) value $\truemeanf{\Predvar}$ at its own covariate:
+of the outcome $\Outvar$ from the value of the [mean function](#def-mean-function) $\truemeanf{\Predvar}$ evaluated at $\Outvar$'s own covariate, $\Predvar$:
 
 $$
 \noise \eqdef \Outvar - \truemeanf{\Predvar}.
