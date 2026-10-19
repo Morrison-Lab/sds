@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: _site
   # Writes dependency-graph.json: the prerequisite graph of the definitions and results.
-  pre-render: python3 tools/build_dependency_graph.py --pages . --out dependency-graph.json
+  pre-render: python3 tools/build_dependency_graph.py --pages . --site sds --out dependency-graph.json
   resources:
     - dependency-graph.js
     - dependency-graph.json
