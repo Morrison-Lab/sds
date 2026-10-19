@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:33:21 (PDT)
+Last modified: 2026-10-19 09:40:54 (PDT)
 
 ## 1 Empirical distribution
 
@@ -12,7 +12,7 @@ Last modified: 2026-10-19 00:33:21 (PDT)
 >
 > **Definition 1 (Empirical distribution)** For observed values \\x_1, \ldots, x_n\\, the **empirical distribution** is the distribution of a value [chosen at random](https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice) from the sample, each of the \\n\\ observations being equally likely: the probability that the value falls in a set \\A\\ is
 >
-> \\\frac{1}{n}\sum\_{j=1}^n\mathbb{1}\mathopen{}\left(x_j \in A\right)\mathclose{}.\\
+> \\\frac{1}{n}\sum\_{j=1}^n{\mathbb{1}\mathopen{}\left(x_j \in A\right)\mathclose{}}.\\
 >
 > Source: Wikipedia contributors [\[1\]](#ref-wikipedia_empirical_measure).
 
@@ -30,9 +30,9 @@ Last modified: 2026-10-19 00:33:21 (PDT)
 
 > **NOTE:**
 >
-> **Definition 2 (Empirical CDF)** For observed values \\x_1, \ldots, x_n\\, the **empirical cumulative distribution function** (**empirical CDF**) is the [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) of the [empirical distribution](#def-empirical-distribution), the function [\[4\]](#ref-wikipedia_empirical_distribution_function)
+> **Definition 2 (Empirical CDF)** For observed values \\x_1, \ldots, x_n\\, the **empirical cumulative distribution function** (**empirical CDF**) is the [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) of the [empirical distribution](#def-empirical-distribution), the [function](https://morrison-lab.github.io/mds/functions.html#def-function)
 >
-> \\\mathop{\hat{\operatorname{F}}}\nolimits\mathopen{}\left(t\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{j=1}^nI(x_j \le t), \quad t \in \mathbb{R},\\
+> \\{\mathop{\hat{\operatorname{F}}}\nolimits\mathopen{}\left(t\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{j=1}^nI(x_j \le t), \quad t \in \mathbb{R},\\
 >
 > where \\I(A)\\ is the indicator function: \\I(A) = 1\\ if \\A\\ holds, and \\I(A) = 0\\ otherwise.
 >
@@ -54,7 +54,7 @@ Last modified: 2026-10-19 00:33:21 (PDT)
 
 > **NOTE:**
 >
-> **Definition 3 (Order statistics)** For observed values \\x_1, \ldots, x_n\\, the **order statistics** are the same values sorted in increasing order, written [\[6\]](#ref-wikipedia_order_statistic)
+> **Definition 3 (Order statistics)** For observed values \\x_1, \ldots, x_n\\, the **order statistics** are the same values sorted in increasing order, written
 >
 > \\x\_{(1)} \le x\_{(2)} \le \cdots \le x\_{(n)}.\\
 >
@@ -75,7 +75,7 @@ Last modified: 2026-10-19 00:33:21 (PDT)
 
 > **NOTE:**
 >
-> **Definition 4 (Sample quantile function (empirical quantile function))** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is [\[9\]](#ref-wikipedia_quantile)
+> **Definition 4 (Sample quantile function (empirical quantile function))** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is
 >
 > \\\hat Q(p) \stackrel{\text{def}}{=}\inf\mathopen{}\left\\t : \hat F(t) \ge p\right\\\mathclose{}, \quad 0 \< p \le 1.\\
 >
@@ -93,7 +93,7 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 
 > **NOTE:**
 >
-> *Proof*. Fix \\p\\ with \\(i-1)/n \< p \le i/n\\.
+> *Proof*. Let \\p\\ satisfy \\(i-1)/n \< p \le i/n\\.
 >
 > For any \\t \< x\_{(i)}\\, the \\n - i + 1\\ values \\x\_{(i)}, \ldots, x\_{(n)}\\ all exceed \\t\\, so at most \\i - 1\\ values are at most \\t\\, and:
 >

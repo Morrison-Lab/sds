@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:33:21 (PDT)
+Last modified: 2026-10-19 09:40:53 (PDT)
 
 ## 1 Introduction
 
@@ -28,13 +28,13 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 1 (Classification)** A **classification problem** is a statistical problem in which we seek to assign each observation to one of two or more discrete categories based on its observed features or predictors \\x\\ [\[2\]](#ref-wikipedia_statistical_classification).
+> **Definition 1 (Classification)** A **classification problem** is a statistical problem in which we seek to assign each observation to one of two or more discrete categories based on its observed features or predictors \\x\\.
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_statistical_classification).
 
 > **NOTE:**
 >
-> **Definition 2 (Class)** The discrete categories of a classification problem ([Definition 1](#def-classification)) are its **classes**. Let \\\mathcal{C}\\ be a set of \\K\\ classes (for example, \\\mathcal{C}= \mathopen{}\left\\1, \dots, K\right\\\mathclose{}\\, or a set of text labels).
+> **Definition 2 (Class)** The discrete categories of a classification problem ([Definition 1](#def-classification)) are its **classes**. Let \\\mathcal{C}\\ be a set of \\K\\ classes (for example, \\\mathcal{C}= {\mathopen{}\left\\1, \dots, K\right\\\mathclose{}}\\, or a set of text labels).
 
 > **NOTE:**
 >
@@ -56,7 +56,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 4 (Sensitivity)** The **sensitivity** of a diagnostic test is the probability that the test is positive (\\+\\), given that the person tested has the disease (\\D\\) [\[3\]](#ref-wikipedia_sensitivity_and_specificity):
+> **Definition 4 (Sensitivity)** The **sensitivity** of a diagnostic test is the probability that the test is positive (\\+\\), given that the person tested has the disease (\\D\\):
 >
 > \\\text{sensitivity} \stackrel{\text{def}}{=}\Pr(+ \mid D) \tag{3}\\
 >
@@ -88,7 +88,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 6 (Prevalence)** The **prevalence** of a disease in a population is the probability that a person drawn from that population has the disease (\\D\\) [\[4\]](#ref-wikipedia_prevalence):
+> **Definition 6 (Prevalence)** The **prevalence** of a disease in a population is the probability that a person drawn from that population has the disease (\\D\\):
 >
 > \\\text{prevalence} \stackrel{\text{def}}{=}\Pr(D) \tag{8}\\
 >
@@ -108,7 +108,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 7 (Positive predictive value (PPV))** The **positive predictive value** of a diagnostic test is the probability that the person tested has the disease (\\D\\), given that the test is positive (\\+\\) [\[5\]](#ref-wikipedia_positive_and_negative_predictive_values):
+> **Definition 7 (Positive predictive value (PPV))** The **positive predictive value** of a diagnostic test is the probability that the person tested has the disease (\\D\\), given that the test is positive (\\+\\):
 >
 > \\\text{PPV} \stackrel{\text{def}}{=}\Pr(D \mid +) \tag{11}\\
 >
@@ -136,7 +136,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\ \begin{aligned} \Pr(\neg + \mid D) &= 1 - \Pr(+ \mid D) && \text{(complement rule, conditional on } D \text{)} \\ &= 1 - 0.99 && \text{(substitute the sensitivity)} \\ &= 0.01 && \text{(subtract)} \end{aligned} \tag{14}\\
 >
-> By [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes), with the denominator expanded by the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) over the partition \\\mathopen{}\left\\D, \neg D\right\\\mathclose{}\\, the negative predictive value ([Definition 8](#def-npv)) is:
+> By [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes), with the denominator expanded by the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) over the partition \\{\mathopen{}\left\\D, \neg D\right\\\mathclose{}}\\, the negative predictive value ([Definition 8](#def-npv)) is:
 >
 > \\ \begin{aligned} \Pr(\neg D \mid \neg +) &= \frac{\Pr(\neg + \mid \neg D) \cdot\Pr(\neg D)}{\Pr(\neg +)} && \text{(Bayes' theorem)} \\ &= \frac{\Pr(\neg + \mid \neg D) \cdot\Pr(\neg D)}{\Pr(\neg + \mid \neg D) \cdot\Pr(\neg D) + \Pr(\neg + \mid D) \cdot\Pr(D)} && \text{(law of total probability)} \\ &= \frac{0.99 \cdot 0.93}{0.99 \cdot 0.93 + 0.01 \cdot 0.07} && \text{(substitute the given values)} \\ &= \frac{0.9207}{0.9207 + 0.0007} && \text{(multiply each term in the numerator and denominator)} \\ &= \frac{0.9207}{0.9214} && \text{(add the denominator's two terms)} \\ &\approx 0.9992 && \text{(divide)} \end{aligned} \tag{15}\\
 >
@@ -146,7 +146,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Exercise 1 (Probability of a positive test)** Write the probability \\\Pr(+)\\ that a diagnostic test is positive in terms of:
+> **Exercise 1 (Probability of a positive test)** Derive an expression for the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) \\\Pr(+)\\ that a diagnostic test is positive in terms of:
 >
 > - the test’s [sensitivity](#def-sensitivity);
 > - the test’s [specificity](#def-specificity);
@@ -154,7 +154,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> *Solution 1*. By the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) over the partition \\\mathopen{}\left\\D, \neg D\right\\\mathclose{}\\:
+> *Solution 1*. By the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) over the partition \\{\mathopen{}\left\\D, \neg D\right\\\mathclose{}}\\:
 >
 > \\ \begin{aligned} \Pr(+) &= \Pr(+ \mid D) \cdot\Pr(D) + \Pr(+ \mid \neg D) \cdot\Pr(\neg D) && \text{(law of total probability)} \\ &= \text{sensitivity} \cdot\Pr(D) + \Pr(+ \mid \neg D) \cdot\Pr(\neg D) && \text{(definition of sensitivity)} \\ &= \text{sensitivity} \cdot\text{prevalence} + \Pr(+ \mid \neg D) \cdot\Pr(\neg D) && \text{(definition of prevalence)} \\ &= \text{sensitivity} \cdot\text{prevalence} + \mathopen{}\left(1 - \Pr(\neg + \mid \neg D)\right)\mathclose{} \cdot\Pr(\neg D) && \text{(complement rule, conditional on } \neg D \text{)} \\ &= \text{sensitivity} \cdot\text{prevalence} + \mathopen{}\left(1 - \text{specificity}\right)\mathclose{} \cdot\Pr(\neg D) && \text{(definition of specificity)} \\ &= \text{sensitivity} \cdot\text{prevalence} + \mathopen{}\left(1 - \text{specificity}\right)\mathclose{} \cdot\mathopen{}\left(1 - \Pr(D)\right)\mathclose{} && \text{(complement rule)} \\ &= \text{sensitivity} \cdot\text{prevalence} + \mathopen{}\left(1 - \text{specificity}\right)\mathclose{} \cdot\mathopen{}\left(1 - \text{prevalence}\right)\mathclose{} && \text{(definition of prevalence)} \end{aligned} \tag{16}\\
 
@@ -170,7 +170,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Exercise 2 (PPV from Bayes’ theorem)** Write the [positive predictive value](#def-ppv) of a diagnostic test in terms of:
+> **Exercise 2 (PPV from Bayes’ theorem)** Derive an expression for the [positive predictive value](#def-ppv) of a diagnostic test in terms of:
 >
 > - its [sensitivity](#def-sensitivity);
 > - its [specificity](#def-specificity);
@@ -243,7 +243,7 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 9 (Agreement table)** For \\n\\ observations that an agent and a reference each classify as positive or negative, the **agreement table** counts the four combinations [\[6\]](#ref-wikipedia_confusion_matrix):
+> **Definition 9 (Agreement table)** For \\n\\ observations that an agent and a reference each classify as positive or negative, the **agreement table** counts the four combinations:
 >
 > |                    | Reference positive | Reference negative |     Total |
 > |--------------------|-------------------:|-------------------:|----------:|
@@ -371,7 +371,7 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 15 (Harmonic mean)** The **harmonic mean** of two positive numbers \\x\\ and \\y\\ is the reciprocal of the average of their reciprocals [\[8\]](#ref-wikipedia_harmonic_mean):
+> **Definition 15 (Harmonic mean)** The **harmonic mean** of two positive numbers \\x\\ and \\y\\ is the reciprocal of the average of their reciprocals:
 >
 > \\H(x, y) \stackrel{\text{def}}{=}\frac{2}{\frac{1}{x} + \frac{1}{y}} \tag{34}\\
 >

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:33:21 (PDT)
+Last modified: 2026-10-19 09:40:54 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead [\[1\]](#ref-wikipedia_resampling_statistics). If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
@@ -37,7 +37,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 1 (Exchangeable random variables)** For a permutation \\\pi\\ of \\\mathopen{}\left\\1, \ldots, n\right\\\mathclose{}\\ and a vector \\y = (y_1, \ldots, y_n)\\, write \\y\_\pi \stackrel{\text{def}}{=}(y\_{\pi(1)}, \ldots, y\_{\pi(n)})\\ for the vector with its entries reordered by \\\pi\\. Random variables \\Y_1, \ldots, Y_n\\ are **exchangeable** if reordering them does not change their joint distribution [\[5\]](#ref-wikipedia_exchangeable_random_variables): for every permutation \\\pi\\ and every set \\A\\ of vectors,
+> **Definition 1 (Exchangeable random variables)** For a permutation \\\pi\\ of \\{\mathopen{}\left\\1, \ldots, n\right\\\mathclose{}}\\ and a vector \\y = (y_1, \ldots, y_n)\\, write \\y\_\pi \stackrel{\text{def}}{=}(y\_{\pi(1)}, \ldots, y\_{\pi(n)})\\ for the vector with its entries reordered by \\\pi\\. Random variables \\Y_1, \ldots, Y_n\\ are **exchangeable** if reordering them does not change their joint distribution: for every permutation \\\pi\\ and every set \\A\\ of vectors,
 >
 > \\\Pr(Y\_\pi \in A) = \Pr(Y \in A).\\
 >
@@ -60,7 +60,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 2 (Permutation distribution)** Let \\y = (y_1, \ldots, y_n)\\ hold the observed values, with the first \\n_1\\ entries belonging to group 1 and the rest to group 2, and let \\T(y)\\ be a [test statistic](inference.llms.md#def-test-statistic) computed from the data and the group assignment. Let \\S_n\\ be the set of all \\n!\\ permutations of \\\mathopen{}\left\\1, \ldots, n\right\\\mathclose{}\\. The **permutation distribution** of \\T\\ is the distribution of \\T(y\_\pi)\\ when \\\pi\\ is drawn uniformly from \\S_n\\ and \\y\\ is held fixed. It puts probability \\1 / n!\\ on each relabeling \\y\_\pi\\, so for every \\t\\
+> **Definition 2 (Permutation distribution)** Let \\y = (y_1, \ldots, y_n)\\ hold the observed values, with the first \\n_1\\ entries belonging to group 1 and the rest to group 2, and let \\T(y)\\ be a [test statistic](inference.llms.md#def-test-statistic) computed from the data and the group assignment. Let \\S_n\\ be the set of all \\n!\\ permutations of \\{\mathopen{}\left\\1, \ldots, n\right\\\mathclose{}}\\. The **permutation distribution** of \\T\\ is the distribution of \\T(y\_\pi)\\ when \\\pi\\ is drawn uniformly from \\S_n\\ and \\y\\ is held fixed. It puts probability \\1 / n!\\ on each relabeling \\y\_\pi\\, so for every \\t\\
 >
 > \\\Pr\_\pi\mathopen{}\left(T(y\_\pi) \ge t\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n!} \sum\_{\pi \in S_n} \mathbb{1}\_{T(y\_\pi) \ge t}.\\
 
@@ -209,9 +209,9 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Proof*. Since \\p\_{\text{perm}} = N\_\iota(Y) / n!\\ takes values in multiples of \\1 / n!\\, it is enough to take \\u = k / n!\\ for an integer \\k\\ with \\0 \le k \le n!\\: for other \\u\\ the event \\\mathopen{}\left\\p\_{\text{perm}} \le u\right\\\mathclose{}\\ equals the event for \\\mathopen{}\left\lfloor u \\ n!\right\rfloor\mathclose{} / n!\\, which is at most \\u\\.
+> *Proof*. Since \\p\_{\text{perm}} = N\_\iota(Y) / n!\\ takes values in multiples of \\1 / n!\\, it is enough to take \\u = k / n!\\ for an integer \\k\\ with \\0 \le k \le n!\\: for other \\u\\ the event \\{\mathopen{}\left\\p\_{\text{perm}} \le u\right\\\mathclose{}}\\ equals the event for \\\mathopen{}\left\lfloor u \\ n!\right\rfloor\mathclose{} / n!\\, which is at most \\u\\.
 >
-> \\ \begin{aligned} \Pr\_{H_0}\mathopen{}\left(p\_{\text{perm}} \le \frac{k}{n!}\right)\mathclose{} &= \Pr\_{H_0}\mathopen{}\left(N\_\iota(Y) \le k\right)\mathclose{} && \text{(multiply the inequality by \$n!\$)}\\ &= \Pr\_{H_0}\mathopen{}\left(N\_\iota(Y\_\sigma) \le k\right)\mathclose{} && \text{(for each \$\sigma\$, \$Y\_\sigma\$ has the distribution of \$Y\$, by exchangeability)}\\ &= \Pr\_{H_0}\mathopen{}\left(N\_\sigma(Y) \le k\right)\mathclose{} && \text{(relabeling identity)}\\ &= \operatorname{E}\mathopen{}\left\[\mathbb{1}\_{N\_\sigma(Y) \le k}\right\]\mathclose{} && \text{(probability of an event is the expected value of its indicator)}\\ &= \frac{1}{n!} \sum\_{\sigma \in S_n} \operatorname{E}\mathopen{}\left\[\mathbb{1}\_{N\_\sigma(Y) \le k}\right\]\mathclose{} && \text{(the average of \$n!\$ equal terms)}\\ &= \frac{1}{n!} \operatorname{E}\mathopen{}\left\[\sum\_{\sigma \in S_n} \mathbb{1}\_{N\_\sigma(Y) \le k}\right\]\mathclose{} && \text{(expectation of a sum is the sum of expectations)}\\ &\le \frac{1}{n!} \operatorname{E}\mathopen{}\left\[k\right\]\mathclose{} && \text{(counting bound, with \$N = n!\$ and \$t\_\sigma = T(Y\_\sigma)\$)}\\ &= \frac{k}{n!} && \text{(the expected value of a constant is the constant)} \end{aligned} \\
+> \\ \begin{aligned} \Pr\_{H_0}\mathopen{}\left(p\_{\text{perm}} \le \frac{k}{n!}\right)\mathclose{} &= \Pr\_{H_0}\mathopen{}\left(N\_\iota(Y) \le k\right)\mathclose{} && \text{(multiply the inequality by \$n!\$)}\\ &= \Pr\_{H_0}\mathopen{}\left(N\_\iota(Y\_\sigma) \le k\right)\mathclose{} && \text{(for each \$\sigma\$, \$Y\_\sigma\$ has the distribution of \$Y\$, by exchangeability)}\\ &= \Pr\_{H_0}\mathopen{}\left(N\_\sigma(Y) \le k\right)\mathclose{} && \text{(relabeling identity)}\\ &= {\operatorname{E}\mathopen{}\left\[\mathbb{1}\_{N\_\sigma(Y) \le k}\right\]\mathclose{}} && \text{(probability of an event is the expected value of its indicator)}\\ &= \frac{1}{n!} \sum\_{\sigma \in S_n} {\operatorname{E}\mathopen{}\left\[\mathbb{1}\_{N\_\sigma(Y) \le k}\right\]\mathclose{}} && \text{(the average of \$n!\$ equal terms)}\\ &= \frac{1}{n!} {\operatorname{E}\mathopen{}\left\[\sum\_{\sigma \in S_n} \mathbb{1}\_{N\_\sigma(Y) \le k}\right\]\mathclose{}} && \text{(expectation of a sum is the sum of expectations)}\\ &\le \frac{1}{n!} {\operatorname{E}\mathopen{}\left\[k\right\]\mathclose{}} && \text{(counting bound, with \$N = n!\$ and \$t\_\sigma = T(Y\_\sigma)\$)}\\ &= \frac{k}{n!} && \text{(the expected value of a constant is the constant)} \end{aligned} \\
 >
 > The justifications of the third and the seventh line are [Lemma 2](#lem-relabeling-count) and [Lemma 1](#lem-top-k-count).
 

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:33:21 (PDT)
+Last modified: 2026-10-19 09:40:54 (PDT)
 
 ## 1 Introduction
 
@@ -155,7 +155,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 1 (Population)** A **population** is the entire collection of units (people, animals, objects, or events) that a study aims to learn about [\[3\]](#ref-wikipedia_statistical_population).
+> **Definition 1 (Population)** A **population** is the entire collection of units (people, animals, objects, or events) that a study aims to learn about.
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_statistical_population).
 
@@ -163,7 +163,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 2 (Population distribution)** The **population distribution** of a variable \\X\\ is the distribution of \\X\\ for a unit [chosen at random](https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice) from a population ([Definition 1](#def-population)): the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that \\X\\ falls in a set \\A\\ is
 >
-> \\\operatorname{P}\mathopen{}\left(A\right)\mathclose{} \stackrel{\text{def}}{=}\Pr(X \in A),\\
+> \\{\operatorname{P}\mathopen{}\left(A\right)\mathclose{}} \stackrel{\text{def}}{=}\Pr(X \in A),\\
 >
 > where the probability refers to the random choice of the unit.
 
@@ -171,9 +171,9 @@ dplyr::glimpse(wcgs)
 >
 > *Remark*. A population may be finite or infinite. For a finite population \\U\\ of \\N\\ units, with \\X(u)\\ the value of \\X\\ for unit \\u\\, the random choice gives each unit probability \\1/N\\, so
 >
-> \\\operatorname{P}\mathopen{}\left(A\right)\mathclose{} = \frac{\mathopen{}\left\|\mathopen{}\left\\u \in U : X(u) \in A\right\\\mathclose{}\right\|\mathclose{}}{N}.\\
+> \\{\operatorname{P}\mathopen{}\left(A\right)\mathclose{}} = \frac{\mathopen{}\left\|{\mathopen{}\left\\u \in U : X(u) \in A\right\\\mathclose{}}\right\|\mathclose{}}{N}.\\
 >
-> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function \\\operatorname{F}\mathopen{}\left(t\right)\mathclose{} = \operatorname{P}\mathopen{}\left((-\infty, t\]\right)\mathclose{}\\ or, when it has one, by its probability mass or density function.
+> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function \\{\operatorname{F}\mathopen{}\left(t\right)\mathclose{}} = {\operatorname{P}\mathopen{}\left((-\infty, t\]\right)\mathclose{}}\\ or, when it has one, by its probability mass or density function.
 
 > **NOTE:**
 >
@@ -181,7 +181,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 4 (Random sample)** A sample ([Definition 3](#def-sample)) is a **random sample** when the units are chosen by a chance mechanism such that the observations are [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid) draws from the population distribution ([Definition 2](#def-population-distribution)) [\[4\]](#ref-wikipedia_simple_random_sample):
+> **Definition 4 (Random sample)** A sample ([Definition 3](#def-sample)) is a **random sample** when the units are chosen by a chance mechanism such that the observations are [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid) draws from the population distribution ([Definition 2](#def-population-distribution)):
 >
 > \\X_1, \ldots, X_n \operatorname{iid}\\ \operatorname{P},\\
 >
@@ -218,7 +218,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 6 (Sample median)** The **sample median** is the middle value when the observations are sorted in increasing order [\[5\]](#ref-wikipedia_median). In terms of the [order statistics](nonparametric-models.llms.md#def-order-statistics) \\x\_{(1)} \le \cdots \le x\_{(n)}\\:
+> **Definition 6 (Sample median)** The **sample median** is the middle value when the observations are sorted in increasing order. In terms of the [order statistics](nonparametric-models.llms.md#def-order-statistics) \\x\_{(1)} \le \cdots \le x\_{(n)}\\:
 >
 > - if \\n\\ is odd, the median is \\x\_{((n+1)/2)}\\;
 > - if \\n\\ is even, the median is \\\frac{1}{2}\mathopen{}\left(x\_{(n/2)} + x\_{(n/2 + 1)}\right)\mathclose{}\\.
@@ -240,7 +240,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 7 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is [\[6\]](#ref-wikipedia_variance):
+> **Definition 7 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is:
 >
 > \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(x_i- \bar{x})^2\\
 >
@@ -248,7 +248,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 8 (Sample standard deviation)** The **sample standard deviation** is the square root of the [sample variance](#def-sample-variance) [\[7\]](#ref-wikipedia_standard_deviation):
+> **Definition 8 (Sample standard deviation)** The **sample standard deviation** is the square root of the [sample variance](#def-sample-variance):
 >
 > \\s \stackrel{\text{def}}{=}\sqrt{s^2}\\
 >
@@ -273,7 +273,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 9 (Quartiles (first quartile, third quartile, 25th percentile, 75th percentile))** The **quartiles** are the **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\, the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)) [\[8\]](#ref-wikipedia_quartile). The first quartile is also called the **25th percentile**, and the third quartile is also called the **75th percentile**.
+> **Definition 9 (Quartiles (first quartile, third quartile, 25th percentile, 75th percentile))** The **quartiles** are the **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\, the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)). The first quartile is also called the **25th percentile**, and the third quartile is also called the **75th percentile**.
 >
 > Source: Wikipedia contributors [\[8\]](#ref-wikipedia_quartile).
 
@@ -283,7 +283,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 10 (Interquartile range)** The **interquartile range** (IQR) is the difference between the third and first [quartiles](#def-quartiles) [\[9\]](#ref-wikipedia_interquartile_range):
+> **Definition 10 (Interquartile range)** The **interquartile range** (IQR) is the difference between the third and first [quartiles](#def-quartiles):
 >
 > \\\text{IQR} \stackrel{\text{def}}{=}Q_3 - Q_1\\
 >
@@ -396,7 +396,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 12 (Histogram)** A **histogram** displays the distribution of a continuous variable by dividing the variable’s range into intervals and drawing a bar over each interval whose height is the number (or proportion) of observations in that interval [\[12\]](#ref-wikipedia_histogram).
+> **Definition 12 (Histogram)** A **histogram** displays the distribution of a continuous variable by dividing the variable’s range into intervals and drawing a bar over each interval whose height is the number (or proportion) of observations in that interval.
 >
 > Source: Wikipedia contributors [\[12\]](#ref-wikipedia_histogram).
 
@@ -426,7 +426,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 14 (Density plot)** A **density plot** draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1 [\[13\]](#ref-wikipedia_kernel_density_estimation).
+> **Definition 14 (Density plot)** A **density plot** draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1.
 >
 > Source: Wikipedia contributors [\[13\]](#ref-wikipedia_kernel_density_estimation).
 
@@ -450,7 +450,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 15 (Box plot (box-and-whisker plot))** A **box plot** (or **box-and-whisker plot**) summarizes the distribution of a continuous variable [\[14\]](#ref-wikipedia_box_plot):
+> **Definition 15 (Box plot (box-and-whisker plot))** A **box plot** (or **box-and-whisker plot**) summarizes the distribution of a [continuous variable](data.llms.md#def-continuous-var):
 >
 > - the box spans the first to the third [quartile](#def-quartiles), so its length is the [IQR](#def-IQR);
 > - a line inside the box marks the [median](#def-sample-median);
@@ -484,7 +484,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 16 (Bar chart)** A **bar chart** displays the number or proportion of observations in each category of a categorical variable, as one bar per category [\[15\]](#ref-wikipedia_bar_chart).
+> **Definition 16 (Bar chart)** A **bar chart** displays the number or proportion of observations in each category of a categorical variable, as one bar per category.
 >
 > Source: Wikipedia contributors [\[15\]](#ref-wikipedia_bar_chart).
 
@@ -508,7 +508,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 17 (Normal quantile-quantile plot)** A **normal quantile-quantile (Q-Q) plot** plots the sorted observations ([order statistics](nonparametric-models.llms.md#def-order-statistics)) against the corresponding quantiles of a standard Gaussian distribution [\[16\]](#ref-wikipedia_q_q_plot). If the variable is approximately Gaussian, the points fall close to a straight line.
+> **Definition 17 (Normal quantile-quantile plot)** A **normal quantile-quantile (Q-Q) plot** plots the sorted observations ([order statistics](nonparametric-models.llms.md#def-order-statistics)) against the corresponding quantiles of a standard Gaussian distribution. If the variable is approximately Gaussian, the points fall close to a straight line.
 >
 > Source: Wikipedia contributors [\[16\]](#ref-wikipedia_q_q_plot).
 
@@ -544,7 +544,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> **Definition 18 (Scatter plot)** A **scatter plot** displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis [\[17\]](#ref-wikipedia_scatter_plot).
+> **Definition 18 (Scatter plot)** A **scatter plot** displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis.
 >
 > Source: Wikipedia contributors [\[17\]](#ref-wikipedia_scatter_plot).
 
@@ -567,7 +567,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> **Definition 19 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is [\[18\]](#ref-wikipedia_pearson_correlation_coefficient):
+> **Definition 19 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is:
 >
 > \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y})} {\sqrt{\sum\_{i=1}^n(x_i- \bar{x})^2} \sqrt{\sum\_{i=1}^n(y_i- \bar{y})^2}}\\
 >
@@ -674,7 +674,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 
 > **NOTE:**
 >
-> **Definition 20 (Contingency table (cross-tabulation))** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables [\[19\]](#ref-wikipedia_contingency_table): each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
+> **Definition 20 (Contingency table (cross-tabulation))** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two [categorical variables](data.llms.md#def-categorical-var): each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
 >
 > |              | Outcome = 1 | Outcome = 0 |   Total   |
 > |--------------|:-----------:|:-----------:|:---------:|
@@ -816,7 +816,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Definition 21 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is [\[20\]](#ref-wikipedia_standard_score)
+> **Definition 21 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
 >
 > \\z_i \stackrel{\text{def}}{=}\frac{x_i- \bar x}{s}\\
 >
@@ -858,7 +858,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Definition 22 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is [\[23\]](#ref-wikipedia_feature_scaling)
+> **Definition 22 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
 >
 > \\\frac{x_i- x\_{\min}}{x\_{\max} - x\_{\min}}\\
 >
@@ -917,6 +917,10 @@ A typical exploratory data analysis proceeds as follows:
 > [TABLE]
 >
 > Table 5: Summary of selected WCGS variables
+
+## 7 Further reading
+
+[Plotting a Binary Outcome](https://morrison-lab.github.io/vds/chapters/binary-outcomes.html) shows how to plot a 0/1 outcome against a [continuous](data.llms.md#def-continuous-var) feature, where [scatterplot](exploratory-descriptive.llms.md#def-scatterplot) dots would pile into two stripes. It draws a rug and two [histograms](exploratory-descriptive.llms.md#def-histogram) of the WCGS data, in R and Python.
 
 ## References
 
