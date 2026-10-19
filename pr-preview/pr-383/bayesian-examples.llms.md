@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 03:52:26 (PDT)
+Last modified: 2026-10-19 04:14:28 (PDT)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models [\[1, Ch. 14\]](#ref-dobson4e). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -63,7 +63,7 @@ For a binary outcome \\Y_i\sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operato
 
 > **NOTE:**
 >
-> **Example 2 (Logistic regression fitted by Bayesian inference)** We simulate \\N = 200\\ observations from a logistic model with one continuous predictor, intercept \\\beta\_{0}= -0.5\\ and slope \\\beta\_{x} = 1.2\\, and place a diffuse \\\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}\\ prior on each coefficient (precision \\0.01\\ in JAGS). The JAGS program also monitors the odds ratio \\e^{\beta\_{x}}\\ for a one-unit increase in \\x\\. In the code, `beta0` and `beta1` are \\\beta\_{0}\\ and \\\beta\_{x}\\.
+> **Example 2 (Logistic regression fitted by Bayesian inference)** We simulate \\N = 200\\ observations from a logistic model with one continuous predictor, intercept \\\beta\_{0}= -0.5\\ and slope \\\beta\_{x} = 1.2\\, and place a diffuse \\{\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}}\\ prior on each coefficient (precision \\0.01\\ in JAGS). The JAGS program also monitors the odds ratio \\e^{\beta\_{x}}\\ for a one-unit increase in \\x\\. In the code, `beta0` and `beta1` are \\\beta\_{0}\\ and \\\beta\_{x}\\.
 >
 > ``` downlit
 > set.seed(2024)
@@ -135,7 +135,7 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 
 > **NOTE:**
 >
-> **Example 3 (Exponential survival regression fitted by Bayesian inference)** We simulate \\N = 200\\ right-censored exponential survival times, with a binary covariate \\x_i\\ (say, treatment) and hazard \\{\lambda}\_i= \operatorname{exp}\mathopen{}\left\\\beta\_{0}+ \beta\_{x} x_i\right\\\mathclose{}\\, where the log baseline hazard is \\\beta\_{0}= \log 0.05\\ and the log hazard ratio is \\\beta\_{x} = -0.7\\. With event indicator \\\delta_i\\ (1 for an event, 0 for a censored time) and follow-up time \\t_i\\, the exponential density is \\{\lambda}\_ie^{-{\lambda}\_it}\\ and its survival function is \\e^{-{\lambda}\_it}\\, so observation \\i\\ contributes the log-likelihood
+> **Example 3 (Exponential survival regression fitted by Bayesian inference)** We simulate \\N = 200\\ right-censored exponential survival times, with a binary covariate \\x_i\\ (say, treatment) and hazard \\{\lambda}\_i= {\operatorname{exp}\mathopen{}\left\\\beta\_{0}+ \beta\_{x} x_i\right\\\mathclose{}}\\, where the log baseline hazard is \\\beta\_{0}= \log 0.05\\ and the log hazard ratio is \\\beta\_{x} = -0.7\\. With event indicator \\\delta_i\\ (1 for an event, 0 for a censored time) and follow-up time \\t_i\\, the exponential density is \\{\lambda}\_ie^{-{\lambda}\_it}\\ and its survival function is \\e^{-{\lambda}\_it}\\, so observation \\i\\ contributes the log-likelihood
 >
 > \\ \ell_i\stackrel{\text{def}}{=}\delta_i\log {\lambda}\_i- {\lambda}\_it_i. \\
 >
@@ -215,11 +215,11 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 
 ## 4 Random effects
 
-The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.llms.md#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters \\\theta_j \sim \operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ drawn from a common distribution [\[2\]](#ref-wikipedia_bayesian_hierarchical_modeling). What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters \\\mu\\ and \\\tau\\ and samples their joint posterior together with the group-level parameters [\[1, Ch. 14\]](#ref-dobson4e), p. 329. The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\\tau\\, and the posterior for \\\tau\\ carries the uncertainty about the between-group spread into every group-level summary.
+The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.llms.md#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters \\\theta_j \sim {\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}}\\ drawn from a common distribution [\[2\]](#ref-wikipedia_bayesian_hierarchical_modeling). What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters \\\mu\\ and \\\tau\\ and samples their joint posterior together with the group-level parameters [\[1, Ch. 14\]](#ref-dobson4e), p. 329. The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\\tau\\, and the posterior for \\\tau\\ carries the uncertainty about the between-group spread into every group-level summary.
 
 > **NOTE:**
 >
-> **Example 4 (A random-intercept model fitted by Bayesian inference)** We simulate \\J = 8\\ groups of 12 observations each, with group means drawn from \\\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ (\\\mu= 5\\, \\\tau= 1.5\\) and within-group standard deviation \\\sigma= 2\\. The priors are a diffuse \\\operatorname{N}\mathopen{}\left(0, 100^2\right)\mathclose{}\\ for \\\mu\\ and [flat priors](bayesian-inference.llms.md#def-flat-prior) on \\(0, 100)\\ for the standard deviations \\\tau\\ and \\\sigma\\. Being flat on the standard-deviation scale is a choice: as [a flat prior on the log-odds](bayesian-inference.llms.md#exm-flat-prior-reparam) shows for a probability, it is not flat on another scale, such as the variance.
+> **Example 4 (A random-intercept model fitted by Bayesian inference)** We simulate \\J = 8\\ groups of 12 observations each, with group means drawn from \\{\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}}\\ (\\\mu= 5\\, \\\tau= 1.5\\) and within-group standard deviation \\\sigma= 2\\. The priors are a diffuse \\{\operatorname{N}\mathopen{}\left(0, 100^2\right)\mathclose{}}\\ for \\\mu\\ and [flat priors](bayesian-inference.llms.md#def-flat-prior) on \\(0, 100)\\ for the standard deviations \\\tau\\ and \\\sigma\\. Being flat on the standard-deviation scale is a choice: as [a flat prior on the log-odds](bayesian-inference.llms.md#exm-flat-prior-reparam) shows for a probability, it is not flat on another scale, such as the variance.
 >
 > ``` downlit
 > set.seed(2025)
@@ -328,7 +328,7 @@ When several candidate models are plausible, committing to a single “best” o
 >
 > **Example 6 (A BIC approximation to Bayesian model averaging)** Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the [Bayesian information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic) gives a large-sample approximation to the posterior model probabilities [\[3\]](#ref-schwarz1978estimating) [\[4\]](#ref-wikipedia_bayesian_information_criterion):
 >
-> \\ \operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \approx \frac{\operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_k\right\\\mathclose{}}{\sum\_{l=1}^{K} \operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_l\right\\\mathclose{}}. \\
+> \\ \operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \approx \frac{{\operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_k\right\\\mathclose{}}}{\sum\_{l=1}^{K} {\operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_l\right\\\mathclose{}}}. \\
 >
 > We simulate data in which only \\x_1\\ and \\x_2\\ affect the outcome, fit a linear regression for every subset of the three predictors \\x_1\\, \\x_2\\ and \\x_3\\, and compute these approximate posterior model probabilities:
 >
