@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 05:13:34 (PDT)
+Last modified: 2026-10-19 09:42:44 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -1378,13 +1378,13 @@ Last modified: 2026-10-19 05:13:34 (PDT)
 
 > **NOTE:**
 >
-> **Definition 49 (Fold-out rule)** For [fold](#def-folds) \\\mathcal{F}\_{j}\\, the **fold-out rule** \\{\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}}\\ is the [fitted model](#def-fitted-model) that a [fitting procedure](#def-fitting-procedure) \\g\\ produces from the observations outside that fold:
+> **Definition 49 (Fold-out fitted model)** For [fold](#def-folds) \\\mathcal{F}\_{j}\\, the **fold-out fitted model** \\{\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}}\\ is the [fitted model](#def-fitted-model) that a [fitting procedure](#def-fitting-procedure) \\g\\ produces from the observations outside that fold:
 >
 > \\ {\hat y^{(-j)}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{{\hat y\_{\mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\setminus \mathcal{F}\_{j}}}}\mathopen{}\left(x\right)\mathclose{}}. \tag{49}\\
 
 > **NOTE:**
 >
-> *Remark 23* (Source: Fold-out rule). Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements), who write the fitted function with the \\k\\th part of the data removed as \\\hat f^{-k}\\.
+> *Remark 23* (Source: Fold-out fitted model). Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements), who write the fitted function with the \\k\\th part of the data removed as \\\hat f^{-k}\\.
 
 > **NOTE:**
 >
@@ -1392,7 +1392,7 @@ Last modified: 2026-10-19 05:13:34 (PDT)
 >
 > 1.  The data are randomly divided into \\k\\ [folds](#def-folds) of equal, or nearly equal, size.
 > 2.  For each fold \\\mathcal{F}\_{j}\\, \\j= 1, \ldots, k\\:
->     - Fit the model to all data *except* fold \\\mathcal{F}\_{j}\\, giving the [fold-out rule](#def-fold-out-rule) \\{\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}}\\.
+>     - Fit the model to all data *except* fold \\\mathcal{F}\_{j}\\, giving the [fold-out fitted model](#def-fold-out-fitted-model) \\{\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}}\\.
 >     - Compute predicted values for the observations in fold \\\mathcal{F}\_{j}\\.
 > 3.  Compute a summary prediction-error measure across all folds.
 >
@@ -1404,7 +1404,7 @@ Last modified: 2026-10-19 05:13:34 (PDT)
 
 > **NOTE:**
 >
-> **Definition 51 (Cross-validation estimate)** The **\\k\\-fold cross-validation estimate** \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ is the [sMSE](prediction.llms.md#def-prediction-mse) of the predictions that each observation \\i\in I\\ of the training set receives from the [fold-out rule](#def-fold-out-rule) of its [fold assignment](#def-fold-assignment) \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\ in [\\k\\-fold cross-validation](#def-kfold):
+> **Definition 51 (Cross-validation estimate)** The **\\k\\-fold cross-validation estimate** \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ is the [sMSE](prediction.llms.md#def-prediction-mse) of the predictions that each observation \\i\in I\\ of the training set receives from the [fold-out fitted model](#def-fold-out-fitted-model) of its [fold assignment](#def-fold-assignment) \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\ in [\\k\\-fold cross-validation](#def-kfold):
 >
 > \\ \widehat{\operatorname{Err}}\_{\text{CV}(k)} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i\in I} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2}. \tag{50}\\
 
@@ -1436,7 +1436,7 @@ Last modified: 2026-10-19 05:13:34 (PDT)
 
 > **NOTE:**
 >
-> **Definition 52 (Fold mean squared error)** The **fold mean squared error** \\\operatorname{MSE}\_{j}\\ of [fold](#def-folds) \\\mathcal{F}\_{j}\\ is the [sMSE](prediction.llms.md#def-prediction-mse) of the [fold-out rule](#def-fold-out-rule)’s predictions for the \\n\_{j}\\ ([fold size](#def-fold-size)) observations in that fold:
+> **Definition 52 (Fold mean squared error)** The **fold mean squared error** \\\operatorname{MSE}\_{j}\\ of [fold](#def-folds) \\\mathcal{F}\_{j}\\ is the [sMSE](prediction.llms.md#def-prediction-mse) of the [fold-out fitted model](#def-fold-out-fitted-model)’s [predictions](prediction.llms.md#def-prediction) for the \\n\_{j}\\ ([fold size](#def-fold-size)) observations in that fold:
 >
 > \\ \operatorname{MSE}\_{j} \stackrel{\text{def}}{=}\frac{1}{n\_{j}} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left({\hat y^{(-j)}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2}. \tag{52}\\
 
@@ -1715,7 +1715,7 @@ Last modified: 2026-10-19 05:13:34 (PDT)
 
 > **NOTE:**
 >
-> **Definition 53 (Leave-one-out cross-validation)** **Leave-one-out cross-validation (LOOCV)** is [\\k\\-fold cross-validation](#def-kfold) with \\k= n\\, so that each of the \\n\\ [folds](#def-folds) holds one observation, and the [fold-out rule](#def-fold-out-rule) \\{\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(\cdot\right)\mathclose{}}\\ of observation \\i\\’s [fold](#def-fold-assignment) is fitted to all observations except observation \\i\\. Its [cross-validation estimate](#def-cv-estimate) ([Equation 50](#eq-cv-estimate) with \\k= n\\) is
+> **Definition 53 (Leave-one-out cross-validation)** **Leave-one-out cross-validation (LOOCV)** is [\\k\\-fold cross-validation](#def-kfold) with \\k= n\\, so that each of the \\n\\ [folds](#def-folds) holds one observation, and the [fold-out fitted model](#def-fold-out-fitted-model) \\{\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(\cdot\right)\mathclose{}}\\ of observation \\i\\’s [fold](#def-fold-assignment) is fitted to all observations except observation \\i\\. Its [cross-validation estimate](#def-cv-estimate) ([Equation 50](#eq-cv-estimate) with \\k= n\\) is
 >
 > \\ \widehat{\operatorname{Err}}\_{\text{CV}(n)} = \frac{1}{n} \sum\_{i\in I} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2}. \tag{53}\\
 >
@@ -1727,7 +1727,7 @@ Last modified: 2026-10-19 05:13:34 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 13](#exr-loocv), part 3, worked in [Solution 13](#sol-loocv). It uses [Equation 50](#eq-cv-estimate) and [Equation 49](#eq-fold-out-rule).
+> *Proof*. This is the solution to [Exercise 13](#exr-loocv), part 3, worked in [Solution 13](#sol-loocv). It uses [Equation 50](#eq-cv-estimate) and [Equation 49](#eq-fold-out-fitted-model).
 >
 > Each step below changes one thing.
 >
@@ -1735,7 +1735,7 @@ Last modified: 2026-10-19 05:13:34 (PDT)
 >
 > 2.  For observation \\i\\, [Equation 48](#eq-fold-assignment) gives \\i \in \mathcal{F}\_{{\kappa\mathopen{}\left(i\right)\mathclose{}}}\\, so \\\mathcal{F}\_{{\kappa\mathopen{}\left(i\right)\mathclose{}}} = {\mathopen{}\left\\i\right\\\mathclose{}}\\. (Fold \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\ holds one index, and that index is \\i\\.)
 >
-> 3.  Let \\g\\ be the [fitting procedure](#def-fitting-procedure), which maps a [training set](#def-training-set) to a [fitted model](#def-fitted-model). The [fold-out rule](#def-fold-out-rule) of observation \\i\\ is then \\{\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\right)\mathclose{}} = {{\hat y\_{\mathopen{}\left((x\_{i'}, y\_{i'})\right)\mathclose{}\_{i' \in I \setminus {\mathopen{}\left\\i\right\\\mathclose{}}}}}\mathopen{}\left(x\right)\mathclose{}}\\. ([Equation 49](#eq-fold-out-rule) with \\\mathcal{F}\_{{\kappa\mathopen{}\left(i\right)\mathclose{}}} = {\mathopen{}\left\\i\right\\\mathclose{}}\\.)
+> 3.  Let \\g\\ be the [fitting procedure](#def-fitting-procedure), which maps a [training set](#def-training-set) to a [fitted model](#def-fitted-model). The [fold-out fitted model](#def-fold-out-fitted-model) of observation \\i\\ is then \\{\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\right)\mathclose{}} = {{\hat y\_{\mathopen{}\left((x\_{i'}, y\_{i'})\right)\mathclose{}\_{i' \in I \setminus {\mathopen{}\left\\i\right\\\mathclose{}}}}}\mathopen{}\left(x\right)\mathclose{}}\\. ([Equation 49](#eq-fold-out-fitted-model) with \\\mathcal{F}\_{{\kappa\mathopen{}\left(i\right)\mathclose{}}} = {\mathopen{}\left\\i\right\\\mathclose{}}\\.)
 >
 > 4.  This model is fitted to every observation except observation \\i\\, and it does not involve \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\ itself. (Step 3 depends on \\i\\ and \\g\\ only.)
 >
@@ -1853,7 +1853,7 @@ Last modified: 2026-10-19 05:13:34 (PDT)
 
 > **NOTE:**
 >
-> **Definition 57 (Cross-validation estimate of a named procedure)** Let a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, indexed by \\I\\, be divided into [folds](#def-folds) \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\. The **cross-validation estimate of procedure** \\g\\ on \\\mathcal{D}\_{\text{train}}\\, \\{\widehat{\operatorname{Err}}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}\\, is the [cross-validation estimate](#def-cv-estimate) computed with [fold-out rules](#def-fold-out-rule) that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
+> **Definition 57 (Cross-validation estimate of a named procedure)** Let a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, indexed by \\I\\, be divided into [folds](#def-folds) \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\. The **cross-validation estimate of procedure** \\g\\ on \\\mathcal{D}\_{\text{train}}\\, \\{\widehat{\operatorname{Err}}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}\\, is the [cross-validation estimate](#def-cv-estimate) computed with [fold-out fitted models](#def-fold-out-fitted-model) that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
 >
 > \\ {\widehat{\operatorname{Err}}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i\in I} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2}. \tag{58}\\
 
@@ -1886,7 +1886,7 @@ Last modified: 2026-10-19 05:13:34 (PDT)
 
 > **NOTE:**
 >
-> *Remark 36* (What is nested). Each fold-out rule of \\g^{\text{CV}}\\ is computed from the observations outside one outer [fold](#def-folds) \\\mathcal{F}\_{j}\\, so the whole choice, including the cross-validation that \\g^{\text{CV}}\\ runs inside those observations, never sees \\\mathcal{F}\_{j}\\. That inner cross-validation is the nested one.
+> *Remark 36* (What is nested). Each [fold-out fitted model](#def-fold-out-fitted-model) of \\g^{\text{CV}}\\ is computed from the observations outside one outer [fold](#def-folds) \\\mathcal{F}\_{j}\\, so the whole choice, including the cross-validation that \\g^{\text{CV}}\\ runs inside those observations, never sees \\\mathcal{F}\_{j}\\. That inner cross-validation is the nested one.
 
 > **NOTE:**
 >
@@ -1912,7 +1912,7 @@ Last modified: 2026-10-19 05:13:34 (PDT)
 
 > **NOTE:**
 >
-> **Definition 61 (Fold mean squared error of a named procedure)** The **fold mean squared error of procedure** \\g\\ for [fold](#def-folds) \\\mathcal{F}\_{j}\\ of a training set \\\mathcal{D}\_{\text{train}}\\, indexed by \\I\\, is the [fold mean squared error](#def-fold-mse) computed with the [fold-out rule](#def-fold-out-rule) that \\g\\ produces:
+> **Definition 61 (Fold mean squared error of a named procedure)** The **fold mean squared error of procedure** \\g\\ for [fold](#def-folds) \\\mathcal{F}\_{j}\\ of a training set \\\mathcal{D}\_{\text{train}}\\, indexed by \\I\\, is the [fold mean squared error](#def-fold-mse) computed with the [fold-out fitted model](#def-fold-out-fitted-model) that \\g\\ produces:
 >
 > \\ {\operatorname{MSE}^{g}\_{j}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n\_{j}} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left({\hat y^{(-j)}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2}. \tag{62}\\
 
