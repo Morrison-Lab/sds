@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 03:13:51 (PDT)
+Last modified: 2026-10-19 03:33:48 (PDT)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and population mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
@@ -40,9 +40,9 @@ Last modified: 2026-10-19 03:13:51 (PDT)
 
 > **NOTE:**
 >
-> *Solution 1*. Both sides of \\\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\\ are nonnegative, so squaring them keeps the inequality. The random variable \\{\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}}^2\\ is nonnegative, so Markov’s inequality applies to it with \\a = \varepsilon^2\\:
+> *Solution 1*. Both sides of \\\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\\ are nonnegative, so squaring them keeps the inequality. The random variable \\{\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}}^{2}\\ is nonnegative, so Markov’s inequality applies to it with \\a = \varepsilon^2\\:
 >
-> \\ \begin{aligned} \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} &= \Pr\mathopen{}\left({\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}}^2 \ge \varepsilon^2\right)\mathclose{} && \text{(square both nonnegative sides)}\\ &\le \frac{\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}}^2\right\]\mathclose{}}{\varepsilon^2} && \text{(Markov's inequality, \$a = \varepsilon^2 \> 0\$)}\\ &= \frac{\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}}{\varepsilon^2} && \text{(definition of the estimation error)}\\ &= \frac{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}{\varepsilon^2} && \text{(definition of the mean squared error)} \end{aligned} \\
+> \\ \begin{aligned} \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} &= \Pr\mathopen{}\left({\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}}^{2} \ge \varepsilon^2\right)\mathclose{} && \text{(square both nonnegative sides)}\\ &\le \frac{\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}}^{2}\right\]\mathclose{}}{\varepsilon^2} && \text{(Markov's inequality, \$a = \varepsilon^2 \> 0\$)}\\ &= \frac{\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^{2}\right\]\mathclose{}}{\varepsilon^2} && \text{(definition of the estimation error)}\\ &= \frac{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}{\varepsilon^2} && \text{(definition of the mean squared error)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -207,7 +207,7 @@ Last modified: 2026-10-19 03:13:51 (PDT)
 >
 > *Proof*. The score has variance \\\mathcal{I}(\theta) \> 0\\ by [the theorem on the mean and variance of the score](intro-MLEs.llms.md#thm-information-equality), and \\\operatorname{Cov}\mathopen{}\left(\hat{\theta}, \ell'\right)\mathclose{} = 1\\ by [Lemma 2](#lem-cov-estimator-score). A constant has covariance zero with every random variable, so \\\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \> 0\\. The [correlation](https://morrison-lab.github.io/pds/variance-covariance.html#def-correlation) of \\\hat{\theta}\\ and the score is therefore defined, and by [its bounds](https://morrison-lab.github.io/pds/variance-covariance.html#thm-cor-bounds) its square is at most 1:
 >
-> \\ \begin{aligned} 1 &\ge {\mathopen{}\left(\operatorname{Cor}\mathopen{}\left(\hat{\theta}, \ell'\right)\mathclose{}\right)\mathclose{}}^2 && \text{(correlation lies in \$\[-1, 1\]\$)}\\ &= \frac{{\mathopen{}\left(\operatorname{Cov}\mathopen{}\left(\hat{\theta}, \ell'\right)\mathclose{}\right)\mathclose{}}^2}{\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\\operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}} && \text{(definition of correlation, squared)}\\ &= \frac{1^2}{\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\\mathcal{I}(\theta)} && \text{(covariance is 1; the score has variance \$\mathcal{I}(\theta)\$)}\\ &= \frac{1}{\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\\mathcal{I}(\theta)} && \text{(\$1^2 = 1\$)} \end{aligned} \\
+> \\ \begin{aligned} 1 &\ge {\mathopen{}\left(\operatorname{Cor}\mathopen{}\left(\hat{\theta}, \ell'\right)\mathclose{}\right)\mathclose{}}^{2} && \text{(correlation lies in \$\[-1, 1\]\$)}\\ &= \frac{{\mathopen{}\left(\operatorname{Cov}\mathopen{}\left(\hat{\theta}, \ell'\right)\mathclose{}\right)\mathclose{}}^{2}}{\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\\operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}} && \text{(definition of correlation, squared)}\\ &= \frac{1^2}{\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\\mathcal{I}(\theta)} && \text{(covariance is 1; the score has variance \$\mathcal{I}(\theta)\$)}\\ &= \frac{1}{\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\\mathcal{I}(\theta)} && \text{(\$1^2 = 1\$)} \end{aligned} \\
 >
 > Multiplying both sides by \\\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ and dividing by \\\mathcal{I}(\theta)\\, both positive, gives [Equation 5](#eq-cramer-rao).
 

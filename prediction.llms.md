@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 03:13:51 (PDT)
+Last modified: 2026-10-19 03:33:48 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -22,7 +22,7 @@ Last modified: 2026-10-19 03:13:51 (PDT)
 
 > **NOTE:**
 >
-> *Remark 1* (Why the estimated conditional mean is the usual prediction). The prediction in [Example 1](#exm-prediction-cond-mean) is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions \\h\\ of the covariate, \\{\operatorname{E}\mathopen{}\left\[Y \mid X\right\]\mathclose{}}\\ has the smallest expected squared error \\\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y- h\mathopen{}\left(X\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}\\ ([conditional mean minimizes squared-error risk](https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor)). The conditional mean is unknown, so we estimate it from data and predict with the estimate.
+> *Remark 1* (Why the estimated conditional mean is the usual prediction). The prediction in [Example 1](#exm-prediction-cond-mean) is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions \\h\\ of the covariate, \\{\operatorname{E}\mathopen{}\left\[Y \mid X\right\]\mathclose{}}\\ has the smallest expected squared error \\\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y- h\mathopen{}\left(X\right)\mathclose{}\right)\mathclose{}}^{2}\right\]\mathclose{}\\ ([conditional mean minimizes squared-error risk](https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor)). The conditional mean is unknown, so we estimate it from data and predict with the estimate.
 >
 > The target depends on the loss. For absolute error loss, the best prediction is the conditional median instead, and other losses have other targets [\[1, p. 20\]](#ref-hastie2009elements).
 

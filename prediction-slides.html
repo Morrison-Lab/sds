@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-19 03:13:51 (PDT)</p>
+  <p class="date">Last modified: 2026-10-19 03:33:48 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -373,7 +373,7 @@ text-align: center;
 <p><span class="math display">\[{\hat y\mathopen{}\left(x\right)\mathclose{}} = \mu(x; \hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}).\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-why-cond-mean" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Why the estimated conditional mean is the usual prediction). </span>The prediction in <a href="#/exm-prediction-cond-mean" class="quarto-xref">Example&nbsp;1</a> is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions <span class="math inline">\(h\)</span> of the covariate, <span class="math inline">\({\operatorname{E}\mathopen{}\left[Y \mid X\right]\mathclose{}}\)</span> has the smallest expected squared error <span class="math inline">\(\operatorname{E}\mathopen{}\left[{\mathopen{}\left(Y- h\mathopen{}\left(X\right)\mathclose{}\right)\mathclose{}}^2\right]\mathclose{}\)</span> (<a href="https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor">conditional mean minimizes squared-error risk</a>). The conditional mean is unknown, so we estimate it from data and predict with the estimate.</p>
+<p><span class="proof-title"><em>Remark 1</em> (Why the estimated conditional mean is the usual prediction). </span>The prediction in <a href="#/exm-prediction-cond-mean" class="quarto-xref">Example&nbsp;1</a> is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions <span class="math inline">\(h\)</span> of the covariate, <span class="math inline">\({\operatorname{E}\mathopen{}\left[Y \mid X\right]\mathclose{}}\)</span> has the smallest expected squared error <span class="math inline">\(\operatorname{E}\mathopen{}\left[{\mathopen{}\left(Y- h\mathopen{}\left(X\right)\mathclose{}\right)\mathclose{}}^{2}\right]\mathclose{}\)</span> (<a href="https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor">conditional mean minimizes squared-error risk</a>). The conditional mean is unknown, so we estimate it from data and predict with the estimate.</p>
 <p>The target depends on the loss. For absolute error loss, the best prediction is the conditional median instead, and other losses have other targets <span class="citation" data-cites="hastie2009elements"><a href="#/references" role="doc-biblioref" onclick="">[1, p. 20]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-fitted-value" class="theorem definition">

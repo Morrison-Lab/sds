@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 03:13:51 (PDT)
+Last modified: 2026-10-19 03:33:48 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -548,7 +548,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > [Equation 12](#eq-score-mean-zero) follows from [Theorem 14](#thm-score-mean-zero). For [Equation 13](#eq-information-equality), [Theorem 15](#thm-score-second-moment) gives \\\mathcal{I}(\theta) = \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{}\\, and because \\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} = 0\\,
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{}\right)\mathclose{}}^2 \\ &= \operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}. \end{aligned} \\
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{}\right)\mathclose{}}^{2} \\ &= \operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}. \end{aligned} \\
 
 > **NOTE:**
 >
@@ -1348,7 +1348,7 @@ From [Exercise 29](#exr-cyclone-score-fn) and [Exercise 31](#exr-hessian), the
 
 So the first-order Taylor approximation of the score function around \\{\widehat{\lambda}}^\*\\ is:
 
-\\ \begin{aligned} \ell'({\lambda}) &\approx \ell'^\*({\lambda})\\ &\stackrel{\text{def}}{=}\ell'({\widehat{\lambda}}^\*) + \ell''({\widehat{\lambda}}^\*)({\lambda}- {\widehat{\lambda}}^\*)\\ &= \mathopen{}\left(\frac{72}{{\widehat{\lambda}}^\*} - 13\right)\mathclose{} + \mathopen{}\left(-\frac{72}{{\mathopen{}\left({\widehat{\lambda}}^\*\right)\mathclose{}}^2}\right)\mathclose{} ({\lambda}- {\widehat{\lambda}}^\*) \end{aligned} \\
+\\ \begin{aligned} \ell'({\lambda}) &\approx \ell'^\*({\lambda})\\ &\stackrel{\text{def}}{=}\ell'({\widehat{\lambda}}^\*) + \ell''({\widehat{\lambda}}^\*)({\lambda}- {\widehat{\lambda}}^\*)\\ &= \mathopen{}\left(\frac{72}{{\widehat{\lambda}}^\*} - 13\right)\mathclose{} + \mathopen{}\left(-\frac{72}{{\mathopen{}\left({\widehat{\lambda}}^\*\right)\mathclose{}}^{2}}\right)\mathclose{} ({\lambda}- {\widehat{\lambda}}^\*) \end{aligned} \\
 
 [Figure 9](#fig-cyclone-newton-step1) compares the score function and the approximate score function at \\{\widehat{\lambda}}^\*= 3\\.
 
