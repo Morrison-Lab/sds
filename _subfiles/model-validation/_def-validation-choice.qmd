@@ -3,7 +3,7 @@
 
 Given candidate [fitting procedures](#def-fitting-procedure) $\candproc{1}, \ldots, \candproc{\ncand}$,
 the **validation choice** $\est{\icand}$
-is the index of the candidate whose [prediction rule](#def-fitted-model),
+is the index of the candidate whose [fitted model](#def-fitted-model),
 fitted to the training set $\trainset$,
 has the smallest [validation error](#def-validation-error):
 

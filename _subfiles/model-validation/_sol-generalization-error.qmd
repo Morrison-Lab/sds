@@ -13,7 +13,7 @@
    The joint distribution of $(\newpredvar, \newoutvar)$ is unknown,
    so the expectation cannot be computed.
    If we knew that distribution,
-   we would not need data to build a prediction rule.
+   we would not need data to build a [fitted model](#def-fitted-model).
 
 3. The training error $\trainerr$ replaces the expectation
    over new cars

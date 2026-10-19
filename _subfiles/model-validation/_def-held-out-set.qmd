@@ -5,7 +5,7 @@ A **held-out set** for a [training set](#def-training-set) $\trainset$
 is a list of $\nheld$ further observations,
 none of them in $\trainset$,
 that the [fitting procedure](#def-fitting-procedure) does not use
-and on which the [prediction rule](#def-fitted-model) $\fitted$ is scored:
+and on which the [fitted model](#def-fitted-model) $\fitted$ is scored:
 
 $$
 \paren{(\heldpredval{1}, \heldoutval{1}), \ldots, (\heldpredval{\nheld}, \heldoutval{\nheld})}.
