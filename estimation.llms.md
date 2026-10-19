@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 01:42:24 (PDT)
+Last modified: 2026-10-19 02:56:37 (PDT)
 
 ## 1 Scientific models
 
@@ -174,7 +174,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> **Exercise 1 (Bias in terms of the expectation)** Write the [bias](#def-bias) \\\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ of an estimator \\\hat{\theta}\\ in terms of its expected value \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\ and the estimand \\\theta\\.
+> **Exercise 1 (Bias in terms of the expectation)** Derive an expression for the [bias](#def-bias) \\\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ of an [estimator](#def-estimator) \\\hat{\theta}\\ in terms of its expected value \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\ and the estimand \\\theta\\.
 
 > **NOTE:**
 >
@@ -254,7 +254,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> **Exercise 4 (Expanding the population mean squared error)** Write the [pMSE](#def-mse) \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ in terms of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}\\, \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\, and the estimand \\\theta\\.
+> **Exercise 4 (Expanding the population mean squared error)** Derive an expression for the [pMSE](#def-mse) \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ in terms of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}\\, \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\, and the estimand \\\theta\\.
 
 > **NOTE:**
 >

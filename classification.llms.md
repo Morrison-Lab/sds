@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 01:42:24 (PDT)
+Last modified: 2026-10-19 02:56:37 (PDT)
 
 ## 1 Introduction
 
@@ -146,7 +146,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Exercise 1 (Probability of a positive test)** Write the probability \\\Pr(+)\\ that a diagnostic test is positive in terms of:
+> **Exercise 1 (Probability of a positive test)** Derive an expression for the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) \\\Pr(+)\\ that a diagnostic test is positive in terms of:
 >
 > - the test’s [sensitivity](#def-sensitivity);
 > - the test’s [specificity](#def-specificity);
@@ -170,7 +170,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Exercise 2 (PPV from Bayes’ theorem)** Write the [positive predictive value](#def-ppv) of a diagnostic test in terms of:
+> **Exercise 2 (PPV from Bayes’ theorem)** Derive an expression for the [positive predictive value](#def-ppv) of a diagnostic test in terms of:
 >
 > - its [sensitivity](#def-sensitivity);
 > - its [specificity](#def-specificity);

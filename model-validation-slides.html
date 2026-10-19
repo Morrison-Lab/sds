@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-19 01:42:24 (PDT)</p>
+  <p class="date">Last modified: 2026-10-19 02:56:37 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -831,7 +831,7 @@ Y\mid X= x
 <p><span class="proof-title"><em>Remark 11</em> (Source: Expected prediction error at a covariate value). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. <a href="#/references" role="doc-biblioref" onclick="">[3, Sec. 7.3]</a></span> write this quantity as <span class="math inline">\(\operatorname{Err}(x_0)\)</span> for squared-error loss.</p>
 </div>
 </section><section class="slide level2"><div id="exr-expected-error-epe" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 (The expected generalization error, covariate value by covariate value)</strong></span> Let <span class="math inline">\(g\)</span> be a <a href="#/def-fitting-procedure">fitting procedure</a>, and let the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations be independent of the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span>. Write the <a href="#/def-expected-generalization-error">expected generalization error</a> <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> in terms of the <a href="#/def-epl">expected prediction loss at <span class="math inline">\(x\)</span></a>, <span class="math inline">\(\operatorname{EPL}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span>, and the distribution of <span class="math inline">\(X_{*}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 3 (The expected generalization error, covariate value by covariate value)</strong></span> Let <span class="math inline">\(g\)</span> be a <a href="#/def-fitting-procedure">fitting procedure</a>, and let the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations be independent of the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span>. Derive an expression for the <a href="#/def-expected-generalization-error">expected generalization error</a> <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> in terms of the <a href="#/def-epl">expected prediction loss at <span class="math inline">\(x\)</span></a>, <span class="math inline">\(\operatorname{EPL}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span>, and the distribution of <span class="math inline">\(X_{*}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-expected-error-epe" class="proof solution">
 <p><span class="proof-title"><em>Solution 3</em>. </span><span class="math display">\[
@@ -992,7 +992,7 @@ Y\mid X= x
 <p>Two of the three terms simplify. Say what each becomes, and name which facts about the noise hold by definition and which hypothesis makes the cross term zero.</p>
 </div>
 </section><section class="slide level2"><div id="sol-epe-split-noise" class="proof solution">
-<p><span class="proof-title"><em>Solution 7</em>. </span>Write the prediction error as noise plus the error of the prediction, used as an <a href="./estimation.html#def-estimator">estimator</a> of the <a href="#/def-mean-function">mean function</a> value <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span>:</p>
+<p><span class="proof-title"><em>Solution 7</em>. </span>Express the <a href="./prediction.html#def-prediction-error">prediction error</a> as <a href="#/def-noise">noise</a> plus the error of the <a href="./prediction.html#def-prediction">prediction</a>, used as an <a href="./estimation.html#def-estimator">estimator</a> of the <a href="#/def-mean-function">mean function</a> value <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}
