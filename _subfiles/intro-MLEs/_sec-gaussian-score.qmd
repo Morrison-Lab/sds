@@ -70,10 +70,10 @@ $$
 $$
 
 For the second entry,
-write the population variance $\varpar$ as a single variable $v$,
-so that the log-likelihood $\llik$ contains
+write the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar$ as a single variable $v$,
+so that the [log-likelihood](#def-loglik) $\llik$ contains
 $-\frac{n}{2}\log v$ and $-\frac{1}{2}v^{-1} S$,
-where the sum of squared deviations $S = \ssdev{\mean}$ from the mean parameter $\mean$ does not depend on $\varpar$:
+where the sum of squared [deviations](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $S = \ssdev{\mean}$ from the mean parameter $\mean$ does not depend on $\varpar$:
 
 $$
 \begin{aligned}
