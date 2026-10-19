@@ -4,7 +4,7 @@
 
 A **logistic regression** model for binary outcomes $\outvar_1, \dots, \outvar_n \in \set{0, 1}$
 with predictor vectors $\vpredvar_1, \dots, \vpredvar_n$
-says that the outcomes are independent and that [@wikipedia_logistic_regression]
+says that the outcomes are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) and that
 
 $$
 \Prf{\Outvar_\iobs = 1 \mid \vpredvar_\iobs} = \prob_i

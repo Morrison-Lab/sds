@@ -3,7 +3,7 @@
 
 For observed values $\dsn{x}$,
 the **order statistics** are the same values sorted in increasing order,
-written [@wikipedia_order_statistic]
+written
 
 $$x_{(1)} \le x_{(2)} \le \cdots \le x_{(n)}.$$
 

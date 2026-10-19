@@ -3,7 +3,7 @@
 
 The **positive predictive value** of a diagnostic test is the probability
 that the person tested has the disease ($D$),
-given that the test is positive ($+$) [@wikipedia_positive_and_negative_predictive_values]:
+given that the test is positive ($+$):
 
 $$\text{PPV} \eqdef \Pr(D \mid +)$$ {#eq-ppv}
 

@@ -4,7 +4,7 @@
 A $100(1-\siglevel)\%$ **credible interval** for a parameter $\param$,
 given observed data $\vy$,
 is an interval $\sb{l(\vy),\, r(\vy)}$
-whose [posterior](#def-posterior) probability is $1 - \siglevel$ [@wikipedia_credible_interval]:
+whose [posterior](#def-posterior) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $1 - \siglevel$:
 
 $$
 \Pr\paren{l(\vy) \le \param \le r(\vy) \mid \vY = \vy} = 1 - \siglevel.
