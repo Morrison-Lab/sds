@@ -18,7 +18,9 @@ resources:
 ```{r}
 #| label: python-packages
 #| include: false
-reticulate::py_require(c("numpy", "pandas", "statsmodels", "matplotlib", "SyncRNG"))
+reticulate::py_require(
+  c("numpy", "pandas", "statsmodels", "matplotlib", "SyncRNG")
+)
 ```
 
 ## Data sets, input matrices and outcome vectors {#sec-data-sets}

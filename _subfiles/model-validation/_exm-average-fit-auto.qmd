@@ -44,11 +44,13 @@ print(preds_af.mean().round(2), preds_af.min().round(2), preds_af.max().round(2)
 auto_af <- read.csv("data/auto.csv")
 auto_af <- na.omit(auto_af[, c("mpg", "cylinders", "horsepower")])
 
-# SyncRNG is a random number generator with the same algorithm in R and Python, so the draws match the Python tab.
+# SyncRNG is a random number generator with the same algorithm
+# in R and Python, so the draws match the Python tab.
 library(SyncRNG)
 rng_af <- SyncRNG(seed = 1)
 coefs_af <- t(replicate(2000, {
-  # One training set: the first 30 rows of a shuffle of all the rows, and the line fitted to it.
+  # One training set: the first 30 rows of a shuffle of all the rows,
+  # and the line fitted to it.
   rows <- rng_af$shuffle(seq_len(nrow(auto_af)))[1:30]
   coef(lm(mpg ~ cylinders, data = auto_af[rows, ]))
 }))
@@ -56,9 +58,15 @@ coefs_af <- t(replicate(2000, {
 preds_af <- coefs_af[, 1] + coefs_af[, 2] * 4
 
 # The expected prediction at 4 cylinders is the mean of those predictions.
-# The Monte Carlo standard error of that mean is the spread of the predictions over sqrt(2000).
+# The Monte Carlo standard error of that mean is the spread of the
+# predictions over sqrt(2000).
 mc_se_af <- sd(preds_af) / sqrt(2000)
-c(round(c(mean = mean(preds_af), min = min(preds_af), max = max(preds_af)), 2), mc_se = round(mc_se_af, 3))
+summary_af <- c(
+  mean = mean(preds_af),
+  min = min(preds_af),
+  max = max(preds_af)
+)
+c(round(summary_af, 2), mc_se = round(mc_se_af, 3))
 ```
 
 :::
@@ -105,11 +113,24 @@ plt.show()
 ### R
 
 ```{r}
-#| fig-alt: "A plot of miles per gallon against cylinders, from 3 to 8. One hundred faint grey lines slope downward and fan out, most widely at 3 and 8 cylinders and most narrowly between 6 and 7 cylinders. A thick blue line, the average of all 2000 fitted lines, runs down through the middle of the grey lines. A thick orange line with points at 3, 4, 5, 6 and 8 cylinders, the mean mpg of the cars with that many cylinders, is not straight: it starts well below the blue line at 3 cylinders, rises above it at 4 and 5, and then follows it down to 8. A legend below the plot names the three: one fitted line, expected prediction, and true mean function."
+#| fig-alt: >-
+#|   A plot of miles per gallon against cylinders, from 3 to 8.
+#|   One hundred faint grey lines slope downward and fan out,
+#|   most widely at 3 and 8 cylinders
+#|   and most narrowly between 6 and 7 cylinders.
+#|   A thick blue line, the average of all 2000 fitted lines,
+#|   runs down through the middle of the grey lines.
+#|   A thick orange line with points at 3, 4, 5, 6 and 8 cylinders,
+#|   the mean mpg of the cars with that many cylinders, is not straight:
+#|   it starts well below the blue line at 3 cylinders,
+#|   rises above it at 4 and 5, and then follows it down to 8.
+#|   A legend below the plot names the three:
+#|   one fitted line, expected prediction, and true mean function.
 library(ggplot2)
 
 grid_af <- 3:8
-# One row per fitted line and cylinder count; the pointwise expected prediction is the mean over lines.
+# One row per fitted line and cylinder count;
+# the pointwise expected prediction is the mean over lines.
 lines_af <- data.frame(
   line = rep(seq_len(nrow(coefs_af)), each = length(grid_af)),
   cylinders = grid_af,
@@ -119,14 +140,34 @@ avg_af <- aggregate(fit ~ cylinders, data = lines_af, FUN = mean)
 # The true mean function is the mean mpg of the cars with each cylinder count.
 truth_af <- aggregate(mpg ~ cylinders, data = auto_af, FUN = mean)
 
+line_name_af <- "One fitted line (100 shown)"
+avg_name_af <- "Expected prediction"
+truth_name_af <- "True mean function"
+
 ggplot() +
-  geom_line(data = subset(lines_af, line <= 100), aes(cylinders, fit, group = line, colour = "One fitted line (100 shown)"), alpha = 0.3) +
-  geom_line(data = avg_af, aes(cylinders, fit, colour = "Expected prediction"), linewidth = 1.5) +
-  geom_line(data = truth_af, aes(cylinders, mpg, colour = "True mean function"), linewidth = 1.5) +
-  geom_point(data = truth_af, aes(cylinders, mpg, colour = "True mean function"), size = 3) +
+  geom_line(
+    data = subset(lines_af, line <= 100),
+    aes(cylinders, fit, group = line, colour = line_name_af),
+    alpha = 0.3
+  ) +
+  geom_line(
+    data = avg_af,
+    aes(cylinders, fit, colour = avg_name_af),
+    linewidth = 1.5
+  ) +
+  geom_line(
+    data = truth_af,
+    aes(cylinders, mpg, colour = truth_name_af),
+    linewidth = 1.5
+  ) +
+  geom_point(
+    data = truth_af,
+    aes(cylinders, mpg, colour = truth_name_af),
+    size = 3
+  ) +
   scale_colour_manual(
-    values = c("One fitted line (100 shown)" = "grey60", "Expected prediction" = "steelblue", "True mean function" = "darkorange"),
-    breaks = c("One fitted line (100 shown)", "Expected prediction", "True mean function")
+    values = c("grey60", "steelblue", "darkorange"),
+    breaks = c(line_name_af, avg_name_af, truth_name_af)
   ) +
   guides(colour = guide_legend(override.aes = list(alpha = 1))) +
   labs(x = "cylinders", y = "miles per gallon", colour = NULL) +
