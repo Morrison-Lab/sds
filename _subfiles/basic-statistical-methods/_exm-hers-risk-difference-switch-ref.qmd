@@ -1,0 +1,16 @@
+::: {#exm-hers-risk-difference-switch-ref}
+
+#### Switching the reference group in the HERS risk difference
+
+In @exm-hers-risk-difference the placebo group is the [reference group](#def-reference-group), and the estimated [risk difference](#def-risk-difference) is `r round(rd_hat, 3)`.
+Taking the hormone therapy group as the reference group instead gives:
+
+```{r}
+#| label: hers-risk-difference-switch-ref
+#| code-fold: false
+rd_hat_switched <- risk_hat[["placebo"]] - risk_hat[["hormone therapy"]]
+rd_hat_switched
+```
+
+This [estimate](estimation.qmd#def-estimate), `r round(rd_hat_switched, 3)`, is the negative of `r round(rd_hat, 3)`, as @thm-risk-difference-switch-ref states.
+:::

@@ -1,0 +1,13 @@
+::: {#sol-risk-ratio-switch-ref}
+
+$$
+\begin{aligned}
+\frac{\risk_2}{\risk_1}
+&= \frac{1}{\risk_1 / \risk_2}
+&& \text{(the reciprocal of a quotient swaps numerator and denominator)}
+\\ &= \frac{1}{\riskratio}
+&& \text{(definition of $\riskratio$)}
+\end{aligned}
+$$
+
+:::

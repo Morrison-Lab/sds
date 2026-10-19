@@ -1,0 +1,16 @@
+::: {#exm-hers-risk-ratio-switch-ref}
+
+#### Switching the reference group in the HERS risk ratio
+
+In @exm-hers-risk-ratio the placebo group is the [reference group](#def-reference-group), and the estimated [risk ratio](#def-risk-ratio) is `r round(rr_hat, 3)`.
+Taking the hormone therapy group as the reference group instead gives:
+
+```{r}
+#| label: hers-risk-ratio-switch-ref
+#| code-fold: false
+rr_hat_switched <- risk_hat[["placebo"]] / risk_hat[["hormone therapy"]]
+rr_hat_switched
+```
+
+This [estimate](estimation.qmd#def-estimate), `r round(rr_hat_switched, 3)`, is the reciprocal of `r round(rr_hat, 3)`, `r round(1 / rr_hat, 3)`, as @thm-risk-ratio-switch-ref states.
+:::

@@ -1,0 +1,10 @@
+::: {#exr-risk-difference-switch-ref}
+
+Let:
+
+- $\risk_1$ and $\risk_2$ be the [risks](#def-outcome-risk) of a [binary](data.qmd#def-binary-var) outcome in group 1 and group 2.
+- $\RD \eqdef \risk_1 - \risk_2$ be the [risk difference](#def-risk-difference) of group 1 compared with group 2.
+
+Express the risk difference of group 2 compared with group 1, $\risk_2 - \risk_1$, in terms of $\RD$.
+
+:::

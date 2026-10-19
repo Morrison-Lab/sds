@@ -1,0 +1,13 @@
+::: {#sol-risk-difference-switch-ref}
+
+$$
+\begin{aligned}
+\risk_2 - \risk_1
+&= -1 \cdot \paren{\risk_1 - \risk_2}
+&& \text{(factor $-1$ out of both terms)}
+\\ &= -\RD
+&& \text{(definition of $\RD$)}
+\end{aligned}
+$$
+
+:::

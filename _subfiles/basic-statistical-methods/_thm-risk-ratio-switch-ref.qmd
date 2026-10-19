@@ -1,0 +1,19 @@
+::: {#thm-risk-ratio-switch-ref}
+
+#### Switching the reference group in a risk ratio
+
+Let:
+
+- $\risk_1$ and $\risk_2 > 0$ be the [risks](#def-outcome-risk) of a [binary](data.qmd#def-binary-var) outcome in group 1 and group 2.
+- $\riskratio \eqdef \risk_1 / \risk_2$ be the [risk ratio](#def-risk-ratio) of group 1 compared with group 2, with group 2 as the [reference group](#def-reference-group).
+- $\riskratio > 0$.
+
+Then the risk ratio of group 2 compared with group 1, with group 1 as the reference group, is the reciprocal of $\riskratio$:
+
+$$\frac{\risk_2}{\risk_1} = \frac{1}{\riskratio}.$$
+
+:::
+
+::: proof
+This is the result of @sol-risk-ratio-switch-ref.
+:::
