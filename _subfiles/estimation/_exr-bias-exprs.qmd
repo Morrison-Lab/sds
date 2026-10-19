@@ -1,7 +1,7 @@
 :::{#exr-bias-exprs}
 #### Bias in terms of the expectation
 
-Write the [bias](#def-bias) $\bias{\hparam}$ of an estimator $\hparam$
+Derive an expression for the [bias](#def-bias) $\bias{\hparam}$ of an [estimator](#def-estimator) $\hparam$
 in terms of its expected value $\E{\hparam}$ and the estimand $\param$.
 :::
 
