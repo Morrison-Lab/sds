@@ -1,0 +1,4 @@
+[Plotting a Binary Outcome](https://morrison-lab.github.io/vds/chapters/binary-outcomes.html)
+shows how to plot a 0/1 outcome against a continuous feature,
+where scatterplot dots would pile into two stripes.
+It draws a rug and two histograms of the WCGS data, in R and Python.
