@@ -5,7 +5,7 @@ The [cross-validation choice procedure](#def-cv-choice) $\fitproc$ over polynomi
 
 - [model family](#def-model-family) $\modelfam$: the polynomials of every candidate degree;
 - [objective function](#def-objective-function) $\objfn$: the residual sum of squares within each candidate, and the [cross-validation estimate](#def-cv-estimate-indexed) between candidates;
-- [optimization algorithm](#def-optimization-algorithm) $\optalg$: the normal equations for each candidate, then keeping the candidate with the smallest cross-validation estimate of its [expected generalization error](#def-expected-generalization-error) $\expgenerr{\candproc{\polydeg}}{\nobs}$;
+- [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) $\optalg$: the [normal equations](correlation-regression.qmd#def-normal-equations) for each candidate, then keeping the candidate with the smallest cross-validation estimate of its [expected generalization error](#def-expected-generalization-error) $\expgenerr{\candproc{\polydeg}}{\nobs}$;
 - [random seed](#def-random-seed) $\seed$: fixes the random [fold assignment](#def-fold-assignment);
 - [tuning parameter](#def-tuning-parameter) $\tuning$: none, since cross-validation chooses the degree;
 - [preprocessing](#def-preprocessing) $\featmap$: none.

@@ -2,7 +2,7 @@
 #### Exact and exhaustive searches
 
 For the residual sum of squares over the polynomials in @exm-objective-function,
-solving the [normal equations](correlation-regression.qmd#def-normal-equations) is an [optimization algorithm](#def-optimization-algorithm) $\optalg$
+solving the [normal equations](correlation-regression.qmd#def-normal-equations) is an [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) $\optalg$
 that finds the unique minimizer in one step.
 
 Trying every member of a finite model family and keeping the one with the smallest value of the objective function is another,
