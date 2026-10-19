@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 13:42:50 (PDT)
+Last modified: 2026-10-19 14:20:47 (PDT)
 
 ## 1 Types of variables
 
@@ -12,7 +12,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Definition 1 (Numerical variable (quantitative variable))** A **numerical** (or **quantitative**) variable is a variable that takes values on a numeric scale, where arithmetic operations such as subtraction (and possibly division) are meaningful. Numerical variables may be further classified as [interval](#def-interval-var) or [ratio](#def-ratio-var) variables, and as [continuous](#def-continuous-var) or [discrete](#def-discrete-var).
+> **Definition 1 (Numerical variable (quantitative variable))** A **numerical** (or **quantitative**) variable is a variable that takes values on a numeric scale, where arithmetic operations such as subtraction (and possibly division) are meaningful.
 
 > **NOTE:**
 >
@@ -55,7 +55,11 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> *Remark 1* (Types of discrete variables). Discrete variables include both numerical types (such as [count variables](#def-count)) and categorical types (such as binary, nominal, and ordinal variables). In contrast, continuous variables are always numerical.
+> *Remark 1* (Subtypes of numerical variables). A [numerical variable](#def-numerical-var) may be classified in two ways: as an [interval variable](#def-interval-var) or a [ratio variable](#def-ratio-var), and as a [continuous variable](#def-continuous-var) or a [discrete variable](#def-discrete-var).
+
+> **NOTE:**
+>
+> *Remark 2* (Types of discrete variables). Discrete variables include both numerical types (such as [count variables](#def-count)) and categorical types (such as binary, nominal, and ordinal variables). In contrast, continuous variables are always numerical.
 
 > **NOTE:**
 >
@@ -67,7 +71,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> *Remark 2* (Kinds of categorical variables). Categorical variables may be nominal (unordered) or ordinal (ordered), and are always discrete.
+> *Remark 3* (Kinds of categorical variables). Categorical variables may be nominal (unordered) or ordinal (ordered), and are always discrete.
 
 > **NOTE:**
 >
@@ -124,7 +128,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> *Remark 3* (Other ways to code dummy variables). There are other ways to construct dummy variables. One is to use the values \\-1\\ and \\1\\: for example, \\-1\\ for “female” and \\1\\ for “male”. See Dobson and Barnett [\[1\]](#ref-dobson4e), section 2.4, for details.
+> *Remark 4* (Other ways to code dummy variables). There are other ways to construct dummy variables. One is to use the values \\-1\\ and \\1\\: for example, \\-1\\ for “female” and \\1\\ for “male”. See Dobson and Barnett [\[1\]](#ref-dobson4e), section 2.4, for details.
 
 > **NOTE:**
 >
@@ -134,7 +138,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Example 11 (Indicator variables for chromosomal sex)** In [Example 10](#exm-dummy-sex), \\M\\ and \\F\\ are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values \\-1\\ and \\1\\ ([Remark 3](#rem-dummy-other-codings)) is not an indicator variable.
+> **Example 11 (Indicator variables for chromosomal sex)** In [Example 10](#exm-dummy-sex), \\M\\ and \\F\\ are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values \\-1\\ and \\1\\ ([Remark 4](#rem-dummy-other-codings)) is not an indicator variable.
 
 > **NOTE:**
 >
@@ -142,7 +146,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> *Remark 4* (Source: Reference level). Dobson and Barnett [\[1, Sec. 2.4\]](#ref-dobson4e), who call this the corner point parameterization.
+> *Remark 5* (Source: Reference level). Dobson and Barnett [\[1, Sec. 2.4\]](#ref-dobson4e), who call this the corner point parameterization.
 
 > **NOTE:**
 >
@@ -150,7 +154,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> *Remark 5* (Any category can be the reference level). The choice of reference level changes how we code the categories. It does not change what the data say. For example, in [Example 12](#exm-reference-level-sex), we could instead use “male” as the reference level and the indicator variable \\F\\ for “female”. Both choices describe the same two groups.
+> *Remark 6* (Any category can be the reference level). The choice of reference level changes how we code the categories. It does not change what the data say. For example, in [Example 12](#exm-reference-level-sex), we could instead use “male” as the reference level and the indicator variable \\F\\ for “female”. Both choices describe the same two groups.
 
 ## 3 Taxonomy of variable types
 
