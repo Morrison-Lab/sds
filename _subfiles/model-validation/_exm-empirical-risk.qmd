@@ -5,7 +5,7 @@ The `birthwt` data record the birth weight in grams of babies born at Baystate M
 as distributed in R's `MASS` package [@venables2002modern].
 We fit a [linear regression](basic-statistical-methods.qmd#def-linear-regression) of birth weight on the mother's weight at her last menstrual period and her smoking status.
 We use every third row as the [held-out set](#def-held-out-set) and fit on the remaining rows, the [training set](#def-training-set).
-The [loss](#def-observation-loss) is the squared error, so the empirical risk is the mean of the squared prediction errors.
+The [loss](#def-observation-loss) is the squared error, so the [empirical risk](#def-empirical-risk) is the mean of the squared [prediction errors](prediction.qmd#def-prediction-error).
 
 ::: {.panel-tabset group="language"}
 
@@ -61,7 +61,7 @@ empirical_risks
 Of the `r nrow(birthwt)` babies, `r sum(!is_held_out)` are in the [training set](#def-training-set).
 The [fitted model](#def-fitted-model) has an [empirical risk](#def-empirical-risk) of
 `r format(round(empirical_risks[["training"]]), big.mark = ",")` squared grams on the training set
-and `r format(round(empirical_risks[["held_out"]]), big.mark = ",")` squared grams on the held-out set.
-Its square root, `r round(sqrt(empirical_risks[["training"]]))` grams, is the typical size of a training prediction error.
+and `r format(round(empirical_risks[["held_out"]]), big.mark = ",")` squared grams on the [held-out set](#def-held-out-set).
+Its square root, `r round(sqrt(empirical_risks[["training"]]))` grams, is the typical [prediction error](prediction.qmd#def-prediction-error) on the training set.
 
 :::
