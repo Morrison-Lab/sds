@@ -8,7 +8,7 @@ A **training/validation/test split** divides the observations $1, \ldots, \nobs$
 into three disjoint sets of indices,
 $\trainidx$, $\validx$ and $\testidx$,
 and takes the observations in $\trainidx$
-as the [training set](#def-training-set) [@wikipedia_training_validation_and_test_data_sets]:
+as the [training set](#def-training-set):
 
 $$
 \ba
