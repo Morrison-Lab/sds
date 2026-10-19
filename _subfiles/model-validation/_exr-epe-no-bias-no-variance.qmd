@@ -2,7 +2,7 @@
 #### Expected squared prediction error without bias or variance
 
 Make the assumptions of @exr-epe-three-sources.
-If we could remove all bias and all variance of $\predvalf{\predvar}$,
+If we could remove all [bias](#def-prediction-bias) and all [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of $\predvalf{\predvar}$,
 what would the [expected squared prediction error](#def-epe) at $\predvar$ be?
 
 :::

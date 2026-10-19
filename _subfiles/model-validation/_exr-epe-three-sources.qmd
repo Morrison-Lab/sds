@@ -11,7 +11,7 @@ Assume:
 - $\newpredvar = \predvar$,
 - the squared [bias](#def-prediction-bias) of $\predvalf{\predvar}$ is $\sqf{\bias{\predvalf{\predvar}}} = 1$,
 - the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of $\predvalf{\predvar}$ is $\Var{\predvalf{\predvar}} = 2$, and
-- the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of the [noise](#def-noise) of $\newoutvar$, the population noise variance $\varpar$, is $\varpar = 3$.
+- the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar$ of the [noise](#def-noise) of $\newoutvar$ is $3$.
 
 What is the [expected squared prediction error](#def-epe) $\epe{\fitproc}{\nobs}{\predvar}$?
 
