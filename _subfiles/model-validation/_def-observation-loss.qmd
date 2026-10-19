@@ -1,7 +1,7 @@
 :::{#def-observation-loss}
 #### Loss of a prediction rule on an observation
 
-The **loss** of a [prediction rule](#def-prediction-rule) $\fitted$ on an observation $(\predvar_{\iobs}, \outvar_{\iobs})$
+The **loss** of a [prediction rule](#def-fitted-model) $\fitted$ on an observation $(\predvar_{\iobs}, \outvar_{\iobs})$
 is the cost, under a [loss function](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) $\loss$,
 of its prediction $\predvalf{\predvar_{\iobs}}$ of the outcome $\outvar_{\iobs}$:
 

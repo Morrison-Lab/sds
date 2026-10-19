@@ -1,7 +1,7 @@
 :::{#def-validation-error}
 #### Validation error
 
-The **validation error** of a [prediction rule](#def-prediction-rule) $\fitted$
+The **validation error** of a [prediction rule](#def-fitted-model) $\fitted$
 fitted to a [training set](#def-training-set) $\trainset$
 is its sample mean [loss](#def-observation-loss) $\obsloss{\iobs}$
 on the [validation set](#def-validation-set), indexed by $\validx$:

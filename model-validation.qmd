@@ -106,7 +106,7 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-prediction-rule.qmd >}}
+{{< include sds/_subfiles/model-validation/_rem-prediction-rule.qmd >}}
 
 {{< slidebreak >}}
 
@@ -266,6 +266,18 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-irreducible-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-irreducible-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-irreducible-error.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_exr-epe-three-sources.qmd >}}
 
 {{< slidebreak >}}
@@ -315,10 +327,6 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_thm-epe-decomposition.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/model-validation/_def-irreducible-error.qmd >}}
 
 {{< slidebreak >}}
 

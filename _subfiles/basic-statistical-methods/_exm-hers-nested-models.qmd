@@ -1,0 +1,32 @@
+::: {#exm-hers-nested-models}
+#### Nested models for fasting glucose in HERS
+
+In the HERS data, take the linear regression of `glucose` on `BMI` as the smaller model.
+The [larger model](#def-nested-regression-models) adds `age` and `exercise`, so $q = 2$:
+
+$$
+\begin{aligned}
+  \text{smaller:}\quad \mean(\text{glucose})
+    &= \intcoef + \coef{\text{BMI}} \cdot \text{BMI}, \\
+  \text{larger:}\quad \mean(\text{glucose})
+    &= \intcoef + \coef{\text{BMI}} \cdot \text{BMI}
+      + \coef{\text{age}} \cdot \text{age}
+      + \coef{\text{exercise}} \cdot \text{exercise}.
+\end{aligned}
+$$
+
+Both models must be fitted to the same HERS participants,
+so keep the participants with all four variables measured:
+
+```{r}
+#| label: hers-nested-fits
+#| code-fold: false
+hers_nested <- hers |>
+  tidyr::drop_na(glucose, BMI, age, exercise)
+fit_smaller <- lm(glucose ~ BMI, data = hers_nested)
+fit_larger <- lm(glucose ~ BMI + age + exercise, data = hers_nested)
+nrow(hers_nested)
+```
+
+The smaller model sets $\coef{\text{age}} = \coef{\text{exercise}} = 0$ in the larger one.
+:::

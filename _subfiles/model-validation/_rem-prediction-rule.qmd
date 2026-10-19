@@ -1,0 +1,14 @@
+:::{#rem-prediction-rule}
+#### Notation for the fitted model from a training set
+
+The [fitted model](#def-fitted-model) $\fitmodf{\trainset}$
+that a [fitting procedure](#def-fitting-procedure) $\fitproc$
+produces from the [training set](#def-training-set) $\trainset$
+is written $\fitted$,
+without the subscript when the training set is the one in use:
+
+$$
+\fitted \eqdef \fitmodf{\trainset}.
+$$ {#eq-prediction-rule}
+
+:::
