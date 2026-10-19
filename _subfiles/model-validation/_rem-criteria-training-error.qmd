@@ -4,11 +4,11 @@
 @def-adjusted-r-squared, @def-mallows-cp, @def-aic and @def-bic each correct a fit measure computed on the [training set](#def-training-set) for the number of parameters.
 They need no [held-out set](#def-held-out-set), so they cost one fit per model, where [cross-validation](#def-kfold) costs several.
 
-For a least squares model with Gaussian noise of known variance, $-2 \llikf{\est{\vparam}}$ equals $\text{RSS}(\est{\vparam}) / \varpar$ plus a constant that does not depend on the model.
+For a least squares model with Gaussian [noise](#def-noise) of known [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), $-2 \llikf{\est{\vparam}}$ equals $\text{RSS}(\est{\vparam}) / \varpar$ plus a constant that does not depend on the model.
 AIC then equals $\nobs C_p / \varpar$ plus a constant, so the two criteria rank models the same way.
 
-Each criterion assumes a model family whose parameter count measures its [flexibility](#def-flexibility).
-When the noise variance is estimated from the fitted model itself, the estimate can reach zero, and the criteria then fail.
+Each criterion assumes a [model family](#def-model-family) whose parameter count measures its [flexibility](#def-flexibility).
+When the noise variance is [estimated](estimation.qmd#def-estimate) from the [fitted model](#def-fitted-model) itself, the estimate can reach zero, and the criteria then fail.
 Cross-validation makes no such assumption.
 
 :::

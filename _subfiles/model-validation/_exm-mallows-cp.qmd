@@ -6,7 +6,7 @@ from _exm-adjusted-r-squared.qmd, so it renders after that one.
 #### Mallows' $C_p$ of nested `mtcars` models
 
 This example computes @def-mallows-cp for the four models of @exm-adjusted-r-squared.
-The [estimate](estimation.qmd#def-estimate) $\est{\varpar}$ of the noise variance is the residual variance of the model with all four predictors,
+The [estimate](estimation.qmd#def-estimate) $\est{\varpar}$ of the [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) is the [residual](prediction.qmd#def-residual) variance of the model with all four predictors,
 `r round(mtcars_full_sigma2, 2)`.
 
 ```{r}
