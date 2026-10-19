@@ -3,7 +3,7 @@
 
 Let $\candproc{1}$ and $\candproc{2}$ be [fitting procedures](#def-fitting-procedure)
 that each choose, by least squares,
-a [prediction rule](#def-fitted-model) from a set of candidate functions,
+a [prediction rule](#def-fitted-model) from a set of candidate [functions](https://morrison-lab.github.io/mds/functions.html#def-function),
 $\candfnset{1}$ and $\candfnset{2}$ respectively.
 The procedure $\candproc{2}$ is **at least as flexible** as $\candproc{1}$
 if every candidate of $\candproc{1}$ is also a candidate of $\candproc{2}$:
