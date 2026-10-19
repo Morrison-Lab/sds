@@ -1,0 +1,7 @@
+:::{#sol-epe-no-bias-no-variance}
+
+$0 + 0 + 3 = 3$.
+The population noise variance $\varpar = 3$ remains,
+so $3$ is the smallest expected squared prediction error any [prediction](prediction.qmd#def-prediction) can have here.
+
+:::

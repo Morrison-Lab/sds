@@ -1,0 +1,8 @@
+:::{#exr-epe-no-bias-no-variance}
+#### Expected squared prediction error without bias or variance
+
+Make the assumptions of @exr-epe-three-sources.
+If we could remove all bias and all variance of $\predvalf{\predvar}$,
+what would the [expected squared prediction error](#def-epe) at $\predvar$ be?
+
+:::

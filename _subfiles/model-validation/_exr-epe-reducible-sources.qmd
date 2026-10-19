@@ -1,0 +1,10 @@
+:::{#exr-epe-reducible-sources}
+#### Which sources of error a better method can reduce
+
+Make the assumptions of @exr-epe-three-sources.
+Which of the three quantities
+(the squared bias, the variance of $\predvalf{\predvar}$, and the population noise variance $\varpar$)
+can a better prediction method reduce,
+and which cannot?
+
+:::

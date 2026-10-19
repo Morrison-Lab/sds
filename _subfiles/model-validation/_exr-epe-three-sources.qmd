@@ -13,12 +13,6 @@ Assume:
 - the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of $\predvalf{\predvar}$ is $\Var{\predvalf{\predvar}} = 2$, and
 - the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of the [noise](#def-noise) of $\newoutvar$, the population noise variance $\varpar$, is $\varpar = 3$.
 
-1. What is the [expected squared prediction error](#def-epe) $\epe{\fitproc}{\nobs}{\predvar}$?
-2. If we could remove all bias and all variance of $\predvalf{\predvar}$,
-   what would the expected squared prediction error at $\predvar$ be?
-3. Which of the three quantities
-   (the squared bias, the variance of $\predvalf{\predvar}$, and the population noise variance $\varpar$)
-   can a better prediction method reduce,
-   and which cannot?
+What is the [expected squared prediction error](#def-epe) $\epe{\fitproc}{\nobs}{\predvar}$?
 
 :::

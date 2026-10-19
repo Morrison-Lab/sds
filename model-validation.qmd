@@ -274,6 +274,22 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_exr-epe-no-bias-no-variance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-epe-no-bias-no-variance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exr-epe-reducible-sources.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-epe-reducible-sources.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_exr-epe-split-noise.qmd >}}
 
 {{< slidebreak >}}
