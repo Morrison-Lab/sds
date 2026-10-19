@@ -4,9 +4,10 @@
 The `birthwt` data hold births at Baystate Medical Center in Springfield, Massachusetts [@hosmer1989applied],
 as distributed in R's `MASS` package [@venables2002modern].
 The outcome `low` is 1 for a birth weight under 2.5 kg and 0 otherwise.
-We fit a logistic regression of `low` on the mother's age, weight at her last menstrual period, smoking status,
+We fit a [logistic regression](logistic-inference.qmd#def-logistic-regression) of `low` on the mother's age, weight at her last menstrual period, smoking status,
 history of hypertension, and presence of uterine irritability.
-The fitted model predicts `low = 1` when its fitted probability exceeds 0.5.
+The [fitted model](#def-fitted-model) [predicts](prediction.qmd#def-prediction) `low = 1`
+when its fitted [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) exceeds 0.5.
 We use every third row as the [test set](#def-test-set)
 and fit on the remaining rows, the [training set](#def-training-set).
 
@@ -68,6 +69,7 @@ error_rates
 :::
 
 Of the `r nrow(birthwt)` births, `r sum(is_test)` are in the test set.
+The covariates are chosen for simplicity, not for predictive quality.
 The fitted model gets the wrong birth-weight category for
 `r round(100 * error_rates[["test"]], 1)`% of the test births,
 so its [test error rate](#def-test-error-rate) is `r round(error_rates[["test"]], 3)`.
