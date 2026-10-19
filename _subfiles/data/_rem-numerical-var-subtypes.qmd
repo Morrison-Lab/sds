@@ -1,0 +1,7 @@
+::: {#rem-numerical-var-subtypes}
+#### Subtypes of numerical variables
+
+A [numerical variable](#def-numerical-var) may be classified in two ways:
+as an [interval variable](#def-interval-var) or a [ratio variable](#def-ratio-var),
+and as a [continuous variable](#def-continuous-var) or a [discrete variable](#def-discrete-var).
+:::

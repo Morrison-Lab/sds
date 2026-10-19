@@ -29,7 +29,9 @@ jobs:
       # the checker with HTTP 202 (De Gruyter's bot filter) on every run,
       # Akaike (1974), whose valid IEEE DOI answers 202 on every run too,
       # Rao (1945), a bulletin article with no DOI,
-      # and Rice (2007), a Cengage textbook with no DOI.
+      # Rice (2007), a Cengage textbook with no DOI,
+      # and Rothman et al. (2021), Modern Epidemiology, a Wolters Kluwer
+      # textbook with no DOI (only an ISBN).
       # Move a key out of this list when a DOI is found and verified
       # against CrossRef.
       exclude-keys: >-
@@ -38,4 +40,4 @@ jobs:
         kery-bayes-pop kleinbaum2014applied korner.bayes.ecology rossbayes
         statrethink2e van2018flexible geron2017hands holm1979simple
         phipson2010permutation rao1945information cramer1946mathematical
-        rice2007mathematical akaike1974new
+        rice2007mathematical akaike1974new me4

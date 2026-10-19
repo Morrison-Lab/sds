@@ -62,6 +62,10 @@ and within each class there are important subtypes.
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/data/_rem-numerical-var-subtypes.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/data/_rem-discrete-var-types.qmd >}}
 
 {{< slidebreak >}}
