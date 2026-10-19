@@ -721,7 +721,7 @@
    "page": "categorical-tests",
    "div": "def-outcome-risk",
    "kind": "def",
-   "title": "Risk of a binary outcome",
+   "title": "Risk of a binary outcome (also called the incidence proportion or cumulative incidence)",
    "external": false
   },
   {
@@ -748,7 +748,7 @@
    "page": "categorical-tests",
    "div": "def-risk-ratio",
    "kind": "def",
-   "title": "Risk ratio (also called the relative risk)",
+   "title": "Risk ratio (also called the relative risk, relative risk ratio or probability ratio)",
    "external": false
   },
   {
