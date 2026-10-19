@@ -2,7 +2,7 @@
 
 #### The risk ratio is not the rate ratio
 
-Some texts call the risk ratio the rate ratio.
-The rate ratio is a different quantity: the ratio of two event rates, as in count regression.
+Some texts call the [risk ratio](#def-risk-ratio) the rate ratio. <!-- check-term-links: allow -->
+The rate ratio is a different quantity: the quotient of two event rates, as in count regression.
 
 :::
