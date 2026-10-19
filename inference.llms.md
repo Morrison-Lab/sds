@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:48:10 (PDT)
+Last modified: 2026-10-19 01:04:06 (PDT)
 
 ## 1 Inference
 
@@ -34,7 +34,7 @@ There are two predominant paradigms for statistical inference:
 
 > **NOTE:**
 >
-> **Definition 2 (Null hypothesis)** The **null hypothesis**, written \\H_0\\, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data [\[2\]](#ref-wikipedia_statistical_hypothesis_test).
+> **Definition 2 (Null hypothesis)** The **null hypothesis**, written \\H_0\\, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data.
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_statistical_hypothesis_test).
 
@@ -64,7 +64,7 @@ There are two predominant paradigms for statistical inference:
 
 > **NOTE:**
 >
-> **Definition 6 (p-value)** Given a [test statistic](#def-test-statistic) \\T\\ whose observed value is \\t\\, the **p-value** is the probability that \\T\\ is at least as extreme as the value observed, computed with the data distributed as the null hypothesis specifies [\[5\]](#ref-wikipedia_p_value):
+> **Definition 6 (p-value)** Given a [test statistic](#def-test-statistic) \\T\\ whose observed value is \\t\\, the **p-value** is the probability that \\T\\ is at least as extreme as the value observed, computed with the data distributed as the [null hypothesis](#def-null-hypothesis) specifies:
 >
 > \\p \stackrel{\text{def}}{=}\Pr\_{H_0}(T \ge t)\\
 >
@@ -190,7 +190,7 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 12 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a pair of statistics \\L\\ and \\U\\, computed from the data, such that for every possible value of \\\theta\\ [\[13\]](#ref-wikipedia_confidence_interval):
+> **Definition 12 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a pair of statistics \\L\\ and \\U\\, computed from the data, such that for every possible value of \\\theta\\:
 >
 > \\\Pr(L \le \theta\le U) = 1 - \alpha\\
 >

@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-19 00:48:10 (PDT)</p>
+  <p class="date">Last modified: 2026-10-19 01:04:06 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -608,7 +608,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <span class="header-section-number">3.2</span> The family-wise error rate</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-fwer div. -->
 <div id="def-fwer" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Family-wise error rate)</strong></span> For a family of tests with <span class="math inline">\(V\)</span> false positives (<a href="#/def-rejection-counts" class="quarto-xref">Definition&nbsp;1</a>), the <strong>family-wise error rate</strong> (FWER) is the probability of at least one false positive <span class="citation" data-cites="wikipedia_family_wise_error_rate"><a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>:</p>
+<p><span class="theorem-title"><strong>Definition 2 (Family-wise error rate)</strong></span> For a family of tests with <span class="math inline">\(V\)</span> false positives (<a href="#/def-rejection-counts" class="quarto-xref">Definition&nbsp;1</a>), the <strong>family-wise error rate</strong> (FWER) is the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> of at least one false positive:</p>
 <p><span class="math display">\[\text{FWER} \stackrel{\text{def}}{=}\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}.\]</span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_family_wise_error_rate">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>.</p>
 </div>
@@ -646,7 +646,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-fdr" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (False discovery rate)</strong></span> The <strong>false discovery rate</strong> (FDR) is the expected value of the <a href="#/def-fdp">false discovery proportion</a> <span class="citation" data-cites="wikipedia_false_discovery_rate"><a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>:</p>
+<p><span class="theorem-title"><strong>Definition 5 (False discovery rate)</strong></span> The <strong>false discovery rate</strong> (FDR) is the expected value of the <a href="#/def-fdp">false discovery proportion</a>:</p>
 <p><span class="math display">\[
 \text{FDR} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\text{FDP}\right]\mathclose{}.
 \]</span></p>
@@ -838,7 +838,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-union-bound" class="quarto-xref">Exercise&nbsp;2</a>, worked in <a href="#/sol-union-bound" class="quarto-xref">Solution&nbsp;2</a>.</p>
 </div>
 </section><section class="slide level2"><div id="thm-union-bound" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (Union bound)</strong></span> For any events <span class="math inline">\(A_1, \ldots, A_k\)</span>, the probability of their union is at most the sum of their probabilities <span class="citation" data-cites="wikipedia_booles_inequality"><a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>:</p>
+<p><span class="theorem-title"><strong>Theorem 2 (Union bound)</strong></span> For any events <span class="math inline">\(A_1, \ldots, A_k\)</span>, the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> of their union is at most the sum of their probabilities: <!-- check-term-links: allow --></p>
 <p><span class="math display">\[\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{} \le \Pr(A_1) + \cdots + \Pr(A_k).\]</span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_booles_inequality">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>.</p>
 </div>
@@ -929,7 +929,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p>Source: Holm <span class="citation" data-cites="holm1979simple"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-holm" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10 (Holm’s step-down procedure)</strong></span> Given the cutoff rank <span class="math inline">\(k^*\)</span> of <a href="#/def-holm-cutoff" class="quarto-xref">Definition&nbsp;9</a>, <strong>Holm’s procedure</strong> rejects <span class="math inline">\(H_{(1)}, \ldots, H_{(k^* - 1)}\)</span> and no others <span class="citation" data-cites="wikipedia_holm_bonferroni_method"><a href="#/references" role="doc-biblioref" onclick="">[10]</a></span>.</p>
+<p><span class="theorem-title"><strong>Definition 10 (Holm’s step-down procedure)</strong></span> Given the cutoff rank <span class="math inline">\(k^*\)</span> of <a href="#/def-holm-cutoff" class="quarto-xref">Definition&nbsp;9</a>, <strong>Holm’s procedure</strong> rejects <span class="math inline">\(H_{(1)}, \ldots, H_{(k^* - 1)}\)</span> and no others.</p>
 <p>Source: Holm <span class="citation" data-cites="holm1979simple"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>; <span class="citation" data-cites="wikipedia_holm_bonferroni_method">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-holm" class="theorem example">

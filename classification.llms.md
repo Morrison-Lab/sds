@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:48:10 (PDT)
+Last modified: 2026-10-19 01:04:06 (PDT)
 
 ## 1 Introduction
 
@@ -28,7 +28,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 1 (Classification)** A **classification problem** is a statistical problem in which we seek to assign each observation to one of two or more discrete categories based on its observed features or predictors \\x\\ [\[2\]](#ref-wikipedia_statistical_classification).
+> **Definition 1 (Classification)** A **classification problem** is a statistical problem in which we seek to assign each observation to one of two or more discrete categories based on its observed features or predictors \\x\\.
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_statistical_classification).
 
@@ -56,7 +56,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 4 (Sensitivity)** The **sensitivity** of a diagnostic test is the probability that the test is positive (\\+\\), given that the person tested has the disease (\\D\\) [\[3\]](#ref-wikipedia_sensitivity_and_specificity):
+> **Definition 4 (Sensitivity)** The **sensitivity** of a diagnostic test is the probability that the test is positive (\\+\\), given that the person tested has the disease (\\D\\):
 >
 > \\\text{sensitivity} \stackrel{\text{def}}{=}\Pr(+ \mid D) \tag{3}\\
 >
@@ -88,7 +88,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 6 (Prevalence)** The **prevalence** of a disease in a population is the probability that a person drawn from that population has the disease (\\D\\) [\[4\]](#ref-wikipedia_prevalence):
+> **Definition 6 (Prevalence)** The **prevalence** of a disease in a population is the probability that a person drawn from that population has the disease (\\D\\):
 >
 > \\\text{prevalence} \stackrel{\text{def}}{=}\Pr(D) \tag{8}\\
 >
@@ -108,7 +108,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 7 (Positive predictive value (PPV))** The **positive predictive value** of a diagnostic test is the probability that the person tested has the disease (\\D\\), given that the test is positive (\\+\\) [\[5\]](#ref-wikipedia_positive_and_negative_predictive_values):
+> **Definition 7 (Positive predictive value (PPV))** The **positive predictive value** of a diagnostic test is the probability that the person tested has the disease (\\D\\), given that the test is positive (\\+\\):
 >
 > \\\text{PPV} \stackrel{\text{def}}{=}\Pr(D \mid +) \tag{11}\\
 >
@@ -243,7 +243,7 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 9 (Agreement table)** For \\n\\ observations that an agent and a reference each classify as positive or negative, the **agreement table** counts the four combinations [\[6\]](#ref-wikipedia_confusion_matrix):
+> **Definition 9 (Agreement table)** For \\n\\ observations that an agent and a reference each classify as positive or negative, the **agreement table** counts the four combinations:
 >
 > |                    | Reference positive | Reference negative |     Total |
 > |--------------------|-------------------:|-------------------:|----------:|
@@ -371,7 +371,7 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 15 (Harmonic mean)** The **harmonic mean** of two positive numbers \\x\\ and \\y\\ is the reciprocal of the average of their reciprocals [\[8\]](#ref-wikipedia_harmonic_mean):
+> **Definition 15 (Harmonic mean)** The **harmonic mean** of two positive numbers \\x\\ and \\y\\ is the reciprocal of the average of their reciprocals:
 >
 > \\H(x, y) \stackrel{\text{def}}{=}\frac{2}{\frac{1}{x} + \frac{1}{y}} \tag{34}\\
 >

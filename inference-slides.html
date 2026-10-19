@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-19 00:48:10 (PDT)</p>
+  <p class="date">Last modified: 2026-10-19 01:04:06 (PDT)</p>
 </section><section id="inference" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Inference</h2>
 <style>
@@ -396,7 +396,7 @@ text-align: center;
 <span class="header-section-number">2.1</span> Hypotheses</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-null-hypothesis div. -->
 <div id="def-null-hypothesis" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Null hypothesis)</strong></span> The <strong>null hypothesis</strong>, written <span class="math inline">\(H_0\)</span>, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data <span class="citation" data-cites="wikipedia_statistical_hypothesis_test"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
+<p><span class="theorem-title"><strong>Definition 2 (Null hypothesis)</strong></span> The <strong>null hypothesis</strong>, written <span class="math inline">\(H_0\)</span>, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_statistical_hypothesis_test">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-alternative-hypothesis" class="theorem definition">
@@ -418,7 +418,7 @@ text-align: center;
 <p>Source: <span class="citation" data-cites="wikipedia_test_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-p-value" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (p-value)</strong></span> Given a <a href="#/def-test-statistic">test statistic</a> <span class="math inline">\(T\)</span> whose observed value is <span class="math inline">\(t\)</span>, the <strong>p-value</strong> is the probability that <span class="math inline">\(T\)</span> is at least as extreme as the value observed, computed with the data distributed as the null hypothesis specifies <span class="citation" data-cites="wikipedia_p_value"><a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>:</p>
+<p><span class="theorem-title"><strong>Definition 6 (p-value)</strong></span> Given a <a href="#/def-test-statistic">test statistic</a> <span class="math inline">\(T\)</span> whose observed value is <span class="math inline">\(t\)</span>, the <strong>p-value</strong> is the probability that <span class="math inline">\(T\)</span> is at least as extreme as the value observed, computed with the data distributed as the <a href="#/def-null-hypothesis">null hypothesis</a> specifies:</p>
 <p><span class="math display">\[p \stackrel{\text{def}}{=}\Pr_{H_0}(T \ge t)\]</span></p>
 <p>If the null hypothesis allows more than one distribution (a <em>composite</em> null hypothesis, such as <span class="math inline">\(H_0: \mu_1 = \mu_0\)</span> with unknown variances), the p-value is the largest such probability over those distributions, or an approximation to it.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_p_value">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>.</p>
@@ -524,7 +524,7 @@ text-align: center;
 <span class="header-section-number">4</span> Confidence intervals</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-confidence-interval div. -->
 <div id="def-confidence-interval" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12 (Confidence interval)</strong></span> A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a pair of statistics <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span>, computed from the data, such that for every possible value of <span class="math inline">\(\theta\)</span> <span class="citation" data-cites="wikipedia_confidence_interval"><a href="#/references" role="doc-biblioref" onclick="">[13]</a></span>:</p>
+<p><span class="theorem-title"><strong>Definition 12 (Confidence interval)</strong></span> A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a pair of statistics <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span>, computed from the data, such that for every possible value of <span class="math inline">\(\theta\)</span>:</p>
 <p><span class="math display">\[\Pr(L \le \theta\le U) = 1 - \alpha\]</span></p>
 <p>The probability is over repeated samples from the data-generating process, with <span class="math inline">\(\theta\)</span> held fixed.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_confidence_interval">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[13]</a></span>.</p>

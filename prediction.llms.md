@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:48:10 (PDT)
+Last modified: 2026-10-19 01:04:06 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -42,7 +42,7 @@ Last modified: 2026-10-19 00:48:10 (PDT)
 
 > **NOTE:**
 >
-> **Definition 3 (Residual)** The **residual** for observation \\i\\ is its observed outcome minus its [fitted value](#def-fitted-value) [\[2\]](#ref-wikipedia_errors_and_residuals):
+> **Definition 3 (Residual)** The **residual** for observation \\i\\ is its observed outcome minus its [fitted value](#def-fitted-value):
 >
 > \\r_i\stackrel{\text{def}}{=}y_i- \hat y_i\\
 >
@@ -152,7 +152,7 @@ Last modified: 2026-10-19 00:48:10 (PDT)
 
 > **NOTE:**
 >
-> **Definition 5 (Mean squared error of predictions)** The **sample mean squared error (sMSE)** of predictions, also called their **mean squared error**, \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the mean of their squared [prediction errors](#def-prediction-error) [\[4\]](#ref-wikipedia_mean_squared_prediction_error):
+> **Definition 5 (Mean squared error of predictions)** The **sample mean squared error (sMSE)** of predictions, also called their **mean squared error**, \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the mean of their squared [prediction errors](#def-prediction-error):
 >
 > \\\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2.\\
 >
