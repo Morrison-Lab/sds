@@ -3,8 +3,8 @@
 #### The expected prediction of a line on cylinders
 
 Treat the 392 cars of the `Auto` data [@james2021islr2e] as the whole world of cars.
-A training set is 30 cars drawn at random from it, and the learning algorithm fits the line of `mpg` on `cylinders`.
-Draw 2000 training sets, fit a line to each, and record each line's intercept, slope and prediction at 4 cylinders.
+A [training set](#def-training-set) is 30 cars drawn at random from it, and the learning algorithm fits the line of `mpg` on `cylinders`.
+Draw 2000 [training sets](#def-training-set), fit a line to each, and record each line's [intercept](correlation-regression.qmd#def-slr-intercept), [slope](correlation-regression.qmd#def-slr-slope) and [prediction](prediction.qmd#def-prediction) at 4 cylinders.
 Both tabs draw with the `SyncRNG` package [@vandenburg2024syncrng], a random number generator with the same algorithm in R and Python, from the same seed, so they pick the same cars:
 
 ::: {.panel-tabset}
@@ -63,14 +63,14 @@ c(round(c(mean = mean(preds_af), min = min(preds_af), max = max(preds_af)), 2), 
 
 :::
 
-No single training set produces the expected prediction.
-The 2000 lines predict anywhere from `r sprintf("%.1f", min(preds_af))` to `r sprintf("%.1f", max(preds_af))` miles per gallon for a four-cylinder car,
+No single [training set](#def-training-set) produces the [expected prediction](#def-average-fit).
+The 2000 lines [predict](prediction.qmd#def-prediction) anywhere from `r sprintf("%.1f", min(preds_af))` to `r sprintf("%.1f", max(preds_af))` miles per gallon for a four-cylinder car,
 and their mean, `r sprintf("%.1f", mean(preds_af))`, is the expected prediction $\avgfitf{4}$ of @eq-average-fit,
-with a 95% Monte Carlo confidence interval of `r sprintf("%.2f", mean(preds_af) - 1.96 * mc_se_af)` to `r sprintf("%.2f", mean(preds_af) + 1.96 * mc_se_af)`
-(1.96 Monte Carlo standard errors either side).
+with a 95% Monte Carlo [confidence interval](inference.qmd#def-confidence-interval) of `r sprintf("%.2f", mean(preds_af) - 1.96 * mc_se_af)` to `r sprintf("%.2f", mean(preds_af) + 1.96 * mc_se_af)`
+(1.96 Monte Carlo [standard errors](estimation.qmd#def-SE) either side).
 The two tabs print the same numbers up to rounding.
 
-@fig-average-fit-auto plots 100 of the 2000 lines, their pointwise average, and the true mean function:
+@fig-average-fit-auto plots 100 of the 2000 lines, their pointwise average, and the true [mean function](#def-mean-function):
 
 ::: {.panel-tabset}
 
