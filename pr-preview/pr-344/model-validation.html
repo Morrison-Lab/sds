@@ -337,6 +337,56 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-fig.callout {
+  border-left-color: #757575;
+}
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-cor.callout {
   border-left-color: #00838F;
 }
@@ -367,16 +417,6 @@ div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-exr.callout {
-  border-left-color: #FFA500;
-}
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
-}
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-prp.callout {
   border-left-color: #827717;
 }
@@ -387,45 +427,15 @@ div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-def.callout {
-  border-left-color: #1B5E20;
+div.callout-remark.callout {
+  border-left-color: #AD1457;
 }
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
 }
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-solution.callout {
-  border-left-color: #4E342E;
-}
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
-}
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-reading.callout {
   border-left-color: #00695C;
@@ -441,16 +451,6 @@ div.callout-reading.callout-style-default .callout-icon::before, div.callout-rea
   content: '\f518' !important;
   background-image: none;
 }
-div.callout-remark.callout {
-  border-left-color: #AD1457;
-}
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
-}
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-tbl.callout {
   border-left-color: #757575;
 }
@@ -459,16 +459,6 @@ div.callout-tbl.callout-style-default .callout-header {
 }
 div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-fig.callout {
-  border-left-color: #757575;
-}
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-videos.callout {
@@ -484,6 +474,16 @@ div.callout-videos.callout-style-default .callout-icon::before, div.callout-vide
   font-style: normal;
   content: '\f144' !important;
   background-image: none;
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -1064,7 +1064,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-18 16:45:54 (PDT)</p>
+      <p class="date">Last modified: 2026-10-18 22:11:51 (PDT)</p>
     </div>
   </div>
   
@@ -2851,7 +2851,21 @@ Y\mid X= x
 <div id="callout-81" class="callout-81-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-epe-split-noise" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5 (Separate the noise)</strong></span> Let <span class="math inline">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</span> be a <a href="#def-new-observation">new observation</a> relative to the random <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Let</mark> <span class="math inline">\(X_{*}= x\)</span>. Let <span class="math inline">\(\nu\)</span> be the <a href="#def-noise">noise</a> of <span class="math inline">\(Y_{*}\)</span>. Let <span class="math inline">\(\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</span> be its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">population variance</a>, which we take to be finite. Take every expectation below to be conditional on <span class="math inline">\(X_{*}= x\)</span>. Add and subtract <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span> inside the square of the <a href="#def-epe">expected prediction error</a>,</p>
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="theorem-title"><strong>Exercise 5 (Separate the noise)</strong></span> Let:</mark></p>
+<ul>
+<li>
+<span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</mark></span> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">be a </mark><a href="#def-new-observation"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">new observation</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;"> relative to the random </mark><a href="#def-training-set"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">training set</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;"> </mark><span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mathcal{D}_{\text{train}}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark></li>
+<li><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">
+<span class="math inline">\(\nu\)</span> be the <a href="#def-noise">noise</a> of <span class="math inline">\(Y_{*}\)</span>, and</mark></li>
+<li>
+<span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</mark></span> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">be its </mark><a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">population variance</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark></li>
+</ul>
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">Assume:</mark></p>
+<ul>
+<li><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">the new <a href="#def-covariate">covariate</a> value <span class="math inline">\(X_{*}\)</span> equals the covariate value <span class="math inline">\(x\)</span> of the <a href="./prediction.html#def-prediction">prediction</a> and</mark></li>
+<li><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">the population variance <span class="math inline">\(\sigma^2\)</span> is finite.</mark></li>
+</ul>
+<p><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Take</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">every</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">expectation</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">below</mark> to <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">be</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">conditional</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">on</mark> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(X_{*}= x\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">. Add</mark> and <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">subtract</mark> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</mark></span> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">inside</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">the</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">square</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">of</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">the</mark> <a href="#def-epe"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">expected</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">prediction</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">error</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark></p>
 <p><span class="math display">\[
 \operatorname{E}\mathopen{}\left[{\mathopen{}\left(Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^2\right]\mathclose{},
 \]</span></p>
@@ -2945,7 +2959,21 @@ Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}
 <div id="callout-83" class="callout-83-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-epe-split-noise" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (The pMSE of a prediction is the pMSE of the mean estimate plus the noise variance)</strong></span> Let <span class="math inline">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</span> be a <a href="#def-new-observation">new observation</a> relative to the random <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Let</mark> <span class="math inline">\(X_{*}= x\)</span>. Let <span class="math inline">\(\nu\)</span> be the <a href="#def-noise">noise</a> of <span class="math inline">\(Y_{*}\)</span>. Let <span class="math inline">\(\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</span> be its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">population variance</a>, which we take to be finite. Then, given <span class="math inline">\(X_{*}= x\)</span>, the <a href="#def-epe">expected squared prediction error</a> (ESPE) of <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> is the sum of two terms. The first is the <a href="#def-irreducible-error">irreducible error</a> <span class="math inline">\(\sigma^2\)</span>. The second is the <a href="./estimation.html#def-mse">expected squared estimation error</a> (ESEE) of <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span>:</p>
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="theorem-title"><strong>Theorem 3 (The pMSE of a prediction is the pMSE of the mean estimate plus the noise variance)</strong></span> Let:</mark></p>
+<ul>
+<li>
+<span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</mark></span> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">be a </mark><a href="#def-new-observation"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">new observation</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;"> relative to the random </mark><a href="#def-training-set"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">training set</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;"> </mark><span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mathcal{D}_{\text{train}}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark></li>
+<li><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">
+<span class="math inline">\(\nu\)</span> be the <a href="#def-noise">noise</a> of <span class="math inline">\(Y_{*}\)</span>, and</mark></li>
+<li>
+<span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</mark></span> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">be</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">its </mark><a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">population variance</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark></li>
+</ul>
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">Assume:</mark></p>
+<ul>
+<li><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">the new <a href="#def-covariate">covariate</a> value <span class="math inline">\(X_{*}\)</span> equals the covariate value <span class="math inline">\(x\)</span> of the <a href="./prediction.html#def-prediction">prediction</a> and</mark></li>
+<li><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">the population variance <span class="math inline">\(\sigma^2\)</span> is finite.</mark></li>
+</ul>
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">Then, given <span class="math inline">\(X_{*}= x\)</span>, the <a href="#def-epe">expected squared prediction error</a> (ESPE) of <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> is the sum of two terms. The first is the <a href="#def-irreducible-error">irreducible error</a> <span class="math inline">\(\sigma^2\)</span>. The second is the <a href="./estimation.html#def-mse">expected squared estimation error</a> (ESEE) of <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span>:</mark></p>
 <p><span id="eq-epe-split-noise"><span class="math display">\[
 \operatorname{ESPE}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}
 = \sigma^2+ \operatorname{ESEE}\mathopen{}\left({\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}.
@@ -2985,7 +3013,7 @@ Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}
 <div id="callout-85" class="callout-85-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-epe-split-noise" class="theorem example">
-<p><span class="theorem-title"><strong>Example 23 (The two pMSEs differ by the noise variance)</strong></span> Take a population whose mean function is known: <span class="math inline">\(Y\mid X= x\sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\)</span> with <span class="math inline">\(\sigma= 0.3\)</span>. <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Let</mark> <span class="math inline">\(x= 0.25\)</span>, where <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{} = 1\)</span>, and fit a cubic polynomial by least squares to <span class="math inline">\(n= 30\)</span> observations. We draw <span class="math inline">\(5{,}000\)</span> training sets, each with its own new outcome at <span class="math inline">\(x\)</span>, and average the squared errors of the two targets over them.</p>
+<p><span class="theorem-title"><strong>Example 23 (The two pMSEs differ by the noise variance)</strong></span> Take a population whose mean function is known: <span class="math inline">\(Y\mid X= x\sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\)</span> with <span class="math inline">\(\sigma= 0.3\)</span>. <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Let the </mark><a href="#def-covariate"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">covariate</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;"> value be</mark> <span class="math inline">\(x= 0.25\)</span>, where<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> the mean function value is</mark> <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{} = 1\)</span>, and fit a cubic polynomial by least squares to <span class="math inline">\(n= 30\)</span> observations. We draw <span class="math inline">\(5{,}000\)</span> training sets, each with its own new outcome at <span class="math inline">\(x\)</span>, and average the squared errors of the two targets over them.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">split_x0</span> <span class="op">&lt;-</span> <span class="fl">0.25</span></span>
 <span><span class="va">split_reps</span> <span class="op">&lt;-</span> <span class="fl">5000</span></span>
@@ -3134,7 +3162,22 @@ Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}
 <div id="callout-88" class="callout-88-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-epe-decomposition" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4 (Bias, variance and noise)</strong></span> Let <span class="math inline">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</span> be a <a href="#def-new-observation">new observation</a> relative to the random <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Let</mark> <span class="math inline">\(X_{*}= x\)</span>. Let <span class="math inline">\(\nu\)</span> be the <a href="#def-noise">noise</a> of <span class="math inline">\(Y_{*}\)</span>. Let <span class="math inline">\(\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</span> be its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">population variance</a>, which we take to be finite. Suppose also that <span class="math inline">\(\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^2\right]\mathclose{} &lt; \infty\)</span>. Then the <a href="#def-epe">expected prediction error at <span class="math inline">\(x\)</span></a> is the squared <a href="#def-prediction-bias">bias</a> of the prediction <span class="math inline">\(\hat{y}\)</span>, used as an <a href="./estimation.html#def-estimator">estimator</a> of the <a href="#def-mean-function">mean function</a> value <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span>, plus its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>, plus <span class="math inline">\(\sigma^2\)</span>:</p>
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="theorem-title"><strong>Theorem 4 (Bias, variance and noise)</strong></span> Let:</mark></p>
+<ul>
+<li><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">
+<span class="math inline">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</span> be a <a href="#def-new-observation">new observation</a> relative to the random <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>,</mark></li>
+<li><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">
+<span class="math inline">\(\nu\)</span> be the <a href="#def-noise">noise</a> of <span class="math inline">\(Y_{*}\)</span>, and</mark></li>
+<li>
+<span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</mark></span> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">be</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">its </mark><a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">population variance</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark></li>
+</ul>
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">Assume:</mark></p>
+<ul>
+<li><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">the new <a href="#def-covariate">covariate</a> value <span class="math inline">\(X_{*}\)</span> equals the covariate value <span class="math inline">\(x\)</span> of the <a href="./prediction.html#def-prediction">prediction</a>,</mark></li>
+<li><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">the population variance <span class="math inline">\(\sigma^2\)</span> is finite, and</mark></li>
+<li><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">the</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">expected</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">squared</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">prediction </mark><span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^2\right]\mathclose{}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;"> is finite.</mark></li>
+</ul>
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">Then the <a href="#def-epe">expected prediction error at <span class="math inline">\(x\)</span></a> is the squared <a href="#def-prediction-bias">bias</a> of the prediction <span class="math inline">\(\hat{y}\)</span>, used as an <a href="./estimation.html#def-estimator">estimator</a> of the <a href="#def-mean-function">mean function</a> value <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span>, plus its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>, plus <span class="math inline">\(\sigma^2\)</span>:</mark></p>
 <p><span id="eq-epe-decomposition"><span class="math display">\[
 \operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2
 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} + \sigma^2.
@@ -3363,9 +3406,9 @@ Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}
 <div id="exr-held-out-unbiased" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 7 (Held-out predictions and the generalization error)</strong></span> A <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. A <a href="#def-held-out-set">held-out set</a> of <span class="math inline">\(m\)</span> observations <span class="math inline">\((X_{*,1}, Y_{*,1}), \ldots, (X_{*,m}, Y_{*,m})\)</span> is drawn from the same population as the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span> of <a href="#def-generalization-error" class="quarto-xref">Definition&nbsp;19</a>, each independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. Write <span class="math inline">\(\ell_{*,j}\)</span> for the <a href="#def-observation-loss">loss</a> of <span class="math inline">\(\hat y\)</span> on held-out observation <span class="math inline">\(j\)</span>.</p>
 <p>Find, given <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, the expected sample mean loss of the held-out predictions, in terms of the generalization error <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span>:</p>
-<p><span class="math display">\[
+<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 \operatorname{E}\mathopen{}\left[\frac{1}{m}\sum_{j=1}^{m} \ell_{*,j} \mid \mathcal{D}_{\text{train}}\right]\mathclose{}.
-\]</span></p>
+\]</mark></span></p>
 </div>
 </div>
 </div>
@@ -3429,10 +3472,10 @@ Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}
 <div class="callout-body-container callout-body">
 <div id="thm-held-out-unbiased" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 5 (The held-out sample mean loss estimates the generalization error)</strong></span> Let a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> be fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and let a <a href="#def-held-out-set">held-out set</a> of <span class="math inline">\(m\)</span> observations <span class="math inline">\((X_{*,1}, Y_{*,1}), \ldots, (X_{*,m}, Y_{*,m})\)</span> be drawn from the same population as <span class="math inline">\((X_{*}, Y_{*})\)</span>, each independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. Write <span class="math inline">\(\ell_{*,j}\)</span> for the <a href="#def-observation-loss">loss</a> of <span class="math inline">\(\hat y\)</span> on held-out observation <span class="math inline">\(j\)</span>. Then, given <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, the expected sample mean loss of the held-out predictions is the <a href="#def-generalization-error">generalization error</a>:</p>
-<p><span class="math display">\[
+<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 \operatorname{E}\mathopen{}\left[\frac{1}{m}\sum_{j=1}^{m} \ell_{*,j} \mid \mathcal{D}_{\text{train}}\right]\mathclose{}
 = \operatorname{Err}_{\mathcal{D}_{\text{train}}}.
-\]</span></p>
+\]</mark></span></p>
 </div>
 </div>
 </div>
@@ -3785,9 +3828,9 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <div class="callout-body-container callout-body">
 <div id="def-validation-set" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 41 (Validation set)</strong></span> The <strong>validation set</strong> of a <a href="#def-data-splits">training/validation/test split</a> is the <a href="#def-held-out-set">held-out set</a> of observations indexed by <span class="math inline">\(I_{\text{val}}\)</span>, used for <a href="#def-model-selection">model selection</a> among candidate <a href="#def-fitted-model">fitted models</a> fitted to the training set:</p>
-<p><span id="eq-validation-set"><span class="math display">\[
+<p><span id="eq-validation-set"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I_{\text{val}}}.
-\tag{39}\]</span></span></p>
+\tag{39}\]</mark></span></span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_training_validation_and_test_data_sets">Wikipedia contributors <a href="#ref-wikipedia_training_validation_and_test_data_sets" role="doc-biblioref">[2]</a></span>.</p>
 </div>
 </div>
@@ -3807,9 +3850,9 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <div class="callout-body-container callout-body">
 <div id="def-validation-error" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 42 (Validation error)</strong></span> The <strong>validation error</strong> of a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is its sample mean <a href="#def-observation-loss">loss</a> <span class="math inline">\(\ell_{i}\)</span> on the <a href="#def-validation-set">validation set</a>, indexed by <span class="math inline">\(I_{\text{val}}\)</span>:</p>
-<p><span id="eq-validation-error"><span class="math display">\[
+<p><span id="eq-validation-error"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 \overline{\operatorname{err}}_{\text{val}}\stackrel{\text{def}}{=}\frac{1}{\mathopen{}\left|I_{\text{val}}\right|\mathclose{}}\sum_{i\in I_{\text{val}}} \ell_{i}.
-\tag{40}\]</span></span></p>
+\tag{40}\]</mark></span></span></p>
 </div>
 </div>
 </div>
@@ -3828,10 +3871,10 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <div class="callout-body-container callout-body">
 <div id="def-validation-choice" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 43 (Validation choice)</strong></span> Given candidate <a href="#def-fitting-procedure">fitting procedures</a> <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span>, the <strong>validation choice</strong> <span class="math inline">\(\hat{l}\)</span> is the index of the candidate whose <a href="#def-prediction-rule">prediction rule</a>, fitted to the training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, has the smallest <a href="#def-validation-error">validation error</a>:</p>
-<p><span id="eq-validation-choice"><span class="math display">\[
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span id="eq-validation-choice"><span class="math display">\[
 \hat{l} \stackrel{\text{def}}{=}\arg \min_{l} \frac{1}{\mathopen{}\left|I_{\text{val}}\right|\mathclose{}}\sum_{i\in I_{\text{val}}}
 L\mathopen{}\left(y_{i}, {{\hat y_{l}}\mathopen{}\left(x_{i}\right)\mathclose{}}\right)\mathclose{}.
-\tag{41}\]</span></span></p>
+\tag{41}\]</span></span></mark></p>
 </div>
 </div>
 </div>
@@ -3850,9 +3893,9 @@ L\mathopen{}\left(y_{i}, {{\hat y_{l}}\mathopen{}\left(x_{i}\right)\mathclose{}}
 <div class="callout-body-container callout-body">
 <div id="def-test-set" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 44 (Test set)</strong></span> The <strong>test set</strong> of a <a href="#def-data-splits">training/validation/test split</a> is the <a href="#def-held-out-set">held-out set</a> of observations indexed by <span class="math inline">\(I_{\text{test}}\)</span>, on which the <a href="#def-fitted-model">fitted model</a> <span class="math inline">\({\hat y_{\hat{l}}}\)</span> that the <a href="#def-validation-choice">validation choice</a> picks is scored:</p>
-<p><span id="eq-test-set"><span class="math display">\[
+<p><span id="eq-test-set"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I_{\text{test}}}.
-\tag{42}\]</span></span></p>
+\tag{42}\]</mark></span></span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_training_validation_and_test_data_sets">Wikipedia contributors <a href="#ref-wikipedia_training_validation_and_test_data_sets" role="doc-biblioref">[2]</a></span>.</p>
 </div>
 </div>
@@ -3872,9 +3915,9 @@ L\mathopen{}\left(y_{i}, {{\hat y_{l}}\mathopen{}\left(x_{i}\right)\mathclose{}}
 <div class="callout-body-container callout-body">
 <div id="def-test-error" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 45 (Test error)</strong></span> The <strong>test error</strong> of a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is its sample mean <a href="#def-observation-loss">loss</a> <span class="math inline">\(\ell_{i}\)</span> on the <a href="#def-test-set">test set</a>, indexed by <span class="math inline">\(I_{\text{test}}\)</span>:</p>
-<p><span id="eq-test-error"><span class="math display">\[
+<p><span id="eq-test-error"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 \overline{\operatorname{err}}_{\text{test}}\stackrel{\text{def}}{=}\frac{1}{\mathopen{}\left|I_{\text{test}}\right|\mathclose{}}\sum_{i\in I_{\text{test}}} \ell_{i}.
-\tag{43}\]</span></span></p>
+\tag{43}\]</mark></span></span></p>
 </div>
 </div>
 </div>
@@ -4371,9 +4414,9 @@ Table&nbsp;3: Validation and test sRMSE for the chosen model
 <div class="callout-body-container callout-body">
 <div id="def-folds" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 46 (Folds)</strong></span> A division of a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, indexed by <span class="math inline">\(I\)</span>, into <span class="math inline">\(k\)</span> <strong>folds</strong> is a partition of <span class="math inline">\(I\)</span> into <span class="math inline">\(k\)</span> nonempty, disjoint subsets <span class="math inline">\(\mathcal{F}_{1}, \ldots, \mathcal{F}_{k}\)</span>:</p>
-<p><span id="eq-folds"><span class="math display">\[
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span id="eq-folds"><span class="math display">\[
 \mathcal{F}_{1} \cup \cdots \cup \mathcal{F}_{k} = I.
-\tag{44}\]</span></span></p>
+\tag{44}\]</span></span></mark></p>
 </div>
 </div>
 </div>
@@ -4410,9 +4453,9 @@ Table&nbsp;3: Validation and test sRMSE for the chosen model
 <div class="callout-body-container callout-body">
 <div id="def-fold-size" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 47 (Fold size)</strong></span> The <strong>size</strong> <span class="math inline">\(n_{j}\)</span> of <a href="#def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span> is the number of observations it contains:</p>
-<p><span id="eq-fold-size"><span class="math display">\[
+<p><span id="eq-fold-size"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 n_{j} \stackrel{\text{def}}{=}\mathopen{}\left|\mathcal{F}_{j}\right|\mathclose{}.
-\tag{45}\]</span></span></p>
+\tag{45}\]</mark></span></span></p>
 </div>
 </div>
 </div>
@@ -4431,9 +4474,9 @@ n_{j} \stackrel{\text{def}}{=}\mathopen{}\left|\mathcal{F}_{j}\right|\mathclose{
 <div class="callout-body-container callout-body">
 <div id="def-fold-assignment" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 48 (Fold assignment)</strong></span> Given <a href="#def-folds">folds</a> <span class="math inline">\(\mathcal{F}_{1}, \ldots, \mathcal{F}_{k}\)</span>, the <strong>fold assignment</strong> <span class="math inline">\(\kappa\mathopen{}\left(i\right)\mathclose{}\)</span> of observation <span class="math inline">\(i\)</span> is the index of the fold that contains it:</p>
-<p><span id="eq-fold-assignment"><span class="math display">\[
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span id="eq-fold-assignment"><span class="math display">\[
 i\in \mathcal{F}_{\kappa\mathopen{}\left(i\right)\mathclose{}}.
-\tag{46}\]</span></span></p>
+\tag{46}\]</span></span></mark></p>
 </div>
 </div>
 </div>
@@ -4470,9 +4513,9 @@ i\in \mathcal{F}_{\kappa\mathopen{}\left(i\right)\mathclose{}}.
 <div class="callout-body-container callout-body">
 <div id="def-fold-out-rule" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 49 (Fold-out rule)</strong></span> For <a href="#def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span>, the <strong>fold-out rule</strong> <span class="math inline">\(\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}\)</span> is the <a href="#def-prediction-rule">prediction rule</a> that a <a href="#def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> produces from the observations outside that fold:</p>
-<p><span id="eq-fold-out-rule"><span class="math display">\[
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span id="eq-fold-out-rule"><span class="math display">\[
 \hat y^{(-j)}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}{{\hat y_{\mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I\setminus \mathcal{F}_{j}}}}\mathopen{}\left(x\right)\mathclose{}}.
-\tag{47}\]</span></span></p>
+\tag{47}\]</span></span></mark></p>
 </div>
 </div>
 </div>
@@ -5197,7 +5240,7 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated sRMSE in each of 5
 <li><p>With <span class="math inline">\(k = n\)</span>, the <span class="math inline">\(n\)</span> nonempty, disjoint <a href="#def-folds">folds</a> of <a href="#eq-folds" class="quarto-xref">Equation&nbsp;44</a> partition the <span class="math inline">\(n\)</span> indices of <span class="math inline">\(I\)</span>, so each fold holds exactly one index. (A partition of <span class="math inline">\(n\)</span> indices into <span class="math inline">\(n\)</span> nonempty, disjoint subsets has one index per subset.)</p></li>
 <li><p>For observation <span class="math inline">\(i\)</span>, <a href="#eq-fold-assignment" class="quarto-xref">Equation&nbsp;46</a> gives <span class="math inline">\(i \in \mathcal{F}_{\kappa\mathopen{}\left(i\right)\mathclose{}}\)</span>, so <span class="math inline">\(\mathcal{F}_{\kappa\mathopen{}\left(i\right)\mathclose{}} = \mathopen{}\left\{i\right\}\mathclose{}\)</span>. (Fold <span class="math inline">\(\kappa\mathopen{}\left(i\right)\mathclose{}\)</span> holds one index, and that index is <span class="math inline">\(i\)</span>.)</p></li>
 <li><p>Let <span class="math inline">\(g\)</span> be the <a href="#def-fitting-procedure">fitting procedure</a>, the rule that maps a training set to a fitted prediction rule. The <a href="#def-fold-out-rule">fold-out rule</a> of observation <span class="math inline">\(i\)</span> is then <span class="math inline">\(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\right)\mathclose{} = {{\hat y_{\mathopen{}\left((x_{i'}, y_{i'})\right)\mathclose{}_{i' \in I \setminus \mathopen{}\left\{i\right\}\mathclose{}}}}\mathopen{}\left(x\right)\mathclose{}}\)</span>. (<a href="#eq-fold-out-rule" class="quarto-xref">Equation&nbsp;47</a> with <span class="math inline">\(\mathcal{F}_{\kappa\mathopen{}\left(i\right)\mathclose{}} = \mathopen{}\left\{i\right\}\mathclose{}\)</span>.)</p></li>
-<li><p>This rule is fitted to every observation except observation <span class="math inline">\(i\)</span>, and it does not involve <span class="math inline">\(\kappa\mathopen{}\left(i\right)\mathclose{}\)</span> itself. (Step 3 depends on <span class="math inline">\(i\)</span> and <span class="math inline">\(g\)</span> only.)</p></li>
+<li><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><p>This rule is fitted to every observation except observation <span class="math inline">\(i\)</span>, and it does not involve <span class="math inline">\(\kappa\mathopen{}\left(i\right)\mathclose{}\)</span> itself. (Step 3 depends on <span class="math inline">\(i\)</span> and <span class="math inline">\(g\)</span> only.)</mark></p></li>
 <li><p>Hence each term <span class="math inline">\({\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)\mathclose{}}^2\)</span> of <a href="#eq-cv-estimate" class="quarto-xref">Equation&nbsp;48</a> is the same for every fold assignment. (Each term is a function of the rule in step 4, <span class="math inline">\(x_i\)</span> and <span class="math inline">\(y_i\)</span>.)</p></li>
 <li>
 <p>Therefore the sum over <span class="math inline">\(i \in I\)</span> in <a href="#eq-cv-estimate" class="quarto-xref">Equation&nbsp;48</a>, and its factor <span class="math inline">\(1/n\)</span>, are the same for every fold assignment:</p>
@@ -5543,10 +5586,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <div class="callout-body-container callout-body">
 <div id="def-cv-choice" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 58 (Cross-validation choice procedure)</strong></span> Given candidate <a href="#def-fitting-procedure">fitting procedures</a> <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span>, the <strong>cross-validation choice procedure</strong> <span class="math inline">\(g^{\text{CV}}\)</span> is the fitting procedure that, applied to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, divides <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> into <span class="math inline">\(k\)</span> <a href="#def-folds">folds</a>, computes each candidate’s <a href="#def-cv-estimate-indexed">cross-validation estimate</a> on <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> with those folds, and applies to <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> the candidate with the smallest estimate, taking the smallest <span class="math inline">\(l\)</span> if several tie:</p>
-<p><span id="eq-cv-choice"><span class="math display">\[
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span id="eq-cv-choice"><span class="math display">\[
 {g^{\text{CV}}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}
 {\hat y_{\min \arg \min_{l} {\widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}}}.
-\tag{57}\]</span></span></p>
+\tag{57}\]</span></span></mark></p>
 </div>
 </div>
 </div>
@@ -5597,9 +5640,9 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <div class="callout-body-container callout-body">
 <div id="def-nested-cv" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 59 (Nested cross-validation)</strong></span> <strong>Nested cross-validation</strong> is <a href="#def-kfold"><span class="math inline">\(k\)</span>-fold cross-validation</a> of the <a href="#def-cv-choice">cross-validation choice procedure</a> <span class="math inline">\(g^{\text{CV}}\)</span>: its estimate on a training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is</p>
-<p><span id="eq-nested-cv"><span class="math display">\[
+<p><span id="eq-nested-cv"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 {\widehat{\operatorname{Err}}^{g^{\text{CV}}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}.
-\tag{58}\]</span></span></p>
+\tag{58}\]</mark></span></span></p>
 </div>
 </div>
 </div>
@@ -5788,9 +5831,9 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <div class="callout-body-container callout-body">
 <div id="def-one-se-rule" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 63 (One-standard-error rule)</strong></span> Let <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span> be candidate <a href="#def-fitting-procedure">fitting procedures</a>, each <a href="#def-flexibility">at least as flexible</a> as the one before, cross-validated on a training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> with the same folds, and let <span class="math inline">\(g_{l^*}\)</span> be the one with the smallest <a href="#def-cv-estimate-indexed">cross-validation estimate</a>. The <strong>one-standard-error rule</strong> chooses the smallest <span class="math inline">\(l\)</span> whose estimate is within one <a href="#def-cv-se-indexed">fold-based standard error</a> of the smallest:</p>
-<p><span id="eq-one-se-rule"><span class="math display">\[
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span id="eq-one-se-rule"><span class="math display">\[
 {\widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \le {\widehat{\operatorname{Err}}^{g_{l^*}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} + {\operatorname{SE}^{g_{l^*}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}.
-\tag{62}\]</span></span></p>
+\tag{62}\]</span></span></mark></p>
 <p>Source: <span class="citation" data-cites="hastie2009elements james2021islr2e"><a href="#ref-hastie2009elements" role="doc-biblioref">[3, Sec. 7.10.1]</a>, <a href="#ref-james2021islr2e" role="doc-biblioref">[5, Sec. 6.1.3]</a></span>.</p>
 </div>
 </div>
