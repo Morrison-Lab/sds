@@ -5,7 +5,7 @@ Let $\hparam$ be an [unbiased](estimation.qmd#def-unbiased) estimator of $\param
 with finite variance,
 and let $\statf{\vX}$ be a [sufficient](#def-sufficient) statistic for $\param$.
 Then the [Rao--Blackwellized estimator](#def-rao-blackwellized) is unbiased
-and has variance no larger than that of $\hparam$, for every $\param$ [@wikipedia_rao_blackwell_theorem]:
+and has variance no larger than that of $\hparam$, for every $\param$:
 
 $$
 \Var{\condE{\hparam}{\statf{\vX}}} \le \Var{\hparam}

@@ -7,7 +7,7 @@ or just the **information matrix**,
 is written $\einf$,
 and is the expected value of the negative
 [Hessian](#def-hessian) of the log-likelihood,
-with the data $\vX$ treated as random [@wikipedia_fisher_information]:
+with the data $\vX$ treated as random:
 
 {{< include sds/_subfiles/intro-MLEs/_eq_def_einf.qmd >}}
 

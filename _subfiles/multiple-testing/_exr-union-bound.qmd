@@ -13,7 +13,7 @@ $$\indic{A_1 \cup \cdots \cup A_k} \le \indic{A_1} + \cdots + \indic{A_k}.$$
 
 ::: {#sol-union-bound}
 
-Fix an outcome and consider two cases.
+Take an outcome and consider two cases.
 
 - If none of $A_1, \ldots, A_k$ occurs,
   then the union does not occur,

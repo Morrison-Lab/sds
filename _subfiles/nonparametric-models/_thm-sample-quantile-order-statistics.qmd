@@ -9,7 +9,7 @@ In particular, $\hat Q(i/n) = x_{(i)}$.
 
 ::: proof
 
-Fix $p$ with $(i-1)/n < p \le i/n$.
+Let $p$ satisfy $(i-1)/n < p \le i/n$.
 
 For any $t < x_{(i)}$,
 the $n - i + 1$ values $x_{(i)}, \ldots, x_{(n)}$ all exceed $t$,

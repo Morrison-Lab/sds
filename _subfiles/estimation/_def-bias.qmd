@@ -2,7 +2,7 @@
 #### Bias
 
 The **bias** of an estimator $\hparam$ for an estimand $\param$ is the
-expected value of the [estimation error](#def-estimation-error) [@wikipedia_bias_of_an_estimator]:
+expected value of the [estimation error](#def-estimation-error):
 
 $$\bias{\hparam} \eqdef \E{\erf{\hparam}}$$ {#eq-bias-def}
 

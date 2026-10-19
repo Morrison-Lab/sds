@@ -1,10 +1,17 @@
 :::{#exr-epe-split-noise}
 #### Separate the noise
 
-Let $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$.
-Fix $\newpredvar = \predvar$.
-Let $\noise$ be the [noise](#def-noise) of $\newoutvar$.
-Let $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite.
+Let:
+
+- $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$,
+- $\noise$ be the [noise](#def-noise) of $\newoutvar$, and
+- $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+
+Assume:
+
+- the new [covariate](#def-covariate) value $\newpredvar$ equals the covariate value $\predvar$ of the [prediction](prediction.qmd#def-prediction) and
+- the population variance $\varpar$ is finite.
+
 Take every expectation below to be conditional on $\newpredvar = \predvar$.
 Add and subtract $\truemeanf{\predvar}$ inside the square of the [expected prediction error](#def-epe),
 

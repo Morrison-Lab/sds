@@ -5,7 +5,7 @@ The **sampling distribution** of an [estimator](#def-estimator) $\hparam$
 is the probability distribution of $\hparam(\dsn{X})$
 over repeated random samples $\dsn{X}$ from the same population:
 the distribution of the values the estimator would take
-across all the samples we might have drawn [@wikipedia_sampling_distribution].
+across all the [samples](exploratory-descriptive.qmd#def-sample) we might have drawn.
 
 Source: @wikipedia_sampling_distribution.
 :::

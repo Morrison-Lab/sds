@@ -2,7 +2,7 @@
 
 #### Saturated model (full model, maximal model)
 
-The **saturated model** (also called the **full model** [@dobson4e, Section 5.5] or **maximal model** [@dobson4e, Section 5.5]) for binary outcomes gives each pattern its own free event probability:
+The **saturated model** (also called the **full model** or **maximal model** [@dobson4e, Section 5.5]) for binary outcomes gives each pattern its own free event [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability):
 
 $$
 \Prf{\Outvar_\iobs = 1 \mid \vpredvar_\iobs = \vpredvar^{(k)}} = \prob_k,
