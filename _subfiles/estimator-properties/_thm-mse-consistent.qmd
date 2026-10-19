@@ -14,7 +14,7 @@ $$ {#eq-mse-consistent}
 
 ::: proof
 
-Fix $\varepsilon > 0$.
+Let $\varepsilon > 0$.
 By @lem-estimation-error-bound,
 $0 \le \Prf{\abs{\hparam_n - \param} \ge \varepsilon} \le \pMSE{\hparam_n} / \varepsilon^2$
 for every $n$.

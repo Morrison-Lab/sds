@@ -3,7 +3,7 @@
 
 A **bar chart** displays the number or proportion of observations
 in each category of a categorical variable,
-as one bar per category [@wikipedia_bar_chart].
+as one bar per category.
 
 Source: @wikipedia_bar_chart.
 :::

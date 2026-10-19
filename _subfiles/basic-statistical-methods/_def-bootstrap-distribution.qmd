@@ -6,7 +6,7 @@ Draw $B$ independent [bootstrap samples](#def-bootstrap-sample),
 and compute the statistic on each one,
 giving $\hparam^*_1, \ldots, \hparam^*_B$.
 The **bootstrap distribution** of $\hparam$
-is the empirical distribution of $\hparam^*_1, \ldots, \hparam^*_B$ [@wikipedia_bootstrapping_statistics].
+is the [empirical distribution](nonparametric-models.qmd#def-empirical-distribution) of $\hparam^*_1, \ldots, \hparam^*_B$.
 
 Source: @wikipedia_bootstrapping_statistics.
 :::

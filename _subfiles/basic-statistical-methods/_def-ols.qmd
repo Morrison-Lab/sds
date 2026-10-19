@@ -3,7 +3,7 @@
 
 The **ordinary least squares (OLS) estimate** of a model's parameter vector $\vparam$
 is the value of $\vparam$ that minimizes
-the [residual sum of squares](#def-rss) [@wikipedia_ordinary_least_squares]:
+the [residual sum of squares](#def-rss):
 
 $$\est{\vparam} \eqdef \argmin_{\vparam} \text{RSS}(\vparam).$$
 

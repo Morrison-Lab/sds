@@ -2,7 +2,7 @@
 #### Pearson correlation coefficient
 
 The **Pearson correlation coefficient** of $n$ paired observations
-$(x_1, y_1), \ldots, (x_n, y_n)$ is [@wikipedia_pearson_correlation_coefficient]:
+$(x_1, y_1), \ldots, (x_n, y_n)$ is:
 
 $$r \eqdef \frac{\sumin (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar)}
 {\sqrt{\sumin (\predvar_\iobs - \predbar)^2} \sqrt{\sumin (\outvar_\iobs - \outbar)^2}}$$

@@ -23,7 +23,7 @@ $$
 \hprob_2
 &= \condE{\hprob_1}{S}
 && \text{(definition of the Rao--Blackwellized estimator)}\\
-&= \Pr\paren{X_1 = 0 \given S}
+&= \Prf{X_1 = 0 \given S}
 && \text{(the mean of an indicator is a probability)}\\
 &= \paren{\frac{n-1}{n}}^S
 && \text{(conditional probability of a zero)}

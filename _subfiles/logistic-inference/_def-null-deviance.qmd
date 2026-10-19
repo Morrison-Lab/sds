@@ -5,7 +5,7 @@
 The **null deviance** is the [deviance](#def-deviance) of the model with an intercept and no other predictors:
 
 $$
-\nulldeviance = -2 n \cb{\bar\outvar \ln \bar\outvar + \paren{1 - \bar\outvar} \ln\paren{1 - \bar\outvar}},
+\nulldeviance = -2 n \cb{\bar\outvar \ln \bar\outvar + \paren{1 - \bar\outvar} \lnf{1 - \bar\outvar}},
 $$ {#eq-null-deviance}
 
 where $\bar\outvar$ is the fraction of labels equal to $1$.
