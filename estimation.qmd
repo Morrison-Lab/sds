@@ -14,9 +14,9 @@ format:
 
 ## Scientific models
 
-<!-- No slidebreak here: the heading shares its slide with the def-model div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-scientific-model div. -->
 
-{{< include sds/_subfiles/estimation/_def-model.qmd >}}
+{{< include sds/_subfiles/estimation/_def-scientific-model.qmd >}}
 
 {{< slidebreak >}}
 
