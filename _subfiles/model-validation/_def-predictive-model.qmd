@@ -1,0 +1,8 @@
+:::{#def-predictive-model}
+#### Predictive model
+
+A **predictive model** is a [model family](#def-model-family) or [fitted model](#def-fitted-model) whose purpose is to [predict](prediction.qmd#def-prediction) the outcomes of [new observations](#def-new-observation).
+Its quality is judged by its [prediction error](prediction.qmd#def-prediction-error) on new observations,
+not by whether its form describes how the outcome arises.
+
+:::
