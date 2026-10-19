@@ -4,7 +4,7 @@
 Let $\hparam_n$ be an estimator of $\param$ computed from $n$ observations.
 The estimator is **consistent** if, for every distance $\varepsilon > 0$,
 the probability that it lands at least $\varepsilon$ away from $\param$
-goes to zero as the sample size grows [@wikipedia_consistent_estimator]:
+goes to zero as the sample size grows:
 
 $$
 \lim_{n \to \infty} \Prf{\abs{\hparam_n - \param} \ge \varepsilon} = 0

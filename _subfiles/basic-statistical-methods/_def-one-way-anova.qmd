@@ -14,7 +14,7 @@ $$
 $$
 
 against the alternative that at least two group means differ
-uses the statistic [@wikipedia_analysis_of_variance] [@wikipedia_f_test]
+uses the statistic [@wikipedia_f_test]
 
 $$F \eqdef \frac{\text{MS}_\text{between}}{\text{MS}_\text{within}}.$$
 

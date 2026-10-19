@@ -4,7 +4,7 @@
 Consider a linear model fitted by [ordinary least squares](correlation-regression.qmd#def-ols),
 with [term vectors](#def-term-vector) $\termvec{\iobs}$, $\iobs \in \obsidx$,
 and an invertible [cross-product matrix](#def-cross-product-matrix) $\sscp$.
-The **leverage** of observation $\iobs$ is [@wikipedia_leverage_statistics]
+The **leverage** of observation $\iobs$ is
 
 $$
 \lev{\iobs} \eqdef \tp{\termvec{\iobs}} \sscp^{-1} \termvec{\iobs}.

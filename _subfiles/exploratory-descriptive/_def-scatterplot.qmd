@@ -3,7 +3,7 @@
 
 A **scatter plot** displays the joint distribution of two continuous variables
 by plotting each observation as a point,
-with one variable on each axis [@wikipedia_scatter_plot].
+with one variable on each axis.
 
 Source: @wikipedia_scatter_plot.
 :::

@@ -5,7 +5,7 @@ Given a [test statistic](#def-test-statistic) $T$
 whose observed value is $t$,
 the **p-value** is the probability
 that $T$ is at least as extreme as the value observed,
-computed with the data distributed as the null hypothesis specifies [@wikipedia_p_value]:
+computed with the data distributed as the null hypothesis specifies:
 
 $$p \eqdef \Pr_{H_0}(T \ge t)$$
 
