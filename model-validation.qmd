@@ -635,6 +635,42 @@ reticulate::py_require(
 
 {{< include sds/_subfiles/model-validation/_exm-one-se-rule.qmd >}}
 
+## Criteria that adjust the training error {#sec-information-criteria}
+
+{{< include sds/_subfiles/model-validation/_def-adjusted-r-squared.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-adjusted-r-squared.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-mallows-cp.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-mallows-cp.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-aic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-aic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-bic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-bic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-criteria-training-error.qmd >}}
+
 ## Cross-validating the whole procedure {#sec-cv-whole-procedure}
 
 {{< include sds/_subfiles/model-validation/_exr-cv-screening.qmd >}}
