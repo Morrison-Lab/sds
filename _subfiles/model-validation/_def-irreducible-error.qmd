@@ -1,10 +1,7 @@
 :::{#def-irreducible-error}
 #### Irreducible error
 
-Let:
-
-- $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$, and
-- $\noise$ be the [noise](#def-noise) of $\newoutvar$ at the [covariate](#def-covariate) value $\newpredvar = \predvar$.
+Let $\noise$ be the [noise](#def-noise) of an outcome at the [covariate](#def-covariate) value $\predvar$.
 
 The **irreducible error** at $\predvar$ is the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of the noise:
 
