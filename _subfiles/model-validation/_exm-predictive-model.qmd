@@ -1,0 +1,8 @@
+:::{#exm-predictive-model}
+#### Polynomials as predictive models
+
+The polynomials of @exm-prediction-function-family are a predictive model when we choose among them by their prediction error on new observations.
+They are not a [scientific model](estimation.qmd#def-scientific-model) of the outcome:
+a polynomial of high degree can predict well without describing any physical condition or change.
+
+:::
