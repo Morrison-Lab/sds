@@ -4,7 +4,7 @@
 Let:
 
 - $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$, and
-- $\predvalf{\predvar}$ be a [prediction](prediction.qmd#def-prediction) at the covariate value $\predvar$.
+- $\predvalf{\predvar}$ be a [prediction](prediction.qmd#def-prediction) at the [covariate](#def-covariate) value $\predvar$.
 
 Assume:
 
