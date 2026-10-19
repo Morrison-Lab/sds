@@ -12,5 +12,5 @@ rr_hat_switched <- risk_hat[["placebo"]] / risk_hat[["hormone therapy"]]
 rr_hat_switched
 ```
 
-This estimate, `r round(rr_hat_switched, 3)`, is the reciprocal of `r round(rr_hat, 3)`, `r round(1 / rr_hat, 3)`, as @thm-risk-ratio-switch-ref states.
+This [estimate](estimation.qmd#def-estimate), `r round(rr_hat_switched, 3)`, is the reciprocal of `r round(rr_hat, 3)`, `r round(1 / rr_hat, 3)`, as @thm-risk-ratio-switch-ref states.
 :::

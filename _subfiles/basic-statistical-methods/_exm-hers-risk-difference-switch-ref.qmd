@@ -12,5 +12,5 @@ rd_hat_switched <- risk_hat[["placebo"]] - risk_hat[["hormone therapy"]]
 rd_hat_switched
 ```
 
-This estimate, `r round(rd_hat_switched, 3)`, is the negative of `r round(rd_hat, 3)`, as @thm-risk-difference-switch-ref states.
+This [estimate](estimation.qmd#def-estimate), `r round(rd_hat_switched, 3)`, is the negative of `r round(rd_hat, 3)`, as @thm-risk-difference-switch-ref states.
 :::
