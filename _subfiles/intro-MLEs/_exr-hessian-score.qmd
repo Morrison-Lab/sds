@@ -1,7 +1,7 @@
 :::{#exr-hessian-score}
 #### Hessian from the score
 
-Write the [Hessian](#def-hessian) $\hess$
+Express the [Hessian](#def-hessian) $\hess$
 as a derivative of the [score function](#def-score) $\score$.
 :::
 

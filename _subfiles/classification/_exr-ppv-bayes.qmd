@@ -1,7 +1,7 @@
 :::{#exr-ppv-bayes}
 #### PPV from Bayes' theorem
 
-Write the [positive predictive value](#def-ppv) of a diagnostic test
+Derive an expression for the [positive predictive value](#def-ppv) of a diagnostic test
 in terms of:
 
 - its [sensitivity](#def-sensitivity);
