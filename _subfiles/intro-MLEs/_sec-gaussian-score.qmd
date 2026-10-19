@@ -79,34 +79,34 @@ $$
 \begin{aligned}
 \deriv{\varpar}\llik
 &= \deriv{\varpar}\paren{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar}
- - \frac{1}{2}\paren{\varpar}^{-1}S}
+ - \frac{1}{2}\powf{\varpar}{-1}S}
 && \text{(Gaussian log-likelihood)}\\
 &= \deriv{\varpar}\paren{-\frac{n}{2}\logf{2\pi}} + \deriv{\varpar}\paren{-\frac{n}{2}\logf{\varpar}}
- + \deriv{\varpar}\paren{-\frac{1}{2}\paren{\varpar}^{-1}S}
+ + \deriv{\varpar}\paren{-\frac{1}{2}\powf{\varpar}{-1}S}
 && \text{(linearity of differentiation)}\\
 &= 0 + \deriv{\varpar}\paren{-\frac{n}{2}\logf{\varpar}}
- + \deriv{\varpar}\paren{-\frac{1}{2}\paren{\varpar}^{-1}S}
+ + \deriv{\varpar}\paren{-\frac{1}{2}\powf{\varpar}{-1}S}
 && \text{(derivative of a constant)}\\
 &= \deriv{\varpar}\paren{-\frac{n}{2}\logf{\varpar}}
- + \deriv{\varpar}\paren{-\frac{1}{2}\paren{\varpar}^{-1}S}
+ + \deriv{\varpar}\paren{-\frac{1}{2}\powf{\varpar}{-1}S}
 && \text{(drop the zero term)}\\
 &= \deriv{\varpar}\paren{-\frac{n}{2}\logf{\varpar}}
- + \deriv{\varpar}\paren{-\frac{1}{2}S \paren{\varpar}^{-1}}
+ + \deriv{\varpar}\paren{-\frac{1}{2}S \powf{\varpar}{-1}}
 && \text{(reorder the factors)}\\
 &= -\frac{n}{2}\deriv{\varpar}\logf{\varpar}
- - \frac{1}{2}S \deriv{\varpar}\paren{\varpar}^{-1}
+ - \frac{1}{2}S \deriv{\varpar}\powf{\varpar}{-1}
 && \text{(constant multiple rule)}\\
-&= -\frac{n}{2}\paren{\varpar}^{-1}
- - \frac{1}{2}S \deriv{\varpar}\paren{\varpar}^{-1}
+&= -\frac{n}{2}\powf{\varpar}{-1}
+ - \frac{1}{2}S \deriv{\varpar}\powf{\varpar}{-1}
 && \text{(derivative of $\log v$)}\\
-&= -\frac{n}{2}\paren{\varpar}^{-1}
- - \frac{1}{2}S \paren{-\paren{\varpar}^{-2}}
+&= -\frac{n}{2}\powf{\varpar}{-1}
+ - \frac{1}{2}S \paren{-\powf{\varpar}{-2}}
 && \text{(power rule for $v^{-1}$)}\\
-&= -\frac{n}{2}\paren{\varpar}^{-1}
- + \frac{1}{2}S \paren{\varpar}^{-2}
+&= -\frac{n}{2}\powf{\varpar}{-1}
+ + \frac{1}{2}S \powf{\varpar}{-2}
 && \text{(multiply)}\\
-&= -\frac{n}{2}\paren{\varpar}^{-1}
- + \frac{1}{2}\paren{\varpar}^{-2}S
+&= -\frac{n}{2}\powf{\varpar}{-1}
+ + \frac{1}{2}\powf{\varpar}{-2}S
 && \text{(reorder the factors)}
 \end{aligned}
 $$
