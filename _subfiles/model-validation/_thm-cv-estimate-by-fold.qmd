@@ -4,7 +4,7 @@
 The [cross-validation estimate](#def-cv-estimate) sums,
 fold by fold,
 the squared errors of each fold's observations
-under the rule fitted without that [fold](#def-folds),
+under the [fitted model](#def-fitted-model) fitted without that [fold](#def-folds),
 and divides the total by $\nobs$:
 
 $$

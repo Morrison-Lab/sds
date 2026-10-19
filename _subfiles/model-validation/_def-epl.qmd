@@ -11,7 +11,7 @@ on a new outcome $\newoutvar$ with $\newpredvar = \predvar$,
 averaged over random [training sets](#def-training-set) $\trainset$ of $\nobs$ observations
 drawn independently of $(\newpredvar, \newoutvar)$,
 and over $\newoutvar$.
-The rule $\fitmodf{\trainset}$ is random because $\trainset$ is:
+The [fitted model](#def-fitted-model) $\fitmodf{\trainset}$ is random because $\trainset$ is:
 
 $$
 \epl{\fitproc}{\nobs}{\predvar} \eqdef \E{\obsloss{*}\paren{\fitmodf{\trainset}} \mid \newpredvar = \predvar}.

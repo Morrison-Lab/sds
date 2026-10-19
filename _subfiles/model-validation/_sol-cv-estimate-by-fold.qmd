@@ -22,7 +22,7 @@ $$
 \ea
 $$
 
-In the last line, the rule $\fittedwo{\ifold}{\cdot}$ depends only on the outer index,
-so each inner sum uses a single fitted rule.
+In the last line, the [fitted model](#def-fitted-model) $\fittedwo{\ifold}{\cdot}$ depends only on the outer index,
+so each inner sum uses a single fitted model.
 
 :::

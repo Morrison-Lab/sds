@@ -1,6 +1,6 @@
 :::{#sol-held-out-unbiased}
 
-Given $\trainset$, the rule $\fitted$ is fixed.
+Given $\trainset$, the [fitted model](#def-fitted-model) $\fitted$ is fixed.
 Each held-out pair has the same distribution as $(\newpredvar, \newoutvar)$
 and is independent of $\trainset$,
 so each loss has conditional expectation

@@ -13,6 +13,6 @@ The subscript names the observation, a member of a family of losses,
 and the parentheses hold the fitted model the loss is evaluated at.
 The index $*$ names the new observation $(\newpredvar, \newoutvar)$,
 so $\obsloss{*}\paren{\fitted} = \lossf{\newoutvar, \predvalf{\newpredvar}}$.
-When the rule is clear from context, we write $\obsloss{\iobs}$ for $\obsloss{\iobs}\paren{\fitted}$.
+When the [fitted model](#def-fitted-model) is clear from context, we write $\obsloss{\iobs}$ for $\obsloss{\iobs}\paren{\fitted}$.
 
 :::

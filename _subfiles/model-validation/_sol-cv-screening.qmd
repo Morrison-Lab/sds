@@ -9,7 +9,7 @@ assign_folds(), from _exm-kfold-simulated.qmd.
    with mean 0 and variance 1.
    The best prediction is the constant 0,
    and its generalization error is $\Var{\Outvar} = 1$.
-   Every other rule does worse,
+   Every other [fitted model](#def-fitted-model) does worse,
    so any honest estimate should be near or above 1.
 
 2. and 3.
@@ -81,7 +81,7 @@ Averaged over `r n_sims` simulated data sets:
   The procedure reports that pure noise predicts $\Outvar$.
 - Screening inside the folds gives
   `r round(screening_summary$inside, 2)`,
-  above 1, as an honest estimate for a rule built from noise should be.
+  above 1, as an honest estimate for a model built from noise should be.
 
 The 10 predictors chosen from all 50 observations
 were chosen *because* they happen to correlate with $\Outvar$
