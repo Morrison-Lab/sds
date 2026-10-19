@@ -470,7 +470,7 @@ reticulate::py_require(c("numpy", "pandas", "statsmodels"))
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-fold-out-rule.qmd >}}
+{{< include sds/_subfiles/model-validation/_def-fold-out-fitted-model.qmd >}}
 
 {{< slidebreak >}}
 

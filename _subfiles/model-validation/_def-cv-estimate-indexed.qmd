@@ -6,7 +6,7 @@ be divided into [folds](#def-folds) $\fold{1}, \ldots, \fold{\nfolds}$.
 The **cross-validation estimate of procedure** $\fitproc$ on $\trainset$,
 $\cvestoff{\nfolds}{\fitproc}{\trainset}$,
 is the [cross-validation estimate](#def-cv-estimate)
-computed with [fold-out rules](#def-fold-out-rule) that $\fitproc$ produces from $\trainset$:
+computed with [fold-out fitted models](#def-fold-out-fitted-model) that $\fitproc$ produces from $\trainset$:
 
 $$
 \cvestoff{\nfolds}{\fitproc}{\trainset} \eqdef \frac{1}{\nobs} \sum_{\iobs \in \obsidx}
