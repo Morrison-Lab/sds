@@ -1,0 +1,11 @@
+::: {#def-case-control-study}
+
+#### Case-control study
+
+A **case-control study** is an observational study that selects its participants by outcome:
+it includes the [cases](#def-case) of a [population](exploratory-descriptive.qmd#def-population)
+and a [sample](exploratory-descriptive.qmd#def-sample) of [controls](#def-control) from the same population,
+and then compares the exposure of the two groups
+[@me4, Chapter 8].
+
+:::

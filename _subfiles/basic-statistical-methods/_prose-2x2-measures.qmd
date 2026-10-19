@@ -102,3 +102,23 @@ and the [odds ratio](#def-odds-ratio) measure the strength of the association.
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-odds-ratio-reversible.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-case.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-control.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-case-control-study.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-case-control-study.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_rem-control-in-experiments.qmd >}}

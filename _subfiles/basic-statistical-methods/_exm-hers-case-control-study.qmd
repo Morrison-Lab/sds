@@ -1,0 +1,28 @@
+::: {#exm-hers-case-control-study}
+
+#### A case-control study of regular exercise in HERS
+
+Take the women who exercise regularly as the [cases](#def-case).
+Draw as many [controls](#def-control) as there are cases, at random, from the women who do not exercise regularly.
+Then compare the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of hormone therapy between the cases and the controls:
+
+```{r}
+#| label: hers-case-control
+#| code-fold: false
+set.seed(571)
+cases <- hers[hers$exercise == "yes", ]
+non_cases <- hers[hers$exercise == "no", ]
+controls <- non_cases[sample(nrow(non_cases), nrow(cases)), ]
+odds_ht <- function(d) {
+  sum(d$HT == "hormone therapy") / sum(d$HT == "placebo")
+}
+or_case_control <- odds_ht(cases) / odds_ht(controls)
+or_case_control
+```
+
+The study has `r nrow(cases)` cases and `r nrow(controls)` controls.
+Its [odds ratio](#def-odds-ratio) is `r round(or_case_control, 3)`, near the odds ratio `r round(or_hat, 3)` of @exm-hers-odds-ratio from the whole cohort.
+The two are close because the odds ratio is reversible (@thm-odds-ratio-reversible):
+sampling by outcome does not change it, although it would change the [risks](#def-outcome-risk).
+
+:::
