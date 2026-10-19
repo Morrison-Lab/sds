@@ -2,9 +2,11 @@
 #### The partial F-test and the likelihood ratio test
 
 Let the errors be Gaussian.
-The maximum likelihood estimate of the error variance of a model with residual sum of squares $\text{RSS}$
+The [maximum likelihood estimate](intro-MLEs.qmd#def-mle)
+of the error [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of a model with
+[residual sum of squares](#def-rss) $\text{RSS}$
 is $\text{RSS} / n$,
-so its maximized log-likelihood is
+so its maximized [log-likelihood](intro-MLEs.qmd#def-loglik) is
 $-\tfrac{n}{2} \log(2\pi\, \text{RSS} / n) - \tfrac{n}{2}$.
 The [likelihood ratio statistic](intro-MLEs.qmd#def-lrt-stat) of $H_0$ is then
 
@@ -17,12 +19,12 @@ $$
 \end{aligned}
 $$
 
-For large $n$ under $H_0$, the ratio $(\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1$ is near $0$,
+For large $n$ under $H_0$, the quantity $(\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1$ is near $0$,
 so $\log(1 + u) \approx u$ gives
 $\lrstat \approx n (\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1$.
 Also $q F = (n - p - 1) (\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1$,
 which is close to the same value when $n$ is much larger than $p$.
-Both statistics therefore have approximately the $\chi^2_q$ distribution,
+Under $H_0$, $\lrstat$ and $q F$ therefore have approximately the $\chi^2_q$ distribution,
 but the F-test is exact for Gaussian errors at every $n$,
-while the likelihood ratio test is only approximate.
+while the [likelihood ratio test](intro-MLEs.qmd#def-lrt-stat) holds only approximately.
 :::

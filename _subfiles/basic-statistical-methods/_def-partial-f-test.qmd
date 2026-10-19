@@ -1,7 +1,8 @@
 ::: {#def-partial-f-test}
 #### Partial F-test
 
-Let a smaller linear regression model be [nested](#def-nested-regression-models)
+Let a smaller [linear regression model](#def-linear-regression)
+be [nested](#def-nested-regression-models)
 in a larger model with $p$ features,
 so that they differ by $q$ coefficients,
 and let both be fitted by [ordinary least squares](#def-ols) to $n$ observations.
@@ -15,13 +16,13 @@ $$
 \end{aligned}
 $$
 
-uses the statistic
+uses the [statistic](sufficiency.qmd#def-statistic)
 
 $$
 F \eqdef \frac{(\text{RSS}_0 - \text{RSS}_1) / q}{\text{RSS}_1 / (n - p - 1)}.
 $$
 
-Its p-value is $\Pr(F^* \ge F)$,
+Its [p-value](inference.qmd#def-p-value) is $\Pr(F^* \ge F)$,
 where $F^*$ has the $F_{q,\, n-p-1}$ distribution ([F-distribution](inference.qmd#def-f-dist)).
 
 Source: @vittinghoff2e [Section 4.3] and @dobson4e [Section 6.3].

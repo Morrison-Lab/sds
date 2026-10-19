@@ -1,7 +1,8 @@
 ::: {#def-nested-regression-models}
 #### Nested linear regression models
 
-Let a linear regression model have $p$ features and an intercept.
+Let a [linear regression model](#def-linear-regression)
+have $p$ features and an [intercept](#def-slr-intercept).
 A second linear regression model is **nested** in it
 if it uses the same outcome and the same observations
 and is the special case in which $q$ of the $p$ coefficients equal $0$.

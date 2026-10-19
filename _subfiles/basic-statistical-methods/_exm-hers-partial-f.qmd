@@ -2,7 +2,7 @@
 #### Partial F-test of age and exercise in HERS
 
 For the models of @exm-hers-nested-models,
-`anova()` gives the partial F-test:
+`anova()` gives the [partial F-test](#def-partial-f-test):
 
 ```{r}
 #| label: hers-partial-f-anova
@@ -12,7 +12,7 @@ anova(fit_smaller, fit_larger) |>
   parameters::print_md(digits = 3, footer = "")
 ```
 
-The definition gives the same statistic:
+The definition gives the same [statistic](sufficiency.qmd#def-statistic):
 
 ```{r}
 #| label: hers-partial-f-by-hand
