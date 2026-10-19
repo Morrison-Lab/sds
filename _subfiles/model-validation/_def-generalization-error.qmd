@@ -1,7 +1,7 @@
 :::{#def-generalization-error}
 #### Generalization error
 
-The **generalization error** of a [prediction rule](#def-prediction-rule) $\fitted$
+The **generalization error** of a [prediction rule](#def-fitted-model) $\fitted$
 fitted to a [training set](#def-training-set) $\trainset$
 is its expected [loss](#def-observation-loss) $\obsloss{*}$
 on a [new observation](#def-new-observation) $(\newpredvar, \newoutvar)$,

@@ -8,7 +8,7 @@ at training-set size $\nobs$
 is its [expected prediction loss](#def-epl) under [squared-error loss](#rem-squared-error-loss),
 the expected value of the squared [prediction error](prediction.qmd#def-prediction-error)
 $\prederr_{*}\paren{\fitted} = \predvalf{\newpredvar} - \newoutvar$
-of the [prediction rule](#def-prediction-rule) $\fitted = \fitmodf{\trainset}$
+of the [prediction rule](#def-fitted-model) $\fitted = \fitmodf{\trainset}$
 that $\fitproc$ produces from $\trainset$:
 
 $$
