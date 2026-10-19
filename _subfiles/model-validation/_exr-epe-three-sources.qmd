@@ -13,6 +13,6 @@ Assume:
 - the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of $\predvalf{\predvar}$ is $\Var{\predvalf{\predvar}} = 2$, and
 - the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar$ of the [noise](#def-noise) of $\newoutvar$ is $3$.
 
-What is the [expected squared prediction error](#def-epe) $\epe{\fitproc}{\nobs}{\predvar}$?
+What is the [expected squared prediction error](#def-epe) $\ESPE{\predvalf{\predvar}}$?
 
 :::
