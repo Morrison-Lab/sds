@@ -13,6 +13,16 @@
    "url": "https://morrison-lab.github.io/mds/functions.html#def-function"
   },
   {
+   "id": "mds/optimization#def-optimization-algorithm",
+   "site": "mds",
+   "page": "optimization",
+   "div": "def-optimization-algorithm",
+   "kind": "def",
+   "title": "optimization algorithm",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm"
+  },
+  {
    "id": "pds/expectation#def-cond-pdf",
    "site": "pds",
    "page": "expectation",
@@ -63,6 +73,16 @@
    "url": "https://morrison-lab.github.io/pds/expectation.html#def-prediction"
   },
   {
+   "id": "pds/expectation#def-risk",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-risk",
+   "kind": "def",
+   "title": "risk",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-risk"
+  },
+  {
    "id": "pds/independence#def-iid",
    "site": "pds",
    "page": "independence",
@@ -91,6 +111,16 @@
    "title": "convergence in probability",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability"
+  },
+  {
+   "id": "pds/probability-basics#def-odds",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-odds",
+   "kind": "def",
+   "title": "odds",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-odds"
   },
   {
    "id": "pds/probability-basics#def-probability",
@@ -677,12 +707,93 @@
    "external": false
   },
   {
+   "id": "sds/categorical-tests#def-odds-ratio",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "def-odds-ratio",
+   "kind": "def",
+   "title": "Odds ratio",
+   "external": false
+  },
+  {
+   "id": "sds/categorical-tests#def-outcome-risk",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "def-outcome-risk",
+   "kind": "def",
+   "title": "Risk of a binary outcome",
+   "external": false
+  },
+  {
+   "id": "sds/categorical-tests#def-reference-group",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "def-reference-group",
+   "kind": "def",
+   "title": "Reference group",
+   "external": false
+  },
+  {
+   "id": "sds/categorical-tests#def-risk-difference",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "def-risk-difference",
+   "kind": "def",
+   "title": "Risk difference (also called the absolute risk reduction)",
+   "external": false
+  },
+  {
+   "id": "sds/categorical-tests#def-risk-ratio",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "def-risk-ratio",
+   "kind": "def",
+   "title": "Risk ratio (also called the relative risk)",
+   "external": false
+  },
+  {
    "id": "sds/categorical-tests#thm-chi-square-null",
    "site": "sds",
    "page": "categorical-tests",
    "div": "thm-chi-square-null",
    "kind": "thm",
    "title": "Large-sample null distribution of the chi-square statistic",
+   "external": false
+  },
+  {
+   "id": "sds/categorical-tests#thm-odds-ratio-cross-product",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "thm-odds-ratio-cross-product",
+   "kind": "thm",
+   "title": "The odds ratio as a ratio of cross products",
+   "external": false
+  },
+  {
+   "id": "sds/categorical-tests#thm-odds-ratio-reversible",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "thm-odds-ratio-reversible",
+   "kind": "thm",
+   "title": "The odds ratio is reversible",
+   "external": false
+  },
+  {
+   "id": "sds/categorical-tests#thm-risk-difference-switch-ref",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "thm-risk-difference-switch-ref",
+   "kind": "thm",
+   "title": "Switching the reference group in a risk difference",
+   "external": false
+  },
+  {
+   "id": "sds/categorical-tests#thm-risk-ratio-switch-ref",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "thm-risk-ratio-switch-ref",
+   "kind": "thm",
+   "title": "Switching the reference group in a risk ratio",
    "external": false
   },
   {
@@ -1478,15 +1589,6 @@
    "external": false
   },
   {
-   "id": "sds/estimation#def-model",
-   "site": "sds",
-   "page": "estimation",
-   "div": "def-model",
-   "kind": "def",
-   "title": "Scientific models",
-   "external": false
-  },
-  {
    "id": "sds/estimation#def-mse",
    "site": "sds",
    "page": "estimation",
@@ -1511,6 +1613,15 @@
    "div": "def-sampling-distribution",
    "kind": "def",
    "title": "Sampling distribution",
+   "external": false
+  },
+  {
+   "id": "sds/estimation#def-scientific-model",
+   "site": "sds",
+   "page": "estimation",
+   "div": "def-scientific-model",
+   "kind": "def",
+   "title": "Scientific models",
    "external": false
   },
   {
@@ -2810,6 +2921,15 @@
    "external": false
   },
   {
+   "id": "sds/model-validation#def-empirical-risk",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "def-empirical-risk",
+   "kind": "def",
+   "title": "Empirical risk",
+   "external": false
+  },
+  {
    "id": "sds/model-validation#def-epe",
    "site": "sds",
    "page": "model-validation",
@@ -2825,6 +2945,15 @@
    "div": "def-epl",
    "kind": "def",
    "title": "Expected prediction loss at a covariate value",
+   "external": false
+  },
+  {
+   "id": "sds/model-validation#def-error-rate",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "def-error-rate",
+   "kind": "def",
+   "title": "Error rate (misclassification rate)",
    "external": false
   },
   {
@@ -2900,12 +3029,12 @@
    "external": false
   },
   {
-   "id": "sds/model-validation#def-fold-out-rule",
+   "id": "sds/model-validation#def-fold-out-fitted-model",
    "site": "sds",
    "page": "model-validation",
-   "div": "def-fold-out-rule",
+   "div": "def-fold-out-fitted-model",
    "kind": "def",
-   "title": "Fold-out rule",
+   "title": "Fold-out fitted model",
    "external": false
   },
   {
@@ -3058,7 +3187,7 @@
    "page": "model-validation",
    "div": "def-observation-loss",
    "kind": "def",
-   "title": "Loss of a prediction rule on an observation",
+   "title": "Loss of a fitted model on an observation",
    "external": false
   },
   {
@@ -3068,15 +3197,6 @@
    "div": "def-one-se-rule",
    "kind": "def",
    "title": "One-standard-error rule",
-   "external": false
-  },
-  {
-   "id": "sds/model-validation#def-optimization-algorithm",
-   "site": "sds",
-   "page": "model-validation",
-   "div": "def-optimization-algorithm",
-   "kind": "def",
-   "title": "Optimization algorithm",
    "external": false
   },
   {
@@ -3125,6 +3245,15 @@
    "external": false
   },
   {
+   "id": "sds/model-validation#def-predictive-model",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "def-predictive-model",
+   "kind": "def",
+   "title": "Predictive model",
+   "external": false
+  },
+  {
    "id": "sds/model-validation#def-preprocessing",
    "site": "sds",
    "page": "model-validation",
@@ -3161,12 +3290,30 @@
    "external": false
   },
   {
+   "id": "sds/model-validation#def-test-error-rate",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "def-test-error-rate",
+   "kind": "def",
+   "title": "Test error rate",
+   "external": false
+  },
+  {
    "id": "sds/model-validation#def-test-set",
    "site": "sds",
    "page": "model-validation",
    "div": "def-test-set",
    "kind": "def",
    "title": "Test set",
+   "external": false
+  },
+  {
+   "id": "sds/model-validation#def-training-error-rate",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "def-training-error-rate",
+   "kind": "def",
+   "title": "Training error rate",
    "external": false
   },
   {
@@ -3985,8 +4132,112 @@
    "sds/exploratory-descriptive#def-contingency-table"
   ],
   [
+   "sds/categorical-tests#def-odds-ratio",
+   "pds/probability-basics#def-odds"
+  ],
+  [
+   "sds/categorical-tests#def-odds-ratio",
+   "sds/categorical-tests#def-outcome-risk"
+  ],
+  [
+   "sds/categorical-tests#def-odds-ratio",
+   "sds/categorical-tests#def-reference-group"
+  ],
+  [
+   "sds/categorical-tests#def-odds-ratio",
+   "sds/data#def-binary-var"
+  ],
+  [
+   "sds/categorical-tests#def-outcome-risk",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/categorical-tests#def-outcome-risk",
+   "sds/data#def-binary-var"
+  ],
+  [
+   "sds/categorical-tests#def-outcome-risk",
+   "sds/intro-MLEs#def-mle"
+  ],
+  [
+   "sds/categorical-tests#def-risk-difference",
+   "sds/categorical-tests#def-outcome-risk"
+  ],
+  [
+   "sds/categorical-tests#def-risk-difference",
+   "sds/categorical-tests#def-reference-group"
+  ],
+  [
+   "sds/categorical-tests#def-risk-difference",
+   "sds/data#def-binary-var"
+  ],
+  [
+   "sds/categorical-tests#def-risk-ratio",
+   "sds/categorical-tests#def-outcome-risk"
+  ],
+  [
+   "sds/categorical-tests#def-risk-ratio",
+   "sds/categorical-tests#def-reference-group"
+  ],
+  [
+   "sds/categorical-tests#def-risk-ratio",
+   "sds/data#def-binary-var"
+  ],
+  [
    "sds/categorical-tests#thm-chi-square-null",
    "sds/categorical-tests#def-chi-square-test"
+  ],
+  [
+   "sds/categorical-tests#thm-odds-ratio-cross-product",
+   "sds/categorical-tests#def-odds-ratio"
+  ],
+  [
+   "sds/categorical-tests#thm-odds-ratio-cross-product",
+   "sds/categorical-tests#def-reference-group"
+  ],
+  [
+   "sds/categorical-tests#thm-odds-ratio-cross-product",
+   "sds/data#def-binary-var"
+  ],
+  [
+   "sds/categorical-tests#thm-odds-ratio-reversible",
+   "sds/categorical-tests#def-odds-ratio"
+  ],
+  [
+   "sds/categorical-tests#thm-odds-ratio-reversible",
+   "sds/data#def-binary-var"
+  ],
+  [
+   "sds/categorical-tests#thm-risk-difference-switch-ref",
+   "sds/categorical-tests#def-outcome-risk"
+  ],
+  [
+   "sds/categorical-tests#thm-risk-difference-switch-ref",
+   "sds/categorical-tests#def-reference-group"
+  ],
+  [
+   "sds/categorical-tests#thm-risk-difference-switch-ref",
+   "sds/categorical-tests#def-risk-difference"
+  ],
+  [
+   "sds/categorical-tests#thm-risk-difference-switch-ref",
+   "sds/data#def-binary-var"
+  ],
+  [
+   "sds/categorical-tests#thm-risk-ratio-switch-ref",
+   "sds/categorical-tests#def-outcome-risk"
+  ],
+  [
+   "sds/categorical-tests#thm-risk-ratio-switch-ref",
+   "sds/categorical-tests#def-reference-group"
+  ],
+  [
+   "sds/categorical-tests#thm-risk-ratio-switch-ref",
+   "sds/categorical-tests#def-risk-ratio"
+  ],
+  [
+   "sds/categorical-tests#thm-risk-ratio-switch-ref",
+   "sds/data#def-binary-var"
   ],
   [
    "sds/classification#def-agent-only-rate",
@@ -4894,7 +5145,7 @@
   ],
   [
    "sds/model-validation#def-cv-estimate",
-   "sds/model-validation#def-fold-out-rule"
+   "sds/model-validation#def-fold-out-fitted-model"
   ],
   [
    "sds/model-validation#def-cv-estimate",
@@ -4910,7 +5161,7 @@
   ],
   [
    "sds/model-validation#def-cv-estimate-indexed",
-   "sds/model-validation#def-fold-out-rule"
+   "sds/model-validation#def-fold-out-fitted-model"
   ],
   [
    "sds/model-validation#def-cv-estimate-indexed",
@@ -4965,6 +5216,26 @@
    "sds/model-validation#def-mean-function"
   ],
   [
+   "sds/model-validation#def-empirical-risk",
+   "pds/expectation#def-risk"
+  ],
+  [
+   "sds/model-validation#def-empirical-risk",
+   "sds/exploratory-descriptive#def-sample-mean"
+  ],
+  [
+   "sds/model-validation#def-empirical-risk",
+   "sds/model-validation#def-fitted-model"
+  ],
+  [
+   "sds/model-validation#def-empirical-risk",
+   "sds/model-validation#def-observation-loss"
+  ],
+  [
+   "sds/model-validation#def-empirical-risk",
+   "sds/model-validation#def-training-set"
+  ],
+  [
    "sds/model-validation#def-epe",
    "sds/model-validation#def-epl"
   ],
@@ -4995,6 +5266,26 @@
   [
    "sds/model-validation#def-epl",
    "sds/model-validation#def-training-set"
+  ],
+  [
+   "sds/model-validation#def-error-rate",
+   "sds/data#def-categorical-var"
+  ],
+  [
+   "sds/model-validation#def-error-rate",
+   "sds/exploratory-descriptive#def-sample-mean"
+  ],
+  [
+   "sds/model-validation#def-error-rate",
+   "sds/model-validation#def-fitted-model"
+  ],
+  [
+   "sds/model-validation#def-error-rate",
+   "sds/model-validation#def-observation-loss"
+  ],
+  [
+   "sds/model-validation#def-error-rate",
+   "sds/prediction#def-prediction"
   ],
   [
    "sds/model-validation#def-expected-generalization-error",
@@ -5038,6 +5329,10 @@
   ],
   [
    "sds/model-validation#def-fitting-procedure",
+   "mds/optimization#def-optimization-algorithm"
+  ],
+  [
+   "sds/model-validation#def-fitting-procedure",
    "sds/model-validation#def-data-set"
   ],
   [
@@ -5051,10 +5346,6 @@
   [
    "sds/model-validation#def-fitting-procedure",
    "sds/model-validation#def-objective-function"
-  ],
-  [
-   "sds/model-validation#def-fitting-procedure",
-   "sds/model-validation#def-optimization-algorithm"
   ],
   [
    "sds/model-validation#def-fitting-procedure",
@@ -5086,7 +5377,7 @@
   ],
   [
    "sds/model-validation#def-fold-mse",
-   "sds/model-validation#def-fold-out-rule"
+   "sds/model-validation#def-fold-out-fitted-model"
   ],
   [
    "sds/model-validation#def-fold-mse",
@@ -5098,6 +5389,10 @@
   ],
   [
    "sds/model-validation#def-fold-mse",
+   "sds/prediction#def-prediction"
+  ],
+  [
+   "sds/model-validation#def-fold-mse",
    "sds/prediction#def-prediction-mse"
   ],
   [
@@ -5106,22 +5401,22 @@
   ],
   [
    "sds/model-validation#def-fold-mse-indexed",
-   "sds/model-validation#def-fold-out-rule"
+   "sds/model-validation#def-fold-out-fitted-model"
   ],
   [
    "sds/model-validation#def-fold-mse-indexed",
    "sds/model-validation#def-folds"
   ],
   [
-   "sds/model-validation#def-fold-out-rule",
+   "sds/model-validation#def-fold-out-fitted-model",
    "sds/model-validation#def-fitted-model"
   ],
   [
-   "sds/model-validation#def-fold-out-rule",
+   "sds/model-validation#def-fold-out-fitted-model",
    "sds/model-validation#def-fitting-procedure"
   ],
   [
-   "sds/model-validation#def-fold-out-rule",
+   "sds/model-validation#def-fold-out-fitted-model",
    "sds/model-validation#def-folds"
   ],
   [
@@ -5182,7 +5477,7 @@
   ],
   [
    "sds/model-validation#def-kfold",
-   "sds/model-validation#def-fold-out-rule"
+   "sds/model-validation#def-fold-out-fitted-model"
   ],
   [
    "sds/model-validation#def-kfold",
@@ -5210,7 +5505,7 @@
   ],
   [
    "sds/model-validation#def-loocv",
-   "sds/model-validation#def-fold-out-rule"
+   "sds/model-validation#def-fold-out-fitted-model"
   ],
   [
    "sds/model-validation#def-loocv",
@@ -5317,14 +5612,6 @@
    "sds/model-validation#def-flexibility"
   ],
   [
-   "sds/model-validation#def-optimization-algorithm",
-   "sds/model-validation#def-model-family"
-  ],
-  [
-   "sds/model-validation#def-optimization-algorithm",
-   "sds/model-validation#def-objective-function"
-  ],
-  [
    "sds/model-validation#def-outcome-vector",
    "sds/model-validation#def-data-set"
   ],
@@ -5373,6 +5660,26 @@
    "sds/prediction#def-prediction-mse"
   ],
   [
+   "sds/model-validation#def-predictive-model",
+   "sds/model-validation#def-fitted-model"
+  ],
+  [
+   "sds/model-validation#def-predictive-model",
+   "sds/model-validation#def-model-family"
+  ],
+  [
+   "sds/model-validation#def-predictive-model",
+   "sds/model-validation#def-new-observation"
+  ],
+  [
+   "sds/model-validation#def-predictive-model",
+   "sds/prediction#def-prediction"
+  ],
+  [
+   "sds/model-validation#def-predictive-model",
+   "sds/prediction#def-prediction-error"
+  ],
+  [
    "sds/model-validation#def-preprocessing",
    "sds/model-validation#def-covariate"
   ],
@@ -5397,6 +5704,26 @@
    "sds/model-validation#def-training-set"
   ],
   [
+   "sds/model-validation#def-test-error-rate",
+   "sds/model-validation#def-error-rate"
+  ],
+  [
+   "sds/model-validation#def-test-error-rate",
+   "sds/model-validation#def-fitted-model"
+  ],
+  [
+   "sds/model-validation#def-test-error-rate",
+   "sds/model-validation#def-observation-loss"
+  ],
+  [
+   "sds/model-validation#def-test-error-rate",
+   "sds/model-validation#def-test-error"
+  ],
+  [
+   "sds/model-validation#def-test-error-rate",
+   "sds/model-validation#def-test-set"
+  ],
+  [
    "sds/model-validation#def-test-set",
    "sds/model-validation#def-data-splits"
   ],
@@ -5413,12 +5740,32 @@
    "sds/model-validation#def-validation-choice"
   ],
   [
-   "sds/model-validation#def-training-mse",
+   "sds/model-validation#def-training-error-rate",
+   "sds/model-validation#def-error-rate"
+  ],
+  [
+   "sds/model-validation#def-training-error-rate",
    "sds/model-validation#def-fitted-model"
   ],
   [
-   "sds/model-validation#def-training-mse",
+   "sds/model-validation#def-training-error-rate",
    "sds/model-validation#def-observation-loss"
+  ],
+  [
+   "sds/model-validation#def-training-error-rate",
+   "sds/model-validation#def-training-mse"
+  ],
+  [
+   "sds/model-validation#def-training-error-rate",
+   "sds/model-validation#def-training-set"
+  ],
+  [
+   "sds/model-validation#def-training-mse",
+   "sds/model-validation#def-empirical-risk"
+  ],
+  [
+   "sds/model-validation#def-training-mse",
+   "sds/model-validation#def-fitted-model"
   ],
   [
    "sds/model-validation#def-training-mse",
@@ -5499,6 +5846,10 @@
   [
    "sds/model-validation#thm-cv-estimate-by-fold",
    "sds/model-validation#def-cv-estimate"
+  ],
+  [
+   "sds/model-validation#thm-cv-estimate-by-fold",
+   "sds/model-validation#def-fitted-model"
   ],
   [
    "sds/model-validation#thm-cv-estimate-by-fold",

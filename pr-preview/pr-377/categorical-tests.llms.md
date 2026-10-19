@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 03:11:47 (PDT)
+Last modified: 2026-10-19 11:38:14 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -189,7 +189,274 @@ hers |> head()
 
 ### 2.4 Measures of association for \\2 \times 2\\ tables
 
-Tests of independence say whether two binary variables are associated, but not how strongly. Risk differences, risk ratios, and odds ratios measure the strength of the association; see [Odds Ratios and Relative Risks](https://morrison-lab.github.io/rme/chapters/binary-outcome-associations.html#sec-OR-RR).
+Tests of independence say whether two binary variables are associated, but not how strongly. The [risk difference](#def-risk-difference), the [risk ratio](#def-risk-ratio) and the [odds ratio](#def-odds-ratio) measure the strength of the association.
+
+> **NOTE:**
+>
+> **Definition 4 (Risk of a binary outcome)** The **risk** of a [binary](data.llms.md#def-binary-var) outcome in a group is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a member of the group has the outcome.
+>
+> The risk lies in \\\[0, 1\]\\, and its [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) is the proportion of the group’s observations that have the outcome.
+>
+> Source: Wikipedia contributors [\[7\]](#ref-wikipedia_relative_risk).
+
+> **NOTE:**
+>
+> **Example 5 (Risk of regular exercise in each HERS treatment group)** In [Table 1](#tbl-hers-crosstab), the outcome is regular exercise at baseline. The estimated [risk](#def-outcome-risk) in each treatment group is the proportion of that group’s column who exercise regularly:
+>
+> ``` downlit
+> risk_hat <- prop.table(table(hers$exercise, hers$HT), margin = 2)["yes", ]
+> risk_hat
+> #>         placebo hormone therapy 
+> #>        0.383225        0.389855
+> ```
+>
+> The estimated risk of regular exercise is 0.383 in the placebo group and 0.39 in the hormone therapy group.
+
+> **NOTE:**
+>
+> **Definition 5 (Reference group)** In a comparison of an outcome measure between two groups, the **reference group** is the group whose measure is the subtrahend of a difference or the denominator of a quotient. The other group is the group being compared with it.
+
+> **NOTE:**
+>
+> **Example 6 (The placebo group as the reference group in HERS)** To compare the [risks](#def-outcome-risk) of regular exercise in [Example 5](#exm-hers-outcome-risk), take the placebo group as the [reference group](#def-reference-group) and the hormone therapy group as the group being compared with it. Then a difference is hormone therapy minus placebo, and a quotient is hormone therapy divided by placebo.
+
+> **NOTE:**
+>
+> **Definition 6 (Risk difference (also called the absolute risk reduction))** Let:
+>
+> - \\\pi_1\\ be the [risk](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
+> - \\\pi_2\\ be the risk of the same outcome in the [reference group](#def-reference-group), group 2.
+>
+> The **risk difference**, also called the **absolute risk reduction**, of group 1 compared with group 2 is
+>
+> \\\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2 \in \[-1, 1\].\\
+>
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_absolute_risk_reduction).
+
+> **NOTE:**
+>
+> **Example 7 (Risk difference of regular exercise in HERS)** Take group 1 to be hormone therapy and group 2, the [reference group](#def-reference-group), to be placebo. The estimated [risk difference](#def-risk-difference) for the estimated [risks](#def-outcome-risk) of [Example 5](#exm-hers-outcome-risk) is:
+>
+> ``` downlit
+> rd_hat <- risk_hat[["hormone therapy"]] - risk_hat[["placebo"]]
+> rd_hat
+> #> [1] 0.0066302
+> ```
+>
+> The estimated [risk](#def-outcome-risk) of regular exercise is 0.007 higher in the hormone therapy group than in the placebo group. Multiplying by 100 gives 0.7 percentage points.
+
+> **NOTE:**
+>
+> **Exercise 1** Let:
+>
+> - \\\pi_1\\ and \\\pi_2\\ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
+> - \\\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2\\ be the [risk difference](#def-risk-difference) of group 1 compared with group 2.
+>
+> Express the risk difference of group 2 compared with group 1, \\\pi_2 - \pi_1\\, in terms of \\\operatorname{RD}\\.
+
+> **NOTE:**
+>
+> *Solution 1*. \\ \begin{aligned} \pi_2 - \pi_1 &= -1 \cdot \mathopen{}\left(\pi_1 - \pi_2\right)\mathclose{} && \text{(factor \$-1\$ out of both terms)} \\ &= -\operatorname{RD} && \text{(definition of \$\operatorname{RD}\$)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Theorem 2 (Switching the reference group in a risk difference)** Let:
+>
+> - \\\pi_1\\ and \\\pi_2\\ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
+> - \\\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2\\ be the [risk difference](#def-risk-difference) of group 1 compared with group 2, with group 2 as the [reference group](#def-reference-group).
+>
+> Then the risk difference of group 2 compared with group 1, with group 1 as the reference group, is the negative of \\\operatorname{RD}\\:
+>
+> \\\pi_2 - \pi_1 = -\operatorname{RD}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the result of [Solution 1](#sol-risk-difference-switch-ref).
+
+> **NOTE:**
+>
+> **Example 8 (Switching the reference group in the HERS risk difference)** In [Example 7](#exm-hers-risk-difference) the placebo group is the [reference group](#def-reference-group), and the estimated [risk difference](#def-risk-difference) is 0.007. Taking the hormone therapy group as the reference group instead gives:
+>
+> ``` downlit
+> rd_hat_switched <- risk_hat[["placebo"]] - risk_hat[["hormone therapy"]]
+> rd_hat_switched
+> #> [1] -0.0066302
+> ```
+>
+> This [estimate](estimation.llms.md#def-estimate), -0.007, is the negative of 0.007, as [Theorem 2](#thm-risk-difference-switch-ref) states.
+
+> **NOTE:**
+>
+> **Definition 7 (Risk ratio (also called the relative risk))** Let:
+>
+> - \\\pi_1\\ be the [risk](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
+> - \\\pi_2 \> 0\\ be the risk of the same outcome in the [reference group](#def-reference-group), group 2.
+>
+> The **risk ratio**, also called the **relative risk**, of group 1 compared with group 2 is
+>
+> \\\text{ϙ}\_{\pi}\stackrel{\text{def}}{=}\frac{\pi_1}{\pi_2} \in \[0, \infty).\\
+>
+> Source: Wikipedia contributors [\[7\]](#ref-wikipedia_relative_risk).
+
+> **NOTE:**
+>
+> **Example 9 (Risk ratio of regular exercise in HERS)** Take group 1 to be hormone therapy and group 2, the [reference group](#def-reference-group), to be placebo. The estimated [risk ratio](#def-risk-ratio) for the estimated [risks](#def-outcome-risk) of [Example 5](#exm-hers-outcome-risk) is:
+>
+> ``` downlit
+> rr_hat <- risk_hat[["hormone therapy"]] / risk_hat[["placebo"]]
+> rr_hat
+> #> [1] 1.0173
+> ```
+>
+> The estimated [risk](#def-outcome-risk) of regular exercise in the hormone therapy group is 1.017 times the estimated risk in the placebo group. This [estimate](estimation.llms.md#def-estimate) is close to 1, which agrees with the large [p-value](inference.llms.md#def-p-value) of [Example 3](#exm-hers-chisq): the two groups have about the same estimated risk. The estimate alone does not show how precise it is.
+
+> **NOTE:**
+>
+> **Exercise 2** Let:
+>
+> - \\\pi_1\\ and \\\pi_2 \> 0\\ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
+> - \\\text{ϙ}\_{\pi}\stackrel{\text{def}}{=}\pi_1 / \pi_2\\ be the [risk ratio](#def-risk-ratio) of group 1 compared with group 2.
+> - \\\text{ϙ}\_{\pi}\> 0\\.
+>
+> Express the risk ratio of group 2 compared with group 1, \\\pi_2 / \pi_1\\, in terms of \\\text{ϙ}\_{\pi}\\.
+
+> **NOTE:**
+>
+> *Solution 2*. \\ \begin{aligned} \frac{\pi_2}{\pi_1} &= \frac{1}{\pi_1 / \pi_2} && \text{(the reciprocal of a quotient swaps numerator and denominator)} \\ &= \frac{1}{\text{ϙ}\_{\pi}} && \text{(definition of \$\text{ϙ}\_{\pi}\$)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Theorem 3 (Switching the reference group in a risk ratio)** Let:
+>
+> - \\\pi_1\\ and \\\pi_2 \> 0\\ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
+> - \\\text{ϙ}\_{\pi}\stackrel{\text{def}}{=}\pi_1 / \pi_2\\ be the [risk ratio](#def-risk-ratio) of group 1 compared with group 2, with group 2 as the [reference group](#def-reference-group).
+> - \\\text{ϙ}\_{\pi}\> 0\\.
+>
+> Then the risk ratio of group 2 compared with group 1, with group 1 as the reference group, is the reciprocal of \\\text{ϙ}\_{\pi}\\:
+>
+> \\\frac{\pi_2}{\pi_1} = \frac{1}{\text{ϙ}\_{\pi}}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the result of [Solution 2](#sol-risk-ratio-switch-ref).
+
+> **NOTE:**
+>
+> **Example 10 (Switching the reference group in the HERS risk ratio)** In [Example 9](#exm-hers-risk-ratio) the placebo group is the [reference group](#def-reference-group), and the estimated [risk ratio](#def-risk-ratio) is 1.017. Taking the hormone therapy group as the reference group instead gives:
+>
+> ``` downlit
+> rr_hat_switched <- risk_hat[["placebo"]] / risk_hat[["hormone therapy"]]
+> rr_hat_switched
+> #> [1] 0.982993
+> ```
+>
+> This [estimate](estimation.llms.md#def-estimate), 0.983, is the reciprocal of 1.017, 0.983, as [Theorem 3](#thm-risk-ratio-switch-ref) states.
+
+> **NOTE:**
+>
+> **Definition 8 (Odds ratio)** Let:
+>
+> - \\\omega_1\\ be the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
+> - \\\omega_2\\ be the odds of the same outcome in the [reference group](#def-reference-group), group 2.
+>
+> The **odds ratio** of group 1 compared with group 2 is
+>
+> \\\text{ϙ}\_{\omega}\stackrel{\text{def}}{=}\frac{\omega_1}{\omega_2} \in (0, \infty).\\
+>
+> Here \\\omega_g = \pi_g / (1 - \pi_g)\\ for the [risk](#def-outcome-risk) \\\pi_g\\ of group \\g\\.
+>
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_odds_ratio).
+
+> **NOTE:**
+>
+> **Example 11 (Odds ratio of regular exercise in HERS)** Take group 1 to be hormone therapy and group 2, the [reference group](#def-reference-group), to be placebo. The [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of regular exercise in each group follow from the estimated [risks](#def-outcome-risk) of [Example 5](#exm-hers-outcome-risk). The estimated [odds ratio](#def-odds-ratio) divides the odds in the hormone therapy group by the odds in the placebo group:
+>
+> ``` downlit
+> odds_hat <- risk_hat / (1 - risk_hat)
+> or_hat <- odds_hat[["hormone therapy"]] / odds_hat[["placebo"]]
+> c(odds_hat, odds_ratio = or_hat)
+> #>         placebo hormone therapy      odds_ratio 
+> #>        0.621336        0.638955        1.028356
+> ```
+>
+> The estimated odds ratio 1.028 is close to the [risk ratio](#def-risk-ratio) 1.017 of [Example 9](#exm-hers-risk-ratio), because the two groups have nearly equal risks. The odds ratio is 1 exactly when the risk ratio is 1, so it also agrees with the large [p-value](inference.llms.md#def-p-value) of [Example 3](#exm-hers-chisq).
+
+> **NOTE:**
+>
+> **Exercise 3** Let:
+>
+> - \\X\\ and \\Y\\ be [binary](data.llms.md#def-binary-var) random variables, each with values \\0\\ and \\1\\.
+> - \\{\operatorname{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
+>
+> Express the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ given \\X = x\\ in terms of the joint probabilities \\{\operatorname{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}\\ and \\{\operatorname{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}\\.
+
+> **NOTE:**
+>
+> *Solution 3*. \\ \begin{aligned} \omega &= \frac{{\operatorname{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{1 - {\operatorname{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}} && \text{(definition of odds)} \\ &= \frac{{\operatorname{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(Y = 0 \mid X = x\right)\mathclose{}}} && \text{(the two values of \$Y\$ have conditional probabilities that sum to 1)} \\ &= \frac{{\operatorname{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}} / {\operatorname{P}\mathopen{}\left(X = x\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}} / {\operatorname{P}\mathopen{}\left(X = x\right)\mathclose{}}} && \text{(definition of conditional probability, in numerator and denominator)} \\ &= \frac{{\operatorname{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}} && \text{(divide the numerator and the denominator by the same positive number \${\operatorname{P}\mathopen{}\left(X = x\right)\mathclose{}}\$)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Theorem 4 (The odds ratio as a ratio of cross products)** Let:
+>
+> - \\X\\ and \\Y\\ be [binary](data.llms.md#def-binary-var) random variables, each with values \\0\\ and \\1\\.
+> - \\{\operatorname{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
+>
+> The [odds ratio](#def-odds-ratio) of \\Y = 1\\ comparing the group \\X = 1\\ with the [reference group](#def-reference-group) \\X = 0\\ is
+>
+> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X\right)\mathclose{}} = \frac{{\operatorname{P}\mathopen{}\left(X = 1, Y = 1\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(X = 0, Y = 0\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(X = 1, Y = 0\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(X = 0, Y = 1\right)\mathclose{}}}. \\
+
+> **NOTE:**
+>
+> *Proof*. By [Solution 3](#sol-odds-from-joint-probs), the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ in the group \\X = 1\\ are \\{\operatorname{P}\mathopen{}\left(X = 1, Y = 1\right)\mathclose{}} / {\operatorname{P}\mathopen{}\left(X = 1, Y = 0\right)\mathclose{}}\\. By the same solution, the odds of \\Y = 1\\ in the group \\X = 0\\ are \\{\operatorname{P}\mathopen{}\left(X = 0, Y = 1\right)\mathclose{}} / {\operatorname{P}\mathopen{}\left(X = 0, Y = 0\right)\mathclose{}}\\. The [odds ratio](#def-odds-ratio) is the first odds divided by the second. Dividing by a fraction is multiplying by its reciprocal, which gives the stated product of the four joint probabilities.
+
+> **NOTE:**
+>
+> **Example 12 (The HERS odds ratio from the cell proportions)** Take \\X = 1\\ for hormone therapy and \\X = 0\\ for placebo, and \\Y = 1\\ for regular exercise. The estimated joint probabilities are the cell proportions of the HERS table:
+>
+> ``` downlit
+> joint_hat <- prop.table(table(HT = hers$HT, exercise = hers$exercise))
+> cross_ratio <-
+>   joint_hat["hormone therapy", "yes"] * joint_hat["placebo", "no"] /
+>   (joint_hat["hormone therapy", "no"] * joint_hat["placebo", "yes"])
+> cross_ratio
+> #> [1] 1.02836
+> ```
+>
+> The cross-product expression equals 1.028. It equals the estimated [odds ratio](#def-odds-ratio) 1.028 of [Example 11](#exm-hers-odds-ratio), as [Theorem 4](#thm-odds-ratio-cross-product) states.
+
+> **NOTE:**
+>
+> **Theorem 5 (The odds ratio is reversible)** Let:
+>
+> - \\X\\ and \\Y\\ be [binary](data.llms.md#def-binary-var) random variables, each with values \\0\\ and \\1\\.
+> - \\{\operatorname{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
+>
+> The [odds ratio](#def-odds-ratio) of \\Y = 1\\ comparing \\X = 1\\ with \\X = 0\\ equals the odds ratio of \\X = 1\\ comparing \\Y = 1\\ with \\Y = 0\\:
+>
+> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X\right)\mathclose{}} = {\text{ϙ}\_{\omega}\mathopen{}\left(X \mid Y\right)\mathclose{}}. \\
+
+> **NOTE:**
+>
+> *Proof*. By [Theorem 4](#thm-odds-ratio-cross-product), with the roles of \\X\\ and \\Y\\ exchanged,
+>
+> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(X \mid Y\right)\mathclose{}} = \frac{{\operatorname{P}\mathopen{}\left(Y = 1, X = 1\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(Y = 0, X = 0\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(Y = 1, X = 0\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(Y = 0, X = 1\right)\mathclose{}}}. \\
+>
+> The event \\{\mathopen{}\left\\Y = y, X = x\right\\\mathclose{}}\\ is the event \\{\mathopen{}\left\\X = x, Y = y\right\\\mathclose{}}\\, so each joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) here equals the joint probability with its arguments in the other order. The denominator is a product of two joint probabilities, and multiplication is commutative. Reordering its two factors gives the denominator of [Theorem 4](#thm-odds-ratio-cross-product) for \\{\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X\right)\mathclose{}}\\.
+
+> **NOTE:**
+>
+> **Example 13 (Reversing the roles of treatment and exercise in HERS)** In [Example 12](#exm-hers-odds-ratio-cross-product), the [odds ratio](#def-odds-ratio) compares the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of regular exercise between the hormone therapy and placebo groups. Reversing the roles compares the odds of hormone therapy between the women who exercise regularly and those who do not:
+>
+> ``` downlit
+> counts <- table(HT = hers$HT, exercise = hers$exercise)
+> odds_ht_exercise <- counts["hormone therapy", "yes"] / counts["placebo", "yes"]
+> odds_ht_no_exercise <- counts["hormone therapy", "no"] / counts["placebo", "no"]
+> or_reversed <- odds_ht_exercise / odds_ht_no_exercise
+> or_reversed
+> #> [1] 1.02836
+> ```
+>
+> The reversed odds ratio is 1.028. It equals the odds ratio 1.028 of [Example 11](#exm-hers-odds-ratio), as [Theorem 5](#thm-odds-ratio-reversible) states.
 
 > **NOTE:**
 >
@@ -220,5 +487,17 @@ J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Ce
 \[6\]
 
 Wikipedia contributors, “Fisher’s exact test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Fisher%27s_exact_test>
+
+\[7\]
+
+Wikipedia contributors, “Relative risk — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Relative_risk>
+
+\[8\]
+
+Wikipedia contributors, “Absolute risk reduction — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Absolute_risk_reduction>
+
+\[9\]
+
+Wikipedia contributors, “Odds ratio — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Odds_ratio>
 
 Back to top

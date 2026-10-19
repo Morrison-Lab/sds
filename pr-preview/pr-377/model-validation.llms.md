@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 03:11:47 (PDT)
+Last modified: 2026-10-19 11:38:14 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -22,7 +22,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > **Definition 1 (Data set)** A **data set** is a finite collection of \\n\\ labelled observations, that is, \\n\\ pairs \\(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i, y_i)\\, where \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\\ is an input vector and \\y_i\\ is the corresponding outcome:
 >
-> \\ \mathcal{D}\stackrel{\text{def}}{=}\mathopen{}\left\\(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i, y_i) : i = 1, \ldots, n\right\\\mathclose{} . \tag{1}\\
+> \\ \mathcal{D}\stackrel{\text{def}}{=}{\mathopen{}\left\\(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i, y_i) : i = 1, \ldots, n\right\\\mathclose{}} . \tag{1}\\
 
 > **NOTE:**
 >
@@ -66,7 +66,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > The [input matrix](#def-input-matrix) `X_cars5` has 5 rows, one per car, and 2 columns, one per input variable. The [outcome vector](#def-outcome-vector) `y_cars5` has 5 entries, one per car.
 
-## 2 Fitting and scoring prediction rules
+## 2 Fitting and scoring models
 
 > **NOTE:**
 >
@@ -80,11 +80,11 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > **Definition 5 (Mean function)** The **mean function** \\\mu\\ of an outcome \\Y\\ given a covariate \\X\\ maps each covariate value \\x\\ to the mean of \\Y\\ given \\X= x\\:
 >
-> \\ \mu\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[Y\mid X= x\right\]\mathclose{}. \tag{4}\\
+> \\ {\mu\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[Y\mid X= x\right\]\mathclose{}}. \tag{4}\\
 
 > **NOTE:**
 >
-> **Definition 6 (Mean-function model family)** A **mean-function model family** \\\mathcal{H}\\ is a set of functions, each of which maps a [covariate](#def-covariate) value \\x\\ to a candidate for the value \\\mu\mathopen{}\left(x\right)\mathclose{}\\ of the [mean function](#def-mean-function) at \\x\\.
+> **Definition 6 (Mean-function model family)** A **mean-function model family** \\\mathcal{H}\\ is a set of functions, each of which maps a [covariate](#def-covariate) value \\x\\ to a candidate for the value \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ of the [mean function](#def-mean-function) at \\x\\.
 
 > **NOTE:**
 >
@@ -102,19 +102,13 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 8 (Optimization algorithm)** An **optimization algorithm** \\\mathcal{A}\\ is a step-by-step procedure that searches a [model family](#def-model-family) \\\mathcal{H}\\ for a member \\h\\ with a small value of an [objective function](#def-objective-function) \\\mathcal{J}\\:
->
-> \\ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\mathclose{} \in \mathcal{H}. \tag{6}\\
-
-> **NOTE:**
->
-> **Example 5 (Exact and exhaustive searches)** For the residual sum of squares over the polynomials in [Example 4](#exm-objective-function), solving the [normal equations](correlation-regression.llms.md#def-normal-equations) is an [optimization algorithm](#def-optimization-algorithm) \\\mathcal{A}\\ that finds the unique minimizer in one step.
+> **Example 5 (Exact and exhaustive searches)** For the residual sum of squares over the polynomials in [Example 4](#exm-objective-function), solving the [normal equations](correlation-regression.llms.md#def-normal-equations) is an [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) \\\mathcal{A}\\ that finds the unique minimizer in one step.
 >
 > Trying every member of a finite model family and keeping the one with the smallest value of the objective function is another, and it ends after the last member.
 
 > **NOTE:**
 >
-> **Definition 9 (Random seed)** A **random seed** \\\mathfrak{s}\\ is a number that fixes the sequence of random numbers a computer generates: the same seed gives the same sequence.
+> **Definition 8 (Random seed)** A **random seed** \\\mathfrak{s}\\ is a number that fixes the sequence of random numbers a computer generates: the same seed gives the same sequence.
 >
 > Source: Wikipedia contributors [\[1\]](#ref-wikipedia_random_seed).
 
@@ -124,7 +118,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 10 (Preprocessing)** The **preprocessing** \\\phi\\ of a fitting procedure is the map from [covariate](#def-covariate) values \\x\\ to the features \\\phi\mathopen{}\left(x\right)\mathclose{}\\ that the procedure’s [model family](#def-model-family) uses as inputs.
+> **Definition 9 (Preprocessing)** The **preprocessing** \\\phi\\ of a fitting procedure is the map from [covariate](#def-covariate) values \\x\\ to the features \\\phi\mathopen{}\left(x\right)\mathclose{}\\ that the procedure’s [model family](#def-model-family) uses as inputs.
 
 > **NOTE:**
 >
@@ -132,7 +126,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 11 (Fitted model)** A **fitted model** \\\hat{h}\\ is a member of a [model family](#def-model-family) \\\mathcal{H}\\ that has been chosen to describe a [data set](#def-data-set) \\\mathcal{D}\\. A fitted model used to [predict](prediction.llms.md#def-prediction) outcomes is also called a *prediction rule*.
+> **Definition 10 (Fitted model)** A **fitted model** \\\hat{h}\\ is a member of a [model family](#def-model-family) \\\mathcal{H}\\ that has been chosen to describe a [data set](#def-data-set) \\\mathcal{D}\\. A fitted model used to [predict](prediction.llms.md#def-prediction) outcomes is also called a *prediction rule*.
 
 > **NOTE:**
 >
@@ -140,15 +134,15 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 12 (Fitting procedure)** A **fitting procedure** \\g\\ is a [function](https://morrison-lab.github.io/mds/functions.html#def-function) that, given any [data set](#def-data-set) \\\mathcal{D}\\, produces the [fitted model](#def-fitted-model) \\\hat{h}= g\mathopen{}\left(\mathcal{D}\right)\mathclose{}\\:
+> **Definition 11 (Fitting procedure)** A **fitting procedure** \\g\\ is a [function](https://morrison-lab.github.io/mds/functions.html#def-function) that, given any [data set](#def-data-set) \\\mathcal{D}\\, produces the [fitted model](#def-fitted-model) \\\hat{h}= {g\mathopen{}\left(\mathcal{D}\right)\mathclose{}}\\:
 >
-> \\ \mathcal{D} \mapsto \hat{h} = g\mathopen{}\left(\mathcal{D}\right)\mathclose{}. \tag{7}\\
+> \\ \mathcal{D} \mapsto \hat{h} = {g\mathopen{}\left(\mathcal{D}\right)\mathclose{}}. \tag{6}\\
 >
 > A fitting procedure is specified by these inputs:
 >
 > - [model family](#def-model-family) \\\mathcal{H}\\;
 > - [objective function](#def-objective-function) \\\mathcal{J}\\;
-> - [optimization algorithm](#def-optimization-algorithm) \\\mathcal{A}\\;
+> - [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) \\\mathcal{A}\\;
 > - [random seed](#def-random-seed) \\\mathfrak{s}\\;
 > - [tuning parameters](#def-tuning-parameter) \\\lambda\\;
 > - [preprocessing](#def-preprocessing) \\\phi\\.
@@ -159,16 +153,16 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > - [model family](#def-model-family) \\\mathcal{H}\\: the polynomials of degree at most \\d\\;
 > - [objective function](#def-objective-function) \\\mathcal{J}\\: the [residual sum of squares](correlation-regression.llms.md#def-rss);
-> - [optimization algorithm](#def-optimization-algorithm) \\\mathcal{A}\\: solving the [normal equations](correlation-regression.llms.md#def-normal-equations);
+> - [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) \\\mathcal{A}\\: solving the [normal equations](correlation-regression.llms.md#def-normal-equations);
 > - [random seed](#def-random-seed) \\\mathfrak{s}\\: none, since nothing is random;
 > - [tuning parameter](#def-tuning-parameter) \\\lambda\\: the degree \\d\\;
 > - [preprocessing](#def-preprocessing) \\\phi\\: none.
 
 > **NOTE:**
 >
-> **Definition 13 (Training set)** A **training set** is the data to which a [fitting procedure](#def-fitting-procedure) is applied: \\n\\ observations, written as an ordered list indexed by a set \\I\\ of \\n\\ observation numbers:
+> **Definition 12 (Training set)** A **training set** is the data to which a [fitting procedure](#def-fitting-procedure) is applied: \\n\\ observations, written as an ordered list indexed by a set \\I\\ of \\n\\ observation numbers:
 >
-> \\ \mathcal{D}\_{\text{train}}\stackrel{\text{def}}{=}\mathopen{}\left((\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_{i}, y\_{i})\right)\mathclose{}\_{i\in I}, \quad \mathopen{}\left\|I\right\|\mathclose{} = n. \tag{8}\\
+> \\ \mathcal{D}\_{\text{train}}\stackrel{\text{def}}{=}\mathopen{}\left((\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_{i}, y\_{i})\right)\mathclose{}\_{i\in I}, \quad \mathopen{}\left\|I\right\|\mathclose{} = n. \tag{7}\\
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_training_validation_and_test_data_sets).
 
@@ -180,11 +174,11 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > *Remark 3* (Notation for the fitted model from a training set). The [fitted model](#def-fitted-model) \\{\hat y\_{\mathcal{D}\_{\text{train}}}}\\ that a [fitting procedure](#def-fitting-procedure) \\g\\ produces from the [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is written \\\hat y\\, without the subscript when the training set is the one in use:
 >
-> \\ \hat y\stackrel{\text{def}}{=}{\hat y\_{\mathcal{D}\_{\text{train}}}}. \tag{9}\\
+> \\ \hat y\stackrel{\text{def}}{=}{\hat y\_{\mathcal{D}\_{\text{train}}}}. \tag{8}\\
 
 > **NOTE:**
 >
-> **Definition 14 (Prediction function family (hypothesis class, hypothesis space))** A **prediction function family** \\\mathcal{Y}\\ (also called a **hypothesis class** or a **hypothesis space**) is a set of functions, each of which maps a [covariate](#def-covariate) value \\x\\ to a [prediction](prediction.llms.md#def-prediction) of the outcome.
+> **Definition 13 (Prediction function family (hypothesis class, hypothesis space))** A **prediction function family** \\\mathcal{Y}\\ (also called a **hypothesis class** or a **hypothesis space**) is a set of functions, each of which maps a [covariate](#def-covariate) value \\x\\ to a [prediction](prediction.llms.md#def-prediction) of the outcome.
 
 > **NOTE:**
 >
@@ -192,7 +186,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 15 (New observation)** A **new observation** \\(X\_{\*}, Y\_{\*})\\ relative to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is a covariate value and an outcome drawn from the same population as the observations of \\\mathcal{D}\_{\text{train}}\\, and [statistically independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of \\\mathcal{D}\_{\text{train}}\\. The subscript \\\*\\ marks a quantity of the new observation, as in \\X\_{\*}\\ and \\Y\_{\*}\\, and distinguishes it from the indexed observations \\(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_{i}, y\_{i})\\ of \\\mathcal{D}\_{\text{train}}\\. It is the [new observation](https://morrison-lab.github.io/pds/expectation.html#def-new-observation) of the pds notes, where the data used to choose the [prediction function](https://morrison-lab.github.io/pds/expectation.html#def-prediction) is \\\mathcal{D}\_{\text{train}}\\, to which a [fitting procedure](#def-fitting-procedure) is applied.
+> **Definition 14 (New observation)** A **new observation** \\(X\_{\*}, Y\_{\*})\\ relative to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is a covariate value and an outcome drawn from the same population as the observations of \\\mathcal{D}\_{\text{train}}\\, and [statistically independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of \\\mathcal{D}\_{\text{train}}\\. The subscript \\\*\\ marks a quantity of the new observation, as in \\X\_{\*}\\ and \\Y\_{\*}\\, and distinguishes it from the indexed observations \\(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_{i}, y\_{i})\\ of \\\mathcal{D}\_{\text{train}}\\. It is the [new observation](https://morrison-lab.github.io/pds/expectation.html#def-new-observation) of the pds notes, where the data used to choose the [prediction function](https://morrison-lab.github.io/pds/expectation.html#def-prediction) is \\\mathcal{D}\_{\text{train}}\\, to which a [fitting procedure](#def-fitting-procedure) is applied.
 
 > **NOTE:**
 >
@@ -210,49 +204,57 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
+> **Definition 15 (Predictive model)** A **predictive model** is a [model family](#def-model-family) or [fitted model](#def-fitted-model) whose purpose is to [predict](prediction.llms.md#def-prediction) the outcomes of [new observations](#def-new-observation). Its quality is judged by its [prediction error](prediction.llms.md#def-prediction-error) on new observations, not by whether its form describes how the outcome arises.
+
+> **NOTE:**
+>
+> **Example 12 (Polynomials as predictive models)** The polynomials of [Example 10](#exm-prediction-function-family) are a [predictive model](#def-predictive-model) when we choose among them by their [prediction error](prediction.llms.md#def-prediction-error) on [new observations](#def-new-observation). They are not a [scientific model](estimation.llms.md#def-scientific-model) of the outcome: a polynomial of high degree can [predict](prediction.llms.md#def-prediction) well without describing any physical condition or change.
+
+> **NOTE:**
+>
 > **Definition 16 (Noise)** Let \\\mathopen{}\left(X, Y\right)\mathclose{}\\ be the [covariate](#def-covariate) and the outcome of one observation from a [population](exploratory-descriptive.llms.md#def-population).
 >
-> The **noise** \\\nu\\ of the observation is the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of the outcome \\Y\\ from the value of the [mean function](#def-mean-function) \\\mu\mathopen{}\left(X\right)\mathclose{}\\ evaluated at \\Y\\’s own covariate, \\X\\:
+> The **noise** \\u\\ of the observation is the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of the outcome \\Y\\ from the value of the [mean function](#def-mean-function) \\{\mu\mathopen{}\left(X\right)\mathclose{}}\\ evaluated at \\Y\\’s own covariate, \\X\\:
 >
-> \\ \nu\stackrel{\text{def}}{=}Y- \mu\mathopen{}\left(X\right)\mathclose{}. \tag{10}\\
+> \\ u\stackrel{\text{def}}{=}Y- {\mu\mathopen{}\left(X\right)\mathclose{}}. \tag{9}\\
 
 > **NOTE:**
 >
-> **Example 12 (The noise of one observation)** Suppose an observation has the [covariate](#def-covariate) value \\X= x\\ with [mean function](#def-mean-function) value \\\mu\mathopen{}\left(x\right)\mathclose{} = 5\\. If its outcome is \\Y= 5.3\\, its [noise](#def-noise) is \\\nu= 5.3 - 5 = 0.3\\. If its outcome is \\Y= 4.6\\, its noise is \\\nu= 4.6 - 5 = -0.4\\. The observation may belong to a [training set](#def-training-set) or be a [new observation](#def-new-observation): the definition does not distinguish them.
+> **Example 13 (The noise of one observation)** Suppose an observation has the [covariate](#def-covariate) value \\X= x\\ with [mean function](#def-mean-function) value \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 5\\. If its outcome is \\Y= 5.3\\, its [noise](#def-noise) is \\u= 5.3 - 5 = 0.3\\. If its outcome is \\Y= 4.6\\, its noise is \\u= 4.6 - 5 = -0.4\\. The observation may belong to a [training set](#def-training-set) or be a [new observation](#def-new-observation): the definition does not distinguish them.
 
 > **NOTE:**
 >
-> **Theorem 1 (The noise has population mean zero)** Given \\X\_{\*}= x\\, the [noise](#def-noise) \\\nu\\ has [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) \\0\\:
+> **Theorem 1 (The noise has population mean zero)** Given \\X\_{\*}= x\\, the [noise](#def-noise) \\u\\ has [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) \\0\\:
 >
-> \\ \operatorname{E}\mathopen{}\left\[\nu\mid X\_{\*}= x\right\]\mathclose{} = 0. \tag{11}\\
+> \\ {\operatorname{E}\mathopen{}\left\[u\mid X\_{\*}= x\right\]\mathclose{}} = 0. \tag{10}\\
 
 > **NOTE:**
 >
-> *Proof*. Take every expectation to be [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) on \\X\_{\*}= x\\. The value \\\mu\mathopen{}\left(x\right)\mathclose{}\\ is a constant given \\X\_{\*}= x\\.
+> *Proof*. Take every expectation to be [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) on \\X\_{\*}= x\\. The value \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ is a constant given \\X\_{\*}= x\\.
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\nu\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[Y\_{\*}- \mu\mathopen{}\left(x\right)\mathclose{}\right\]\mathclose{} && \text{(definition of the noise)} \\ &= \operatorname{E}\mathopen{}\left\[Y\_{\*}\right\]\mathclose{} - \mu\mathopen{}\left(x\right)\mathclose{} && \text{(linearity of expectation; a constant is its own mean)} \\ &= \mu\mathopen{}\left(x\right)\mathclose{} - \mu\mathopen{}\left(x\right)\mathclose{} && \text{(definition of the mean function)} \\ &= 0 && \text{(} a - a = 0 \text{)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[u\right\]\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[Y\_{\*}- {\mu\mathopen{}\left(x\right)\mathclose{}}\right\]\mathclose{}} && \text{(definition of the noise)} \\ &= {\operatorname{E}\mathopen{}\left\[Y\_{\*}\right\]\mathclose{}} - {\mu\mathopen{}\left(x\right)\mathclose{}} && \text{(linearity of expectation; a constant is its own mean)} \\ &= {\mu\mathopen{}\left(x\right)\mathclose{}} - {\mu\mathopen{}\left(x\right)\mathclose{}} && \text{(definition of the mean function)} \\ &= 0 && \text{(} a - a = 0 \text{)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Example 13 (A new outcome that is 4 or 6 with equal probability)** Suppose a new outcome at \\x\\ is \\4\\ or \\6\\, each with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) \\1/2\\. Its [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) is \\\mu\mathopen{}\left(x\right)\mathclose{} = 5\\, so its [noise](#def-noise) is \\-1\\ or \\+1\\, each with probability \\1/2\\. The population mean of the noise is \\\mathopen{}\left(-1\right)\mathclose{} \cdot \frac{1}{2} + 1 \cdot \frac{1}{2} = 0\\, as [Theorem 1](#thm-noise-mean-zero) says.
+> **Example 14 (A new outcome that is 4 or 6 with equal probability)** Suppose a new outcome at \\x\\ is \\4\\ or \\6\\, each with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) \\1/2\\. Its [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) is \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 5\\, so its [noise](#def-noise) is \\-1\\ or \\+1\\, each with probability \\1/2\\. The population mean of the noise is \\\mathopen{}\left(-1\right)\mathclose{} \cdot \frac{1}{2} + 1 \cdot \frac{1}{2} = 0\\, as [Theorem 1](#thm-noise-mean-zero) says.
 
 > **NOTE:**
 >
-> **Definition 17 (Loss of a prediction rule on an observation)** The **loss** of a [prediction rule](#def-fitted-model) \\\hat y\\ on an observation \\(x\_{i}, y\_{i})\\ is the cost, under a [loss function](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) \\L\\, of its prediction \\{\hat y\mathopen{}\left(x\_{i}\right)\mathclose{}}\\ of the outcome \\y\_{i}\\:
+> **Definition 17 (Loss of a fitted model on an observation)** The **loss** of a [fitted model](#def-fitted-model) \\\hat y\\ on an observation \\(x\_{i}, y\_{i})\\ is the cost, under a [loss function](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) \\L\\, of its prediction \\{\hat y\mathopen{}\left(x\_{i}\right)\mathclose{}}\\ of the outcome \\y\_{i}\\:
 >
-> \\ \ell\_{i}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}L\mathopen{}\left(y\_{i}, {\hat y\mathopen{}\left(x\_{i}\right)\mathclose{}}\right)\mathclose{}. \tag{12}\\
+> \\ \ell\_{i}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}{L\mathopen{}\left(y\_{i}, {\hat y\mathopen{}\left(x\_{i}\right)\mathclose{}}\right)\mathclose{}}. \tag{11}\\
 >
-> The subscript names the observation, a member of a family of losses, and the parentheses hold the prediction rule the loss is evaluated at. The index \\\*\\ names the new observation \\(X\_{\*}, Y\_{\*})\\, so \\\ell\_{\*}\mathopen{}\left(\hat y\right)\mathclose{} = L\mathopen{}\left(Y\_{\*}, {\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}}\right)\mathclose{}\\. When the rule is clear from context, we write \\\ell\_{i}\\ for \\\ell\_{i}\mathopen{}\left(\hat y\right)\mathclose{}\\.
+> The subscript names the observation, a member of a family of losses, and the parentheses hold the fitted model the loss is evaluated at. The index \\\*\\ names the new observation \\(X\_{\*}, Y\_{\*})\\, so \\\ell\_{\*}\mathopen{}\left(\hat y\right)\mathclose{} = {L\mathopen{}\left(Y\_{\*}, {\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}}\right)\mathclose{}}\\. When the [fitted model](#def-fitted-model) is clear from context, we write \\\ell\_{i}\\ for \\\ell\_{i}\mathopen{}\left(\hat y\right)\mathclose{}\\.
 
 > **NOTE:**
 >
-> *Remark 4* (Squared-error loss). Each error defined below holds for any [loss](#def-observation-loss). The examples, exercises and the bias-variance decomposition use *squared-error loss*, \\L\mathopen{}\left(y, \hat{y}\right)\mathclose{} = {\mathopen{}\left(\hat{y} - y\right)\mathclose{}}^2\\, unless they say otherwise. Then the loss on an observation is the square of its [prediction error](prediction.llms.md#def-prediction-error), \\\ell\_{i} = \varepsilon\_{i}^2\\, and each average loss below is a sample mean squared error.
+> *Remark 4* (Squared-error loss). Each error defined below holds for any [loss](#def-observation-loss). The examples, exercises and the bias-variance decomposition use *squared-error loss*, \\{L\mathopen{}\left(y, \hat{y}\right)\mathclose{}} = {\mathopen{}\left(\hat{y} - y\right)\mathclose{}}^{2}\\, unless they say otherwise. Then the loss on an observation is the square of its [prediction error](prediction.llms.md#def-prediction-error), \\\ell\_{i} = \varepsilon\_{i}^2\\, and each average loss below is a sample mean squared error.
 
 > **NOTE:**
 >
-> **Definition 18 (Generalization error)** The **generalization error** of a [prediction rule](#def-fitted-model) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its expected [loss](#def-observation-loss) \\\ell\_{\*}\\ on a [new observation](#def-new-observation) \\(X\_{\*}, Y\_{\*})\\, with \\\mathcal{D}\_{\text{train}}\\ held fixed:
+> **Definition 18 (Generalization error)** The **generalization error** of a [fitted model](#def-fitted-model) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its expected [loss](#def-observation-loss) \\\ell\_{\*}\\ on a [new observation](#def-new-observation) \\(X\_{\*}, Y\_{\*})\\, with \\\mathcal{D}\_{\text{train}}\\ held fixed:
 >
-> \\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}. \tag{13}\\
+> \\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}. \tag{12}\\
 >
 > Source: Wikipedia contributors [\[4\]](#ref-wikipedia_generalization_error).
 
@@ -262,9 +264,9 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 19 (Held-out set (hold-out set))** A **held-out set** for a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is a list of \\m\\ further observations, none of them in \\\mathcal{D}\_{\text{train}}\\, that the [fitting procedure](#def-fitting-procedure) does not use and on which the [prediction rule](#def-fitted-model) \\\hat y\\ is scored:
+> **Definition 19 (Held-out set (hold-out set))** A **held-out set** for a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is a list of \\m\\ further observations, none of them in \\\mathcal{D}\_{\text{train}}\\, that the [fitting procedure](#def-fitting-procedure) does not use and on which the [fitted model](#def-fitted-model) \\\hat y\\ is scored:
 >
-> \\ \mathopen{}\left((x\_{\*,1}, y\_{\*,1}), \ldots, (x\_{\*,m}, y\_{\*,m})\right)\mathclose{}. \tag{14}\\
+> \\ \mathopen{}\left((x\_{\*,1}, y\_{\*,1}), \ldots, (x\_{\*,m}, y\_{\*,m})\right)\mathclose{}. \tag{13}\\
 
 > **NOTE:**
 >
@@ -274,13 +276,73 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > **Definition 20 (Root mean squared error of predictions)** The **sample root mean squared error (sRMSE)** of predictions, also called their **root mean squared error**, \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the square root of their [sMSE](prediction.llms.md#def-prediction-mse):
 >
-> \\ \operatorname{sRMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}. \tag{15}\\
+> \\ {\operatorname{sRMSE}\mathopen{}\left(\hat y\right)\mathclose{}} \stackrel{\text{def}}{=}\sqrt{{\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}}. \tag{14}\\
 
 > **NOTE:**
 >
-> **Definition 21 (Training error)** The **training error** of a [prediction rule](#def-fitted-model) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its sample mean [loss](#def-observation-loss) \\\ell\_{i}\\ on the training observations \\i\in I\\:
+> **Definition 21 (Empirical risk)** The **empirical risk** of a [fitted model](#def-fitted-model) \\\hat y\\ on a set of \\n\\ observations is the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of its [loss](#def-observation-loss) on those observations, the counterpart computed from data of the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk), which is the expected loss:
 >
-> \\ \overline{\operatorname{err}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\ell\_{i}. \tag{16}\\
+> \\ \hat{R}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i=1}^n\ell\_{i}\mathopen{}\left(\hat y\right)\mathclose{}. \tag{15}\\
+>
+> A subscript names the set the empirical risk is evaluated on, as in \\\hat{R}\_{\mathcal{D}\_{\text{train}}}\\ for a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\.
+
+> **NOTE:**
+>
+> **Example 15 (Empirical risk of a birth-weight model under squared error)** The `birthwt` data record the birth weight in grams of babies born at Baystate Medical Center in Springfield, Massachusetts [\[6\]](#ref-hosmer1989applied), as distributed in R’s `MASS` package [\[7\]](#ref-venables2002modern). We fit a [linear regression](basic-statistical-methods.llms.md#def-linear-regression) of birth weight on the mother’s weight at her last menstrual period and her smoking status. We use every third row as the [held-out set](#def-held-out-set) and fit on the remaining rows, the [training set](#def-training-set). The [loss](#def-observation-loss) is the squared error, so the [empirical risk](#def-empirical-risk) is the mean of the squared [prediction errors](prediction.llms.md#def-prediction-error).
+>
+> ## R
+>
+> ``` downlit
+> birthwt <- read.csv("data/birthwt.csv")
+> is_held_out <- seq_len(nrow(birthwt)) %% 3 == 0
+>
+> fit_bwt <- lm(bwt ~ lwt + smoke, data = birthwt[!is_held_out, ])
+>
+> empirical_risk <- function(data) {
+>   mean((data$bwt - predict(fit_bwt, newdata = data))^2)
+> }
+>
+> empirical_risks <- c(
+>   training = empirical_risk(birthwt[!is_held_out, ]),
+>   held_out = empirical_risk(birthwt[is_held_out, ])
+> )
+> empirical_risks
+> #> training held_out 
+> #>   488365   503649
+> ```
+>
+> ## Python
+>
+> ``` python
+> import numpy as np
+> import pandas as pd
+> import statsmodels.formula.api as smf
+>
+> birthwt = pd.read_csv("data/birthwt.csv")
+> is_held_out = (np.arange(1, len(birthwt) + 1) % 3 == 0)
+>
+> fit_bwt = smf.ols("bwt ~ lwt + smoke", data=birthwt[~is_held_out]).fit()
+>
+>
+> def empirical_risk(data):
+>     return ((data["bwt"] - fit_bwt.predict(data)) ** 2).mean()
+>
+>
+> empirical_risks = {
+>     "training": empirical_risk(birthwt[~is_held_out]),
+>     "held_out": empirical_risk(birthwt[is_held_out]),
+> }
+> empirical_risks
+> #> {'training': np.float64(488364.9956483022), 'held_out': np.float64(503648.75351911323)}
+> ```
+>
+> Of the 189 babies, 126 are in the [training set](#def-training-set). The [fitted model](#def-fitted-model) has an [empirical risk](#def-empirical-risk) of 488,365 squared grams on the training set and 503,649 squared grams on the [held-out set](#def-held-out-set). Its square root, 699 grams, is the typical [prediction error](prediction.llms.md#def-prediction-error) on the training set.
+
+> **NOTE:**
+>
+> **Definition 22 (Training error)** The **training error** of a [fitted model](#def-fitted-model) \\\hat y\\ is its [empirical risk](#def-empirical-risk) \\\hat{R}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left(\hat y\right)\mathclose{}\\ on the [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ used to fit it:
+>
+> \\ \overline{\operatorname{err}}\stackrel{\text{def}}{=}\hat{R}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left(\hat y\right)\mathclose{}. \tag{16}\\
 
 > **NOTE:**
 >
@@ -351,19 +413,19 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 22 (Overfitting)** **Overfitting** occurs when a [prediction rule](#def-fitted-model) fits its [training set](#def-training-set) well but predicts poorly for [new observations](#def-new-observation).
+> **Definition 23 (Overfitting)** **Overfitting** occurs when a [fitted model](#def-fitted-model) fits its [training set](#def-training-set) well but predicts poorly for [new observations](#def-new-observation).
 >
-> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_overfitting).
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_overfitting).
 
 > **NOTE:**
 >
-> **Example 14 (Overfitting in polynomial fits to cars)** In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 training cars more closely but do not predict the 12 held-out cars better. The effect is small here: it is the beginning of overfitting, not a dramatic case.
+> **Example 16 (Overfitting in polynomial fits to cars)** In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 training cars more closely but do not predict the 12 held-out cars better. The effect is small here: it is the beginning of overfitting, not a dramatic case.
 
 ## 4 Generalization error
 
 > **NOTE:**
 >
-> **Exercise 2 (Score a fitted model on a car it has not seen)** A [prediction rule](#def-fitted-model) \\\hat y\\ has been fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations, such as the 20 training cars of [Exercise 1](#exr-overfitting). A new car \\(X\_{\*}, Y\_{\*})\\ is then drawn from the same population, independently of \\\mathcal{D}\_{\text{train}}\\.
+> **Exercise 2 (Score a fitted model on a car it has not seen)** A [fitted model](#def-fitted-model) \\\hat y\\ has been fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations, such as the 20 training cars of [Exercise 1](#exr-overfitting). A new car \\(X\_{\*}, Y\_{\*})\\ is then drawn from the same population, independently of \\\mathcal{D}\_{\text{train}}\\.
 >
 > 1.  Holding \\\mathcal{D}\_{\text{train}}\\ fixed, write the average [loss](#def-observation-loss) \\\ell\_{\*}\\ that \\\hat y\\ would incur over all such new cars, as an expectation. Then write it for squared-error loss, as the average squared [prediction error](prediction.llms.md#def-prediction-error).
 > 2.  Which parts of your expression do you know, and which do you not know?
@@ -373,23 +435,23 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > *Solution 2*.
 >
-> 1.  Average the loss over the distribution of \\(X\_{\*}, Y\_{\*})\\, with \\\mathcal{D}\_{\text{train}}\\, and so the rule \\\hat y\\, held fixed:
+> 1.  Average the loss over the distribution of \\(X\_{\*}, Y\_{\*})\\, with \\\mathcal{D}\_{\text{train}}\\, and so the [fitted model](#def-fitted-model) \\\hat y\\, held fixed:
 >
->     \\\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}.\\
+>     \\{\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}.\\
 >
 >     For squared-error loss, the loss is the squared prediction error:
 >
->     \\\operatorname{E}\mathopen{}\left\[\varepsilon\_{\*}^2 \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}.\\
+>     \\{\operatorname{E}\mathopen{}\left\[\varepsilon\_{\*}^2 \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}.\\
 >
-> 2.  The rule \\\hat y\\ is known, because we fitted it. The joint distribution of \\(X\_{\*}, Y\_{\*})\\ is unknown, so the expectation cannot be computed. If we knew that distribution, we would not need data to build a prediction rule.
+> 2.  The fitted model \\\hat y\\ is known, because we fitted it. The joint distribution of \\(X\_{\*}, Y\_{\*})\\ is unknown, so the expectation cannot be computed. If we knew that distribution, we would not need data to [estimate](estimation.llms.md#def-estimate) the [true mean function](#def-mean-function) \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ of the outcome variable given the input value \\x\\.
 >
 > 3.  The training error \\\overline{\operatorname{err}}\\ replaces the expectation over new cars with an average over the \\n\\ training cars. Those cars are draws from the same population, but they are not independent of \\\mathcal{D}\_{\text{train}}\\: they *are* \\\mathcal{D}\_{\text{train}}\\, and \\\hat y\\ was chosen to fit them.
 
 > **NOTE:**
 >
-> **Definition 23 (Expected generalization error (expected prediction error, expected test error))** The **expected generalization error** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the mean, over [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently from the population, of the [generalization error](#def-generalization-error) of the [prediction rule](#def-fitted-model) that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
+> **Definition 24 (Expected generalization error (expected prediction error, expected test error))** The **expected generalization error** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the mean, over [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently from the population, of the [generalization error](#def-generalization-error) of the [fitted model](#def-fitted-model) that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
 >
-> \\ \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{}, \quad \mathcal{D}\_{\text{train}}= \mathopen{}\left((X\_{i}, Y\_{i})\right)\mathclose{}\_{i\in I}, \quad \mathopen{}\left\|I\right\|\mathclose{} = n. \tag{17}\\
+> \\ {\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{}}, \quad \mathcal{D}\_{\text{train}}= \mathopen{}\left((X\_{i}, Y\_{i})\right)\mathclose{}\_{i\in I}, \quad \mathopen{}\left\|I\right\|\mathclose{} = n. \tag{17}\\
 
 > **NOTE:**
 >
@@ -397,81 +459,81 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 24 (Distribution model)** A **distribution model** \\P\\ for an outcome \\Y\\ given a [covariate](#def-covariate) \\X\\ gives each covariate value \\x\\ a probability distribution for \\Y\\ given \\X= x\\, specified by its [cumulative distribution function](https://morrison-lab.github.io/pds/random-variables.html#def-cdf). The [mean function](#def-mean-function) \\\mu\_{P}\\ of \\P\\ maps each covariate value \\x\\ to the mean of that distribution:
+> **Definition 25 (Distribution model)** A **distribution model** \\P\\ for an outcome \\Y\\ given a [covariate](#def-covariate) \\X\\ gives each covariate value \\x\\ a probability distribution for \\Y\\ given \\X= x\\, specified by its [cumulative distribution function](https://morrison-lab.github.io/pds/random-variables.html#def-cdf). The [mean function](#def-mean-function) \\\mu\_{P}\\ of \\P\\ maps each covariate value \\x\\ to the mean of that distribution:
 >
-> \\ {\mu\_{P}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}\operatorname{E}\_{P}\mathopen{}\left\[Y\mid X= x\right\]\mathclose{}. \tag{18}\\
+> \\ {\mu\_{P}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\_{P}\mathopen{}\left\[Y\mid X= x\right\]\mathclose{}}. \tag{18}\\
 
 > **NOTE:**
 >
-> **Example 15 (A normal distribution model with a mean function)** Let \\h\\ be a [mean-function model](#def-model-family) (a line, for instance) and \\\sigma^2\> 0\\ a variance. The distribution model \\P\\ that gives each covariate value \\x\\ the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) with mean \\h\mathopen{}\left(x\right)\mathclose{}\\ and variance \\\sigma^2\\ is
+> **Example 17 (A normal distribution model with a mean function)** Let \\h\\ be a [mean-function model](#def-model-family) (a line, for instance) and \\\sigma^2\> 0\\ a variance. The distribution model \\P\\ that gives each covariate value \\x\\ the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) with mean \\{h\mathopen{}\left(x\right)\mathclose{}}\\ and variance \\\sigma^2\\ is
 >
-> \\ Y\mid X= x \sim \operatorname{N}\mathopen{}\left(h\mathopen{}\left(x\right)\mathclose{}, \sigma^2\right)\mathclose{}. \tag{19}\\
+> \\ Y\mid X= x \sim {\operatorname{N}\mathopen{}\left({h\mathopen{}\left(x\right)\mathclose{}}, \sigma^2\right)\mathclose{}}. \tag{19}\\
 >
 > The mean parameter of a normal distribution is its mean, so [Equation 22](#eq-distribution-model-mean-function) gives
 >
-> \\ {\mu\_{P}\mathopen{}\left(x\right)\mathclose{}} = h\mathopen{}\left(x\right)\mathclose{}. \tag{20}\\
+> \\ {\mu\_{P}\mathopen{}\left(x\right)\mathclose{}} = {h\mathopen{}\left(x\right)\mathclose{}}. \tag{20}\\
 >
 > The mean function \\h\\ is the component of \\P\\ that says where the outcome is centered, and \\\sigma^2\\ is the component that says how far it spreads.
 
 > **NOTE:**
 >
-> **Definition 25 (Distribution model family)** A **distribution model family** \\\mathcal{P}\\ is a set of [distribution models](#def-distribution-model). The [mean functions](#def-mean-function) of its members form the set
+> **Definition 26 (Distribution model family)** A **distribution model family** \\\mathcal{P}\\ is a set of [distribution models](#def-distribution-model). The [mean functions](#def-mean-function) of its members form the set
 >
 > \\ \mathopen{}\left\\\mu\_{P} : P\in \mathcal{P}\right\\\mathclose{}. \tag{21}\\
 
 > **NOTE:**
 >
-> **Example 16 (Normal distribution models with polynomial mean functions)** The normal distribution models of [Example 18](#exm-distribution-model) whose mean function \\h\\ is a polynomial of degree at most \\d\\, with any variance \\\sigma^2\> 0\\, form a [distribution model family](#def-distribution-model-family) \\\mathcal{P}\\. By [Equation 24](#eq-normal-distribution-model-mean-function), the set of mean functions in [Equation 25](#eq-distribution-model-family-mean-functions) is the set of polynomials of degree at most \\d\\ of [Example 3](#exm-model-family).
+> **Example 18 (Normal distribution models with polynomial mean functions)** The normal distribution models of [Example 20](#exm-distribution-model) whose mean function \\h\\ is a polynomial of degree at most \\d\\, with any variance \\\sigma^2\> 0\\, form a [distribution model family](#def-distribution-model-family) \\\mathcal{P}\\. By [Equation 24](#eq-normal-distribution-model-mean-function), the set of mean functions in [Equation 25](#eq-distribution-model-family-mean-functions) is the set of polynomials of degree at most \\d\\ of [Example 3](#exm-model-family).
 
 > **NOTE:**
 >
-> **Definition 26 (Fitted distribution model)** A **fitted distribution model** \\\hat{P}\\ is a member of a [distribution model family](#def-distribution-model-family) \\\mathcal{P}\\ that has been chosen to describe a [data set](#def-data-set) \\\mathcal{D}\\.
+> **Definition 27 (Fitted distribution model)** A **fitted distribution model** \\\hat{P}\\ is a member of a [distribution model family](#def-distribution-model-family) \\\mathcal{P}\\ that has been chosen to describe a [data set](#def-data-set) \\\mathcal{D}\\.
 
 > **NOTE:**
 >
-> **Example 17 (A fitted normal distribution model)** Choosing both a line and a variance to describe the weights and fuel economies of the cars in the `mtcars` [data set](#def-data-set) \\\mathcal{D}\\ gives a [fitted distribution model](#def-fitted-distribution-model) \\\hat{P}\\ in the family of [Example 19](#exm-distribution-model-family) with polynomial degree \\d= 1\\. Its mean function \\\mu\_{\hat{P}}\\ is the fitted line of [Example 8](#exm-fitted-model).
+> **Example 19 (A fitted normal distribution model)** Choosing both a line and a variance to describe the weights and fuel economies of the cars in the `mtcars` [data set](#def-data-set) \\\mathcal{D}\\ gives a [fitted distribution model](#def-fitted-distribution-model) \\\hat{P}\\ in the family of [Example 21](#exm-distribution-model-family) with polynomial degree \\d= 1\\. Its mean function \\\mu\_{\hat{P}}\\ is the fitted line of [Example 8](#exm-fitted-model).
 
 > **NOTE:**
 >
-> **Definition 27 (Distribution model)** A **distribution model** \\P\\ for an outcome \\Y\\ given a [covariate](#def-covariate) \\X\\ gives each covariate value \\x\\ a probability distribution for \\Y\\ given \\X= x\\, specified by its [cumulative distribution function](https://morrison-lab.github.io/pds/random-variables.html#def-cdf). The [mean function](#def-mean-function) \\\mu\_{P}\\ of \\P\\ maps each covariate value \\x\\ to the mean of that distribution:
+> **Definition 28 (Distribution model)** A **distribution model** \\P\\ for an outcome \\Y\\ given a [covariate](#def-covariate) \\X\\ gives each covariate value \\x\\ a probability distribution for \\Y\\ given \\X= x\\, specified by its [cumulative distribution function](https://morrison-lab.github.io/pds/random-variables.html#def-cdf). The [mean function](#def-mean-function) \\\mu\_{P}\\ of \\P\\ maps each covariate value \\x\\ to the mean of that distribution:
 >
-> \\ {\mu\_{P}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}\operatorname{E}\_{P}\mathopen{}\left\[Y\mid X= x\right\]\mathclose{}. \tag{22}\\
+> \\ {\mu\_{P}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\_{P}\mathopen{}\left\[Y\mid X= x\right\]\mathclose{}}. \tag{22}\\
 
 > **NOTE:**
 >
-> **Example 18 (A normal distribution model with a mean function)** Let \\h\\ be a [mean-function model](#def-model-family) (a line, for instance) and \\\sigma^2\> 0\\ a variance. The distribution model \\P\\ that gives each covariate value \\x\\ the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) with mean \\h\mathopen{}\left(x\right)\mathclose{}\\ and variance \\\sigma^2\\ is
+> **Example 20 (A normal distribution model with a mean function)** Let \\h\\ be a [mean-function model](#def-model-family) (a line, for instance) and \\\sigma^2\> 0\\ a variance. The distribution model \\P\\ that gives each covariate value \\x\\ the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) with mean \\{h\mathopen{}\left(x\right)\mathclose{}}\\ and variance \\\sigma^2\\ is
 >
-> \\ Y\mid X= x \sim \operatorname{N}\mathopen{}\left(h\mathopen{}\left(x\right)\mathclose{}, \sigma^2\right)\mathclose{}. \tag{23}\\
+> \\ Y\mid X= x \sim {\operatorname{N}\mathopen{}\left({h\mathopen{}\left(x\right)\mathclose{}}, \sigma^2\right)\mathclose{}}. \tag{23}\\
 >
 > The mean parameter of a normal distribution is its mean, so [Equation 22](#eq-distribution-model-mean-function) gives
 >
-> \\ {\mu\_{P}\mathopen{}\left(x\right)\mathclose{}} = h\mathopen{}\left(x\right)\mathclose{}. \tag{24}\\
+> \\ {\mu\_{P}\mathopen{}\left(x\right)\mathclose{}} = {h\mathopen{}\left(x\right)\mathclose{}}. \tag{24}\\
 >
 > The mean function \\h\\ is the component of \\P\\ that says where the outcome is centered, and \\\sigma^2\\ is the component that says how far it spreads.
 
 > **NOTE:**
 >
-> **Definition 28 (Distribution model family)** A **distribution model family** \\\mathcal{P}\\ is a set of [distribution models](#def-distribution-model). The [mean functions](#def-mean-function) of its members form the set
+> **Definition 29 (Distribution model family)** A **distribution model family** \\\mathcal{P}\\ is a set of [distribution models](#def-distribution-model). The [mean functions](#def-mean-function) of its members form the set
 >
 > \\ \mathopen{}\left\\\mu\_{P} : P\in \mathcal{P}\right\\\mathclose{}. \tag{25}\\
 
 > **NOTE:**
 >
-> **Example 19 (Normal distribution models with polynomial mean functions)** The normal distribution models of [Example 18](#exm-distribution-model) whose mean function \\h\\ is a polynomial of degree at most \\d\\, with any variance \\\sigma^2\> 0\\, form a [distribution model family](#def-distribution-model-family) \\\mathcal{P}\\. By [Equation 24](#eq-normal-distribution-model-mean-function), the set of mean functions in [Equation 25](#eq-distribution-model-family-mean-functions) is the set of polynomials of degree at most \\d\\ of [Example 3](#exm-model-family).
+> **Example 21 (Normal distribution models with polynomial mean functions)** The normal distribution models of [Example 20](#exm-distribution-model) whose mean function \\h\\ is a polynomial of degree at most \\d\\, with any variance \\\sigma^2\> 0\\, form a [distribution model family](#def-distribution-model-family) \\\mathcal{P}\\. By [Equation 24](#eq-normal-distribution-model-mean-function), the set of mean functions in [Equation 25](#eq-distribution-model-family-mean-functions) is the set of polynomials of degree at most \\d\\ of [Example 3](#exm-model-family).
 
 > **NOTE:**
 >
-> **Definition 29 (Fitted distribution model)** A **fitted distribution model** \\\hat{P}\\ is a member of a [distribution model family](#def-distribution-model-family) \\\mathcal{P}\\ that has been chosen to describe a [data set](#def-data-set) \\\mathcal{D}\\.
+> **Definition 30 (Fitted distribution model)** A **fitted distribution model** \\\hat{P}\\ is a member of a [distribution model family](#def-distribution-model-family) \\\mathcal{P}\\ that has been chosen to describe a [data set](#def-data-set) \\\mathcal{D}\\.
 
 > **NOTE:**
 >
-> **Example 20 (A fitted normal distribution model)** Choosing both a line and a variance to describe the weights and fuel economies of the cars in the `mtcars` [data set](#def-data-set) \\\mathcal{D}\\ gives a [fitted distribution model](#def-fitted-distribution-model) \\\hat{P}\\ in the family of [Example 19](#exm-distribution-model-family) with polynomial degree \\d= 1\\. Its mean function \\\mu\_{\hat{P}}\\ is the fitted line of [Example 8](#exm-fitted-model).
+> **Example 22 (A fitted normal distribution model)** Choosing both a line and a variance to describe the weights and fuel economies of the cars in the `mtcars` [data set](#def-data-set) \\\mathcal{D}\\ gives a [fitted distribution model](#def-fitted-distribution-model) \\\hat{P}\\ in the family of [Example 21](#exm-distribution-model-family) with polynomial degree \\d= 1\\. Its mean function \\\mu\_{\hat{P}}\\ is the fitted line of [Example 8](#exm-fitted-model).
 
 > **NOTE:**
 >
-> **Definition 30 (Expected prediction loss at a covariate value)** The **expected prediction loss at \\x\\** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the expected [loss](#def-observation-loss) \\\ell\_{\*}\mathopen{}\left(\hat y\right)\mathclose{}\\ of the [prediction rule](#def-fitted-model) \\\hat y= {\hat y\_{\mathcal{D}\_{\text{train}}}}\\ that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\, on a new outcome \\Y\_{\*}\\ with \\X\_{\*}= x\\, averaged over random [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently of \\(X\_{\*}, Y\_{\*})\\, and over \\Y\_{\*}\\. The rule \\{\hat y\_{\mathcal{D}\_{\text{train}}}}\\ is random because \\\mathcal{D}\_{\text{train}}\\ is:
+> **Definition 31 (Expected prediction loss at a covariate value)** The **expected prediction loss at \\x\\** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the expected [loss](#def-observation-loss) \\\ell\_{\*}\mathopen{}\left(\hat y\right)\mathclose{}\\ of the [fitted model](#def-fitted-model) \\\hat y= {\hat y\_{\mathcal{D}\_{\text{train}}}}\\ that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\, on a new outcome \\Y\_{\*}\\ with \\X\_{\*}= x\\, averaged over random [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently of \\(X\_{\*}, Y\_{\*})\\, and over \\Y\_{\*}\\. The [fitted model](#def-fitted-model) \\{\hat y\_{\mathcal{D}\_{\text{train}}}}\\ is random because \\\mathcal{D}\_{\text{train}}\\ is:
 >
-> \\ \operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\ell\_{\*}\mathopen{}\left({\hat y\_{\mathcal{D}\_{\text{train}}}}\right)\mathclose{} \mid X\_{\*}= x\right\]\mathclose{}. \tag{26}\\
+> \\ {\operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\ell\_{\*}\mathopen{}\left({\hat y\_{\mathcal{D}\_{\text{train}}}}\right)\mathclose{} \mid X\_{\*}= x\right\]\mathclose{}}. \tag{26}\\
 
 > **NOTE:**
 >
@@ -479,15 +541,15 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 31 (Expected prediction error at a covariate value)** The **expected prediction error at \\x\\** (**EPE**; also the **expected squared prediction error**, **ESPE**) of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is its [expected prediction loss](#def-epl) under [squared-error loss](#rem-squared-error-loss), the expected value of the squared [prediction error](prediction.llms.md#def-prediction-error) \\\varepsilon\_{\*}\mathopen{}\left(\hat y\right)\mathclose{} = {\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}} - Y\_{\*}\\ of the [prediction rule](#def-fitted-model) \\\hat y= {\hat y\_{\mathcal{D}\_{\text{train}}}}\\ that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
+> **Definition 32 (Expected prediction error at a covariate value)** The **expected prediction error at \\x\\** (**EPE**; also the **expected squared prediction error**, **ESPE**) of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is its [expected prediction loss](#def-epl) under [squared-error loss](#rem-squared-error-loss), the expected value of the squared [prediction error](prediction.llms.md#def-prediction-error) \\\varepsilon\_{\*}\mathopen{}\left(\hat y\right)\mathclose{} = {\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}} - Y\_{\*}\\ of the [fitted model](#def-fitted-model) \\\hat y= {\hat y\_{\mathcal{D}\_{\text{train}}}}\\ that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
 >
-> \\ \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\varepsilon\_{\*}\mathopen{}\left({\hat y\_{\mathcal{D}\_{\text{train}}}}\right)\mathclose{}^2 \mid X\_{\*}= x\right\]\mathclose{}. \tag{27}\\
+> \\ {\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\varepsilon\_{\*}\mathopen{}\left({\hat y\_{\mathcal{D}\_{\text{train}}}}\right)\mathclose{}^2 \mid X\_{\*}= x\right\]\mathclose{}}. \tag{27}\\
 
 > **NOTE:**
 >
-> *Remark 10* (The expected prediction error is a population mean squared error). The expected prediction error is the [pMSE](estimation.llms.md#def-mse) of the prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ as a prediction of the new outcome \\Y\_{\*}\\. With squared-error loss, \\\operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} = \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}\\.
+> *Remark 10* (The expected prediction error is a population mean squared error). The expected prediction error is the [pMSE](estimation.llms.md#def-mse) of the prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ as a prediction of the new outcome \\Y\_{\*}\\. With squared-error loss, \\{\operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} = {\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}}\\.
 >
-> It differs from the pMSE of the same prediction as an estimator of the [mean function](#def-mean-function) value \\\mu\mathopen{}\left(x\right)\mathclose{}\\: [Theorem 4](#thm-epe-decomposition) shows that it exceeds that pMSE by the noise variance. The acronym omits “squared” because “error” already means squared error here. Another loss gives an expected prediction loss, not an EPE.
+> It differs from the pMSE of the same prediction as an estimator of the [mean function](#def-mean-function) value \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\: [Theorem 4](#thm-epe-decomposition) shows that it exceeds that pMSE by the noise variance. The acronym omits “squared” because “error” already means squared error here. Another loss gives an expected prediction loss, not an EPE.
 
 > **NOTE:**
 >
@@ -495,19 +557,19 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 3 (The expected generalization error, covariate value by covariate value)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations be independent of the new observation \\(X\_{\*}, Y\_{\*})\\. Derive an expression for the [expected generalization error](#def-expected-generalization-error) \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ in terms of the [expected prediction loss at \\x\\](#def-epl), \\\operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}\\, and the distribution of \\X\_{\*}\\.
+> **Exercise 3 (The expected generalization error, covariate value by covariate value)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations be independent of the new observation \\(X\_{\*}, Y\_{\*})\\. Derive an expression for the [expected generalization error](#def-expected-generalization-error) \\{\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}}\\ in terms of the [expected prediction loss at \\x\\](#def-epl), \\{\operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}}\\, and the distribution of \\X\_{\*}\\.
 
 > **NOTE:**
 >
-> *Solution 3*. \\ \begin{aligned} & \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{} && \text{(definition)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}\right\]\mathclose{} && \text{(definition)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\ell\_{\*}\right\]\mathclose{} && \text{(iterated expectations)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid X\_{\*}\right\]\mathclose{}\right\]\mathclose{} && \text{(iterated expectations)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{EPL}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}\right\]\mathclose{} && \text{(definition)} \end{aligned} \\
+> *Solution 3*. \\ \begin{aligned} & {\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}} \\ &\quad = {\operatorname{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{}} && \text{(definition)} \\ &\quad = {\operatorname{E}\mathopen{}\left\[{\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}\right\]\mathclose{}} && \text{(definition)} \\ &\quad = {\operatorname{E}\mathopen{}\left\[\ell\_{\*}\right\]\mathclose{}} && \text{(iterated expectations)} \\ &\quad = {\operatorname{E}\mathopen{}\left\[{\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid X\_{\*}\right\]\mathclose{}}\right\]\mathclose{}} && \text{(iterated expectations)} \\ &\quad = {\operatorname{E}\mathopen{}\left\[{\operatorname{EPL}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}}\right\]\mathclose{}} && \text{(definition)} \end{aligned} \\
 >
-> The steps labeled “definition” apply [Equation 17](#eq-expected-generalization-error), [Equation 13](#eq-generalization-error) and [Equation 26](#eq-epl), in that order. Here \\\ell\_{\*}\\ abbreviates \\\ell\_{\*}\mathopen{}\left(\hat y\right)\mathclose{}\\, the [loss](#def-observation-loss) of the prediction rule \\{\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}} = {{\hat y\_{\mathcal{D}\_{\text{train}}}}\mathopen{}\left(X\_{\*}\right)\mathclose{}}\\ ([Equation 9](#eq-prediction-rule)) on the new observation. The two steps labeled “iterated expectations” use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie), the first conditioning on \\\mathcal{D}\_{\text{train}}\\ and the second on \\X\_{\*}\\. The last line needs \\\mathcal{D}\_{\text{train}}\\ to be independent of \\(X\_{\*}, Y\_{\*})\\: then, given \\X\_{\*}= x\\, \\\mathcal{D}\_{\text{train}}\\ still has its unconditional distribution, as [Definition 30](#def-epl) requires.
+> The steps labeled “definition” apply [Equation 17](#eq-expected-generalization-error), [Equation 12](#eq-generalization-error) and [Equation 26](#eq-epl), in that order. Here \\\ell\_{\*}\\ abbreviates \\\ell\_{\*}\mathopen{}\left(\hat y\right)\mathclose{}\\, the [loss](#def-observation-loss) of the [fitted model](#def-fitted-model) \\{\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}} = {{\hat y\_{\mathcal{D}\_{\text{train}}}}\mathopen{}\left(X\_{\*}\right)\mathclose{}}\\ ([Equation 8](#eq-prediction-rule)) on the new observation. The two steps labeled “iterated expectations” use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie), the first conditioning on \\\mathcal{D}\_{\text{train}}\\ and the second on \\X\_{\*}\\. The last line needs \\\mathcal{D}\_{\text{train}}\\ to be independent of \\(X\_{\*}, Y\_{\*})\\: then, given \\X\_{\*}= x\\, \\\mathcal{D}\_{\text{train}}\\ still has its unconditional distribution, as [Definition 31](#def-epl) requires.
 
 > **NOTE:**
 >
 > **Theorem 2 (The expected generalization error averages the loss at each covariate value)** If the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is independent of the new observation \\(X\_{\*}, Y\_{\*})\\, the [expected generalization error](#def-expected-generalization-error) of a [fitting procedure](#def-fitting-procedure) \\g\\ is the mean of its [expected prediction loss at \\x\\](#def-epl) over the distribution of \\X\_{\*}\\:
 >
-> \\ \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\operatorname{EPL}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}\right\]\mathclose{}. \tag{28}\\
+> \\ {\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}} = {\operatorname{E}\mathopen{}\left\[{\operatorname{EPL}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}}\right\]\mathclose{}}. \tag{28}\\
 
 > **NOTE:**
 >
@@ -515,9 +577,9 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 32 (Expected prediction)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). The **expected prediction** of \\g\\ at a covariate value \\x\\ is the value \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ of the [prediction rule](#def-fitted-model) \\\hat y\\ at \\x\\, averaged over the population distribution of all training sets that might have been collected:
+> **Definition 33 (Expected prediction)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). The **expected prediction** of \\g\\ at a covariate value \\x\\ is the value \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ of the [fitted model](#def-fitted-model) \\\hat y\\ at \\x\\, averaged over the population distribution of all training sets that might have been collected:
 >
-> \\ \mu\_{h}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[{\hat y\mathopen{}\left(x\right)\mathclose{}}\right\]\mathclose{}}. \tag{29}\\
+> \\ {\mu\_{h}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[{\hat y\mathopen{}\left(x\right)\mathclose{}}\right\]\mathclose{}}}. \tag{29}\\
 
 > **NOTE:**
 >
@@ -525,15 +587,15 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Example 21 (Computing the expected prediction)** Suppose the predictions \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ at \\x\\ take the values \\9\\, \\11\\ and \\13\\ with equal probability. Then
+> **Example 23 (Computing the expected prediction)** Suppose the predictions \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ at \\x\\ take the values \\9\\, \\11\\ and \\13\\ with equal probability. Then
 >
-> \\ \begin{aligned} \mu\_{h}\mathopen{}\left(x\right)\mathclose{} &= \frac{9 + 11 + 13}{3} \\ &= 11. \end{aligned} \\
+> \\ \begin{aligned} {\mu\_{h}\mathopen{}\left(x\right)\mathclose{}} &= \frac{9 + 11 + 13}{3} \\ &= 11. \end{aligned} \\
 
 > **NOTE:**
 >
-> **Definition 33 (Bias of a prediction)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, the prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is a random variable, because it depends on the random training data. The **bias** of the prediction is the expected [estimation error](estimation.llms.md#def-estimation-error) of the prediction as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\\mu\mathopen{}\left(x\right)\mathclose{}\\, which is its estimand here, not the new outcome it predicts:
+> **Definition 34 (Bias of a prediction)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, the prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is a random variable, because it depends on the random training data. The **bias** of the prediction is the expected [estimation error](estimation.llms.md#def-estimation-error) of the prediction as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\, which is its estimand here, not the new outcome it predicts:
 >
-> \\ \operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\varepsilon\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right\]\mathclose{}. \tag{30}\\
+> \\ {\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} = {\operatorname{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right\]\mathclose{}}. \tag{30}\\
 
 > **NOTE:**
 >
@@ -541,29 +603,29 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Example 22 (Computing the bias of a prediction)** Suppose \\\mu\mathopen{}\left(x\right)\mathclose{} = 10\\, and the predictions \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, over repeated training sets, average \\11\\. Then
+> **Example 24 (Computing the bias of a prediction)** Suppose \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 10\\, and the predictions \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, over repeated training sets, average \\11\\. Then
 >
-> \\ \begin{aligned} \operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\varepsilon\mathopen{}\left(\hat{y}\right)\mathclose{}\right\]\mathclose{} \\ &= {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \mu\mathopen{}\left(x\right)\mathclose{} \\ &= 11 - 10 \\ &= 1. \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left(\hat{y}\right)\mathclose{}}\right\]\mathclose{}} \\ &= {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}} \\ &= 11 - 10 \\ &= 1. \end{aligned} \\
 >
 > The squared bias is \\1^2 = 1\\, the value in [Exercise 4](#exr-epe-three-sources).
 
 > **NOTE:**
 >
-> **Definition 34 (Irreducible error)** Let \\\mathopen{}\left(X, Y\right)\mathclose{}\\ be the [covariate](#def-covariate) and the outcome of one observation from a [population](exploratory-descriptive.llms.md#def-population), and let \\\nu\\ be its [noise](#def-noise).
+> **Definition 35 (Irreducible error)** Let \\\mathopen{}\left(X, Y\right)\mathclose{}\\ be the [covariate](#def-covariate) and the outcome of one observation from a [population](exploratory-descriptive.llms.md#def-population), and let \\u\\ be its [noise](#def-noise).
 >
 > The **irreducible error** at the covariate value \\x\\ is the [conditional population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) of the noise given \\X= x\\:
 >
-> \\ \sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\mid X= x\right)\mathclose{}. \tag{31}\\
+> \\ \sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(u\mid X= x\right)\mathclose{}}. \tag{31}\\
 >
-> Source: Wikipedia contributors [\[7\]](#ref-wikipedia_bias_variance_tradeoff); James et al. [\[5, Sec. 2.2.2\]](#ref-james2021islr2e).
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_bias_variance_tradeoff); James et al. [\[5, Sec. 2.2.2\]](#ref-james2021islr2e).
 
 > **NOTE:**
 >
-> **Example 23 (The irreducible error of a normal population)** Take a [population](exploratory-descriptive.llms.md#def-population) whose outcome given the [covariate](#def-covariate) value \\x\\ has the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) \\\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\\, where \\\sigma^2= \sigma^2\\ and \\\sigma= 0.3\\. Its [noise](#def-noise) \\\nu= Y- \sin(2 \pi X)\\, given \\X= x\\, has the normal distribution with mean \\0\\ and [conditional variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) \\\sigma^2\\. The [irreducible error](#def-irreducible-error) at every \\x\\ is therefore \\\sigma^2= \sigma^2 = 0.09\\.
+> **Example 25 (The irreducible error of a normal population)** Take a [population](exploratory-descriptive.llms.md#def-population) whose outcome given the [covariate](#def-covariate) value \\x\\ has the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) \\{\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\, where \\\sigma^2= \sigma^2\\ and \\\sigma= 0.3\\. Its [noise](#def-noise) \\u= Y- \sin(2 \pi X)\\, given \\X= x\\, has the normal distribution with mean \\0\\ and [conditional variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) \\\sigma^2\\. The [irreducible error](#def-irreducible-error) at every \\x\\ is therefore \\\sigma^2= \sigma^2 = 0.09\\.
 
 > **NOTE:**
 >
-> *Remark 12* (What the irreducible error does and does not depend on). The [irreducible error](#def-irreducible-error) \\\sigma^2\\ does not depend on the [fitting procedure](#def-fitting-procedure) \\g\\, so no choice of [prediction](prediction.llms.md#def-prediction) can remove it. It is defined at the single [covariate](#def-covariate) value \\x\\, so it may differ from one covariate value to another: it does not assume constant [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) across covariate values. For example, in [Example 23](#exm-irreducible-error), every prediction has [expected squared prediction error](#def-epe) at least \\\sigma^2\\.
+> *Remark 12* (What the irreducible error does and does not depend on). The [irreducible error](#def-irreducible-error) \\\sigma^2\\ does not depend on the [fitting procedure](#def-fitting-procedure) \\g\\, so no choice of [prediction](prediction.llms.md#def-prediction) can remove it. It is defined at the single [covariate](#def-covariate) value \\x\\, so it may differ from one covariate value to another: it does not assume constant [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) across covariate values. For example, in [Example 25](#exm-irreducible-error), every prediction has [expected squared prediction error](#def-epe) at least \\\sigma^2\\.
 
 > **NOTE:**
 >
@@ -575,11 +637,11 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 > Assume:
 >
 > - \\X\_{\*}= x\\,
-> - the squared [bias](#def-prediction-bias) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2 = 1\\,
-> - the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is \\\operatorname{Var}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} = 2\\, and
+> - the squared [bias](#def-prediction-bias) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is \\{\mathopen{}\left({\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right)\mathclose{}}^{2} = 1\\,
+> - the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is \\{\operatorname{Var}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} = 2\\, and
 > - the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\\sigma^2\\ of the [noise](#def-noise) of \\Y\_{\*}\\ is \\3\\.
 >
-> What is the [expected squared prediction error](#def-epe) \\\operatorname{ESPE}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\\?
+> What is the [expected squared prediction error](#def-epe) \\{\operatorname{ESPE}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\\?
 
 > **NOTE:**
 >
@@ -599,24 +661,24 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> *Solution 6*. A better method can reduce the squared [bias](#def-prediction-bias) and the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, because both depend on how \\g\\ is built. It cannot reduce \\\sigma^2\\, which is the variance of the [noise](#def-noise) \\\nu\\ in the new outcome.
+> *Solution 6*. A better method can reduce the squared [bias](#def-prediction-bias) and the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, because both depend on how \\g\\ is built. It cannot reduce \\\sigma^2\\, which is the variance of the [noise](#def-noise) \\u\\ in the new outcome.
 
 > **NOTE:**
 >
 > **Exercise 7 (Separate the noise)** Let:
 >
 > - \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\,
-> - \\\nu\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
-> - \\\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+> - \\u\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
+> - \\\sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(u\right)\mathclose{}}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
 >
 > Assume:
 >
 > - the new [covariate](#def-covariate) value \\X\_{\*}\\ equals the covariate value \\x\\ of the [prediction](prediction.llms.md#def-prediction) and
 > - the population variance \\\sigma^2\\ is finite.
 >
-> Take every expectation below to be conditional on \\X\_{\*}= x\\. Add and subtract \\\mu\mathopen{}\left(x\right)\mathclose{}\\ inside the square of the [expected prediction error](#def-epe),
+> Take every expectation below to be conditional on \\X\_{\*}= x\\. Add and subtract \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ inside the square of the [expected prediction error](#def-epe),
 >
-> \\ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^2\right\]\mathclose{}, \\
+> \\ {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}}, \\
 >
 > expand it, and take the expectation term by term.
 >
@@ -624,27 +686,27 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> *Solution 7*. Express the [prediction error](prediction.llms.md#def-prediction-error) as [noise](#def-noise) plus the error of the [prediction](prediction.llms.md#def-prediction), used as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\\mu\mathopen{}\left(x\right)\mathclose{}\\:
+> *Solution 7*. Express the [prediction error](prediction.llms.md#def-prediction-error) as [noise](#def-noise) plus the error of the [prediction](prediction.llms.md#def-prediction), used as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\:
 >
-> \\ \begin{aligned} Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}} &= \mathopen{}\left(Y\_{\*}- \mu\mathopen{}\left(x\right)\mathclose{}\right)\mathclose{} + \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} && \text{(add and subtract } \mu\mathopen{}\left(x\right)\mathclose{} \text{)} \\ &= \nu+ \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} && \text{(definition of } Y\_{\*}\text{)} \end{aligned} \\
+> \\ \begin{aligned} Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}} &= \mathopen{}\left(Y\_{\*}- {\mu\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} + \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{} && \text{(add and subtract } {\mu\mathopen{}\left(x\right)\mathclose{}} \text{)} \\ &= u+ \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{} && \text{(definition of } Y\_{\*}\text{)} \end{aligned} \\
 >
 > Square it:
 >
-> \\ \begin{aligned} {\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^2 &= \nu^2 + 2 \nu\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} + {\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^2 && \text{(expand the square of a sum)} \end{aligned} \\
+> \\ \begin{aligned} {\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2} &= u^2 + 2 u\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{} + {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}}^{2} && \text{(expand the square of a sum)} \end{aligned} \\
 >
 > Take the expectation of each term in turn, using [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation) to split the sum.
 >
-> For the noise term, the [variance identity](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance) gives \\\sigma^2= \operatorname{E}\mathopen{}\left\[\nu^2\right\]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\nu\right\]\mathclose{}\right)\mathclose{}}^2\\:
+> For the noise term, the [variance identity](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance) gives \\\sigma^2= {\operatorname{E}\mathopen{}\left\[u^2\right\]\mathclose{}} - {\mathopen{}\left({\operatorname{E}\mathopen{}\left\[u\right\]\mathclose{}}\right)\mathclose{}}^{2}\\:
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\nu^2\right\]\mathclose{} &= \sigma^2+ {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\nu\right\]\mathclose{}\right)\mathclose{}}^2 && \text{(variance identity)} \\ &= \sigma^2+ 0^2 && \text{(the noise has population mean } 0 \text{)} \\ &= \sigma^2 && \text{(} 0^2 = 0 \text{, and } \sigma^2+ 0 = \sigma^2\text{)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[u^2\right\]\mathclose{}} &= \sigma^2+ {\mathopen{}\left({\operatorname{E}\mathopen{}\left\[u\right\]\mathclose{}}\right)\mathclose{}}^{2} && \text{(variance identity)} \\ &= \sigma^2+ 0^2 && \text{(the noise has population mean } 0 \text{)} \\ &= \sigma^2 && \text{(} 0^2 = 0 \text{, and } \sigma^2+ 0 = \sigma^2\text{)} \end{aligned} \\
 >
-> For the cross term, \\\nu= Y\_{\*}- \mu\mathopen{}\left(x\right)\mathclose{}\\ shifts \\Y\_{\*}\\ by a constant, and \\Y\_{\*}\\ is independent of \\\mathcal{D}\_{\text{train}}\\, so \\\nu\\ is independent of \\\mathcal{D}\_{\text{train}}\\, and hence of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ and of \\\mu\mathopen{}\left(x\right)\mathclose{} - {\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\\. The expectation of a product of independent random variables is the product of their expectations:
+> For the cross term, \\u= Y\_{\*}- {\mu\mathopen{}\left(x\right)\mathclose{}}\\ shifts \\Y\_{\*}\\ by a constant, and \\Y\_{\*}\\ is independent of \\\mathcal{D}\_{\text{train}}\\, so \\u\\ is independent of \\\mathcal{D}\_{\text{train}}\\, and hence of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ and of \\{\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\\. The expectation of a product of independent random variables is the product of their expectations:
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[2 \nu\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right\]\mathclose{} &= 2 \operatorname{E}\mathopen{}\left\[\nu\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right\]\mathclose{} && \text{(constant factor 2)} \\ &= 2 \operatorname{E}\mathopen{}\left\[\nu\right\]\mathclose{} \operatorname{E}\mathopen{}\left\[\mu\mathopen{}\left(x\right)\mathclose{} - {\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right\]\mathclose{} && \text{(independence)} \\ &= 2 \cdot 0 \cdot \operatorname{E}\mathopen{}\left\[\mu\mathopen{}\left(x\right)\mathclose{} - {\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right\]\mathclose{} && \text{(the noise has population mean } 0 \text{)} \\ &= 0 && \text{(zero times a number)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[2 u\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}\right\]\mathclose{}} &= 2 {\operatorname{E}\mathopen{}\left\[u\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}\right\]\mathclose{}} && \text{(constant factor 2)} \\ &= 2 {\operatorname{E}\mathopen{}\left\[u\right\]\mathclose{}} {\operatorname{E}\mathopen{}\left\[{\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right\]\mathclose{}} && \text{(independence)} \\ &= 2 \cdot 0 \cdot {\operatorname{E}\mathopen{}\left\[{\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right\]\mathclose{}} && \text{(the noise has population mean } 0 \text{)} \\ &= 0 && \text{(zero times a number)} \end{aligned} \\
 >
 > Adding the three expectations,
 >
-> \\ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^2\right\]\mathclose{} = \sigma^2+ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^2\right\]\mathclose{}. \tag{32}\\
+> \\ {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}} = \sigma^2+ {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}}^{2}\right\]\mathclose{}}. \tag{32}\\
 >
 > The noise has [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) \\0\\ by [Theorem 1](#thm-noise-mean-zero), so the algebra used only one hypothesis about the [new observation](#def-new-observation): it is independent of the [training set](#def-training-set). Independence holds for a fresh observation, and it fails for an observation the procedure was trained on, whose noise helped determine the prediction. It also fails when the new observation depends on the training data (for example, a later time in the same series), or when the same [test set](#def-test-set) was used to choose the procedure.
 >
@@ -655,17 +717,17 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 > **Theorem 3 (The pMSE of a prediction is the pMSE of the mean estimate plus the noise variance)** Let:
 >
 > - \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\,
-> - \\\nu\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
-> - \\\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+> - \\u\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
+> - \\\sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(u\right)\mathclose{}}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
 >
 > Assume:
 >
 > - the new [covariate](#def-covariate) value \\X\_{\*}\\ equals the covariate value \\x\\ of the [prediction](prediction.llms.md#def-prediction) and
 > - the population variance \\\sigma^2\\ is finite.
 >
-> Then, given \\X\_{\*}= x\\, the [expected squared prediction error](#def-epe) (ESPE) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is the sum of two terms. The first is the [irreducible error](#def-irreducible-error) \\\sigma^2\\. The second is the [expected squared estimation error](estimation.llms.md#def-mse) (ESEE) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\:
+> Then, given \\X\_{\*}= x\\, the [expected squared prediction error](#def-epe) (ESPE) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is the sum of two terms. The first is the [irreducible error](#def-irreducible-error) \\\sigma^2\\. The second is the [expected squared estimation error](estimation.llms.md#def-mse) (ESEE) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ as an [estimator](estimation.llms.md#def-estimator) of \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\:
 >
-> \\ \operatorname{ESPE}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} = \sigma^2+ \operatorname{ESEE}\mathopen{}\left({\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}. \tag{33}\\
+> \\ {\operatorname{ESPE}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} = \sigma^2+ {\operatorname{ESEE}\mathopen{}\left({{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}}. \tag{33}\\
 
 > **NOTE:**
 >
@@ -673,7 +735,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Example 24 (The two pMSEs differ by the noise variance)** Take a population whose mean function is known: \\Y\mid X= x\sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\\ with \\\sigma= 0.3\\. Let the [covariate](#def-covariate) value be \\x= 0.25\\, where the mean function value is \\\mu\mathopen{}\left(x\right)\mathclose{} = 1\\, and fit a cubic polynomial by least squares to \\n= 30\\ observations. We draw \\5{,}000\\ training sets, each with its own new outcome at \\x\\, and average the squared errors of the two targets over them.
+> **Example 26 (The two pMSEs differ by the noise variance)** Take a population whose mean function is known: \\Y\mid X= x\sim {\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\ with \\\sigma= 0.3\\. Let the [covariate](#def-covariate) value be \\x= 0.25\\, where the mean function value is \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 1\\, and fit a cubic polynomial by least squares to \\n= 30\\ observations. We draw \\5{,}000\\ training sets, each with its own new outcome at \\x\\, and average the squared errors of the two targets over them.
 >
 > ``` downlit
 > split_x0 <- 0.25
@@ -706,11 +768,11 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > **Exercise 8 (Separate the bias)** [Equation 32](#eq-epe-after-noise) leaves one term that still mixes two ideas:
 >
-> \\ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - \hat{y}\right)\mathclose{}}^2\right\]\mathclose{}. \\
+> \\ {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}}. \\
 >
-> A prediction can miss \\\mu\mathopen{}\left(x\right)\mathclose{}\\ because its [expected prediction](#def-average-fit) is off, or because it gives a different result for every training set. These are different failures with different fixes, so the term should split into one piece for each.
+> A prediction can miss \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ because its [expected prediction](#def-average-fit) is off, or because it gives a different result for every training set. These are different failures with different fixes, so the term should split into one piece for each.
 >
-> Split it with the same technique as before: add and subtract the expected prediction \\{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\\ ([Equation 29](#eq-average-fit)), expand, and take the expectation term by term.
+> Split it with the same technique as before: add and subtract the expected prediction \\{{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\\ ([Equation 29](#eq-average-fit)), expand, and take the expectation term by term.
 >
 > Which of the three terms is not random at all, and what makes the cross term zero this time?
 
@@ -718,29 +780,29 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > *Solution 8*. Insert the expected prediction:
 >
-> \\ \begin{aligned} \mu\mathopen{}\left(x\right)\mathclose{} - \hat{y} &= \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} + \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{} && \text{(add and subtract } {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\text{)} \end{aligned} \\
+> \\ \begin{aligned} {\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y} &= \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} + \mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{} && \text{(add and subtract } {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\text{)} \end{aligned} \\
 >
 > Square it:
 >
-> \\ \begin{aligned} {\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - \hat{y}\right)\mathclose{}}^2 &= {\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^2 + 2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{} + {\mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{}}^2 && \text{(expand the square of a sum)} \end{aligned} \\
+> \\ \begin{aligned} {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2} &= {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2} + 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{} + {\mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{}}^{2} && \text{(expand the square of a sum)} \end{aligned} \\
 >
 > Take the expectation of each term in turn.
 >
-> The first term does not depend on \\\mathcal{D}\_{\text{train}}\\: \\\mu\mathopen{}\left(x\right)\mathclose{}\\ is a constant, and \\{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\\ has already been averaged over training sets. The expectation of a constant is that constant:
+> The first term does not depend on \\\mathcal{D}\_{\text{train}}\\: \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ is a constant, and \\{{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\\ has already been averaged over training sets. The expectation of a constant is that constant:
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^2\right\]\mathclose{} &= {\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^2 && \text{(expectation of a constant)} \\ &= {\mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \mu\mathopen{}\left(x\right)\mathclose{}\right)\mathclose{}}^2 && \text{(a number and its negative have the same square)} \\ &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 && \text{(definition of bias)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2}\right\]\mathclose{}} &= {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2} && \text{(expectation of a constant)} \\ &= {\mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2} && \text{(a number and its negative have the same square)} \\ &= {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}}\right)\mathclose{}}^{2} && \text{(definition of bias)} \end{aligned} \\
 >
 > The cross term vanishes, and this time not by independence but because the expected prediction is the expectation of the prediction. The first factor is a constant, so it comes out of the expectation:
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{}\right\]\mathclose{} &= 2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \operatorname{E}\mathopen{}\left\[{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right\]\mathclose{} && \text{(constant factors)} \\ &= 2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left(\operatorname{E}\mathopen{}\left\[{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}\right)\mathclose{} && \text{(linearity)} \\ &= 2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \operatorname{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}\right)\mathclose{} && \text{(expectation of a constant)} \\ &= 2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} && \text{(definition of the expected prediction)} \\ &= 2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \cdot 0 && \text{(} a - a = 0 \text{)} \\ &= 0 && \text{(a number times zero)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{}\right\]\mathclose{}} &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} {\operatorname{E}\mathopen{}\left\[{{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right\]\mathclose{}} && \text{(constant factors)} \\ &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\mathopen{}\left\[{{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right\]\mathclose{}} - {\operatorname{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} && \text{(linearity)} \\ &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\operatorname{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} && \text{(expectation of a constant)} \\ &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} && \text{(definition of the expected prediction)} \\ &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \cdot 0 && \text{(} a - a = 0 \text{)} \\ &= 0 && \text{(a number times zero)} \end{aligned} \\
 >
 > The third term is the expectation of the squared deviation of the prediction from its mean, which is the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of the prediction:
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{}}^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{y}- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^2\right\]\mathclose{} && \text{(a number and its negative have the same square)} \\ &= \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} && \text{(definition of variance)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{y}- {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2}\right\]\mathclose{}} && \text{(a number and its negative have the same square)} \\ &= {\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}} && \text{(definition of variance)} \end{aligned} \\
 >
 > Adding the three expectations,
 >
-> \\ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - \hat{y}\right)\mathclose{}}^2\right\]\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}. \tag{34}\\
+> \\ {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}} = {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}}. \tag{34}\\
 >
 > Neither cross term needed the noise to be normal, and neither assumed anything about the fitting procedure: \\g\\ can be a line, a tree or a neural network. This split is specific to squared-error loss, the loss of this chapter’s examples.
 
@@ -749,34 +811,35 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 > **Theorem 4 (Bias, variance and noise)** Let:
 >
 > - \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\,
-> - \\\nu\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
-> - \\\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+> - \\u\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
+> - \\\sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(u\right)\mathclose{}}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), and
+> - \\{\operatorname{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\\ and \\{\operatorname{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\\ be short forms of the [bias](#def-prediction-bias) \\{\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}}\\ and the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\{\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}}\\ of the [prediction](prediction.llms.md#def-prediction).
 >
 > Assume:
 >
 > - the new [covariate](#def-covariate) value \\X\_{\*}\\ equals the covariate value \\x\\ of the [prediction](prediction.llms.md#def-prediction),
 > - the population variance \\\sigma^2\\ is finite, and
-> - the expected squared prediction \\\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^2\right\]\mathclose{}\\ is finite.
+> - the expected squared prediction \\{\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}}\\ is finite.
 >
-> Then the [expected prediction error at \\x\\](#def-epe) is the squared [bias](#def-prediction-bias) of the prediction \\\hat{y}\\, used as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\\mu\mathopen{}\left(x\right)\mathclose{}\\, plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), plus \\\sigma^2\\:
+> Then the [expected prediction error at \\x\\](#def-epe) is the squared [bias](#def-prediction-bias) of the prediction \\\hat{y}\\, used as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\, plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), plus \\\sigma^2\\:
 >
-> \\ \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} + \sigma^2. \tag{35}\\
+> \\ {\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} = {\mathopen{}\left({\operatorname{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}} + \sigma^2. \tag{35}\\
 
 > **NOTE:**
 >
-> *Proof*. Every expectation below is conditional on \\X\_{\*}= x\\, as in the exercises. By [Solution 7](#sol-epe-split-noise), the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\. By [Solution 8](#sol-epe-split-bias), that pMSE is the squared bias plus the variance. Substituting [Equation 34](#eq-epe-after-bias) into [Equation 32](#eq-epe-after-noise):
+> *Proof*. Every expectation below is conditional on \\X\_{\*}= x\\, as in the exercises. By [Solution 7](#sol-epe-split-noise), the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\. By [Solution 8](#sol-epe-split-bias), that pMSE is the squared bias plus the variance. Substituting [Equation 34](#eq-epe-after-bias) into [Equation 32](#eq-epe-after-noise):
 >
-> \\ \begin{aligned} \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} &= \sigma^2+ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - \hat{y}\right)\mathclose{}}^2\right\]\mathclose{} && \text{(separating the noise)} \\ &= \sigma^2+ {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} && \text{(separating the bias)} \\ &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} + \sigma^2 && \text{(reorder the terms)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} &= \sigma^2+ {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}} && \text{(separating the noise)} \\ &= \sigma^2+ {\mathopen{}\left({\operatorname{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}} && \text{(separating the bias)} \\ &= {\mathopen{}\left({\operatorname{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}} + \sigma^2 && \text{(reorder the terms)} \end{aligned} \\
 
 > **NOTE:**
 >
 > *Remark 13* (Other names, and how the expected error splits). Hastie et al. [\[3, Sec. 7.2\]](#ref-hastie2009elements) also call \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ the *test error*, and in sec. 7.12 the *conditional* test error. It is the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) of the prediction \\{\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}}\\ under the [loss](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) \\L\\, computed with the training set held fixed.
 >
-> The argument \\n\\ of the [expected generalization error](#def-expected-generalization-error) \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ of a fitting procedure \\g\\ records that it depends on how many observations each training set has. By [Theorem 2](#thm-expected-error-epe), \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ averages the expected prediction error at each covariate value, and [Theorem 4](#thm-epe-decomposition) splits each of those expected prediction errors, under squared-error loss, into a squared bias, a variance and a noise variance.
+> The argument \\n\\ of the [expected generalization error](#def-expected-generalization-error) \\{\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}}\\ of a fitting procedure \\g\\ records that it depends on how many observations each training set has. By [Theorem 2](#thm-expected-error-epe), \\{\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}}\\ averages the expected prediction error at each covariate value, and [Theorem 4](#thm-epe-decomposition) splits each of those expected prediction errors, under squared-error loss, into a squared bias, a variance and a noise variance.
 
 > **NOTE:**
 >
-> **Definition 35 (Flexibility)** Let \\g\_{1}\\ and \\g\_{2}\\ be [fitting procedures](#def-fitting-procedure) that each choose, by least squares, a [prediction rule](#def-fitted-model) from a set of candidate [functions](https://morrison-lab.github.io/mds/functions.html#def-function), \\\mathcal{G}\_{1}\\ and \\\mathcal{G}\_{2}\\ respectively. The procedure \\g\_{2}\\ is **at least as flexible** as \\g\_{1}\\ if every candidate of \\g\_{1}\\ is also a candidate of \\g\_{2}\\:
+> **Definition 36 (Flexibility)** Let \\g\_{1}\\ and \\g\_{2}\\ be [fitting procedures](#def-fitting-procedure) that each choose, by least squares, a [fitted model](#def-fitted-model) from a set of candidate [functions](https://morrison-lab.github.io/mds/functions.html#def-function), \\\mathcal{G}\_{1}\\ and \\\mathcal{G}\_{2}\\ respectively. The procedure \\g\_{2}\\ is **at least as flexible** as \\g\_{1}\\ if every candidate of \\g\_{1}\\ is also a candidate of \\g\_{2}\\:
 >
 > \\ \mathcal{G}\_{1} \subseteq \mathcal{G}\_{2}. \tag{36}\\
 
@@ -786,19 +849,19 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> *Remark 15* (Polynomial degree orders flexibility). Least-squares polynomial fits are ordered by degree: a polynomial of degree \\d\\ is also a polynomial of degree \\d+ 1\\ whose coefficient of \\x^{d+ 1}\\ is zero, so the fit of degree \\d+ 1\\ is [at least as flexible](#def-flexibility) as the fit of degree \\d\\. The four fits of [Exercise 1](#exr-overfitting) are ordered this way. [Definition 35](#def-flexibility) is narrower than the informal use of the word in James et al. [\[5, Sec. 2.1.3\]](#ref-james2021islr2e): it orders only procedures whose candidate sets are nested. Other procedures can be compared by other measures, such as the effective number of parameters [\[3, Sec. 7.6\]](#ref-hastie2009elements).
+> *Remark 15* (Polynomial degree orders flexibility). Least-squares polynomial fits are ordered by degree: a polynomial of degree \\d\\ is also a polynomial of degree \\d+ 1\\ whose coefficient of \\x^{d+ 1}\\ is zero, so the fit of degree \\d+ 1\\ is [at least as flexible](#def-flexibility) as the fit of degree \\d\\. The four fits of [Exercise 1](#exr-overfitting) are ordered this way. [Definition 36](#def-flexibility) is narrower than the informal use of the word in James et al. [\[5, Sec. 2.1.3\]](#ref-james2021islr2e): it orders only procedures whose candidate sets are nested. Other procedures can be compared by other measures, such as the effective number of parameters [\[3, Sec. 7.6\]](#ref-hastie2009elements).
 
 > **NOTE:**
 >
-> **Definition 36 (Bias–variance trade-off)** Let \\g\_{1}, \ldots, g\_{L}\\ be [fitting procedures](#def-fitting-procedure), each [at least as flexible](#def-flexibility) as the one before, and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, with \\\mu\\ the [mean function](#def-mean-function), there is a **bias–variance trade-off** among them when, from each procedure to the next, the squared [bias](#def-prediction-bias) of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\, does not rise and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) does not fall:
+> **Definition 37 (Bias–variance trade-off)** Let \\g\_{1}, \ldots, g\_{L}\\ be [fitting procedures](#def-fitting-procedure), each [at least as flexible](#def-flexibility) as the one before, and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, with \\\mu\\ the [mean function](#def-mean-function), there is a **bias–variance trade-off** among them when, from each procedure to the next, the squared [bias](#def-prediction-bias) of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\, does not rise and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) does not fall:
 >
-> \\ \begin{aligned} {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2 &\le {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2, \\ \operatorname{Var}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} &\ge \operatorname{Var}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}, \qquad l= 1, \ldots, L- 1. \end{aligned} \tag{37}\\
+> \\ \begin{aligned} {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right)\mathclose{}}^{2} &\le {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right)\mathclose{}}^{2}, \\ {\operatorname{Var}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} &\ge {\operatorname{Var}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}, \qquad l= 1, \ldots, L- 1. \end{aligned} \tag{37}\\
 >
-> Source: James et al. [\[5, Sec. 2.2.2\]](#ref-james2021islr2e); Wikipedia contributors [\[7\]](#ref-wikipedia_bias_variance_tradeoff).
+> Source: James et al. [\[5, Sec. 2.2.2\]](#ref-james2021islr2e); Wikipedia contributors [\[9\]](#ref-wikipedia_bias_variance_tradeoff).
 
 > **NOTE:**
 >
-> *Remark 16* (Overfitting and the trade-off). By [Theorem 4](#thm-epe-decomposition), \\\operatorname{EPE}^{g\_{l}}\_{n}\mathopen{}\left(x\right)\mathclose{}\\ is the squared bias plus the variance plus \\\sigma^2\\. Under a [bias–variance trade-off](#def-bias-variance-tradeoff) among \\{\hat y\_{1}}, \ldots, {\hat y\_{L}}\\, moving from \\{\hat y\_{l}}\\ to \\{\hat y\_{l+ 1}}\\ lowers the expected squared prediction error at \\x\\ when the squared bias falls by more than the variance rises, and raises it otherwise. The smallest of \\\operatorname{EPE}^{g\_{1}}\_{n}\mathopen{}\left(x\right)\mathclose{}, \ldots, \operatorname{EPE}^{g\_{L}}\_{n}\mathopen{}\left(x\right)\mathclose{}\\ is often at some \\g\_{l}\\ with \\1 \< l\< L\\ [\[5, Sec. 2.2.2\]](#ref-james2021islr2e), but not always: if the mean function \\\mu\\ is among the functions that candidate \\1\\ can fit, the squared bias of \\{\hat y\_{1}}\\ can be zero, and then no more flexible \\{\hat y\_{l}}\\ has a smaller squared bias and, under the trade-off, none has a smaller variance, so none has a smaller expected squared prediction error. Past the candidate with the smallest expected squared prediction error, the more flexible candidates have lowered their squared bias by less than they have raised their variance, and their fitted models tend to [overfit](#def-overfitting): they fit their training sets more closely than the fitted model of the candidate with the smallest expected squared prediction error but predict new observations worse.
+> *Remark 16* (Overfitting and the trade-off). By [Theorem 4](#thm-epe-decomposition), \\{\operatorname{EPE}^{g\_{l}}\_{n}\mathopen{}\left(x\right)\mathclose{}}\\ is the squared bias plus the variance plus \\\sigma^2\\. Under a [bias–variance trade-off](#def-bias-variance-tradeoff) among \\{\hat y\_{1}}, \ldots, {\hat y\_{L}}\\, moving from \\{\hat y\_{l}}\\ to \\{\hat y\_{l+ 1}}\\ lowers the expected squared prediction error at \\x\\ when the squared bias falls by more than the variance rises, and raises it otherwise. The smallest of \\{\operatorname{EPE}^{g\_{1}}\_{n}\mathopen{}\left(x\right)\mathclose{}}, \ldots, {\operatorname{EPE}^{g\_{L}}\_{n}\mathopen{}\left(x\right)\mathclose{}}\\ is often at some \\g\_{l}\\ with \\1 \< l\< L\\ [\[5, Sec. 2.2.2\]](#ref-james2021islr2e), but not always: if the mean function \\\mu\\ is among the functions that candidate \\1\\ can fit, the squared bias of \\{\hat y\_{1}}\\ can be zero, and then no more flexible \\{\hat y\_{l}}\\ has a smaller squared bias and, under the trade-off, none has a smaller variance, so none has a smaller expected squared prediction error. Past the candidate with the smallest expected squared prediction error, the more flexible candidates have lowered their squared bias by less than they have raised their variance, and their fitted models tend to [overfit](#def-overfitting): they fit their training sets more closely than the fitted model of the candidate with the smallest expected squared prediction error but predict new observations worse.
 
 > **NOTE:**
 >
@@ -806,25 +869,25 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 9 (Held-out predictions and the generalization error)** A [prediction rule](#def-fitted-model) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ is drawn from the same population as the new observation \\(X\_{\*}, Y\_{\*})\\ of [Definition 18](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\. Write \\\ell\_{\*,j}\\ for the [loss](#def-observation-loss) of \\\hat y\\ on held-out observation \\j\\.
+> **Exercise 9 (Held-out predictions and the generalization error)** A [fitted model](#def-fitted-model) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ is drawn from the same population as the new observation \\(X\_{\*}, Y\_{\*})\\ of [Definition 18](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\. Write \\\ell\_{\*,j}\\ for the [loss](#def-observation-loss) of \\\hat y\\ on held-out observation \\j\\.
 >
 > Find, given \\\mathcal{D}\_{\text{train}}\\, the expected sample mean loss of the held-out predictions, in terms of the generalization error \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\:
 >
-> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}. \\
+> \\ {\operatorname{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}. \\
 
 > **NOTE:**
 >
-> *Solution 9*. Given \\\mathcal{D}\_{\text{train}}\\, the rule \\\hat y\\ is fixed. Each held-out pair has the same distribution as \\(X\_{\*}, Y\_{\*})\\ and is independent of \\\mathcal{D}\_{\text{train}}\\, so each loss has conditional expectation \\\operatorname{E}\mathopen{}\left\[\ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ by [Equation 13](#eq-generalization-error). Then
+> *Solution 9*. Given \\\mathcal{D}\_{\text{train}}\\, the [fitted model](#def-fitted-model) \\\hat y\\ is fixed. Each held-out pair has the same distribution as \\(X\_{\*}, Y\_{\*})\\ and is independent of \\\mathcal{D}\_{\text{train}}\\, so each loss has conditional expectation \\{\operatorname{E}\mathopen{}\left\[\ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ by [Equation 12](#eq-generalization-error). Then
 >
-> \\ \begin{aligned} & \operatorname{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} \\ &\quad = \frac{1}{m} \operatorname{E}\mathopen{}\left\[\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} && \text{(constant } 1/m\text{ out)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{E}\mathopen{}\left\[\ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} && \text{(linearity of } \operatorname{E}\text{)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(each term, as above)} \\ &\quad = \frac{1}{m} \mathopen{}\left(m\\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right)\mathclose{} && \text{(} m\text{ equal terms)} \\ &\quad = \mathopen{}\left(\frac{1}{m} \cdot m\right)\mathclose{} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(regroup the product)} \\ &\quad = 1 \cdot \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && (\tfrac{1}{m} \cdot m= 1) \\ &\quad = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(multiplying by 1 changes nothing)} \end{aligned} \\
+> \\ \begin{aligned} & {\operatorname{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} \\ &\quad = \frac{1}{m} {\operatorname{E}\mathopen{}\left\[\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} && \text{(constant } 1/m\text{ out)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} {\operatorname{E}\mathopen{}\left\[\ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} && \text{(linearity of } \operatorname{E}\text{)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(each term, as above)} \\ &\quad = \frac{1}{m} \mathopen{}\left(m\\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right)\mathclose{} && \text{(} m\text{ equal terms)} \\ &\quad = \mathopen{}\left(\frac{1}{m} \cdot m\right)\mathclose{} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(regroup the product)} \\ &\quad = 1 \cdot \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && (\tfrac{1}{m} \cdot m= 1) \\ &\quad = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(multiplying by 1 changes nothing)} \end{aligned} \\
 >
 > The step labeled “each term, as above” is the one that needs the held-out set to be independent of \\\mathcal{D}\_{\text{train}}\\.
 
 > **NOTE:**
 >
-> **Theorem 5 (The held-out sample mean loss estimates the generalization error)** Let a [prediction rule](#def-fitted-model) \\\hat y\\ be fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, and let a [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ be drawn from the same population as \\(X\_{\*}, Y\_{\*})\\, each independently of \\\mathcal{D}\_{\text{train}}\\. Write \\\ell\_{\*,j}\\ for the [loss](#def-observation-loss) of \\\hat y\\ on held-out observation \\j\\. Then, given \\\mathcal{D}\_{\text{train}}\\, the expected sample mean loss of the held-out predictions is the [generalization error](#def-generalization-error):
+> **Theorem 5 (The held-out sample mean loss estimates the generalization error)** Let a [fitted model](#def-fitted-model) \\\hat y\\ be fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, and let a [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ be drawn from the same population as \\(X\_{\*}, Y\_{\*})\\, each independently of \\\mathcal{D}\_{\text{train}}\\. Write \\\ell\_{\*,j}\\ for the [loss](#def-observation-loss) of \\\hat y\\ on held-out observation \\j\\. Then, given \\\mathcal{D}\_{\text{train}}\\, the expected sample mean loss of the held-out predictions is the [generalization error](#def-generalization-error):
 >
-> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}. \\
+> \\ {\operatorname{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}. \\
 
 > **NOTE:**
 >
@@ -836,7 +899,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Example 25 (Training error and generalization error by degree)** Real data never reveal \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\, but a simulation can, because it can draw as many new observations as we like. Here the population is known: \\X\sim \operatorname{Uniform}(0, 1)\\ and \\Y\mid X= x\sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\\, with \\\sigma= 0.3\\. We draw one training set of \\n= 30\\ observations, fit a polynomial in \\x\\ of each degree from 1 to 10 by least squares, and score each fit on the training set and on \\10{,}000\\ new observations. By [Theorem 5](#thm-held-out-unbiased), the second score has expectation \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ given the training set, and with \\10{,}000\\ observations it is a precise estimate of it.
+> **Example 27 (Training error and generalization error by degree)** Real data never reveal \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\, but a simulation can, because it can draw as many new observations as we like. Here the population is known: \\X\sim \operatorname{Uniform}(0, 1)\\ and \\Y\mid X= x\sim {\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\, with \\\sigma= 0.3\\. We draw one training set of \\n= 30\\ observations, fit a polynomial in \\x\\ of each degree from 1 to 10 by least squares, and score each fit on the training set and on \\10{,}000\\ new observations. By [Theorem 5](#thm-held-out-unbiased), the second score has expectation \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ given the training set, and with \\10{,}000\\ observations it is a precise estimate of it.
 >
 > ``` downlit
 > sim_sigma <- 0.3
@@ -914,7 +977,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 > #>                             8                             0
 > ```
 >
-> The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No prediction rule can have generalization pRMSE below \\\sigma= 0.3\\. Yet the training sRMSE falls below \\\sigma\\ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
+> The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No [fitted model](#def-fitted-model) can have generalization [pRMSE](estimation.llms.md#def-rmse) below \\\sigma= 0.3\\. Yet the training sRMSE falls below \\\sigma\\ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
 
 ## 5 Training, validation, and test sets
 
@@ -934,41 +997,41 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 37 (Training/validation/test split)** A **training/validation/test split** divides the observations \\1, \ldots, n\\ of a data set into three disjoint sets of indices, \\I\_{\text{train}}\\, \\I\_{\text{val}}\\ and \\I\_{\text{test}}\\, and takes the observations in \\I\_{\text{train}}\\ as the [training set](#def-training-set):
+> **Definition 38 (Training/validation/test split)** A **training/validation/test split** divides the observations \\1, \ldots, n\\ of a data set into three disjoint sets of indices, \\I\_{\text{train}}\\, \\I\_{\text{val}}\\ and \\I\_{\text{test}}\\, and takes the observations in \\I\_{\text{train}}\\ as the [training set](#def-training-set):
 >
-> \\ \begin{aligned} & I\_{\text{train}}\cup I\_{\text{val}}\cup I\_{\text{test}}= \mathopen{}\left\\1, \ldots, n\right\\\mathclose{}, \\ & I\_{\text{train}}\cap I\_{\text{val}}= \emptyset, \\ & I\_{\text{train}}\cap I\_{\text{test}}= \emptyset, \\ & I\_{\text{val}}\cap I\_{\text{test}}= \emptyset, \\ & \mathcal{D}\_{\text{train}}= \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\_{\text{train}}}. \end{aligned} \tag{38}\\
+> \\ \begin{aligned} & I\_{\text{train}}\cup I\_{\text{val}}\cup I\_{\text{test}}= {\mathopen{}\left\\1, \ldots, n\right\\\mathclose{}}, \\ & I\_{\text{train}}\cap I\_{\text{val}}= \emptyset, \\ & I\_{\text{train}}\cap I\_{\text{test}}= \emptyset, \\ & I\_{\text{val}}\cap I\_{\text{test}}= \emptyset, \\ & \mathcal{D}\_{\text{train}}= \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\_{\text{train}}}. \end{aligned} \tag{38}\\
 >
 > Source: James et al. [\[5, pp. 198–201\]](#ref-james2021islr2e); Wikipedia contributors [\[2\]](#ref-wikipedia_training_validation_and_test_data_sets).
 
 > **NOTE:**
 >
-> **Example 26 (Split sizes for 32 cars)** In [Exercise 10](#exr-data-splits), a rule of 60% / 20% / 20% on \\n= 32\\ cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.
+> **Example 28 (Split sizes for 32 cars)** In [Exercise 10](#exr-data-splits), a rule of 60% / 20% / 20% on \\n= 32\\ cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.
 
 > **NOTE:**
 >
-> **Definition 38 (Tuning parameter)** A **tuning parameter** of a [fitting procedure](#def-fitting-procedure) is a setting \\\lambda\\ that the procedure needs but does not compute from the [training set](#def-training-set):
+> **Definition 39 (Tuning parameter)** A **tuning parameter** of a [fitting procedure](#def-fitting-procedure) is a setting \\\lambda\\ that the procedure needs but does not compute from the [training set](#def-training-set):
 >
 > \\ {\hat y\mathopen{}\left(x\right)\mathclose{}} = {{\hat y\_{\lambda}}\mathopen{}\left(x\right)\mathclose{}}. \tag{39}\\
 >
-> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_hyperparameter_machine_learning).
+> Source: Wikipedia contributors [\[10\]](#ref-wikipedia_hyperparameter_machine_learning).
 
 > **NOTE:**
 >
-> **Example 27 (Polynomial degree)** In [Exercise 1](#exr-overfitting), least squares computes the coefficients of each polynomial from the 20 training cars, but the degree \\d\\ is fixed before the fit. So the degree is a [tuning parameter](#def-tuning-parameter) of least-squares polynomial fitting, and the four fits are \\g\_{1}, g\_{2}, g\_{3}, g\_{4}\\ with \\\lambda= d\\.
+> **Example 29 (Polynomial degree)** In [Exercise 1](#exr-overfitting), least squares computes the coefficients of each polynomial from the 20 training cars, but the degree \\d\\ is fixed before the fit. So the degree is a [tuning parameter](#def-tuning-parameter) of least-squares polynomial fitting, and the four fits are \\g\_{1}, g\_{2}, g\_{3}, g\_{4}\\ with \\\lambda= d\\.
 
 > **NOTE:**
 >
-> **Definition 39 (Model selection)** **Model selection** is choosing one [fitted model](#def-fitted-model) from a set of candidate fitted models from different [model families](#def-model-family), using observations that were [held out](#def-held-out-set) from fitting.
+> **Definition 40 (Model selection)** **Model selection** is choosing one [fitted model](#def-fitted-model) from a set of candidate fitted models from different [model families](#def-model-family), using observations that were [held out](#def-held-out-set) from fitting.
 >
-> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_model_selection).
+> Source: Wikipedia contributors [\[11\]](#ref-wikipedia_model_selection).
 
 > **NOTE:**
 >
-> **Example 28 (Choosing a polynomial degree)** In [Example 27](#exm-tuning-parameter), the candidates are the least-squares fitted models from four polynomial model families, the families of degree \\1\\ (“linear”), \\2\\ (“quadratic”), \\3\\ (“cubic”) and \\4\\ (“quartic”). Choosing among these four fitted models is model selection, and the observations it uses are cars held out from fitting.
+> **Example 30 (Choosing a polynomial degree)** In [Example 29](#exm-tuning-parameter), the candidates are the least-squares fitted models from four polynomial model families, the families of degree \\1\\ (“linear”), \\2\\ (“quadratic”), \\3\\ (“cubic”) and \\4\\ (“quartic”). Choosing among these four fitted models is model selection, and the observations it uses are cars held out from fitting.
 
 > **NOTE:**
 >
-> **Definition 40 (Validation set)** The **validation set** of a [training/validation/test split](#def-data-splits) is the [held-out set](#def-held-out-set) of observations indexed by \\I\_{\text{val}}\\, used for [model selection](#def-model-selection) among candidate [fitted models](#def-fitted-model) fitted to the training set:
+> **Definition 41 (Validation set)** The **validation set** of a [training/validation/test split](#def-data-splits) is the [held-out set](#def-held-out-set) of observations indexed by \\I\_{\text{val}}\\, used for [model selection](#def-model-selection) among candidate [fitted models](#def-fitted-model) fitted to the training set:
 >
 > \\ \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\_{\text{val}}}. \tag{40}\\
 >
@@ -976,19 +1039,19 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 41 (Validation error)** The **validation error** of a [prediction rule](#def-fitted-model) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its sample mean [loss](#def-observation-loss) \\\ell\_{i}\\ on the [validation set](#def-validation-set), indexed by \\I\_{\text{val}}\\:
+> **Definition 42 (Validation error)** The **validation error** of a [fitted model](#def-fitted-model) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its sample mean [loss](#def-observation-loss) \\\ell\_{i}\\ on the [validation set](#def-validation-set), indexed by \\I\_{\text{val}}\\:
 >
 > \\ \overline{\operatorname{err}}\_{\text{val}}\stackrel{\text{def}}{=}\frac{1}{\mathopen{}\left\|I\_{\text{val}}\right\|\mathclose{}}\sum\_{i\in I\_{\text{val}}} \ell\_{i}. \tag{41}\\
 
 > **NOTE:**
 >
-> **Definition 42 (Validation choice)** Given candidate [fitting procedures](#def-fitting-procedure) \\g\_{1}, \ldots, g\_{L}\\, the **validation choice** \\\hat{l}\\ is the index of the candidate whose [prediction rule](#def-fitted-model), fitted to the training set \\\mathcal{D}\_{\text{train}}\\, has the smallest [validation error](#def-validation-error):
+> **Definition 43 (Validation choice)** Given candidate [fitting procedures](#def-fitting-procedure) \\g\_{1}, \ldots, g\_{L}\\, the **validation choice** \\\hat{l}\\ is the index of the candidate whose [fitted model](#def-fitted-model), fitted to the training set \\\mathcal{D}\_{\text{train}}\\, has the smallest [validation error](#def-validation-error):
 >
-> \\ \hat{l} \stackrel{\text{def}}{=}\arg \min\_{l} \frac{1}{\mathopen{}\left\|I\_{\text{val}}\right\|\mathclose{}}\sum\_{i\in I\_{\text{val}}} L\mathopen{}\left(y\_{i}, {{\hat y\_{l}}\mathopen{}\left(x\_{i}\right)\mathclose{}}\right)\mathclose{}. \tag{42}\\
+> \\ \hat{l} \stackrel{\text{def}}{=}\arg \min\_{l} \frac{1}{\mathopen{}\left\|I\_{\text{val}}\right\|\mathclose{}}\sum\_{i\in I\_{\text{val}}} {L\mathopen{}\left(y\_{i}, {{\hat y\_{l}}\mathopen{}\left(x\_{i}\right)\mathclose{}}\right)\mathclose{}}. \tag{42}\\
 
 > **NOTE:**
 >
-> **Definition 43 (Test set)** The **test set** of a [training/validation/test split](#def-data-splits) is the [held-out set](#def-held-out-set) of observations indexed by \\I\_{\text{test}}\\, on which the [fitted model](#def-fitted-model) \\{\hat y\_{\hat{l}}}\\ that the [validation choice](#def-validation-choice) picks is scored:
+> **Definition 44 (Test set)** The **test set** of a [training/validation/test split](#def-data-splits) is the [held-out set](#def-held-out-set) of observations indexed by \\I\_{\text{test}}\\, on which the [fitted model](#def-fitted-model) \\{\hat y\_{\hat{l}}}\\ that the [validation choice](#def-validation-choice) picks is scored:
 >
 > \\ \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\_{\text{test}}}. \tag{43}\\
 >
@@ -996,9 +1059,79 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 44 (Test error)** The **test error** of a [prediction rule](#def-fitted-model) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its sample mean [loss](#def-observation-loss) \\\ell\_{i}\\ on the [test set](#def-test-set), indexed by \\I\_{\text{test}}\\:
+> **Definition 45 (Test error)** The **test error** of a [fitted model](#def-fitted-model) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its sample mean [loss](#def-observation-loss) \\\ell\_{i}\\ on the [test set](#def-test-set), indexed by \\I\_{\text{test}}\\:
 >
 > \\ \overline{\operatorname{err}}\_{\text{test}}\stackrel{\text{def}}{=}\frac{1}{\mathopen{}\left\|I\_{\text{test}}\right\|\mathclose{}}\sum\_{i\in I\_{\text{test}}} \ell\_{i}. \tag{44}\\
+
+> **NOTE:**
+>
+> **Definition 46 (Error rate (misclassification rate))** The **error rate** of a [fitted model](#def-fitted-model) \\\hat y\\ for a [categorical](data.llms.md#def-categorical-var) outcome on a set of observations is the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of the [loss](#def-observation-loss) under 0-1 loss, \\{L\mathopen{}\left(y, \hat{y}\right)\mathclose{}} = \mathbb{1}\_{y\neq \hat{y}}\\, which is 1 for a wrong [prediction](prediction.llms.md#def-prediction) and 0 for a correct one. The error rate is the proportion of observations in the set whose predicted category differs from the observed category.
+
+> **NOTE:**
+>
+> **Definition 47 (Training error rate)** The **training error rate** of a [fitted model](#def-fitted-model) is its [error rate](#def-error-rate) on the [training set](#def-training-set), which is the [training error](#def-training-mse) under 0-1 [loss](#def-observation-loss).
+
+> **NOTE:**
+>
+> **Definition 48 (Test error rate)** The **test error rate** of a [fitted model](#def-fitted-model) is its [error rate](#def-error-rate) on the [test set](#def-test-set), which is the [test error](#def-test-error) under 0-1 [loss](#def-observation-loss).
+
+> **NOTE:**
+>
+> **Example 31 (Test error rate of a low-birth-weight classifier)** The `birthwt` data hold births at Baystate Medical Center in Springfield, Massachusetts [\[6\]](#ref-hosmer1989applied), as distributed in R’s `MASS` package [\[7\]](#ref-venables2002modern). The outcome `low` is 1 for a birth weight under 2.5 kg and 0 otherwise. We fit a [logistic regression](logistic-inference.llms.md#def-logistic-regression) of `low` on the mother’s age, weight at her last menstrual period, smoking status, history of hypertension, and presence of uterine irritability. The [fitted model](#def-fitted-model) [predicts](prediction.llms.md#def-prediction) `low = 1` when its fitted [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) exceeds 0.5. We use every third row as the [test set](#def-test-set) and fit on the remaining rows, the [training set](#def-training-set).
+>
+> ## R
+>
+> ``` downlit
+> birthwt <- read.csv("data/birthwt.csv")
+> is_test <- seq_len(nrow(birthwt)) %% 3 == 0
+>
+> fit_low <- glm(
+>   low ~ age + lwt + smoke + ht + ui,
+>   family = binomial,
+>   data = birthwt[!is_test, ]
+> )
+>
+> predicted_low <- function(data) {
+>   as.integer(predict(fit_low, newdata = data, type = "response") > 0.5)
+> }
+>
+> error_rates <- c(
+>   training = mean(predicted_low(birthwt[!is_test, ]) != birthwt$low[!is_test]),
+>   test = mean(predicted_low(birthwt[is_test, ]) != birthwt$low[is_test])
+> )
+> error_rates
+> #> training     test 
+> #> 0.261905 0.396825
+> ```
+>
+> ## Python
+>
+> ``` python
+> import numpy as np
+> import pandas as pd
+> import statsmodels.formula.api as smf
+>
+> birthwt = pd.read_csv("data/birthwt.csv")
+> is_test = (np.arange(1, len(birthwt) + 1) % 3 == 0)
+>
+> fit_low = smf.logit(
+>     "low ~ age + lwt + smoke + ht + ui", data=birthwt[~is_test]
+> ).fit(disp=False)
+>
+>
+> def predicted_low(data):
+>     return (fit_low.predict(data) > 0.5).astype(int)
+>
+>
+> error_rates = {
+>     "training": (predicted_low(birthwt[~is_test]) != birthwt["low"][~is_test]).mean(),
+>     "test": (predicted_low(birthwt[is_test]) != birthwt["low"][is_test]).mean(),
+> }
+> error_rates
+> #> {'training': np.float64(0.2619047619047619), 'test': np.float64(0.3968253968253968)}
+> ```
+>
+> Of the 189 births, 63 are in the [test set](#def-test-set). The [covariates](#def-covariate) are chosen for simplicity, not for predictive quality. The [fitted model](#def-fitted-model) gets the wrong birth-weight category for 39.7% of the test births, so its [test error rate](#def-test-error-rate) is 0.397. Its [training error rate](#def-training-error-rate) is 0.262.
 
 > **NOTE:**
 >
@@ -1014,15 +1147,15 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> *Remark 20* (What the validation and test errors estimate). The [validation error](#def-validation-error) and the [test error](#def-test-error) differ from the [training error](#def-training-mse) \\\overline{\operatorname{err}}\\ only in the set that scores the rule. The rule was not fitted to the validation or test set, so each estimates the [generalization error](#def-generalization-error) of the fitted rule without the optimism of the training error. The [validation choice](#def-validation-choice) selects the rule with the smallest validation error, so the validation error of the chosen rule is still optimistic; the test error is computed once, after the choice, so it is not.
+> *Remark 20* (What the validation and test errors estimate). The [validation error](#def-validation-error) and the [test error](#def-test-error) differ from the [training error](#def-training-mse) \\\overline{\operatorname{err}}\\ only in the set on which the [fitted model](#def-fitted-model) is evaluated. The model was not fitted to the validation or [test set](#def-test-set), so each [estimates](estimation.llms.md#def-estimate) the [generalization error](#def-generalization-error) of the fitted model without the optimism of the training error. The [validation choice](#def-validation-choice) selects the model with the smallest validation error, so the validation error of the chosen model is still optimistic; the test error is computed once, after the choice, so it is not.
 >
-> Hastie et al. [\[3, Sec. 7.2\]](#ref-hastie2009elements) use “test error” for the generalization error of the fitted rule itself. Here the test error is the number computed from the test set, and the generalization error is what it estimates.
+> Hastie et al. [\[3, Sec. 7.2\]](#ref-hastie2009elements) use “test error” for the generalization error of the fitted model itself. Here the test error is the number computed from the test set, and the generalization error is what it estimates.
 >
 > Each definition holds for any [loss](#def-observation-loss). Under squared-error loss, they are sample mean squared errors; under absolute-error loss, they are sample mean absolute errors.
 
 > **NOTE:**
 >
-> **Example 29 (Numerical example)** This example ([Example 29](#exm-train-validation-test-split)) uses R’s built-in `mtcars` dataset (\\n=32\\ cars) to predict fuel efficiency (`mpg`) from vehicle weight (`wt`). It uses one random split to compare linear, quadratic, cubic, and quartic models (`mpg ~ wt`, `mpg ~ wt + I(wt^2)`, `mpg ~ wt + I(wt^2) + I(wt^3)`, and `mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)`) on a validation set, then reports the chosen model’s test sRMSE on untouched test data [\[5, p. 213\]](#ref-james2021islr2e).
+> **Example 32 (Numerical example)** This example ([Example 32](#exm-train-validation-test-split)) uses R’s built-in `mtcars` dataset (\\n=32\\ cars) to predict fuel efficiency (`mpg`) from vehicle weight (`wt`). It uses one random split to compare linear, quadratic, cubic, and quartic models (`mpg ~ wt`, `mpg ~ wt + I(wt^2)`, `mpg ~ wt + I(wt^2) + I(wt^3)`, and `mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)`) on a validation set, then reports the chosen model’s test sRMSE on untouched test data [\[5, p. 213\]](#ref-james2021islr2e).
 >
 > > **NOTE:**
 > >
@@ -1291,7 +1424,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 45 (Folds)** A division of a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, indexed by \\I\\, into \\k\\ **folds** is a partition of \\I\\ into \\k\\ nonempty, disjoint subsets \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\:
+> **Definition 49 (Folds)** A division of a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, indexed by \\I\\, into \\k\\ **folds** is a partition of \\I\\ into \\k\\ nonempty, disjoint subsets \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\:
 >
 > \\ \mathcal{F}\_{1} \cup \cdots \cup \mathcal{F}\_{k} = I. \tag{45}\\
 
@@ -1301,73 +1434,73 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 46 (Fold size)** The **size** \\n\_{j}\\ of [fold](#def-folds) \\\mathcal{F}\_{j}\\ is the number of observations it contains:
+> **Definition 50 (Fold size)** The **size** \\n\_{j}\\ of [fold](#def-folds) \\\mathcal{F}\_{j}\\ is the number of observations it contains:
 >
 > \\ n\_{j} \stackrel{\text{def}}{=}\mathopen{}\left\|\mathcal{F}\_{j}\right\|\mathclose{}. \tag{46}\\
 
 > **NOTE:**
 >
-> **Definition 47 (Fold assignment)** Given [folds](#def-folds) \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\, the **fold assignment** \\\kappa\mathopen{}\left(i\right)\mathclose{}\\ of observation \\i\\ is the index of the fold that contains it:
+> **Definition 51 (Fold assignment)** Given [folds](#def-folds) \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\, the **fold assignment** \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\ of observation \\i\\ is the index of the fold that contains it:
 >
-> \\ i\in \mathcal{F}\_{\kappa\mathopen{}\left(i\right)\mathclose{}}. \tag{47}\\
+> \\ i\in \mathcal{F}\_{{\kappa\mathopen{}\left(i\right)\mathclose{}}}. \tag{47}\\
 
 > **NOTE:**
 >
-> *Remark 22* (Source: Fold assignment). The fold-assignment function \\\kappa\mathopen{}\left(i\right)\mathclose{}\\ follows Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements).
+> *Remark 22* (Source: Fold assignment). The fold-assignment function \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\ follows Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements).
 
 > **NOTE:**
 >
-> **Definition 48 (Fold-out rule)** For [fold](#def-folds) \\\mathcal{F}\_{j}\\, the **fold-out rule** \\\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}\\ is the [prediction rule](#def-fitted-model) that a [fitting procedure](#def-fitting-procedure) \\g\\ produces from the observations outside that fold:
+> **Definition 52 (Fold-out fitted model)** For [fold](#def-folds) \\\mathcal{F}\_{j}\\, the **fold-out fitted model** \\{\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}}\\ is the [fitted model](#def-fitted-model) that a [fitting procedure](#def-fitting-procedure) \\g\\ produces from the observations outside that fold:
 >
-> \\ \hat y^{(-j)}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}{{\hat y\_{\mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\setminus \mathcal{F}\_{j}}}}\mathopen{}\left(x\right)\mathclose{}}. \tag{48}\\
+> \\ {\hat y^{(-j)}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{{\hat y\_{\mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\setminus \mathcal{F}\_{j}}}}\mathopen{}\left(x\right)\mathclose{}}. \tag{48}\\
 
 > **NOTE:**
 >
-> *Remark 23* (Source: Fold-out rule). Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements), who write the fitted function with the \\k\\th part of the data removed as \\\hat f^{-k}\\.
+> *Remark 23* (Source: Fold-out fitted model). Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements), who write the fitted function with the \\k\\th part of the data removed as \\\hat f^{-k}\\.
 
 > **NOTE:**
 >
-> **Definition 49 (\\k\\-fold cross-validation)** In **\\k\\-fold cross-validation**:
+> **Definition 53 (\\k\\-fold cross-validation)** In **\\k\\-fold cross-validation**:
 >
 > 1.  The data are randomly divided into \\k\\ [folds](#def-folds) of equal, or nearly equal, size.
 > 2.  For each fold \\\mathcal{F}\_{j}\\, \\j= 1, \ldots, k\\:
->     - Fit the model to all data *except* fold \\\mathcal{F}\_{j}\\, giving the [fold-out rule](#def-fold-out-rule) \\\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}\\.
+>     - Fit the model to all data *except* fold \\\mathcal{F}\_{j}\\, giving the [fold-out fitted model](#def-fold-out-fitted-model) \\{\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}}\\.
 >     - Compute predicted values for the observations in fold \\\mathcal{F}\_{j}\\.
 > 3.  Compute a summary prediction-error measure across all folds.
 >
-> Source: Wikipedia contributors [\[10\]](#ref-wikipedia_cross_validation_statistics).
+> Source: Wikipedia contributors [\[12\]](#ref-wikipedia_cross_validation_statistics).
 
 > **NOTE:**
 >
-> *Remark 24* (Cross-validation instead of a single validation set). If data are limited, \\k\\-fold cross-validation can replace the single validation set of [Definition 37](#def-data-splits) for more stable tuning. In [Exercise 11](#exr-kfold), \\k= 4\\ folds of 8 cars each give 4 fits on 24 cars each.
+> *Remark 24* (Cross-validation instead of a single validation set). If data are limited, \\k\\-fold cross-validation can replace the single validation set of [Definition 38](#def-data-splits) for more stable tuning. In [Exercise 11](#exr-kfold), \\k= 4\\ folds of 8 cars each give 4 fits on 24 cars each.
 
 > **NOTE:**
 >
-> **Definition 50 (Cross-validation estimate)** The **\\k\\-fold cross-validation estimate** \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ is the [sMSE](prediction.llms.md#def-prediction-mse) of the predictions that each observation \\i\in I\\ of the training set receives from the [fold-out rule](#def-fold-out-rule) of its [fold assignment](#def-fold-assignment) \\\kappa\mathopen{}\left(i\right)\mathclose{}\\ in [\\k\\-fold cross-validation](#def-kfold):
+> **Definition 54 (Cross-validation estimate)** The **\\k\\-fold cross-validation estimate** \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ is the [sMSE](prediction.llms.md#def-prediction-mse) of the predictions that each observation \\i\in I\\ of the training set receives from the [fold-out fitted model](#def-fold-out-fitted-model) of its [fold assignment](#def-fold-assignment) \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\ in [\\k\\-fold cross-validation](#def-kfold):
 >
-> \\ \widehat{\operatorname{Err}}\_{\text{CV}(k)} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i\in I} {\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2. \tag{49}\\
+> \\ \widehat{\operatorname{Err}}\_{\text{CV}(k)} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i\in I} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2}. \tag{49}\\
 
 > **NOTE:**
 >
-> *Remark 25* (Source: Cross-validation estimate). Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements), for the per-observation form with the fold index \\\kappa\mathopen{}\left(i\right)\mathclose{}\\.
+> *Remark 25* (Source: Cross-validation estimate). Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements), for the per-observation form with the fold index \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\.
 
 > **NOTE:**
 >
-> **Exercise 12 (The cross-validation estimate, fold by fold)** Rewrite the [cross-validation estimate](#def-cv-estimate) [Equation 49](#eq-cv-estimate) as \\1/n\\ times a double sum: an outer sum over the fold numbers \\j= 1, \ldots, k\\ and an inner sum over the observations \\i\\ in [fold](#def-folds) \\\mathcal{F}\_{j}\\. Then simplify the summand, so that it no longer uses the fold assignment \\\kappa\mathopen{}\left(i\right)\mathclose{}\\.
+> **Exercise 12 (The cross-validation estimate, fold by fold)** Rewrite the [cross-validation estimate](#def-cv-estimate) [Equation 49](#eq-cv-estimate) as \\1/n\\ times a double sum: an outer sum over the fold numbers \\j= 1, \ldots, k\\ and an inner sum over the observations \\i\\ in [fold](#def-folds) \\\mathcal{F}\_{j}\\. Then simplify the summand, so that it no longer uses the fold assignment \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\.
 
 > **NOTE:**
 >
-> *Solution 12*. The folds \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\ partition \\I\\ ([Definition 45](#def-folds)), so summing over the observations of each fold and then over the folds adds each term of [Equation 49](#eq-cv-estimate) exactly once. For \\i\in \mathcal{F}\_{j}\\, [Equation 47](#eq-fold-assignment) also puts \\i\\ in \\\mathcal{F}\_{\kappa\mathopen{}\left(i\right)\mathclose{}}\\, and the folds are disjoint, so \\\kappa\mathopen{}\left(i\right)\mathclose{} = j\\. Then
+> *Solution 12*. The folds \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\ partition \\I\\ ([Definition 49](#def-folds)), so summing over the observations of each fold and then over the folds adds each term of [Equation 49](#eq-cv-estimate) exactly once. For \\i\in \mathcal{F}\_{j}\\, [Equation 47](#eq-fold-assignment) also puts \\i\\ in \\\mathcal{F}\_{{\kappa\mathopen{}\left(i\right)\mathclose{}}}\\, and the folds are disjoint, so \\{\kappa\mathopen{}\left(i\right)\mathclose{}} = j\\. Then
 >
-> \\ \begin{aligned} \widehat{\operatorname{Err}}\_{\text{CV}(k)} &= \frac{1}{n} \sum\_{i\in I} {\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2 && \text{(definition)} \\ &= \frac{1}{n} \sum\_{j=1}^{k} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2 && \text{(group by fold)} \\ &= \frac{1}{n} \sum\_{j=1}^{k} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2 && (\kappa\mathopen{}\left(i\right)\mathclose{} = j\text{ for } i\in \mathcal{F}\_{j}) \end{aligned} \\
+> \\ \begin{aligned} \widehat{\operatorname{Err}}\_{\text{CV}(k)} &= \frac{1}{n} \sum\_{i\in I} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2} && \text{(definition)} \\ &= \frac{1}{n} \sum\_{j=1}^{k} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2} && \text{(group by fold)} \\ &= \frac{1}{n} \sum\_{j=1}^{k} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left({\hat y^{(-j)}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2} && ({\kappa\mathopen{}\left(i\right)\mathclose{}} = j\text{ for } i\in \mathcal{F}\_{j}) \end{aligned} \\
 >
-> In the last line, the rule \\\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}\\ depends only on the outer index, so each inner sum uses a single fitted rule.
+> In the last line, the [fitted model](#def-fitted-model) \\{\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}}\\ depends only on the outer index, so each inner sum uses a single fitted model.
 
 > **NOTE:**
 >
-> **Theorem 6 (The cross-validation estimate, fold by fold)** The [cross-validation estimate](#def-cv-estimate) sums, fold by fold, the squared errors of each fold’s observations under the rule fitted without that [fold](#def-folds), and divides the total by \\n\\:
+> **Theorem 6 (The cross-validation estimate, fold by fold)** The [cross-validation estimate](#def-cv-estimate) sums, fold by fold, the squared errors of each fold’s observations under the [fitted model](#def-fitted-model) fitted without that [fold](#def-folds), and divides the total by \\n\\:
 >
-> \\ \widehat{\operatorname{Err}}\_{\text{CV}(k)} = \frac{1}{n} \sum\_{j=1}^{k} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2. \tag{50}\\
+> \\ \widehat{\operatorname{Err}}\_{\text{CV}(k)} = \frac{1}{n} \sum\_{j=1}^{k} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left({\hat y^{(-j)}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2}. \tag{50}\\
 
 > **NOTE:**
 >
@@ -1375,9 +1508,9 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 51 (Fold mean squared error)** The **fold mean squared error** \\\operatorname{MSE}\_{j}\\ of [fold](#def-folds) \\\mathcal{F}\_{j}\\ is the [sMSE](prediction.llms.md#def-prediction-mse) of the [fold-out rule](#def-fold-out-rule)’s predictions for the \\n\_{j}\\ ([fold size](#def-fold-size)) observations in that fold:
+> **Definition 55 (Fold mean squared error)** The **fold mean squared error** \\\operatorname{MSE}\_{j}\\ of [fold](#def-folds) \\\mathcal{F}\_{j}\\ is the [sMSE](prediction.llms.md#def-prediction-mse) of the [fold-out fitted model](#def-fold-out-fitted-model)’s [predictions](prediction.llms.md#def-prediction) for the \\n\_{j}\\ ([fold size](#def-fold-size)) observations in that fold:
 >
-> \\ \operatorname{MSE}\_{j} \stackrel{\text{def}}{=}\frac{1}{n\_{j}} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2. \tag{51}\\
+> \\ \operatorname{MSE}\_{j} \stackrel{\text{def}}{=}\frac{1}{n\_{j}} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left({\hat y^{(-j)}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2}. \tag{51}\\
 
 > **NOTE:**
 >
@@ -1385,7 +1518,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> *Remark 27* (What the cross-validation estimate estimates). Each prediction in [Equation 49](#eq-cv-estimate) comes from a rule that did not see the observation it predicts, so each squared error is scored as in [Theorem 5](#thm-held-out-unbiased). But the rule for fold \\\mathcal{F}\_{j}\\ was fitted to \\n- n\_{j}\\ observations, not \\n\\, and the \\k\\ rules differ from one another and from the rule fitted to all \\n\\. So \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ estimates the [expected generalization error](#def-expected-generalization-error) of the fitting *procedure* \\g\\ at the smaller training-set sizes \\n- n\_{j}\\, which is \\\operatorname{Err}^{g}\mathopen{}\left(n(k- 1) / k\right)\mathclose{}\\ when every fold has \\n/ k\\ observations, rather than \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ for the one rule fitted to all the data [\[3, Sec. 7.12\]](#ref-hastie2009elements).
+> *Remark 27* (What the cross-validation estimate estimates). Each [prediction](prediction.llms.md#def-prediction) in [Equation 49](#eq-cv-estimate) comes from a [fitted model](#def-fitted-model) that did not see the observation it predicts, so each squared error is scored as in [Theorem 5](#thm-held-out-unbiased). But the model for [fold](#def-folds) \\\mathcal{F}\_{j}\\ was fitted to \\n- n\_{j}\\ observations, not \\n\\, and the \\k\\ models differ from one another and from the model fitted to all \\n\\. So \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ estimates the [expected generalization error](#def-expected-generalization-error) of the fitting *procedure* \\g\\ at the smaller training-set sizes \\n- n\_{j}\\, which is \\{\operatorname{Err}^{g}\mathopen{}\left(n(k- 1) / k\right)\mathclose{}}\\ when every fold has \\n/ k\\ observations, rather than \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ for the one model fitted to all the data [\[3, Sec. 7.12\]](#ref-hastie2009elements).
 >
 > When every [fold](#def-folds) has \\n\_{j} = n/ k\\ observations, \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ is also the average of the \\k\\ [fold sMSEs](#def-fold-mse) \\\operatorname{MSE}\_{1}, \ldots, \operatorname{MSE}\_{k}\\, the form James et al. [\[5, Sec. 5.1.3\]](#ref-james2021islr2e) use.
 
@@ -1393,15 +1526,15 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > *Remark 28* (Choosing the number of folds). The number of folds \\k\\ trades bias against variance in the cross-validation estimate itself [\[5, Sec. 5.1.4\]](#ref-james2021islr2e):
 >
-> - **Bias.** Each rule in [Equation 49](#eq-cv-estimate) is fitted to about \\n(k- 1) / k\\ observations. A rule fitted to fewer observations usually predicts worse, so \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ tends to overstate the expected generalization error of a rule fitted to all \\n\\. The overstatement shrinks as \\k\\ grows.
-> - **Variance.** As \\k\\ grows, the \\k\\ training sets overlap more, so the \\k\\ fitted rules are more alike and their errors are more strongly correlated. An average of strongly correlated errors varies more from one data set to another than an average of weakly correlated ones.
+> - **Bias.** Each [fitted model](#def-fitted-model) in [Equation 49](#eq-cv-estimate) is fitted to about \\n(k- 1) / k\\ observations. A model fitted to fewer observations usually has a larger [generalization error](#def-generalization-error), so \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ tends to overstate the [expected generalization error](#def-expected-generalization-error) of a model fitted to all \\n\\. The overstatement shrinks as \\k\\ grows.
+> - **Variance.** As \\k\\ grows, the \\k\\ training sets overlap more, so the \\k\\ [fitted models](#def-fitted-model) are more alike and their errors are more strongly correlated. An average of strongly correlated errors varies more from one data set to another than an average of weakly correlated ones.
 > - **Computation.** The model is fitted \\k\\ times.
 >
 > \\k= 5\\ or \\k= 10\\ is the usual compromise.
 
 > **NOTE:**
 >
-> **Example 30 (Cross-validation versus the generalization error)** This example applies [\\k\\-fold cross-validation](#def-kfold) with \\k= 5\\ to the simulated training set of [Example 25](#exm-train-test-error-simulated), using only those 30 observations. The function `assign_folds()` assigns each observation to a fold at random, `cv_squared_errors()` fits the model once per fold without that fold and returns each observation’s squared prediction error, and `cv_mse()` averages them, which is [Equation 49](#eq-cv-estimate).
+> **Example 33 (Cross-validation versus the generalization error)** This example applies [\\k\\-fold cross-validation](#def-kfold) with \\k= 5\\ to the simulated training set of [Example 27](#exm-train-test-error-simulated), using only those 30 observations. The function `assign_folds()` assigns each observation to a fold at random, `cv_squared_errors()` fits the model once per fold without that fold and returns each observation’s squared prediction error, and `cv_mse()` averages them, which is [Equation 49](#eq-cv-estimate).
 >
 > ``` downlit
 > assign_folds <- function(n, k) {
@@ -1432,7 +1565,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 > #> 6 6 6 6 6
 > ```
 >
-> The same fold assignment is used for every degree, so the degrees are compared on the same splits. The table and figure report the square root of each cross-validation estimate, so that it is in the same unit as the training sRMSE and generalization pRMSE of [Example 25](#exm-train-test-error-simulated).
+> The same fold assignment is used for every degree, so the degrees are compared on the same splits. The table and figure report the square root of each cross-validation estimate, so that it is in the same unit as the training sRMSE and generalization pRMSE of [Example 27](#exm-train-test-error-simulated).
 >
 > Show R code
 >
@@ -1507,7 +1640,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > The cross-validation estimate is smallest at degree 3, and the estimated generalization error at degree 5. Unlike the training error, the cross-validation estimate does not keep falling as the degree grows, so it does not simply reward higher degrees. It is not an estimate of \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ for the fit to all 30 observations, though ([Remark 27](#rem-cv-estimate)). Each of its fits uses only 24 observations. At degree 10, polynomials fitted to 24 points predict their held-out points much worse than the fit to all 30 predicts new data: the cross-validation estimate is 4.1 times the estimated generalization pRMSE.
 >
-> Part of that gap is expected: by [Remark 27](#rem-cv-estimate), with \\g\\ the least-squares fit of a degree-10 polynomial, the cross-validation estimate targets \\\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\\, not the expected generalization error of a fit to 30 points. A simulation of many training sets of each size shows how much the size alone matters at this degree.
+> Part of that gap is expected: by [Remark 27](#rem-cv-estimate), with \\g\\ the least-squares fit of a degree-10 polynomial, the cross-validation estimate targets \\{\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}}\\, not the expected generalization error of a fit to 30 points. A simulation of many training sets of each size shows how much the size alone matters at this degree.
 >
 > Show R code
 >
@@ -1550,11 +1683,11 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 > sim_size_effect
 > ```
 >
-> Over 500 simulated training sets of each size, degree-10 fits to 24 points have median generalization pMSE 1.14, against 0.27 for fits to 30 points, and 90th percentiles of 207.31 and 40.65. The sample means are no guide to \\\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\\ here: the largest single value among the fits to 24 points is 18,000,000, from one fit that is wildly wrong away from the data, and the two largest values supply 97% and 51% of the two means. So fits of this degree to 24 points are much worse than fits to 30 points, and a large cross-validation estimate here is no surprise. How much of this particular gap comes from the training-set size, and how much from the chance of this one data set, a single run cannot say. The estimate also jumps around from one degree to the next, because it rests on only 30 observations rather than on \\10{,}000\\ new ones.
+> Over 500 simulated training sets of each size, degree-10 fits to 24 points have median generalization pMSE 1.14, against 0.27 for fits to 30 points, and 90th percentiles of 207.31 and 40.65. The sample means are no guide to \\{\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}}\\ here: the largest single value among the fits to 24 points is 18,000,000, from one fit that is wildly wrong away from the data, and the two largest values supply 97% and 51% of the two means. So fits of this degree to 24 points are much worse than fits to 30 points, and a large cross-validation estimate here is no surprise. How much of this particular gap comes from the training-set size, and how much from the chance of this one data set, a single run cannot say. The estimate also jumps around from one degree to the next, because it rests on only 30 observations rather than on \\10{,}000\\ new ones.
 
 > **NOTE:**
 >
-> **Example 31 (Four-fold cross-validation of the `mtcars` polynomials)** This example applies the \\k= 4\\ folds of [Exercise 11](#exr-kfold) to the four polynomial models of [Exercise 1](#exr-overfitting), now using all \\n= 32\\ cars and the `cv_mse()` function of [Example 30](#exm-kfold-simulated). The fold assignment is random, so the estimate is too; to show how much, we repeat the whole procedure with 5 different random fold assignments.
+> **Example 34 (Four-fold cross-validation of the `mtcars` polynomials)** This example applies the \\k= 4\\ folds of [Exercise 11](#exr-kfold) to the four polynomial models of [Exercise 1](#exr-overfitting), now using all \\n= 32\\ cars and the `cv_mse()` function of [Example 33](#exm-kfold-simulated). The fold assignment is random, so the estimate is too; to show how much, we repeat the whole procedure with 5 different random fold assignments.
 >
 > > **NOTE:**
 > >
@@ -1650,45 +1783,45 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > 1.  \\32 / 32 = 1\\ car per fold.
 > 2.  One model per fold, so \\32\\ models, each fitted to the \\32 - 1 = 31\\ other cars.
-> 3.  No. With one car per fold, every assignment of cars to folds produces the same 32 fits, only numbered differently, and [Equation 49](#eq-cv-estimate) does not depend on the numbering. Unlike [Example 31](#exm-kfold-mtcars), the estimate is not random.
+> 3.  No. With one car per fold, every assignment of cars to folds produces the same 32 fits, only numbered differently, and [Equation 49](#eq-cv-estimate) does not depend on the numbering. Unlike [Example 34](#exm-kfold-mtcars), the estimate is not random.
 
 > **NOTE:**
 >
-> **Definition 52 (Leave-one-out cross-validation)** **Leave-one-out cross-validation (LOOCV)** is [\\k\\-fold cross-validation](#def-kfold) with \\k= n\\, so that each of the \\n\\ [folds](#def-folds) holds one observation, and the [fold-out rule](#def-fold-out-rule) \\\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(\cdot\right)\mathclose{}\\ of observation \\i\\’s [fold](#def-fold-assignment) is fitted to all observations except observation \\i\\. Its [cross-validation estimate](#def-cv-estimate) ([Equation 49](#eq-cv-estimate) with \\k= n\\) is
+> **Definition 56 (Leave-one-out cross-validation)** **Leave-one-out cross-validation (LOOCV)** is [\\k\\-fold cross-validation](#def-kfold) with \\k= n\\, so that each of the \\n\\ [folds](#def-folds) holds one observation, and the [fold-out fitted model](#def-fold-out-fitted-model) \\{\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(\cdot\right)\mathclose{}}\\ of observation \\i\\’s [fold](#def-fold-assignment) is fitted to all observations except observation \\i\\. Its [cross-validation estimate](#def-cv-estimate) ([Equation 49](#eq-cv-estimate) with \\k= n\\) is
 >
-> \\ \widehat{\operatorname{Err}}\_{\text{CV}(n)} = \frac{1}{n} \sum\_{i\in I} {\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2. \tag{52}\\
+> \\ \widehat{\operatorname{Err}}\_{\text{CV}(n)} = \frac{1}{n} \sum\_{i\in I} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2}. \tag{52}\\
 >
-> Source: James et al. [\[5, Sec. 5.1.2\]](#ref-james2021islr2e); Wikipedia contributors [\[10\]](#ref-wikipedia_cross_validation_statistics).
+> Source: James et al. [\[5, Sec. 5.1.2\]](#ref-james2021islr2e); Wikipedia contributors [\[12\]](#ref-wikipedia_cross_validation_statistics).
 
 > **NOTE:**
 >
-> **Lemma 1 (Leave-one-out cross-validation does not depend on the fold assignment)** Let \\\mathcal{D}\_{\text{train}}= \mathopen{}\left((x_i, y_i)\right)\mathclose{}\_{i \in I}\\ be a [training set](#def-training-set) of \\n = \mathopen{}\left\|I\right\|\mathclose{}\\ observations, indexed by \\I\\. Then the [cross-validation estimate](#def-cv-estimate) \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ of [leave-one-out cross-validation](#def-loocv) (\\k = n\\) is the same for every [fold assignment](#def-fold-assignment) \\\kappa\mathopen{}\left(i\right)\mathclose{}\\.
+> **Lemma 1 (Leave-one-out cross-validation does not depend on the fold assignment)** Let \\\mathcal{D}\_{\text{train}}= \mathopen{}\left((x_i, y_i)\right)\mathclose{}\_{i \in I}\\ be a [training set](#def-training-set) of \\n = \mathopen{}\left\|I\right\|\mathclose{}\\ observations, indexed by \\I\\. Then the [cross-validation estimate](#def-cv-estimate) \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ of [leave-one-out cross-validation](#def-loocv) (\\k = n\\) is the same for every [fold assignment](#def-fold-assignment) \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\.
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 13](#exr-loocv), part 3, worked in [Solution 13](#sol-loocv). It uses [Equation 49](#eq-cv-estimate) and [Equation 48](#eq-fold-out-rule).
+> *Proof*. This is the solution to [Exercise 13](#exr-loocv), part 3, worked in [Solution 13](#sol-loocv). It uses [Equation 49](#eq-cv-estimate) and [Equation 48](#eq-fold-out-fitted-model).
 >
 > Each step below changes one thing.
 >
 > 1.  With \\k = n\\, the \\n\\ nonempty, disjoint [folds](#def-folds) of [Equation 45](#eq-folds) partition the \\n\\ indices of \\I\\, so each fold holds exactly one index. (A partition of \\n\\ indices into \\n\\ nonempty, disjoint subsets has one index per subset.)
 >
-> 2.  For observation \\i\\, [Equation 47](#eq-fold-assignment) gives \\i \in \mathcal{F}\_{\kappa\mathopen{}\left(i\right)\mathclose{}}\\, so \\\mathcal{F}\_{\kappa\mathopen{}\left(i\right)\mathclose{}} = \mathopen{}\left\\i\right\\\mathclose{}\\. (Fold \\\kappa\mathopen{}\left(i\right)\mathclose{}\\ holds one index, and that index is \\i\\.)
+> 2.  For observation \\i\\, [Equation 47](#eq-fold-assignment) gives \\i \in \mathcal{F}\_{{\kappa\mathopen{}\left(i\right)\mathclose{}}}\\, so \\\mathcal{F}\_{{\kappa\mathopen{}\left(i\right)\mathclose{}}} = {\mathopen{}\left\\i\right\\\mathclose{}}\\. (Fold \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\ holds one index, and that index is \\i\\.)
 >
-> 3.  Let \\g\\ be the [fitting procedure](#def-fitting-procedure), the rule that maps a training set to a fitted prediction rule. The [fold-out rule](#def-fold-out-rule) of observation \\i\\ is then \\\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\right)\mathclose{} = {{\hat y\_{\mathopen{}\left((x\_{i'}, y\_{i'})\right)\mathclose{}\_{i' \in I \setminus \mathopen{}\left\\i\right\\\mathclose{}}}}\mathopen{}\left(x\right)\mathclose{}}\\. ([Equation 48](#eq-fold-out-rule) with \\\mathcal{F}\_{\kappa\mathopen{}\left(i\right)\mathclose{}} = \mathopen{}\left\\i\right\\\mathclose{}\\.)
+> 3.  Let \\g\\ be the [fitting procedure](#def-fitting-procedure), which maps a [training set](#def-training-set) to a [fitted model](#def-fitted-model). The [fold-out fitted model](#def-fold-out-fitted-model) of observation \\i\\ is then \\{\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\right)\mathclose{}} = {{\hat y\_{\mathopen{}\left((x\_{i'}, y\_{i'})\right)\mathclose{}\_{i' \in I \setminus {\mathopen{}\left\\i\right\\\mathclose{}}}}}\mathopen{}\left(x\right)\mathclose{}}\\. ([Equation 48](#eq-fold-out-fitted-model) with \\\mathcal{F}\_{{\kappa\mathopen{}\left(i\right)\mathclose{}}} = {\mathopen{}\left\\i\right\\\mathclose{}}\\.)
 >
-> 4.  This rule is fitted to every observation except observation \\i\\, and it does not involve \\\kappa\mathopen{}\left(i\right)\mathclose{}\\ itself. (Step 3 depends on \\i\\ and \\g\\ only.)
+> 4.  This model is fitted to every observation except observation \\i\\, and it does not involve \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\ itself. (Step 3 depends on \\i\\ and \\g\\ only.)
 >
-> 5.  Hence each term \\{\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)\mathclose{}}^2\\ of [Equation 49](#eq-cv-estimate) is the same for every fold assignment. (Each term is a function of the rule in step 4, \\x_i\\ and \\y_i\\.)
+> 5.  Hence each term \\{\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x_i\right)\mathclose{}} - y_i\right)\mathclose{}}^{2}\\ of [Equation 49](#eq-cv-estimate) is the same for every fold assignment. (Each term depends only on the fitted model in step 4, \\x_i\\ and \\y_i\\.)
 >
 > 6.  Therefore the sum over \\i \in I\\ in [Equation 49](#eq-cv-estimate), and its factor \\1/n\\, are the same for every fold assignment:
 >
->     \\ \widehat{\operatorname{Err}}\_{\text{CV}(n)} = \frac{1}{n} \sum\_{i \in I} {\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)\mathclose{}}^2. \\
+>     \\ \widehat{\operatorname{Err}}\_{\text{CV}(n)} = \frac{1}{n} \sum\_{i \in I} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x_i\right)\mathclose{}} - y_i\right)\mathclose{}}^{2}. \\
 >
 >     Different assignments give the same \\n\\ fits, with the folds numbered differently.
 
 > **NOTE:**
 >
-> **Definition 53 (Term vector)** Consider a model whose mean is a linear combination of \\p^{\*}\\ terms \\t\_{1}(x), \ldots, t\_{p^{\*}}(x)\\ of the covariate value, such as \\1\\, \\x\\ and \\x^2\\. The **term vector** \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}\\ of observation \\i\\ is the column of its terms:
+> **Definition 57 (Term vector)** Consider a model whose mean is a linear combination of \\p^{\*}\\ terms \\t\_{1}(x), \ldots, t\_{p^{\*}}(x)\\ of the covariate value, such as \\1\\, \\x\\ and \\x^2\\. The **term vector** \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}\\ of observation \\i\\ is the column of its terms:
 >
 > \\ \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i} \stackrel{\text{def}}{=}{\mathopen{}\left(t\_{1}(x\_{i}), \ldots, t\_{p^{\*}}(x\_{i})\right)\mathclose{}}^{\top}. \tag{53}\\
 
@@ -1698,13 +1831,13 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 54 (Cross-product matrix (sum-of-squares and cross-products matrix))** The **cross-product matrix** \\A\\ of [term vectors](#def-term-vector) \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}\\, \\i\in I\\, of a training set indexed by \\I\\, is the sum of their outer products:
+> **Definition 58 (Cross-product matrix (sum-of-squares and cross-products matrix))** The **cross-product matrix** \\A\\ of [term vectors](#def-term-vector) \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}\\, \\i\in I\\, of a training set indexed by \\I\\, is the sum of their outer products:
 >
 > \\ A\stackrel{\text{def}}{=}\sum\_{i\in I} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i} {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}}^{\top}. \tag{54}\\
 
 > **NOTE:**
 >
-> *Remark 30* (Source: Cross-product matrix (sum-of-squares and cross-products matrix)). Also called a **sum-of-squares and cross-products matrix** [\[11\]](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products” (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)).
+> *Remark 30* (Source: Cross-product matrix (sum-of-squares and cross-products matrix)). Also called a **sum-of-squares and cross-products matrix** [\[13\]](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products” (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)).
 
 > **NOTE:**
 >
@@ -1716,15 +1849,15 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > > **NOTE:**
 > >
-> > I restated the SSCP reading and the covariance special case from Sanchez [\[11\]](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products” (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) in this page’s notation. The book carries a non-commercial, share-alike license, so I paraphrased it and copied none of its text.
+> > I restated the SSCP reading and the covariance special case from Sanchez [\[13\]](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products” (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) in this page’s notation. The book carries a non-commercial, share-alike license, so I paraphrased it and copied none of its text.
 
 > **NOTE:**
 >
-> **Definition 55 (Leverage)** Consider a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols), with [term vectors](#def-term-vector) \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}\\, \\i\in I\\, and an invertible [cross-product matrix](#def-cross-product-matrix) \\A\\. The **leverage** of observation \\i\\ is [\[12\]](#ref-wikipedia_leverage_statistics)
+> **Definition 59 (Leverage)** Consider a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols), with [term vectors](#def-term-vector) \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}\\, \\i\in I\\, and an invertible [cross-product matrix](#def-cross-product-matrix) \\A\\. The **leverage** of observation \\i\\ is [\[14\]](#ref-wikipedia_leverage_statistics)
 >
 > \\ h\_{i} \stackrel{\text{def}}{=}{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}}^{\top} A^{-1} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}. \tag{55}\\
 >
-> Source: Wikipedia contributors [\[12\]](#ref-wikipedia_leverage_statistics).
+> Source: Wikipedia contributors [\[14\]](#ref-wikipedia_leverage_statistics).
 
 > **NOTE:**
 >
@@ -1734,7 +1867,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > **Theorem 7 (Leave-one-out cross-validation for least squares)** For a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols) with every [leverage](#def-leverage) \\h\_{i} \< 1\\, the [leave-one-out estimate](#def-loocv) can be computed from the single fit to all \\n\\ observations, from its [fitted values](prediction.llms.md#def-fitted-value) \\\hat y\_{i}\\, their [prediction errors](prediction.llms.md#def-prediction-error) \\\varepsilon\_{i} = \hat y\_{i} - y\_{i}\\, and the leverages:
 >
-> \\ \widehat{\operatorname{Err}}\_{\text{CV}(n)} = \frac{1}{n} \sum\_{i\in I} {\mathopen{}\left(\frac{\varepsilon\_{i}}{1 - h\_{i}}\right)\mathclose{}}^2. \tag{56}\\
+> \\ \widehat{\operatorname{Err}}\_{\text{CV}(n)} = \frac{1}{n} \sum\_{i\in I} {\mathopen{}\left(\frac{\varepsilon\_{i}}{1 - h\_{i}}\right)\mathclose{}}^{2}. \tag{56}\\
 
 > **NOTE:**
 >
@@ -1746,7 +1879,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Example 32 (Leave-one-out cross-validation of the `mtcars` polynomials)** This example computes \\\widehat{\operatorname{Err}}\_{\text{CV}(32)}\\ for the four `mtcars` polynomials of [Exercise 1](#exr-overfitting) in two ways: by fitting each model 32 times, as in [Equation 52](#eq-loocv), and by the single-fit formula of [Theorem 7](#thm-loocv-shortcut), with the leverages from [`hatvalues()`](https://rdrr.io/r/stats/influence.measures.html).
+> **Example 35 (Leave-one-out cross-validation of the `mtcars` polynomials)** This example computes \\\widehat{\operatorname{Err}}\_{\text{CV}(32)}\\ for the four `mtcars` polynomials of [Exercise 1](#exr-overfitting) in two ways: by fitting each model 32 times, as in [Equation 52](#eq-loocv), and by the single-fit formula of [Theorem 7](#thm-loocv-shortcut), with the leverages from [`hatvalues()`](https://rdrr.io/r/stats/influence.measures.html).
 >
 > ``` downlit
 > loocv_by_formula <- function(formula, data) {
@@ -1786,36 +1919,36 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> *Remark 34* (When to use leave-one-out cross-validation). LOOCV is the \\k= n\\ end of [Remark 28](#rem-choosing-k). By [Remark 27](#rem-cv-estimate), \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ estimates \\\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}\\ for the fitting procedure \\g\\: each rule is fitted to \\n- 1\\ observations, so the bias of \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ as an estimate of \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ is the smallest of any \\k\\. But the \\n\\ training sets are nearly identical, so the variance of \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ can be larger than that of 5- or 10-fold cross-validation [\[5, Sec. 5.1.4\]](#ref-james2021islr2e). For least squares fits, [Theorem 7](#thm-loocv-shortcut) computes LOOCV from a single fit; for most other fitting methods, LOOCV requires \\n\\ fits.
+> *Remark 34* (When to use leave-one-out cross-validation). LOOCV is the \\k= n\\ end of [Remark 28](#rem-choosing-k). By [Remark 27](#rem-cv-estimate), \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ estimates \\{\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}}\\ for the fitting procedure \\g\\: each [fitted model](#def-fitted-model) is fitted to \\n- 1\\ observations, so the bias of \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ as an estimate of \\{\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}}\\ is the smallest of any \\k\\. But the \\n\\ training sets are nearly identical, so the variance of \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ can be larger than that of 5- or 10-fold cross-validation [\[5, Sec. 5.1.4\]](#ref-james2021islr2e). For least squares fits, [Theorem 7](#thm-loocv-shortcut) computes LOOCV from a single fit; for most other fitting methods, LOOCV requires \\n\\ fits.
 
 ## 8 Choosing a model by cross-validation
 
 > **NOTE:**
 >
-> **Definition 56 (Cross-validation estimate of a named procedure)** Let a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, indexed by \\I\\, be divided into [folds](#def-folds) \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\. The **cross-validation estimate of procedure** \\g\\ on \\\mathcal{D}\_{\text{train}}\\, \\{\widehat{\operatorname{Err}}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}\\, is the [cross-validation estimate](#def-cv-estimate) computed with [fold-out rules](#def-fold-out-rule) that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
+> **Definition 60 (Cross-validation estimate of a named procedure)** Let a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, indexed by \\I\\, be divided into [folds](#def-folds) \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\. The **cross-validation estimate of procedure** \\g\\ on \\\mathcal{D}\_{\text{train}}\\, \\{\widehat{\operatorname{Err}}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}\\, is the [cross-validation estimate](#def-cv-estimate) computed with [fold-out fitted models](#def-fold-out-fitted-model) that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
 >
-> \\ {\widehat{\operatorname{Err}}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i\in I} {\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2. \tag{57}\\
+> \\ {\widehat{\operatorname{Err}}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i\in I} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2}. \tag{57}\\
 
 > **NOTE:**
 >
-> **Definition 57 (Cross-validation choice procedure)** Given candidate [fitting procedures](#def-fitting-procedure) \\g\_{1}, \ldots, g\_{L}\\, the **cross-validation choice procedure** \\g^{\text{CV}}\\ is the fitting procedure that, applied to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, divides \\\mathcal{D}\_{\text{train}}\\ into \\k\\ [folds](#def-folds), computes each candidate’s [cross-validation estimate](#def-cv-estimate-indexed) on \\\mathcal{D}\_{\text{train}}\\ with those folds, and applies to \\\mathcal{D}\_{\text{train}}\\ the candidate with the smallest estimate, taking the smallest \\l\\ if several tie:
+> **Definition 61 (Cross-validation choice procedure)** Given candidate [fitting procedures](#def-fitting-procedure) \\g\_{1}, \ldots, g\_{L}\\, the **cross-validation choice procedure** \\g^{\text{CV}}\\ is the fitting procedure that, applied to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, divides \\\mathcal{D}\_{\text{train}}\\ into \\k\\ [folds](#def-folds), computes each candidate’s [cross-validation estimate](#def-cv-estimate-indexed) on \\\mathcal{D}\_{\text{train}}\\ with those folds, and applies to \\\mathcal{D}\_{\text{train}}\\ the candidate with the smallest estimate, taking the smallest \\l\\ if several tie:
 >
 > \\ {g^{\text{CV}}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=} {\hat y\_{\min \arg \min\_{l} {\widehat{\operatorname{Err}}^{g\_{l}}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}}}. \tag{58}\\
 
 > **NOTE:**
 >
-> **Example 33 (Inputs of the cross-validation choice procedure)** The [cross-validation choice procedure](#def-cv-choice) \\g\\ over polynomials of several degrees is specified by these inputs:
+> **Example 36 (Inputs of the cross-validation choice procedure)** The [cross-validation choice procedure](#def-cv-choice) \\g\\ over polynomials of several degrees is specified by these inputs:
 >
 > - [model family](#def-model-family) \\\mathcal{H}\\: the polynomials of every candidate degree;
 > - [objective function](#def-objective-function) \\\mathcal{J}\\: the residual sum of squares within each candidate, and the [cross-validation estimate](#def-cv-estimate-indexed) between candidates;
-> - [optimization algorithm](#def-optimization-algorithm) \\\mathcal{A}\\: the normal equations for each candidate, then keeping the candidate with the smallest cross-validation estimate of its [expected generalization error](#def-expected-generalization-error) \\\operatorname{Err}^{g\_{d}}\mathopen{}\left(n\right)\mathclose{}\\;
+> - [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) \\\mathcal{A}\\: the [normal equations](correlation-regression.llms.md#def-normal-equations) for each candidate, then keeping the candidate with the smallest cross-validation estimate of its [expected generalization error](#def-expected-generalization-error) \\{\operatorname{Err}^{g\_{d}}\mathopen{}\left(n\right)\mathclose{}}\\;
 > - [random seed](#def-random-seed) \\\mathfrak{s}\\: fixes the random [fold assignment](#def-fold-assignment);
 > - [tuning parameter](#def-tuning-parameter) \\\lambda\\: none, since cross-validation chooses the degree;
 > - [preprocessing](#def-preprocessing) \\\phi\\: none.
 
 > **NOTE:**
 >
-> **Definition 58 (Nested cross-validation)** **Nested cross-validation** is [\\k\\-fold cross-validation](#def-kfold) of the [cross-validation choice procedure](#def-cv-choice) \\g^{\text{CV}}\\: its estimate on a training set \\\mathcal{D}\_{\text{train}}\\ is
+> **Definition 62 (Nested cross-validation)** **Nested cross-validation** is [\\k\\-fold cross-validation](#def-kfold) of the [cross-validation choice procedure](#def-cv-choice) \\g^{\text{CV}}\\: its estimate on a training set \\\mathcal{D}\_{\text{train}}\\ is
 >
 > \\ {\widehat{\operatorname{Err}}^{g^{\text{CV}}}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}. \tag{59}\\
 
@@ -1825,11 +1958,11 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> *Remark 36* (What is nested). Each fold-out rule of \\g^{\text{CV}}\\ is computed from the observations outside one outer [fold](#def-folds) \\\mathcal{F}\_{j}\\, so the whole choice, including the cross-validation that \\g^{\text{CV}}\\ runs inside those observations, never sees \\\mathcal{F}\_{j}\\. That inner cross-validation is the nested one.
+> *Remark 36* (What is nested). Each [fold-out fitted model](#def-fold-out-fitted-model) of \\g^{\text{CV}}\\ is computed from the observations outside one outer [fold](#def-folds) \\\mathcal{F}\_{j}\\, so the whole choice, including the cross-validation that \\g^{\text{CV}}\\ runs inside those observations, never sees \\\mathcal{F}\_{j}\\. That inner cross-validation is the nested one.
 
 > **NOTE:**
 >
-> *Remark 37* (Cross-validation replaces the validation set, not the test set). Used to choose between models, cross-validation takes the place of the *validation* set of [Definition 37](#def-data-splits), the one consulted again and again, and not of the test set, which stays unused until the end. The cross-validation estimate of the winning model is optimistic: that model won partly because the particular sample and split happened to favor it, so its estimate is the smallest of several noisy estimates. An honest estimate of the chosen model’s error needs data that took no part in the choice [\[3, Sec. 7.2\]](#ref-hastie2009elements), such as a [test set](#def-test-set), or the outer folds of [nested cross-validation](#def-nested-cv).
+> *Remark 37* (Cross-validation replaces the validation set, not the test set). Used to choose between models, cross-validation takes the place of the *validation* set of [Definition 38](#def-data-splits), the one consulted again and again, and not of the test set, which stays unused until the end. The cross-validation estimate of the winning model is optimistic: that model won partly because the particular sample and split happened to favor it, so its estimate is the smallest of several noisy estimates. An honest estimate of the chosen model’s error needs data that took no part in the choice [\[3, Sec. 7.2\]](#ref-hastie2009elements), such as a [test set](#def-test-set), or the outer folds of [nested cross-validation](#def-nested-cv).
 >
 > > **NOTE:**
 > >
@@ -1837,9 +1970,9 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 59 (Fold-based standard error)** The **fold-based standard error** \\\operatorname{SE}\_{\text{CV}(k)}\\ of a \\k\\-fold [cross-validation estimate](#def-cv-estimate) is the [sample standard deviation](exploratory-descriptive.llms.md#def-sample-sd) of the \\k\\ [fold sMSEs](#def-fold-mse), divided by \\\sqrt{k}\\:
+> **Definition 63 (Fold-based standard error)** The **fold-based standard error** \\\operatorname{SE}\_{\text{CV}(k)}\\ of a \\k\\-fold [cross-validation estimate](#def-cv-estimate) is the [sample standard deviation](exploratory-descriptive.llms.md#def-sample-sd) of the \\k\\ [fold sMSEs](#def-fold-mse), divided by \\\sqrt{k}\\:
 >
-> \\ \operatorname{SE}\_{\text{CV}(k)} \stackrel{\text{def}}{=}\frac{\mathop{\widehat{\operatorname{SD}}}\nolimits\mathopen{}\left(\operatorname{MSE}\_{1}, \ldots, \operatorname{MSE}\_{k}\right)\mathclose{}}{\sqrt{k}}. \tag{60}\\
+> \\ \operatorname{SE}\_{\text{CV}(k)} \stackrel{\text{def}}{=}\frac{{\mathop{\widehat{\operatorname{SD}}}\nolimits\mathopen{}\left(\operatorname{MSE}\_{1}, \ldots, \operatorname{MSE}\_{k}\right)\mathclose{}}}{\sqrt{k}}. \tag{60}\\
 
 > **NOTE:**
 >
@@ -1851,19 +1984,19 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 60 (Fold mean squared error of a named procedure)** The **fold mean squared error of procedure** \\g\\ for [fold](#def-folds) \\\mathcal{F}\_{j}\\ of a training set \\\mathcal{D}\_{\text{train}}\\, indexed by \\I\\, is the [fold mean squared error](#def-fold-mse) computed with the [fold-out rule](#def-fold-out-rule) that \\g\\ produces:
+> **Definition 64 (Fold mean squared error of a named procedure)** The **fold mean squared error of procedure** \\g\\ for [fold](#def-folds) \\\mathcal{F}\_{j}\\ of a training set \\\mathcal{D}\_{\text{train}}\\, indexed by \\I\\, is the [fold mean squared error](#def-fold-mse) computed with the [fold-out fitted model](#def-fold-out-fitted-model) that \\g\\ produces:
 >
-> \\ {\operatorname{MSE}^{g}\_{j}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n\_{j}} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2. \tag{61}\\
+> \\ {\operatorname{MSE}^{g}\_{j}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n\_{j}} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left({\hat y^{(-j)}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2}. \tag{61}\\
 
 > **NOTE:**
 >
-> **Definition 61 (Fold-based standard error of a named procedure)** The **fold-based standard error of procedure** \\g\\ on a training set \\\mathcal{D}\_{\text{train}}\\, \\{\operatorname{SE}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}\\, is the [fold-based standard error](#def-cv-se) computed from the [fold sMSEs of \\g\\](#def-fold-mse-indexed):
+> **Definition 65 (Fold-based standard error of a named procedure)** The **fold-based standard error of procedure** \\g\\ on a training set \\\mathcal{D}\_{\text{train}}\\, \\{\operatorname{SE}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}\\, is the [fold-based standard error](#def-cv-se) computed from the [fold sMSEs of \\g\\](#def-fold-mse-indexed):
 >
-> \\ {\operatorname{SE}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{\mathop{\widehat{\operatorname{SD}}}\nolimits\mathopen{}\left({\operatorname{MSE}^{g}\_{1}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}, \ldots, {\operatorname{MSE}^{g}\_{k}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}\right)\mathclose{}}{\sqrt{k}}. \tag{62}\\
+> \\ {\operatorname{SE}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{{\mathop{\widehat{\operatorname{SD}}}\nolimits\mathopen{}\left({\operatorname{MSE}^{g}\_{1}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}, \ldots, {\operatorname{MSE}^{g}\_{k}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}\right)\mathclose{}}}{\sqrt{k}}. \tag{62}\\
 
 > **NOTE:**
 >
-> **Definition 62 (One-standard-error rule)** Let \\g\_{1}, \ldots, g\_{L}\\ be candidate [fitting procedures](#def-fitting-procedure), each [at least as flexible](#def-flexibility) as the one before, cross-validated on a training set \\\mathcal{D}\_{\text{train}}\\ with the same folds, and let \\g\_{l^\*}\\ be the one with the smallest [cross-validation estimate](#def-cv-estimate-indexed). The **one-standard-error rule** chooses the smallest \\l\\ whose estimate is within one [fold-based standard error](#def-cv-se-indexed) of the smallest:
+> **Definition 66 (One-standard-error rule)** Let \\g\_{1}, \ldots, g\_{L}\\ be candidate [fitting procedures](#def-fitting-procedure), each [at least as flexible](#def-flexibility) as the one before, cross-validated on a training set \\\mathcal{D}\_{\text{train}}\\ with the same folds, and let \\g\_{l^\*}\\ be the one with the smallest [cross-validation estimate](#def-cv-estimate-indexed). The **one-standard-error rule** chooses the smallest \\l\\ whose estimate is within one [fold-based standard error](#def-cv-se-indexed) of the smallest:
 >
 > \\ {\widehat{\operatorname{Err}}^{g\_{l}}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} \le {\widehat{\operatorname{Err}}^{g\_{l^\*}}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} + {\operatorname{SE}^{g\_{l^\*}}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}. \tag{63}\\
 >
@@ -1871,7 +2004,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 > **NOTE:**
 >
-> **Example 34 (The one-standard-error rule for the simulated polynomials)** This example applies 10-fold cross-validation to the simulated training set of [Example 25](#exm-train-test-error-simulated), records the sMSE in each fold, and applies [Definition 62](#def-one-se-rule) to the ten degrees.
+> **Example 37 (The one-standard-error rule for the simulated polynomials)** This example applies 10-fold cross-validation to the simulated training set of [Example 27](#exm-train-test-error-simulated), records the sMSE in each fold, and applies [Definition 66](#def-one-se-rule) to the ten degrees.
 >
 > Show R code
 >
@@ -1933,7 +2066,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 > >
 > > Figure 7: 10-fold cross-validation estimates, with bars of one [fold-based standard error](#def-cv-se) ([Equation 60](#eq-cv-se)). The dashed line is one fold-based standard error above the smallest estimate.
 >
-> The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization pRMSE of [Example 25](#exm-train-test-error-simulated) for each: 0.335 for degree 8 and 0.315 for degree 3.
+> The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization pRMSE of [Example 27](#exm-train-test-error-simulated) for each: 0.335 for degree 8 and 0.315 for degree 3.
 
 ## 9 Cross-validating the whole procedure
 
@@ -1948,7 +2081,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > Answer the following:
 >
-> 1.  What is the smallest possible generalization error ([Equation 13](#eq-generalization-error)) of any prediction rule for \\Y\\ here?
+> 1.  What is the smallest possible generalization error ([Equation 12](#eq-generalization-error)) of any [fitted model](#def-fitted-model) for \\Y\\ here?
 > 2.  Simulate the analyst’s procedure. What cross-validation estimate does it report?
 > 3.  Repeat the simulation, but carry out step 1 inside each fold, using only that fold’s training observations. What estimate does this give?
 >
@@ -1960,7 +2093,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 >
 > *Solution 14*.
 >
-> 1.  \\Y\\ is independent of every predictor, with mean 0 and variance 1. The best prediction is the constant 0, and its generalization error is \\\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{} = 1\\. Every other rule does worse, so any honest estimate should be near or above 1.
+> 1.  \\Y\\ is independent of every predictor, with mean 0 and variance 1. The best prediction is the constant 0, and its generalization error is \\{\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}} = 1\\. Every other [fitted model](#def-fitted-model) does worse, so any honest estimate should be near or above 1.
 >
 > 2.  and 3. The function below runs one data set through both procedures. The only difference is whether the screening step sees the whole data set (`"outside"`) or only the training folds (`"inside"`).
 >
@@ -2020,7 +2153,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 > Averaged over 50 simulated data sets:
 >
 > - Screening outside the folds gives a mean CV estimate of 0.54, well below the smallest possible generalization error of 1. The procedure reports that pure noise predicts \\Y\\.
-> - Screening inside the folds gives 1.52, above 1, as an honest estimate for a rule built from noise should be.
+> - Screening inside the folds gives 1.52, above 1, as an honest estimate for a model built from noise should be.
 >
 > The 10 predictors chosen from all 50 observations were chosen *because* they happen to correlate with \\Y\\ in the very observations that later serve as held-out folds. Those observations were not held out from the whole fitting procedure, so the independence that [Theorem 5](#thm-held-out-unbiased) needs fails.
 
@@ -2036,7 +2169,7 @@ Last modified: 2026-10-19 03:11:47 (PDT)
 
 ## 10 Further reading
 
-Sanchez [\[11\]](#ref-sanchez2020matrix4sl) reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.
+Sanchez [\[13\]](#ref-sanchez2020matrix4sl) reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.
 
 ## References
 
@@ -2062,29 +2195,37 @@ G. James, D. Witten, T. Hastie, and R. Tibshirani, *An introduction to statistic
 
 \[6\]
 
-Wikipedia contributors, “Overfitting — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Overfitting>
+D. W. Hosmer and S. Lemeshow, *Applied logistic regression*. New York: Wiley, 1989.
 
 \[7\]
 
-Wikipedia contributors, “Bias–variance tradeoff — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff>
+W. N. Venables and B. D. Ripley, *Modern applied statistics with S*, 4th ed. New York: Springer, 2002. doi: [10.1007/978-0-387-21706-2](https://doi.org/10.1007/978-0-387-21706-2).
 
 \[8\]
 
-Wikipedia contributors, “Hyperparameter (machine learning) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Hyperparameter_%28machine_learning%29>
+Wikipedia contributors, “Overfitting — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Overfitting>
 
 \[9\]
 
-Wikipedia contributors, “Model selection — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Model_selection>
+Wikipedia contributors, “Bias–variance tradeoff — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff>
 
 \[10\]
 
-Wikipedia contributors, “Cross-validation (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29>
+Wikipedia contributors, “Hyperparameter (machine learning) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Hyperparameter_%28machine_learning%29>
 
 \[11\]
 
-G. Sanchez, “A matrix algebra companion for statistical learning (matrix4sl).” Online book, work in progress. Licensed CC BY-NC-SA 4.0, 2020. Available: <https://www.gastonsanchez.com/matrix4sl/>
+Wikipedia contributors, “Model selection — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Model_selection>
 
 \[12\]
+
+Wikipedia contributors, “Cross-validation (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29>
+
+\[13\]
+
+G. Sanchez, “A matrix algebra companion for statistical learning (matrix4sl).” Online book, work in progress. Licensed CC BY-NC-SA 4.0, 2020. Available: <https://www.gastonsanchez.com/matrix4sl/>
+
+\[14\]
 
 Wikipedia contributors, “Leverage (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Leverage_%28statistics%29>
 
