@@ -1,0 +1,2166 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+<title>Statistics for Data Science – Multiple Testing</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+<style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+<link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-3a7eae3b872f08785a56513611f0329a.css">
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VLDZY2T3JF"></script><script type="text/plain" cookie-consent="tracking">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VLDZY2T3JF', { 'anonymize_ip': true});
+  </script><script type="text/javascript" charset="UTF-8">
+  document.addEventListener('DOMContentLoaded', function () {
+  cookieconsent.run({
+    "notice_banner_type":"simple",
+    "consent_type":"implied",
+    "palette":"light",
+    "language":"en",
+    "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+    "notice_banner_reject_button_hide":false,
+    "preferences_center_close_button_hide":false,
+    "website_name":""
+    ,
+  "language":"en"
+    });
+  });
+  </script><link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<!--
+    Colour-theme dropdown for the qwt revealjs format: Light, Off-white,
+    Parchment, Dark. Pulled into every slide deck via the `include-in-header`
+    entry in the `revealjs:` block of `_quarto-website.yml`. Pairs with
+    `styles-reveal.scss`, which defines the palette CSS variables; the select
+    reads those vars so it stays legible in every palette. Light is the
+    default variable set, Off-white and Parchment are a data-palette attribute
+    on <html>, and Dark is the body.qwt-dark class. The choice is saved under
+    "mln-theme", the key the website's theme dropdown (theme-picker.html) uses,
+    so it carries across the site and the decks. First-time visitors get
+    Dark if their system prefers it, and Off-white otherwise.
+  --><style>
+    #qwt-theme-select {
+      position: fixed;
+      bottom: 8px;
+      left: 8px;
+      /* Matches reveal.js's `.slide-number` and the `#revealjs-html-link` chip
+         from `revealjs-html-links.lua`; the three elements occupy different
+         corners so they don't overlap. Keep them aligned if you bump this. */
+      z-index: 31;
+      padding: 2px 4px;
+      border: 1px solid var(--qwt-border, rgba(0, 0, 0, 0.2));
+      border-radius: 4px;
+      background: var(--qwt-chip-bg, rgba(255, 255, 255, 0.8));
+      color: var(--qwt-fg, #000);
+      cursor: pointer;
+      font: 12px sans-serif;
+      opacity: 0.7;
+    }
+    #qwt-theme-select:hover,
+    #qwt-theme-select:focus-visible {
+      opacity: 1;
+      border-color: var(--qwt-fg, rgba(0, 0, 0, 0.4));
+    }
+    #qwt-theme-select:focus-visible {
+      outline: 2px solid var(--qwt-link, #2a76dd);
+      outline-offset: 2px;
+    }
+    @media print { #qwt-theme-select { display: none; } }
+  </style>
+<script>
+  (function () {
+    "use strict";
+    var KEY = "mln-theme";
+    var DARK_CLASS = "qwt-dark";
+    var OPTIONS = [["light", "Light"], ["offwhite", "Off-white"], ["parchment", "Parchment"], ["dark", "Dark"]];
+    var root = document.documentElement;
+
+    function valid(choice) {
+      return OPTIONS.some(function (o) { return o[0] === choice; });
+    }
+
+    function stored() {
+      try { return localStorage.getItem(KEY); } catch (e) { return null; }
+    }
+
+    function initialTheme() {
+      var saved = stored();
+      if (valid(saved)) return saved;
+      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      }
+      return "offwhite";
+    }
+
+    function applyTheme(choice) {
+      if (choice === "offwhite" || choice === "parchment") {
+        root.setAttribute("data-palette", choice);
+      } else {
+        root.removeAttribute("data-palette");
+      }
+      // The body can be missing when this runs from <head>; init() re-applies it.
+      if (document.body) document.body.classList.toggle(DARK_CLASS, choice === "dark");
+    }
+
+    var start = initialTheme();
+    applyTheme(start); // set the palette before first paint
+
+    function init() {
+      if (document.getElementById("qwt-theme-select")) return;
+      applyTheme(start);
+      var sel = document.createElement("select");
+      sel.id = "qwt-theme-select";
+      sel.setAttribute("aria-label", "Colour theme");
+      OPTIONS.forEach(function (o) {
+        var opt = document.createElement("option");
+        opt.value = o[0];
+        opt.textContent = o[1];
+        sel.appendChild(opt);
+      });
+      sel.value = start;
+      sel.addEventListener("change", function () {
+        applyTheme(sel.value);
+        try { localStorage.setItem(KEY, sel.value); } catch (e) { /* private mode */ }
+      });
+      document.body.appendChild(sel);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
+  </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Multiple Testing</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">Last modified: 2026-10-19 03:11:47 (PDT)</p>
+</section><section class="slide level2"><style>
+.quarto-figure-center > figure {
+text-align: center;
+}
+</style>
+<p>A <a href="./inference.html#def-p-value">p-value</a> answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual <a href="./inference.html#def-significance-level">significance level</a> has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests <span class="citation" data-cites="wikipedia_multiple_comparisons_problem"><a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>.</p>
+<p>This page does three things:</p>
+<ul>
+<li>shows how fast false positives accumulate;</li>
+<li>defines two error rates for a whole family of tests, the family-wise error rate and the false discovery rate;</li>
+<li>presents the standard procedures that control them: the Bonferroni correction, Holm’s step-down procedure <span class="citation" data-cites="holm1979simple"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> and the Benjamini–Hochberg procedure <span class="citation" data-cites="benjamini1995controlling"><a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>, with the adjusted p-values that report their results.</li>
+</ul>
+<p>The next page, <a href="./permutation-tests.html">permutation tests</a>, shows how to compute a p-value without a distributional model. These notes follow chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
+</section><section id="sec-khan-data" class="slide level2" data-number="1"><h2>
+<span class="header-section-number">1</span> The Khan gene expression data</h2>
+<p>The examples on this page use gene expression data from <span class="citation" data-cites="khan2001classification">Khan et al. <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>, who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at <a href="data/khan.csv"><code>data/khan.csv</code></a>, taken from the <code>Khan</code> data of the R package <a href="https://cran.r-project.org/package=ISLR2"><code>ISLR2</code></a> <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>: the column <code>tumor_class</code> holds the class, and the columns <code>gene_1</code> to <code>gene_2308</code> hold the expression values. The examples compare classes 2 and 4.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>khan <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/khan.csv"</span>)</span>
+<span id="cb1-2"><a aria-label="2"></a>khan_pair <span class="ot">&lt;-</span> khan[khan<span class="sc">$</span>tumor_class <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), ]</span>
+<span id="cb1-3"><a aria-label="3"></a><span class="fu">table</span>(<span class="at">tumor_class =</span> khan_pair<span class="sc">$</span>tumor_class)</span>
+<span id="cb1-4"><a aria-label="4"></a><span class="co">#&gt; tumor_class</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="co">#&gt;  2  4 </span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="co">#&gt; 23 20</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="sec-multiplicity" class="slide level2" data-number="2"><h2>
+<span class="header-section-number">2</span> The multiplicity problem</h2>
+<h3 data-number="2.1" id="sec-false-positive-chance">
+<span class="header-section-number">2.1</span> The chance of a false positive</h3>
+<!-- No slidebreak here: the heading shares its slide with the exr-no-rejection-prob div. -->
+<div id="exr-no-rejection-prob" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1 (Probability that no test rejects)</strong></span> Let <span class="math inline">\(A_1, \ldots, A_m\)</span> be independent events, where <span class="math inline">\(A_j\)</span> is the event that the <span class="math inline">\(j\)</span>th of <span class="math inline">\(m\)</span> tests rejects its true null hypothesis, and each has probability <span class="math inline">\(\Pr(A_j) = \alpha\)</span> (see <a href="./inference.html#def-significance-level">significance level</a>). Find the probability that none of the tests rejects.</p>
+</div>
+</section><section class="slide level2"><div id="sol-no-rejection-prob" class="proof solution">
+<p><span class="proof-title"><em>Solution 1</em>. </span>No test rejects exactly when every event <span class="math inline">\(A_j\)</span> fails to occur. Write <span class="math inline">\(A_j^c\)</span> for the complement of <span class="math inline">\(A_j\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr\mathopen{}\left(\text{no test rejects}\right)\mathclose{}
+&amp;= \Pr\mathopen{}\left(A_1^c \cap A_2^c \cap \cdots \cap A_m^c\right)\mathclose{}
+&amp;&amp; \text{(no test rejects means every $A_j$ fails)}\\
+&amp;= \Pr(A_1^c) \Pr(A_2^c) \cdots \Pr(A_m^c)
+&amp;&amp; \text{(the events are independent, so their complements are)}\\
+&amp;= \mathopen{}\left(1 - \Pr(A_1)\right)\mathclose{} \mathopen{}\left(1 - \Pr(A_2)\right)\mathclose{} \cdots \mathopen{}\left(1 - \Pr(A_m)\right)\mathclose{}
+&amp;&amp; \text{(complement rule, applied to each factor)}\\
+&amp;= \mathopen{}\left(1 - \alpha\right)\mathclose{} \mathopen{}\left(1 - \alpha\right)\mathclose{} \cdots \mathopen{}\left(1 - \alpha\right)\mathclose{}
+&amp;&amp; \text{(each $\Pr(A_j) = \alpha$)}\\
+&amp;= \mathopen{}\left(1 - \alpha\right)\mathclose{}^m
+&amp;&amp; \text{(a product of $m$ equal factors)}
+\end{aligned}
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="lem-no-rejection-prob" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (Probability that no test rejects)</strong></span> Let <span class="math inline">\(A_1, \ldots, A_m\)</span> be independent events, where <span class="math inline">\(A_j\)</span> is the event that the <span class="math inline">\(j\)</span>th of <span class="math inline">\(m\)</span> tests rejects its true null hypothesis, and each has probability <span class="math inline">\(\Pr(A_j) = \alpha\)</span> (see <a href="./inference.html#def-significance-level">significance level</a>). Then the probability that none of the tests rejects is</p>
+<p><span class="math display">\[\Pr\mathopen{}\left(\text{no test rejects}\right)\mathclose{} = \mathopen{}\left(1 - \alpha\right)\mathclose{}^m.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-no-rejection-prob" class="quarto-xref">Exercise&nbsp;1</a>, worked in <a href="#/sol-no-rejection-prob" class="quarto-xref">Solution&nbsp;1</a>.</p>
+</div>
+</section><section class="slide level2"><div id="thm-false-positive-prob" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Probability of at least one false positive)</strong></span> Let <span class="math inline">\(A_1, \ldots, A_m\)</span> be independent events, where <span class="math inline">\(A_j\)</span> is the event that the <span class="math inline">\(j\)</span>th of <span class="math inline">\(m\)</span> tests rejects its true null hypothesis, and each has probability <span class="math inline">\(\alpha\)</span>. Then the probability that at least one test rejects is</p>
+<p><span class="math display">\[\Pr\mathopen{}\left(A_1 \cup A_2 \cup \cdots \cup A_m\right)\mathclose{} = 1 - \mathopen{}\left(1 - \alpha\right)\mathclose{}^m.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The last line below is <a href="#/lem-no-rejection-prob" class="quarto-xref">Lemma&nbsp;1</a>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_m\right)\mathclose{}
+&amp;= 1 - \Pr\mathopen{}\left(\mathopen{}\left(A_1 \cup \cdots \cup A_m\right)\mathclose{}^c\right)\mathclose{}
+&amp;&amp; \text{(complement rule)}\\
+&amp;= 1 - \Pr\mathopen{}\left(A_1^c \cap \cdots \cap A_m^c\right)\mathclose{}
+&amp;&amp; \text{(De Morgan's law)}\\
+&amp;= 1 - \mathopen{}\left(1 - \alpha\right)\mathclose{}^m
+&amp;&amp; \text{(probability that no test rejects)}
+\end{aligned}
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="exm-false-positive-prob" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (False positives accumulate with the number of tests)</strong></span> With <span class="math inline">\(\alpha= 0.05\)</span>, <a href="#/thm-false-positive-prob" class="quarto-xref">Theorem&nbsp;1</a> gives the chance of at least one false positive among <span class="math inline">\(m\)</span> independent tests of true null hypotheses:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb2-2"><a aria-label="2"></a>m_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">14</span>, <span class="dv">20</span>, <span class="dv">100</span>, <span class="dv">2308</span>)</span>
+<span id="cb2-3"><a aria-label="3"></a><span class="fu">data.frame</span>(</span>
+<span id="cb2-4"><a aria-label="4"></a>  <span class="at">m =</span> m_values,</span>
+<span id="cb2-5"><a aria-label="5"></a>  <span class="at">prob_at_least_one =</span> <span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> alpha)<span class="sc">^</span>m_values</span>
+<span id="cb2-6"><a aria-label="6"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb2-7"><a aria-label="7"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb2-8"><a aria-label="8"></a>    <span class="at">digits =</span> <span class="dv">4</span>,</span>
+<span id="cb2-9"><a aria-label="9"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Tests m"</span>, <span class="st">"Pr(at least one false positive)"</span>)</span>
+<span id="cb2-10"><a aria-label="10"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead><tr class="header">
+<th style="text-align: right;">Tests m</th>
+<th style="text-align: right;">Pr(at least one false positive)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0500</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.2262</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.5123</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.6415</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">0.9941</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2308</td>
+<td style="text-align: right;">1.0000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The chance first passes one half at 14 tests. With 2308 tests, the number of genes in the Khan data, the chance of no false positive at all is 3.9e-52, so a false positive is a near certainty.</p>
+</div>
+</section><section class="slide level2"><h3 data-number="2.2" id="sec-khan-tests">
+<span class="header-section-number">2.2</span> Testing every gene</h3>
+<!-- No slidebreak here: the heading shares its slide with the exm-khan-pvalues div. -->
+<div id="exm-khan-pvalues" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (Testing every gene in the Khan data)</strong></span> For each of the 2308 genes, <a href="./basic-statistical-methods.html#def-two-sample-t-test">Welch’s two-sample t-test</a> compares mean expression between tumor classes 2 and 4:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>gene_names <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="fu">names</span>(khan_pair), <span class="st">"tumor_class"</span>)</span>
+<span id="cb3-2"><a aria-label="2"></a>khan_p <span class="ot">&lt;-</span> <span class="fu">vapply</span>(</span>
+<span id="cb3-3"><a aria-label="3"></a>  khan_pair[gene_names],</span>
+<span id="cb3-4"><a aria-label="4"></a>  <span class="cf">function</span>(x) <span class="fu">t.test</span>(x <span class="sc">~</span> khan_pair<span class="sc">$</span>tumor_class)<span class="sc">$</span>p.value,</span>
+<span id="cb3-5"><a aria-label="5"></a>  <span class="fu">numeric</span>(<span class="dv">1</span>)</span>
+<span id="cb3-6"><a aria-label="6"></a>)</span>
+<span id="cb3-7"><a aria-label="7"></a>m <span class="ot">&lt;-</span> <span class="fu">length</span>(khan_p)</span>
+<span id="cb3-8"><a aria-label="8"></a><span class="fu">c</span>(</span>
+<span id="cb3-9"><a aria-label="9"></a>  <span class="at">tests =</span> m,</span>
+<span id="cb3-10"><a aria-label="10"></a>  <span class="at">p_at_most_0.05 =</span> <span class="fu">sum</span>(khan_p <span class="sc">&lt;=</span> <span class="fl">0.05</span>),</span>
+<span id="cb3-11"><a aria-label="11"></a>  <span class="at">expected_if_all_null =</span> <span class="fl">0.05</span> <span class="sc">*</span> m</span>
+<span id="cb3-12"><a aria-label="12"></a>)</span>
+<span id="cb3-13"><a aria-label="13"></a><span class="co">#&gt;                tests       p_at_most_0.05 expected_if_all_null </span></span>
+<span id="cb3-14"><a aria-label="14"></a><span class="co">#&gt;               2308.0                528.0                115.4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>528 of the 2308 genes have a p-value of at most 0.05. If every null hypothesis were true, the p-values would be uniform on <span class="math inline">\([0, 1]\)</span> and about 115.4 genes would fall below 0.05 by chance alone. <a href="#/fig-khan-p-hist" class="quarto-xref">Figure&nbsp;1</a> shows the p-values: the spike at the left is the signal, and the roughly flat remainder looks like p-values from true null hypotheses. The data alone do not say which of the 528 genes are the false positives.</p>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">p =</span> khan_p), <span class="fu">aes</span>(<span class="at">x =</span> p)) <span class="sc">+</span></span>
+<span id="cb4-2"><a aria-label="2"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb4-3"><a aria-label="3"></a>    <span class="at">binwidth =</span> <span class="fl">0.05</span>, <span class="at">boundary =</span> <span class="dv">0</span>, <span class="at">fill =</span> <span class="st">"grey60"</span>, <span class="at">color =</span> <span class="st">"white"</span></span>
+<span id="cb4-4"><a aria-label="4"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-5"><a aria-label="5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"p-value"</span>, <span class="at">y =</span> <span class="st">"Number of genes"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div id="fig-khan-p-hist" class="quarto-float quarto-figure quarto-figure-center" alt="Histogram of 2308 p-values in bins of width 0.05. The first bin, from 0 to 0.05, is far taller than every other bin. The other bins are much lower: they decline from the second bin and level off toward a p-value of 1.">
+<figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-khan-p-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Histogram of the 2308 Welch t-test p-values comparing tumor classes 2 and 4 in the Khan data.
+</figcaption><div aria-describedby="fig-khan-p-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="multiple-testing_files/figure-html/fig-khan-p-hist-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Histogram of the 2308 Welch t-test p-values comparing tumor classes 2 and 4 in the Khan data."><img data-src="multiple-testing_files/figure-html/fig-khan-p-hist-1.png" alt="Histogram of 2308 p-values in bins of width 0.05. The first bin, from 0 to 0.05, is far taller than every other bin. The other bins are much lower: they decline from the second bin and level off toward a p-value of 1." width="672"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sec-error-rates" class="slide level2" data-number="3"><h2>
+<span class="header-section-number">3</span> Error rates for a family of tests</h2>
+<h3 data-number="3.1" id="sec-rejection-counts">
+<span class="header-section-number">3.1</span> Counting errors</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-rejection-counts div. -->
+<div id="def-rejection-counts" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Outcome counts of a family of tests)</strong></span> Suppose a procedure tests <span class="math inline">\(m\)</span> null hypotheses, <span class="math inline">\(m_0\)</span> of which are true. Count the outcomes as in <a href="#/tbl-rejection-counts" class="quarto-xref">Table&nbsp;1</a>: <span class="math inline">\(V\)</span> true null hypotheses rejected (false positives), <span class="math inline">\(S\)</span> false null hypotheses rejected (true positives), <span class="math inline">\(U\)</span> true null hypotheses not rejected, and <span class="math inline">\(T\)</span> false null hypotheses not rejected. The total number of <strong>rejections</strong> is</p>
+<p><span class="math display">\[R \stackrel{\text{def}}{=}V + S.\]</span></p>
+<div id="tbl-rejection-counts" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rejection-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which <span class="math inline">\(m_0\)</span> have a true null hypothesis.
+</figcaption><div aria-describedby="tbl-rejection-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead><tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">Not rejected</th>
+<th style="text-align: center;">Rejected</th>
+<th style="text-align: center;">Total</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Null hypothesis true</td>
+<td style="text-align: center;"><span class="math inline">\(U\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(V\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(m_0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Null hypothesis false</td>
+<td style="text-align: center;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(S\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(m - m_0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: center;"><span class="math inline">\(m - R\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(R\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(m\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</section><section class="slide level2"><div id="exm-rejection-counts" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (Outcome counts in a simulated family of 1000 tests)</strong></span> With real data the truth is unknown, so <span class="math inline">\(V\)</span> and <span class="math inline">\(S\)</span> cannot be counted. A simulation knows the truth. Simulate <span class="math inline">\(m = 1000\)</span> z-tests, of which <span class="math inline">\(m_0 = 900\)</span> have a true null hypothesis (a standard Gaussian statistic <span class="math inline">\(Z_j\)</span>) and 100 have a false one (a Gaussian statistic with mean 3 and variance 1). Each p-value is <span class="math inline">\(2 \Phi(-\mathopen{}\left|z_j\right|\mathclose{})\)</span>. Rejecting every null hypothesis with <span class="math inline">\(p_j \le 0.05\)</span> gives the counts of <a href="#/def-rejection-counts" class="quarto-xref">Definition&nbsp;1</a>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>simulate_tests <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">m =</span> <span class="dv">1000</span>, <span class="at">m0 =</span> <span class="dv">900</span>, <span class="at">shift =</span> <span class="dv">3</span>) {</span>
+<span id="cb5-2"><a aria-label="2"></a>  is_null <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="fu">c</span>(m0, m <span class="sc">-</span> m0))</span>
+<span id="cb5-3"><a aria-label="3"></a>  z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(m, <span class="at">mean =</span> <span class="fu">ifelse</span>(is_null, <span class="dv">0</span>, shift))</span>
+<span id="cb5-4"><a aria-label="4"></a>  <span class="fu">list</span>(<span class="at">p =</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fu">abs</span>(z)), <span class="at">is_null =</span> is_null)</span>
+<span id="cb5-5"><a aria-label="5"></a>}</span>
+<span id="cb5-6"><a aria-label="6"></a>count_outcomes <span class="ot">&lt;-</span> <span class="cf">function</span>(reject, is_null) {</span>
+<span id="cb5-7"><a aria-label="7"></a>  <span class="fu">c</span>(</span>
+<span id="cb5-8"><a aria-label="8"></a>    <span class="at">U =</span> <span class="fu">sum</span>(<span class="sc">!</span>reject <span class="sc">&amp;</span> is_null), <span class="at">V =</span> <span class="fu">sum</span>(reject <span class="sc">&amp;</span> is_null),</span>
+<span id="cb5-9"><a aria-label="9"></a>    <span class="at">T =</span> <span class="fu">sum</span>(<span class="sc">!</span>reject <span class="sc">&amp;</span> <span class="sc">!</span>is_null), <span class="at">S =</span> <span class="fu">sum</span>(reject <span class="sc">&amp;</span> <span class="sc">!</span>is_null)</span>
+<span id="cb5-10"><a aria-label="10"></a>  )</span>
+<span id="cb5-11"><a aria-label="11"></a>}</span>
+<span id="cb5-12"><a aria-label="12"></a></span>
+<span id="cb5-13"><a aria-label="13"></a><span class="fu">set.seed</span>(<span class="dv">571</span>)</span>
+<span id="cb5-14"><a aria-label="14"></a>sim <span class="ot">&lt;-</span> <span class="fu">simulate_tests</span>()</span>
+<span id="cb5-15"><a aria-label="15"></a>counts <span class="ot">&lt;-</span> <span class="fu">count_outcomes</span>(sim<span class="sc">$</span>p <span class="sc">&lt;=</span> <span class="fl">0.05</span>, sim<span class="sc">$</span>is_null)</span>
+<span id="cb5-16"><a aria-label="16"></a><span class="fu">matrix</span>(</span>
+<span id="cb5-17"><a aria-label="17"></a>  counts[<span class="fu">c</span>(<span class="st">"U"</span>, <span class="st">"V"</span>, <span class="st">"T"</span>, <span class="st">"S"</span>)],</span>
+<span id="cb5-18"><a aria-label="18"></a>  <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-19"><a aria-label="19"></a>  <span class="at">dimnames =</span> <span class="fu">list</span>(</span>
+<span id="cb5-20"><a aria-label="20"></a>    <span class="fu">c</span>(<span class="st">"Null true"</span>, <span class="st">"Null false"</span>),</span>
+<span id="cb5-21"><a aria-label="21"></a>    <span class="fu">c</span>(<span class="st">"Not rejected"</span>, <span class="st">"Rejected"</span>)</span>
+<span id="cb5-22"><a aria-label="22"></a>  )</span>
+<span id="cb5-23"><a aria-label="23"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb5-24"><a aria-label="24"></a>  <span class="fu">as.table</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-25"><a aria-label="25"></a>  <span class="fu">addmargins</span>()</span>
+<span id="cb5-26"><a aria-label="26"></a><span class="co">#&gt;            Not rejected Rejected  Sum</span></span>
+<span id="cb5-27"><a aria-label="27"></a><span class="co">#&gt; Null true           852       48  900</span></span>
+<span id="cb5-28"><a aria-label="28"></a><span class="co">#&gt; Null false           11       89  100</span></span>
+<span id="cb5-29"><a aria-label="29"></a><span class="co">#&gt; Sum                 863      137 1000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The procedure made <span class="math inline">\(R =\)</span> 137 rejections, of which <span class="math inline">\(V =\)</span> 48 were false positives.</p>
+</div>
+</section><section class="slide level2"><div id="rem-counts-unobserved" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Only the number of rejections is observed). </span><span class="math inline">\(V\)</span>, <span class="math inline">\(S\)</span>, <span class="math inline">\(U\)</span>, <span class="math inline">\(T\)</span> and <span class="math inline">\(R\)</span> are random, because they depend on the data. In practice only <span class="math inline">\(m\)</span> and <span class="math inline">\(R\)</span> are observed; <span class="math inline">\(m_0\)</span> and the split of <span class="math inline">\(R\)</span> into <span class="math inline">\(V\)</span> and <span class="math inline">\(S\)</span> are not. Error rates are therefore defined as properties of a procedure over repeated data sets, not of the particular list of rejections that one data set produces.</p>
+</div>
+</section><section class="slide level2"><h3 data-number="3.2" id="sec-fwer">
+<span class="header-section-number">3.2</span> The family-wise error rate</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-fwer div. -->
+<div id="def-fwer" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Family-wise error rate)</strong></span> For a family of tests with <span class="math inline">\(V\)</span> false positives (<a href="#/def-rejection-counts" class="quarto-xref">Definition&nbsp;1</a>), the <strong>family-wise error rate</strong> (FWER) is the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> of at least one false positive:</p>
+<p><span class="math display">\[\text{FWER} \stackrel{\text{def}}{=}\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}.\]</span></p>
+<p>Source: <span class="citation" data-cites="wikipedia_family_wise_error_rate">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>.</p>
+</div>
+</section><section class="slide level2"><div id="def-fwer-control" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Controlling the family-wise error rate)</strong></span> A procedure <strong>controls the FWER at level <span class="math inline">\(\alpha\)</span></strong> if <span class="math inline">\(\text{FWER} \le \alpha\)</span> for every possible set of true null hypotheses.</p>
+</div>
+</section><section class="slide level2"><div id="exm-fwer" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (FWER of unadjusted testing in the simulated family)</strong></span> Repeat the simulation of <a href="#/exm-rejection-counts" class="quarto-xref">Example&nbsp;3</a> 2000 times, rejecting every null hypothesis with <span class="math inline">\(p_j \le 0.05\)</span> each time, and record the fraction of repetitions with at least one false positive:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>run_simulation <span class="ot">&lt;-</span> <span class="cf">function</span>(reject_fn, <span class="at">reps =</span> <span class="dv">2000</span>) {</span>
+<span id="cb6-2"><a aria-label="2"></a>  <span class="fu">replicate</span>(reps, {</span>
+<span id="cb6-3"><a aria-label="3"></a>    <span class="co"># nolint next: object_usage_linter.</span></span>
+<span id="cb6-4"><a aria-label="4"></a>    sim <span class="ot">&lt;-</span> <span class="fu">simulate_tests</span>()</span>
+<span id="cb6-5"><a aria-label="5"></a>    <span class="co"># nolint next: object_usage_linter.</span></span>
+<span id="cb6-6"><a aria-label="6"></a>    <span class="fu">count_outcomes</span>(<span class="fu">reject_fn</span>(sim<span class="sc">$</span>p), sim<span class="sc">$</span>is_null)</span>
+<span id="cb6-7"><a aria-label="7"></a>  })</span>
+<span id="cb6-8"><a aria-label="8"></a>}</span>
+<span id="cb6-9"><a aria-label="9"></a></span>
+<span id="cb6-10"><a aria-label="10"></a><span class="fu">set.seed</span>(<span class="dv">572</span>)</span>
+<span id="cb6-11"><a aria-label="11"></a>sim_counts <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb6-12"><a aria-label="12"></a>sim_counts<span class="sc">$</span>unadjusted <span class="ot">&lt;-</span> <span class="fu">run_simulation</span>(<span class="cf">function</span>(p) p <span class="sc">&lt;=</span> <span class="fl">0.05</span>)</span>
+<span id="cb6-13"><a aria-label="13"></a>fwer_unadjusted <span class="ot">&lt;-</span> <span class="fu">mean</span>(sim_counts<span class="sc">$</span>unadjusted[<span class="st">"V"</span>, ] <span class="sc">&gt;=</span> <span class="dv">1</span>)</span>
+<span id="cb6-14"><a aria-label="14"></a>fwer_unadjusted</span>
+<span id="cb6-15"><a aria-label="15"></a><span class="co">#&gt; [1] 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The estimated FWER is 1: with 900 true null hypotheses, almost every repetition produces a false positive, as <a href="#/thm-false-positive-prob" class="quarto-xref">Theorem&nbsp;1</a> predicts for tests that are independent.</p>
+</div>
+</section><section class="slide level2"><h3 data-number="3.3" id="sec-fdr">
+<span class="header-section-number">3.3</span> The false discovery rate</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-fdp div. -->
+<div id="def-fdp" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (False discovery proportion)</strong></span> For a family of tests with <span class="math inline">\(V\)</span> false positives among <span class="math inline">\(R\)</span> rejections (<a href="#/def-rejection-counts" class="quarto-xref">Definition&nbsp;1</a>), the <strong>false discovery proportion</strong> (FDP) is the fraction of rejections that are false positives, counted as 0 when there are no rejections:</p>
+<p><span class="math display">\[
+\text{FDP} \stackrel{\text{def}}{=}\frac{V}{\max(R, 1)}.
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="def-fdr" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5 (False discovery rate)</strong></span> The <strong>false discovery rate</strong> (FDR) is the expected value of the <a href="#/def-fdp">false discovery proportion</a>:</p>
+<p><span class="math display">\[
+\text{FDR} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\text{FDP}\right]\mathclose{}.
+\]</span></p>
+<p>Source: <span class="citation" data-cites="wikipedia_false_discovery_rate">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>.</p>
+</div>
+<div id="rem-source-fdr" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Source: False discovery rate). </span>The false discovery rate was introduced by Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling"><a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>; the notation <span class="math inline">\(V\)</span>, <span class="math inline">\(S\)</span>, <span class="math inline">\(U\)</span>, <span class="math inline">\(T\)</span> and <span class="math inline">\(R\)</span> follows <span class="citation" data-cites="james2021islr2e">James et al. <a href="#/references" role="doc-biblioref" onclick="">[4, Ch. 13]</a></span>.</p>
+</div>
+</section><section class="slide level2"><div id="def-fdr-control" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6 (Controlling the false discovery rate)</strong></span> A procedure <strong>controls the FDR at level <span class="math inline">\(q\)</span></strong> if <span class="math inline">\(\text{FDR} \le q\)</span> for every possible set of true null hypotheses.</p>
+</div>
+</section><section class="slide level2"><div id="exm-fdr" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5 (FDR of unadjusted testing in the simulated family)</strong></span> In the 2000 repetitions of <a href="#/exm-fwer" class="quarto-xref">Example&nbsp;4</a>, average the false discovery proportion of each repetition to estimate the FDR. The <em>power</em> of a procedure is the expected fraction of the 100 false null hypotheses it rejects, <span class="math inline">\(\operatorname{E}\mathopen{}\left[S\right]\mathclose{} / m_1\)</span>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>summarize_counts <span class="ot">&lt;-</span> <span class="cf">function</span>(counts, <span class="at">m1 =</span> <span class="dv">100</span>) {</span>
+<span id="cb7-2"><a aria-label="2"></a>  rejections <span class="ot">&lt;-</span> <span class="fu">colSums</span>(counts[<span class="fu">c</span>(<span class="st">"V"</span>, <span class="st">"S"</span>), ])</span>
+<span id="cb7-3"><a aria-label="3"></a>  <span class="fu">c</span>(</span>
+<span id="cb7-4"><a aria-label="4"></a>    <span class="at">FWER =</span> <span class="fu">mean</span>(counts[<span class="st">"V"</span>, ] <span class="sc">&gt;=</span> <span class="dv">1</span>),</span>
+<span id="cb7-5"><a aria-label="5"></a>    <span class="at">FDR =</span> <span class="fu">mean</span>(counts[<span class="st">"V"</span>, ] <span class="sc">/</span> <span class="fu">pmax</span>(rejections, <span class="dv">1</span>)),</span>
+<span id="cb7-6"><a aria-label="6"></a>    <span class="at">power =</span> <span class="fu">mean</span>(counts[<span class="st">"S"</span>, ]) <span class="sc">/</span> m1</span>
+<span id="cb7-7"><a aria-label="7"></a>  )</span>
+<span id="cb7-8"><a aria-label="8"></a>}</span>
+<span id="cb7-9"><a aria-label="9"></a><span class="fu">summarize_counts</span>(sim_counts<span class="sc">$</span>unadjusted)</span>
+<span id="cb7-10"><a aria-label="10"></a><span class="co">#&gt;     FWER      FDR    power </span></span>
+<span id="cb7-11"><a aria-label="11"></a><span class="co">#&gt; 1.000000 0.344950 0.850725</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>About 34% of the rejections are false positives on average, even though each individual test has only a 5% false positive rate. A 5% rate on 900 true null hypotheses gives about 45 false positives, which is large next to the average of 85 true positives.</p>
+</div>
+</section><section class="slide level2"><div id="rem-fdr-fwer" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em> (The FDR is never larger than the FWER). </span>If <span class="math inline">\(V \ge 1\)</span> then <span class="math inline">\(V / \max(R, 1) \le 1\)</span> because <span class="math inline">\(V \le R\)</span>, and if <span class="math inline">\(V = 0\)</span> then <span class="math inline">\(V / \max(R, 1) = 0\)</span>. So <span class="math inline">\(\text{FDP} \le \mathbb{1}_{V \ge 1}\)</span>, and taking expectations gives <span class="math inline">\(\text{FDR} \le \text{FWER}\)</span>. A procedure that controls the FWER at level <span class="math inline">\(\alpha\)</span> therefore controls the FDR at level <span class="math inline">\(\alpha\)</span> too, but the FDR can be controlled with many more rejections, which is why it suits exploratory screens such as the Khan genes, where a few false positives are an acceptable price for more discoveries.</p>
+</div>
+</section><section class="slide level2"><h3 data-number="3.4" id="sec-valid-p-values">
+<span class="header-section-number">3.4</span> Valid p-values</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-valid-p-value div. -->
+<div id="def-valid-p-value" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7 (Valid p-value)</strong></span> A <a href="./inference.html#def-p-value">p-value</a> <span class="math inline">\(p\)</span> for a null hypothesis <span class="math inline">\(H_0\)</span> is <strong>valid</strong> if, when <span class="math inline">\(H_0\)</span> is true, it is stochastically no smaller than a uniform random variable:</p>
+<p><span class="math display">\[\Pr_{H_0}(p \le u) \le u \quad \text{for every } u \in [0, 1].\]</span></p>
+</div>
+</section><section class="slide level2"><div id="rem-valid-p-value-uniform" class="proof remark">
+<p><span class="proof-title"><em>Remark 4</em> (Uniform p-values). </span>If the inequality in the definition of a valid p-value is an equality, <span class="math inline">\(p\)</span> is uniform on <span class="math inline">\([0, 1]\)</span> under <span class="math inline">\(H_0\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-valid-p-value" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6 (The two-sided z-test p-value is valid)</strong></span> For a standard Gaussian statistic <span class="math inline">\(Z\)</span>, the p-value <span class="math inline">\(p = 2 \Phi(-\mathopen{}\left|Z\right|\mathclose{})\)</span> is the probability that a standard Gaussian variable is at least as extreme as <span class="math inline">\(Z\)</span>. Because <span class="math inline">\(Z\)</span> has a continuous distribution, this p-value is uniform on <span class="math inline">\([0, 1]\)</span>, so <span class="math inline">\(\Pr(p \le u) = u\)</span> exactly. Simulating <span class="math inline">\(10^5\)</span> true null hypotheses checks this:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">573</span>)</span>
+<span id="cb8-2"><a aria-label="2"></a>p_null <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fu">abs</span>(<span class="fu">rnorm</span>(<span class="fl">1e5</span>)))</span>
+<span id="cb8-3"><a aria-label="3"></a>u <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb8-4"><a aria-label="4"></a><span class="fu">data.frame</span>(<span class="at">u =</span> u, <span class="at">fraction_at_most_u =</span> <span class="fu">sapply</span>(u, <span class="cf">function</span>(x) <span class="fu">mean</span>(p_null <span class="sc">&lt;=</span> x)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["u"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["fraction_at_most_u"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.01","2":"0.00962"},{"1":"0.05","2":"0.04936"},{"1":"0.10","2":"0.09807"},{"1":"0.50","2":"0.50241"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Each fraction is close to its <span class="math inline">\(u\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="rem-valid-p-value-discrete" class="proof remark">
+<p><span class="proof-title"><em>Remark 5</em> (Discrete statistics give conservative p-values). </span>When the test statistic is discrete, as in <a href="./categorical-tests.html#def-fishers-exact">Fisher’s exact test</a>, a p-value can satisfy <span class="math inline">\(\Pr_{H_0}(p \le u) &lt; u\)</span> for some <span class="math inline">\(u\)</span>. It is still valid, but conservative: it rejects a true null hypothesis less often than its nominal level.</p>
+</div>
+</section><section id="sec-fwer-control" class="slide level2" data-number="4"><h2>
+<span class="header-section-number">4</span> Controlling the family-wise error rate</h2>
+<h3 data-number="4.1" id="sec-bonferroni">
+<span class="header-section-number">4.1</span> The Bonferroni correction</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-bonferroni div. -->
+<div id="def-bonferroni" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 8 (Bonferroni correction)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses <span class="math inline">\(H_1, \ldots, H_m\)</span> with p-values <span class="math inline">\(p_1, \ldots, p_m\)</span> and a level <span class="math inline">\(\alpha\)</span>, the <strong>Bonferroni correction</strong> rejects <span class="math inline">\(H_j\)</span> when its p-value is at most <span class="math inline">\(\alpha/ m\)</span>:</p>
+<p><span class="math display">\[\text{reject } H_j \iff p_j \le \frac{\alpha}{m}.\]</span></p>
+<p>Source: <span class="citation" data-cites="james2021islr2e">James et al. <a href="#/references" role="doc-biblioref" onclick="">[4, Ch. 13]</a></span>; <span class="citation" data-cites="wikipedia_bonferroni_correction">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-bonferroni" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7 (Bonferroni correction for the Khan genes)</strong></span> R functions for this page’s procedures take the vector of p-values and a level, and return a logical vector. For the Bonferroni correction with <span class="math inline">\(\alpha= 0.05\)</span>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>bonferroni_reject <span class="ot">&lt;-</span> <span class="cf">function</span>(p, alpha) p <span class="sc">&lt;=</span> alpha <span class="sc">/</span> <span class="fu">length</span>(p)</span>
+<span id="cb9-2"><a aria-label="2"></a></span>
+<span id="cb9-3"><a aria-label="3"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb9-4"><a aria-label="4"></a><span class="fu">c</span>(</span>
+<span id="cb9-5"><a aria-label="5"></a>  <span class="at">threshold =</span> alpha <span class="sc">/</span> m,</span>
+<span id="cb9-6"><a aria-label="6"></a>  <span class="at">rejections =</span> <span class="fu">sum</span>(<span class="fu">bonferroni_reject</span>(khan_p, alpha))</span>
+<span id="cb9-7"><a aria-label="7"></a>)</span>
+<span id="cb9-8"><a aria-label="8"></a><span class="co">#&gt;   threshold  rejections </span></span>
+<span id="cb9-9"><a aria-label="9"></a><span class="co">#&gt; 2.16638e-05 6.20000e+01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>With <span class="math inline">\(m =\)</span> 2308 tests the threshold is 2.17e-05, and the correction rejects 62 genes out of the 528 with an unadjusted p-value of at most 0.05. The same functions applied to the first ten genes of the data set show the arithmetic: with <span class="math inline">\(m = 10\)</span> the threshold is <span class="math inline">\(0.05 / 10 = 0.005\)</span>.</p>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>fmt_p <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="fu">vapply</span>(p, format, <span class="fu">character</span>(<span class="dv">1</span>), <span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb10-2"><a aria-label="2"></a>ten_genes <span class="ot">&lt;-</span> khan_p[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb10-3"><a aria-label="3"></a><span class="fu">data.frame</span>(</span>
+<span id="cb10-4"><a aria-label="4"></a>  <span class="at">gene =</span> <span class="fu">names</span>(ten_genes),</span>
+<span id="cb10-5"><a aria-label="5"></a>  <span class="at">p_value =</span> ten_genes,</span>
+<span id="cb10-6"><a aria-label="6"></a>  <span class="at">threshold =</span> alpha <span class="sc">/</span> <span class="fu">length</span>(ten_genes),</span>
+<span id="cb10-7"><a aria-label="7"></a>  <span class="at">reject =</span> <span class="fu">bonferroni_reject</span>(ten_genes, alpha),</span>
+<span id="cb10-8"><a aria-label="8"></a>  <span class="at">row.names =</span> <span class="cn">NULL</span></span>
+<span id="cb10-9"><a aria-label="9"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb10-10"><a aria-label="10"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(p_value) <span class="sc">|&gt;</span></span>
+<span id="cb10-11"><a aria-label="11"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">p_value =</span> <span class="fu">fmt_p</span>(p_value)) <span class="sc">|&gt;</span></span>
+<span id="cb10-12"><a aria-label="12"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<table class="caption-top">
+<thead><tr class="header">
+<th style="text-align: left;">gene</th>
+<th style="text-align: left;">p_value</th>
+<th style="text-align: right;">threshold</th>
+<th style="text-align: left;">reject</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">gene_2</td>
+<td style="text-align: left;">3.78e-06</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_3</td>
+<td style="text-align: left;">0.000642</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_7</td>
+<td style="text-align: left;">0.078</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_9</td>
+<td style="text-align: left;">0.197</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_10</td>
+<td style="text-align: left;">0.28</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_5</td>
+<td style="text-align: left;">0.353</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_4</td>
+<td style="text-align: left;">0.711</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_6</td>
+<td style="text-align: left;">0.72</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_8</td>
+<td style="text-align: left;">0.773</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_1</td>
+<td style="text-align: left;">0.944</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section><section class="slide level2"><div id="exr-union-bound" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2 (Indicator of a union)</strong></span> For events <span class="math inline">\(A_1, \ldots, A_k\)</span>, let <span class="math inline">\(\mathbb{1}_{A}\)</span> be the indicator of the event <span class="math inline">\(A\)</span>: it equals 1 if <span class="math inline">\(A\)</span> occurs and 0 if it does not. Show that, for every outcome,</p>
+<p><span class="math display">\[\mathbb{1}_{A_1 \cup \cdots \cup A_k} \le \mathbb{1}_{A_1} + \cdots + \mathbb{1}_{A_k}.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="sol-union-bound" class="proof solution">
+<p><span class="proof-title"><em>Solution 2</em>. </span>Take an outcome and consider two cases.</p>
+<ul>
+<li>If none of <span class="math inline">\(A_1, \ldots, A_k\)</span> occurs, then the union does not occur, so the left side is <span class="math inline">\(0\)</span> and the right side is <span class="math inline">\(0 + \cdots + 0 = 0\)</span>. The inequality holds with equality.</li>
+<li>If at least one <span class="math inline">\(A_j\)</span> occurs, then the union occurs, so the left side is <span class="math inline">\(1\)</span>. The right side is a sum of <span class="math inline">\(k\)</span> terms, each <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, and at least one of them is <span class="math inline">\(1\)</span>, so the right side is at least <span class="math inline">\(1\)</span>. The inequality holds.</li>
+</ul>
+</div>
+</section><section class="slide level2"><div id="lem-indicator-union" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2 (The indicator of a union is at most the sum of the indicators)</strong></span> For events <span class="math inline">\(A_1, \ldots, A_k\)</span>, let <span class="math inline">\(\mathbb{1}_{A}\)</span> be the indicator of the event <span class="math inline">\(A\)</span>: it equals 1 if <span class="math inline">\(A\)</span> occurs and 0 if it does not. Then, for every outcome,</p>
+<p><span class="math display">\[\mathbb{1}_{A_1 \cup \cdots \cup A_k} \le \mathbb{1}_{A_1} + \cdots + \mathbb{1}_{A_k}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-union-bound" class="quarto-xref">Exercise&nbsp;2</a>, worked in <a href="#/sol-union-bound" class="quarto-xref">Solution&nbsp;2</a>.</p>
+</div>
+</section><section class="slide level2"><div id="thm-union-bound" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Union bound)</strong></span> For any events <span class="math inline">\(A_1, \ldots, A_k\)</span>, the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> of their union is at most the sum of their probabilities: <!-- check-term-links: allow --></p>
+<p><span class="math display">\[\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{} \le \Pr(A_1) + \cdots + \Pr(A_k).\]</span></p>
+<p>Source: <span class="citation" data-cites="wikipedia_booles_inequality">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The inequality in the second line is <a href="#/lem-indicator-union" class="quarto-xref">Lemma&nbsp;2</a>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\mathbb{1}_{A_1 \cup \cdots \cup A_k}\right]\mathclose{}
+&amp;&amp; \text{(the expected value of an indicator is the probability of its event)}\\
+&amp;\le \operatorname{E}\mathopen{}\left[\mathbb{1}_{A_1} + \cdots + \mathbb{1}_{A_k}\right]\mathclose{}
+&amp;&amp; \text{(indicator inequality, and expectation preserves inequalities)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\mathbb{1}_{A_1}\right]\mathclose{} + \cdots + \operatorname{E}\mathopen{}\left[\mathbb{1}_{A_k}\right]\mathclose{}
+&amp;&amp; \text{(expectation of a sum is the sum of expectations)}\\
+&amp;= \Pr(A_1) + \cdots + \Pr(A_k)
+&amp;&amp; \text{(the expected value of an indicator is the probability of its event)}
+\end{aligned}
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="exm-union-bound" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8 (The union bound for tests of true null hypotheses)</strong></span> Let <span class="math inline">\(A_j\)</span> be the event that the <span class="math inline">\(j\)</span>th of <span class="math inline">\(m\)</span> tests of true null hypotheses, each at level <span class="math inline">\(\alpha= 0.05\)</span>, rejects. The union bound gives <span class="math inline">\(\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_m\right)\mathclose{} \le m \times 0.05\)</span>, which for <span class="math inline">\(m = 10\)</span> is 0.5. The exact probability for independent tests is <span class="math inline">\(1 - 0.95^{10} =\)</span> 0.401 (<a href="#/thm-false-positive-prob" class="quarto-xref">Theorem&nbsp;1</a>), so the bound is not tight, but it needs no independence. For large <span class="math inline">\(m\)</span> the bound exceeds 1 and says nothing.</p>
+</div>
+</section><section class="slide level2"><div id="exr-bonferroni-fwer" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 (Probability of a false positive under the Bonferroni correction)</strong></span> Let <span class="math inline">\(m\)</span> null hypotheses have valid p-values (<a href="#/def-valid-p-value" class="quarto-xref">Definition&nbsp;7</a>), let <span class="math inline">\(\mathcal{I}_0\)</span> be the set of <span class="math inline">\(m_0\)</span> indices of the true null hypotheses, and let <span class="math inline">\(V\)</span> be the number of true null hypotheses that the <a href="#/def-bonferroni">Bonferroni correction</a> at level <span class="math inline">\(\alpha\)</span> rejects. Show that <span class="math inline">\(\Pr\mathopen{}\left(V \ge 1\right)\mathclose{} \le m_0 \alpha/ m\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-bonferroni-fwer" class="proof solution">
+<p><span class="proof-title"><em>Solution 3</em>. </span>The steps use the Bonferroni rule (<a href="#/def-bonferroni" class="quarto-xref">Definition&nbsp;8</a>), the union bound (<a href="#/thm-union-bound" class="quarto-xref">Theorem&nbsp;2</a>) and the validity of each p-value (<a href="#/def-valid-p-value" class="quarto-xref">Definition&nbsp;7</a>).</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}
+&amp;= \Pr\mathopen{}\left(\bigcup_{j \in \mathcal{I}_0} \mathopen{}\left\{H_j \text{ is rejected}\right\}\mathclose{}\right)\mathclose{}
+&amp;&amp; \text{($V \ge 1$ means some true null hypothesis is rejected)}\\
+&amp;= \Pr\mathopen{}\left(\bigcup_{j \in \mathcal{I}_0} \mathopen{}\left\{p_j \le \alpha/ m\right\}\mathclose{}\right)\mathclose{}
+&amp;&amp; \text{(the Bonferroni rule)}\\
+&amp;\le \sum_{j \in \mathcal{I}_0} \Pr\mathopen{}\left(p_j \le \alpha/ m\right)\mathclose{}
+&amp;&amp; \text{(union bound)}\\
+&amp;\le \sum_{j \in \mathcal{I}_0} \frac{\alpha}{m}
+&amp;&amp; \text{(each $p_j$ is valid, with $u = \alpha/ m$)}\\
+&amp;= m_0 \cdot \frac{\alpha}{m}
+&amp;&amp; \text{(a sum of $m_0$ equal terms)}
+\end{aligned}
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="lem-bonferroni-false-positive-prob" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 3 (Probability of a false positive under the Bonferroni correction)</strong></span> Let <span class="math inline">\(m\)</span> null hypotheses have valid p-values (<a href="#/def-valid-p-value" class="quarto-xref">Definition&nbsp;7</a>), let <span class="math inline">\(\mathcal{I}_0\)</span> be the set of <span class="math inline">\(m_0\)</span> indices of the true null hypotheses, and let <span class="math inline">\(V\)</span> be the number of true null hypotheses that the <a href="#/def-bonferroni">Bonferroni correction</a> at level <span class="math inline">\(\alpha\)</span> rejects. Then the probability that at least one true null hypothesis is rejected is at most <span class="math inline">\(m_0 \alpha/ m\)</span>:</p>
+<p><span class="math display">\[\Pr\mathopen{}\left(V \ge 1\right)\mathclose{} \le \frac{m_0 \alpha}{m}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bonferroni-fwer" class="quarto-xref">Exercise&nbsp;3</a>, worked in <a href="#/sol-bonferroni-fwer" class="quarto-xref">Solution&nbsp;3</a>. It uses the union bound (<a href="#/thm-union-bound" class="quarto-xref">Theorem&nbsp;2</a>).</p>
+</div>
+</section><section class="slide level2"><div id="thm-bonferroni-fwer" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (The Bonferroni correction controls the FWER)</strong></span> If all p-values of true null hypotheses are valid (<a href="#/def-valid-p-value" class="quarto-xref">Definition&nbsp;7</a>), the <a href="#/def-bonferroni">Bonferroni correction</a> at level <span class="math inline">\(\alpha\)</span> satisfies</p>
+<p><span class="math display">\[\text{FWER} \le \frac{m_0}{m} \alpha\le \alpha,\]</span></p>
+<p>whatever the dependence between the p-values.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The first line below is <a href="#/def-fwer" class="quarto-xref">Definition&nbsp;2</a>, and the second is <a href="#/lem-bonferroni-false-positive-prob" class="quarto-xref">Lemma&nbsp;3</a>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{FWER}
+&amp;= \Pr\mathopen{}\left(V \ge 1\right)\mathclose{}
+&amp;&amp; \text{(definition of the FWER)}\\
+&amp;\le \frac{m_0}{m} \alpha
+&amp;&amp; \text{(bound from the exercise)}\\
+&amp;\le \alpha
+&amp;&amp; \text{($m_0 \le m$, so $m_0 / m \le 1$)}
+\end{aligned}
+\]</span></p>
+<p>The proof uses only the union bound and the validity of each p-value, so it needs no assumption about how the p-values depend on each other.</p>
+</div>
+</section><section class="slide level2"><div id="exm-bonferroni-fwer" class="theorem example">
+<p><span class="theorem-title"><strong>Example 9 (FWER of the Bonferroni correction in the simulated family)</strong></span> In the simulated family of <a href="#/exm-rejection-counts" class="quarto-xref">Example&nbsp;3</a>, <span class="math inline">\(m_0 / m = 0.9\)</span>, so <a href="#/thm-bonferroni-fwer" class="quarto-xref">Theorem&nbsp;3</a> bounds the FWER by <span class="math inline">\(0.9 \times 0.05 =\)</span> 0.045. Repeating the simulation 2000 times with the Bonferroni correction:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">574</span>)</span>
+<span id="cb11-2"><a aria-label="2"></a>sim_counts<span class="sc">$</span>bonferroni <span class="ot">&lt;-</span> <span class="fu">run_simulation</span>(<span class="cf">function</span>(p) <span class="fu">bonferroni_reject</span>(p, <span class="fl">0.05</span>))</span>
+<span id="cb11-3"><a aria-label="3"></a><span class="fu">summarize_counts</span>(sim_counts<span class="sc">$</span>bonferroni)</span>
+<span id="cb11-4"><a aria-label="4"></a><span class="co">#&gt;       FWER        FDR      power </span></span>
+<span id="cb11-5"><a aria-label="5"></a><span class="co">#&gt; 0.04300000 0.00307787 0.14551000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The estimated FWER, 0.043, is below the bound, up to simulation error. The Bonferroni correction loses power in exchange: it finds 15% of the 100 false null hypotheses, against 85% for unadjusted testing.</p>
+</div>
+</section><section class="slide level2"><h3 data-number="4.2" id="sec-holm">
+<span class="header-section-number">4.2</span> Holm’s step-down procedure</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-holm-cutoff div. -->
+<div id="def-holm-cutoff" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 9 (Holm cutoff rank)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses with p-values and a level <span class="math inline">\(\alpha\)</span>, order the p-values from smallest to largest, <span class="math inline">\(p_{(1)} \le p_{(2)} \le \cdots \le p_{(m)}\)</span>, and let <span class="math inline">\(H_{(k)}\)</span> be the null hypothesis with p-value <span class="math inline">\(p_{(k)}\)</span>. The <strong>Holm cutoff rank</strong> <span class="math inline">\(k^*\)</span> is the first rank at which the p-value exceeds its threshold <span class="math inline">\(\alpha/ (m - k + 1)\)</span>, with <span class="math inline">\(k^* \stackrel{\text{def}}{=}m + 1\)</span> if there is no such rank:</p>
+<p><span class="math display">\[k^* \stackrel{\text{def}}{=}\min \mathopen{}\left\{k : p_{(k)} &gt; \frac{\alpha}{m - k + 1}\right\}\mathclose{}.\]</span></p>
+<p>Source: Holm <span class="citation" data-cites="holm1979simple"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
+</div>
+</section><section class="slide level2"><div id="def-holm" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10 (Holm’s step-down procedure)</strong></span> Given the cutoff rank <span class="math inline">\(k^*\)</span> of <a href="#/def-holm-cutoff" class="quarto-xref">Definition&nbsp;9</a>, <strong>Holm’s procedure</strong> rejects <span class="math inline">\(H_{(1)}, \ldots, H_{(k^* - 1)}\)</span> and no others.</p>
+<p>Source: Holm <span class="citation" data-cites="holm1979simple"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>; <span class="citation" data-cites="wikipedia_holm_bonferroni_method">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-holm" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10 (Holm’s procedure for the Khan genes)</strong></span> A step-down procedure starts at the smallest p-value and stops at the first one that exceeds its threshold:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>holm_reject <span class="ot">&lt;-</span> <span class="cf">function</span>(p, alpha) {</span>
+<span id="cb12-2"><a aria-label="2"></a>  m <span class="ot">&lt;-</span> <span class="fu">length</span>(p)</span>
+<span id="cb12-3"><a aria-label="3"></a>  ord <span class="ot">&lt;-</span> <span class="fu">order</span>(p)</span>
+<span id="cb12-4"><a aria-label="4"></a>  below <span class="ot">&lt;-</span> p[ord] <span class="sc">&lt;=</span> alpha <span class="sc">/</span> (m <span class="sc">-</span> <span class="fu">seq_len</span>(m) <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb12-5"><a aria-label="5"></a>  n_reject <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">all</span>(below)) m <span class="cf">else</span> <span class="fu">which.min</span>(below) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb12-6"><a aria-label="6"></a>  reject <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">FALSE</span>, m)</span>
+<span id="cb12-7"><a aria-label="7"></a>  reject[ord[<span class="fu">seq_len</span>(n_reject)]] <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb12-8"><a aria-label="8"></a>  reject</span>
+<span id="cb12-9"><a aria-label="9"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>For the first ten genes at <span class="math inline">\(\alpha= 0.05\)</span>, the thresholds <span class="math inline">\(0.05 / (10 - k + 1)\)</span> rise from <span class="math inline">\(0.005\)</span> for the smallest p-value to <span class="math inline">\(0.05\)</span> for the largest:</p>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>holm_ten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb13-2"><a aria-label="2"></a>  <span class="at">gene =</span> <span class="fu">names</span>(ten_genes),</span>
+<span id="cb13-3"><a aria-label="3"></a>  <span class="at">p_value =</span> ten_genes,</span>
+<span id="cb13-4"><a aria-label="4"></a>  <span class="at">row.names =</span> <span class="cn">NULL</span></span>
+<span id="cb13-5"><a aria-label="5"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb13-6"><a aria-label="6"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(p_value) <span class="sc">|&gt;</span></span>
+<span id="cb13-7"><a aria-label="7"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb13-8"><a aria-label="8"></a>    <span class="at">rank =</span> dplyr<span class="sc">::</span><span class="fu">row_number</span>(),</span>
+<span id="cb13-9"><a aria-label="9"></a>    <span class="at">threshold =</span> alpha <span class="sc">/</span> (<span class="fu">length</span>(ten_genes) <span class="sc">-</span> rank <span class="sc">+</span> <span class="dv">1</span>),</span>
+<span id="cb13-10"><a aria-label="10"></a>    <span class="at">exceeds =</span> p_value <span class="sc">&gt;</span> threshold</span>
+<span id="cb13-11"><a aria-label="11"></a>  )</span>
+<span id="cb13-12"><a aria-label="12"></a>holm_ten <span class="sc">|&gt;</span></span>
+<span id="cb13-13"><a aria-label="13"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">p_value =</span> <span class="fu">fmt_p</span>(p_value)) <span class="sc">|&gt;</span></span>
+<span id="cb13-14"><a aria-label="14"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<table class="caption-top">
+<thead><tr class="header">
+<th style="text-align: left;">gene</th>
+<th style="text-align: left;">p_value</th>
+<th style="text-align: right;">rank</th>
+<th style="text-align: right;">threshold</th>
+<th style="text-align: left;">exceeds</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">gene_2</td>
+<td style="text-align: left;">3.78e-06</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.005000</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_3</td>
+<td style="text-align: left;">0.000642</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.005556</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_7</td>
+<td style="text-align: left;">0.078</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.006250</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_9</td>
+<td style="text-align: left;">0.197</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.007143</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_10</td>
+<td style="text-align: left;">0.28</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.008333</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_5</td>
+<td style="text-align: left;">0.353</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.010000</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_4</td>
+<td style="text-align: left;">0.711</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.012500</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_6</td>
+<td style="text-align: left;">0.72</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.016667</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_8</td>
+<td style="text-align: left;">0.773</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.025000</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_1</td>
+<td style="text-align: left;">0.944</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.050000</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The first p-value that exceeds its threshold is at rank <span class="math inline">\(k^* =\)</span> 3, so Holm’s procedure rejects the 2 genes ranked before it.</p>
+<p>Holm’s procedure always rejects every hypothesis that the Bonferroni correction rejects, because its first threshold is <span class="math inline">\(\alpha/ m\)</span> and its later thresholds are larger. On all 2308 genes the two procedures reject almost the same genes:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>holm_comparison <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.01</span>), <span class="cf">function</span>(a) {</span>
+<span id="cb14-2"><a aria-label="2"></a>  <span class="fu">c</span>(</span>
+<span id="cb14-3"><a aria-label="3"></a>    <span class="at">alpha =</span> a,</span>
+<span id="cb14-4"><a aria-label="4"></a>    <span class="at">bonferroni =</span> <span class="fu">sum</span>(<span class="fu">bonferroni_reject</span>(khan_p, a)),</span>
+<span id="cb14-5"><a aria-label="5"></a>    <span class="at">holm =</span> <span class="fu">sum</span>(<span class="fu">holm_reject</span>(khan_p, a))</span>
+<span id="cb14-6"><a aria-label="6"></a>  )</span>
+<span id="cb14-7"><a aria-label="7"></a>})</span>
+<span id="cb14-8"><a aria-label="8"></a>holm_comparison</span>
+<span id="cb14-9"><a aria-label="9"></a><span class="co">#&gt;             [,1]  [,2]</span></span>
+<span id="cb14-10"><a aria-label="10"></a><span class="co">#&gt; alpha       0.05  0.01</span></span>
+<span id="cb14-11"><a aria-label="11"></a><span class="co">#&gt; bonferroni 62.00 43.00</span></span>
+<span id="cb14-12"><a aria-label="12"></a><span class="co">#&gt; holm       62.00 44.00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>At <span class="math inline">\(\alpha= 0.01\)</span> Holm’s procedure rejects 44 genes and the Bonferroni correction 43; at <span class="math inline">\(\alpha= 0.05\)</span> they reject 62 and 62.</p>
+</div>
+</section><section class="slide level2"><div id="exr-holm-threshold" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4 (A rejected true null hypothesis has a small p-value under Holm’s procedure)</strong></span> Let <span class="math inline">\(m\)</span> null hypotheses have p-values, and let <span class="math inline">\(\mathcal{I}_0\)</span> be the set of <span class="math inline">\(m_0 \ge 1\)</span> indices of the true null hypotheses. Show that if <a href="#/def-holm">Holm’s procedure</a> at level <span class="math inline">\(\alpha\)</span> rejects at least one true null hypothesis, then the smallest p-value among the true null hypotheses is at most <span class="math inline">\(\alpha/ m_0\)</span>:</p>
+<p><span class="math display">\[\min_{j \in \mathcal{I}_0} p_j \le \frac{\alpha}{m_0}.\]</span></p>
+</div>
+</section><section class="slide level2 scrollable"><div id="sol-holm-threshold" class="proof solution">
+<p><span class="proof-title"><em>Solution 4</em>. </span>Order the p-values as in <a href="#/def-holm-cutoff" class="quarto-xref">Definition&nbsp;9</a>, and let <span class="math inline">\(r\)</span> be the smallest rank held by a true null hypothesis, so that <span class="math inline">\(p_{(r)} = \min_{j \in \mathcal{I}_0} p_j\)</span>.</p>
+<ol type="1">
+<li>
+<p>Every hypothesis ranked before <span class="math inline">\(r\)</span> is false, and there are <span class="math inline">\(m - m_0\)</span> false null hypotheses, so</p>
+<p><span class="math display">\[r - 1 \le m - m_0.\]</span></p>
+</li>
+<li>
+<p>Adding <span class="math inline">\(1 - r + m_0\)</span> to both sides of the inequality in step 1 gives</p>
+<p><span class="math display">\[m_0 \le m - r + 1.\]</span></p>
+</li>
+<li>
+<p>Holm’s procedure rejects hypotheses in rank order, <span class="math inline">\(H_{(1)}, \ldots, H_{(k^* - 1)}\)</span>. A true null hypothesis has rank at least <span class="math inline">\(r\)</span>, so rejecting one means <span class="math inline">\(k^* - 1 \ge r\)</span>, that is <span class="math inline">\(k^* &gt; r\)</span>. Rank <span class="math inline">\(r\)</span> is therefore before the first failure, and</p>
+<p><span class="math display">\[p_{(r)} \le \frac{\alpha}{m - r + 1}.\]</span></p>
+</li>
+<li>
+<p>Step 2 gives <span class="math inline">\(m - r + 1 \ge m_0\)</span>, so <span class="math inline">\(\alpha/ (m - r + 1) \le \alpha/ m_0\)</span>. Combining this with step 3,</p>
+<p><span class="math display">\[p_{(r)} \le \frac{\alpha}{m_0}.\]</span></p>
+</li>
+</ol>
+<p>Since <span class="math inline">\(p_{(r)} = \min_{j \in \mathcal{I}_0} p_j\)</span>, the claim follows.</p>
+</div>
+</section><section class="slide level2"><div id="lem-holm-threshold" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 4 (A rejected true null hypothesis has a small p-value under Holm’s procedure)</strong></span> Let <span class="math inline">\(m\)</span> null hypotheses have p-values, and let <span class="math inline">\(\mathcal{I}_0\)</span> be the set of <span class="math inline">\(m_0 \ge 1\)</span> indices of the true null hypotheses. If <a href="#/def-holm">Holm’s procedure</a> at level <span class="math inline">\(\alpha\)</span> rejects at least one true null hypothesis, then the smallest p-value among the true null hypotheses is at most <span class="math inline">\(\alpha/ m_0\)</span>:</p>
+<p><span class="math display">\[\min_{j \in \mathcal{I}_0} p_j \le \frac{\alpha}{m_0}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-holm-threshold" class="quarto-xref">Exercise&nbsp;4</a>, worked in <a href="#/sol-holm-threshold" class="quarto-xref">Solution&nbsp;4</a>.</p>
+</div>
+</section><section class="slide level2"><div id="thm-holm-fwer" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (Holm’s procedure controls the FWER)</strong></span> If all p-values of true null hypotheses are valid (<a href="#/def-valid-p-value" class="quarto-xref">Definition&nbsp;7</a>), <a href="#/def-holm">Holm’s procedure</a> at level <span class="math inline">\(\alpha\)</span> satisfies</p>
+<p><span class="math display">\[\text{FWER} \le \alpha,\]</span></p>
+<p>whatever the dependence between the p-values.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(m_0 = 0\)</span> there is no true null hypothesis to reject, so <span class="math inline">\(V = 0\)</span> and <span class="math inline">\(\text{FWER} = 0\)</span>. If <span class="math inline">\(m_0 \ge 1\)</span>, the event <span class="math inline">\(V \ge 1\)</span> means Holm’s procedure rejects a true null hypothesis, so by <a href="#/lem-holm-threshold" class="quarto-xref">Lemma&nbsp;4</a> it is contained in the event <span class="math inline">\(\min_{j \in \mathcal{I}_0} p_j \le \alpha/ m_0\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{FWER}
+&amp;= \Pr\mathopen{}\left(V \ge 1\right)\mathclose{}
+&amp;&amp; \text{(definition of the FWER)}\\
+&amp;\le \Pr\mathopen{}\left(\min_{j \in \mathcal{I}_0} p_j \le \frac{\alpha}{m_0}\right)\mathclose{}
+&amp;&amp; \text{(the event $V \ge 1$ lies inside this event)}\\
+&amp;= \Pr\mathopen{}\left(\bigcup_{j \in \mathcal{I}_0} \mathopen{}\left\{p_j \le \frac{\alpha}{m_0}\right\}\mathclose{}\right)\mathclose{}
+&amp;&amp; \text{(the minimum is at most a bound exactly when some term is)}\\
+&amp;\le \sum_{j \in \mathcal{I}_0} \Pr\mathopen{}\left(p_j \le \frac{\alpha}{m_0}\right)\mathclose{}
+&amp;&amp; \text{(union bound)}\\
+&amp;\le \sum_{j \in \mathcal{I}_0} \frac{\alpha}{m_0}
+&amp;&amp; \text{(each $p_j$ is valid, with $u = \alpha/ m_0$)}\\
+&amp;= m_0 \cdot \frac{\alpha}{m_0}
+&amp;&amp; \text{(a sum of $m_0$ equal terms)}\\
+&amp;= \alpha
+&amp;&amp; \text{($m_0 \cdot \frac{1}{m_0} = 1$)}
+\end{aligned}
+\]</span></p>
+<p>The union bound is <a href="#/thm-union-bound" class="quarto-xref">Theorem&nbsp;2</a> and validity is <a href="#/def-valid-p-value" class="quarto-xref">Definition&nbsp;7</a>. As for the Bonferroni correction, no assumption about dependence is needed.</p>
+</div>
+</section><section class="slide level2"><div id="exm-holm-fwer" class="theorem example">
+<p><span class="theorem-title"><strong>Example 11 (FWER of Holm’s procedure in the simulated family)</strong></span> Repeating the simulation of <a href="#/exm-rejection-counts" class="quarto-xref">Example&nbsp;3</a> 2000 times with Holm’s procedure:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">575</span>)</span>
+<span id="cb15-2"><a aria-label="2"></a>sim_counts<span class="sc">$</span>holm <span class="ot">&lt;-</span> <span class="fu">run_simulation</span>(<span class="cf">function</span>(p) <span class="fu">holm_reject</span>(p, <span class="fl">0.05</span>))</span>
+<span id="cb15-3"><a aria-label="3"></a><span class="fu">summarize_counts</span>(sim_counts<span class="sc">$</span>holm)</span>
+<span id="cb15-4"><a aria-label="4"></a><span class="co">#&gt;       FWER        FDR      power </span></span>
+<span id="cb15-5"><a aria-label="5"></a><span class="co">#&gt; 0.04050000 0.00269911 0.14648500</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The estimated FWER, 0.04, is below <span class="math inline">\(\alpha= 0.05\)</span>, up to simulation error. Holm’s power is 0.146, against 0.146 for the Bonferroni correction: Holm’s procedure can only reject more, but here the extra rejections are rare.</p>
+</div>
+<div class="reading">
+<ul>
+<li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#/references" role="doc-biblioref" onclick="">[11, Sec. 11.2.5]</a>, pp.&nbsp;534–535</span> covers simultaneous estimation of contrasts.</li>
+<li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[12, Sec. 12.2.2]</a>, pp.&nbsp;485–487</span> covers multiple comparisons.</li>
+</ul>
+</div>
+</section><section id="sec-fdr-control" class="slide level2" data-number="5"><h2>
+<span class="header-section-number">5</span> Controlling the false discovery rate</h2>
+<h3 data-number="5.1" id="sec-bh">
+<span class="header-section-number">5.1</span> The Benjamini–Hochberg procedure</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-bh-cutoff div. -->
+<div id="def-bh-cutoff" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 11 (Benjamini–Hochberg cutoff rank)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses with ordered p-values <span class="math inline">\(p_{(1)} \le \cdots \le p_{(m)}\)</span> (as in <a href="#/def-holm-cutoff" class="quarto-xref">Definition&nbsp;9</a>) and a level <span class="math inline">\(q\)</span>, the <strong>Benjamini–Hochberg cutoff rank</strong> <span class="math inline">\(\hat k\)</span> is the largest rank whose p-value is at most <span class="math inline">\(k q / m\)</span>, with <span class="math inline">\(\hat k \stackrel{\text{def}}{=}0\)</span> if there is no such rank:</p>
+<p><span class="math display">\[\hat k \stackrel{\text{def}}{=}\max \mathopen{}\left\{k : p_{(k)} \le \frac{k q}{m}\right\}\mathclose{}.\]</span></p>
+<p>Source: Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling"><a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>.</p>
+</div>
+</section><section class="slide level2"><div id="def-bh" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12 (Benjamini–Hochberg procedure)</strong></span> Given the cutoff rank <span class="math inline">\(\hat k\)</span> of <a href="#/def-bh-cutoff" class="quarto-xref">Definition&nbsp;11</a>, the <strong>Benjamini–Hochberg procedure</strong> (BH) rejects <span class="math inline">\(H_{(1)}, \ldots, H_{(\hat k)}\)</span> and no others.</p>
+<p>Source: Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling"><a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>; <span class="citation" data-cites="wikipedia_false_discovery_rate">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>.</p>
+</div>
+</section><section class="slide level2"><div id="rem-bh-step-up" class="proof remark">
+<p><span class="proof-title"><em>Remark 6</em> (BH is a step-up procedure). </span>Holm’s procedure starts at the smallest p-value and stops at the first failure. BH starts at the largest p-value and works down until one passes its threshold <span class="math inline">\(k q / m\)</span>. Every hypothesis ranked at or below <span class="math inline">\(\hat k\)</span> is rejected, including those with p-values above their own thresholds. The thresholds <span class="math inline">\(k q / m\)</span> grow with the rank <span class="math inline">\(k\)</span>, and the smallest, <span class="math inline">\(q / m\)</span>, equals the Bonferroni threshold, so BH rejects every hypothesis that the Bonferroni correction rejects at level <span class="math inline">\(\alpha= q\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-bh" class="theorem example">
+<p><span class="theorem-title"><strong>Example 12 (The BH procedure for the Khan genes)</strong></span> &nbsp;</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>bh_reject <span class="ot">&lt;-</span> <span class="cf">function</span>(p, q) {</span>
+<span id="cb16-2"><a aria-label="2"></a>  m <span class="ot">&lt;-</span> <span class="fu">length</span>(p)</span>
+<span id="cb16-3"><a aria-label="3"></a>  ord <span class="ot">&lt;-</span> <span class="fu">order</span>(p)</span>
+<span id="cb16-4"><a aria-label="4"></a>  passes <span class="ot">&lt;-</span> <span class="fu">which</span>(p[ord] <span class="sc">&lt;=</span> <span class="fu">seq_len</span>(m) <span class="sc">*</span> q <span class="sc">/</span> m)</span>
+<span id="cb16-5"><a aria-label="5"></a>  k_hat <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(passes) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">max</span>(passes) <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb16-6"><a aria-label="6"></a>  reject <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">FALSE</span>, m)</span>
+<span id="cb16-7"><a aria-label="7"></a>  reject[ord[<span class="fu">seq_len</span>(k_hat)]] <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb16-8"><a aria-label="8"></a>  reject</span>
+<span id="cb16-9"><a aria-label="9"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>For the first ten genes at <span class="math inline">\(q = 0.05\)</span> the thresholds <span class="math inline">\(k \times 0.05 / 10\)</span> rise from <span class="math inline">\(0.005\)</span> to <span class="math inline">\(0.05\)</span>:</p>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a>bh_ten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb17-2"><a aria-label="2"></a>  <span class="at">gene =</span> <span class="fu">names</span>(ten_genes),</span>
+<span id="cb17-3"><a aria-label="3"></a>  <span class="at">p_value =</span> ten_genes,</span>
+<span id="cb17-4"><a aria-label="4"></a>  <span class="at">row.names =</span> <span class="cn">NULL</span></span>
+<span id="cb17-5"><a aria-label="5"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb17-6"><a aria-label="6"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(p_value) <span class="sc">|&gt;</span></span>
+<span id="cb17-7"><a aria-label="7"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb17-8"><a aria-label="8"></a>    <span class="at">rank =</span> dplyr<span class="sc">::</span><span class="fu">row_number</span>(),</span>
+<span id="cb17-9"><a aria-label="9"></a>    <span class="at">threshold =</span> rank <span class="sc">*</span> alpha <span class="sc">/</span> <span class="fu">length</span>(ten_genes),</span>
+<span id="cb17-10"><a aria-label="10"></a>    <span class="at">passes =</span> p_value <span class="sc">&lt;=</span> threshold</span>
+<span id="cb17-11"><a aria-label="11"></a>  )</span>
+<span id="cb17-12"><a aria-label="12"></a>bh_ten <span class="sc">|&gt;</span></span>
+<span id="cb17-13"><a aria-label="13"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">p_value =</span> <span class="fu">fmt_p</span>(p_value)) <span class="sc">|&gt;</span></span>
+<span id="cb17-14"><a aria-label="14"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<table class="caption-top">
+<thead><tr class="header">
+<th style="text-align: left;">gene</th>
+<th style="text-align: left;">p_value</th>
+<th style="text-align: right;">rank</th>
+<th style="text-align: right;">threshold</th>
+<th style="text-align: left;">passes</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">gene_2</td>
+<td style="text-align: left;">3.78e-06</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_3</td>
+<td style="text-align: left;">0.000642</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.010</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_7</td>
+<td style="text-align: left;">0.078</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.015</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_9</td>
+<td style="text-align: left;">0.197</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.020</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_10</td>
+<td style="text-align: left;">0.28</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.025</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_5</td>
+<td style="text-align: left;">0.353</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.030</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_4</td>
+<td style="text-align: left;">0.711</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.035</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_6</td>
+<td style="text-align: left;">0.72</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.040</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_8</td>
+<td style="text-align: left;">0.773</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.045</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_1</td>
+<td style="text-align: left;">0.944</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.050</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The largest rank that passes is <span class="math inline">\(\hat k =\)</span> 2, so BH rejects the 2 genes with the smallest p-values. On all 2308 genes at <span class="math inline">\(q = 0.05\)</span>, BH rejects far more genes than the Bonferroni correction:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="fu">c</span>(</span>
+<span id="cb18-2"><a aria-label="2"></a>  <span class="at">unadjusted =</span> <span class="fu">sum</span>(khan_p <span class="sc">&lt;=</span> <span class="fl">0.05</span>),</span>
+<span id="cb18-3"><a aria-label="3"></a>  <span class="at">bonferroni =</span> <span class="fu">sum</span>(<span class="fu">bonferroni_reject</span>(khan_p, <span class="fl">0.05</span>)),</span>
+<span id="cb18-4"><a aria-label="4"></a>  <span class="at">holm =</span> <span class="fu">sum</span>(<span class="fu">holm_reject</span>(khan_p, <span class="fl">0.05</span>)),</span>
+<span id="cb18-5"><a aria-label="5"></a>  <span class="at">bh =</span> <span class="fu">sum</span>(<span class="fu">bh_reject</span>(khan_p, <span class="fl">0.05</span>))</span>
+<span id="cb18-6"><a aria-label="6"></a>)</span>
+<span id="cb18-7"><a aria-label="7"></a><span class="co">#&gt; unadjusted bonferroni       holm         bh </span></span>
+<span id="cb18-8"><a aria-label="8"></a><span class="co">#&gt;        528         62         62        250</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>A guarantee that <span class="math inline">\(\text{FDR} \le 0.05\)</span> is a statement about the average false discovery proportion over repeated data sets, not about this particular list of 250 genes.</p>
+</div>
+</section><section class="slide level2"><div id="thm-bh-fdr" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 5 (The BH procedure controls the FDR under independence)</strong></span> Suppose the <span class="math inline">\(m\)</span> p-values are independent and each true null hypothesis has a p-value that is uniform on <span class="math inline">\([0, 1]\)</span>. Then the <a href="#/def-bh">BH procedure</a> at level <span class="math inline">\(q\)</span> satisfies</p>
+<p><span class="math display">\[\text{FDR} = \frac{m_0}{m} q \le q.\]</span></p>
+</div>
+<div id="rem-source-bh-fdr" class="proof remark">
+<p><span class="proof-title"><em>Remark 7</em> (Source: The BH procedure controls the FDR under independence). </span>Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling"><a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>, which proves the result for any configuration of false null hypotheses. The proof is omitted here.</p>
+</div>
+</section><section class="slide level2"><div id="exm-bh-fdr" class="theorem example">
+<p><span class="theorem-title"><strong>Example 13 (FDR of the BH procedure in the simulated family)</strong></span> In the simulated family of <a href="#/exm-rejection-counts" class="quarto-xref">Example&nbsp;3</a> the p-values are independent and <span class="math inline">\(m_0 / m = 0.9\)</span>, so <a href="#/thm-bh-fdr" class="quarto-xref">Theorem&nbsp;5</a> gives <span class="math inline">\(\text{FDR} = 0.9 \times 0.05 =\)</span> 0.045 at <span class="math inline">\(q = 0.05\)</span>. Repeating the simulation 2000 times with BH:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">576</span>)</span>
+<span id="cb19-2"><a aria-label="2"></a>sim_counts<span class="sc">$</span>bh <span class="ot">&lt;-</span> <span class="fu">run_simulation</span>(<span class="cf">function</span>(p) <span class="fu">bh_reject</span>(p, <span class="fl">0.05</span>))</span>
+<span id="cb19-3"><a aria-label="3"></a><span class="fu">summarize_counts</span>(sim_counts<span class="sc">$</span>bh)</span>
+<span id="cb19-4"><a aria-label="4"></a><span class="co">#&gt;      FWER       FDR     power </span></span>
+<span id="cb19-5"><a aria-label="5"></a><span class="co">#&gt; 0.8840000 0.0448999 0.4954050</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The estimated FDR, 0.045, is close to the theoretical value 0.045. BH also finds 50% of the false null hypotheses, more than Holm’s procedure, and in exchange it makes at least one false positive in 88% of the repetitions.</p>
+</div>
+</section><section class="slide level2"><div id="rem-bh-dependence" class="proof remark">
+<p><span class="proof-title"><em>Remark 8</em> (BH under dependence). </span>Gene expression levels are usually correlated, and <a href="#/thm-bh-fdr" class="quarto-xref">Theorem&nbsp;5</a> assumes independence. <span class="citation" data-cites="benjamini2001control">Benjamini and Yekutieli <a href="#/references" role="doc-biblioref" onclick="">[13]</a></span> proved that BH still controls the FDR at level <span class="math inline">\(q\)</span> under a form of positive dependence among the p-values, and that the procedure run at level <span class="math inline">\(q / \sum_{k=1}^m (1/k)\)</span> controls it under any dependence. <span class="citation" data-cites="james2021islr2e">James et al. <a href="#/references" role="doc-biblioref" onclick="">[4, Ch. 13]</a></span> and <span class="citation" data-cites="efron2016computer">Efron and Hastie <a href="#/references" role="doc-biblioref" onclick="">[14, Ch. 15]</a></span> discuss the procedure in practice.</p>
+</div>
+</section><section id="sec-adjusted-p-values" class="slide level2" data-number="6"><h2>
+<span class="header-section-number">6</span> Adjusted p-values and q-values</h2>
+<!-- No slidebreak here: the heading shares its slide with the def-adjusted-p-value div. -->
+<div id="def-adjusted-p-value" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 13 (Adjusted p-value)</strong></span> For a multiple testing procedure that takes a level <span class="math inline">\(c\)</span> (<span class="math inline">\(\alpha\)</span> for an FWER procedure, <span class="math inline">\(q\)</span> for an FDR procedure), the <strong>adjusted p-value</strong> <span class="math inline">\(\tilde p_j\)</span> of <span class="math inline">\(H_j\)</span> is the smallest level at which the procedure rejects <span class="math inline">\(H_j\)</span>, or <span class="math inline">\(1\)</span> if there is none:</p>
+<p><span class="math display">\[\tilde p_j \stackrel{\text{def}}{=}\min \mathopen{}\left\{c \in [0, 1] : \text{the procedure at level } c \text{ rejects } H_j\right\}\mathclose{}.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="rem-adjusted-p-value-levels" class="proof remark">
+<p><span class="proof-title"><em>Remark 9</em> (Applying any level to adjusted p-values). </span>If the rejection set only grows as the level grows, as it does for the procedures on this page, the procedure at level <span class="math inline">\(c\)</span> rejects exactly the hypotheses with <span class="math inline">\(\tilde p_j \le c\)</span>, so a reader can apply any level to a list of adjusted p-values without redoing the procedure.</p>
+</div>
+</section><section class="slide level2"><div id="exm-adjusted-p-value" class="theorem example">
+<p><span class="theorem-title"><strong>Example 14 (Adjusted p-values for the Khan genes)</strong></span> For the Bonferroni correction, <span class="math inline">\(H_j\)</span> is rejected at level <span class="math inline">\(c\)</span> exactly when <span class="math inline">\(m p_j \le c\)</span>, so <span class="math inline">\(\tilde p_j = \min\mathopen{}\left\{1, m p_j\right\}\mathclose{}\)</span>. For Holm’s procedure and BH the adjusted p-values are</p>
+<p><span class="math display">\[
+\tilde p_{(i)}^{\text{Holm}} = \max_{k \le i} \min\mathopen{}\left\{1, (m - k + 1)\, p_{(k)}\right\}\mathclose{},
+\qquad
+\tilde p_{(i)}^{\text{BH}} = \min_{k \ge i} \min\mathopen{}\left\{1, \frac{m\, p_{(k)}}{k}\right\}\mathclose{}.
+\]</span></p>
+<p>R computes all three with <code><a href="https://rdrr.io/r/stats/p.adjust.html">p.adjust()</a></code>. For the first ten genes:</p>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb20-2"><a aria-label="2"></a>  <span class="at">gene =</span> <span class="fu">names</span>(ten_genes),</span>
+<span id="cb20-3"><a aria-label="3"></a>  <span class="at">p_value =</span> ten_genes,</span>
+<span id="cb20-4"><a aria-label="4"></a>  <span class="at">bonferroni =</span> <span class="fu">p.adjust</span>(ten_genes, <span class="at">method =</span> <span class="st">"bonferroni"</span>),</span>
+<span id="cb20-5"><a aria-label="5"></a>  <span class="at">holm =</span> <span class="fu">p.adjust</span>(ten_genes, <span class="at">method =</span> <span class="st">"holm"</span>),</span>
+<span id="cb20-6"><a aria-label="6"></a>  <span class="at">bh =</span> <span class="fu">p.adjust</span>(ten_genes, <span class="at">method =</span> <span class="st">"BH"</span>),</span>
+<span id="cb20-7"><a aria-label="7"></a>  <span class="at">row.names =</span> <span class="cn">NULL</span></span>
+<span id="cb20-8"><a aria-label="8"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb20-9"><a aria-label="9"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(p_value) <span class="sc">|&gt;</span></span>
+<span id="cb20-10"><a aria-label="10"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(dplyr<span class="sc">::</span><span class="fu">across</span>(p_value<span class="sc">:</span>bh, fmt_p)) <span class="sc">|&gt;</span></span>
+<span id="cb20-11"><a aria-label="11"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<table class="caption-top">
+<thead><tr class="header">
+<th style="text-align: left;">gene</th>
+<th style="text-align: left;">p_value</th>
+<th style="text-align: left;">bonferroni</th>
+<th style="text-align: left;">holm</th>
+<th style="text-align: left;">bh</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">gene_2</td>
+<td style="text-align: left;">3.78e-06</td>
+<td style="text-align: left;">3.78e-05</td>
+<td style="text-align: left;">3.78e-05</td>
+<td style="text-align: left;">3.78e-05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_3</td>
+<td style="text-align: left;">0.000642</td>
+<td style="text-align: left;">0.00642</td>
+<td style="text-align: left;">0.00578</td>
+<td style="text-align: left;">0.00321</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_7</td>
+<td style="text-align: left;">0.078</td>
+<td style="text-align: left;">0.78</td>
+<td style="text-align: left;">0.624</td>
+<td style="text-align: left;">0.26</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_9</td>
+<td style="text-align: left;">0.197</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0.493</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_10</td>
+<td style="text-align: left;">0.28</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0.56</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_5</td>
+<td style="text-align: left;">0.353</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0.589</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_4</td>
+<td style="text-align: left;">0.711</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0.859</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_6</td>
+<td style="text-align: left;">0.72</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0.859</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gene_8</td>
+<td style="text-align: left;">0.773</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0.859</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gene_1</td>
+<td style="text-align: left;">0.944</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0.944</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Rejecting the hypotheses whose adjusted p-value is at most the level reproduces the rejection sets of the functions defined above, on all 2308 genes:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a>levels_to_check <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>)</span>
+<span id="cb21-2"><a aria-label="2"></a><span class="fu">sapply</span>(levels_to_check, <span class="cf">function</span>(a) {</span>
+<span id="cb21-3"><a aria-label="3"></a>  <span class="fu">c</span>(</span>
+<span id="cb21-4"><a aria-label="4"></a>    <span class="at">bonferroni =</span> <span class="fu">all</span>(</span>
+<span id="cb21-5"><a aria-label="5"></a>      (<span class="fu">p.adjust</span>(khan_p, <span class="st">"bonferroni"</span>) <span class="sc">&lt;=</span> a) <span class="sc">==</span> <span class="fu">bonferroni_reject</span>(khan_p, a)</span>
+<span id="cb21-6"><a aria-label="6"></a>    ),</span>
+<span id="cb21-7"><a aria-label="7"></a>    <span class="at">holm =</span> <span class="fu">all</span>((<span class="fu">p.adjust</span>(khan_p, <span class="st">"holm"</span>) <span class="sc">&lt;=</span> a) <span class="sc">==</span> <span class="fu">holm_reject</span>(khan_p, a)),</span>
+<span id="cb21-8"><a aria-label="8"></a>    <span class="at">bh =</span> <span class="fu">all</span>((<span class="fu">p.adjust</span>(khan_p, <span class="st">"BH"</span>) <span class="sc">&lt;=</span> a) <span class="sc">==</span> <span class="fu">bh_reject</span>(khan_p, a))</span>
+<span id="cb21-9"><a aria-label="9"></a>  )</span>
+<span id="cb21-10"><a aria-label="10"></a>}) <span class="sc">|&gt;</span></span>
+<span id="cb21-11"><a aria-label="11"></a>  <span class="st">`</span><span class="at">colnames&lt;-</span><span class="st">`</span>(levels_to_check)</span>
+<span id="cb21-12"><a aria-label="12"></a><span class="co">#&gt;            0.01 0.05  0.1</span></span>
+<span id="cb21-13"><a aria-label="13"></a><span class="co">#&gt; bonferroni TRUE TRUE TRUE</span></span>
+<span id="cb21-14"><a aria-label="14"></a><span class="co">#&gt; holm       TRUE TRUE TRUE</span></span>
+<span id="cb21-15"><a aria-label="15"></a><span class="co">#&gt; bh         TRUE TRUE TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The check confirms that the formulas and functions agree on these data at these levels; it is not a proof that they agree for every data set.</p>
+</div>
+</section><section class="slide level2"><div id="rem-q-value" class="proof remark">
+<p><span class="proof-title"><em>Remark 10</em> (q-values). </span>The BH adjusted p-value of a hypothesis is the smallest FDR level <span class="math inline">\(q\)</span> at which BH rejects it. Some authors call this a <em>q-value</em>. <span class="citation" data-cites="storey2002direct">Storey <a href="#/references" role="doc-biblioref" onclick="">[15]</a></span> defines the q-value with the same meaning, but estimates the fraction <span class="math inline">\(m_0 / m\)</span> of true null hypotheses from the p-values and multiplies by the estimate, <span class="math inline">\(\hat\pi_0\)</span>, which is usually below 1. BH is the case <span class="math inline">\(\hat\pi_0 = 1\)</span>, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.</p>
+</div>
+</section><section id="sec-procedure-comparison" class="slide level2" data-number="7"><h2>
+<span class="header-section-number">7</span> Comparing the procedures</h2>
+<!-- No slidebreak here: the heading shares its slide with the exm-procedure-comparison div. -->
+<div id="exm-procedure-comparison" class="theorem example">
+<p><span class="theorem-title"><strong>Example 15 (Comparing the procedures in the simulated family)</strong></span> Each procedure was run on the same simulated family of <a href="#/exm-rejection-counts" class="quarto-xref">Example&nbsp;3</a> in 2000 repetitions. The table collects the estimated FWER, FDR and power:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>comparison <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">sapply</span>(sim_counts, summarize_counts))</span>
+<span id="cb22-2"><a aria-label="2"></a><span class="fu">rownames</span>(comparison) <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb22-3"><a aria-label="3"></a>  <span class="st">"Unadjusted"</span>, <span class="st">"Bonferroni"</span>, <span class="st">"Holm"</span>, <span class="st">"Benjamini-Hochberg"</span></span>
+<span id="cb22-4"><a aria-label="4"></a>)</span>
+<span id="cb22-5"><a aria-label="5"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(comparison, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead><tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">FWER</th>
+<th style="text-align: right;">FDR</th>
+<th style="text-align: right;">power</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Unadjusted</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">0.345</td>
+<td style="text-align: right;">0.851</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bonferroni</td>
+<td style="text-align: right;">0.043</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: right;">0.146</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Holm</td>
+<td style="text-align: right;">0.040</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: right;">0.146</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Benjamini-Hochberg</td>
+<td style="text-align: right;">0.884</td>
+<td style="text-align: right;">0.045</td>
+<td style="text-align: right;">0.495</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Unadjusted testing has the highest power and no error control. The two FWER procedures keep the FWER below 0.05 and give up most of the power; Holm’s procedure never rejects fewer hypotheses than the Bonferroni correction. In this simulation BH has the highest power among the procedures that control an error rate, because it only promises to control the FDR. Its FWER is far above 0.05, which BH does not promise to control.</p>
+</div>
+</section><section class="slide level2"><div id="rem-choosing-error-rate" class="proof remark">
+<p><span class="proof-title"><em>Remark 11</em> (Choosing an error rate). </span>Control the FWER when a single false positive is costly, as in a confirmatory trial that tests a handful of outcomes. Control the FDR when the rejections are leads to follow up, as in a screen of thousands of genes, where a small fraction of false leads is acceptable. The choice should be made before looking at the data.</p>
+</div>
+</section><section id="sec-multiple-testing-reading" class="slide level2" data-number="8"><h2>
+<span class="header-section-number">8</span> Further reading</h2>
+<ul>
+<li>Chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span> covers the same procedures, with labs.</li>
+<li>Chapter 15 of <span class="citation" data-cites="efron2016computer">Efron and Hastie <a href="#/references" role="doc-biblioref" onclick="">[14]</a></span> treats large-scale testing and the false discovery rate.</li>
+<li>Andrew Lin’s <a href="https://web.stanford.edu/~lindrew/stats300C.pdf">notes on Stanford STATS 300C</a> (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.</li>
+<li>Will Fithian’s <a href="https://www.stat.berkeley.edu/~wfithian/courses/stat212a/">Stat 212A, <em>Topics in Selective Inference</em></a> (UC Berkeley, Fall 2015) has a syllabus, references and homework with solutions on inference after selection, including multiple testing.</li>
+<li>The <a href="./permutation-tests.html">permutation tests</a> page computes valid p-values by relabeling the data, without a distributional model for the test statistic.</li>
+</ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-wikipedia_multiple_comparisons_problem" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Multiple comparisons problem — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Multiple_comparisons_problem">https://en.wikipedia.org/wiki/Multiple_comparisons_problem</a>
+</div>
+</div>
+<div id="ref-holm1979simple" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">S. Holm, <span>“A simple sequentially rejective multiple test procedure,”</span> <em>Scandinavian Journal of Statistics</em>, vol. 6, no. 2, pp. 65–70, 1979.</div>
+</div>
+<div id="ref-benjamini1995controlling" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">Y. Benjamini and Y. Hochberg, <span>“Controlling the false discovery rate: A practical and powerful approach to multiple testing,”</span> <em>Journal of the Royal Statistical Society: Series B (Methodological)</em>, vol. 57, no. 1, pp. 289–300, 1995, doi: <a href="https://doi.org/10.1111/j.2517-6161.1995.tb02031.x">10.1111/j.2517-6161.1995.tb02031.x</a>.</div>
+</div>
+<div id="ref-james2021islr2e" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">G. James, D. Witten, T. Hastie, and R. Tibshirani, <em>An introduction to statistical learning: With applications in <span>R</span></em>, 2nd ed. Springer, 2021. doi: <a href="https://doi.org/10.1007/978-1-0716-1418-1">10.1007/978-1-0716-1418-1</a>.</div>
+</div>
+<div id="ref-khan2001classification" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">J. Khan <em>et al.</em>, <span>“Classification and diagnostic prediction of cancers using gene expression profiling and artificial neural networks,”</span> <em>Nature Medicine</em>, vol. 7, no. 6, pp. 673–679, 2001, doi: <a href="https://doi.org/10.1038/89044">10.1038/89044</a>.</div>
+</div>
+<div id="ref-wikipedia_family_wise_error_rate" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Family-wise error rate — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Family-wise_error_rate">https://en.wikipedia.org/wiki/Family-wise_error_rate</a>
+</div>
+</div>
+<div id="ref-wikipedia_false_discovery_rate" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“False discovery rate — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/False_discovery_rate">https://en.wikipedia.org/wiki/False_discovery_rate</a>
+</div>
+</div>
+<div id="ref-wikipedia_bonferroni_correction" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Bonferroni correction — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Bonferroni_correction">https://en.wikipedia.org/wiki/Bonferroni_correction</a>
+</div>
+</div>
+<div id="ref-wikipedia_booles_inequality" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Boole’s inequality — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Boole%27s_inequality">https://en.wikipedia.org/wiki/Boole%27s_inequality</a>
+</div>
+</div>
+<div id="ref-wikipedia_holm_bonferroni_method" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Holm–bonferroni method — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Holm%E2%80%93Bonferroni_method">https://en.wikipedia.org/wiki/Holm%E2%80%93Bonferroni_method</a>
+</div>
+</div>
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div>
+<div class="csl-right-inline">G. Casella and R. Berger, <em>Statistical inference</em>, 2nd ed. Cengage Learning, 2002. Available: <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>
+</div>
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[12] </div>
+<div class="csl-right-inline">J. A. Rice, <em>Mathematical statistics and data analysis</em>, 3rd ed. Belmont, CA: Cengage Learning, 2007.</div>
+</div>
+<div id="ref-benjamini2001control" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[13] </div>
+<div class="csl-right-inline">Y. Benjamini and D. Yekutieli, <span>“The control of the false discovery rate in multiple testing under dependency,”</span> <em>The Annals of Statistics</em>, vol. 29, no. 4, 2001, doi: <a href="https://doi.org/10.1214/aos/1013699998">10.1214/aos/1013699998</a>.</div>
+</div>
+<div id="ref-efron2016computer" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[14] </div>
+<div class="csl-right-inline">B. Efron and T. Hastie, <em>Computer age statistical inference: Algorithms, evidence, and data science</em>. Cambridge University Press, 2016. doi: <a href="https://doi.org/10.1017/CBO9781316576533">10.1017/CBO9781316576533</a>.</div>
+</div>
+<div id="ref-storey2002direct" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[15] </div>
+<div class="csl-right-inline">J. D. Storey, <span>“A direct approach to false discovery rates,”</span> <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em>, vol. 64, no. 3, pp. 479–498, 2002, doi: <a href="https://doi.org/10.1111/1467-9868.00346">10.1111/1467-9868.00346</a>.</div>
+</div>
+</div>
+
+
+<script>
+const defaultAnchorIconFallback = "#";
+
+function getDefaultAnchorTemplate() {
+  const defaultAnchor = document.querySelector("a.anchorjs-link[data-anchorjs-icon]");
+  if (!defaultAnchor) {
+    return null;
+  }
+
+  return {
+    icon: defaultAnchor.getAttribute("data-anchorjs-icon"),
+    style: defaultAnchor.getAttribute("style")
+  };
+}
+
+function alignEquationAnchorWithDefault(anchor, template) {
+  if (!anchor) {
+    return;
+  }
+
+  anchor.classList.remove("external");
+
+  if (template && template.icon) {
+    anchor.setAttribute("data-anchorjs-icon", template.icon);
+    anchor.textContent = "";
+  } else if (!anchor.textContent) {
+    anchor.textContent = defaultAnchorIconFallback;
+  }
+
+  if (template && template.style) {
+    anchor.setAttribute("style", template.style);
+  } else {
+    anchor.removeAttribute("style");
+  }
+}
+
+function alignEquationAnchorsWithDefault() {
+  const template = getDefaultAnchorTemplate();
+  document.querySelectorAll("a.equation-anchor").forEach(function (anchor) {
+    alignEquationAnchorWithDefault(anchor, template);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const equations = document.querySelectorAll("span[id^='eq-']");
+  equations.forEach(function (equation) {
+    if (equation.querySelector(".equation-anchor")) {
+      return;
+    }
+
+    if (!equation.querySelector(".math.display")) {
+      return;
+    }
+
+    const id = equation.getAttribute("id");
+    if (!id) {
+      return;
+    }
+
+    equation.classList.add("equation-anchor-target");
+
+    const anchor = document.createElement("a");
+    anchor.className = "equation-anchor anchorjs-link";
+    anchor.href = "#" + id;
+    anchor.setAttribute("aria-label", "Permalink to this equation");
+    equation.appendChild(anchor);
+  });
+
+  alignEquationAnchorsWithDefault();
+});
+
+window.addEventListener("load", alignEquationAnchorsWithDefault);
+</script><script>
+(function () {
+  var css = [
+    "#revealjs-html-link {",
+    "  position: fixed;",
+    "  top: 8px;",
+    "  right: 8px;",
+    "  z-index: 31;",
+    "  font-size: 0.55em;",
+    "  line-height: 1;",
+    "}",
+    "#revealjs-html-link a {",
+    "  color: var(--qwt-muted, rgba(0, 0, 0, 0.5));",
+    "  text-decoration: none;",
+    "  border: 1px solid var(--qwt-border, rgba(0, 0, 0, 0.2));",
+    "  padding: 4px 8px;",
+    "  border-radius: 4px;",
+    "  background: var(--qwt-chip-bg, rgba(255, 255, 255, 0.8));",
+    "  transition: color 0.15s, background 0.15s, border-color 0.15s;",
+    "}",
+    "#revealjs-html-link a:hover {",
+    "  color: var(--qwt-fg, rgba(0, 0, 0, 0.9));",
+    "  background: var(--qwt-chip-bg-hover, rgba(255, 255, 255, 0.98));",
+    "  border-color: var(--qwt-fg, rgba(0, 0, 0, 0.4));",
+    "}"
+  ].join("\n");
+
+  function getHtmlBase() {
+    var url = window.location.href.split("#")[0];
+    return url.replace(/-slides\.html$/, ".html");
+  }
+
+  function getCurrentSectionId() {
+    if (typeof Reveal === "undefined" || !Reveal.getCurrentSlide) {
+      return null;
+    }
+    var slide = Reveal.getCurrentSlide();
+    if (!slide) {
+      return null;
+    }
+    // If the current slide itself has an id, use it
+    if (slide.id) {
+      return slide.id;
+    }
+    // Walk backwards through sibling sections to find the nearest one with an id
+    var sibling = slide.previousElementSibling;
+    while (sibling) {
+      if (sibling.tagName === "SECTION" && sibling.id) {
+        return sibling.id;
+      }
+      sibling = sibling.previousElementSibling;
+    }
+    // Fall back to the first section[id] inside the parent container
+    var parent = slide.parentElement;
+    if (parent && parent.tagName === "SECTION") {
+      var firstNamed = parent.querySelector("section[id]");
+      if (firstNamed) {
+        return firstNamed.id;
+      }
+    }
+    return null;
+  }
+
+  function updateHtmlLink() {
+    var anchor = document.getElementById("revealjs-html-anchor");
+    if (!anchor) {
+      return;
+    }
+    var sectionId = getCurrentSectionId();
+    anchor.href = getHtmlBase() + (sectionId ? "#" + sectionId : "");
+  }
+
+  function initRevealJsHtmlLink() {
+    var htmlBase = getHtmlBase();
+
+    // Don't add the link if the URL doesn't follow the -slides.html convention
+    if (htmlBase === window.location.href.split("#")[0]) {
+      return;
+    }
+
+    // Inject styles
+    var styleElement = document.createElement("style");
+    styleElement.textContent = css;
+    document.head.appendChild(styleElement);
+
+    // Create the link element and append it directly to body so it stays
+    // visible across all slides regardless of Reveal.js section visibility
+    var div = document.createElement("div");
+    div.id = "revealjs-html-link";
+    var anchor = document.createElement("a");
+    anchor.id = "revealjs-html-anchor";
+    anchor.href = htmlBase;
+    anchor.target = "_blank";
+    anchor.title = "View this section in the HTML notes";
+    anchor.setAttribute("aria-label", "View this section in the HTML notes");
+    anchor.innerHTML = "&#128196;&nbsp;Webpage version";
+    div.appendChild(anchor);
+    document.body.appendChild(div);
+
+    // Register Reveal.js slide-change listener to keep the link updated
+    if (typeof Reveal !== "undefined") {
+      Reveal.on("ready", updateHtmlLink);
+      Reveal.on("slidechanged", updateHtmlLink);
+    }
+
+    updateHtmlLink();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initRevealJsHtmlLink);
+  } else {
+    initRevealJsHtmlLink();
+  }
+})();
+</script></section>
+</div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="site_libs/revealjs/plugin/notes/notes.js"></script><script src="site_libs/revealjs/plugin/search/search.js"></script><script src="site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script><script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/morrison-lab\.github\.io\/sds\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
+
+
+</body></html>
