@@ -3,6 +3,6 @@
 
 The **training error rate** of a [fitted model](#def-fitted-model)
 is its [error rate](#def-error-rate) on the [training set](#def-training-set),
-which is the [training error](#def-training-mse) under 0-1 loss.
+which is the [training error](#def-training-mse) under 0-1 [loss](#def-observation-loss).
 
 :::
