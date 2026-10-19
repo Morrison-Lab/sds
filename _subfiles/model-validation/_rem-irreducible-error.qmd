@@ -6,7 +6,7 @@ so no choice of [prediction](prediction.qmd#def-prediction) can remove it.
 It is defined at the single [covariate](#def-covariate) value $\predvar$,
 so it may differ from one covariate value to another:
 it does not assume constant [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) across covariate values.
-For example, in @exr-epe-three-sources, $\varpar = 3$,
-so every prediction there has [expected squared prediction error](#def-epe) at least $3$.
+For example, in @exm-irreducible-error,
+every prediction has [expected squared prediction error](#def-epe) at least $\varpar$.
 
 :::

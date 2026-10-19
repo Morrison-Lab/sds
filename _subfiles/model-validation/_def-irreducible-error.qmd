@@ -12,5 +12,6 @@ $$
 \varpar \eqdef \Var{\noise}.
 $$ {#eq-irreducible-error}
 
-Source: @wikipedia_bias_variance_tradeoff.
+Source: @wikipedia_bias_variance_tradeoff;
+@james2021islr2e [Section 2.2.2].
 :::
