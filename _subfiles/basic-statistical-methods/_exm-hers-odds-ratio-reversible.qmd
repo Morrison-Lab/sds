@@ -1,0 +1,20 @@
+::: {#exm-hers-odds-ratio-reversible}
+
+#### Reversing the roles of treatment and exercise in HERS
+
+In @exm-hers-odds-ratio-cross-product, the odds ratio compares the odds of regular exercise between the hormone therapy and placebo groups.
+Reversing the roles compares the odds of hormone therapy between the women who exercise regularly and those who do not:
+
+```{r}
+#| label: hers-or-reversed
+#| code-fold: false
+counts <- table(HT = hers$HT, exercise = hers$exercise)
+odds_ht_exercise <- counts["hormone therapy", "yes"] / counts["placebo", "yes"]
+odds_ht_no_exercise <- counts["hormone therapy", "no"] / counts["placebo", "no"]
+or_reversed <- odds_ht_exercise / odds_ht_no_exercise
+or_reversed
+```
+
+The reversed odds ratio is `r round(or_reversed, 3)`.
+It equals the odds ratio `r round(or_hat, 3)` of @exm-hers-odds-ratio, as @thm-odds-ratio-reversible states.
+:::

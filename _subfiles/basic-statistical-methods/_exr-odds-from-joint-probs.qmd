@@ -1,0 +1,10 @@
+::: {#exr-odds-from-joint-probs}
+
+Let:
+
+- $X$ and $Y$ be [binary](data.qmd#def-binary-var) random variables, each with values $0$ and $1$.
+- $\Pf{X = x, Y = y} > 0$ for each $x, y \in \set{0, 1}$.
+
+Express the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of $Y = 1$ given $X = x$ in terms of the joint probabilities $\Pf{X = x, Y = 1}$ and $\Pf{X = x, Y = 0}$.
+
+:::

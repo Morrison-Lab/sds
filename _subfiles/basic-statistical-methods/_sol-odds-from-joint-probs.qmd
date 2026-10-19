@@ -1,0 +1,17 @@
+::: {#sol-odds-from-joint-probs}
+
+$$
+\begin{aligned}
+\odds
+&= \frac{\Pf{Y = 1 \mid X = x}}{1 - \Pf{Y = 1 \mid X = x}}
+&& \text{(definition of odds)}
+\\ &= \frac{\Pf{Y = 1 \mid X = x}}{\Pf{Y = 0 \mid X = x}}
+&& \text{(the two values of $Y$ have conditional probabilities that sum to 1)}
+\\ &= \frac{\Pf{X = x, Y = 1} / \Pf{X = x}}{\Pf{X = x, Y = 0} / \Pf{X = x}}
+&& \text{(definition of conditional probability, in numerator and denominator)}
+\\ &= \frac{\Pf{X = x, Y = 1}}{\Pf{X = x, Y = 0}}
+&& \text{(divide the numerator and the denominator by the same positive number $\Pf{X = x}$)}
+\end{aligned}
+$$
+
+:::

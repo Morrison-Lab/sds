@@ -1,0 +1,28 @@
+::: {#thm-odds-ratio-reversible}
+
+#### The odds ratio is reversible
+
+Let:
+
+- $X$ and $Y$ be [binary](data.qmd#def-binary-var) random variables, each with values $0$ and $1$.
+- $\Pf{X = x, Y = y} > 0$ for each $x, y \in \set{0, 1}$.
+
+The [odds ratio](#def-odds-ratio) of $Y = 1$ comparing $X = 1$ with $X = 0$ equals the odds ratio of $X = 1$ comparing $Y = 1$ with $Y = 0$:
+
+$$
+\orf{Y \mid X} = \orf{X \mid Y}.
+$$
+
+:::
+
+::: proof
+By @thm-odds-ratio-cross-product, with the roles of $X$ and $Y$ exchanged,
+
+$$
+\orf{X \mid Y} = \frac{\Pf{Y = 1, X = 1} \Pf{Y = 0, X = 0}}{\Pf{Y = 1, X = 0} \Pf{Y = 0, X = 1}}.
+$$
+
+The event $\set{Y = y, X = x}$ is the event $\set{X = x, Y = y}$, so each joint probability here equals the joint probability with its arguments in the other order.
+The denominator is a product of two joint probabilities, and multiplication is commutative.
+Reordering its two factors gives the denominator of @thm-odds-ratio-cross-product for $\orf{Y \mid X}$.
+:::
