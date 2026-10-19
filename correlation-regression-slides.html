@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-19 01:04:06 (PDT)</p>
+  <p class="date">Last modified: 2026-10-19 01:24:50 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -2104,8 +2104,140 @@ R^2 &amp;= r^2, &amp;
 <span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 14.2.2]</a>, pp.&nbsp;550–559</span> covers assessing the fit of a regression line.</li>
 </ul>
 </div>
-</section><section class="slide level2"><h3 data-number="3.5" id="further-reading">
-<span class="header-section-number">3.5</span> Further reading</h3>
+</section><section class="slide level2"><h3 data-number="3.5" id="sec-partial-f">
+<span class="header-section-number">3.5</span> Comparing nested regression models</h3>
+<div id="def-nested-regression-models" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 19 (Nested linear regression models)</strong></span> Let a <a href="#/def-linear-regression">linear regression model</a> have <span class="math inline">\(p\)</span> features and an <a href="#/def-slr-intercept">intercept</a>. A second linear regression model is <strong>nested</strong> in it if it uses the same outcome and the same observations and is the special case in which <span class="math inline">\(q\)</span> of the <span class="math inline">\(p\)</span> coefficients equal <span class="math inline">\(0\)</span>. The first model is the <em>larger</em> model, and the second is the <em>smaller</em> model; the smaller model has <span class="math inline">\(p - q\)</span> features.</p>
+<p>Source: <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1, Sec. 4.3]</a></span>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-hers-nested-models" class="theorem example">
+<p><span class="theorem-title"><strong>Example 11 (Nested models for fasting glucose in HERS)</strong></span> In the HERS data, take the linear regression of <code>glucose</code> on <code>BMI</code> as the smaller model. The <a href="#/def-nested-regression-models">larger model</a> adds <code>age</code> and <code>exercise</code>, so <span class="math inline">\(q = 2\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \text{smaller:}\quad \mu(\text{glucose})
+    &amp;= \beta_{0}+ \beta_{\text{BMI}} \cdot \text{BMI}, \\
+  \text{larger:}\quad \mu(\text{glucose})
+    &amp;= \beta_{0}+ \beta_{\text{BMI}} \cdot \text{BMI}
+      + \beta_{\text{age}} \cdot \text{age}
+      + \beta_{\text{exercise}} \cdot \text{exercise}.
+\end{aligned}
+\]</span></p>
+<p>Both models must be fitted to the same HERS participants, so keep the participants with all four variables measured:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>hers_nested <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a aria-label="2"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>(glucose, BMI, age, exercise)</span>
+<span id="cb14-3"><a aria-label="3"></a>fit_smaller <span class="ot">&lt;-</span> <span class="fu">lm</span>(glucose <span class="sc">~</span> BMI, <span class="at">data =</span> hers_nested)</span>
+<span id="cb14-4"><a aria-label="4"></a>fit_larger <span class="ot">&lt;-</span> <span class="fu">lm</span>(glucose <span class="sc">~</span> BMI <span class="sc">+</span> age <span class="sc">+</span> exercise, <span class="at">data =</span> hers_nested)</span>
+<span id="cb14-5"><a aria-label="5"></a><span class="fu">nrow</span>(hers_nested)</span>
+<span id="cb14-6"><a aria-label="6"></a><span class="co">#&gt; [1] 2758</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The smaller model sets <span class="math inline">\(\beta_{\text{age}} = \beta_{\text{exercise}} = 0\)</span> in the larger one.</p>
+</div>
+</section><section class="slide level2"><div id="def-partial-f-test" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 20 (Partial F-test)</strong></span> Let a smaller <a href="#/def-linear-regression">linear regression model</a> be <a href="#/def-nested-regression-models">nested</a> in a <a href="#/def-nested-regression-models">larger model</a> with <span class="math inline">\(p\)</span> features, so that they differ by <span class="math inline">\(q\)</span> coefficients, and let both be fitted by <a href="#/def-ols">ordinary least squares</a> to <span class="math inline">\(n\)</span> observations. Write <span class="math inline">\(\text{RSS}_0\)</span> and <span class="math inline">\(\text{RSS}_1\)</span> for the <a href="#/def-rss">residual sums of squares</a> of the smaller and the larger fit. The <strong>partial F-test</strong> of</p>
+<p><span class="math display">\[
+\begin{aligned}
+  H_0: \text{the } q \text{ coefficients are all } 0
+\end{aligned}
+\]</span></p>
+<p>uses the <a href="./sufficiency.html#def-statistic">statistic</a></p>
+<p><span class="math display">\[
+F \stackrel{\text{def}}{=}\frac{(\text{RSS}_0 - \text{RSS}_1) / q}{\text{RSS}_1 / (n - p - 1)}.
+\]</span></p>
+<p>Its <a href="./inference.html#def-p-value">p-value</a> is <span class="math inline">\(\Pr(F^* \ge F)\)</span>, where <span class="math inline">\(F^*\)</span> has the <span class="math inline">\(F_{q,\, n-p-1}\)</span> distribution (<a href="./inference.html#def-f-dist">F-distribution</a>).</p>
+<p>Source: <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1, Sec. 4.3]</a></span> and <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#/references" role="doc-biblioref" onclick="">[15, Sec. 6.3]</a></span>.</p>
+</div>
+</section><section class="slide level2"><div id="thm-partial-f-null" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 8 (Null distribution of the partial F statistic)</strong></span> Let the errors of the <a href="#/def-nested-regression-models">larger model</a> be <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> and Gaussian with mean <span class="math inline">\(0\)</span> and the same <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>. If <span class="math inline">\(H_0\)</span> of <a href="#/def-partial-f-test" class="quarto-xref">Definition&nbsp;20</a> holds, then <span class="math inline">\(F\)</span> has the <span class="math inline">\(F_{q,\, n-p-1}\)</span> distribution for every number of observations <span class="math inline">\(n &gt; p + 1\)</span>.</p>
+<p>Source: <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1, Sec. 4.3]</a></span>.</p>
+</div>
+</section><section class="slide level2"><div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Under <span class="math inline">\(H_0\)</span>, <span class="math inline">\((\text{RSS}_0 - \text{RSS}_1) / \sigma^2\)</span> has the <span class="math inline">\(\chi^2_q\)</span> distribution and <span class="math inline">\(\text{RSS}_1 / \sigma^2\)</span> has the <span class="math inline">\(\chi^2_{n-p-1}\)</span> distribution, where <span class="math inline">\(\sigma^2\)</span> is the error <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>. The two are <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a>, because <span class="math inline">\(\text{RSS}_1\)</span> is the squared length of the part of the <a href="./model-validation.html#def-outcome-vector">outcome vector</a> orthogonal to the <a href="#/def-nested-regression-models">larger model</a>’s <a href="./prediction.html#def-fitted-value">fitted values</a>, while <span class="math inline">\(\text{RSS}_0 - \text{RSS}_1\)</span> is the squared length of the part in the larger model but orthogonal to the smaller one. Dividing each by its degrees of freedom, <span class="math inline">\(\sigma^2\)</span> cancels from the quotient, which is therefore <span class="math inline">\(F_{q,\, n-p-1}\)</span> by <a href="./inference.html#def-f-dist">the definition of the F-distribution</a>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-hers-partial-f" class="theorem example">
+<p><span class="theorem-title"><strong>Example 12 (Partial F-test of age and exercise in HERS)</strong></span> For the models of <a href="#/exm-hers-nested-models" class="quarto-xref">Example&nbsp;11</a>, <code><a href="https://rdrr.io/r/stats/anova.html">anova()</a></code> gives the <a href="#/def-partial-f-test">partial F-test</a>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="fu">anova</span>(fit_smaller, fit_larger) <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a aria-label="2"></a>  parameters<span class="sc">::</span><span class="fu">parameters</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a aria-label="3"></a>  parameters<span class="sc">::</span><span class="fu">print_md</span>(<span class="at">digits =</span> <span class="dv">3</span>, <span class="at">footer =</span> <span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 3%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 6%">
+<col style="width: 6%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: center;">RSS</th>
+<th style="text-align: center;">Sum_Squares</th>
+<th style="text-align: center;">df</th>
+<th style="text-align: center;">df (error)</th>
+<th style="text-align: center;">Mean_Square</th>
+<th style="text-align: center;">F</th>
+<th style="text-align: center;">p</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Model 1: glucose ~ BMI</td>
+<td style="text-align: center;">3.470e+06</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">2756</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Model 2: glucose ~ BMI + age + exercise</td>
+<td style="text-align: center;">3.461e+06</td>
+<td style="text-align: center;">9188.413</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2754</td>
+<td style="text-align: center;">4594.207</td>
+<td style="text-align: center;">3.656</td>
+<td style="text-align: center;">0.026</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The definition gives the same <a href="./sufficiency.html#def-statistic">statistic</a>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>rss0 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">residuals</span>(fit_smaller)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb16-2"><a aria-label="2"></a>rss1 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">residuals</span>(fit_larger)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb16-3"><a aria-label="3"></a>n <span class="ot">&lt;-</span> <span class="fu">nobs</span>(fit_larger)</span>
+<span id="cb16-4"><a aria-label="4"></a>p <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">coef</span>(fit_larger)) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb16-5"><a aria-label="5"></a>q <span class="ot">&lt;-</span> p <span class="sc">-</span> (<span class="fu">length</span>(<span class="fu">coef</span>(fit_smaller)) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb16-6"><a aria-label="6"></a>f_stat <span class="ot">&lt;-</span> ((rss0 <span class="sc">-</span> rss1) <span class="sc">/</span> q) <span class="sc">/</span> (rss1 <span class="sc">/</span> (n <span class="sc">-</span> p <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb16-7"><a aria-label="7"></a><span class="fu">c</span>(</span>
+<span id="cb16-8"><a aria-label="8"></a>  <span class="at">f =</span> f_stat,</span>
+<span id="cb16-9"><a aria-label="9"></a>  <span class="at">p_value =</span> <span class="fu">pf</span>(f_stat, q, n <span class="sc">-</span> p <span class="sc">-</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-10"><a aria-label="10"></a>)</span>
+<span id="cb16-11"><a aria-label="11"></a><span class="co">#&gt;         f   p_value </span></span>
+<span id="cb16-12"><a aria-label="12"></a><span class="co">#&gt; 3.6558211 0.0259658</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>With <span class="math inline">\(q = 2\)</span> and <span class="math inline">\(n - p - 1 = 2754\)</span>, <span class="math inline">\(F = 3.66\)</span>, so the data reject <span class="math inline">\(H_0\)</span> at the 5% level.</p>
+</div>
+</section><section class="slide level2"><div id="rem-partial-f-lrt" class="proof remark">
+<p><span class="proof-title"><em>Remark 7</em> (The partial F-test and the likelihood ratio test). </span>Let the errors be Gaussian. The <a href="./intro-MLEs.html#def-mle">maximum likelihood estimate</a> of the error <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> of a model with <a href="#/def-rss">residual sum of squares</a> <span class="math inline">\(\text{RSS}\)</span> is <span class="math inline">\(\text{RSS} / n\)</span>, so its maximized <a href="./intro-MLEs.html#def-loglik">log-likelihood</a> is <span class="math inline">\(-\tfrac{n}{2} \log(2\pi\, \text{RSS} / n) - \tfrac{n}{2}\)</span>. The <a href="./intro-MLEs.html#def-lrt-stat">likelihood ratio statistic</a> of the <a href="./inference.html#def-null-hypothesis">null hypothesis</a> <span class="math inline">\(H_0\)</span> in the <a href="#/def-partial-f-test">partial F-test</a> is then</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \Lambda
+  &amp;= 2\mathopen{}\left(\ell(\hat\theta_{\text{ML}}) - \ell(\hat{\theta}_0)\right)\mathclose{} \\
+  &amp;= n \log \frac{\text{RSS}_0}{\text{RSS}_1} \\
+  &amp;= n \log\mathopen{}\left(1 + \frac{\text{RSS}_0 - \text{RSS}_1}{\text{RSS}_1}\right)\mathclose{}.
+\end{aligned}
+\]</span></p>
+<p>For large <span class="math inline">\(n\)</span> under <span class="math inline">\(H_0\)</span>, the quantity <span class="math inline">\((\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1\)</span> is near <span class="math inline">\(0\)</span>, so <span class="math inline">\(\log(1 + u) \approx u\)</span> gives <span class="math inline">\(\Lambda\approx n (\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1\)</span>. Also <span class="math inline">\(q F = (n - p - 1) (\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1\)</span>, which is close to the same value when <span class="math inline">\(n\)</span> is much larger than <span class="math inline">\(p\)</span>. Under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(\Lambda\)</span> and <span class="math inline">\(q F\)</span> therefore have approximately the <span class="math inline">\(\chi^2_q\)</span> distribution, but the F-test is exact for Gaussian errors at every <span class="math inline">\(n\)</span>, while the <a href="./intro-MLEs.html#def-lrt-stat">likelihood ratio test</a> holds only approximately.</p>
+</div>
+</section><section class="slide level2"><h3 data-number="3.6" id="further-reading">
+<span class="header-section-number">3.6</span> Further reading</h3>
 <p><a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html">Linear Models Overview</a> covers linear regression in depth, including inference for the coefficients and multiple predictors. <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span> cover linear regression in Chapter 4.</p>
 </section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
@@ -2175,6 +2307,10 @@ R^2 &amp;= r^2, &amp;
 <div class="csl-left-margin">[14] </div>
 <div class="csl-right-inline">Wikipedia contributors, <span>“Coefficient of determination — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">https://en.wikipedia.org/wiki/Coefficient_of_determination</a>
 </div>
+</div>
+<div id="ref-dobson4e" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[15] </div>
+<div class="csl-right-inline">A. J. Dobson and A. G. Barnett, <em>An introduction to generalized linear models</em>, 4th ed. CRC press, 2018. doi: <a href="https://doi.org/10.1201/9781315182780">10.1201/9781315182780</a>.</div>
 </div>
 </div>
 
