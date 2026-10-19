@@ -1,10 +1,13 @@
 :::{#thm-epe-split-noise}
 #### The pMSE of a prediction is the pMSE of the mean estimate plus the noise variance
 
-Let $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$.
-Let $\newpredvar = \predvar$.
-Let $\noise$ be the [noise](#def-noise) of $\newoutvar$.
-Let $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite.
+Let:
+
+- $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$,
+- $\noise$ be the [noise](#def-noise) of $\newoutvar$, and
+- $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite.
+
+Assume $\newpredvar = \predvar$.
 Then, given $\newpredvar = \predvar$,
 the [expected squared prediction error](#def-epe) (ESPE) of $\predvalf{\predvar}$
 is the sum of two terms.
