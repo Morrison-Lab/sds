@@ -10,6 +10,7 @@ format:
     output-file: model-validation-handout.docx
 resources:
   - data/birthwt.csv
+  - data/auto.csv
 ---
 
 {{< include sds/_subfiles/shared-config.qmd >}}
@@ -17,7 +18,7 @@ resources:
 ```{r}
 #| label: python-packages
 #| include: false
-reticulate::py_require(c("numpy", "pandas", "statsmodels"))
+reticulate::py_require(c("numpy", "pandas", "statsmodels", "matplotlib", "SyncRNG"))
 ```
 
 ## Data sets, input matrices and outcome vectors {#sec-data-sets}
@@ -279,6 +280,10 @@ reticulate::py_require(c("numpy", "pandas", "statsmodels"))
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-average-fit.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-average-fit-auto.qmd >}}
 
 {{< slidebreak >}}
 
