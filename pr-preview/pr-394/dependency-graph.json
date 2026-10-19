@@ -680,12 +680,39 @@
    "external": false
   },
   {
+   "id": "sds/categorical-tests#def-case",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "def-case",
+   "kind": "def",
+   "title": "Case",
+   "external": false
+  },
+  {
+   "id": "sds/categorical-tests#def-case-control-study",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "def-case-control-study",
+   "kind": "def",
+   "title": "Case-control study",
+   "external": false
+  },
+  {
    "id": "sds/categorical-tests#def-chi-square-test",
    "site": "sds",
    "page": "categorical-tests",
    "div": "def-chi-square-test",
    "kind": "def",
    "title": "Pearson's chi-square test of independence",
+   "external": false
+  },
+  {
+   "id": "sds/categorical-tests#def-control",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "def-control",
+   "kind": "def",
+   "title": "Control",
    "external": false
   },
   {
@@ -4152,6 +4179,22 @@
    "sds/estimation#def-SE"
   ],
   [
+   "sds/categorical-tests#def-case-control-study",
+   "sds/categorical-tests#def-case"
+  ],
+  [
+   "sds/categorical-tests#def-case-control-study",
+   "sds/categorical-tests#def-control"
+  ],
+  [
+   "sds/categorical-tests#def-case-control-study",
+   "sds/exploratory-descriptive#def-population"
+  ],
+  [
+   "sds/categorical-tests#def-case-control-study",
+   "sds/exploratory-descriptive#def-sample"
+  ],
+  [
    "sds/categorical-tests#def-chi-square-test",
    "sds/categorical-tests#def-expected-count"
   ],
@@ -4162,6 +4205,14 @@
   [
    "sds/categorical-tests#def-chi-square-test",
    "sds/sufficiency#def-statistic"
+  ],
+  [
+   "sds/categorical-tests#def-control",
+   "sds/categorical-tests#def-case"
+  ],
+  [
+   "sds/categorical-tests#def-control",
+   "sds/exploratory-descriptive#def-population"
   ],
   [
    "sds/categorical-tests#def-fishers-exact",
