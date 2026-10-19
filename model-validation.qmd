@@ -62,10 +62,6 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-optimization-algorithm.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include sds/_subfiles/model-validation/_exm-optimization-algorithm.qmd >}}
 
 {{< slidebreak >}}

@@ -16,7 +16,7 @@ A fitting procedure is specified by these inputs:
 
 - [model family](#def-model-family) $\modelfam$;
 - [objective function](#def-objective-function) $\objfn$;
-- [optimization algorithm](#def-optimization-algorithm) $\optalg$;
+- [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) $\optalg$;
 - [random seed](#def-random-seed) $\seed$;
 - [tuning parameters](#def-tuning-parameter) $\tuning$;
 - [preprocessing](#def-preprocessing) $\featmap$.
