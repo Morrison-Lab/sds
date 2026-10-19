@@ -1,0 +1,8 @@
+:::{#sol-epe-reducible-sources}
+
+A better method can reduce the squared [bias](#def-prediction-bias) and the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of $\predvalf{\predvar}$,
+because both depend on how $\fitproc$ is built.
+It cannot reduce $\varpar$,
+which is the variance of the [noise](#def-noise) $\noise$ in the new outcome.
+
+:::
