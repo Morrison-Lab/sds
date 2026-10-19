@@ -15,9 +15,9 @@ The variance is
 
 $$\var{\hparam} = \E{\hparam^2} - \sqf{\E{\hparam}}$$ {#eq-bias-sq-plus-var-exr}
 
-Let $\mean_{\hparam} = \E{\hparam}$.
-Then the variance is $\E{\hparam^2} - \sqf{\mean_{\hparam}}$,
-and the squared [bias](#def-bias) from @exr-sq-bias-expand is $\sqf{\mean_{\hparam}} - 2\mean_{\hparam}\param + \param^2$.
+Let the population mean of the estimator $\hparam$ be $\mean_{\hparam} = \E{\hparam}$.
+Then the variance of $\hparam$ is $\E{\hparam^2} - \sqf{\mean_{\hparam}}$,
+and the squared [bias](#def-bias) of $\hparam$ for the estimand $\param$ from @exr-sq-bias-expand is $\sqf{\mean_{\hparam}} - 2\mean_{\hparam}\param + \param^2$.
 Add them and simplify:
 
 $$

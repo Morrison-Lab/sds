@@ -70,9 +70,10 @@ $$
 $$
 
 For the second entry,
-write $\varpar$ as a single variable $v$, so that $\llik$ contains
+write the population variance $\varpar$ as a single variable $v$,
+so that the log-likelihood $\llik$ contains
 $-\frac{n}{2}\log v$ and $-\frac{1}{2}v^{-1} S$,
-where $S = \ssdev{\mean}$ does not depend on $\varpar$:
+where the sum of squared deviations $S = \ssdev{\mean}$ from the mean parameter $\mean$ does not depend on $\varpar$:
 
 $$
 \begin{aligned}
