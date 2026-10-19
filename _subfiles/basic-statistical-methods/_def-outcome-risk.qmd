@@ -2,9 +2,10 @@
 #### Risk of a binary outcome
 
 The **risk** of a [binary](data.qmd#def-binary-var) outcome in a group
-is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a member of the group has the outcome
-[@wikipedia_relative_risk].
+is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a member of the group has the outcome.
 
 The risk lies in $[0, 1]$, and its [maximum likelihood estimate](intro-MLEs.qmd#def-mle)
 is the proportion of the group's observations that have the outcome.
+
+Source: @wikipedia_relative_risk.
 :::
