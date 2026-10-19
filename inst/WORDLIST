@@ -381,3 +381,7 @@ sfac
 sfacf
 statf
 unbiasedness
+inputdim
+llikf
+nparams
+vparam

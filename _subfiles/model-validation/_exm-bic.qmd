@@ -1,0 +1,33 @@
+<!--
+This fragment uses mtcars_fits from _exm-adjusted-r-squared.qmd,
+so it renders after that one.
+-->
+:::{#exm-bic}
+#### BIC of nested `mtcars` models
+
+This example computes @def-bic for the four models of @exm-adjusted-r-squared,
+with $\nparams$ counted as in @exm-aic.
+
+```{r}
+#| label: bic-mtcars
+mtcars_bic <- vapply(
+  mtcars_fits,
+  \(f) {
+    -2 * as.numeric(logLik(f)) +
+      (length(coef(f)) + 1) * log(nrow(mtcars))
+  },
+  numeric(1)
+)
+tibble::tibble(
+  predictors = 1:4,
+  bic = mtcars_bic,
+  r_bic = vapply(mtcars_fits, BIC, numeric(1))
+)
+```
+
+The `bic` column matches the `r_bic` column that `BIC()` returns: `r isTRUE(all.equal(mtcars_bic, vapply(mtcars_fits, BIC, numeric(1))))`.
+The model with `r which.min(mtcars_bic)` predictors has the smallest BIC.
+With $\nobs =$ `r nrow(mtcars)`, each parameter costs $\logf{\nobs} =$ `r round(log(nrow(mtcars)), 2)` in BIC against 2 in AIC,
+so BIC penalizes each added parameter more heavily than AIC does.
+
+:::

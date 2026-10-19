@@ -1,0 +1,17 @@
+:::{#def-aic}
+#### Akaike information criterion (AIC)
+
+Let a model with $\nparams$ [estimated](estimation.qmd#def-estimate) parameters be fitted by [maximum likelihood](intro-MLEs.qmd#def-mle) to $\nobs$ observations,
+and let $\llikf{\est{\vparam}}$ be the [log-likelihood](intro-MLEs.qmd#def-loglik) at the [maximum likelihood estimate](intro-MLEs.qmd#def-mle) $\est{\vparam}$.
+The **Akaike information criterion** of the model is
+
+$$
+\text{AIC} \eqdef -2 \llikf{\est{\vparam}} + 2 \nparams.
+$$
+
+It is minus twice the maximized log-likelihood, plus two for each estimated parameter.
+For a Gaussian model, $\nparams$ includes the [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+A smaller AIC is better.
+
+Source: @akaike1974new.
+:::
