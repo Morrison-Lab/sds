@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 11:47:34 (PDT)
+Last modified: 2026-10-19 14:17:09 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -333,7 +333,7 @@ Last modified: 2026-10-19 11:47:34 (PDT)
 >     "held_out": empirical_risk(birthwt[is_held_out]),
 > }
 > empirical_risks
-> #> {'training': np.float64(488364.99564830225), 'held_out': np.float64(503648.7535191132)}
+> #> {'training': np.float64(488364.9956483022), 'held_out': np.float64(503648.75351911323)}
 > ```
 >
 > Of the 189 babies, 126 are in the [training set](#def-training-set). The [fitted model](#def-fitted-model) has an [empirical risk](#def-empirical-risk) of 488,365 squared grams on the training set and 503,649 squared grams on the [held-out set](#def-held-out-set). Its square root, 699 grams, is the typical [prediction error](prediction.llms.md#def-prediction-error) on the training set.
@@ -1912,10 +1912,10 @@ Last modified: 2026-10-19 11:47:34 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    7.10543e-15    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
@@ -2068,7 +2068,156 @@ Last modified: 2026-10-19 11:47:34 (PDT)
 >
 > The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization pRMSE of [Example 27](#exm-train-test-error-simulated) for each: 0.335 for degree 8 and 0.315 for degree 3.
 
-## 9 Cross-validating the whole procedure
+## 9 Criteria that adjust the training error
+
+> **NOTE:**
+>
+> **Definition 67 (Adjusted coefficient of determination)** Let a regression model with \\p\\ predictors and a constant term be fitted to \\n\\ observations, with \\n\> p+ 1\\. The **adjusted coefficient of determination** of the [fitted model](#def-fitted-model) is
+>
+> \\ R^2\_{\text{adj}} \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) / (n- p- 1)}{\text{TSS} / (n- 1)}, \\
+>
+> one minus the [residual sum of squares](correlation-regression.llms.md#def-rss) per degree of freedom, divided by the [total sum of squares](correlation-regression.llms.md#def-tss) per degree of freedom. A larger value is better.
+>
+> Source: James et al. [\[5, Sec. 6.1.3\]](#ref-james2021islr2e).
+
+> **NOTE:**
+>
+> **Example 38 (Adjusted coefficient of determination of nested `mtcars` models)** The `mtcars` [data set](#def-data-set) has the fuel economy `mpg` of 32 cars from the 1974 *Motor Trend* magazine. This example fits four [nested](correlation-regression.llms.md#def-nested-regression-models) linear models of `mpg`, each adding one predictor to the one before, and computes [Definition 67](#def-adjusted-r-squared) from its formula.
+>
+> Show R code
+>
+> ``` downlit
+> mtcars_formulas <- list(
+>   mpg ~ wt,
+>   mpg ~ wt + hp,
+>   mpg ~ wt + hp + qsec,
+>   mpg ~ wt + hp + qsec + drat
+> )
+> mtcars_fits <- lapply(mtcars_formulas, lm, data = mtcars)
+> mtcars_full_sigma2 <- summary(mtcars_fits[[4]])$sigma^2
+>
+> mtcars_tss <- sum((mtcars$mpg - mean(mtcars$mpg))^2)
+> mtcars_criteria <- tibble::tibble(
+>   predictors = 1:4,
+>   r_squared = vapply(mtcars_fits, \(f) summary(f)$r.squared, numeric(1)),
+>   adj_r_squared = vapply(
+>     mtcars_fits,
+>     \(f) {
+>       df <- nrow(mtcars) - length(coef(f))
+>       1 - (sum(resid(f)^2) / df) / (mtcars_tss / (nrow(mtcars) - 1))
+>     },
+>     numeric(1)
+>   )
+> )
+> mtcars_criteria
+> ```
+>
+> The [coefficient of determination](correlation-regression.llms.md#def-r-squared) \\R^2\\ never falls as a predictor is added, and here it rises from 0.753 to 0.845. The [adjusted coefficient of determination](#def-adjusted-r-squared) rises more slowly, from 0.745 to 0.822, because each added predictor costs a degree of freedom. It is largest for the model with 4 predictors. Its formula matches the `adj.r.squared` that [`summary()`](https://rdrr.io/r/base/summary.html) reports: TRUE.
+
+> **NOTE:**
+>
+> **Definition 68 (Mallows’ \\C_p\\)** Let a least squares regression model with \\p\\ predictors be fitted to \\n\\ observations, and let \\\hat{\sigma^2}\\ be an [estimate](estimation.llms.md#def-estimate) of the [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\\sigma^2\\, usually the [residual](prediction.llms.md#def-residual) variance of the model with all the predictors under consideration. **Mallows’ \\C_p\\** of the [fitted model](#def-fitted-model) is
+>
+> \\ C_p \stackrel{\text{def}}{=}\frac{1}{n} \mathopen{}\left(\text{RSS}(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) + 2 p\hat{\sigma^2}\right)\mathclose{}, \\
+>
+> the average of the [residual sum of squares](correlation-regression.llms.md#def-rss) plus a penalty of \\2 \hat{\sigma^2}\\ for each predictor. A smaller value is better.
+>
+> Source: Mallows [\[15\]](#ref-mallows1973some). This scaling is that of James et al. [\[5, Sec. 6.1.3\]](#ref-james2021islr2e).
+
+> **NOTE:**
+>
+> **Example 39 (Mallows’ \\C_p\\ of nested `mtcars` models)** This example computes [Definition 68](#def-mallows-cp) for the four models of [Example 38](#exm-adjusted-r-squared). The [estimate](estimation.llms.md#def-estimate) \\\hat{\sigma^2}\\ of the [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) is the [residual](prediction.llms.md#def-residual) variance of the model with all four predictors, 6.45.
+>
+> Show R code
+>
+> ``` downlit
+> mtcars_cp <- vapply(
+>   seq_along(mtcars_fits),
+>   \(k) {
+>     rss <- sum(resid(mtcars_fits[[k]])^2)
+>     (rss + 2 * k * mtcars_full_sigma2) / nrow(mtcars)
+>   },
+>   numeric(1)
+> )
+> tibble::tibble(predictors = 1:4, cp = mtcars_cp)
+> ```
+>
+> The model with 2 predictors has the smallest \\C_p\\.
+
+> **NOTE:**
+>
+> **Definition 69 (Akaike information criterion (AIC))** Let a model with \\p^{\*}\\ [estimated](estimation.llms.md#def-estimate) parameters be fitted by [maximum likelihood](intro-MLEs.llms.md#def-mle) to \\n\\ observations, and let \\{\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\\ be the [log-likelihood](intro-MLEs.llms.md#def-loglik) at the [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) \\\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\. The **Akaike information criterion** of the model is
+>
+> \\ \text{AIC} \stackrel{\text{def}}{=}-2 {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2 p^{\*}. \\
+>
+> It is minus twice the maximized log-likelihood, plus two for each estimated parameter. For a Gaussian model, \\p^{\*}\\ includes the [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance). A smaller AIC is better.
+>
+> Source: Akaike [\[16\]](#ref-akaike1974new).
+
+> **NOTE:**
+>
+> **Example 40 (AIC of nested `mtcars` models)** This example computes [Definition 69](#def-aic) for the four models of [Example 38](#exm-adjusted-r-squared), each fitted by [maximum likelihood](intro-MLEs.llms.md#def-mle) with Gaussian [noise](#def-noise). The number of [estimated](estimation.llms.md#def-estimate) parameters is the number of coefficients plus one for the noise [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+>
+> Show R code
+>
+> ``` downlit
+> mtcars_aic <- vapply(
+>   mtcars_fits,
+>   \(f) -2 * as.numeric(logLik(f)) + 2 * (length(coef(f)) + 1),
+>   numeric(1)
+> )
+> tibble::tibble(
+>   predictors = 1:4,
+>   aic = mtcars_aic,
+>   r_aic = vapply(mtcars_fits, AIC, numeric(1))
+> )
+> ```
+>
+> The `aic` column matches the `r_aic` column that [`AIC()`](https://rdrr.io/r/stats/AIC.html) returns: TRUE. The model with 2 predictors has the smallest AIC.
+
+> **NOTE:**
+>
+> **Definition 70 (Bayesian information criterion (BIC))** Let a model with \\p^{\*}\\ [estimated](estimation.llms.md#def-estimate) parameters be fitted by [maximum likelihood](intro-MLEs.llms.md#def-mle) to \\n\\ observations, and let \\{\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\\ be the [log-likelihood](intro-MLEs.llms.md#def-loglik) at the [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) \\\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\. The **Bayesian information criterion** of the model is
+>
+> \\ \text{BIC} \stackrel{\text{def}}{=}-2 {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + p^{\*}{\operatorname{log}\mathopen{}\left\\n\right\\\mathclose{}}. \\
+>
+> It is minus twice the maximized log-likelihood, plus \\{\operatorname{log}\mathopen{}\left\\n\right\\\mathclose{}}\\ for each estimated parameter. A smaller BIC is better.
+>
+> Source: Schwarz [\[17\]](#ref-schwarz1978estimating).
+
+> **NOTE:**
+>
+> **Example 41 (BIC of nested `mtcars` models)** This example computes [Definition 70](#def-bic) for the four models of [Example 38](#exm-adjusted-r-squared), with \\p^{\*}\\ counted as in [Example 40](#exm-aic).
+>
+> Show R code
+>
+> ``` downlit
+> mtcars_bic <- vapply(
+>   mtcars_fits,
+>   \(f) {
+>     -2 * as.numeric(logLik(f)) +
+>       (length(coef(f)) + 1) * log(nrow(mtcars))
+>   },
+>   numeric(1)
+> )
+> tibble::tibble(
+>   predictors = 1:4,
+>   bic = mtcars_bic,
+>   r_bic = vapply(mtcars_fits, BIC, numeric(1))
+> )
+> ```
+>
+> The `bic` column matches the `r_bic` column that [`BIC()`](https://rdrr.io/r/stats/AIC.html) returns: TRUE. The model with 2 predictors has the smallest BIC. With \\n=\\ 32, each parameter costs \\{\operatorname{log}\mathopen{}\left\\n\right\\\mathclose{}} =\\ 3.47 in BIC against 2 in AIC, so BIC penalizes each added parameter more heavily than AIC does.
+
+> **NOTE:**
+>
+> *Remark 40* (Criteria that adjust the training error). [Definition 67](#def-adjusted-r-squared), [Definition 68](#def-mallows-cp), [Definition 69](#def-aic) and [Definition 70](#def-bic) each correct a fit measure computed on the [training set](#def-training-set) for the number of parameters. They need no [held-out set](#def-held-out-set), so they cost one fit per model, where [cross-validation](#def-kfold) costs several.
+>
+> For a least squares model with Gaussian [noise](#def-noise) of known [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), \\-2 {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\\ equals \\\text{RSS}(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) / \sigma^2\\ plus a constant that does not depend on the model. AIC then equals \\nC_p / \sigma^2\\ plus a constant, so the two criteria rank models the same way.
+>
+> Each criterion assumes a [model family](#def-model-family) whose parameter count measures its [flexibility](#def-flexibility). When the [estimate](estimation.llms.md#def-estimate) of the noise variance comes from the [fitted model](#def-fitted-model) itself, it can reach zero, and the criteria then fail. Cross-validation makes no such assumption.
+
+## 10 Cross-validating the whole procedure
 
 > **NOTE:**
 >
@@ -2159,7 +2308,7 @@ Last modified: 2026-10-19 11:47:34 (PDT)
 
 > **NOTE:**
 >
-> *Remark 40* (Cross-validate the whole procedure). Every step that uses the outcome is part of fitting, and must be repeated inside each fold using only that fold’s training observations [\[3, Sec. 7.10.2\]](#ref-hastie2009elements). Such steps include:
+> *Remark 41* (Cross-validate the whole procedure). Every step that uses the outcome is part of fitting, and must be repeated inside each fold using only that fold’s training observations [\[3, Sec. 7.10.2\]](#ref-hastie2009elements). Such steps include:
 >
 > - screening or selecting predictors, as in [Exercise 14](#exr-cv-screening);
 > - choosing transformations or a polynomial degree;
@@ -2167,7 +2316,7 @@ Last modified: 2026-10-19 11:47:34 (PDT)
 >
 > Hastie et al. [\[3, Sec. 7.10.2\]](#ref-hastie2009elements) note that steps using only the predictors, such as dropping predictors with almost no variation, can be done once on all the data before the folds are formed. Repeating such a step inside each fold is never wrong, though, and it scores each held-out fold the way new data would be scored. Examples are estimating the mean and standard deviation used for [standardization](exploratory-descriptive.llms.md#def-standardization), and the values used to fill in missing predictor values, when they are computed without the outcome.
 
-## 10 Further reading
+## 11 Further reading
 
 Sanchez [\[13\]](#ref-sanchez2020matrix4sl) reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.
 
@@ -2228,5 +2377,17 @@ G. Sanchez, “A matrix algebra companion for statistical learning (matrix4sl).�
 \[14\]
 
 Wikipedia contributors, “Leverage (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Leverage_%28statistics%29>
+
+\[15\]
+
+C. L. Mallows, “Some comments on \\C_p\\,” *Technometrics*, vol. 15, no. 4, pp. 661–675, 1973, doi: [10.1080/00401706.1973.10489103](https://doi.org/10.1080/00401706.1973.10489103).
+
+\[16\]
+
+H. Akaike, “A new look at the statistical model identification,” *IEEE Transactions on Automatic Control*, vol. 19, no. 6, pp. 716–723, 1974, doi: [10.1109/TAC.1974.1100705](https://doi.org/10.1109/TAC.1974.1100705).
+
+\[17\]
+
+G. Schwarz, “Estimating the dimension of a model,” *The Annals of Statistics*, vol. 6, no. 2, pp. 461–464, 1978, doi: [10.1214/aos/1176344136](https://doi.org/10.1214/aos/1176344136).
 
 Back to top

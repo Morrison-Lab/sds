@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 11:47:34 (PDT)
+Last modified: 2026-10-19 14:17:09 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -193,7 +193,7 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
-> **Definition 4 (Risk of a binary outcome)** The **risk** of a [binary](data.llms.md#def-binary-var) outcome in a group is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a member of the group has the outcome.
+> **Definition 4 (Risk of a binary outcome (also called the incidence proportion or cumulative incidence))** The **risk** of a [binary](data.llms.md#def-binary-var) outcome in a group is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a member of the group has the outcome. When the outcome is an event, the risk is for a specified time period. The risk is also called the **incidence proportion** or **cumulative incidence**.
 >
 > The risk lies in \\\[0, 1\]\\, and its [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) is the proportion of the group’s observations that have the outcome.
 >
@@ -287,12 +287,12 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
-> **Definition 7 (Risk ratio (also called the relative risk))** Let:
+> **Definition 7 (Risk ratio (also called the relative risk, relative risk ratio or probability ratio))** Let:
 >
 > - \\\pi_1\\ be the [risk](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
 > - \\\pi_2 \> 0\\ be the risk of the same outcome in the [reference group](#def-reference-group), group 2.
 >
-> The **risk ratio**, also called the **relative risk**, of group 1 compared with group 2 is
+> The **risk ratio**, also called the **relative risk**, **relative risk ratio** or **probability ratio**, of group 1 compared with group 2 is
 >
 > \\\text{ϙ}\_{\pi}\stackrel{\text{def}}{=}\frac{\pi_1}{\pi_2} \in \[0, \infty).\\
 >
@@ -309,6 +309,10 @@ Tests of independence say whether two binary variables are associated, but not h
 > ```
 >
 > The estimated [risk](#def-outcome-risk) of regular exercise in the hormone therapy group is 1.017 times the estimated risk in the placebo group. This [estimate](estimation.llms.md#def-estimate) is close to 1, which agrees with the large [p-value](inference.llms.md#def-p-value) of [Example 3](#exm-hers-chisq): the two groups have about the same estimated risk. The estimate alone does not show how precise it is.
+
+> **NOTE:**
+>
+> *Remark 4* (The risk ratio is not the rate ratio). Some texts call the [risk ratio](#def-risk-ratio) the rate ratio. The rate ratio is a different quantity: the quotient of two event rates, as in count regression.
 
 > **NOTE:**
 >
