@@ -94,10 +94,6 @@ reticulate::py_require(c("numpy", "pandas", "statsmodels"))
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_exm-tuning-parameter.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include sds/_subfiles/model-validation/_def-fitted-model.qmd >}}
 
 {{< slidebreak >}}
@@ -203,6 +199,10 @@ reticulate::py_require(c("numpy", "pandas", "statsmodels"))
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-overfitting.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-tuning-parameter.qmd >}}
 
 ## Generalization error {#sec-generalization-error}
 
