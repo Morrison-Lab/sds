@@ -9,7 +9,7 @@ so it is a [statistic](#def-statistic) and an estimator.
 
 ::: proof
 
-Take a [discrete](data.qmd#def-discrete-var) [sample](exploratory-descriptive.qmd#def-sample), and choose a value $t$ that the statistic $\statf{\vX}$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability).
+Take a [discrete](data.qmd#def-discrete-var) [sample](exploratory-descriptive.qmd#def-sample), and choose a value $t$ that the [statistic](#def-statistic) $\statf{\vX}$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability).
 Write $\hparam = \hparam\paren{\vX}$.
 
 $$
