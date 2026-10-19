@@ -1,0 +1,10 @@
+:::{#exr-epe-reducible-sources}
+#### Which sources of error a better method can reduce
+
+Make the assumptions of @exr-epe-three-sources.
+Which of the three quantities
+(the squared [bias](#def-prediction-bias), the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of $\predvalf{\predvar}$, and the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar$ of the [noise](#def-noise))
+can a better [prediction](prediction.qmd#def-prediction) method reduce,
+and which cannot?
+
+:::
