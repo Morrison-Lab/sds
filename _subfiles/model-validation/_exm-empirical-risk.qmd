@@ -1,0 +1,67 @@
+:::{#exm-empirical-risk}
+#### Empirical risk of a birth-weight model under squared error
+
+The `birthwt` data record the birth weight in grams of babies born at Baystate Medical Center in Springfield, Massachusetts [@hosmer1989applied],
+as distributed in R's `MASS` package [@venables2002modern].
+We fit a [linear regression](basic-statistical-methods.qmd#def-linear-regression) of birth weight on the mother's weight at her last menstrual period and her smoking status.
+We use every third row as the [held-out set](#def-held-out-set) and fit on the remaining rows, the [training set](#def-training-set).
+The [loss](#def-observation-loss) is the squared error, so the empirical risk is the mean of the squared prediction errors.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: empirical-risk-r
+#| code-fold: false
+birthwt <- read.csv("data/birthwt.csv")
+is_held_out <- seq_len(nrow(birthwt)) %% 3 == 0
+
+fit_bwt <- lm(bwt ~ lwt + smoke, data = birthwt[!is_held_out, ])
+
+empirical_risk <- function(data) {
+  mean((data$bwt - predict(fit_bwt, newdata = data))^2)
+}
+
+empirical_risks <- c(
+  training = empirical_risk(birthwt[!is_held_out, ]),
+  held_out = empirical_risk(birthwt[is_held_out, ])
+)
+empirical_risks
+```
+
+##### Python
+
+```{python}
+#| label: empirical-risk-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+import statsmodels.formula.api as smf
+
+birthwt = pd.read_csv("data/birthwt.csv")
+is_held_out = (np.arange(1, len(birthwt) + 1) % 3 == 0)
+
+fit_bwt = smf.ols("bwt ~ lwt + smoke", data=birthwt[~is_held_out]).fit()
+
+
+def empirical_risk(data):
+    return ((data["bwt"] - fit_bwt.predict(data)) ** 2).mean()
+
+
+empirical_risks = {
+    "training": empirical_risk(birthwt[~is_held_out]),
+    "held_out": empirical_risk(birthwt[is_held_out]),
+}
+empirical_risks
+```
+
+:::
+
+Of the `r nrow(birthwt)` babies, `r sum(!is_held_out)` are in the [training set](#def-training-set).
+The [fitted model](#def-fitted-model) has an [empirical risk](#def-empirical-risk) of
+`r format(round(empirical_risks[["training"]]), big.mark = ",")` squared grams on the training set
+and `r format(round(empirical_risks[["held_out"]]), big.mark = ",")` squared grams on the held-out set.
+Its square root, `r round(sqrt(empirical_risks[["training"]]))` grams, is the typical size of a training prediction error.
+
+:::
