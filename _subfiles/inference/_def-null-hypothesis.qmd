@@ -3,7 +3,7 @@
 
 The **null hypothesis**, written $H_0$,
 is a specific claim about the parameters of a statistical model,
-which a hypothesis test assesses against the data [@wikipedia_statistical_hypothesis_test].
+which a hypothesis test assesses against the data.
 
 Source: @wikipedia_statistical_hypothesis_test.
 :::

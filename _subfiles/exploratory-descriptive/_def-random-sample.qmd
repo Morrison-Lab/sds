@@ -4,7 +4,7 @@
 A sample (@def-sample) is a **random sample** when the units are chosen by a chance mechanism
 such that the observations are
 [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid)
-draws from the population distribution (@def-population-distribution) [@wikipedia_simple_random_sample]:
+draws from the population distribution (@def-population-distribution):
 
 $$X_1, \ldots, X_n \iid\ \P,$$
 

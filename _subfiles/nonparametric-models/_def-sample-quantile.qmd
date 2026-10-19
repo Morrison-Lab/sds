@@ -4,7 +4,7 @@
 Given an [empirical CDF](#def-empirical-cdf) $\hat F$,
 the **sample quantile function**
 (also called the **empirical quantile function**)
-is [@wikipedia_quantile]
+is
 
 $$\hat Q(p) \eqdef \inf\cb{t : \hat F(t) \ge p}, \quad 0 < p \le 1.$$
 

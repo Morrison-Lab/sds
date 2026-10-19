@@ -5,7 +5,7 @@ The **generalization error** of a [prediction rule](#def-prediction-rule) $\fitt
 fitted to a [training set](#def-training-set) $\trainset$
 is its expected [loss](#def-observation-loss) $\obsloss{*}$
 on a [new observation](#def-new-observation) $(\newpredvar, \newoutvar)$,
-with $\trainset$ held fixed [@wikipedia_generalization_error]:
+with $\trainset$ held fixed:
 
 $$
 \generr_{\trainset} \eqdef \E{\obsloss{*} \mid \trainset}.
