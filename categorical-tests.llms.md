@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 14:31:55 (PDT)
+Last modified: 2026-10-19 14:45:09 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -464,6 +464,41 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
+> **Definition 9 (Case)** In a study that selects its participants by whether they have an outcome of interest, a **case** is a participant who has the outcome [\[10, Ch. 8\]](#ref-me4).
+
+> **NOTE:**
+>
+> **Definition 10 (Control)** In a study that selects its participants by whether they have an outcome of interest, a **control** is a participant who does not have the outcome, sampled from the same [population](exploratory-descriptive.llms.md#def-population) as the [cases](#def-case) [\[10, Ch. 8\]](#ref-me4).
+
+> **NOTE:**
+>
+> **Definition 11 (Case-control study)** A **case-control study** is an observational study that selects its participants by outcome: it includes the [cases](#def-case) of a [population](exploratory-descriptive.llms.md#def-population) and a [sample](exploratory-descriptive.llms.md#def-sample) of [controls](#def-control) from the same population, and then compares the exposure of the two groups [\[10, Ch. 8\]](#ref-me4).
+
+> **NOTE:**
+>
+> **Example 14 (A case-control study of regular exercise in HERS)** Take the women who exercise regularly as the [cases](#def-case). Draw as many [controls](#def-control) as there are cases, at random, from the women who do not exercise regularly. Then compare the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of hormone therapy between the cases and the controls:
+>
+> ``` downlit
+> set.seed(571)
+> cases <- hers[hers$exercise == "yes", ]
+> non_cases <- hers[hers$exercise == "no", ]
+> controls <- non_cases[sample(nrow(non_cases), nrow(cases)), ]
+> odds_ht <- function(d) {
+>   sum(d$HT == "hormone therapy") / sum(d$HT == "placebo")
+> }
+> or_case_control <- odds_ht(cases) / odds_ht(controls)
+> or_case_control
+> #> [1] 1.03816
+> ```
+>
+> The study has 1068 cases and 1068 controls. Its [odds ratio](#def-odds-ratio) is 1.038, near the odds ratio 1.028 of [Example 11](#exm-hers-odds-ratio) from the whole cohort. The two are close because the odds ratio is reversible ([Theorem 5](#thm-odds-ratio-reversible)): sampling by outcome does not change it, although it would change the [risks](#def-outcome-risk).
+
+> **NOTE:**
+>
+> *Remark 5* (Controls in experiments). The word “control” has a second meaning. In an experiment, the investigator assigns the exposure. The **controls** are the participants who receive the baseline treatment for comparison, such as a placebo [\[10, Ch. 6\]](#ref-me4). These controls are chosen by assignment, not by outcome. They are not the [controls](#def-control) of a [case-control study](#def-case-control-study).
+
+> **NOTE:**
+>
 > Rice [\[5, Sec. 13.6\]](#ref-rice2007mathematical), pp. 526–529 covers odds ratios.
 
 ## References
@@ -503,5 +538,9 @@ Wikipedia contributors, “Absolute risk reduction — Wikipedia, the free encyc
 \[9\]
 
 Wikipedia contributors, “Odds ratio — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Odds_ratio>
+
+\[10\]
+
+K. J. Rothman, T. L. Lash, T. J. VanderWeele, and S. Haneuse, *Modern epidemiology*, 4th ed. Philadelphia: Wolters Kluwer, 2021.
 
 Back to top
