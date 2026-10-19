@@ -4,7 +4,7 @@
 The **$\nfolds$-fold cross-validation estimate** $\cvest{\nfolds}$
 is the [sMSE](prediction.qmd#def-prediction-mse)
 of the predictions that each observation $\iobs \in \obsidx$ of the training set receives
-from the [fold-out rule](#def-fold-out-rule) of its
+from the [fold-out fitted model](#def-fold-out-fitted-model) of its
 [fold assignment](#def-fold-assignment) $\foldof{\iobs}$
 in [$\nfolds$-fold cross-validation](#def-kfold):
 

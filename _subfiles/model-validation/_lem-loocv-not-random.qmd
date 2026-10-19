@@ -11,7 +11,7 @@ is the same for every [fold assignment](#def-fold-assignment) $\foldof{i}$.
 
 ::: proof
 This is the solution to @exr-loocv, part 3, worked in @sol-loocv.
-It uses @eq-cv-estimate and @eq-fold-out-rule.
+It uses @eq-cv-estimate and @eq-fold-out-fitted-model.
 
 Each step below changes one thing.
 
@@ -24,9 +24,9 @@ Each step below changes one thing.
    (Fold $\foldof{i}$ holds one index, and that index is $i$.)
 3. Let $\fitproc$ be the [fitting procedure](#def-fitting-procedure),
    the rule that maps a [training set](#def-training-set) to a [fitted model](#def-fitted-model).
-   The [fold-out rule](#def-fold-out-rule) of observation $i$ is then
+   The [fold-out fitted model](#def-fold-out-fitted-model) of observation $i$ is then
    $\fittedwo{\foldof{i}}{x} = \fitmodvalf{\paren{(x_{i'}, y_{i'})}_{i' \in I \setminus \set{i}}}{x}$.
-   (@eq-fold-out-rule with $\fold{\foldof{i}} = \set{i}$.)
+   (@eq-fold-out-fitted-model with $\fold{\foldof{i}} = \set{i}$.)
 4. This rule is fitted to every observation except observation $i$,
    and it does not involve $\foldof{i}$ itself.
    (Step 3 depends on $i$ and $\fitproc$ only.)
