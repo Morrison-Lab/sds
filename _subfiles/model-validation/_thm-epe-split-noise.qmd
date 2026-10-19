@@ -9,7 +9,7 @@ Let:
 
 Assume:
 
-- the new [covariate](#def-covariate) value $\newpredvar$ equals the covariate value $\predvar$ of the prediction and
+- the new [covariate](#def-covariate) value $\newpredvar$ equals the covariate value $\predvar$ of the [prediction](prediction.qmd#def-prediction) and
 - the population variance $\varpar$ is finite.
 
 Then, given $\newpredvar = \predvar$,

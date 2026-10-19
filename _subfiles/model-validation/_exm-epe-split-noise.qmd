@@ -3,7 +3,7 @@
 
 Take a population whose mean function is known:
 $\Outvar \mid \Predvar = \predvar \sim \ndist{\sin(2 \pi \predvar), \varpar}$ with $\sdpar = 0.3$.
-Let the covariate value be $\predvar = 0.25$, where the mean function value is $\truemeanf{\predvar} = 1$,
+Let the [covariate](#def-covariate) value be $\predvar = 0.25$, where the mean function value is $\truemeanf{\predvar} = 1$,
 and fit a cubic polynomial by least squares to $\nobs = 30$ observations.
 We draw $5{,}000$ training sets,
 each with its own new outcome at $\predvar$,

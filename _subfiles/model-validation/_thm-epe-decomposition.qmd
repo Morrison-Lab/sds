@@ -9,7 +9,7 @@ Let:
 
 Assume:
 
-- the new [covariate](#def-covariate) value $\newpredvar$ equals the covariate value $\predvar$ of the prediction,
+- the new [covariate](#def-covariate) value $\newpredvar$ equals the covariate value $\predvar$ of the [prediction](prediction.qmd#def-prediction),
 - the population variance $\varpar$ is finite, and
 - the expected squared prediction $\E{\sqf{\predval}}$ is finite.
 
