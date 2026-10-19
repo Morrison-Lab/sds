@@ -5,7 +5,7 @@ Let two independent groups have sample sizes $n_1, n_2 \ge 2$,
 sample means $\bar{x}_1$ and $\bar{x}_2$,
 and sample variances $s_1^2$ and $s_2^2$.
 **Welch's two-sample t-test** of $H_0: \mean_1 = \mean_2$
-against $H_1: \mean_1 \neq \mean_2$ uses the statistic [@wikipedia_welchs_t_test]
+against $H_1: \mean_1 \neq \mean_2$ uses the [statistic](sufficiency.qmd#def-statistic)
 
 $$t \eqdef \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}}$$
 

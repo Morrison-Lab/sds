@@ -106,7 +106,7 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-prediction-rule.qmd >}}
+{{< include sds/_subfiles/model-validation/_rem-prediction-rule.qmd >}}
 
 {{< slidebreak >}}
 

@@ -5,7 +5,7 @@ The **sample mean squared error (sMSE)** of predictions,
 also called their **mean squared error**,
 $\dsn{\fitted}$
 of observed outcomes $\dsn{y}$
-is the mean of their squared [prediction errors](#def-prediction-error) [@wikipedia_mean_squared_prediction_error]:
+is the mean of their squared [prediction errors](#def-prediction-error):
 
 $$\sMSE{\fitted} \eqdef \avgin \prederr_\iobs^2.$$
 
