@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 14:27:47 (PDT)
+Last modified: 2026-10-18 17:07:37 (PDT)
 
 ## 1 Scientific models
 
@@ -238,7 +238,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > \\\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)\mathclose{}}^2 \tag{2}\\
 >
-> Let \\\mu\_{\hat{\theta}} = \operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\. Then the variance is \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^2\\, and the squared bias from [Exercise 2](#exr-sq-bias-expand) is \\{\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^2 - 2\mu\_{\hat{\theta}}\theta+ \theta^2\\. Add them and simplify:
+> Let \\\mu\_{\hat{\theta}} = \operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\. Then the variance is \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^2\\, and the squared [bias](#def-bias) from [Exercise 2](#exr-sq-bias-expand) is \\{\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^2 - 2\mu\_{\hat{\theta}}\theta+ \theta^2\\. Add them and simplify:
 >
 > \\ \begin{aligned} {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^2 - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(substitute the squared bias)}\\ &= {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^2 - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^2 && \text{(substitute the variance)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^2 - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^2 && \text{(reorder the terms)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + \mathopen{}\left({\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^2 - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^2\right)\mathclose{} && \text{(group the last two terms)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + 0 && \text{(\$a - a = 0\$)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 && \text{(\$a + 0 = a\$)} \end{aligned} \tag{3}\\
 
