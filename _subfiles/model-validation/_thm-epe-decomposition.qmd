@@ -9,9 +9,9 @@ Let:
 
 Assume:
 
-- $\newpredvar = \predvar$,
-- $\varpar < \infty$, and
-- $\E{\sqf{\predval}} < \infty$.
+- the new [covariate](#def-covariate) value $\newpredvar$ equals the covariate value $\predvar$ of the prediction,
+- the population variance $\varpar$ is finite, and
+- the expected squared prediction $\E{\sqf{\predval}}$ is finite.
 
 Then the [expected prediction error at $\predvar$](#def-epe)
 is the squared [bias](#def-prediction-bias)

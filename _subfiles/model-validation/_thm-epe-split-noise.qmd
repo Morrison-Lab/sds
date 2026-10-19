@@ -9,8 +9,8 @@ Let:
 
 Assume:
 
-- $\newpredvar = \predvar$ and
-- $\varpar < \infty$.
+- the new [covariate](#def-covariate) value $\newpredvar$ equals the covariate value $\predvar$ of the prediction and
+- the population variance $\varpar$ is finite.
 
 Then, given $\newpredvar = \predvar$,
 the [expected squared prediction error](#def-epe) (ESPE) of $\predvalf{\predvar}$
