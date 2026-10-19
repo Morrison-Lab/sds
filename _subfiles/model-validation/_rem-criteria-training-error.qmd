@@ -8,7 +8,7 @@ For a least squares model with Gaussian [noise](#def-noise) of known [variance](
 AIC then equals $\nobs C_p / \varpar$ plus a constant, so the two criteria rank models the same way.
 
 Each criterion assumes a [model family](#def-model-family) whose parameter count measures its [flexibility](#def-flexibility).
-When the noise variance is [estimated](estimation.qmd#def-estimate) from the [fitted model](#def-fitted-model) itself, the estimate can reach zero, and the criteria then fail.
+When the [estimate](estimation.qmd#def-estimate) of the noise variance comes from the [fitted model](#def-fitted-model) itself, it can reach zero, and the criteria then fail.
 Cross-validation makes no such assumption.
 
 :::
