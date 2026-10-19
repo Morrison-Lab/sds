@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:34:54 (PDT)
+Last modified: 2026-10-19 01:01:02 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead [\[1\]](#ref-wikipedia_resampling_statistics). If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
@@ -37,7 +37,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 1 (Exchangeable random variables)** For a permutation \\\pi\\ of \\\mathopen{}\left\\1, \ldots, n\right\\\mathclose{}\\ and a vector \\y = (y_1, \ldots, y_n)\\, write \\y\_\pi \stackrel{\text{def}}{=}(y\_{\pi(1)}, \ldots, y\_{\pi(n)})\\ for the vector with its entries reordered by \\\pi\\. Random variables \\Y_1, \ldots, Y_n\\ are **exchangeable** if reordering them does not change their joint distribution [\[5\]](#ref-wikipedia_exchangeable_random_variables): for every permutation \\\pi\\ and every set \\A\\ of vectors,
+> **Definition 1 (Exchangeable random variables)** For a permutation \\\pi\\ of \\\mathopen{}\left\\1, \ldots, n\right\\\mathclose{}\\ and a vector \\y = (y_1, \ldots, y_n)\\, write \\y\_\pi \stackrel{\text{def}}{=}(y\_{\pi(1)}, \ldots, y\_{\pi(n)})\\ for the vector with its entries reordered by \\\pi\\. Random variables \\Y_1, \ldots, Y_n\\ are **exchangeable** if reordering them does not change their joint distribution: for every permutation \\\pi\\ and every set \\A\\ of vectors,
 >
 > \\\Pr(Y\_\pi \in A) = \Pr(Y \in A).\\
 >

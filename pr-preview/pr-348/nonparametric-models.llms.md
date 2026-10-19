@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:34:54 (PDT)
+Last modified: 2026-10-19 01:01:02 (PDT)
 
 ## 1 Empirical distribution
 
@@ -30,7 +30,7 @@ Last modified: 2026-10-19 00:34:54 (PDT)
 
 > **NOTE:**
 >
-> **Definition 2 (Empirical CDF)** For observed values \\x_1, \ldots, x_n\\, the **empirical cumulative distribution function** (**empirical CDF**) is the [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) of the [empirical distribution](#def-empirical-distribution), the function [\[4\]](#ref-wikipedia_empirical_distribution_function)
+> **Definition 2 (Empirical CDF)** For observed values \\x_1, \ldots, x_n\\, the **empirical cumulative distribution function** (**empirical CDF**) is the [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) of the [empirical distribution](#def-empirical-distribution), the [function](https://morrison-lab.github.io/mds/functions.html#def-function)
 >
 > \\\mathop{\hat{\operatorname{F}}}\nolimits\mathopen{}\left(t\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{j=1}^nI(x_j \le t), \quad t \in \mathbb{R},\\
 >
@@ -54,7 +54,7 @@ Last modified: 2026-10-19 00:34:54 (PDT)
 
 > **NOTE:**
 >
-> **Definition 3 (Order statistics)** For observed values \\x_1, \ldots, x_n\\, the **order statistics** are the same values sorted in increasing order, written [\[6\]](#ref-wikipedia_order_statistic)
+> **Definition 3 (Order statistics)** For observed values \\x_1, \ldots, x_n\\, the **order statistics** are the same values sorted in increasing order, written
 >
 > \\x\_{(1)} \le x\_{(2)} \le \cdots \le x\_{(n)}.\\
 >
@@ -75,7 +75,7 @@ Last modified: 2026-10-19 00:34:54 (PDT)
 
 > **NOTE:**
 >
-> **Definition 4 (Sample quantile function (empirical quantile function))** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is [\[9\]](#ref-wikipedia_quantile)
+> **Definition 4 (Sample quantile function (empirical quantile function))** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is
 >
 > \\\hat Q(p) \stackrel{\text{def}}{=}\inf\mathopen{}\left\\t : \hat F(t) \ge p\right\\\mathclose{}, \quad 0 \< p \le 1.\\
 >
@@ -93,7 +93,7 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 
 > **NOTE:**
 >
-> *Proof*. Fix \\p\\ with \\(i-1)/n \< p \le i/n\\.
+> *Proof*. Let \\p\\ satisfy \\(i-1)/n \< p \le i/n\\.
 >
 > For any \\t \< x\_{(i)}\\, the \\n - i + 1\\ values \\x\_{(i)}, \ldots, x\_{(n)}\\ all exceed \\t\\, so at most \\i - 1\\ values are at most \\t\\, and:
 >

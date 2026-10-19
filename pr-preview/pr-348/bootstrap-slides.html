@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-19 00:34:54 (PDT)</p>
+  <p class="date">Last modified: 2026-10-19 01:01:02 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -390,7 +390,7 @@ text-align: center;
 <span class="header-section-number">2.2</span> The bootstrap procedure</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-bootstrap-sample div. -->
 <div id="def-bootstrap-sample" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Bootstrap sample)</strong></span> A <strong>bootstrap sample</strong> from observed data <span class="math inline">\(x_1, \ldots, x_n\)</span> is a sample of size <span class="math inline">\(n\)</span> drawn with replacement from <span class="math inline">\(\mathopen{}\left\{x_1, \ldots, x_n\right\}\mathclose{}\)</span>, each draw choosing each of the <span class="math inline">\(n\)</span> observations with probability <span class="math inline">\(1/n\)</span> <span class="citation" data-cites="wikipedia_resampling_statistics"><a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
+<p><span class="theorem-title"><strong>Definition 1 (Bootstrap sample)</strong></span> A <strong>bootstrap sample</strong> from observed data <span class="math inline">\(x_1, \ldots, x_n\)</span> is a sample of size <span class="math inline">\(n\)</span> drawn with replacement from <span class="math inline">\(\mathopen{}\left\{x_1, \ldots, x_n\right\}\mathclose{}\)</span>, each draw choosing each of the <span class="math inline">\(n\)</span> observations with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/n\)</span>.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_resampling_statistics">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-bootstrap-sample-repeats" class="proof remark">
@@ -416,14 +416,14 @@ text-align: center;
 <p>Each bootstrap sample has five values, but some original values appear more than once and others do not appear at all.</p>
 </div>
 </section><section class="slide level2"><div id="def-bootstrap-distribution" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Bootstrap distribution)</strong></span> Let <span class="math inline">\(\hat{\theta}\)</span> be a statistic computed from the observed data. Draw <span class="math inline">\(B\)</span> independent <a href="#/def-bootstrap-sample">bootstrap samples</a>, and compute the statistic on each one, giving <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span>. The <strong>bootstrap distribution</strong> of <span class="math inline">\(\hat{\theta}\)</span> is the empirical distribution of <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span> <span class="citation" data-cites="wikipedia_bootstrapping_statistics"><a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>.</p>
+<p><span class="theorem-title"><strong>Definition 2 (Bootstrap distribution)</strong></span> Let <span class="math inline">\(\hat{\theta}\)</span> be a statistic computed from the observed data. Draw <span class="math inline">\(B\)</span> independent <a href="#/def-bootstrap-sample">bootstrap samples</a>, and compute the statistic on each one, giving <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span>. The <strong>bootstrap distribution</strong> of <span class="math inline">\(\hat{\theta}\)</span> is the <a href="./nonparametric-models.html#def-empirical-distribution">empirical distribution</a> of <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span>.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_bootstrapping_statistics">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-bootstrap-distribution-role" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em> (What the bootstrap distribution estimates). </span>The bootstrap distribution estimates the <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> of <span class="math inline">\(\hat{\theta}\)</span>. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.</p>
 </div>
 </section><section class="slide level2"><div id="def-bootstrap-se" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Bootstrap standard error)</strong></span> The <strong>bootstrap standard error</strong> of a statistic <span class="math inline">\(\hat{\theta}\)</span>, written <span class="math inline">\(\widehat{\text{SE}}_\text{boot}\)</span>, is the sample standard deviation of the bootstrap replicates <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span> (<a href="#/def-bootstrap-distribution" class="quarto-xref">Definition&nbsp;2</a>) <span class="citation" data-cites="wikipedia_standard_error"><a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>. It estimates the <a href="./estimation.html#def-SE">standard error</a> of <span class="math inline">\(\hat{\theta}\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 3 (Bootstrap standard error)</strong></span> The <strong>bootstrap standard error</strong> of a statistic <span class="math inline">\(\hat{\theta}\)</span>, written <span class="math inline">\(\widehat{\text{SE}}_\text{boot}\)</span>, is the sample standard deviation of the bootstrap replicates <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span> (<a href="#/def-bootstrap-distribution" class="quarto-xref">Definition&nbsp;2</a>). It estimates the <a href="./estimation.html#def-SE">standard error</a> of <span class="math inline">\(\hat{\theta}\)</span>.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_standard_error">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-bootstrap-distribution-toy" class="theorem example">
@@ -501,7 +501,7 @@ Figure&nbsp;1: Bootstrap distribution of the sample mean fasting glucose of the 
 </section><section class="slide level2"><h4 id="sec-bootstrap-percentile">Percentile method</h4>
 <!-- No slidebreak here: the heading shares its slide with the def-bootstrap-ci-percentile div. -->
 <div id="def-bootstrap-ci-percentile" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Percentile bootstrap confidence interval)</strong></span> The <strong>percentile bootstrap confidence interval</strong> runs from the <span class="math inline">\(\alpha/2\)</span> quantile to the <span class="math inline">\(1 - \alpha/2\)</span> quantile of the bootstrap replicates <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span> (<a href="#/def-bootstrap-distribution" class="quarto-xref">Definition&nbsp;2</a>) <span class="citation" data-cites="wikipedia_confidence_interval"><a href="#/references" role="doc-biblioref" onclick="">[10]</a></span>.</p>
+<p><span class="theorem-title"><strong>Definition 5 (Percentile bootstrap confidence interval)</strong></span> The <strong>percentile bootstrap confidence interval</strong> runs from the <span class="math inline">\(\alpha/2\)</span> quantile to the <span class="math inline">\(1 - \alpha/2\)</span> quantile of the bootstrap replicates <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span> (<a href="#/def-bootstrap-distribution" class="quarto-xref">Definition&nbsp;2</a>).</p>
 <p>Source: <span class="citation" data-cites="wikipedia_confidence_interval">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-bootstrap-replicates" class="proof remark">

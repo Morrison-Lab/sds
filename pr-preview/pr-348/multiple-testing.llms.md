@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:34:54 (PDT)
+Last modified: 2026-10-19 01:01:02 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests [\[1\]](#ref-wikipedia_multiple_comparisons_problem).
 
@@ -210,7 +210,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 2 (Family-wise error rate)** For a family of tests with \\V\\ false positives ([Definition 1](#def-rejection-counts)), the **family-wise error rate** (FWER) is the probability of at least one false positive [\[6\]](#ref-wikipedia_family_wise_error_rate):
+> **Definition 2 (Family-wise error rate)** For a family of tests with \\V\\ false positives ([Definition 1](#def-rejection-counts)), the **family-wise error rate** (FWER) is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of at least one false positive:
 >
 > \\\text{FWER} \stackrel{\text{def}}{=}\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}.\\
 >
@@ -254,7 +254,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 5 (False discovery rate)** The **false discovery rate** (FDR) is the expected value of the [false discovery proportion](#def-fdp) [\[7\]](#ref-wikipedia_false_discovery_rate):
+> **Definition 5 (False discovery rate)** The **false discovery rate** (FDR) is the expected value of the [false discovery proportion](#def-fdp):
 >
 > \\ \text{FDR} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\text{FDP}\right\]\mathclose{}. \\
 >
@@ -389,7 +389,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Solution 2*. Fix an outcome and consider two cases.
+> *Solution 2*. Take an outcome and consider two cases.
 >
 > - If none of \\A_1, \ldots, A_k\\ occurs, then the union does not occur, so the left side is \\0\\ and the right side is \\0 + \cdots + 0 = 0\\. The inequality holds with equality.
 > - If at least one \\A_j\\ occurs, then the union occurs, so the left side is \\1\\. The right side is a sum of \\k\\ terms, each \\0\\ or \\1\\, and at least one of them is \\1\\, so the right side is at least \\1\\. The inequality holds.
@@ -406,7 +406,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Theorem 2 (Union bound)** For any events \\A_1, \ldots, A_k\\, the probability of their union is at most the sum of their probabilities [\[9\]](#ref-wikipedia_booles_inequality):
+> **Theorem 2 (Union bound)** For any events \\A_1, \ldots, A_k\\, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of their union is at most the sum of their probabilities:
 >
 > \\\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{} \le \Pr(A_1) + \cdots + \Pr(A_k).\\
 >
@@ -484,7 +484,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 10 (Holm’s step-down procedure)** Given the cutoff rank \\k^\*\\ of [Definition 9](#def-holm-cutoff), **Holm’s procedure** rejects \\H\_{(1)}, \ldots, H\_{(k^\* - 1)}\\ and no others [\[10\]](#ref-wikipedia_holm_bonferroni_method).
+> **Definition 10 (Holm’s step-down procedure)** Given the cutoff rank \\k^\*\\ of [Definition 9](#def-holm-cutoff), **Holm’s procedure** rejects \\H\_{(1)}, \ldots, H\_{(k^\* - 1)}\\ and no others.
 >
 > Source: Holm [\[2\]](#ref-holm1979simple); Wikipedia contributors [\[10\]](#ref-wikipedia_holm_bonferroni_method).
 

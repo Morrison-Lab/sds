@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:34:54 (PDT)
+Last modified: 2026-10-19 01:01:02 (PDT)
 
 This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Section 3.6.
 
@@ -31,7 +31,7 @@ The bootstrap [\[2\]](#ref-efron1979bootstrap), [\[3\]](#ref-efron1993introducti
 
 > **NOTE:**
 >
-> **Definition 1 (Bootstrap sample)** A **bootstrap sample** from observed data \\x_1, \ldots, x_n\\ is a sample of size \\n\\ drawn with replacement from \\\mathopen{}\left\\x_1, \ldots, x_n\right\\\mathclose{}\\, each draw choosing each of the \\n\\ observations with probability \\1/n\\ [\[4\]](#ref-wikipedia_resampling_statistics).
+> **Definition 1 (Bootstrap sample)** A **bootstrap sample** from observed data \\x_1, \ldots, x_n\\ is a sample of size \\n\\ drawn with replacement from \\\mathopen{}\left\\x_1, \ldots, x_n\right\\\mathclose{}\\, each draw choosing each of the \\n\\ observations with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) \\1/n\\.
 >
 > Source: Wikipedia contributors [\[4\]](#ref-wikipedia_resampling_statistics).
 
@@ -63,7 +63,7 @@ The bootstrap [\[2\]](#ref-efron1979bootstrap), [\[3\]](#ref-efron1993introducti
 
 > **NOTE:**
 >
-> **Definition 2 (Bootstrap distribution)** Let \\\hat{\theta}\\ be a statistic computed from the observed data. Draw \\B\\ independent [bootstrap samples](#def-bootstrap-sample), and compute the statistic on each one, giving \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\. The **bootstrap distribution** of \\\hat{\theta}\\ is the empirical distribution of \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\ [\[5\]](#ref-wikipedia_bootstrapping_statistics).
+> **Definition 2 (Bootstrap distribution)** Let \\\hat{\theta}\\ be a statistic computed from the observed data. Draw \\B\\ independent [bootstrap samples](#def-bootstrap-sample), and compute the statistic on each one, giving \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\. The **bootstrap distribution** of \\\hat{\theta}\\ is the [empirical distribution](nonparametric-models.llms.md#def-empirical-distribution) of \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\.
 >
 > Source: Wikipedia contributors [\[5\]](#ref-wikipedia_bootstrapping_statistics).
 
@@ -73,7 +73,7 @@ The bootstrap [\[2\]](#ref-efron1979bootstrap), [\[3\]](#ref-efron1993introducti
 
 > **NOTE:**
 >
-> **Definition 3 (Bootstrap standard error)** The **bootstrap standard error** of a statistic \\\hat{\theta}\\, written \\\widehat{\text{SE}}\_\text{boot}\\, is the sample standard deviation of the bootstrap replicates \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\ ([Definition 2](#def-bootstrap-distribution)) [\[6\]](#ref-wikipedia_standard_error). It estimates the [standard error](estimation.llms.md#def-SE) of \\\hat{\theta}\\.
+> **Definition 3 (Bootstrap standard error)** The **bootstrap standard error** of a statistic \\\hat{\theta}\\, written \\\widehat{\text{SE}}\_\text{boot}\\, is the sample standard deviation of the bootstrap replicates \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\ ([Definition 2](#def-bootstrap-distribution)). It estimates the [standard error](estimation.llms.md#def-SE) of \\\hat{\theta}\\.
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_standard_error).
 
@@ -154,7 +154,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 
 > **NOTE:**
 >
-> **Definition 5 (Percentile bootstrap confidence interval)** The **percentile bootstrap confidence interval** runs from the \\\alpha/2\\ quantile to the \\1 - \alpha/2\\ quantile of the bootstrap replicates \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\ ([Definition 2](#def-bootstrap-distribution)) [\[10\]](#ref-wikipedia_confidence_interval).
+> **Definition 5 (Percentile bootstrap confidence interval)** The **percentile bootstrap confidence interval** runs from the \\\alpha/2\\ quantile to the \\1 - \alpha/2\\ quantile of the bootstrap replicates \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\ ([Definition 2](#def-bootstrap-distribution)).
 >
 > Source: Wikipedia contributors [\[10\]](#ref-wikipedia_confidence_interval).
 

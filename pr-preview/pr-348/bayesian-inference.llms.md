@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:34:54 (PDT)
+Last modified: 2026-10-19 01:01:02 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models [\[1, Ch. 12\]](#ref-dobson4e). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -30,7 +30,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Definition 2 (Bayesian paradigm)** In the **Bayesian** paradigm of statistical inference, an unknown parameter \\\theta\\ is a random variable with its own probability distribution, and probability measures degree of belief [\[1, Ch. 12\]](#ref-dobson4e), p. 272 [\[3\]](#ref-wikipedia_bayesian_statistics).
+> **Definition 2 (Bayesian paradigm)** In the **Bayesian** paradigm of statistical inference, an unknown parameter \\\theta\\ is a random variable with its own probability distribution, and probability measures degree of belief [\[1, Ch. 12\]](#ref-dobson4e), p. 272.
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_bayesian_statistics).
 
@@ -40,7 +40,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Definition 3 (Prior distribution)** The **prior distribution** of a parameter \\\theta\\, with density or probability mass function \\\operatorname{p}(\theta)\\, is the probability distribution that describes what is believed about \\\theta\\ before the data are observed [\[4\]](#ref-wikipedia_prior_probability).
+> **Definition 3 (Prior distribution)** The **prior distribution** of a parameter \\\theta\\, with density or probability mass function \\\operatorname{p}(\theta)\\, is the probability distribution that describes what is believed about \\\theta\\ before the data are observed.
 >
 > Source: Wikipedia contributors [\[4\]](#ref-wikipedia_prior_probability).
 
@@ -261,7 +261,7 @@ The two paradigms differ most visibly in how they interpret an interval estimate
 
 > **NOTE:**
 >
-> **Definition 7 (Credible interval)** A \\100(1-\alpha)\\\\ **credible interval** for a parameter \\\theta\\, given observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\, is an interval \\\mathopen{}\left\[l(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}),\\ r(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\right\]\mathclose{}\\ whose [posterior](#def-posterior) probability is \\1 - \alpha\\ [\[9\]](#ref-wikipedia_credible_interval):
+> **Definition 7 (Credible interval)** A \\100(1-\alpha)\\\\ **credible interval** for a parameter \\\theta\\, given observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\, is an interval \\\mathopen{}\left\[l(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}),\\ r(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\right\]\mathclose{}\\ whose [posterior](#def-posterior) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is \\1 - \alpha\\:
 >
 > \\ \Pr\mathopen{}\left(l(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \le \theta\le r(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right)\mathclose{} = 1 - \alpha. \\
 >
@@ -496,7 +496,7 @@ The [prior](#def-prior) encodes what is known about \\\theta\\ before the curren
 
 > **NOTE:**
 >
-> **Definition 10 (Conjugate prior)** A family of prior distributions is **conjugate** to a likelihood if, for every prior in the family and every possible data set, the [posterior](#def-posterior) is also in the family [\[13\]](#ref-wikipedia_conjugate_prior).
+> **Definition 10 (Conjugate prior)** A family of prior distributions is **conjugate** to a likelihood if, for every prior in the family and every possible data set, the [posterior](#def-posterior) is also in the family.
 >
 > Source: Wikipedia contributors [\[13\]](#ref-wikipedia_conjugate_prior).
 

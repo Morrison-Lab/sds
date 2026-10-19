@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-19 00:34:54 (PDT)</p>
+  <p class="date">Last modified: 2026-10-19 01:01:02 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -368,7 +368,7 @@ text-align: center;
 </ul>
 <p>A test can look highly accurate in isolation, yet its predictive value for an individual patient depends heavily on the prevalence of the condition in the population being tested. Understanding this interplay requires <a href="https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes">Bayes’ theorem</a> and the <a href="https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob">law of total probability</a> <span class="citation" data-cites="wikipedia_bayes_theorem"><a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>.</p>
 </section><section class="slide level2"><div id="def-classification" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Classification)</strong></span> A <strong>classification problem</strong> is a statistical problem in which we seek to assign each observation to one of two or more discrete categories based on its observed features or predictors <span class="math inline">\(x\)</span> <span class="citation" data-cites="wikipedia_statistical_classification"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
+<p><span class="theorem-title"><strong>Definition 1 (Classification)</strong></span> A <strong>classification problem</strong> is a statistical problem in which we seek to assign each observation to one of two or more discrete categories based on its observed features or predictors <span class="math inline">\(x\)</span>.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_statistical_classification">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-class" class="theorem definition">
@@ -395,7 +395,7 @@ c(x) \stackrel{\text{def}}{=}
 <span class="header-section-number">2</span> Diagnostic test characteristics</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-sensitivity div. -->
 <div id="def-sensitivity" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Sensitivity)</strong></span> The <strong>sensitivity</strong> of a diagnostic test is the probability that the test is positive (<span class="math inline">\(+\)</span>), given that the person tested has the disease (<span class="math inline">\(D\)</span>) <span class="citation" data-cites="wikipedia_sensitivity_and_specificity"><a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>:</p>
+<p><span class="theorem-title"><strong>Definition 4 (Sensitivity)</strong></span> The <strong>sensitivity</strong> of a diagnostic test is the probability that the test is positive (<span class="math inline">\(+\)</span>), given that the person tested has the disease (<span class="math inline">\(D\)</span>):</p>
 <p><span id="eq-sensitivity"><span class="math display">\[\text{sensitivity} \stackrel{\text{def}}{=}\Pr(+ \mid D) \tag{3}\]</span></span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_sensitivity_and_specificity">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>.</p>
 </div>
@@ -425,7 +425,7 @@ c(x) \stackrel{\text{def}}{=}
 \tag{7}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="def-prevalence" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Prevalence)</strong></span> The <strong>prevalence</strong> of a disease in a population is the probability that a person drawn from that population has the disease (<span class="math inline">\(D\)</span>) <span class="citation" data-cites="wikipedia_prevalence"><a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>:</p>
+<p><span class="theorem-title"><strong>Definition 6 (Prevalence)</strong></span> The <strong>prevalence</strong> of a disease in a population is the probability that a person drawn from that population has the disease (<span class="math inline">\(D\)</span>):</p>
 <p><span id="eq-prevalence"><span class="math display">\[\text{prevalence} \stackrel{\text{def}}{=}\Pr(D) \tag{8}\]</span></span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_prevalence">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>
@@ -449,7 +449,7 @@ c(x) \stackrel{\text{def}}{=}
 <span class="header-section-number">3</span> Predictive values</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-ppv div. -->
 <div id="def-ppv" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Positive predictive value (PPV))</strong></span> The <strong>positive predictive value</strong> of a diagnostic test is the probability that the person tested has the disease (<span class="math inline">\(D\)</span>), given that the test is positive (<span class="math inline">\(+\)</span>) <span class="citation" data-cites="wikipedia_positive_and_negative_predictive_values"><a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>:</p>
+<p><span class="theorem-title"><strong>Definition 7 (Positive predictive value (PPV))</strong></span> The <strong>positive predictive value</strong> of a diagnostic test is the probability that the person tested has the disease (<span class="math inline">\(D\)</span>), given that the test is positive (<span class="math inline">\(+\)</span>):</p>
 <p><span id="eq-ppv"><span class="math display">\[\text{PPV} \stackrel{\text{def}}{=}\Pr(D \mid +) \tag{11}\]</span></span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_positive_and_negative_predictive_values">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>.</p>
 </div>
@@ -663,7 +663,7 @@ c(x) \stackrel{\text{def}}{=}
 <span class="header-section-number">5</span> Agreement between two classifiers</h2>
 <p>So far, we have compared a test with the true disease status. The same tools apply whenever we compare two classifiers that label the same observations: for example, a new diagnostic test against a reference test, or an automated grader (an “agent”) against a human grader. We call the classifier being evaluated the <strong>agent</strong> and the one we compare it with the <strong>reference</strong>.</p>
 </section><section class="slide level2"><div id="def-agreement-table" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9 (Agreement table)</strong></span> For <span class="math inline">\(n\)</span> observations that an agent and a reference each classify as positive or negative, the <strong>agreement table</strong> counts the four combinations <span class="citation" data-cites="wikipedia_confusion_matrix"><a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>:</p>
+<p><span class="theorem-title"><strong>Definition 9 (Agreement table)</strong></span> For <span class="math inline">\(n\)</span> observations that an agent and a reference each classify as positive or negative, the <strong>agreement table</strong> counts the four combinations:</p>
 <table class="caption-top">
 <thead><tr class="header">
 <th></th>
@@ -856,7 +856,7 @@ p_{\text{agent}}
 <span class="header-section-number">7</span> Positive and negative agreement as harmonic means</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-harmonic-mean div. -->
 <div id="def-harmonic-mean" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 15 (Harmonic mean)</strong></span> The <strong>harmonic mean</strong> of two positive numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is the reciprocal of the average of their reciprocals <span class="citation" data-cites="wikipedia_harmonic_mean"><a href="#/references" role="doc-biblioref" onclick="">[8]</a></span>:</p>
+<p><span class="theorem-title"><strong>Definition 15 (Harmonic mean)</strong></span> The <strong>harmonic mean</strong> of two positive numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is the reciprocal of the average of their reciprocals:</p>
 <p><span id="eq-harmonic-mean"><span class="math display">\[H(x, y) \stackrel{\text{def}}{=}\frac{2}{\frac{1}{x} + \frac{1}{y}} \tag{34}\]</span></span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_harmonic_mean">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span>.</p>
 </div>
