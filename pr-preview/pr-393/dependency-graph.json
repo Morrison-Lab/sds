@@ -4652,22 +4652,6 @@
    "sds/data#def-dummy-variable"
   ],
   [
-   "sds/data#def-numerical-var",
-   "sds/data#def-continuous-var"
-  ],
-  [
-   "sds/data#def-numerical-var",
-   "sds/data#def-discrete-var"
-  ],
-  [
-   "sds/data#def-numerical-var",
-   "sds/data#def-interval-var"
-  ],
-  [
-   "sds/data#def-numerical-var",
-   "sds/data#def-ratio-var"
-  ],
-  [
    "sds/data#def-reference-level",
    "sds/data#def-indicator-variable"
   ],
@@ -5881,11 +5865,7 @@
   ],
   [
    "sds/model-validation#def-tuning-parameter",
-   "sds/model-validation#def-fitting-procedure"
-  ],
-  [
-   "sds/model-validation#def-tuning-parameter",
-   "sds/model-validation#def-training-set"
+   "pds/expectation#def-prediction"
   ],
   [
    "sds/model-validation#def-validation-choice",
@@ -6328,33 +6308,6 @@
    "sds/sufficiency#def-sufficient"
   ]
  ],
- "cycles": [
-  [
-   "sds/model-validation#def-fitting-procedure",
-   "sds/model-validation#def-training-set",
-   "sds/model-validation#def-tuning-parameter"
-  ]
- ],
- "forwardReferences": [
-  [
-   "sds/data#def-numerical-var",
-   "sds/data#def-continuous-var"
-  ],
-  [
-   "sds/data#def-numerical-var",
-   "sds/data#def-discrete-var"
-  ],
-  [
-   "sds/data#def-numerical-var",
-   "sds/data#def-interval-var"
-  ],
-  [
-   "sds/data#def-numerical-var",
-   "sds/data#def-ratio-var"
-  ],
-  [
-   "sds/model-validation#def-fitting-procedure",
-   "sds/model-validation#def-tuning-parameter"
-  ]
- ]
+ "cycles": [],
+ "forwardReferences": []
 }
