@@ -7,7 +7,7 @@ is an interval $\sb{l(\vy),\, r(\vy)}$
 whose [posterior](#def-posterior) probability is $1 - \siglevel$ [@wikipedia_credible_interval]:
 
 $$
-\Pr\paren{l(\vy) \le \param \le r(\vy) \mid \vY = \vy} = 1 - \siglevel.
+\Prf{l(\vy) \le \param \le r(\vy) \mid \vY = \vy} = 1 - \siglevel.
 $$
 
 Source: @wikipedia_credible_interval.

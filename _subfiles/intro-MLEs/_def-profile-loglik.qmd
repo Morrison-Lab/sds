@@ -6,6 +6,6 @@ and for each fixed value of $\interest$
 let $\hnuisance(\interest)$ maximize $\llik(\interest, \nuisance)$ over $\nuisance$.
 The **profile log-likelihood** of $\interest$ is
 
-$$\llik_p(\interest) \eqdef \llik\paren{\interest, \hnuisance(\interest)}.$$
+$$\llik_p(\interest) \eqdef \llikf{\interest, \hnuisance(\interest)}.$$
 
 :::
