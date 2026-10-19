@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 01:09:03 (PDT)
+Last modified: 2026-10-19 09:45:06 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -25,9 +25,9 @@ hers |> head()
 >
 > **Definition 1 (Population correlation)** The **population correlation** of two random variables \\X\\ and \\Y\\ with positive [variances](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) is
 >
-> \\\rho\stackrel{\text{def}}{=}\frac{\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}}{\sqrt{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} \operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}}},\\
+> \\\rho\stackrel{\text{def}}{=}\frac{{\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}}}{\sqrt{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} {\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}}}},\\
 >
-> where \\\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}\\ is their [covariance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cov).
+> where \\{\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}}\\ is their [covariance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cov).
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_pearson_correlation_coefficient).
 
@@ -158,7 +158,7 @@ hers |> head()
 >
 > **Definition 4 (Conditional Gaussian model)** A **conditional Gaussian model** for outcomes \\Y_1, \ldots, Y_n\\ with covariate values \\x_1, \ldots, x_n\\ (each a single value or a vector) says that, given the covariates, the outcomes are independent and Gaussian: outcome \\Y_i\\ is centered on a mean function \\\mu(x)\\ evaluated at \\x_i\\, and has its own variance \\\sigma^2_i\\:
 >
-> \\ \begin{aligned} Y_i\mid X_i= x_i&\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(\mu_i, \sigma^2_i\right)\mathclose{},\\ \mu_i&\stackrel{\text{def}}{=}\mu(x_i). \end{aligned} \\
+> \\ \begin{aligned} Y_i\mid X_i= x_i&\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(\mu_i, \sigma^2_i\right)\mathclose{}},\\ \mu_i&\stackrel{\text{def}}{=}\mu(x_i). \end{aligned} \\
 
 > **NOTE:**
 >
@@ -202,7 +202,7 @@ hers |> head()
 >
 > First, the CDF of \\\nu_i\\:
 >
-> \\ \begin{aligned} F\_{\nu}(t) &= \Pr\mathopen{}\left(\nu_i\le t\right)\mathclose{} && \text{(definition of a CDF)}\\ &= \Pr\mathopen{}\left(Y_i- \mu(x_i) \le t\right)\mathclose{} && \text{(definition of \$\nu_i\$)}\\ &= \Pr\mathopen{}\left(Y_i- \mu_i\le t\right)\mathclose{} && \text{(definition of \$\mu_i\$)}\\ &= \Pr\mathopen{}\left(Y_i\le t + \mu_i\right)\mathclose{} && \text{(add \$\mu_i\$ to both sides of the inequality)}\\ &= F_Y(t + \mu_i) && \text{(definition of a CDF)} \end{aligned} \\
+> \\ \begin{aligned} F\_{\nu}(t) &= {\Pr\mathopen{}\left(\nu_i\le t\right)\mathclose{}} && \text{(definition of a CDF)}\\ &= {\Pr\mathopen{}\left(Y_i- \mu(x_i) \le t\right)\mathclose{}} && \text{(definition of \$\nu_i\$)}\\ &= {\Pr\mathopen{}\left(Y_i- \mu_i\le t\right)\mathclose{}} && \text{(definition of \$\mu_i\$)}\\ &= {\Pr\mathopen{}\left(Y_i\le t + \mu_i\right)\mathclose{}} && \text{(add \$\mu_i\$ to both sides of the inequality)}\\ &= F_Y(t + \mu_i) && \text{(definition of a CDF)} \end{aligned} \\
 >
 > Differentiating gives the density:
 >
@@ -216,19 +216,19 @@ hers |> head()
 >
 > \\ \begin{aligned} f\_{\nu}(t) &= f_Y(t + \mu_i) \cdot 1 && \text{(inner derivative is 1)}\\ &= f_Y(t + \mu_i) && \text{(multiply by 1)}\\ &= \frac{1}{\sigma_i\sqrt{2 \pi}} \text{e}^{-\frac{\mathopen{}\left((t + \mu_i) - \mu_i\right)\mathclose{}^2}{2 \sigma^2_i}} && \text{(Gaussian density with mean \$\mu_i\$)}\\ &= \frac{1}{\sigma_i\sqrt{2 \pi}} \text{e}^{-\frac{t^2}{2 \sigma^2_i}} && \text{(subtract)} \end{aligned} \\
 >
-> The last line is the density of \\\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\, so \\\nu_i\mid X_i= x_i\sim \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\.
+> The last line is the density of \\{\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\, so \\\nu_i\mid X_i= x_i\sim {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\.
 >
 > For independence, factor the joint CDF of \\\nu_1, \ldots, \nu_n\\, using the same CDF step as above for each \\i\\ and the independence of the \\Y_i\\ given the covariates ([Definition 4](#def-cond-gaussian)):
 >
-> \\ \begin{aligned} \Pr\mathopen{}\left(\nu_1 \le t_1, \ldots, \nu_n \le t_n\right)\mathclose{} &= \Pr\mathopen{}\left(Y_1 \le t_1 + \mu_1, \ldots, Y_n \le t_n + \mu_n\right)\mathclose{} && \text{(add \$\mu_i\$ to both sides of each inequality)}\\ &= \prod\_{i=1}^n\Pr\mathopen{}\left(Y_i\le t_i + \mu_i\right)\mathclose{} && \text{(the \$Y_i\$ are independent)}\\ &= \prod\_{i=1}^n\Pr\mathopen{}\left(\nu_i\le t_i\right)\mathclose{} && \text{(subtract \$\mu_i\$ from both sides of each inequality)} \end{aligned} \\
+> \\ \begin{aligned} {\Pr\mathopen{}\left(\nu_1 \le t_1, \ldots, \nu_n \le t_n\right)\mathclose{}} &= {\Pr\mathopen{}\left(Y_1 \le t_1 + \mu_1, \ldots, Y_n \le t_n + \mu_n\right)\mathclose{}} && \text{(add \$\mu_i\$ to both sides of each inequality)}\\ &= \prod\_{i=1}^n{\Pr\mathopen{}\left(Y_i\le t_i + \mu_i\right)\mathclose{}} && \text{(the \$Y_i\$ are independent)}\\ &= \prod\_{i=1}^n{\Pr\mathopen{}\left(\nu_i\le t_i\right)\mathclose{}} && \text{(subtract \$\mu_i\$ from both sides of each inequality)} \end{aligned} \\
 >
-> The joint CDF is the product of the marginal CDFs, so \\\nu_1, \ldots, \nu_n\\ are independent. Given the covariate values, the deviations are therefore independent, with \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\.
+> The joint CDF is the product of the marginal CDFs, so \\\nu_1, \ldots, \nu_n\\ are independent. Given the covariate values, the deviations are therefore independent, with \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\.
 
 > **NOTE:**
 >
 > **Theorem 3 (Distribution of the deviations)** In a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), given the covariates, the deviations ([Definition 5](#def-slr-deviation)) are independent and Gaussian with mean 0 and variance \\\sigma^2_i\\:
 >
-> \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}.\\
+> \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}.\\
 
 > **NOTE:**
 >
@@ -246,11 +246,11 @@ hers |> head()
 >
 > **Corollary 1 (Deviations in a homoskedastic model)** In a homoskedastic model ([Definition 6](#def-homoskedastic)), the deviations ([Definition 5](#def-slr-deviation)) all have the same variance \\\sigma^2\\:
 >
-> \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}.\\
+> \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}}.\\
 
 > **NOTE:**
 >
-> *Proof*. By [Theorem 3](#thm-slr-deviation-dist), \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\, and [Definition 6](#def-homoskedastic) sets \\\sigma^2_i= \sigma^2\\ for all \\i\\.
+> *Proof*. By [Theorem 3](#thm-slr-deviation-dist), \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\, and [Definition 6](#def-homoskedastic) sets \\\sigma^2_i= \sigma^2\\ for all \\i\\.
 
 > **NOTE:**
 >
@@ -331,7 +331,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 3 (Sample mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\, let \\\hat y_i\stackrel{\text{def}}{=}\mu(x_i; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ ([Definition 11](#def-rss)) be taken over those same outcomes. Write the [sMSE](prediction.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\, and \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ in terms of that sMSE.
+> **Exercise 3 (Sample mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\, let \\\hat y_i\stackrel{\text{def}}{=}\mu(x_i; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ ([Definition 11](#def-rss)) be taken over those same outcomes. Express the [sMSE](prediction.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\, and \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ in terms of that sMSE.
 
 > **NOTE:**
 >
@@ -341,21 +341,21 @@ hers |> head()
 >
 > So the sMSE is the residual sum of squares divided by \\n\\:
 >
-> \\ \begin{aligned} \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of sMSE)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})^2 && \text{(\$\varepsilon_i^2 = r_i(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) && \text{(definition of RSS)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of sMSE)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})^2 && \text{(\$\varepsilon_i^2 = r_i(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) && \text{(definition of RSS)} \end{aligned} \\
 >
 > Solving for \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\:
 >
-> \\ \begin{aligned} \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) && \text{(result above)}\\ n \\ \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) && \text{(multiply both sides by \$n\$)}\\ \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) &= n \\ \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} && \text{(swap the two sides)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} &= \frac{1}{n} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) && \text{(result above)}\\ n \\ {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} &= \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) && \text{(multiply both sides by \$n\$)}\\ \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) &= n \\ {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} && \text{(swap the two sides)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 4 (Sample mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\, the [sMSE](prediction.llms.md#def-prediction-mse) of its predictions \\\hat y_i= \mu(x_i; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ ([Definition 11](#def-rss)) over those same \\n\\ outcomes satisfy
 >
-> \\\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}),\\
+> \\{\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} = \frac{1}{n} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}),\\
 >
 > and equivalently
 >
-> \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) = n \\ \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
+> \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) = n \\ {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}.\\
 
 > **NOTE:**
 >
@@ -1021,7 +1021,100 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 > - Hogg et al. [\[3, Sec. 7.6\]](#ref-hoggtanis2015), pp. 344–352 covers more regression.
 > - Rice [\[4, Sec. 14.2.2\]](#ref-rice2007mathematical), pp. 550–559 covers assessing the fit of a regression line.
 
-### 3.5 Further reading
+### 3.5 Comparing nested regression models
+
+> **NOTE:**
+>
+> **Definition 19 (Nested linear regression models)** Let a [linear regression model](#def-linear-regression) have \\p\\ features and an [intercept](#def-slr-intercept). A second linear regression model is **nested** in it if it uses the same outcome and the same observations and is the special case in which \\q\\ of the \\p\\ coefficients equal \\0\\. The first model is the *larger* model, and the second is the *smaller* model; the smaller model has \\p - q\\ features.
+>
+> Source: Vittinghoff et al. [\[1, Sec. 4.3\]](#ref-vittinghoff2e).
+
+> **NOTE:**
+>
+> **Example 11 (Nested models for fasting glucose in HERS)** In the HERS data, take the linear regression of `glucose` on `BMI` as the smaller model. The [larger model](#def-nested-regression-models) adds `age` and `exercise`, so \\q = 2\\:
+>
+> \\ \begin{aligned} \text{smaller:}\quad \mu(\text{glucose}) &= \beta\_{0}+ \beta\_{\text{BMI}} \cdot \text{BMI}, \\ \text{larger:}\quad \mu(\text{glucose}) &= \beta\_{0}+ \beta\_{\text{BMI}} \cdot \text{BMI} + \beta\_{\text{age}} \cdot \text{age} + \beta\_{\text{exercise}} \cdot \text{exercise}. \end{aligned} \\
+>
+> Both models must be fitted to the same HERS participants, so keep the participants with all four variables measured:
+>
+> ``` downlit
+> hers_nested <- hers |>
+>   tidyr::drop_na(glucose, BMI, age, exercise)
+> fit_smaller <- lm(glucose ~ BMI, data = hers_nested)
+> fit_larger <- lm(glucose ~ BMI + age + exercise, data = hers_nested)
+> nrow(hers_nested)
+> #> [1] 2758
+> ```
+>
+> The smaller model sets \\\beta\_{\text{age}} = \beta\_{\text{exercise}} = 0\\ in the larger one.
+
+> **NOTE:**
+>
+> **Definition 20 (Partial F-test)** Let a smaller [linear regression model](#def-linear-regression) be [nested](#def-nested-regression-models) in a [larger model](#def-nested-regression-models) with \\p\\ features, so that they differ by \\q\\ coefficients, and let both be fitted by [ordinary least squares](#def-ols) to \\n\\ observations. Write \\\text{RSS}\_0\\ and \\\text{RSS}\_1\\ for the [residual sums of squares](#def-rss) of the smaller and the larger fit. The **partial F-test** of
+>
+> \\ \begin{aligned} H_0: \text{the } q \text{ coefficients are all } 0 \end{aligned} \\
+>
+> uses the [statistic](sufficiency.llms.md#def-statistic)
+>
+> \\ F \stackrel{\text{def}}{=}\frac{(\text{RSS}\_0 - \text{RSS}\_1) / q}{\text{RSS}\_1 / (n - p - 1)}. \\
+>
+> Its [p-value](inference.llms.md#def-p-value) is \\\Pr(F^\* \ge F)\\, where \\F^\*\\ has the \\F\_{q,\\ n-p-1}\\ distribution ([F-distribution](inference.llms.md#def-f-dist)).
+>
+> Source: Vittinghoff et al. [\[1, Sec. 4.3\]](#ref-vittinghoff2e) and Dobson and Barnett [\[15, Sec. 6.3\]](#ref-dobson4e).
+
+> **NOTE:**
+>
+> **Theorem 8 (Null distribution of the partial F statistic)** Let the errors of the [larger model](#def-nested-regression-models) be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) and Gaussian with mean \\0\\ and the same [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance). If \\H_0\\ of [Definition 20](#def-partial-f-test) holds, then \\F\\ has the \\F\_{q,\\ n-p-1}\\ distribution for every number of observations \\n \> p + 1\\.
+>
+> Source: Vittinghoff et al. [\[1, Sec. 4.3\]](#ref-vittinghoff2e).
+
+> **NOTE:**
+>
+> *Proof*. Under \\H_0\\, \\(\text{RSS}\_0 - \text{RSS}\_1) / \sigma^2\\ has the \\\chi^2_q\\ distribution and \\\text{RSS}\_1 / \sigma^2\\ has the \\\chi^2\_{n-p-1}\\ distribution, where \\\sigma^2\\ is the error [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance). The two are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt), because \\\text{RSS}\_1\\ is the squared length of the part of the [outcome vector](model-validation.llms.md#def-outcome-vector) orthogonal to the [larger model](#def-nested-regression-models)’s [fitted values](prediction.llms.md#def-fitted-value), while \\\text{RSS}\_0 - \text{RSS}\_1\\ is the squared length of the part in the larger model but orthogonal to the smaller one. Dividing each by its degrees of freedom, \\\sigma^2\\ cancels from the quotient, which is therefore \\F\_{q,\\ n-p-1}\\ by [the definition of the F-distribution](inference.llms.md#def-f-dist).
+
+> **NOTE:**
+>
+> **Example 12 (Partial F-test of age and exercise in HERS)** For the models of [Example 11](#exm-hers-nested-models), [`anova()`](https://rdrr.io/r/stats/anova.html) gives the [partial F-test](#def-partial-f-test):
+>
+> ``` downlit
+> anova(fit_smaller, fit_larger) |>
+>   parameters::parameters() |>
+>   parameters::print_md(digits = 3, footer = "")
+> ```
+>
+> | Parameter | RSS | Sum_Squares | df | df (error) | Mean_Square | F | p |
+> |:---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+> | Model 1: glucose ~ BMI | 3.470e+06 |  |  | 2756 |  |  |  |
+> | Model 2: glucose ~ BMI + age + exercise | 3.461e+06 | 9188.413 | 2 | 2754 | 4594.207 | 3.656 | 0.026 |
+>
+> The definition gives the same [statistic](sufficiency.llms.md#def-statistic):
+>
+> ``` downlit
+> rss0 <- sum(residuals(fit_smaller)^2)
+> rss1 <- sum(residuals(fit_larger)^2)
+> n <- nobs(fit_larger)
+> p <- length(coef(fit_larger)) - 1
+> q <- p - (length(coef(fit_smaller)) - 1)
+> f_stat <- ((rss0 - rss1) / q) / (rss1 / (n - p - 1))
+> c(
+>   f = f_stat,
+>   p_value = pf(f_stat, q, n - p - 1, lower.tail = FALSE)
+> )
+> #>         f   p_value 
+> #> 3.6558211 0.0259658
+> ```
+>
+> With \\q = 2\\ and \\n - p - 1 = 2754\\, \\F = 3.66\\, so the data reject \\H_0\\ at the 5% level.
+
+> **NOTE:**
+>
+> *Remark 7* (The partial F-test and the likelihood ratio test). Let the errors be Gaussian. The [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) of the error [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of a model with [residual sum of squares](#def-rss) \\\text{RSS}\\ is \\\text{RSS} / n\\, so its maximized [log-likelihood](intro-MLEs.llms.md#def-loglik) is \\-\tfrac{n}{2} \log(2\pi\\ \text{RSS} / n) - \tfrac{n}{2}\\. The [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat) of the [null hypothesis](inference.llms.md#def-null-hypothesis) \\H_0\\ in the [partial F-test](#def-partial-f-test) is then
+>
+> \\ \begin{aligned} \Lambda &= 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\hat{\theta}\_0)\right)\mathclose{} \\ &= n \log \frac{\text{RSS}\_0}{\text{RSS}\_1} \\ &= n \log\mathopen{}\left(1 + \frac{\text{RSS}\_0 - \text{RSS}\_1}{\text{RSS}\_1}\right)\mathclose{}. \end{aligned} \\
+>
+> For large \\n\\ under \\H_0\\, the quantity \\(\text{RSS}\_0 - \text{RSS}\_1) / \text{RSS}\_1\\ is near \\0\\, so \\\log(1 + u) \approx u\\ gives \\\Lambda\approx n (\text{RSS}\_0 - \text{RSS}\_1) / \text{RSS}\_1\\. Also \\q F = (n - p - 1) (\text{RSS}\_0 - \text{RSS}\_1) / \text{RSS}\_1\\, which is close to the same value when \\n\\ is much larger than \\p\\. Under \\H_0\\, \\\Lambda\\ and \\q F\\ therefore have approximately the \\\chi^2_q\\ distribution, but the F-test is exact for Gaussian errors at every \\n\\, while the [likelihood ratio test](intro-MLEs.llms.md#def-lrt-stat) holds only approximately.
+
+### 3.6 Further reading
 
 [Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html) covers linear regression in depth, including inference for the coefficients and multiple predictors. Vittinghoff et al. [\[1\]](#ref-vittinghoff2e) cover linear regression in Chapter 4.
 
@@ -1082,5 +1175,9 @@ Wikipedia contributors, “Total sum of squares — Wikipedia, the free encyclop
 \[14\]
 
 Wikipedia contributors, “Coefficient of determination — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Coefficient_of_determination>
+
+\[15\]
+
+A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
 
 Back to top
