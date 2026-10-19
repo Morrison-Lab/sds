@@ -1,12 +1,13 @@
 :::{#exr-epe-three-sources}
 #### Expected squared prediction error from three sources
 
-Let $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$.
-Let $\newpredvar = \predvar$.
-A [prediction](prediction.qmd#def-prediction) $\predvalf{\predvar}$ at $\predvar$ has
-squared [bias](#def-prediction-bias) $\sqf{\bias{\predvalf{\predvar}}} = 1$
-and [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\Var{\predvalf{\predvar}} = 2$.
-The [noise](#def-noise) of $\newoutvar$ has [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar = 3$.
+Let:
+
+- $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$,
+- $\newpredvar = \predvar$,
+- the squared [bias](#def-prediction-bias) of the [prediction](prediction.qmd#def-prediction) $\predvalf{\predvar}$ be $\sqf{\bias{\predvalf{\predvar}}} = 1$,
+- the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of $\predvalf{\predvar}$ be $\Var{\predvalf{\predvar}} = 2$, and
+- the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of the [noise](#def-noise) of $\newoutvar$ be $\varpar = 3$.
 
 1. What is the [expected squared prediction error](#def-epe) $\epe{\fitproc}{\nobs}{\predvar}$?
 2. If we could remove all bias and all variance of $\predvalf{\predvar}$,
