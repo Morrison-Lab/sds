@@ -13,7 +13,10 @@ The noise variance estimate $\est{\varpar}$ is the residual variance of the mode
 #| label: mallows-cp-mtcars
 mtcars_cp <- vapply(
   seq_along(mtcars_fits),
-  \(k) (sum(resid(mtcars_fits[[k]])^2) + 2 * k * mtcars_full_sigma2) / nrow(mtcars),
+  \(k) {
+    rss <- sum(resid(mtcars_fits[[k]])^2)
+    (rss + 2 * k * mtcars_full_sigma2) / nrow(mtcars)
+  },
   numeric(1)
 )
 tibble::tibble(predictors = 1:4, cp = mtcars_cp)
