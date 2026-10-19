@@ -7,13 +7,13 @@ in the cross-validation estimate itself
 
 - **Bias.**
   Each [fitted model](#def-fitted-model) in @eq-cv-estimate is fitted to about $\nobs (\nfolds - 1) / \nfolds$ observations.
-  A model fitted to fewer observations usually predicts worse,
-  so $\cvest{\nfolds}$ tends to overstate the expected generalization error of a model fitted to all $\nobs$.
+  A model fitted to fewer observations usually has a larger error on new observations,
+  so $\cvest{\nfolds}$ tends to overstate the [expected generalization error](#def-expected-generalization-error) of a model fitted to all $\nobs$.
   The overstatement shrinks as $\nfolds$ grows.
 - **Variance.**
   As $\nfolds$ grows,
   the $\nfolds$ training sets overlap more,
-  so the $\nfolds$ fitted models are more alike
+  so the $\nfolds$ [fitted models](#def-fitted-model) are more alike
   and their errors are more strongly correlated.
   An average of strongly correlated errors varies more
   from one data set to another than an average of weakly correlated ones.

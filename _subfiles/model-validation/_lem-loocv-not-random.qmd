@@ -23,7 +23,7 @@ Each step below changes one thing.
    so $\fold{\foldof{i}} = \set{i}$.
    (Fold $\foldof{i}$ holds one index, and that index is $i$.)
 3. Let $\fitproc$ be the [fitting procedure](#def-fitting-procedure),
-   the function that maps a [training set](#def-training-set) to a [fitted model](#def-fitted-model).
+   which maps a [training set](#def-training-set) to a [fitted model](#def-fitted-model).
    The [fold-out rule](#def-fold-out-rule) of observation $i$ is then
    $\fittedwo{\foldof{i}}{x} = \fitmodvalf{\paren{(x_{i'}, y_{i'})}_{i' \in I \setminus \set{i}}}{x}$.
    (@eq-fold-out-rule with $\fold{\foldof{i}} = \set{i}$.)
