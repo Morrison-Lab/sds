@@ -1,9 +1,9 @@
 ::: {#exm-hers-risk-ratio}
 #### Risk ratio of regular exercise in HERS
 
-With the placebo group as the reference group,
-the estimated risk ratio of @def-risk-ratio
-for the estimated risks of @exm-hers-outcome-risk is:
+Take group 1 to be hormone therapy and group 2, the [reference group](#def-reference-group), to be placebo.
+The estimated [risk ratio](#def-risk-ratio)
+for the estimated [risks](#def-outcome-risk) of @exm-hers-outcome-risk is:
 
 ```{r}
 #| label: hers-risk-ratio
@@ -12,8 +12,10 @@ rr_hat <- risk_hat[["hormone therapy"]] / risk_hat[["placebo"]]
 rr_hat
 ```
 
-The estimated risk of regular exercise in the hormone therapy group
+The estimated [risk](#def-outcome-risk) of regular exercise in the hormone therapy group
 is `r round(rr_hat, 3)` times the estimated risk in the placebo group.
-A risk ratio near 1 agrees with the large p-value of @exm-hers-chisq:
-the two groups have about the same risk.
+This [estimate](estimation.qmd#def-estimate) is close to 1,
+which agrees with the large [p-value](inference.qmd#def-p-value) of @exm-hers-chisq:
+the two groups have about the same estimated risk.
+The estimate alone does not show how precise it is.
 :::

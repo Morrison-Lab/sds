@@ -3,13 +3,14 @@
 
 Let:
 
-- $\odds_1$ be the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of a binary outcome in group 1.
-- $\odds_2$ be the odds of the same outcome in the reference group, group 2.
+- $\odds_1$ be the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of a [binary](data.qmd#def-binary-var) outcome in group 1.
+- $\odds_2$ be the odds of the same outcome in the [reference group](#def-reference-group), group 2.
 
 The **odds ratio** of group 1 compared with group 2 is
-[@wikipedia_odds_ratio]
 
 $$\ror \eqdef \frac{\odds_1}{\odds_2} \in (0, \infty).$$
 
 Here $\odds_g = \risk_g / (1 - \risk_g)$ for the [risk](#def-outcome-risk) $\risk_g$ of group $g$.
+
+Source: @wikipedia_odds_ratio.
 :::
