@@ -40,7 +40,7 @@ reticulate::py_require(c("numpy", "pandas", "statsmodels"))
 
 {{< include sds/_subfiles/model-validation/_exm-input-matrix.qmd >}}
 
-## Fitting and scoring prediction rules {#sec-prediction-rules}
+## Fitting and scoring models {#sec-prediction-rules}
 
 {{< include sds/_subfiles/model-validation/_def-covariate.qmd >}}
 

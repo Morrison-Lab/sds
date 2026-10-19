@@ -13,7 +13,8 @@
    The joint distribution of $(\newpredvar, \newoutvar)$ is unknown,
    so the expectation cannot be computed.
    If we knew that distribution,
-   we would not need data to build a prediction rule.
+   we would not need data to [estimate](estimation.qmd#def-estimate) the [true mean function](#def-mean-function) $\truemeanf{x}$
+   of the outcome variable given the input value $x$.
 
 3. The training error $\trainerr$ replaces the expectation
    over new cars

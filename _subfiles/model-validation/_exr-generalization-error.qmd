@@ -1,7 +1,7 @@
 :::{#exr-generalization-error}
 #### Score a fitted model on a car it has not seen
 
-A [prediction rule](#def-fitted-model) $\fitted$
+A [fitted model](#def-fitted-model) $\fitted$
 has been fitted to a [training set](#def-training-set) $\trainset$ of $\nobs$ observations,
 such as the 20 training cars of @exr-overfitting.
 A new car $(\newpredvar, \newoutvar)$ is then drawn from the same population,
