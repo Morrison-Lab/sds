@@ -130,6 +130,14 @@ reticulate::py_require(c("numpy", "pandas", "statsmodels"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-predictive-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-predictive-model.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-noise.qmd >}}
 
 {{< slidebreak >}}
