@@ -1,12 +1,12 @@
 :::{#def-training-mse}
-#### Training error (empirical risk on the training set)
+#### Training error
 
 The **training error** of a [fitted model](#def-fitted-model) $\fitted$
-is its empirical [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) $\empriskf{\fitted}$
+is its empirical [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) $\epoprisk\sb{\trainset}\paren{\fitted}$
 on the [training set](#def-training-set) $\trainset$ used to fit it:
 
 $$
-\trainerr \eqdef \empriskf{\fitted}.
+\trainerr \eqdef \epoprisk\sb{\trainset}\paren{\fitted}.
 $$ {#eq-training-mse}
 
 :::
