@@ -1,0 +1,50 @@
+<!--
+This fragment makes mtcars_formulas and mtcars_full_sigma2,
+which _exm-mallows-cp.qmd, _exm-aic.qmd and _exm-bic.qmd use,
+so it renders before them.
+-->
+:::{#exm-adjusted-r-squared}
+#### Adjusted coefficient of determination of nested `mtcars` models
+
+The `mtcars` data set has the fuel economy `mpg` of 32 cars from the 1974 *Motor Trend* magazine.
+This example fits four nested linear models of `mpg`,
+each adding one predictor to the one before,
+and computes @def-adjusted-r-squared from its formula.
+
+```{r}
+#| label: adjusted-r-squared-mtcars
+mtcars_formulas <- list(
+  mpg ~ wt,
+  mpg ~ wt + hp,
+  mpg ~ wt + hp + qsec,
+  mpg ~ wt + hp + qsec + drat
+)
+mtcars_fits <- lapply(mtcars_formulas, lm, data = mtcars)
+mtcars_full_sigma2 <- summary(mtcars_fits[[4]])$sigma^2
+
+mtcars_tss <- sum((mtcars$mpg - mean(mtcars$mpg))^2)
+mtcars_criteria <- tibble::tibble(
+  predictors = 1:4,
+  r_squared = vapply(mtcars_fits, \(f) summary(f)$r.squared, numeric(1)),
+  adj_r_squared = vapply(
+    mtcars_fits,
+    \(f) {
+      df <- nrow(mtcars) - length(coef(f))
+      1 - (sum(resid(f)^2) / df) / (mtcars_tss / (nrow(mtcars) - 1))
+    },
+    numeric(1)
+  )
+)
+mtcars_criteria
+```
+
+The coefficient of determination $R^2$ never falls as a predictor is added,
+and here it rises from `r round(mtcars_criteria$r_squared[1], 3)` to `r round(mtcars_criteria$r_squared[4], 3)`.
+The adjusted coefficient of determination rises more slowly,
+from `r round(mtcars_criteria$adj_r_squared[1], 3)` to `r round(mtcars_criteria$adj_r_squared[4], 3)`,
+because each added predictor costs a degree of freedom.
+It is largest for the model with `r which.max(mtcars_criteria$adj_r_squared)` predictors.
+Its formula matches the `adj.r.squared` that `summary()` reports:
+`r isTRUE(all.equal(mtcars_criteria$adj_r_squared, vapply(mtcars_fits, \(f) summary(f)$adj.r.squared, numeric(1))))`.
+
+:::

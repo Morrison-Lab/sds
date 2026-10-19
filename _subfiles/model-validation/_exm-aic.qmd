@@ -1,0 +1,29 @@
+<!--
+This fragment uses mtcars_fits from _exm-adjusted-r-squared.qmd,
+so it renders after that one.
+-->
+:::{#exm-aic}
+#### AIC of nested `mtcars` models
+
+This example computes @def-aic for the four models of @exm-adjusted-r-squared,
+each fitted by maximum likelihood with Gaussian noise.
+The number of estimated parameters is the number of coefficients plus one for the noise variance.
+
+```{r}
+#| label: aic-mtcars
+mtcars_aic <- vapply(
+  mtcars_fits,
+  \(f) -2 * as.numeric(logLik(f)) + 2 * (length(coef(f)) + 1),
+  numeric(1)
+)
+tibble::tibble(
+  predictors = 1:4,
+  aic = mtcars_aic,
+  r_aic = vapply(mtcars_fits, AIC, numeric(1))
+)
+```
+
+The `aic` column matches the `r_aic` column that `AIC()` returns: `r isTRUE(all.equal(mtcars_aic, vapply(mtcars_fits, AIC, numeric(1))))`.
+The model with `r which.min(mtcars_aic)` predictors has the smallest AIC.
+
+:::

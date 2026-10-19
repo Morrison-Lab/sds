@@ -1,0 +1,24 @@
+<!--
+This fragment uses mtcars_fits and mtcars_full_sigma2
+from _exm-adjusted-r-squared.qmd, so it renders after that one.
+-->
+:::{#exm-mallows-cp}
+#### Mallows' $C_p$ of nested `mtcars` models
+
+This example computes @def-mallows-cp for the four models of @exm-adjusted-r-squared.
+The noise variance estimate $\est{\varpar}$ is the residual variance of the model with all four predictors,
+`r round(mtcars_full_sigma2, 2)`.
+
+```{r}
+#| label: mallows-cp-mtcars
+mtcars_cp <- vapply(
+  seq_along(mtcars_fits),
+  \(k) (sum(resid(mtcars_fits[[k]])^2) + 2 * k * mtcars_full_sigma2) / nrow(mtcars),
+  numeric(1)
+)
+tibble::tibble(predictors = 1:4, cp = mtcars_cp)
+```
+
+The model with `r which.min(mtcars_cp)` predictors has the smallest $C_p$.
+
+:::
