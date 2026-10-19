@@ -1,0 +1,37 @@
+::: {#exm-hers-conditional-odds-ratio-reversible}
+
+#### Reversing the roles of treatment and exercise within diabetes strata in HERS
+
+In @exm-hers-odds-ratio-reversible, the roles of hormone therapy and regular exercise are reversed among all the women.
+Here the same two [odds ratios](#def-odds-ratio) are computed separately for the women with diabetes and the women without it:
+
+```{r}
+#| label: hers-conditional-or-reversed
+#| code-fold: false
+or_by_diabetes <- sapply(c("no", "yes"), function(z) {
+  counts <- table(
+    HT = hers$HT[hers$diabetes == z],
+    exercise = hers$exercise[hers$diabetes == z]
+  )
+  ht <- "hormone therapy"
+  c(
+    ht_odds_ratio = unname(
+      (counts[ht, "yes"] / counts["placebo", "yes"]) /
+        (counts[ht, "no"] / counts["placebo", "no"])
+    ),
+    exercise_odds_ratio = unname(
+      (counts[ht, "yes"] / counts[ht, "no"]) /
+        (counts["placebo", "yes"] / counts["placebo", "no"])
+    )
+  )
+})
+or_by_diabetes
+```
+
+The first row compares the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of hormone therapy between the women who exercise regularly and those who do not.
+The second row compares the odds of regular exercise between the hormone therapy and placebo groups.
+Among the women without diabetes the two odds ratios are `r round(or_by_diabetes[1, "no"], 3)` and `r round(or_by_diabetes[2, "no"], 3)`, and among the women with diabetes they are `r round(or_by_diabetes[1, "yes"], 3)` and `r round(or_by_diabetes[2, "yes"], 3)`.
+In each stratum the two agree, as @thm-conditional-odds-ratio-reversible states.
+The stratum odds ratios differ from the [odds ratio](#def-odds-ratio) `r round(or_hat, 3)` of @exm-hers-odds-ratio for all the women, because the theorem equates the two odds ratios within a stratum, not either one with the marginal odds ratio.
+
+:::
