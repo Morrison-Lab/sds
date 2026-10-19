@@ -22,7 +22,7 @@ $$
 \orf{X \mid Y} = \frac{\Pf{Y = 1, X = 1} \Pf{Y = 0, X = 0}}{\Pf{Y = 1, X = 0} \Pf{Y = 0, X = 1}}.
 $$
 
-The event $\set{Y = y, X = x}$ is the event $\set{X = x, Y = y}$, so each joint probability here equals the joint probability with its arguments in the other order.
+The event $\set{Y = y, X = x}$ is the event $\set{X = x, Y = y}$, so each joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) here equals the joint probability with its arguments in the other order.
 The denominator is a product of two joint probabilities, and multiplication is commutative.
 Reordering its two factors gives the denominator of @thm-odds-ratio-cross-product for $\orf{Y \mid X}$.
 :::

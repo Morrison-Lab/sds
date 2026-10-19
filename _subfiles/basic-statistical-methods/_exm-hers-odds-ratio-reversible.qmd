@@ -2,7 +2,7 @@
 
 #### Reversing the roles of treatment and exercise in HERS
 
-In @exm-hers-odds-ratio-cross-product, the odds ratio compares the odds of regular exercise between the hormone therapy and placebo groups.
+In @exm-hers-odds-ratio-cross-product, the [odds ratio](#def-odds-ratio) compares the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of regular exercise between the hormone therapy and placebo groups.
 Reversing the roles compares the odds of hormone therapy between the women who exercise regularly and those who do not:
 
 ```{r}

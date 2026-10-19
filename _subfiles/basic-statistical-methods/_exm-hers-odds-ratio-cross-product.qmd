@@ -15,6 +15,6 @@ cross_ratio <-
 cross_ratio
 ```
 
-The ratio of cross products is `r round(cross_ratio, 3)`.
-It equals the estimated odds ratio `r round(or_hat, 3)` of @exm-hers-odds-ratio, as @thm-odds-ratio-cross-product states.
+The cross-product expression equals `r round(cross_ratio, 3)`.
+It equals the estimated [odds ratio](#def-odds-ratio) `r round(or_hat, 3)` of @exm-hers-odds-ratio, as @thm-odds-ratio-cross-product states.
 :::
