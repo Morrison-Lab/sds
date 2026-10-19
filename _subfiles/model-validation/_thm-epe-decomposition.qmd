@@ -6,7 +6,7 @@ Let:
 - $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$,
 - $\noise$ be the [noise](#def-noise) of $\newoutvar$, and
 - $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), and
-- $\biassymf{\predval}$ and $\varsymf{\predval}$ be short forms of the [bias](#def-prediction-bias) $\bias{\predval}$ and the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\Var{\predval}$ of the prediction.
+- $\biassymf{\predval}$ and $\varsymf{\predval}$ be short forms of the [bias](#def-prediction-bias) $\bias{\predval}$ and the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\Var{\predval}$ of the [prediction](prediction.qmd#def-prediction).
 
 Assume:
 
