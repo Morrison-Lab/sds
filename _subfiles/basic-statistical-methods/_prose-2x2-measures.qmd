@@ -29,11 +29,43 @@ and the [odds ratio](#def-odds-ratio) measure the strength of the association.
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_exr-risk-difference-switch-ref.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_sol-risk-difference-switch-ref.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-risk-difference-switch-ref.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-risk-difference-switch-ref.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_def-risk-ratio.qmd >}}
 
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-risk-ratio.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-risk-ratio-switch-ref.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_sol-risk-ratio-switch-ref.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-risk-ratio-switch-ref.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-risk-ratio-switch-ref.qmd >}}
 
 {{< slidebreak >}}
 
