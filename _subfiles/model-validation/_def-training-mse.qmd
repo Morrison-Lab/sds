@@ -1,13 +1,12 @@
 :::{#def-training-mse}
 #### Training error (empirical risk on the training set)
 
-The **training error**, also called the **empirical [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) on the [training set](#def-training-set)**, of a [prediction rule](#def-fitted-model) $\fitted$
-fitted to a [training set](#def-training-set) $\trainset$
-is its sample mean [loss](#def-observation-loss) $\obsloss{\iobs}$
-on the training observations $\iobs \in \obsidx$:
+The **training error** of a [fitted model](#def-fitted-model) $\fitted$
+is its empirical [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) $\empriskf{\fitted}$
+on the [training set](#def-training-set) $\trainset$ used to fit it:
 
 $$
-\trainerr \eqdef \avgin \obsloss{\iobs}.
+\trainerr \eqdef \empriskf{\fitted}.
 $$ {#eq-training-mse}
 
 :::
