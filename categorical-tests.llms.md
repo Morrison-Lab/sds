@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 10:06:41 (PDT)
+Last modified: 2026-10-19 11:09:03 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -247,6 +247,46 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
+> **Exercise 1** Let:
+>
+> - \\\pi_1\\ and \\\pi_2\\ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
+> - \\\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2\\ be the [risk difference](#def-risk-difference) of group 1 compared with group 2.
+>
+> Express the risk difference of group 2 compared with group 1, \\\pi_2 - \pi_1\\, in terms of \\\operatorname{RD}\\.
+
+> **NOTE:**
+>
+> *Solution 1*. \\ \begin{aligned} \pi_2 - \pi_1 &= -1 \cdot \mathopen{}\left(\pi_1 - \pi_2\right)\mathclose{} && \text{(factor \$-1\$ out of both terms)} \\ &= -\operatorname{RD} && \text{(definition of \$\operatorname{RD}\$)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Theorem 2 (Switching the reference group in a risk difference)** Let:
+>
+> - \\\pi_1\\ and \\\pi_2\\ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
+> - \\\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2\\ be the [risk difference](#def-risk-difference) of group 1 compared with group 2, with group 2 as the [reference group](#def-reference-group).
+>
+> Then the risk difference of group 2 compared with group 1, with group 1 as the reference group, is the negative of \\\operatorname{RD}\\:
+>
+> \\\pi_2 - \pi_1 = -\operatorname{RD}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the result of [Solution 1](#sol-risk-difference-switch-ref).
+
+> **NOTE:**
+>
+> **Example 8 (Switching the reference group in the HERS risk difference)** In [Example 7](#exm-hers-risk-difference) the placebo group is the [reference group](#def-reference-group), and the estimated [risk difference](#def-risk-difference) is 0.007. Taking the hormone therapy group as the reference group instead gives:
+>
+> ``` downlit
+> rd_hat_switched <- risk_hat[["placebo"]] - risk_hat[["hormone therapy"]]
+> rd_hat_switched
+> #> [1] -0.0066302
+> ```
+>
+> This [estimate](estimation.llms.md#def-estimate), -0.007, is the negative of 0.007, as [Theorem 2](#thm-risk-difference-switch-ref) states.
+
+> **NOTE:**
+>
 > **Definition 7 (Risk ratio (also called the relative risk))** Let:
 >
 > - \\\pi_1\\ be the [risk](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
@@ -260,7 +300,7 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
-> **Example 8 (Risk ratio of regular exercise in HERS)** Take group 1 to be hormone therapy and group 2, the [reference group](#def-reference-group), to be placebo. The estimated [risk ratio](#def-risk-ratio) for the estimated [risks](#def-outcome-risk) of [Example 5](#exm-hers-outcome-risk) is:
+> **Example 9 (Risk ratio of regular exercise in HERS)** Take group 1 to be hormone therapy and group 2, the [reference group](#def-reference-group), to be placebo. The estimated [risk ratio](#def-risk-ratio) for the estimated [risks](#def-outcome-risk) of [Example 5](#exm-hers-outcome-risk) is:
 >
 > ``` downlit
 > rr_hat <- risk_hat[["hormone therapy"]] / risk_hat[["placebo"]]
@@ -269,6 +309,48 @@ Tests of independence say whether two binary variables are associated, but not h
 > ```
 >
 > The estimated [risk](#def-outcome-risk) of regular exercise in the hormone therapy group is 1.017 times the estimated risk in the placebo group. This [estimate](estimation.llms.md#def-estimate) is close to 1, which agrees with the large [p-value](inference.llms.md#def-p-value) of [Example 3](#exm-hers-chisq): the two groups have about the same estimated risk. The estimate alone does not show how precise it is.
+
+> **NOTE:**
+>
+> **Exercise 2** Let:
+>
+> - \\\pi_1\\ and \\\pi_2 \> 0\\ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
+> - \\\text{ϙ}\_{\pi}\stackrel{\text{def}}{=}\pi_1 / \pi_2\\ be the [risk ratio](#def-risk-ratio) of group 1 compared with group 2.
+> - \\\text{ϙ}\_{\pi}\> 0\\.
+>
+> Express the risk ratio of group 2 compared with group 1, \\\pi_2 / \pi_1\\, in terms of \\\text{ϙ}\_{\pi}\\.
+
+> **NOTE:**
+>
+> *Solution 2*. \\ \begin{aligned} \frac{\pi_2}{\pi_1} &= \frac{1}{\pi_1 / \pi_2} && \text{(the reciprocal of a quotient swaps numerator and denominator)} \\ &= \frac{1}{\text{ϙ}\_{\pi}} && \text{(definition of \$\text{ϙ}\_{\pi}\$)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Theorem 3 (Switching the reference group in a risk ratio)** Let:
+>
+> - \\\pi_1\\ and \\\pi_2 \> 0\\ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
+> - \\\text{ϙ}\_{\pi}\stackrel{\text{def}}{=}\pi_1 / \pi_2\\ be the [risk ratio](#def-risk-ratio) of group 1 compared with group 2, with group 2 as the [reference group](#def-reference-group).
+> - \\\text{ϙ}\_{\pi}\> 0\\.
+>
+> Then the risk ratio of group 2 compared with group 1, with group 1 as the reference group, is the reciprocal of \\\text{ϙ}\_{\pi}\\:
+>
+> \\\frac{\pi_2}{\pi_1} = \frac{1}{\text{ϙ}\_{\pi}}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the result of [Solution 2](#sol-risk-ratio-switch-ref).
+
+> **NOTE:**
+>
+> **Example 10 (Switching the reference group in the HERS risk ratio)** In [Example 9](#exm-hers-risk-ratio) the placebo group is the [reference group](#def-reference-group), and the estimated [risk ratio](#def-risk-ratio) is 1.017. Taking the hormone therapy group as the reference group instead gives:
+>
+> ``` downlit
+> rr_hat_switched <- risk_hat[["placebo"]] / risk_hat[["hormone therapy"]]
+> rr_hat_switched
+> #> [1] 0.982993
+> ```
+>
+> This [estimate](estimation.llms.md#def-estimate), 0.983, is the reciprocal of 1.017, 0.983, as [Theorem 3](#thm-risk-ratio-switch-ref) states.
 
 > **NOTE:**
 >
@@ -287,7 +369,7 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
-> **Example 9 (Odds ratio of regular exercise in HERS)** Take group 1 to be hormone therapy and group 2, the [reference group](#def-reference-group), to be placebo. The [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of regular exercise in each group follow from the estimated [risks](#def-outcome-risk) of [Example 5](#exm-hers-outcome-risk). The estimated [odds ratio](#def-odds-ratio) divides the odds in the hormone therapy group by the odds in the placebo group:
+> **Example 11 (Odds ratio of regular exercise in HERS)** Take group 1 to be hormone therapy and group 2, the [reference group](#def-reference-group), to be placebo. The [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of regular exercise in each group follow from the estimated [risks](#def-outcome-risk) of [Example 5](#exm-hers-outcome-risk). The estimated [odds ratio](#def-odds-ratio) divides the odds in the hormone therapy group by the odds in the placebo group:
 >
 > ``` downlit
 > odds_hat <- risk_hat / (1 - risk_hat)
@@ -297,7 +379,7 @@ Tests of independence say whether two binary variables are associated, but not h
 > #>        0.621336        0.638955        1.028356
 > ```
 >
-> The estimated odds ratio 1.028 is close to the [risk ratio](#def-risk-ratio) 1.017 of [Example 8](#exm-hers-risk-ratio), because the two groups have nearly equal risks. The odds ratio is 1 exactly when the risk ratio is 1, so it also agrees with the large [p-value](inference.llms.md#def-p-value) of [Example 3](#exm-hers-chisq).
+> The estimated odds ratio 1.028 is close to the [risk ratio](#def-risk-ratio) 1.017 of [Example 9](#exm-hers-risk-ratio), because the two groups have nearly equal risks. The odds ratio is 1 exactly when the risk ratio is 1, so it also agrees with the large [p-value](inference.llms.md#def-p-value) of [Example 3](#exm-hers-chisq).
 
 > **NOTE:**
 >
