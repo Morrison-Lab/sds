@@ -3,7 +3,7 @@
 
 The **fold mean squared error** $\foldmse{\ifold}$ of [fold](#def-folds) $\fold{\ifold}$
 is the [sMSE](prediction.qmd#def-prediction-mse)
-of the [fold-out fitted model](#def-fold-out-fitted-model)'s predictions
+of the [fold-out fitted model](#def-fold-out-fitted-model)'s [predictions](prediction.qmd#def-prediction)
 for the $\foldsize{\ifold}$ ([fold size](#def-fold-size)) observations in that fold:
 
 $$
