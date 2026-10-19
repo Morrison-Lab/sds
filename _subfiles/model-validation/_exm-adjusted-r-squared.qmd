@@ -6,8 +6,8 @@ so it renders before them.
 :::{#exm-adjusted-r-squared}
 #### Adjusted coefficient of determination of nested `mtcars` models
 
-The `mtcars` data set has the fuel economy `mpg` of 32 cars from the 1974 *Motor Trend* magazine.
-This example fits four nested linear models of `mpg`,
+The `mtcars` [data set](#def-data-set) has the fuel economy `mpg` of 32 cars from the 1974 *Motor Trend* magazine.
+This example fits four [nested](correlation-regression.qmd#def-nested-regression-models) linear models of `mpg`,
 each adding one predictor to the one before,
 and computes @def-adjusted-r-squared from its formula.
 
@@ -38,9 +38,9 @@ mtcars_criteria <- tibble::tibble(
 mtcars_criteria
 ```
 
-The coefficient of determination $R^2$ never falls as a predictor is added,
+The [coefficient of determination](correlation-regression.qmd#def-r-squared) $R^2$ never falls as a predictor is added,
 and here it rises from `r round(mtcars_criteria$r_squared[1], 3)` to `r round(mtcars_criteria$r_squared[4], 3)`.
-The adjusted coefficient of determination rises more slowly,
+The [adjusted coefficient of determination](#def-adjusted-r-squared) rises more slowly,
 from `r round(mtcars_criteria$adj_r_squared[1], 3)` to `r round(mtcars_criteria$adj_r_squared[4], 3)`,
 because each added predictor costs a degree of freedom.
 It is largest for the model with `r which.max(mtcars_criteria$adj_r_squared)` predictors.

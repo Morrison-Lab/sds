@@ -6,8 +6,8 @@ so it renders after that one.
 #### AIC of nested `mtcars` models
 
 This example computes @def-aic for the four models of @exm-adjusted-r-squared,
-each fitted by maximum likelihood with Gaussian noise.
-The number of estimated parameters is the number of coefficients plus one for the noise variance.
+each fitted by [maximum likelihood](intro-MLEs.qmd#def-mle) with Gaussian [noise](#def-noise).
+The number of estimated parameters is the number of coefficients plus one for the noise [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
 
 ```{r}
 #| label: aic-mtcars

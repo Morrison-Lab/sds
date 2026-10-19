@@ -2,7 +2,7 @@
 #### Akaike information criterion (AIC)
 
 Let a model with $\nparams$ estimated parameters be fitted by [maximum likelihood](intro-MLEs.qmd#def-mle) to $\nobs$ observations,
-and let $\llikf{\est{\vparam}}$ be the [log-likelihood](intro-MLEs.qmd#def-loglik) at the maximum likelihood estimate $\est{\vparam}$.
+and let $\llikf{\est{\vparam}}$ be the [log-likelihood](intro-MLEs.qmd#def-loglik) at the [maximum likelihood estimate](intro-MLEs.qmd#def-mle) $\est{\vparam}$.
 The **Akaike information criterion** of the model is
 
 $$
