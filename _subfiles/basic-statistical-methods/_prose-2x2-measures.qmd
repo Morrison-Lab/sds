@@ -53,6 +53,10 @@ and the [odds ratio](#def-odds-ratio) measure the strength of the association.
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_rem-risk-ratio-rate-ratio.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-risk-ratio-switch-ref.qmd >}}
 
 {{< slidebreak >}}

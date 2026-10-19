@@ -1,9 +1,10 @@
 :::{#def-tuning-parameter}
 #### Tuning parameter
 
-A **tuning parameter** of a [fitting procedure](#def-fitting-procedure)
-is a setting $\tuning$ that the procedure needs
-but does not compute from the [training set](#def-training-set):
+A **tuning parameter** is a setting $\tuning$
+that the analyst fixes before the model is fitted,
+rather than one computed from the data,
+and that selects one [prediction function](https://morrison-lab.github.io/pds/expectation.html#def-prediction) from a family:
 
 $$
 \predvalf{\predvar} = \candpredvalf{\tuning}{\predvar}.

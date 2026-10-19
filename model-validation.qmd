@@ -90,6 +90,10 @@ reticulate::py_require(c("numpy", "pandas", "statsmodels"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-tuning-parameter.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-fitted-model.qmd >}}
 
 {{< slidebreak >}}
@@ -195,6 +199,10 @@ reticulate::py_require(c("numpy", "pandas", "statsmodels"))
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-overfitting.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-tuning-parameter.qmd >}}
 
 ## Generalization error {#sec-generalization-error}
 
@@ -403,14 +411,6 @@ reticulate::py_require(c("numpy", "pandas", "statsmodels"))
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-data-splits.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/model-validation/_def-tuning-parameter.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/model-validation/_exm-tuning-parameter.qmd >}}
 
 {{< slidebreak >}}
 
@@ -627,6 +627,42 @@ reticulate::py_require(c("numpy", "pandas", "statsmodels"))
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_exm-one-se-rule.qmd >}}
+
+## Criteria that adjust the training error {#sec-information-criteria}
+
+{{< include sds/_subfiles/model-validation/_def-adjusted-r-squared.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-adjusted-r-squared.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-mallows-cp.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-mallows-cp.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-aic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-aic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-bic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-bic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-criteria-training-error.qmd >}}
 
 ## Cross-validating the whole procedure {#sec-cv-whole-procedure}
 
