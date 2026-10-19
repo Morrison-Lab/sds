@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 23:26:02 (PDT)
+Last modified: 2026-10-19 00:34:28 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -547,25 +547,43 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 4 (Expected squared error from three sources)** A prediction \\\hat{y}\\ at a covariate value \\x\\ has squared bias \\\[\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\]^2 = 1\\ and variance \\\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} = 2\\. The new outcome is \\Y\_{\*}= \mu\mathopen{}\left(x\right)\mathclose{} + \nu\\, where \\\nu\\ has mean \\0\\ and variance \\\sigma^2= 3\\ and is independent of \\\hat{y}\\.
+> **Exercise 4 (Expected squared prediction error from three sources)** Let:
 >
-> 1.  What is the expected squared prediction error \\\operatorname{E}\mathopen{}\left\[(Y\_{\*}- \hat{y})^2\right\]\mathclose{}\\?
-> 2.  If we could remove all bias and all variance of \\\hat{y}\\, what would the expected squared prediction error be?
-> 3.  Which of the three quantities (squared bias, variance of \\\hat{y}\\, \\\sigma^2\\) can a better prediction method reduce, and which cannot?
+> - \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, and
+> - \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ be a [prediction](prediction.llms.md#def-prediction) at the [covariate](#def-covariate) value \\x\\.
+>
+> Assume:
+>
+> - \\X\_{\*}= x\\,
+> - the squared [bias](#def-prediction-bias) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2 = 1\\,
+> - the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is \\\operatorname{Var}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} = 2\\, and
+> - the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\\sigma^2\\ of the [noise](#def-noise) of \\Y\_{\*}\\ is \\3\\.
+>
+> What is the [expected squared prediction error](#def-epe) \\\operatorname{ESPE}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\\?
 
 > **NOTE:**
 >
-> *Solution 4*.
->
-> 1.  The expected squared error is the sum of the three sources: \\1 + 2 + 3 = 6\\.
->
-> 2.  \\0 + 0 + 3 = 3\\. The noise variance \\\sigma^2= 3\\ remains, so \\3\\ is the smallest expected squared error any prediction can have here.
->
-> 3.  A better method can reduce the squared bias and the variance of \\\hat{y}\\, because both depend on how \\g\\ is built. It cannot reduce \\\sigma^2\\, which is the variance of the noise \\\nu\\ in the new outcome.
+> *Solution 4*. The [expected squared prediction error](#def-epe) is the sum of the three sources: \\1 + 2 + 3 = 6\\.
 
 > **NOTE:**
 >
-> **Exercise 5 (Separate the noise)** Let \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. Fix \\X\_{\*}= x\\. Let \\\nu\\ be the [noise](#def-noise) of \\Y\_{\*}\\. Let \\\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite. Take every expectation below to be conditional on \\X\_{\*}= x\\. Add and subtract \\\mu\mathopen{}\left(x\right)\mathclose{}\\ inside the square of the [expected prediction error](#def-epe),
+> **Exercise 5 (Expected squared prediction error without bias or variance)** Make the assumptions of [Exercise 4](#exr-epe-three-sources). If we could remove all [bias](#def-prediction-bias) and all [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, what would the [expected squared prediction error](#def-epe) at \\x\\ be?
+
+> **NOTE:**
+>
+> *Solution 5*. \\0 + 0 + 3 = 3\\. The [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\\sigma^2= 3\\ of the [noise](#def-noise) remains, so \\3\\ is the smallest [expected squared prediction error](#def-epe) any [prediction](prediction.llms.md#def-prediction) can have here.
+
+> **NOTE:**
+>
+> **Exercise 6 (Which sources of error a better method can reduce)** Make the assumptions of [Exercise 4](#exr-epe-three-sources). Which of the three quantities (the squared [bias](#def-prediction-bias), the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, and the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\\sigma^2\\ of the [noise](#def-noise)) can a better [prediction](prediction.llms.md#def-prediction) method reduce, and which cannot?
+
+> **NOTE:**
+>
+> *Solution 6*. A better method can reduce the squared [bias](#def-prediction-bias) and the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, because both depend on how \\g\\ is built. It cannot reduce \\\sigma^2\\, which is the variance of the [noise](#def-noise) \\\nu\\ in the new outcome.
+
+> **NOTE:**
+>
+> **Exercise 7 (Separate the noise)** Let \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. Fix \\X\_{\*}= x\\. Let \\\nu\\ be the [noise](#def-noise) of \\Y\_{\*}\\. Let \\\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite. Take every expectation below to be conditional on \\X\_{\*}= x\\. Add and subtract \\\mu\mathopen{}\left(x\right)\mathclose{}\\ inside the square of the [expected prediction error](#def-epe),
 >
 > \\ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^2\right\]\mathclose{}, \\
 >
@@ -575,7 +593,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> *Solution 5*. Write the prediction error as noise plus the error of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\\mu\mathopen{}\left(x\right)\mathclose{}\\:
+> *Solution 7*. Write the prediction error as noise plus the error of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\\mu\mathopen{}\left(x\right)\mathclose{}\\:
 >
 > \\ \begin{aligned} Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}} &= \mathopen{}\left(Y\_{\*}- \mu\mathopen{}\left(x\right)\mathclose{}\right)\mathclose{} + \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} && \text{(add and subtract } \mu\mathopen{}\left(x\right)\mathclose{} \text{)} \\ &= \nu+ \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} && \text{(definition of } Y\_{\*}\text{)} \end{aligned} \\
 >
@@ -609,7 +627,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. This is [Solution 5](#sol-epe-split-noise).
+> *Proof*. This is [Solution 7](#sol-epe-split-noise).
 
 > **NOTE:**
 >
@@ -644,7 +662,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 6 (Separate the bias)** [Equation 31](#eq-epe-after-noise) leaves one term that still mixes two ideas:
+> **Exercise 8 (Separate the bias)** [Equation 31](#eq-epe-after-noise) leaves one term that still mixes two ideas:
 >
 > \\ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - \hat{y}\right)\mathclose{}}^2\right\]\mathclose{}. \\
 >
@@ -656,7 +674,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> *Solution 6*. Insert the expected prediction:
+> *Solution 8*. Insert the expected prediction:
 >
 > \\ \begin{aligned} \mu\mathopen{}\left(x\right)\mathclose{} - \hat{y} &= \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} + \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{} && \text{(add and subtract } {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\text{)} \end{aligned} \\
 >
@@ -692,7 +710,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. Every expectation below is conditional on \\X\_{\*}= x\\, as in the exercises. By [Solution 5](#sol-epe-split-noise), the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\. By [Solution 6](#sol-epe-split-bias), that pMSE is the squared bias plus the variance. Substituting [Equation 33](#eq-epe-after-bias) into [Equation 31](#eq-epe-after-noise):
+> *Proof*. Every expectation below is conditional on \\X\_{\*}= x\\, as in the exercises. By [Solution 7](#sol-epe-split-noise), the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\. By [Solution 8](#sol-epe-split-bias), that pMSE is the squared bias plus the variance. Substituting [Equation 33](#eq-epe-after-bias) into [Equation 31](#eq-epe-after-noise):
 >
 > \\ \begin{aligned} \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} &= \sigma^2+ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - \hat{y}\right)\mathclose{}}^2\right\]\mathclose{} && \text{(separating the noise)} \\ &= \sigma^2+ {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} && \text{(separating the bias)} \\ &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} + \sigma^2 && \text{(reorder the terms)} \end{aligned} \\
 
@@ -744,7 +762,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 7 (Held-out predictions and the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ is drawn from the same population as the new observation \\(X\_{\*}, Y\_{\*})\\ of [Definition 19](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\. Write \\\ell\_{\*,j}\\ for the [loss](#def-observation-loss) of \\\hat y\\ on held-out observation \\j\\.
+> **Exercise 9 (Held-out predictions and the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ is drawn from the same population as the new observation \\(X\_{\*}, Y\_{\*})\\ of [Definition 19](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\. Write \\\ell\_{\*,j}\\ for the [loss](#def-observation-loss) of \\\hat y\\ on held-out observation \\j\\.
 >
 > Find, given \\\mathcal{D}\_{\text{train}}\\, the expected sample mean loss of the held-out predictions, in terms of the generalization error \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\:
 >
@@ -752,7 +770,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> *Solution 7*. Given \\\mathcal{D}\_{\text{train}}\\, the rule \\\hat y\\ is fixed. Each held-out pair has the same distribution as \\(X\_{\*}, Y\_{\*})\\ and is independent of \\\mathcal{D}\_{\text{train}}\\, so each loss has conditional expectation \\\operatorname{E}\mathopen{}\left\[\ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ by [Equation 13](#eq-generalization-error). Then
+> *Solution 9*. Given \\\mathcal{D}\_{\text{train}}\\, the rule \\\hat y\\ is fixed. Each held-out pair has the same distribution as \\(X\_{\*}, Y\_{\*})\\ and is independent of \\\mathcal{D}\_{\text{train}}\\, so each loss has conditional expectation \\\operatorname{E}\mathopen{}\left\[\ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ by [Equation 13](#eq-generalization-error). Then
 >
 > \\ \begin{aligned} & \operatorname{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} \\ &\quad = \frac{1}{m} \operatorname{E}\mathopen{}\left\[\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} && \text{(constant } 1/m\text{ out)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{E}\mathopen{}\left\[\ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} && \text{(linearity of } \operatorname{E}\text{)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(each term, as above)} \\ &\quad = \frac{1}{m} \mathopen{}\left(m\\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right)\mathclose{} && \text{(} m\text{ equal terms)} \\ &\quad = \mathopen{}\left(\frac{1}{m} \cdot m\right)\mathclose{} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(regroup the product)} \\ &\quad = 1 \cdot \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && (\tfrac{1}{m} \cdot m= 1) \\ &\quad = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(multiplying by 1 changes nothing)} \end{aligned} \\
 >
@@ -766,7 +784,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. This is [Solution 7](#sol-held-out-unbiased).
+> *Proof*. This is [Solution 9](#sol-held-out-unbiased).
 
 > **NOTE:**
 >
@@ -858,11 +876,11 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 8 (Sizes of a three-way split)** The `mtcars` data frame has \\n= 32\\ cars. Suppose we assign \\\lfloor 0.6 n\rfloor\\ cars to a training set, \\\lfloor 0.2 n\rfloor\\ cars to a validation set, and all remaining cars to a test set. How many cars are in each set?
+> **Exercise 10 (Sizes of a three-way split)** The `mtcars` data frame has \\n= 32\\ cars. Suppose we assign \\\lfloor 0.6 n\rfloor\\ cars to a training set, \\\lfloor 0.2 n\rfloor\\ cars to a validation set, and all remaining cars to a test set. How many cars are in each set?
 
 > **NOTE:**
 >
-> *Solution 8*. \\ \begin{aligned} \lfloor 0.6 \cdot 32 \rfloor &= \lfloor 19.2 \rfloor \\ &= 19 \end{aligned} \\
+> *Solution 10*. \\ \begin{aligned} \lfloor 0.6 \cdot 32 \rfloor &= \lfloor 19.2 \rfloor \\ &= 19 \end{aligned} \\
 >
 > training cars,
 >
@@ -872,7 +890,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> **Definition 38 (Training/validation/test split)** A **training/validation/test split** divides the observations \\1, \ldots, n\\ of a data set into three disjoint sets of indices, \\I\_{\text{train}}\\, \\I\_{\text{val}}\\ and \\I\_{\text{test}}\\, and takes the observations in \\I\_{\text{train}}\\ as the [training set](#def-training-set) [\[2\]](#ref-wikipedia_training_validation_and_test_data_sets):
+> **Definition 38 (Training/validation/test split)** A **training/validation/test split** divides the observations \\1, \ldots, n\\ of a data set into three disjoint sets of indices, \\I\_{\text{train}}\\, \\I\_{\text{val}}\\ and \\I\_{\text{test}}\\, and takes the observations in \\I\_{\text{train}}\\ as the [training set](#def-training-set):
 >
 > \\ \begin{aligned} & I\_{\text{train}}\cup I\_{\text{val}}\cup I\_{\text{test}}= \mathopen{}\left\\1, \ldots, n\right\\\mathclose{}, \\ & I\_{\text{train}}\cap I\_{\text{val}}= \emptyset, \\ & I\_{\text{train}}\cap I\_{\text{test}}= \emptyset, \\ & I\_{\text{val}}\cap I\_{\text{test}}= \emptyset, \\ & \mathcal{D}\_{\text{train}}= \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\_{\text{train}}}. \end{aligned} \tag{37}\\
 >
@@ -880,7 +898,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> **Example 25 (Split sizes for 32 cars)** In [Exercise 8](#exr-data-splits), a rule of 60% / 20% / 20% on \\n= 32\\ cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.
+> **Example 25 (Split sizes for 32 cars)** In [Exercise 10](#exr-data-splits), a rule of 60% / 20% / 20% on \\n= 32\\ cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.
 
 > **NOTE:**
 >
@@ -1211,7 +1229,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 9 (Folds of the `mtcars` data)** Suppose we use \\k= 4\\-fold cross-validation on the \\n= 32\\ cars in `mtcars`.
+> **Exercise 11 (Folds of the `mtcars` data)** Suppose we use \\k= 4\\-fold cross-validation on the \\n= 32\\ cars in `mtcars`.
 >
 > 1.  How many cars are in each fold?
 > 2.  Each time a model is fit, how many cars are used to fit it?
@@ -1220,7 +1238,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> *Solution 9*.
+> *Solution 11*.
 >
 > 1.  \\32 / 4 = 8\\ cars per fold.
 > 2.  Each fit leaves out one fold, so it uses \\32 - 8 = 24\\ cars.
@@ -1277,7 +1295,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> *Remark 22* (Cross-validation instead of a single validation set). If data are limited, \\k\\-fold cross-validation can replace the single validation set of [Definition 38](#def-data-splits) for more stable tuning. In [Exercise 9](#exr-kfold), \\k= 4\\ folds of 8 cars each give 4 fits on 24 cars each.
+> *Remark 22* (Cross-validation instead of a single validation set). If data are limited, \\k\\-fold cross-validation can replace the single validation set of [Definition 38](#def-data-splits) for more stable tuning. In [Exercise 11](#exr-kfold), \\k= 4\\ folds of 8 cars each give 4 fits on 24 cars each.
 
 > **NOTE:**
 >
@@ -1291,11 +1309,11 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 10 (The cross-validation estimate, fold by fold)** Rewrite the [cross-validation estimate](#def-cv-estimate) [Equation 48](#eq-cv-estimate) as \\1/n\\ times a double sum: an outer sum over the fold numbers \\j= 1, \ldots, k\\ and an inner sum over the observations \\i\\ in [fold](#def-folds) \\\mathcal{F}\_{j}\\. Then simplify the summand, so that it no longer uses the fold assignment \\\kappa\mathopen{}\left(i\right)\mathclose{}\\.
+> **Exercise 12 (The cross-validation estimate, fold by fold)** Rewrite the [cross-validation estimate](#def-cv-estimate) [Equation 48](#eq-cv-estimate) as \\1/n\\ times a double sum: an outer sum over the fold numbers \\j= 1, \ldots, k\\ and an inner sum over the observations \\i\\ in [fold](#def-folds) \\\mathcal{F}\_{j}\\. Then simplify the summand, so that it no longer uses the fold assignment \\\kappa\mathopen{}\left(i\right)\mathclose{}\\.
 
 > **NOTE:**
 >
-> *Solution 10*. The folds \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\ partition \\I\\ ([Definition 46](#def-folds)), so summing over the observations of each fold and then over the folds adds each term of [Equation 48](#eq-cv-estimate) exactly once. For \\i\in \mathcal{F}\_{j}\\, [Equation 46](#eq-fold-assignment) also puts \\i\\ in \\\mathcal{F}\_{\kappa\mathopen{}\left(i\right)\mathclose{}}\\, and the folds are disjoint, so \\\kappa\mathopen{}\left(i\right)\mathclose{} = j\\. Then
+> *Solution 12*. The folds \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\ partition \\I\\ ([Definition 46](#def-folds)), so summing over the observations of each fold and then over the folds adds each term of [Equation 48](#eq-cv-estimate) exactly once. For \\i\in \mathcal{F}\_{j}\\, [Equation 46](#eq-fold-assignment) also puts \\i\\ in \\\mathcal{F}\_{\kappa\mathopen{}\left(i\right)\mathclose{}}\\, and the folds are disjoint, so \\\kappa\mathopen{}\left(i\right)\mathclose{} = j\\. Then
 >
 > \\ \begin{aligned} \widehat{\operatorname{Err}}\_{\text{CV}(k)} &= \frac{1}{n} \sum\_{i\in I} {\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2 && \text{(definition)} \\ &= \frac{1}{n} \sum\_{j=1}^{k} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2 && \text{(group by fold)} \\ &= \frac{1}{n} \sum\_{j=1}^{k} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2 && (\kappa\mathopen{}\left(i\right)\mathclose{} = j\text{ for } i\in \mathcal{F}\_{j}) \end{aligned} \\
 >
@@ -1309,7 +1327,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. This is [Solution 10](#sol-cv-estimate-by-fold).
+> *Proof*. This is [Solution 12](#sol-cv-estimate-by-fold).
 
 > **NOTE:**
 >
@@ -1492,7 +1510,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> **Example 30 (Four-fold cross-validation of the `mtcars` polynomials)** This example applies the \\k= 4\\ folds of [Exercise 9](#exr-kfold) to the four polynomial models of [Exercise 1](#exr-overfitting), now using all \\n= 32\\ cars and the `cv_mse()` function of [Example 29](#exm-kfold-simulated). The fold assignment is random, so the estimate is too; to show how much, we repeat the whole procedure with 5 different random fold assignments.
+> **Example 30 (Four-fold cross-validation of the `mtcars` polynomials)** This example applies the \\k= 4\\ folds of [Exercise 11](#exr-kfold) to the four polynomial models of [Exercise 1](#exr-overfitting), now using all \\n= 32\\ cars and the `cv_mse()` function of [Example 29](#exm-kfold-simulated). The fold assignment is random, so the estimate is too; to show how much, we repeat the whole procedure with 5 different random fold assignments.
 >
 > > **NOTE:**
 > >
@@ -1576,7 +1594,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 11 (The largest number of folds)** Suppose we take \\k= n\\ in [\\k\\-fold cross-validation](#def-kfold) on the \\n= 32\\ cars in `mtcars`.
+> **Exercise 13 (The largest number of folds)** Suppose we take \\k= n\\ in [\\k\\-fold cross-validation](#def-kfold) on the \\n= 32\\ cars in `mtcars`.
 >
 > 1.  How many cars are in each fold?
 > 2.  How many models are fit, and how many cars is each fitted to?
@@ -1584,7 +1602,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> *Solution 11*.
+> *Solution 13*.
 >
 > 1.  \\32 / 32 = 1\\ car per fold.
 > 2.  One model per fold, so \\32\\ models, each fitted to the \\32 - 1 = 31\\ other cars.
@@ -1604,7 +1622,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 11](#exr-loocv), part 3, worked in [Solution 11](#sol-loocv). It uses [Equation 48](#eq-cv-estimate) and [Equation 47](#eq-fold-out-rule).
+> *Proof*. This is the solution to [Exercise 13](#exr-loocv), part 3, worked in [Solution 13](#sol-loocv). It uses [Equation 48](#eq-cv-estimate) and [Equation 47](#eq-fold-out-rule).
 >
 > Each step below changes one thing.
 >
@@ -1717,10 +1735,10 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    7.10543e-15    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
@@ -1877,7 +1895,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 12 (Screening predictors before cross-validating)** A data set has \\n= 50\\ observations of an outcome \\Y\\ and of \\p= 1000\\ candidate predictors. In fact every variable is independent standard normal noise, so no predictor carries any information about \\Y\\.
+> **Exercise 14 (Screening predictors before cross-validating)** A data set has \\n= 50\\ observations of an outcome \\Y\\ and of \\p= 1000\\ candidate predictors. In fact every variable is independent standard normal noise, so no predictor carries any information about \\Y\\.
 >
 > An analyst
 >
@@ -1896,7 +1914,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 
 > **NOTE:**
 >
-> *Solution 12*.
+> *Solution 14*.
 >
 > 1.  \\Y\\ is independent of every predictor, with mean 0 and variance 1. The best prediction is the constant 0, and its generalization error is \\\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{} = 1\\. Every other rule does worse, so any honest estimate should be near or above 1.
 >
@@ -1966,7 +1984,7 @@ Last modified: 2026-10-18 23:26:02 (PDT)
 >
 > *Remark 38* (Cross-validate the whole procedure). Every step that uses the outcome is part of fitting, and must be repeated inside each fold using only that fold’s training observations [\[3, Sec. 7.10.2\]](#ref-hastie2009elements). Such steps include:
 >
-> - screening or selecting predictors, as in [Exercise 12](#exr-cv-screening);
+> - screening or selecting predictors, as in [Exercise 14](#exr-cv-screening);
 > - choosing transformations or a polynomial degree;
 > - choosing a penalty or another [tuning parameter](#def-tuning-parameter).
 >
