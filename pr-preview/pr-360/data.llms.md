@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 02:23:14 (PDT)
+Last modified: 2026-10-19 03:03:52 (PDT)
 
 ## 1 Types of variables
 
@@ -100,7 +100,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 > **Exercise 1 (Dummy coding)** The Western Collaborative Group Study (WCGS) variable `behpat` (behavioral pattern) has four categories: A1, A2, B3, and B4.
 >
 > 1.  How many indicator variables are needed to represent `behpat` if A1 is the reference level?
-> 2.  Write the values of those indicator variables, in the order A2, B3, B4, for a person in category B3, and for a person in category A1.
+> 2.  Give the values of those indicator variables, in the order A2, B3, B4, for a person in category B3, and for a person in category A1.
 
 > **NOTE:**
 >

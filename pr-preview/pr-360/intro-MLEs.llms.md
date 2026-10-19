@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 02:23:14 (PDT)
+Last modified: 2026-10-19 03:03:52 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -98,7 +98,7 @@ These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with s
 >
 > \\ \begin{aligned} \Pr(Y = 1) &= \pi && \text{(definition of the event probability)}\\ \Pr(Y = 0) &= 1 - \pi && \text{(complement rule)}\\ \Pr(Y = y) &= \pi^y (1 - \pi)^{1 - y}, \quad y \in \mathopen{}\left\\0, 1\right\\\mathclose{} && \text{(combine the two cases)} \end{aligned} \\
 >
-> Let \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\ be a dataset of mutually independent binary outcomes, all with the same event probability \\\pi\\: \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\. Write the likelihood of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\.
+> Let \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\ be a dataset of mutually independent binary outcomes, all with the same event probability \\\pi\\: \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\. Derive the [likelihood](#def-lik) of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\.
 
 > **NOTE:**
 >
@@ -236,7 +236,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> **Exercise 7 (Log-likelihood of binary outcomes with one event probability)** Write the log-likelihood of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\ from [Exercise 3](#exr-bernoulli-likelihood-one-group).
+> **Exercise 7 (Log-likelihood of binary outcomes with one event probability)** Derive the [log-likelihood](#def-loglik) of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\ from [Exercise 3](#exr-bernoulli-likelihood-one-group).
 
 > **NOTE:**
 >
@@ -418,7 +418,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Exercise 13 (Hessian from the score)** Write the [Hessian](#def-hessian) \\\ell''\\ as a derivative of the [score function](#def-score) \\\ell'\\.
+> **Exercise 13 (Hessian from the score)** Express the [Hessian](#def-hessian) \\\ell''\\ as a derivative of the [score function](#def-score) \\\ell'\\.
 
 > **NOTE:**
 >
@@ -464,7 +464,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Exercise 14 (Derivative of a density through its logarithm)** Let \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \theta)\\ be a density that is positive and differentiable in a scalar parameter \\\theta\\. Write \\\frac{\partial}{\partial \theta}\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \theta)\\ in terms of \\\frac{\partial}{\partial \theta}\log \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \theta)\\.
+> **Exercise 14 (Derivative of a density through its logarithm)** Let \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \theta)\\ be a density that is positive and differentiable in a scalar parameter \\\theta\\. Express \\\frac{\partial}{\partial \theta}\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \theta)\\ in terms of \\\frac{\partial}{\partial \theta}\log \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \theta)\\.
 
 > **NOTE:**
 >
@@ -1190,7 +1190,7 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 
 > **NOTE:**
 >
-> **Exercise 33 (Score equation)** Write the [score equation](#def-score-equation).
+> **Exercise 33 (Score equation)** State the [score equation](#def-score-equation).
 
 > **NOTE:**
 >
