@@ -7,9 +7,9 @@ the conditional distribution of $\vparam^{(t+1)}$ given all the earlier values
 depends only on $\vparam^{(t)}$:
 
 $$
-\p\paren{\vparam^{(t+1)} \mid \vparam^{(t)}, \vparam^{(t-1)}, \ldots, \vparam^{(1)}}
+\pf{\vparam^{(t+1)} \mid \vparam^{(t)}, \vparam^{(t-1)}, \ldots, \vparam^{(1)}}
 =
-\p\paren{\vparam^{(t+1)} \mid \vparam^{(t)}}.
+\pf{\vparam^{(t+1)} \mid \vparam^{(t)}}.
 $$
 
 Source: @wikipedia_markov_chain.

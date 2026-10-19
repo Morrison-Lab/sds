@@ -2,7 +2,7 @@
 #### Conditional probability of a zero given the Poisson sum
 
 Let $\dsn{X} \siid \Pois(\rate)$ and $S \eqdef \sumin \Rvar_\iobs$.
-Find $\Pr\paren{X_1 = 0 \given S = t}$ for each $t = 0, 1, 2, \ldots$.
+Find $\Prf{X_1 = 0 \given S = t}$ for each $t = 0, 1, 2, \ldots$.
 You may use that $S \sim \Pois(n\rate)$, by
 [the sum of independent Poisson variables](https://morrison-lab.github.io/pds/distributions.html#thm-sum-pois) and induction on $n$.
 :::
@@ -16,12 +16,12 @@ and $X_2 + \cdots + X_n \sim \Pois\paren{(n-1)\rate}$ is independent of $X_1$.
 
 $$
 \begin{aligned}
-\Pr\paren{X_1 = 0 \given S = t}
-&= \frac{\Pr\paren{X_1 = 0,\ S = t}}{\Pr\paren{S = t}}
+\Prf{X_1 = 0 \given S = t}
+&= \frac{\Prf{X_1 = 0,\ S = t}}{\Prf{S = t}}
 && \text{(conditional probability)}\\
-&= \frac{\Pr\paren{X_1 = 0,\ X_2 + \cdots + X_n = t}}{\Pr\paren{S = t}}
+&= \frac{\Prf{X_1 = 0,\ X_2 + \cdots + X_n = t}}{\Prf{S = t}}
 && \text{(on $X_1 = 0$, $S$ is that sum)}\\
-&= \frac{\Pr\paren{X_1 = 0} \Pr\paren{X_2 + \cdots + X_n = t}}{\Pr\paren{S = t}}
+&= \frac{\Prf{X_1 = 0} \Prf{X_2 + \cdots + X_n = t}}{\Prf{S = t}}
 && \text{(independence)}\\
 &= \frac{e^{-\rate} \cdot e^{-(n-1)\rate} \paren{(n-1)\rate}^t / t!}{e^{-n\rate} \paren{n\rate}^t / t!}
 && \text{(Poisson mass functions)}\\
