@@ -25,8 +25,9 @@ jobs:
       run-id: ${{ github.event.workflow_run.id }}
       run-attempt: ${{ github.event.workflow_run.run_attempt }}
       head-sha: ${{ github.event.workflow_run.head_sha }}
-      # Tracked exception (gha#1103): the only submodule, Morrison-Lab/macros,
-      # is public, so the review workflow's anonymous-clone notice is harmless.
+      # Tracked exception (gha#1103): the only submodule, latex-macros
+      # (d-morrison/macros), is public, so the review workflow's
+      # anonymous-clone notice is harmless.
       # Remove this if a private submodule is ever added.
       allow-patterns: |
         SUBMODULES_TOKEN is empty; cloning submodules anonymously
