@@ -10,7 +10,8 @@ The [validation choice](#def-validation-choice) selects the model with the small
 so the validation error of the chosen model is still optimistic;
 the test error is computed once, after the choice, so it is not.
 
-@hastie2009elements [sec. 7.2] use "test error" for the generalization error of the fitted model itself.
+@hastie2009elements [sec. 7.2]
+use "test error" for the generalization error of the fitted model itself.
 Here the test error is the number computed from the test set,
 and the generalization error is what it estimates.
 

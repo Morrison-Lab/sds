@@ -32,7 +32,7 @@ Each step below changes one thing.
    (Step 3 depends on $i$ and $\fitproc$ only.)
 5. Hence each term $\sqf{\fittedwo{\foldof{i}}{\predvar_\iobs} - \outvar_\iobs}$ of @eq-cv-estimate is the same
    for every fold assignment.
-   (Each term is a function of the fitted model in step 4, $\predvar_\iobs$ and $\outvar_\iobs$.)
+   (Each term depends only on the fitted model in step 4, $\predvar_\iobs$ and $\outvar_\iobs$.)
 6. Therefore the sum over $i \in I$ in @eq-cv-estimate,
    and its factor $1/n$, are the same for every fold assignment:
 

@@ -4,7 +4,7 @@
 Each [prediction](prediction.qmd#def-prediction) in @eq-cv-estimate comes from a [fitted model](#def-fitted-model)
 that did not see the observation it predicts,
 so each squared error is scored as in @thm-held-out-unbiased.
-But the model for [fold](#def-folds)$\fold{\ifold}$ was fitted to $\nobs - \foldsize{\ifold}$ observations,
+But the model for [fold](#def-folds) $\fold{\ifold}$ was fitted to $\nobs - \foldsize{\ifold}$ observations,
 not $\nobs$,
 and the $\nfolds$ models differ from one another and from the model fitted to all $\nobs$.
 So $\cvest{\nfolds}$ estimates the [expected generalization error](#def-expected-generalization-error)
