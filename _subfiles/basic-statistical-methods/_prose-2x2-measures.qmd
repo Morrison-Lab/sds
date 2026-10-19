@@ -13,6 +13,10 @@ and the [odds ratio](#def-odds-ratio) measure the strength of the association.
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_rem-cumulative-incidence.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_def-reference-group.qmd >}}
 
 {{< slidebreak >}}
