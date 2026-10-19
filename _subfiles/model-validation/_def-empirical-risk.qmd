@@ -5,7 +5,7 @@ The **empirical risk** of a [fitted model](#def-fitted-model) $\fitted$
 on a set of $\nobs$ observations
 is the [sample mean](exploratory-descriptive.qmd#def-sample-mean)
 of its [loss](#def-observation-loss) on those observations,
-the sample analogue of the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk),
+the counterpart computed from data of the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk),
 which is the expected loss:
 
 $$
