@@ -11,7 +11,7 @@ $$
 :::
 
 ::: proof
-Independence gives each pattern its own log-likelihood term, and the outcomes at pattern $k$ contribute $\nevents_k \ln \prob_k + \paren{\nreps_k - \nevents_k} \lnf{1 - \prob_k}$.
+Independence gives each pattern its own [log-likelihood](intro-MLEs.qmd#def-loglik) term, and the outcomes at pattern $k$ contribute $\nevents_k \ln \prob_k + \paren{\nreps_k - \nevents_k} \lnf{1 - \prob_k}$.
 The terms share no parameters, so each is maximized on its own.
 First suppose $0 < \nevents_k < \nreps_k$, so that both logarithms are defined for $0 < \prob_k < 1$.
 Setting the derivative with respect to $\prob_k$ to zero gives $\nevents_k / \prob_k - \paren{\nreps_k - \nevents_k} / \paren{1 - \prob_k} = 0$.

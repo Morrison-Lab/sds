@@ -15,7 +15,7 @@ where a term with $\nevents_k = 0$ or $\nevents_k = \nreps_k$ contributes $0$ in
 :::
 
 ::: proof
-Grouping the outcomes by pattern, the fitted model's log-likelihood is $\llikf{\hvcoef} = \sumkK \cb{\nevents_k \ln \hat\prob_k + \paren{\nreps_k - \nevents_k} \lnf{1 - \hat\prob_k}}$.
+Grouping the outcomes by pattern, the [fitted model](model-validation.qmd#def-fitted-model)'s [log-likelihood](intro-MLEs.qmd#def-loglik) is $\llikf{\hvcoef} = \sumkK \cb{\nevents_k \ln \hat\prob_k + \paren{\nreps_k - \nevents_k} \lnf{1 - \hat\prob_k}}$.
 By @thm-saturated-mle, the saturated log-likelihood is the same sum with $\hat\prob_k$ replaced by $\nevents_k / \nreps_k$.
 Subtracting the fitted from the saturated log-likelihood, term by term, replaces each $\lnf{\nevents_k / \nreps_k} - \ln \hat\prob_k$ by $\lnf{\nevents_k / \paren{\nreps_k \hat\prob_k}}$, and likewise for the non-events.
 Multiplying by $2$, as @eq-saturated-deviance does, gives @eq-saturated-deviance-grouped.
