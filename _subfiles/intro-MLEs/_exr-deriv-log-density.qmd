@@ -3,7 +3,7 @@
 
 Let $\p(\vx \mid \param)$ be a density
 that is positive and differentiable in a scalar parameter $\param$.
-Write $\deriv{\param}\p(\vx \mid \param)$
+Express $\deriv{\param}\p(\vx \mid \param)$
 in terms of $\deriv{\param}\log \p(\vx \mid \param)$.
 :::
 

@@ -1,6 +1,6 @@
 :::{#sol-epe-split-noise}
 
-Write the prediction error as noise plus the error of the prediction, used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\truemeanf{\predvar}$:
+Express the prediction error as noise plus the error of the prediction, used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\truemeanf{\predvar}$:
 
 $$
 \ba
