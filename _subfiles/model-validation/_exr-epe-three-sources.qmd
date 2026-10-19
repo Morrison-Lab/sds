@@ -3,11 +3,15 @@
 
 Let:
 
-- $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$,
+- $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$, and
+- $\predvalf{\predvar}$ be a [prediction](prediction.qmd#def-prediction) at the covariate value $\predvar$.
+
+Assume:
+
 - $\newpredvar = \predvar$,
-- the squared [bias](#def-prediction-bias) of the [prediction](prediction.qmd#def-prediction) $\predvalf{\predvar}$ be $\sqf{\bias{\predvalf{\predvar}}} = 1$,
-- the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of $\predvalf{\predvar}$ be $\Var{\predvalf{\predvar}} = 2$, and
-- the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of the [noise](#def-noise) of $\newoutvar$ be $\varpar = 3$.
+- the squared [bias](#def-prediction-bias) of $\predvalf{\predvar}$ is $\sqf{\bias{\predvalf{\predvar}}} = 1$,
+- the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of $\predvalf{\predvar}$ is $\Var{\predvalf{\predvar}} = 2$, and
+- the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of the [noise](#def-noise) of $\newoutvar$ is $\varpar = 3$.
 
 1. What is the [expected squared prediction error](#def-epe) $\epe{\fitproc}{\nobs}{\predvar}$?
 2. If we could remove all bias and all variance of $\predvalf{\predvar}$,
