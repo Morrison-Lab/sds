@@ -15,7 +15,3 @@ jobs:
     uses: Morrison-Lab/gha/.github/workflows/check-dependency-graph.yml@v3
     with:
       pages-dir: .
-      # Warn only until the cycle and forward references in
-      # model-validation and data are fixed:
-      # https://github.com/Morrison-Lab/sds/issues/376
-      fail-on-cycle: false
