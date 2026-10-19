@@ -1,0 +1,78 @@
+:::{#exm-error-rate}
+#### Test error rate of a low-birth-weight classifier
+
+The `birthwt` data hold births at Baystate Medical Center in Springfield, Massachusetts [@hosmer1989applied],
+as distributed in R's `MASS` package [@venables2002modern].
+The outcome `low` is 1 for a birth weight under 2.5 kg and 0 otherwise.
+We fit a [logistic regression](logistic-inference.qmd#def-logistic-regression) of `low` on the mother's age, weight at her last menstrual period, smoking status,
+history of hypertension, and presence of uterine irritability.
+The [fitted model](#def-fitted-model) [predicts](prediction.qmd#def-prediction) `low = 1`
+when its fitted [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) exceeds 0.5.
+We use every third row as the [test set](#def-test-set)
+and fit on the remaining rows, the [training set](#def-training-set).
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: error-rate-r
+#| code-fold: false
+birthwt <- read.csv("data/birthwt.csv")
+is_test <- seq_len(nrow(birthwt)) %% 3 == 0
+
+fit_low <- glm(
+  low ~ age + lwt + smoke + ht + ui,
+  family = binomial,
+  data = birthwt[!is_test, ]
+)
+
+predicted_low <- function(data) {
+  as.integer(predict(fit_low, newdata = data, type = "response") > 0.5)
+}
+
+error_rates <- c(
+  training = mean(predicted_low(birthwt[!is_test, ]) != birthwt$low[!is_test]),
+  test = mean(predicted_low(birthwt[is_test, ]) != birthwt$low[is_test])
+)
+error_rates
+```
+
+##### Python
+
+```{python}
+#| label: error-rate-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+import statsmodels.formula.api as smf
+
+birthwt = pd.read_csv("data/birthwt.csv")
+is_test = (np.arange(1, len(birthwt) + 1) % 3 == 0)
+
+fit_low = smf.logit(
+    "low ~ age + lwt + smoke + ht + ui", data=birthwt[~is_test]
+).fit(disp=False)
+
+
+def predicted_low(data):
+    return (fit_low.predict(data) > 0.5).astype(int)
+
+
+error_rates = {
+    "training": (predicted_low(birthwt[~is_test]) != birthwt["low"][~is_test]).mean(),
+    "test": (predicted_low(birthwt[is_test]) != birthwt["low"][is_test]).mean(),
+}
+error_rates
+```
+
+:::
+
+Of the `r nrow(birthwt)` births, `r sum(is_test)` are in the [test set](#def-test-set).
+The [covariates](#def-covariate) are chosen for simplicity, not for predictive quality.
+The [fitted model](#def-fitted-model) gets the wrong birth-weight category for
+`r round(100 * error_rates[["test"]], 1)`% of the test births,
+so its [test error rate](#def-test-error-rate) is `r round(error_rates[["test"]], 3)`.
+Its [training error rate](#def-training-error-rate) is `r round(error_rates[["training"]], 3)`.
+
+:::
