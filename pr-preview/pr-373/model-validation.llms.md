@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 02:32:24 (PDT)
+Last modified: 2026-10-19 03:23:45 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -278,9 +278,9 @@ Last modified: 2026-10-19 02:32:24 (PDT)
 
 > **NOTE:**
 >
-> **Definition 21 (Training error (empirical risk on the training set))** The **training error** of a [fitted model](#def-fitted-model) \\\hat y\\ is its empirical [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) \\\hat{R}\mathopen{}\left(\hat y\right)\mathclose{}\\ on the [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ used to fit it:
+> **Definition 21 (Training error)** The **training error** of a [fitted model](#def-fitted-model) \\\hat y\\ is its empirical [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) \\\hat{R}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left(\hat y\right)\mathclose{}\\ on the [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ used to fit it:
 >
-> \\ \overline{\operatorname{err}}\stackrel{\text{def}}{=}\hat{R}\mathopen{}\left(\hat y\right)\mathclose{}. \tag{16}\\
+> \\ \overline{\operatorname{err}}\stackrel{\text{def}}{=}\hat{R}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left(\hat y\right)\mathclose{}. \tag{16}\\
 
 > **NOTE:**
 >
@@ -381,7 +381,7 @@ Last modified: 2026-10-19 02:32:24 (PDT)
 >
 >     \\\operatorname{E}\mathopen{}\left\[\varepsilon\_{\*}^2 \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}.\\
 >
-> 2.  The rule \\\hat y\\ is known, because we fitted it. The joint distribution of \\(X\_{\*}, Y\_{\*})\\ is unknown, so the expectation cannot be computed. If we knew that distribution, we would not need data to [estimate](estimation.llms.md#def-estimate) the [mean function](#def-mean-function).
+> 2.  The rule \\\hat y\\ is known, because we fitted it. The joint distribution of \\(X\_{\*}, Y\_{\*})\\ is unknown, so the expectation cannot be computed. If we knew that distribution, we would not need data to [estimate](estimation.llms.md#def-estimate) the [true mean function](#def-mean-function) \\\mu\mathopen{}\left(x\right)\mathclose{}\\ of the outcome variable given the input value \\x\\.
 >
 > 3.  The training error \\\overline{\operatorname{err}}\\ replaces the expectation over new cars with an average over the \\n\\ training cars. Those cars are draws from the same population, but they are not independent of \\\mathcal{D}\_{\text{train}}\\: they *are* \\\mathcal{D}\_{\text{train}}\\, and \\\hat y\\ was chosen to fit them.
 
@@ -1779,10 +1779,10 @@ Last modified: 2026-10-19 02:32:24 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    8.88178e-15    2.00000e+00
+> #>    7.10543e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >

@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-19 02:32:24 (PDT)</p>
+  <p class="date">Last modified: 2026-10-19 03:23:45 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -624,9 +624,9 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 \tag{15}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="def-training-mse" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 21 (Training error (empirical risk on the training set))</strong></span> The <strong>training error</strong> of a <a href="#/def-fitted-model">fitted model</a> <span class="math inline">\(\hat y\)</span> is its empirical <a href="https://morrison-lab.github.io/pds/expectation.html#def-risk">risk</a> <span class="math inline">\(\hat{R}\mathopen{}\left(\hat y\right)\mathclose{}\)</span> on the <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> used to fit it:</p>
+<p><span class="theorem-title"><strong>Definition 21 (Training error)</strong></span> The <strong>training error</strong> of a <a href="#/def-fitted-model">fitted model</a> <span class="math inline">\(\hat y\)</span> is its empirical <a href="https://morrison-lab.github.io/pds/expectation.html#def-risk">risk</a> <span class="math inline">\(\hat{R}_{\mathcal{D}_{\text{train}}}\mathopen{}\left(\hat y\right)\mathclose{}\)</span> on the <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> used to fit it:</p>
 <p><span id="eq-training-mse"><span class="math display">\[
-\overline{\operatorname{err}}\stackrel{\text{def}}{=}\hat{R}\mathopen{}\left(\hat y\right)\mathclose{}.
+\overline{\operatorname{err}}\stackrel{\text{def}}{=}\hat{R}_{\mathcal{D}_{\text{train}}}\mathopen{}\left(\hat y\right)\mathclose{}.
 \tag{16}\]</span></span></p>
 </div>
 <div id="rem-source-training-mse" class="proof remark">
@@ -723,7 +723,7 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <p>For squared-error loss, the loss is the squared prediction error:</p>
 <p><span class="math display">\[\operatorname{E}\mathopen{}\left[\varepsilon_{*}^2 \mid \mathcal{D}_{\text{train}}\right]\mathclose{}.\]</span></p>
 </li>
-<li><p>The rule <span class="math inline">\(\hat y\)</span> is known, because we fitted it. The joint distribution of <span class="math inline">\((X_{*}, Y_{*})\)</span> is unknown, so the expectation cannot be computed. If we knew that distribution, we would not need data to <a href="./estimation.html#def-estimate">estimate</a> the <a href="#/def-mean-function">mean function</a>.</p></li>
+<li><p>The rule <span class="math inline">\(\hat y\)</span> is known, because we fitted it. The joint distribution of <span class="math inline">\((X_{*}, Y_{*})\)</span> is unknown, so the expectation cannot be computed. If we knew that distribution, we would not need data to <a href="./estimation.html#def-estimate">estimate</a> the <a href="#/def-mean-function">true mean function</a> <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span> of the outcome variable given the input value <span class="math inline">\(x\)</span>.</p></li>
 <li><p>The training error <span class="math inline">\(\overline{\operatorname{err}}\)</span> replaces the expectation over new cars with an average over the <span class="math inline">\(n\)</span> training cars. Those cars are draws from the same population, but they are not independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>: they <em>are</em> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and <span class="math inline">\(\hat y\)</span> was chosen to fit them.</p></li>
 </ol>
 </div>
@@ -2351,10 +2351,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span id="cb27-3"><a aria-label="3"></a>  mtcars_loocv<span class="sc">$</span>degree[<span class="fu">which.min</span>(mtcars_loocv<span class="sc">$</span>formula)]</span>
 <span id="cb27-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">max_difference =</span> loocv_max_diff, <span class="at">best_degree =</span> mtcars_best_loocv)</span>
 <span id="cb27-5"><a aria-label="5"></a><span class="co">#&gt; max_difference    best_degree </span></span>
-<span id="cb27-6"><a aria-label="6"></a><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb27-6"><a aria-label="6"></a><span class="co">#&gt;    7.10543e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
 <p><span class="proof-title"><em>Remark 34</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k= n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;28</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;27</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each rule is fitted to <span class="math inline">\(n- 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 5.1.4]</a></span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;7</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
