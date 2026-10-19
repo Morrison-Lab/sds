@@ -1,6 +1,6 @@
 Tests of independence say whether two binary variables are associated,
 but not how strongly.
-Risk differences and risk ratios measure the strength of the association.
+Risk differences, risk ratios and odds ratios measure the strength of the association.
 
 {{< slidebreak >}}
 
@@ -26,5 +26,10 @@ Risk differences and risk ratios measure the strength of the association.
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-risk-ratio.qmd >}}
 
-Odds ratios, the third common measure, are in
-[Odds Ratios and Relative Risks](https://morrison-lab.github.io/rme/chapters/binary-outcome-associations.html#sec-OR-RR).
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-odds-ratio.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-odds-ratio.qmd >}}

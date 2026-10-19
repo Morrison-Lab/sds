@@ -1,0 +1,22 @@
+::: {#exm-hers-odds-ratio}
+#### Odds ratio of regular exercise in HERS
+
+With the placebo group as the reference group,
+the estimated odds of regular exercise in each group follow from
+the estimated risks of @exm-hers-outcome-risk,
+and the estimated odds ratio of @def-odds-ratio is their ratio:
+
+```{r}
+#| label: hers-odds-ratio
+#| code-fold: false
+odds_hat <- risk_hat / (1 - risk_hat)
+or_hat <- odds_hat[["hormone therapy"]] / odds_hat[["placebo"]]
+c(odds_hat, odds_ratio = or_hat)
+```
+
+The estimated odds ratio `{r} round(or_hat, 3)` is close to the risk ratio
+`{r} round(rr_hat, 3)` of @exm-hers-risk-ratio,
+because the two groups have nearly equal risks.
+The odds ratio is 1 exactly when the risk ratio is 1,
+so it also agrees with the large p-value of @exm-hers-chisq.
+:::
