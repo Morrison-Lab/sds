@@ -3,7 +3,7 @@
 
 LOOCV is the $\nfolds = \nobs$ end of @rem-choosing-k.
 By @rem-cv-estimate, $\cvest{\nobs}$ estimates $\expgenerr{\fitproc}{\nobs - 1}$ for the fitting procedure $\fitproc$:
-each rule is fitted to $\nobs - 1$ observations,
+each [fitted model](#def-fitted-model) is fitted to $\nobs - 1$ observations,
 so the bias of $\cvest{\nobs}$ as an estimate of $\expgenerr{\fitproc}{\nobs}$ is the smallest of any $\nfolds$.
 But the $\nobs$ training sets are nearly identical,
 so the variance of $\cvest{\nobs}$ can be larger than that of 5- or 10-fold cross-validation

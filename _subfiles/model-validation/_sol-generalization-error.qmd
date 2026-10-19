@@ -1,7 +1,7 @@
 :::{#sol-generalization-error}
 
 1. Average the loss over the distribution of $(\newpredvar, \newoutvar)$,
-   with $\trainset$, and so the rule $\fitted$, held fixed:
+   with $\trainset$, and so the [fitted model](#def-fitted-model) $\fitted$, held fixed:
 
    $$\E{\obsloss{*} \mid \trainset}.$$
 
@@ -9,7 +9,7 @@
 
    $$\E{\prederr_{*}^2 \mid \trainset}.$$
 
-2. The rule $\fitted$ is known, because we fitted it.
+2. The fitted model $\fitted$ is known, because we fitted it.
    The joint distribution of $(\newpredvar, \newoutvar)$ is unknown,
    so the expectation cannot be computed.
    If we knew that distribution,
