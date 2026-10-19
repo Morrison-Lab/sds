@@ -162,6 +162,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-empirical-risk.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-training-mse.qmd >}}
 
 ## Overfitting
