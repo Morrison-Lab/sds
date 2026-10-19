@@ -72,7 +72,7 @@ $$
 For the second entry,
 write $\varpar$ as a single variable $v$, so that $\llik$ contains
 $-\frac{n}{2}\log v$ and $-\frac{1}{2}v^{-1} S$,
-where $S = \sumin (\rvar_\iobs - \mean)^2$ does not depend on $\varpar$:
+where $S = \ssdev{\mean}$ does not depend on $\varpar$:
 
 $$
 \begin{aligned}
