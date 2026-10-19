@@ -1,0 +1,8 @@
+:::{#exm-irreducible-error}
+#### The irreducible error of a normal population
+
+Take a population whose outcome given the covariate value $\predvar$ has the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) $\ndist{\sin(2 \pi \predvar), \varpar}$ where $\varpar = \sdpar^2$ and $\sdpar = 0.3$.
+Its [noise](#def-noise) $\noise = \newoutvar - \sin(2 \pi \predvar)$ has the normal distribution with mean $0$ and variance $\varpar$.
+The [irreducible error](#def-irreducible-error) at every $\predvar$ is therefore $\varpar = \sdpar^2 = `{r} 0.3^2`$.
+
+:::
