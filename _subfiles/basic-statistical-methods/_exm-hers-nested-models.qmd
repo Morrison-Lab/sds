@@ -2,7 +2,7 @@
 #### Nested models for fasting glucose in HERS
 
 In the HERS data, take the linear regression of `glucose` on `BMI` as the smaller model.
-The larger model adds `age` and `exercise`, so $q = 2$:
+The [larger model](#def-nested-regression-models) adds `age` and `exercise`, so $q = 2$:
 
 $$
 \begin{aligned}

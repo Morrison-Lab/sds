@@ -3,7 +3,7 @@
 
 Let a smaller [linear regression model](#def-linear-regression)
 be [nested](#def-nested-regression-models)
-in a larger model with $p$ features,
+in a [larger model](#def-nested-regression-models) with $p$ features,
 so that they differ by $q$ coefficients,
 and let both be fitted by [ordinary least squares](#def-ols) to $n$ observations.
 Write $\text{RSS}_0$ and $\text{RSS}_1$ for the
