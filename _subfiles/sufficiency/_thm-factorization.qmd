@@ -17,7 +17,7 @@ Source: @wikipedia_sufficient_statistic.
 
 ::: proof
 
-Let $\vx$ be a [sample](exploratory-descriptive.qmd#def-sample) and write $t \eqdef \statf{\vx}$.
+Let $\vx$ be a value of the [sample](exploratory-descriptive.qmd#def-sample) $\vX$ and write $t \eqdef \statf{\vx}$.
 The event $\vX = \vx$ lies inside the event $\statf{\vX} = t$.
 
 **Sufficient implies a factorization.**
