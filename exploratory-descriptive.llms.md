@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 02:56:37 (PDT)
+Last modified: 2026-10-19 03:13:51 (PDT)
 
 ## 1 Introduction
 
@@ -917,6 +917,10 @@ A typical exploratory data analysis proceeds as follows:
 > [TABLE]
 >
 > Table 5: Summary of selected WCGS variables
+
+## 7 Further reading
+
+[Plotting a Binary Outcome](https://morrison-lab.github.io/vds/chapters/binary-outcomes.html) shows how to plot a 0/1 outcome against a [continuous](data.llms.md#def-continuous-var) feature, where [scatterplot](exploratory-descriptive.llms.md#def-scatterplot) dots would pile into two stripes. It draws a rug and two [histograms](exploratory-descriptive.llms.md#def-histogram) of the WCGS data, in R and Python.
 
 ## References
 

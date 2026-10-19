@@ -1190,6 +1190,17 @@
     ]
   },
   {
+    "objectID": "exploratory-descriptive.html#further-reading",
+    "href": "exploratory-descriptive.html#further-reading",
+    "title": "Exploratory Data Analysis",
+    "section": "\n7 Further reading",
+    "text": "7 Further reading\nPlotting a Binary Outcome shows how to plot a 0/1 outcome against a continuous feature, where scatterplot dots would pile into two stripes. It draws a rug and two histograms of the WCGS data, in R and Python.",
+    "crumbs": [
+      "Describing Data",
+      "Exploratory Data Analysis"
+    ]
+  },
+  {
     "objectID": "exploratory-descriptive.html#references",
     "href": "exploratory-descriptive.html#references",
     "title": "Exploratory Data Analysis",
