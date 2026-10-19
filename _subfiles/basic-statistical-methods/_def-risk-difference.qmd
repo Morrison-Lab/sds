@@ -1,0 +1,14 @@
+::: {#def-risk-difference}
+#### Risk difference (also called the absolute risk reduction)
+
+Let:
+
+- $\risk_1$ be the [risk](#def-outcome-risk) of a [binary](data.qmd#def-binary-var) outcome in group 1.
+- $\risk_2$ be the risk of the same outcome in the [reference group](#def-reference-group), group 2.
+
+The **risk difference**, also called the **absolute risk reduction**, of group 1 compared with group 2 is
+
+$$\RD \eqdef \risk_1 - \risk_2 \in [-1, 1].$$
+
+Source: @wikipedia_absolute_risk_reduction.
+:::

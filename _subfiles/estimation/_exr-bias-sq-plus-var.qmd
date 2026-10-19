@@ -15,22 +15,25 @@ The variance is
 
 $$\var{\hparam} = \E{\hparam^2} - \sqf{\E{\hparam}}$$ {#eq-bias-sq-plus-var-exr}
 
-Add it to the squared bias from @exr-sq-bias-expand and simplify:
+Let the [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [estimator](#def-estimator) $\hparam$ be $\mean_{\hparam} = \E{\hparam}$.
+Then the variance of $\hparam$ is $\E{\hparam^2} - \sqf{\mean_{\hparam}}$,
+and the squared [bias](#def-bias) of $\hparam$ for the [estimand](#def-estimand) $\param$ from @exr-sq-bias-expand is $\sqf{\mean_{\hparam}} - 2\mean_{\hparam}\param + \param^2$.
+Add them and simplify:
 
 $$
 \begin{aligned}
 \sqf{\bias{\hparam}} + \var{\hparam}
-&= \sqf{\E{\hparam}} - 2\E{\hparam}\param + \param^2 + \var{\hparam}
+&= \sqf{\mean_{\hparam}} - 2\mean_{\hparam}\param + \param^2 + \var{\hparam}
 && \text{(substitute the squared bias)}\\
-&= \sqf{\E{\hparam}} - 2\E{\hparam}\param + \param^2 + \E{\hparam^2} - \sqf{\E{\hparam}}
+&= \sqf{\mean_{\hparam}} - 2\mean_{\hparam}\param + \param^2 + \E{\hparam^2} - \sqf{\mean_{\hparam}}
 && \text{(substitute the variance)}\\
-&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2 + \sqf{\E{\hparam}} - \sqf{\E{\hparam}}
+&= \E{\hparam^2} - 2\mean_{\hparam}\param + \param^2 + \sqf{\mean_{\hparam}} - \sqf{\mean_{\hparam}}
 && \text{(reorder the terms)}\\
-&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2 + \paren{\sqf{\E{\hparam}} - \sqf{\E{\hparam}}}
+&= \E{\hparam^2} - 2\mean_{\hparam}\param + \param^2 + \paren{\sqf{\mean_{\hparam}} - \sqf{\mean_{\hparam}}}
 && \text{(group the last two terms)}\\
-&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2 + 0
+&= \E{\hparam^2} - 2\mean_{\hparam}\param + \param^2 + 0
 && \text{($a - a = 0$)}\\
-&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2
+&= \E{\hparam^2} - 2\mean_{\hparam}\param + \param^2
 && \text{($a + 0 = a$)}
 \end{aligned}
 $$ {#eq-bias-sq-plus-var-exr-2}

@@ -1,7 +1,7 @@
 :::{#exr-bernoulli-loglik-one-group}
 #### Log-likelihood of binary outcomes with one event probability
 
-Write the log-likelihood of $\vy$
+Derive the [log-likelihood](#def-loglik) of $\vy$
 from @exr-bernoulli-likelihood-one-group.
 
 :::

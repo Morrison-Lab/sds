@@ -5,7 +5,8 @@ Let:
 
 - $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$,
 - $\noise$ be the [noise](#def-noise) of $\newoutvar$, and
-- $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+- $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), and
+- $\biassymf{\predval}$ and $\varsymf{\predval}$ be short forms of the [bias](#def-prediction-bias) $\bias{\predval}$ and the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\Var{\predval}$ of the [prediction](prediction.qmd#def-prediction).
 
 Assume:
 
@@ -20,8 +21,8 @@ plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#
 plus $\varpar$:
 
 $$
-\epe{\fitproc}{\nobs}{\predvar} = \sqf{\bias{\predval}}
-+ \Var{\predval} + \varpar.
+\epe{\fitproc}{\nobs}{\predvar} = \sqf{\biassymf{\predval}}
++ \varsymf{\predval} + \varpar.
 $$ {#eq-epe-decomposition}
 
 :::
@@ -38,9 +39,9 @@ $$
 \epe{\fitproc}{\nobs}{\predvar}
 &= \varpar + \E{\sqf{\truemeanf{\predvar} - \predval}}
 && \text{(separating the noise)} \\
-&= \varpar + \sqf{\bias{\predval}} + \Var{\predval}
+&= \varpar + \sqf{\biassymf{\predval}} + \varsymf{\predval}
 && \text{(separating the bias)} \\
-&= \sqf{\bias{\predval}} + \Var{\predval} + \varpar
+&= \sqf{\biassymf{\predval}} + \varsymf{\predval} + \varpar
 && \text{(reorder the terms)}
 \ea
 $$

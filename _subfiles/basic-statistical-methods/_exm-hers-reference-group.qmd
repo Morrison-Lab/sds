@@ -1,0 +1,9 @@
+::: {#exm-hers-reference-group}
+#### The placebo group as the reference group in HERS
+
+To compare the [risks](#def-outcome-risk) of regular exercise in @exm-hers-outcome-risk,
+take the placebo group as the [reference group](#def-reference-group)
+and the hormone therapy group as the group being compared with it.
+Then a difference is hormone therapy minus placebo,
+and a quotient is hormone therapy divided by placebo.
+:::
