@@ -1,0 +1,18 @@
+:::{#def-mallows-cp}
+#### Mallows' $C_p$
+
+Let a least squares regression model with $\inputdim$ predictors be fitted to $\nobs$ observations,
+and let $\est{\varpar}$ be an [estimate](estimation.qmd#def-estimate) of the [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar$,
+usually the [residual](prediction.qmd#def-residual) variance of the model with all the predictors under consideration.
+**Mallows' $C_p$** of the [fitted model](#def-fitted-model) is
+
+$$
+C_p \eqdef \frac{1}{\nobs} \paren{\text{RSS}(\est{\vparam}) + 2 \inputdim \est{\varpar}},
+$$
+
+the average of the [residual sum of squares](correlation-regression.qmd#def-rss) plus a penalty of $2 \est{\varpar}$ for each predictor.
+A smaller value is better.
+
+Source: @mallows1973some.
+This scaling is that of @james2021islr2e [section 6.1.3].
+:::
