@@ -5,7 +5,7 @@ A **bootstrap sample** from observed data $\dsn{x}$
 is a sample of size $n$ drawn with replacement
 from $\cb{\dsn{x}}$,
 each draw choosing each of the $n$ observations
-with probability $1/n$.
+with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/n$.
 
 Source: @wikipedia_resampling_statistics.
 :::

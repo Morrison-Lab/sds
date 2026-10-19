@@ -1,7 +1,7 @@
 ::: {#thm-union-bound}
 #### Union bound
 
-For any events $A_1, \ldots, A_k$, the probability of their union is at most the sum of their probabilities:
+For any events $A_1, \ldots, A_k$, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of their union is at most the sum of their probabilities: <!-- check-term-links: allow -->
 
 $$\Prf{A_1 \cup \cdots \cup A_k} \le \Pr(A_1) + \cdots + \Pr(A_k).$$
 

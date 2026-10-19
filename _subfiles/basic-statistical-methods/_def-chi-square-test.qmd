@@ -5,7 +5,7 @@ With observed counts $O_{ij}$ and [expected counts](#def-expected-count) $E_{ij}
 in an $r \times c$ contingency table,
 **Pearson's chi-square test** of the null hypothesis
 that the row and column variables are independent
-uses the statistic
+uses the [statistic](sufficiency.qmd#def-statistic)
 
 $$X^2 \eqdef \sumto{i}{r} \sumto{j}{c} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}.$$
 

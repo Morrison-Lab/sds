@@ -2,7 +2,7 @@
 #### Contingency table (cross-tabulation)
 
 A **contingency table** (or **cross-tabulation**) displays
-the joint frequencies of two categorical variables:
+the joint frequencies of two [categorical variables](data.qmd#def-categorical-var):
 each cell counts the observations with one combination of categories.
 For two binary variables,
 the contingency table is a $2 \times 2$ table with cells $a$, $b$, $c$, and $d$:

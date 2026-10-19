@@ -2,7 +2,7 @@
 #### Population
 
 A **population** is the entire collection of units
-(people, animals, objects, or events) that a study aims to learn about.
+(people, animals, objects, or events) that a study aims to learn about. <!-- check-term-links: allow -->
 
 Source: @wikipedia_statistical_population.
 :::

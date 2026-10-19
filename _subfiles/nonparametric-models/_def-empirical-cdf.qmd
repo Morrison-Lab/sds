@@ -5,7 +5,7 @@ For observed values $\dsn{x}$,
 the **empirical cumulative distribution function** (**empirical CDF**)
 is the [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf)
 of the [empirical distribution](#def-empirical-distribution),
-the function
+the [function](https://morrison-lab.github.io/mds/functions.html#def-function)
 
 $$\ecdff{t} \eqdef \frac{1}{n}\sumjn I(x_j \le t), \quad t \in \reals,$$
 
