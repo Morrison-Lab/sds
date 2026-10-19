@@ -1,0 +1,11 @@
+::: {#rem-control-in-experiments}
+
+#### Controls in experiments
+
+The word "control" has a second meaning. <!-- check-term-links: allow -->
+In an experiment, the investigator assigns the exposure.
+The **controls** are the participants who receive the baseline treatment for comparison, such as a placebo [@me4, Chapter 6]. <!-- check-term-links: allow -->
+These controls are chosen by assignment, not by outcome.
+They are not the [controls](#def-control) of a [case-control study](#def-case-control-study).
+
+:::

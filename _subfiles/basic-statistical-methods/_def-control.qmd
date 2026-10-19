@@ -1,0 +1,10 @@
+::: {#def-control}
+
+#### Control
+
+In a study that selects its participants by whether they have an outcome of interest,
+a **control** is a participant who does not have the outcome,
+sampled from the same [population](exploratory-descriptive.qmd#def-population) as the [cases](#def-case)
+[@me4, Chapter 8].
+
+:::

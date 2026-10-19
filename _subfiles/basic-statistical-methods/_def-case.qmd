@@ -1,0 +1,9 @@
+::: {#def-case}
+
+#### Case
+
+In a study that selects its participants by whether they have an outcome of interest,
+a **case** is a participant who has the outcome
+[@me4, Chapter 8].
+
+:::
