@@ -1,0 +1,28 @@
+::: {#rem-partial-f-lrt}
+#### The partial F-test and the likelihood ratio test
+
+Let the errors be Gaussian.
+The maximum likelihood estimate of the error variance of a model with residual sum of squares $\text{RSS}$
+is $\text{RSS} / n$,
+so its maximized log-likelihood is
+$-\tfrac{n}{2} \log(2\pi\, \text{RSS} / n) - \tfrac{n}{2}$.
+The [likelihood ratio statistic](intro-MLEs.qmd#def-lrt-stat) of $H_0$ is then
+
+$$
+\begin{aligned}
+  \lrstat
+  &= 2\paren{\llik(\hthml) - \llik(\hparam_0)} \\
+  &= n \log \frac{\text{RSS}_0}{\text{RSS}_1} \\
+  &= n \log\paren{1 + \frac{\text{RSS}_0 - \text{RSS}_1}{\text{RSS}_1}}.
+\end{aligned}
+$$
+
+For large $n$ under $H_0$, the ratio $(\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1$ is near $0$,
+so $\log(1 + u) \approx u$ gives
+$\lrstat \approx n (\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1$.
+Also $q F = (n - p - 1) (\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1$,
+which is close to the same value when $n$ is much larger than $p$.
+Both statistics therefore have approximately the $\chi^2_q$ distribution,
+but the F-test is exact for Gaussian errors at every $n$,
+while the likelihood ratio test is only approximate.
+:::

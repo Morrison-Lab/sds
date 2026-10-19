@@ -1,0 +1,27 @@
+::: {#thm-partial-f-null}
+#### Null distribution of the partial F statistic
+
+Let the errors of the larger model be independent and Gaussian
+with mean $0$ and the same variance.
+If $H_0$ of @def-partial-f-test holds,
+then $F$ has the $F_{q,\, n-p-1}$ distribution
+for every sample size $n > p + 1$.
+
+Source: @vittinghoff2e [Section 4.3].
+:::
+
+{{< slidebreak >}}
+
+::: {.proof}
+Under $H_0$, $(\text{RSS}_0 - \text{RSS}_1) / \varpar$ has the $\chi^2_q$ distribution
+and $\text{RSS}_1 / \varpar$ has the $\chi^2_{n-p-1}$ distribution,
+where $\varpar$ is the error variance.
+The two are independent,
+because $\text{RSS}_1$ is the squared length of the part of the outcome vector
+orthogonal to the larger model's fitted values,
+while $\text{RSS}_0 - \text{RSS}_1$ is the squared length of the part
+in the larger model but orthogonal to the smaller one.
+Dividing each by its degrees of freedom,
+$\varpar$ cancels from the ratio, which is therefore $F_{q,\, n-p-1}$
+by [the definition of the F-distribution](inference.qmd#def-f-dist).
+:::

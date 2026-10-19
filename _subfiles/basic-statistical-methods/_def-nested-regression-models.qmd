@@ -1,0 +1,13 @@
+::: {#def-nested-regression-models}
+#### Nested linear regression models
+
+Let a linear regression model have $p$ features and an intercept.
+A second linear regression model is **nested** in it
+if it uses the same outcome and the same observations
+and is the special case in which $q$ of the $p$ coefficients equal $0$.
+The first model is the *larger* model,
+and the second is the *smaller* model;
+the smaller model has $p - q$ features.
+
+Source: @vittinghoff2e [Section 4.3].
+:::
