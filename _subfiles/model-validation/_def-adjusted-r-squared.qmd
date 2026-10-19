@@ -1,16 +1,16 @@
 :::{#def-adjusted-r-squared}
 #### Adjusted coefficient of determination
 
-Let a regression model with an intercept and $\inputdim$ predictors be fitted to $\nobs$ observations, with $\nobs > \inputdim + 1$.
-The **adjusted coefficient of determination** of the fitted model is
+Let a regression model with $\inputdim$ predictors and a constant term be fitted to $\nobs$ observations, with $\nobs > \inputdim + 1$.
+The **adjusted coefficient of determination** of the [fitted model](#def-fitted-model) is
 
 $$
 R^2_{\text{adj}} \eqdef 1 - \frac{\text{RSS}(\est{\vparam}) / (\nobs - \inputdim - 1)}{\text{TSS} / (\nobs - 1)},
 $$
 
-one minus the ratio of the [residual sum of squares](correlation-regression.qmd#def-rss) divided by its degrees of freedom,
-to the [total sum of squares](correlation-regression.qmd#def-tss) divided by its degrees of freedom.
+one minus the [residual sum of squares](correlation-regression.qmd#def-rss) per degree of freedom,
+divided by the [total sum of squares](correlation-regression.qmd#def-tss) per degree of freedom.
 A larger value is better.
 
-Source: @james2021islr2e [sec. 6.1.3].
+Source: @james2021islr2e [section 6.1.3].
 :::

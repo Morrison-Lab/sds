@@ -1,8 +1,8 @@
 :::{#def-bic}
 #### Bayesian information criterion (BIC)
 
-Let a model with $\nparams$ estimated parameters be fitted by maximum likelihood to $\nobs$ observations,
-and let $\llikf{\est{\vparam}}$ be the [log-likelihood](intro-MLEs.qmd#def-loglik) at the [maximum likelihood estimate](intro-MLEs.qmd#def-mle) $\est{\vparam}$.
+Let a model with $\nparams$ estimated parameters be fitted by [maximum likelihood](intro-MLEs.qmd#def-mle) to $\nobs$ observations,
+and let $\llikf{\est{\vparam}}$ be the [log-likelihood](intro-MLEs.qmd#def-loglik) at the maximum likelihood estimate $\est{\vparam}$.
 The **Bayesian information criterion** of the model is
 
 $$
