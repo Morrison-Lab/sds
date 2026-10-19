@@ -1,12 +1,14 @@
 :::{#def-irreducible-error}
 #### Irreducible error
 
-Let $\noise$ be the [noise](#def-noise) of an outcome at the [covariate](#def-covariate) value $\predvar$.
+Let $\paren{\Predvar, \Outvar}$ be the [covariate](#def-covariate) and the outcome of one observation from a [population](exploratory-descriptive.qmd#def-population),
+and let $\noise$ be its [noise](#def-noise).
 
-The **irreducible error** at $\predvar$ is the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of the noise:
+The **irreducible error** at the covariate value $\predvar$
+is the [conditional population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) of the noise given $\Predvar = \predvar$:
 
 $$
-\varpar \eqdef \Var{\noise}.
+\varpar \eqdef \Var{\noise \mid \Predvar = \predvar}.
 $$ {#eq-irreducible-error}
 
 Source: @wikipedia_bias_variance_tradeoff;

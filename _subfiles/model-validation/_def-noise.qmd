@@ -3,12 +3,12 @@
 
 Let $\paren{\Predvar, \Outvar}$ be the [covariate](#def-covariate) and the outcome of one observation from a [population](exploratory-descriptive.qmd#def-population).
 
-The **noise** $\noise$ of the outcome $\Outvar$ at the covariate value $\Predvar = \predvar$
+The **noise** $\noise$ of the observation
 is the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean)
-of the outcome $\Outvar$ from the [mean function](#def-mean-function) value $\truemeanf{\predvar}$:
+of the outcome $\Outvar$ from the [mean function](#def-mean-function) value $\truemeanf{\Predvar}$ at its own covariate:
 
 $$
-\noise \eqdef \Outvar - \truemeanf{\predvar}.
+\noise \eqdef \Outvar - \truemeanf{\Predvar}.
 $$ {#eq-noise}
 
 :::
