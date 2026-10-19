@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 03:59:32 (PDT)
+Last modified: 2026-10-19 04:11:38 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -25,9 +25,9 @@ hers |> head()
 >
 > **Definition 1 (Population correlation)** The **population correlation** of two random variables \\X\\ and \\Y\\ with positive [variances](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) is
 >
-> \\\rho\stackrel{\text{def}}{=}\frac{\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}}{\sqrt{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} \operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}}},\\
+> \\\rho\stackrel{\text{def}}{=}\frac{{\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}}}{\sqrt{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} {\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}}}},\\
 >
-> where \\\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}\\ is their [covariance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cov).
+> where \\{\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}}\\ is their [covariance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cov).
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_pearson_correlation_coefficient).
 
@@ -158,7 +158,7 @@ hers |> head()
 >
 > **Definition 4 (Conditional Gaussian model)** A **conditional Gaussian model** for outcomes \\Y_1, \ldots, Y_n\\ with covariate values \\x_1, \ldots, x_n\\ (each a single value or a vector) says that, given the covariates, the outcomes are independent and Gaussian: outcome \\Y_i\\ is centered on a mean function \\\mu(x)\\ evaluated at \\x_i\\, and has its own variance \\\sigma^2_i\\:
 >
-> \\ \begin{aligned} Y_i\mid X_i= x_i&\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(\mu_i, \sigma^2_i\right)\mathclose{},\\ \mu_i&\stackrel{\text{def}}{=}\mu(x_i). \end{aligned} \\
+> \\ \begin{aligned} Y_i\mid X_i= x_i&\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(\mu_i, \sigma^2_i\right)\mathclose{}},\\ \mu_i&\stackrel{\text{def}}{=}\mu(x_i). \end{aligned} \\
 
 > **NOTE:**
 >
@@ -202,7 +202,7 @@ hers |> head()
 >
 > First, the CDF of \\\nu_i\\:
 >
-> \\ \begin{aligned} F\_{\nu}(t) &= \Pr\mathopen{}\left(\nu_i\le t\right)\mathclose{} && \text{(definition of a CDF)}\\ &= \Pr\mathopen{}\left(Y_i- \mu(x_i) \le t\right)\mathclose{} && \text{(definition of \$\nu_i\$)}\\ &= \Pr\mathopen{}\left(Y_i- \mu_i\le t\right)\mathclose{} && \text{(definition of \$\mu_i\$)}\\ &= \Pr\mathopen{}\left(Y_i\le t + \mu_i\right)\mathclose{} && \text{(add \$\mu_i\$ to both sides of the inequality)}\\ &= F_Y(t + \mu_i) && \text{(definition of a CDF)} \end{aligned} \\
+> \\ \begin{aligned} F\_{\nu}(t) &= {\Pr\mathopen{}\left(\nu_i\le t\right)\mathclose{}} && \text{(definition of a CDF)}\\ &= {\Pr\mathopen{}\left(Y_i- \mu(x_i) \le t\right)\mathclose{}} && \text{(definition of \$\nu_i\$)}\\ &= {\Pr\mathopen{}\left(Y_i- \mu_i\le t\right)\mathclose{}} && \text{(definition of \$\mu_i\$)}\\ &= {\Pr\mathopen{}\left(Y_i\le t + \mu_i\right)\mathclose{}} && \text{(add \$\mu_i\$ to both sides of the inequality)}\\ &= F_Y(t + \mu_i) && \text{(definition of a CDF)} \end{aligned} \\
 >
 > Differentiating gives the density:
 >
@@ -216,19 +216,19 @@ hers |> head()
 >
 > \\ \begin{aligned} f\_{\nu}(t) &= f_Y(t + \mu_i) \cdot 1 && \text{(inner derivative is 1)}\\ &= f_Y(t + \mu_i) && \text{(multiply by 1)}\\ &= \frac{1}{\sigma_i\sqrt{2 \pi}} \text{e}^{-\frac{\mathopen{}\left((t + \mu_i) - \mu_i\right)\mathclose{}^2}{2 \sigma^2_i}} && \text{(Gaussian density with mean \$\mu_i\$)}\\ &= \frac{1}{\sigma_i\sqrt{2 \pi}} \text{e}^{-\frac{t^2}{2 \sigma^2_i}} && \text{(subtract)} \end{aligned} \\
 >
-> The last line is the density of \\\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\, so \\\nu_i\mid X_i= x_i\sim \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\.
+> The last line is the density of \\{\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\, so \\\nu_i\mid X_i= x_i\sim {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\.
 >
 > For independence, factor the joint CDF of \\\nu_1, \ldots, \nu_n\\, using the same CDF step as above for each \\i\\ and the independence of the \\Y_i\\ given the covariates ([Definition 4](#def-cond-gaussian)):
 >
-> \\ \begin{aligned} \Pr\mathopen{}\left(\nu_1 \le t_1, \ldots, \nu_n \le t_n\right)\mathclose{} &= \Pr\mathopen{}\left(Y_1 \le t_1 + \mu_1, \ldots, Y_n \le t_n + \mu_n\right)\mathclose{} && \text{(add \$\mu_i\$ to both sides of each inequality)}\\ &= \prod\_{i=1}^n\Pr\mathopen{}\left(Y_i\le t_i + \mu_i\right)\mathclose{} && \text{(the \$Y_i\$ are independent)}\\ &= \prod\_{i=1}^n\Pr\mathopen{}\left(\nu_i\le t_i\right)\mathclose{} && \text{(subtract \$\mu_i\$ from both sides of each inequality)} \end{aligned} \\
+> \\ \begin{aligned} {\Pr\mathopen{}\left(\nu_1 \le t_1, \ldots, \nu_n \le t_n\right)\mathclose{}} &= {\Pr\mathopen{}\left(Y_1 \le t_1 + \mu_1, \ldots, Y_n \le t_n + \mu_n\right)\mathclose{}} && \text{(add \$\mu_i\$ to both sides of each inequality)}\\ &= \prod\_{i=1}^n{\Pr\mathopen{}\left(Y_i\le t_i + \mu_i\right)\mathclose{}} && \text{(the \$Y_i\$ are independent)}\\ &= \prod\_{i=1}^n{\Pr\mathopen{}\left(\nu_i\le t_i\right)\mathclose{}} && \text{(subtract \$\mu_i\$ from both sides of each inequality)} \end{aligned} \\
 >
-> The joint CDF is the product of the marginal CDFs, so \\\nu_1, \ldots, \nu_n\\ are independent. Given the covariate values, the deviations are therefore independent, with \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\.
+> The joint CDF is the product of the marginal CDFs, so \\\nu_1, \ldots, \nu_n\\ are independent. Given the covariate values, the deviations are therefore independent, with \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\.
 
 > **NOTE:**
 >
 > **Theorem 3 (Distribution of the deviations)** In a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), given the covariates, the deviations ([Definition 5](#def-slr-deviation)) are independent and Gaussian with mean 0 and variance \\\sigma^2_i\\:
 >
-> \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}.\\
+> \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}.\\
 
 > **NOTE:**
 >
@@ -246,11 +246,11 @@ hers |> head()
 >
 > **Corollary 1 (Deviations in a homoskedastic model)** In a homoskedastic model ([Definition 6](#def-homoskedastic)), the deviations ([Definition 5](#def-slr-deviation)) all have the same variance \\\sigma^2\\:
 >
-> \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}.\\
+> \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}}.\\
 
 > **NOTE:**
 >
-> *Proof*. By [Theorem 3](#thm-slr-deviation-dist), \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\, and [Definition 6](#def-homoskedastic) sets \\\sigma^2_i= \sigma^2\\ for all \\i\\.
+> *Proof*. By [Theorem 3](#thm-slr-deviation-dist), \\\nu_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\, and [Definition 6](#def-homoskedastic) sets \\\sigma^2_i= \sigma^2\\ for all \\i\\.
 
 > **NOTE:**
 >
@@ -341,21 +341,21 @@ hers |> head()
 >
 > So the sMSE is the residual sum of squares divided by \\n\\:
 >
-> \\ \begin{aligned} \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of sMSE)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})^2 && \text{(\$\varepsilon_i^2 = r_i(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) && \text{(definition of RSS)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of sMSE)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})^2 && \text{(\$\varepsilon_i^2 = r_i(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) && \text{(definition of RSS)} \end{aligned} \\
 >
 > Solving for \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\:
 >
-> \\ \begin{aligned} \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) && \text{(result above)}\\ n \\ \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) && \text{(multiply both sides by \$n\$)}\\ \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) &= n \\ \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} && \text{(swap the two sides)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} &= \frac{1}{n} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) && \text{(result above)}\\ n \\ {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} &= \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) && \text{(multiply both sides by \$n\$)}\\ \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) &= n \\ {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} && \text{(swap the two sides)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 4 (Sample mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\, the [sMSE](prediction.llms.md#def-prediction-mse) of its predictions \\\hat y_i= \mu(x_i; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ ([Definition 11](#def-rss)) over those same \\n\\ outcomes satisfy
 >
-> \\\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}),\\
+> \\{\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} = \frac{1}{n} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}),\\
 >
 > and equivalently
 >
-> \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) = n \\ \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
+> \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) = n \\ {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}.\\
 
 > **NOTE:**
 >

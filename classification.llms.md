@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 03:59:32 (PDT)
+Last modified: 2026-10-19 04:11:38 (PDT)
 
 ## 1 Introduction
 
@@ -34,7 +34,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 2 (Class)** The discrete categories of a classification problem ([Definition 1](#def-classification)) are its **classes**. Let \\\mathcal{C}\\ be a set of \\K\\ classes (for example, \\\mathcal{C}= \mathopen{}\left\\1, \dots, K\right\\\mathclose{}\\, or a set of text labels).
+> **Definition 2 (Class)** The discrete categories of a classification problem ([Definition 1](#def-classification)) are its **classes**. Let \\\mathcal{C}\\ be a set of \\K\\ classes (for example, \\\mathcal{C}= {\mathopen{}\left\\1, \dots, K\right\\\mathclose{}}\\, or a set of text labels).
 
 > **NOTE:**
 >
@@ -136,7 +136,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\ \begin{aligned} \Pr(\neg + \mid D) &= 1 - \Pr(+ \mid D) && \text{(complement rule, conditional on } D \text{)} \\ &= 1 - 0.99 && \text{(substitute the sensitivity)} \\ &= 0.01 && \text{(subtract)} \end{aligned} \tag{14}\\
 >
-> By [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes), with the denominator expanded by the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) over the partition \\\mathopen{}\left\\D, \neg D\right\\\mathclose{}\\, the negative predictive value ([Definition 8](#def-npv)) is:
+> By [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes), with the denominator expanded by the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) over the partition \\{\mathopen{}\left\\D, \neg D\right\\\mathclose{}}\\, the negative predictive value ([Definition 8](#def-npv)) is:
 >
 > \\ \begin{aligned} \Pr(\neg D \mid \neg +) &= \frac{\Pr(\neg + \mid \neg D) \cdot\Pr(\neg D)}{\Pr(\neg +)} && \text{(Bayes' theorem)} \\ &= \frac{\Pr(\neg + \mid \neg D) \cdot\Pr(\neg D)}{\Pr(\neg + \mid \neg D) \cdot\Pr(\neg D) + \Pr(\neg + \mid D) \cdot\Pr(D)} && \text{(law of total probability)} \\ &= \frac{0.99 \cdot 0.93}{0.99 \cdot 0.93 + 0.01 \cdot 0.07} && \text{(substitute the given values)} \\ &= \frac{0.9207}{0.9207 + 0.0007} && \text{(multiply each term in the numerator and denominator)} \\ &= \frac{0.9207}{0.9214} && \text{(add the denominator's two terms)} \\ &\approx 0.9992 && \text{(divide)} \end{aligned} \tag{15}\\
 >
@@ -154,7 +154,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> *Solution 1*. By the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) over the partition \\\mathopen{}\left\\D, \neg D\right\\\mathclose{}\\:
+> *Solution 1*. By the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) over the partition \\{\mathopen{}\left\\D, \neg D\right\\\mathclose{}}\\:
 >
 > \\ \begin{aligned} \Pr(+) &= \Pr(+ \mid D) \cdot\Pr(D) + \Pr(+ \mid \neg D) \cdot\Pr(\neg D) && \text{(law of total probability)} \\ &= \text{sensitivity} \cdot\Pr(D) + \Pr(+ \mid \neg D) \cdot\Pr(\neg D) && \text{(definition of sensitivity)} \\ &= \text{sensitivity} \cdot\text{prevalence} + \Pr(+ \mid \neg D) \cdot\Pr(\neg D) && \text{(definition of prevalence)} \\ &= \text{sensitivity} \cdot\text{prevalence} + \mathopen{}\left(1 - \Pr(\neg + \mid \neg D)\right)\mathclose{} \cdot\Pr(\neg D) && \text{(complement rule, conditional on } \neg D \text{)} \\ &= \text{sensitivity} \cdot\text{prevalence} + \mathopen{}\left(1 - \text{specificity}\right)\mathclose{} \cdot\Pr(\neg D) && \text{(definition of specificity)} \\ &= \text{sensitivity} \cdot\text{prevalence} + \mathopen{}\left(1 - \text{specificity}\right)\mathclose{} \cdot\mathopen{}\left(1 - \Pr(D)\right)\mathclose{} && \text{(complement rule)} \\ &= \text{sensitivity} \cdot\text{prevalence} + \mathopen{}\left(1 - \text{specificity}\right)\mathclose{} \cdot\mathopen{}\left(1 - \text{prevalence}\right)\mathclose{} && \text{(definition of prevalence)} \end{aligned} \tag{16}\\
 
