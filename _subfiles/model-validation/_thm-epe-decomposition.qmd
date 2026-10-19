@@ -5,11 +5,12 @@ Let:
 
 - $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$,
 - $\noise$ be the [noise](#def-noise) of $\newoutvar$, and
-- $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite.
+- $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
 
 Assume:
 
-- $\newpredvar = \predvar$ and
+- $\newpredvar = \predvar$,
+- $\varpar < \infty$, and
 - $\E{\sqf{\predval}} < \infty$.
 
 Then the [expected prediction error at $\predvar$](#def-epe)
