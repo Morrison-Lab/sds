@@ -3,6 +3,6 @@
 
 In a comparison of an outcome measure between two groups,
 the **reference group** is the group whose measure is the subtrahend of a difference
-or the denominator of a ratio.
+or the denominator of a quotient.
 The other group is the group being compared with it.
 :::
