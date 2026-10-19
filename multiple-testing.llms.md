@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:31:45 (PDT)
+Last modified: 2026-10-19 00:48:10 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests [\[1\]](#ref-wikipedia_multiple_comparisons_problem).
 
@@ -389,7 +389,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Solution 2*. Fix an outcome and consider two cases.
+> *Solution 2*. Take an outcome and consider two cases.
 >
 > - If none of \\A_1, \ldots, A_k\\ occurs, then the union does not occur, so the left side is \\0\\ and the right side is \\0 + \cdots + 0 = 0\\. The inequality holds with equality.
 > - If at least one \\A_j\\ occurs, then the union occurs, so the left side is \\1\\. The right side is a sum of \\k\\ terms, each \\0\\ or \\1\\, and at least one of them is \\1\\, so the right side is at least \\1\\. The inequality holds.

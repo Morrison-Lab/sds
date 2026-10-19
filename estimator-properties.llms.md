@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:31:45 (PDT)
+Last modified: 2026-10-19 00:48:10 (PDT)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and population mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
@@ -62,7 +62,7 @@ Last modified: 2026-10-19 00:31:45 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. Fix \\\varepsilon \> 0\\. By [Lemma 1](#lem-estimation-error-bound), \\0 \le \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}\_n - \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\_n\right)\mathclose{} / \varepsilon^2\\ for every \\n\\. The upper bound goes to zero as \\n \to \infty\\, because \\\varepsilon\\ is fixed and \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\_n\right)\mathclose{} \to 0\\, so the probability, squeezed between zero and the bound, goes to zero. This holds for every \\\varepsilon \> 0\\, which is [Equation 1](#eq-consistent).
+> *Proof*. Let \\\varepsilon \> 0\\. By [Lemma 1](#lem-estimation-error-bound), \\0 \le \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}\_n - \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\_n\right)\mathclose{} / \varepsilon^2\\ for every \\n\\. The upper bound goes to zero as \\n \to \infty\\, because \\\varepsilon\\ is fixed and \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\_n\right)\mathclose{} \to 0\\, so the probability, squeezed between zero and the bound, goes to zero. This holds for every \\\varepsilon \> 0\\, which is [Equation 1](#eq-consistent).
 
 > **NOTE:**
 >

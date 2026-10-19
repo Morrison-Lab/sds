@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 00:31:45 (PDT)
+Last modified: 2026-10-19 00:48:10 (PDT)
 
 ## 1 Empirical distribution
 
@@ -93,7 +93,7 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 
 > **NOTE:**
 >
-> *Proof*. Fix \\p\\ with \\(i-1)/n \< p \le i/n\\.
+> *Proof*. Let \\p\\ satisfy \\(i-1)/n \< p \le i/n\\.
 >
 > For any \\t \< x\_{(i)}\\, the \\n - i + 1\\ values \\x\_{(i)}, \ldots, x\_{(n)}\\ all exceed \\t\\, so at most \\i - 1\\ values are at most \\t\\, and:
 >

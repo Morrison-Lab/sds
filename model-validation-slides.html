@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-19 00:31:45 (PDT)</p>
+  <p class="date">Last modified: 2026-10-19 00:48:10 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -955,7 +955,21 @@ Y\mid X= x
 <p><span class="proof-title"><em>Solution 6</em>. </span>A better method can reduce the squared <a href="#/def-prediction-bias">bias</a> and the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> of <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span>, because both depend on how <span class="math inline">\(g\)</span> is built. It cannot reduce <span class="math inline">\(\sigma^2\)</span>, which is the variance of the <a href="#/def-noise">noise</a> <span class="math inline">\(\nu\)</span> in the new outcome.</p>
 </div>
 </section><section class="slide level2"><div id="exr-epe-split-noise" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7 (Separate the noise)</strong></span> Let <span class="math inline">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</span> be a <a href="#/def-new-observation">new observation</a> relative to the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. Fix <span class="math inline">\(X_{*}= x\)</span>. Let <span class="math inline">\(\nu\)</span> be the <a href="#/def-noise">noise</a> of <span class="math inline">\(Y_{*}\)</span>. Let <span class="math inline">\(\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</span> be its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">population variance</a>, which we take to be finite. Take every expectation below to be conditional on <span class="math inline">\(X_{*}= x\)</span>. Add and subtract <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span> inside the square of the <a href="#/def-epe">expected prediction error</a>,</p>
+<p><span class="theorem-title"><strong>Exercise 7 (Separate the noise)</strong></span> Let:</p>
+<ul>
+<li>
+<span class="math inline">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</span> be a <a href="#/def-new-observation">new observation</a> relative to the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>,</li>
+<li>
+<span class="math inline">\(\nu\)</span> be the <a href="#/def-noise">noise</a> of <span class="math inline">\(Y_{*}\)</span>, and</li>
+<li>
+<span class="math inline">\(\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</span> be its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">population variance</a>.</li>
+</ul>
+<p>Assume:</p>
+<ul>
+<li>the new <a href="#/def-covariate">covariate</a> value <span class="math inline">\(X_{*}\)</span> equals the covariate value <span class="math inline">\(x\)</span> of the <a href="./prediction.html#def-prediction">prediction</a> and</li>
+<li>the population variance <span class="math inline">\(\sigma^2\)</span> is finite.</li>
+</ul>
+<p>Take every expectation below to be conditional on <span class="math inline">\(X_{*}= x\)</span>. Add and subtract <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span> inside the square of the <a href="#/def-epe">expected prediction error</a>,</p>
 <p><span class="math display">\[
 \operatorname{E}\mathopen{}\left[{\mathopen{}\left(Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^2\right]\mathclose{},
 \]</span></p>
@@ -1019,7 +1033,21 @@ Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}
 <p>The algebra did not use that the new pair has the same <a href="./exploratory-descriptive.html#def-population-distribution">population distribution</a> as the training data. Suppose the new pair came from a <a href="./exploratory-descriptive.html#def-population">population</a> whose mean function differed from the training population’s. Then <a href="#/eq-epe-after-noise" class="quarto-xref">Equation&nbsp;31</a> would still hold, with the new population’s mean function and noise variance. Its <a href="./estimation.html#def-estimation-error">estimation-error</a> term would include the <a href="./estimation.html#def-bias">bias</a> from that difference. So it would no longer measure how well the procedure <a href="./estimation.html#def-estimate">estimates</a> the training population’s mean function.</p>
 </div>
 </section><section class="slide level2"><div id="thm-epe-split-noise" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (The pMSE of a prediction is the pMSE of the mean estimate plus the noise variance)</strong></span> Let <span class="math inline">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</span> be a <a href="#/def-new-observation">new observation</a> relative to the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. Fix <span class="math inline">\(X_{*}= x\)</span>. Let <span class="math inline">\(\nu\)</span> be the <a href="#/def-noise">noise</a> of <span class="math inline">\(Y_{*}\)</span>. Let <span class="math inline">\(\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</span> be its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">population variance</a>, which we take to be finite. Then, given <span class="math inline">\(X_{*}= x\)</span>, the <a href="#/def-epe">expected squared prediction error</a> (ESPE) of <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> is the sum of two terms. The first is the <a href="#/def-irreducible-error">irreducible error</a> <span class="math inline">\(\sigma^2\)</span>. The second is the <a href="./estimation.html#def-mse">expected squared estimation error</a> (ESEE) of <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span>:</p>
+<p><span class="theorem-title"><strong>Theorem 3 (The pMSE of a prediction is the pMSE of the mean estimate plus the noise variance)</strong></span> Let:</p>
+<ul>
+<li>
+<span class="math inline">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</span> be a <a href="#/def-new-observation">new observation</a> relative to the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>,</li>
+<li>
+<span class="math inline">\(\nu\)</span> be the <a href="#/def-noise">noise</a> of <span class="math inline">\(Y_{*}\)</span>, and</li>
+<li>
+<span class="math inline">\(\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</span> be its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">population variance</a>.</li>
+</ul>
+<p>Assume:</p>
+<ul>
+<li>the new <a href="#/def-covariate">covariate</a> value <span class="math inline">\(X_{*}\)</span> equals the covariate value <span class="math inline">\(x\)</span> of the <a href="./prediction.html#def-prediction">prediction</a> and</li>
+<li>the population variance <span class="math inline">\(\sigma^2\)</span> is finite.</li>
+</ul>
+<p>Then, given <span class="math inline">\(X_{*}= x\)</span>, the <a href="#/def-epe">expected squared prediction error</a> (ESPE) of <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> is the sum of two terms. The first is the <a href="#/def-irreducible-error">irreducible error</a> <span class="math inline">\(\sigma^2\)</span>. The second is the <a href="./estimation.html#def-mse">expected squared estimation error</a> (ESEE) of <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span>:</p>
 <p><span id="eq-epe-split-noise"><span class="math display">\[
 \operatorname{ESPE}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}
 = \sigma^2+ \operatorname{ESEE}\mathopen{}\left({\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}.
@@ -1029,7 +1057,7 @@ Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}
 <p><span class="proof-title"><em>Proof</em>. </span>This is <a href="#/sol-epe-split-noise" class="quarto-xref">Solution&nbsp;7</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-epe-split-noise" class="theorem example">
-<p><span class="theorem-title"><strong>Example 23 (The two pMSEs differ by the noise variance)</strong></span> Take a population whose mean function is known: <span class="math inline">\(Y\mid X= x\sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\)</span> with <span class="math inline">\(\sigma= 0.3\)</span>. Fix <span class="math inline">\(x= 0.25\)</span>, where <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{} = 1\)</span>, and fit a cubic polynomial by least squares to <span class="math inline">\(n= 30\)</span> observations. We draw <span class="math inline">\(5{,}000\)</span> training sets, each with its own new outcome at <span class="math inline">\(x\)</span>, and average the squared errors of the two targets over them.</p>
+<p><span class="theorem-title"><strong>Example 23 (The two pMSEs differ by the noise variance)</strong></span> Take a population whose mean function is known: <span class="math inline">\(Y\mid X= x\sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\)</span> with <span class="math inline">\(\sigma= 0.3\)</span>. Let the <a href="#/def-covariate">covariate</a> value be <span class="math inline">\(x= 0.25\)</span>, where the mean function value is <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{} = 1\)</span>, and fit a cubic polynomial by least squares to <span class="math inline">\(n= 30\)</span> observations. We draw <span class="math inline">\(5{,}000\)</span> training sets, each with its own new outcome at <span class="math inline">\(x\)</span>, and average the squared errors of the two targets over them.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>split_x0 <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
 <span id="cb5-2"><a aria-label="2"></a>split_reps <span class="ot">&lt;-</span> <span class="dv">5000</span></span>
@@ -1133,7 +1161,22 @@ Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}
 <p>Neither cross term needed the noise to be normal, and neither assumed anything about the fitting procedure: <span class="math inline">\(g\)</span> can be a line, a tree or a neural network. This split is specific to squared-error loss, the loss of this chapter’s examples.</p>
 </div>
 </section><section class="slide level2"><div id="thm-epe-decomposition" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4 (Bias, variance and noise)</strong></span> Let <span class="math inline">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</span> be a <a href="#/def-new-observation">new observation</a> relative to the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. Fix <span class="math inline">\(X_{*}= x\)</span>. Let <span class="math inline">\(\nu\)</span> be the <a href="#/def-noise">noise</a> of <span class="math inline">\(Y_{*}\)</span>. Let <span class="math inline">\(\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</span> be its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">population variance</a>, which we take to be finite. Suppose also that <span class="math inline">\(\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^2\right]\mathclose{} &lt; \infty\)</span>. Then the <a href="#/def-epe">expected prediction error at <span class="math inline">\(x\)</span></a> is the squared <a href="#/def-prediction-bias">bias</a> of the prediction <span class="math inline">\(\hat{y}\)</span>, used as an <a href="./estimation.html#def-estimator">estimator</a> of the <a href="#/def-mean-function">mean function</a> value <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span>, plus its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>, plus <span class="math inline">\(\sigma^2\)</span>:</p>
+<p><span class="theorem-title"><strong>Theorem 4 (Bias, variance and noise)</strong></span> Let:</p>
+<ul>
+<li>
+<span class="math inline">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</span> be a <a href="#/def-new-observation">new observation</a> relative to the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>,</li>
+<li>
+<span class="math inline">\(\nu\)</span> be the <a href="#/def-noise">noise</a> of <span class="math inline">\(Y_{*}\)</span>, and</li>
+<li>
+<span class="math inline">\(\sigma^2\stackrel{\text{def}}{=}\operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</span> be its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">population variance</a>.</li>
+</ul>
+<p>Assume:</p>
+<ul>
+<li>the new <a href="#/def-covariate">covariate</a> value <span class="math inline">\(X_{*}\)</span> equals the covariate value <span class="math inline">\(x\)</span> of the <a href="./prediction.html#def-prediction">prediction</a>,</li>
+<li>the population variance <span class="math inline">\(\sigma^2\)</span> is finite, and</li>
+<li>the expected squared prediction <span class="math inline">\(\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^2\right]\mathclose{}\)</span> is finite.</li>
+</ul>
+<p>Then the <a href="#/def-epe">expected prediction error at <span class="math inline">\(x\)</span></a> is the squared <a href="#/def-prediction-bias">bias</a> of the prediction <span class="math inline">\(\hat{y}\)</span>, used as an <a href="./estimation.html#def-estimator">estimator</a> of the <a href="#/def-mean-function">mean function</a> value <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span>, plus its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>, plus <span class="math inline">\(\sigma^2\)</span>:</p>
 <p><span id="eq-epe-decomposition"><span class="math display">\[
 \operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2
 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} + \sigma^2.
@@ -2308,10 +2351,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span id="cb27-3"><a aria-label="3"></a>  mtcars_loocv<span class="sc">$</span>degree[<span class="fu">which.min</span>(mtcars_loocv<span class="sc">$</span>formula)]</span>
 <span id="cb27-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">max_difference =</span> loocv_max_diff, <span class="at">best_degree =</span> mtcars_best_loocv)</span>
 <span id="cb27-5"><a aria-label="5"></a><span class="co">#&gt; max_difference    best_degree </span></span>
-<span id="cb27-6"><a aria-label="6"></a><span class="co">#&gt;    7.10543e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb27-6"><a aria-label="6"></a><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
 <p><span class="proof-title"><em>Remark 32</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k= n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;26</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;25</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each rule is fitted to <span class="math inline">\(n- 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 5.1.4]</a></span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;7</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
