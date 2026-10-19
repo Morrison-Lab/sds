@@ -305,6 +305,10 @@ continuous variable across the groups defined by a categorical variable
 
 {{< include sds/_subfiles/exploratory-descriptive/_prose-workflow.qmd >}}
 
+## Further reading
+
+{{< include sds/_subfiles/exploratory-descriptive/_prose-further-reading.qmd >}}
+
 
 ## References {.unnumbered}
 
