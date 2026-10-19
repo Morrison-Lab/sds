@@ -4,7 +4,7 @@ where rme says "PE measure", since sds does not define PE;
 step 1 links "folds" to @def-folds and allows nearly equal sizes,
 since n need not be a multiple of k;
 step 2 indexes folds by j, as @def-folds does,
-and names the fold-out rule of @def-fold-out-rule;
+and names the fold-out fitted model of @def-fold-out-fitted-model;
 rme's remark that k = 5 or 10 is typical is in @rem-choosing-k.
 -->
 :::{#def-kfold}
@@ -15,7 +15,7 @@ In **$\nfolds$-fold cross-validation**:
 1. The data are randomly divided into $\nfolds$ [folds](#def-folds) of equal, or nearly equal, size.
 2. For each fold $\fold{\ifold}$, $\ifold = 1, \ldots, \nfolds$:
    - Fit the model to all data *except* fold $\fold{\ifold}$,
-     giving the [fold-out rule](#def-fold-out-rule) $\fittedwo{\ifold}{\cdot}$.
+     giving the [fold-out fitted model](#def-fold-out-fitted-model) $\fittedwo{\ifold}{\cdot}$.
    - Compute predicted values for the observations in fold $\fold{\ifold}$.
 3. Compute a summary prediction-error measure across all folds.
 

@@ -8,9 +8,17 @@ format:
     output-file: model-validation-handout.pdf
   docx:
     output-file: model-validation-handout.docx
+resources:
+  - data/birthwt.csv
 ---
 
 {{< include sds/_subfiles/shared-config.qmd >}}
+
+```{r}
+#| label: python-packages
+#| include: false
+reticulate::py_require(c("numpy", "pandas", "statsmodels"))
+```
 
 ## Data sets, input matrices and outcome vectors {#sec-data-sets}
 
@@ -159,6 +167,14 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-prediction-rmse.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-empirical-risk.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-empirical-risk.qmd >}}
 
 {{< slidebreak >}}
 
@@ -454,7 +470,7 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-fold-out-rule.qmd >}}
+{{< include sds/_subfiles/model-validation/_def-fold-out-fitted-model.qmd >}}
 
 {{< slidebreak >}}
 

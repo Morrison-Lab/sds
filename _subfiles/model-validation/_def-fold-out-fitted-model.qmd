@@ -1,20 +1,23 @@
-:::{#def-fold-out-rule}
-#### Fold-out rule
+<a id="def-fold-out-rule"></a>
+<a id="eq-fold-out-rule"></a>
+
+:::{#def-fold-out-fitted-model}
+#### Fold-out fitted model
 
 For [fold](#def-folds) $\fold{\ifold}$,
-the **fold-out rule** $\fittedwo{\ifold}{\cdot}$
+the **fold-out fitted model** $\fittedwo{\ifold}{\cdot}$
 is the [fitted model](#def-fitted-model)
 that a [fitting procedure](#def-fitting-procedure) $\fitproc$ produces
 from the observations outside that fold:
 
 $$
 \fittedwo{\ifold}{\predvar} \eqdef \fitmodvalf{\paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx \setminus \fold{\ifold}}}{\predvar}.
-$$ {#eq-fold-out-rule}
+$$ {#eq-fold-out-fitted-model}
 
 :::
 
-:::{#rem-source-fold-out-rule}
-#### Source: Fold-out rule
+:::{#rem-source-fold-out-fitted-model}
+#### Source: Fold-out fitted model
 
 @hastie2009elements [sec. 7.10.1],
 who write the fitted function with the $k$th part of the data removed as $\hat f^{-k}$.

@@ -1,7 +1,7 @@
 :::{#rem-nested-cv}
 #### What is nested
 
-Each fold-out rule of $\candproctuned{\text{CV}}$
+Each [fold-out fitted model](#def-fold-out-fitted-model) of $\candproctuned{\text{CV}}$
 is computed from the observations outside one outer [fold](#def-folds) $\fold{\ifold}$,
 so the whole choice,
 including the cross-validation that $\candproctuned{\text{CV}}$ runs inside those observations,

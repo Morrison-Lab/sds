@@ -4,7 +4,7 @@
 **Leave-one-out cross-validation (LOOCV)**
 is [$\nfolds$-fold cross-validation](#def-kfold) with $\nfolds = \nobs$,
 so that each of the $\nobs$ [folds](#def-folds) holds one observation,
-and the [fold-out rule](#def-fold-out-rule) $\fittedwo{\foldof{\iobs}}{\cdot}$
+and the [fold-out fitted model](#def-fold-out-fitted-model) $\fittedwo{\foldof{\iobs}}{\cdot}$
 of observation $\iobs$'s [fold](#def-fold-assignment)
 is fitted to all observations except observation $\iobs$.
 Its [cross-validation estimate](#def-cv-estimate) (@eq-cv-estimate with $\nfolds = \nobs$) is

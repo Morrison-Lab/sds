@@ -4,7 +4,7 @@
 The **fold mean squared error of procedure** $\fitproc$ for [fold](#def-folds) $\fold{\ifold}$
 of a training set $\trainset$, indexed by $\obsidx$,
 is the [fold mean squared error](#def-fold-mse)
-computed with the [fold-out rule](#def-fold-out-rule) that $\fitproc$ produces:
+computed with the [fold-out fitted model](#def-fold-out-fitted-model) that $\fitproc$ produces:
 
 $$
 \foldmseoff{\ifold}{\fitproc}{\trainset} \eqdef \frac{1}{\foldsize{\ifold}} \sum_{\iobs \in \fold{\ifold}}
