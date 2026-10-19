@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 01:55:24 (PDT)
+Last modified: 2026-10-19 03:40:46 (PDT)
 
 ## 1 Introduction
 
@@ -163,7 +163,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 2 (Population distribution)** The **population distribution** of a variable \\X\\ is the distribution of \\X\\ for a unit [chosen at random](https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice) from a population ([Definition 1](#def-population)): the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that \\X\\ falls in a set \\A\\ is
 >
-> \\\operatorname{P}\mathopen{}\left(A\right)\mathclose{} \stackrel{\text{def}}{=}\Pr(X \in A),\\
+> \\{\operatorname{P}\mathopen{}\left(A\right)\mathclose{}} \stackrel{\text{def}}{=}\Pr(X \in A),\\
 >
 > where the probability refers to the random choice of the unit.
 
@@ -171,9 +171,9 @@ dplyr::glimpse(wcgs)
 >
 > *Remark*. A population may be finite or infinite. For a finite population \\U\\ of \\N\\ units, with \\X(u)\\ the value of \\X\\ for unit \\u\\, the random choice gives each unit probability \\1/N\\, so
 >
-> \\\operatorname{P}\mathopen{}\left(A\right)\mathclose{} = \frac{\mathopen{}\left\|\mathopen{}\left\\u \in U : X(u) \in A\right\\\mathclose{}\right\|\mathclose{}}{N}.\\
+> \\{\operatorname{P}\mathopen{}\left(A\right)\mathclose{}} = \frac{\mathopen{}\left\|{\mathopen{}\left\\u \in U : X(u) \in A\right\\\mathclose{}}\right\|\mathclose{}}{N}.\\
 >
-> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function \\\operatorname{F}\mathopen{}\left(t\right)\mathclose{} = \operatorname{P}\mathopen{}\left((-\infty, t\]\right)\mathclose{}\\ or, when it has one, by its probability mass or density function.
+> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function \\{\operatorname{F}\mathopen{}\left(t\right)\mathclose{}} = {\operatorname{P}\mathopen{}\left((-\infty, t\]\right)\mathclose{}}\\ or, when it has one, by its probability mass or density function.
 
 > **NOTE:**
 >
@@ -917,6 +917,10 @@ A typical exploratory data analysis proceeds as follows:
 > [TABLE]
 >
 > Table 5: Summary of selected WCGS variables
+
+## 7 Further reading
+
+[Plotting a Binary Outcome](https://morrison-lab.github.io/vds/chapters/binary-outcomes.html) shows how to plot a 0/1 outcome against a [continuous](data.llms.md#def-continuous-var) feature, where [scatterplot](exploratory-descriptive.llms.md#def-scatterplot) dots would pile into two stripes. It draws a rug and two [histograms](exploratory-descriptive.llms.md#def-histogram) of the WCGS data, in R and Python.
 
 ## References
 

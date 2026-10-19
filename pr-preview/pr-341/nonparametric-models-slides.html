@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-19 01:55:24 (PDT)</p>
+  <p class="date">Last modified: 2026-10-19 03:40:46 (PDT)</p>
 </section><section id="empirical-distribution" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Empirical distribution</h2>
 <style>
@@ -366,7 +366,7 @@ text-align: center;
 </style>
 <!-- No slidebreak here: the heading shares its slide with the def-empirical-distribution div. --><div id="def-empirical-distribution" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Empirical distribution)</strong></span> For observed values <span class="math inline">\(x_1, \ldots, x_n\)</span>, the <strong>empirical distribution</strong> is the distribution of a value <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice">chosen at random</a> from the sample, each of the <span class="math inline">\(n\)</span> observations being equally likely: the probability that the value falls in a set <span class="math inline">\(A\)</span> is</p>
-<p><span class="math display">\[\frac{1}{n}\sum_{j=1}^n\mathbb{1}\mathopen{}\left(x_j \in A\right)\mathclose{}.\]</span></p>
+<p><span class="math display">\[\frac{1}{n}\sum_{j=1}^n{\mathbb{1}\mathopen{}\left(x_j \in A\right)\mathclose{}}.\]</span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_empirical_measure">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>.</p>
 </div>
 <div id="exm-empirical-distribution" class="theorem example">
@@ -388,7 +388,7 @@ text-align: center;
 <span class="header-section-number">2</span> Empirical CDF</h2>
 <div id="def-empirical-cdf" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Empirical CDF)</strong></span> For observed values <span class="math inline">\(x_1, \ldots, x_n\)</span>, the <strong>empirical cumulative distribution function</strong> (<strong>empirical CDF</strong>) is the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-cdf">CDF</a> of the <a href="#/def-empirical-distribution">empirical distribution</a>, the <a href="https://morrison-lab.github.io/mds/functions.html#def-function">function</a></p>
-<p><span class="math display">\[\mathop{\hat{\operatorname{F}}}\nolimits\mathopen{}\left(t\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{j=1}^nI(x_j \le t), \quad t \in \mathbb{R},\]</span></p>
+<p><span class="math display">\[{\mathop{\hat{\operatorname{F}}}\nolimits\mathopen{}\left(t\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{j=1}^nI(x_j \le t), \quad t \in \mathbb{R},\]</span></p>
 <p>where <span class="math inline">\(I(A)\)</span> is the indicator function: <span class="math inline">\(I(A) = 1\)</span> if <span class="math inline">\(A\)</span> holds, and <span class="math inline">\(I(A) = 0\)</span> otherwise.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_empirical_distribution_function">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>

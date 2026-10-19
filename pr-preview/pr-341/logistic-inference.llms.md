@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 01:55:24 (PDT)
+Last modified: 2026-10-19 03:40:46 (PDT)
 
 ## 1 Introduction
 
@@ -12,9 +12,9 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 1 (Logistic regression)** A **logistic regression** model for binary outcomes \\y_1, \dots, y_n \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ with predictor vectors \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_1, \dots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_n\\ says that the outcomes are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) and that
+> **Definition 1 (Logistic regression)** A **logistic regression** model for binary outcomes \\y_1, \dots, y_n \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\ with predictor vectors \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_1, \dots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_n\\ says that the outcomes are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) and that
 >
-> \\ \Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{} = \pi_i = \sigma\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}, \qquad \sigma\mathopen{}\left(u\right)\mathclose{} = \frac{1}{1 + e^{-u}}, \tag{1}\\
+> \\ {\Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}} = \pi_i = {\sigma\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}}, \qquad {\sigma\mathopen{}\left(u\right)\mathclose{}} = \frac{1}{1 + e^{-u}}, \tag{1}\\
 >
 > where \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i= {\mathopen{}\left(1, x\_{i1}, \dots, x\_{ip}\right)\mathclose{}}^{\top}\\ and \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= {\mathopen{}\left(\beta\_{0}, \beta\_{1}, \dots, \beta\_{p}\right)\mathclose{}}^{\top}\\. The leading \\1\\ in \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\\ makes \\\beta\_{0}\\ the intercept, and \\\beta\_{j}\\ for \\j \ge 1\\ is the slope for the \\j\\th predictor.
 >
@@ -42,11 +42,11 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 2 (Deviance)** The **deviance** of a fitted logistic regression with labels \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ is minus twice its maximized log-likelihood:
+> **Definition 2 (Deviance)** The **deviance** of a fitted logistic regression with labels \\y_i\in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\ is minus twice its maximized log-likelihood:
 >
-> \\ D\stackrel{\text{def}}{=}-2 \\ \ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{} = -2 \sum\_{i=1}^n\mathopen{}\left\\y_i\ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} {\ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}}\right\\\mathclose{}, \tag{2}\\
+> \\ D\stackrel{\text{def}}{=}-2 \\ {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}} = -2 \sum\_{i=1}^n\mathopen{}\left\\y_i\ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} {\ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}}\right\\\mathclose{}, \tag{2}\\
 >
-> where \\\hat\pi_i = \sigma\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}\\ is the fitted probability.
+> where \\\hat\pi_i = {\sigma\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}}\\ is the fitted probability.
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_deviance_statistics).
 
@@ -74,7 +74,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Remark 1* (Why the deviance measures a shortfall). For labels \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ the largest log-likelihood any model can reach is \\0\\, by giving each label probability \\1\\. So \\D\\ is twice the amount by which the maximized log-likelihood falls short of that largest value.
+> *Remark 1* (Why the deviance measures a shortfall). For labels \\y_i\in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\ the largest log-likelihood any model can reach is \\0\\, by giving each label probability \\1\\. So \\D\\ is twice the amount by which the maximized log-likelihood falls short of that largest value.
 
 > **NOTE:**
 >
@@ -112,7 +112,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Proof*. In the notation of the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat), the unrestricted MLE \\\hat\theta\_{\text{ML}}\\ is the fitted coefficient vector \\\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\\, and \\\hat{\theta}\_0\\ is the fit of the intercept-only model that \\H_0\\ imposes. Then \\\ell\mathopen{}\left(\hat\theta\_{\text{ML}}\right)\mathclose{} = -D/ 2\\ and \\\ell\mathopen{}\left(\hat{\theta}\_0\right)\mathclose{} = -D_0/ 2\\. Substituting both into the definition gives \\\Lambda= 2 \mathopen{}\left(-D/2 + D_0/2\right)\mathclose{} = D_0- D\\.
+> *Proof*. In the notation of the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat), the unrestricted MLE \\\hat\theta\_{\text{ML}}\\ is the fitted coefficient vector \\\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\\, and \\\hat{\theta}\_0\\ is the fit of the intercept-only model that \\H_0\\ imposes. Then \\{\ell\mathopen{}\left(\hat\theta\_{\text{ML}}\right)\mathclose{}} = -D/ 2\\ and \\{\ell\mathopen{}\left(\hat{\theta}\_0\right)\mathclose{}} = -D_0/ 2\\. Substituting both into the definition gives \\\Lambda= 2 \mathopen{}\left(-D/2 + D_0/2\right)\mathclose{} = D_0- D\\.
 
 > **NOTE:**
 >
@@ -194,7 +194,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Definition 7 (Saturated model (full model, maximal model))** The **saturated model** (also called the **full model** or **maximal model** [\[6, Sec. 5.5\]](#ref-dobson4e)) for binary outcomes gives each pattern its own free event [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability):
 >
-> \\ \Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}^{(k)}\right)\mathclose{} = \pi_k, \qquad k = 1, \dots, K, \tag{4}\\
+> \\ {\Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}^{(k)}\right)\mathclose{}} = \pi_k, \qquad k = 1, \dots, K, \tag{4}\\
 >
 > with the outcomes independent given the predictors.
 >
@@ -216,9 +216,9 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 8 (Deviance relative to the saturated model)** The **deviance relative to the saturated model** of a fitted model is twice the amount by which its maximized log-likelihood \\\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}\\ falls short of the maximized log-likelihood \\\ell\_{\mathrm{sat}}\\ of the [saturated model](#def-saturated-model):
+> **Definition 8 (Deviance relative to the saturated model)** The **deviance relative to the saturated model** of a fitted model is twice the amount by which its maximized log-likelihood \\{\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\\ falls short of the maximized log-likelihood \\\ell\_{\mathrm{sat}}\\ of the [saturated model](#def-saturated-model):
 >
-> \\ D\_{\mathrm{sat}}= 2 \mathopen{}\left(\ell\_{\mathrm{sat}}- \ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}\right)\mathclose{}. \tag{5}\\
+> \\ D\_{\mathrm{sat}}= 2 \mathopen{}\left(\ell\_{\mathrm{sat}}- {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\right)\mathclose{}. \tag{5}\\
 
 > **NOTE:**
 >
@@ -230,7 +230,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Proof*. Grouping the outcomes by pattern, the [fitted model](model-validation.llms.md#def-fitted-model)’s [log-likelihood](intro-MLEs.llms.md#def-loglik) is \\\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{} = \sum\_{k=1}^{K}\mathopen{}\left\\s_k \ln \hat\pi_k + \mathopen{}\left(m_k - s_k\right)\mathclose{} {\ln\mathopen{}\left(1 - \hat\pi_k\right)\mathclose{}}\right\\\mathclose{}\\. By [Theorem 2](#thm-saturated-mle), the saturated log-likelihood is the same sum with \\\hat\pi_k\\ replaced by \\s_k / m_k\\. Subtracting the fitted from the saturated log-likelihood, term by term, replaces each \\{\ln\mathopen{}\left(s_k / m_k\right)\mathclose{}} - \ln \hat\pi_k\\ by \\{\ln\mathopen{}\left(s_k / \mathopen{}\left(m_k \hat\pi_k\right)\mathclose{}\right)\mathclose{}}\\, and likewise for the non-events. Multiplying by \\2\\, as [Equation 5](#eq-saturated-deviance) does, gives [Equation 6](#eq-saturated-deviance-grouped). A count of \\0\\ times \\\ln 0\\ is taken as \\0\\, its limit.
+> *Proof*. Grouping the outcomes by pattern, the [fitted model](model-validation.llms.md#def-fitted-model)’s [log-likelihood](intro-MLEs.llms.md#def-loglik) is \\{\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}} = \sum\_{k=1}^{K}\mathopen{}\left\\s_k \ln \hat\pi_k + \mathopen{}\left(m_k - s_k\right)\mathclose{} {\ln\mathopen{}\left(1 - \hat\pi_k\right)\mathclose{}}\right\\\mathclose{}\\. By [Theorem 2](#thm-saturated-mle), the saturated log-likelihood is the same sum with \\\hat\pi_k\\ replaced by \\s_k / m_k\\. Subtracting the fitted from the saturated log-likelihood, term by term, replaces each \\{\ln\mathopen{}\left(s_k / m_k\right)\mathclose{}} - \ln \hat\pi_k\\ by \\{\ln\mathopen{}\left(s_k / \mathopen{}\left(m_k \hat\pi_k\right)\mathclose{}\right)\mathclose{}}\\, and likewise for the non-events. Multiplying by \\2\\, as [Equation 5](#eq-saturated-deviance) does, gives [Equation 6](#eq-saturated-deviance-grouped). A count of \\0\\ times \\\ln 0\\ is taken as \\0\\, its limit.
 
 > **NOTE:**
 >
@@ -244,7 +244,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Proof*. [Definition 2](#def-deviance) gives \\D= -2 \ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}\\. Distributing the \\2\\ in [Equation 5](#eq-saturated-deviance) gives \\D\_{\mathrm{sat}}= 2 \ell\_{\mathrm{sat}}- 2 \ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}\\. Substituting \\D= -2 \ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}\\ into this expression gives \\D\_{\mathrm{sat}}= 2 \ell\_{\mathrm{sat}}+ D\\. Subtracting \\2 \ell\_{\mathrm{sat}}\\ from both sides gives the claim.
+> *Proof*. [Definition 2](#def-deviance) gives \\D= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\\. Distributing the \\2\\ in [Equation 5](#eq-saturated-deviance) gives \\D\_{\mathrm{sat}}= 2 \ell\_{\mathrm{sat}}- 2 {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\\. Substituting \\D= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\\ into this expression gives \\D\_{\mathrm{sat}}= 2 \ell\_{\mathrm{sat}}+ D\\. Subtracting \\2 \ell\_{\mathrm{sat}}\\ from both sides gives the claim.
 
 > **NOTE:**
 >
@@ -326,7 +326,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Corollary 3 (Wald interval for a logistic coefficient)** Let \\\hat W\\ be \\W\\ with each \\\pi_i\\ replaced by its fitted value. The estimated standard error of \\\hat{\beta}\_{j}\\ is the square root of the diagonal entry of \\{\mathopen{}\left({X}^{\top} \hat W X\right)\mathclose{}}^{-1}\\ in the row and column of \\\beta\_{j}\\; because \\\beta\_{0}\\ comes first, that is the \\(j+1)\\th diagonal entry counting from \\1\\, and a [Wald confidence interval](intro-MLEs.llms.md#def-wald-ci) with level \\1 - \alpha\\ for \\\beta\_{j}\\ is
 >
-> \\ \hat{\beta}\_{j} \pm z\_{1 - \alpha/2} \\ \mathop{\widehat{\operatorname{se}}}\nolimits\mathopen{}\left(\hat{\beta}\_{j}\right)\mathclose{}. \\
+> \\ \hat{\beta}\_{j} \pm z\_{1 - \alpha/2} \\ {\mathop{\widehat{\operatorname{se}}}\nolimits\mathopen{}\left(\hat{\beta}\_{j}\right)\mathclose{}}. \\
 
 > **NOTE:**
 >
