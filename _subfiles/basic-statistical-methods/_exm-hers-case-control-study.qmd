@@ -13,9 +13,10 @@ set.seed(571)
 cases <- hers[hers$exercise == "yes", ]
 non_cases <- hers[hers$exercise == "no", ]
 controls <- non_cases[sample(nrow(non_cases), nrow(cases)), ]
-odds_ht_cases <- sum(cases$HT == "hormone therapy") / sum(cases$HT == "placebo")
-odds_ht_controls <- sum(controls$HT == "hormone therapy") / sum(controls$HT == "placebo")
-or_case_control <- odds_ht_cases / odds_ht_controls
+odds_ht <- function(d) {
+  sum(d$HT == "hormone therapy") / sum(d$HT == "placebo")
+}
+or_case_control <- odds_ht(cases) / odds_ht(controls)
 or_case_control
 ```
 
