@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 01:43:36 (PDT)
+Last modified: 2026-10-19 02:23:14 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -278,9 +278,9 @@ Last modified: 2026-10-19 01:43:36 (PDT)
 
 > **NOTE:**
 >
-> **Definition 21 (Training error (empirical risk on the training set))** The **training error**, also called the **empirical [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) on the [training set](#def-training-set)**, of a [prediction rule](#def-fitted-model) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its sample mean [loss](#def-observation-loss) \\\ell\_{i}\\ on the training observations \\i\in I\\:
+> **Definition 21 (Training error (empirical risk on the training set))** The **training error** of a [fitted model](#def-fitted-model) \\\hat y\\ is its empirical [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) \\\hat{R}\mathopen{}\left(\hat y\right)\mathclose{}\\ on the [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ used to fit it:
 >
-> \\ \overline{\operatorname{err}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\ell\_{i}. \tag{16}\\
+> \\ \overline{\operatorname{err}}\stackrel{\text{def}}{=}\hat{R}\mathopen{}\left(\hat y\right)\mathclose{}. \tag{16}\\
 
 > **NOTE:**
 >
