@@ -1,0 +1,8 @@
+::: {#rem-risk-ratio-rate-ratio}
+
+#### The risk ratio is not the rate ratio
+
+Some texts call the risk ratio the rate ratio.
+The rate ratio is a different quantity: the ratio of two event rates, as in count regression.
+
+:::

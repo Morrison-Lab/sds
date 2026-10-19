@@ -1,12 +1,12 @@
 ::: {#def-risk-ratio}
-#### Risk ratio (also called the relative risk)
+#### Risk ratio (also called the relative risk, relative risk ratio or probability ratio)
 
 Let:
 
 - $\risk_1$ be the [risk](#def-outcome-risk) of a [binary](data.qmd#def-binary-var) outcome in group 1.
 - $\risk_2 > 0$ be the risk of the same outcome in the [reference group](#def-reference-group), group 2.
 
-The **risk ratio**, also called the **relative risk**, of group 1 compared with group 2 is
+The **risk ratio**, also called the **relative risk**, **relative risk ratio** or **probability ratio**, of group 1 compared with group 2 is
 
 $$\riskratio \eqdef \frac{\risk_1}{\risk_2} \in [0, \infty).$$
 

@@ -1,8 +1,10 @@
 ::: {#def-outcome-risk}
-#### Risk of a binary outcome
+#### Risk of a binary outcome (also called the incidence proportion or cumulative incidence)
 
 The **risk** of a [binary](data.qmd#def-binary-var) outcome in a group
 is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a member of the group has the outcome.
+When the outcome is an event, the risk is for a specified time period.
+The risk is also called the **incidence proportion** or **cumulative incidence**.
 
 The risk lies in $[0, 1]$, and its [maximum likelihood estimate](intro-MLEs.qmd#def-mle)
 is the proportion of the group's observations that have the outcome.
