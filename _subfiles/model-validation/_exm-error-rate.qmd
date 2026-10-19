@@ -1,0 +1,8 @@
+:::{#exm-error-rate}
+#### Error rate of an email classifier
+
+A fitted model labels 200 test emails as spam or not spam, and 14 of its labels are wrong.
+Each wrong label has loss 1 and each correct label has loss 0,
+so the test error rate is $14 / 200 = 0.07$.
+
+:::

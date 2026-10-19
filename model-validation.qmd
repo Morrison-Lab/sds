@@ -422,6 +422,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-error-rate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-error-rate.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_rem-data-splits.qmd >}}
 
 {{< slidebreak >}}
