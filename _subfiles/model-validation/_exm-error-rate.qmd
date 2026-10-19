@@ -70,7 +70,7 @@ error_rates
 Of the `r nrow(birthwt)` births, `r sum(is_test)` are in the test set.
 The fitted model gets the wrong birth-weight category for
 `r round(100 * error_rates[["test"]], 1)`% of the test births,
-so its test error rate is `r round(error_rates[["test"]], 3)`.
-Its training error rate is `r round(error_rates[["training"]], 3)`.
+so its [test error rate](#def-test-error-rate) is `r round(error_rates[["test"]], 3)`.
+Its [training error rate](#def-training-error-rate) is `r round(error_rates[["training"]], 3)`.
 
 :::

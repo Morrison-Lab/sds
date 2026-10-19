@@ -1,0 +1,8 @@
+:::{#def-test-error-rate}
+#### Test error rate
+
+The **test error rate** of a [fitted model](#def-fitted-model)
+is its [error rate](#def-error-rate) on the [test set](#def-test-set),
+which is the [test error](#def-test-error) under 0-1 loss.
+
+:::

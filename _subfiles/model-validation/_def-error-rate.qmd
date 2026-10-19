@@ -2,12 +2,11 @@
 #### Error rate (misclassification rate)
 
 The **error rate** of a [fitted model](#def-fitted-model) $\fitted$
-for a categorical outcome on a set of observations
-is the proportion of those observations whose predicted category differs from the observed category.
-It is the sample mean [loss](#def-observation-loss) under 0-1 loss,
-$\lossf{\outvar, \hat{\outvar}} = \indic{\outvar \neq \hat{\outvar}}$,
-which is 1 for a wrong prediction and 0 for a correct one.
-The [training error](#def-training-mse) with this loss is the *training error rate*,
-and the [test error](#def-test-error) with this loss is the *test error rate*.
+for a [categorical](data.qmd#def-categorical-var) outcome on a set of observations
+is the [sample mean](exploratory-descriptive.qmd#def-sample-mean) of the [loss](#def-observation-loss)
+under 0-1 loss,
+$\lossf{\outvar, \eoutvar} = \indic{\outvar \neq \eoutvar}$,
+which is 1 for a wrong [prediction](prediction.qmd#def-prediction) and 0 for a correct one.
+The error rate is the proportion of observations in the set whose predicted category differs from the observed category.
 
 :::

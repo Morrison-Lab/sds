@@ -434,6 +434,14 @@ reticulate::py_require(c("numpy", "pandas", "statsmodels"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-training-error-rate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-test-error-rate.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_exm-error-rate.qmd >}}
 
 {{< slidebreak >}}
