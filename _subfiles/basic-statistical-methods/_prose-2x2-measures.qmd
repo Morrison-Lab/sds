@@ -74,3 +74,27 @@ and the [odds ratio](#def-odds-ratio) measure the strength of the association.
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-odds-ratio.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-odds-from-joint-probs.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_sol-odds-from-joint-probs.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-odds-ratio-cross-product.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-odds-ratio-cross-product.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-odds-ratio-reversible.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-odds-ratio-reversible.qmd >}}

@@ -1,0 +1,23 @@
+::: {#thm-odds-ratio-cross-product}
+
+#### The odds ratio as a ratio of cross products
+
+Let:
+
+- $X$ and $Y$ be [binary](data.qmd#def-binary-var) random variables, each with values $0$ and $1$.
+- $\Pf{X = x, Y = y} > 0$ for each $x, y \in \set{0, 1}$.
+
+The [odds ratio](#def-odds-ratio) of $Y = 1$ comparing the group $X = 1$ with the [reference group](#def-reference-group) $X = 0$ is
+
+$$
+\orf{Y \mid X} = \frac{\Pf{X = 1, Y = 1} \Pf{X = 0, Y = 0}}{\Pf{X = 1, Y = 0} \Pf{X = 0, Y = 1}}.
+$$
+
+:::
+
+::: proof
+By @sol-odds-from-joint-probs, the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of $Y = 1$ in the group $X = 1$ are $\Pf{X = 1, Y = 1} / \Pf{X = 1, Y = 0}$.
+By the same solution, the odds of $Y = 1$ in the group $X = 0$ are $\Pf{X = 0, Y = 1} / \Pf{X = 0, Y = 0}$.
+The [odds ratio](#def-odds-ratio) is the first odds divided by the second.
+Dividing by a fraction is multiplying by its reciprocal, which gives the stated product of the four joint probabilities.
+:::

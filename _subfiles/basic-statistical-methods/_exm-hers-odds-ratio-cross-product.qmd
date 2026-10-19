@@ -1,0 +1,20 @@
+::: {#exm-hers-odds-ratio-cross-product}
+
+#### The HERS odds ratio from the cell proportions
+
+Take $X = 1$ for hormone therapy and $X = 0$ for placebo, and $Y = 1$ for regular exercise.
+The estimated joint probabilities are the cell proportions of the HERS table:
+
+```{r}
+#| label: hers-or-cross-product
+#| code-fold: false
+joint_hat <- prop.table(table(HT = hers$HT, exercise = hers$exercise))
+cross_ratio <-
+  joint_hat["hormone therapy", "yes"] * joint_hat["placebo", "no"] /
+  (joint_hat["hormone therapy", "no"] * joint_hat["placebo", "yes"])
+cross_ratio
+```
+
+The cross-product expression equals `r round(cross_ratio, 3)`.
+It equals the estimated [odds ratio](#def-odds-ratio) `r round(or_hat, 3)` of @exm-hers-odds-ratio, as @thm-odds-ratio-cross-product states.
+:::
