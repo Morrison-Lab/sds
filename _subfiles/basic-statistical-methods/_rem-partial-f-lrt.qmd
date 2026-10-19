@@ -8,7 +8,7 @@ of the error [variance](https://morrison-lab.github.io/pds/variance-covariance.h
 is $\text{RSS} / n$,
 so its maximized [log-likelihood](intro-MLEs.qmd#def-loglik) is
 $-\tfrac{n}{2} \log(2\pi\, \text{RSS} / n) - \tfrac{n}{2}$.
-The [likelihood ratio statistic](intro-MLEs.qmd#def-lrt-stat) of $H_0$ is then
+The [likelihood ratio statistic](intro-MLEs.qmd#def-lrt-stat) of the null hypothesis $H_0$ in the [partial F-test](#def-partial-f-test) is then
 
 $$
 \begin{aligned}

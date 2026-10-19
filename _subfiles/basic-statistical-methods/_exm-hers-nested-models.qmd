@@ -1,7 +1,7 @@
 ::: {#exm-hers-nested-models}
 #### Nested models for fasting glucose in HERS
 
-Take the regression of `glucose` on `BMI` as the smaller model.
+In the HERS data, take the linear regression of `glucose` on `BMI` as the smaller model.
 The larger model adds `age` and `exercise`, so $q = 2$:
 
 $$
@@ -15,7 +15,7 @@ $$
 \end{aligned}
 $$
 
-Both models must be fitted to the same participants,
+Both models must be fitted to the same HERS participants,
 so keep the participants with all four variables measured:
 
 ```{r}
