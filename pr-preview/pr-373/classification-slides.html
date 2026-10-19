@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-19 03:23:45 (PDT)</p>
+  <p class="date">Last modified: 2026-10-19 04:10:08 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -372,7 +372,7 @@ text-align: center;
 <p>Source: <span class="citation" data-cites="wikipedia_statistical_classification">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-class" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Class)</strong></span> The discrete categories of a classification problem (<a href="#/def-classification" class="quarto-xref">Definition&nbsp;1</a>) are its <strong>classes</strong>. Let <span class="math inline">\(\mathcal{C}\)</span> be a set of <span class="math inline">\(K\)</span> classes (for example, <span class="math inline">\(\mathcal{C}= \mathopen{}\left\{1, \dots, K\right\}\mathclose{}\)</span>, or a set of text labels).</p>
+<p><span class="theorem-title"><strong>Definition 2 (Class)</strong></span> The discrete categories of a classification problem (<a href="#/def-classification" class="quarto-xref">Definition&nbsp;1</a>) are its <strong>classes</strong>. Let <span class="math inline">\(\mathcal{C}\)</span> be a set of <span class="math inline">\(K\)</span> classes (for example, <span class="math inline">\(\mathcal{C}= {\mathopen{}\left\{1, \dots, K\right\}\mathclose{}}\)</span>, or a set of text labels).</p>
 </div>
 </section><section class="slide level2"><div id="def-classification-rule" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Classification rule)</strong></span> A <strong>classification rule</strong> <span class="math inline">\(c\)</span> maps features to classes (<a href="#/def-class" class="quarto-xref">Definition&nbsp;2</a>):</p>
@@ -476,7 +476,7 @@ c(x) \stackrel{\text{def}}{=}
 &amp;&amp; \text{(subtract)}
 \end{aligned}
 \tag{14}\]</span></span></p>
-<p>By <a href="https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes">Bayes’ theorem</a>, with the denominator expanded by the <a href="https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob">law of total probability</a> over the partition <span class="math inline">\(\mathopen{}\left\{D, \neg D\right\}\mathclose{}\)</span>, the negative predictive value (<a href="#/def-npv" class="quarto-xref">Definition&nbsp;8</a>) is:</p>
+<p>By <a href="https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes">Bayes’ theorem</a>, with the denominator expanded by the <a href="https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob">law of total probability</a> over the partition <span class="math inline">\({\mathopen{}\left\{D, \neg D\right\}\mathclose{}}\)</span>, the negative predictive value (<a href="#/def-npv" class="quarto-xref">Definition&nbsp;8</a>) is:</p>
 <p><span id="eq-npv-exm-2"><span class="math display">\[
 \begin{aligned}
 \Pr(\neg D \mid \neg +)
@@ -500,7 +500,7 @@ c(x) \stackrel{\text{def}}{=}
 <span class="header-section-number">4</span> PPV in terms of sensitivity, specificity, and prevalence</h2>
 <!-- No slidebreak here: the heading shares its slide with the exr-prob-positive div. -->
 <div id="exr-prob-positive" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1 (Probability of a positive test)</strong></span> Write the probability <span class="math inline">\(\Pr(+)\)</span> that a diagnostic test is positive in terms of:</p>
+<p><span class="theorem-title"><strong>Exercise 1 (Probability of a positive test)</strong></span> Derive an expression for the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\Pr(+)\)</span> that a diagnostic test is positive in terms of:</p>
 <ul>
 <li>the test’s <a href="#/def-sensitivity">sensitivity</a>;</li>
 <li>the test’s <a href="#/def-specificity">specificity</a>;</li>
@@ -508,7 +508,7 @@ c(x) \stackrel{\text{def}}{=}
 </ul>
 </div>
 </section><section class="slide level2"><div id="sol-prob-positive" class="proof solution">
-<p><span class="proof-title"><em>Solution 1</em>. </span>By the <a href="https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob">law of total probability</a> over the partition <span class="math inline">\(\mathopen{}\left\{D, \neg D\right\}\mathclose{}\)</span>:</p>
+<p><span class="proof-title"><em>Solution 1</em>. </span>By the <a href="https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob">law of total probability</a> over the partition <span class="math inline">\({\mathopen{}\left\{D, \neg D\right\}\mathclose{}}\)</span>:</p>
 <p><span id="eq-prob-positive-exr"><span class="math display">\[
 \begin{aligned}
 \Pr(+)
@@ -541,7 +541,7 @@ c(x) \stackrel{\text{def}}{=}
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-prob-positive" class="quarto-xref">Exercise&nbsp;1</a>, worked in <a href="#/sol-prob-positive" class="quarto-xref">Solution&nbsp;1</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-ppv-bayes" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2 (PPV from Bayes’ theorem)</strong></span> Write the <a href="#/def-ppv">positive predictive value</a> of a diagnostic test in terms of:</p>
+<p><span class="theorem-title"><strong>Exercise 2 (PPV from Bayes’ theorem)</strong></span> Derive an expression for the <a href="#/def-ppv">positive predictive value</a> of a diagnostic test in terms of:</p>
 <ul>
 <li>its <a href="#/def-sensitivity">sensitivity</a>;</li>
 <li>its <a href="#/def-specificity">specificity</a>;</li>

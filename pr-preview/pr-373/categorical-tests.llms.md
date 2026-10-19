@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 03:23:45 (PDT)
+Last modified: 2026-10-19 04:10:08 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -189,7 +189,115 @@ hers |> head()
 
 ### 2.4 Measures of association for \\2 \times 2\\ tables
 
-Tests of independence say whether two binary variables are associated, but not how strongly. Risk differences, risk ratios, and odds ratios measure the strength of the association; see [Odds Ratios and Relative Risks](https://morrison-lab.github.io/rme/chapters/binary-outcome-associations.html#sec-OR-RR).
+Tests of independence say whether two binary variables are associated, but not how strongly. The [risk difference](#def-risk-difference), the [risk ratio](#def-risk-ratio) and the [odds ratio](#def-odds-ratio) measure the strength of the association.
+
+> **NOTE:**
+>
+> **Definition 4 (Risk of a binary outcome)** The **risk** of a [binary](data.llms.md#def-binary-var) outcome in a group is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a member of the group has the outcome.
+>
+> The risk lies in \\\[0, 1\]\\, and its [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) is the proportion of the group’s observations that have the outcome.
+>
+> Source: Wikipedia contributors [\[7\]](#ref-wikipedia_relative_risk).
+
+> **NOTE:**
+>
+> **Example 5 (Risk of regular exercise in each HERS treatment group)** In [Table 1](#tbl-hers-crosstab), the outcome is regular exercise at baseline. The estimated [risk](#def-outcome-risk) in each treatment group is the proportion of that group’s column who exercise regularly:
+>
+> ``` downlit
+> risk_hat <- prop.table(table(hers$exercise, hers$HT), margin = 2)["yes", ]
+> risk_hat
+> #>         placebo hormone therapy 
+> #>        0.383225        0.389855
+> ```
+>
+> The estimated risk of regular exercise is 0.383 in the placebo group and 0.39 in the hormone therapy group.
+
+> **NOTE:**
+>
+> **Definition 5 (Reference group)** In a comparison of an outcome measure between two groups, the **reference group** is the group whose measure is the subtrahend of a difference or the denominator of a quotient. The other group is the group being compared with it.
+
+> **NOTE:**
+>
+> **Example 6 (The placebo group as the reference group in HERS)** To compare the [risks](#def-outcome-risk) of regular exercise in [Example 5](#exm-hers-outcome-risk), take the placebo group as the [reference group](#def-reference-group) and the hormone therapy group as the group being compared with it. Then a difference is hormone therapy minus placebo, and a quotient is hormone therapy divided by placebo.
+
+> **NOTE:**
+>
+> **Definition 6 (Risk difference (also called the absolute risk reduction))** Let:
+>
+> - \\\pi_1\\ be the [risk](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
+> - \\\pi_2\\ be the risk of the same outcome in the [reference group](#def-reference-group), group 2.
+>
+> The **risk difference**, also called the **absolute risk reduction**, of group 1 compared with group 2 is
+>
+> \\\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2 \in \[-1, 1\].\\
+>
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_absolute_risk_reduction).
+
+> **NOTE:**
+>
+> **Example 7 (Risk difference of regular exercise in HERS)** Take group 1 to be hormone therapy and group 2, the [reference group](#def-reference-group), to be placebo. The estimated [risk difference](#def-risk-difference) for the estimated [risks](#def-outcome-risk) of [Example 5](#exm-hers-outcome-risk) is:
+>
+> ``` downlit
+> rd_hat <- risk_hat[["hormone therapy"]] - risk_hat[["placebo"]]
+> rd_hat
+> #> [1] 0.0066302
+> ```
+>
+> The estimated [risk](#def-outcome-risk) of regular exercise is 0.007 higher in the hormone therapy group than in the placebo group. Multiplying by 100 gives 0.7 percentage points.
+
+> **NOTE:**
+>
+> **Definition 7 (Risk ratio (also called the relative risk))** Let:
+>
+> - \\\pi_1\\ be the [risk](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
+> - \\\pi_2 \> 0\\ be the risk of the same outcome in the [reference group](#def-reference-group), group 2.
+>
+> The **risk ratio**, also called the **relative risk**, of group 1 compared with group 2 is
+>
+> \\\text{ϙ}\_{\pi}\stackrel{\text{def}}{=}\frac{\pi_1}{\pi_2} \in \[0, \infty).\\
+>
+> Source: Wikipedia contributors [\[7\]](#ref-wikipedia_relative_risk).
+
+> **NOTE:**
+>
+> **Example 8 (Risk ratio of regular exercise in HERS)** Take group 1 to be hormone therapy and group 2, the [reference group](#def-reference-group), to be placebo. The estimated [risk ratio](#def-risk-ratio) for the estimated [risks](#def-outcome-risk) of [Example 5](#exm-hers-outcome-risk) is:
+>
+> ``` downlit
+> rr_hat <- risk_hat[["hormone therapy"]] / risk_hat[["placebo"]]
+> rr_hat
+> #> [1] 1.0173
+> ```
+>
+> The estimated [risk](#def-outcome-risk) of regular exercise in the hormone therapy group is 1.017 times the estimated risk in the placebo group. This [estimate](estimation.llms.md#def-estimate) is close to 1, which agrees with the large [p-value](inference.llms.md#def-p-value) of [Example 3](#exm-hers-chisq): the two groups have about the same estimated risk. The estimate alone does not show how precise it is.
+
+> **NOTE:**
+>
+> **Definition 8 (Odds ratio)** Let:
+>
+> - \\\omega_1\\ be the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
+> - \\\omega_2\\ be the odds of the same outcome in the [reference group](#def-reference-group), group 2.
+>
+> The **odds ratio** of group 1 compared with group 2 is
+>
+> \\\text{ϙ}\_{\omega}\stackrel{\text{def}}{=}\frac{\omega_1}{\omega_2} \in (0, \infty).\\
+>
+> Here \\\omega_g = \pi_g / (1 - \pi_g)\\ for the [risk](#def-outcome-risk) \\\pi_g\\ of group \\g\\.
+>
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_odds_ratio).
+
+> **NOTE:**
+>
+> **Example 9 (Odds ratio of regular exercise in HERS)** Take group 1 to be hormone therapy and group 2, the [reference group](#def-reference-group), to be placebo. The [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of regular exercise in each group follow from the estimated [risks](#def-outcome-risk) of [Example 5](#exm-hers-outcome-risk). The estimated [odds ratio](#def-odds-ratio) divides the odds in the hormone therapy group by the odds in the placebo group:
+>
+> ``` downlit
+> odds_hat <- risk_hat / (1 - risk_hat)
+> or_hat <- odds_hat[["hormone therapy"]] / odds_hat[["placebo"]]
+> c(odds_hat, odds_ratio = or_hat)
+> #>         placebo hormone therapy      odds_ratio 
+> #>        0.621336        0.638955        1.028356
+> ```
+>
+> The estimated odds ratio 1.028 is close to the [risk ratio](#def-risk-ratio) 1.017 of [Example 8](#exm-hers-risk-ratio), because the two groups have nearly equal risks. The odds ratio is 1 exactly when the risk ratio is 1, so it also agrees with the large [p-value](inference.llms.md#def-p-value) of [Example 3](#exm-hers-chisq).
 
 > **NOTE:**
 >
@@ -220,5 +328,17 @@ J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Ce
 \[6\]
 
 Wikipedia contributors, “Fisher’s exact test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Fisher%27s_exact_test>
+
+\[7\]
+
+Wikipedia contributors, “Relative risk — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Relative_risk>
+
+\[8\]
+
+Wikipedia contributors, “Absolute risk reduction — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Absolute_risk_reduction>
+
+\[9\]
+
+Wikipedia contributors, “Odds ratio — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Odds_ratio>
 
 Back to top
