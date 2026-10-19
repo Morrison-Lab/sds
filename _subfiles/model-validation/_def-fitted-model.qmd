@@ -3,7 +3,7 @@
 
 A **fitted model** $\emodmem$ is a member of a [model family](#def-model-family) $\modelfam$
 that has been chosen to describe a [data set](#def-data-set) $\dataset$.
-A fitted model used to [predict](prediction.qmd#def-prediction) outcomes is also called a *[prediction rule]{#def-prediction-rule}*.
 <!-- prose-allow: prediction rule -->
+A fitted model used to [predict](prediction.qmd#def-prediction) outcomes is also called a *[prediction rule]{#def-prediction-rule}*.
 
 :::

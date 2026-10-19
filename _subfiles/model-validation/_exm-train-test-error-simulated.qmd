@@ -105,7 +105,7 @@ The training error is smallest at degree `r sim_best_training`
 and never rises as the degree grows,
 because each polynomial family contains the one before it.
 The estimated generalization error is smallest at degree `r sim_best_generalization`.
-No [fitted model](#def-fitted-model) can have generalization pRMSE below $\sdpar = `r sim_sigma`$.
+No [fitted model](#def-fitted-model) can have generalization [pRMSE](estimation.qmd#def-rmse) below $\sdpar = `r sim_sigma`$.
 Yet the training sRMSE falls below $\sdpar$
 at `r sim_n_below[["training"]]` of the ten degrees,
 while the estimated generalization error falls below it
