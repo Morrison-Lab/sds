@@ -336,6 +336,32 @@ The login for the video site is posted
 
 {{< slidebreak >}}
 
+### Comparing nested regression models {#sec-partial-f}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-nested-regression-models.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-nested-models.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-partial-f-test.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-partial-f-null.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-partial-f.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_rem-partial-f-lrt.qmd >}}
+
+{{< slidebreak >}}
+
 ### Further reading
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-slr-further-reading.qmd >}}

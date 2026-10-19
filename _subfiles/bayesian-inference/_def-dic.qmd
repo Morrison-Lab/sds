@@ -1,7 +1,7 @@
 ::: {#def-dic}
 #### Deviance information criterion
 
-The **deviance information criterion** is [@wikipedia_deviance_information_criterion]
+The **deviance information criterion** is
 
 $$
 \operatorname{DIC} \eqdef D(\bar{\vparam}) + 2\,p_D,

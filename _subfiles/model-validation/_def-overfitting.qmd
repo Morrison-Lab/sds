@@ -1,9 +1,9 @@
 :::{#def-overfitting}
 #### Overfitting
 
-**Overfitting** occurs when a [prediction rule](#def-prediction-rule)
+**Overfitting** occurs when a [fitted model](#def-fitted-model)
 fits its [training set](#def-training-set) well
-but predicts poorly for new observations [@wikipedia_overfitting].
+but predicts poorly for [new observations](#def-new-observation). <!-- check-term-links: allow -->
 
 Source: @wikipedia_overfitting.
 :::

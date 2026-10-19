@@ -8,9 +8,17 @@ format:
     output-file: model-validation-handout.pdf
   docx:
     output-file: model-validation-handout.docx
+resources:
+  - data/birthwt.csv
 ---
 
 {{< include sds/_subfiles/shared-config.qmd >}}
+
+```{r}
+#| label: python-packages
+#| include: false
+reticulate::py_require(c("numpy", "pandas", "statsmodels"))
+```
 
 ## Data sets, input matrices and outcome vectors {#sec-data-sets}
 
@@ -32,7 +40,7 @@ format:
 
 {{< include sds/_subfiles/model-validation/_exm-input-matrix.qmd >}}
 
-## Fitting and scoring prediction rules {#sec-prediction-rules}
+## Fitting and scoring models {#sec-prediction-rules}
 
 {{< include sds/_subfiles/model-validation/_def-covariate.qmd >}}
 
@@ -102,7 +110,7 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-prediction-rule.qmd >}}
+{{< include sds/_subfiles/model-validation/_rem-prediction-rule.qmd >}}
 
 {{< slidebreak >}}
 
@@ -155,6 +163,14 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-prediction-rmse.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-empirical-risk.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-empirical-risk.qmd >}}
 
 {{< slidebreak >}}
 
@@ -262,6 +278,18 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-irreducible-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-irreducible-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-irreducible-error.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_exr-epe-three-sources.qmd >}}
 
 {{< slidebreak >}}
@@ -311,10 +339,6 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_thm-epe-decomposition.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/model-validation/_def-irreducible-error.qmd >}}
 
 {{< slidebreak >}}
 

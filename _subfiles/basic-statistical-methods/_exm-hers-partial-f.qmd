@@ -1,0 +1,36 @@
+::: {#exm-hers-partial-f}
+#### Partial F-test of age and exercise in HERS
+
+For the models of @exm-hers-nested-models,
+`anova()` gives the [partial F-test](#def-partial-f-test):
+
+```{r}
+#| label: hers-partial-f-anova
+#| code-fold: false
+anova(fit_smaller, fit_larger) |>
+  parameters::parameters() |>
+  parameters::print_md(digits = 3, footer = "")
+```
+
+The definition gives the same [statistic](sufficiency.qmd#def-statistic):
+
+```{r}
+#| label: hers-partial-f-by-hand
+#| code-fold: false
+rss0 <- sum(residuals(fit_smaller)^2)
+rss1 <- sum(residuals(fit_larger)^2)
+n <- nobs(fit_larger)
+p <- length(coef(fit_larger)) - 1
+q <- p - (length(coef(fit_smaller)) - 1)
+f_stat <- ((rss0 - rss1) / q) / (rss1 / (n - p - 1))
+c(
+  f = f_stat,
+  p_value = pf(f_stat, q, n - p - 1, lower.tail = FALSE)
+)
+```
+
+With $q = `r q`$ and $n - p - 1 = `r n - p - 1`$,
+$F = `r round(f_stat, 2)`$,
+so the data `r if (pf(f_stat, q, n - p - 1, lower.tail = FALSE) < 0.05) "reject" else "do not reject"`
+$H_0$ at the 5% level.
+:::

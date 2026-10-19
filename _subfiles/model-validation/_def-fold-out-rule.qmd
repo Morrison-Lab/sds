@@ -3,7 +3,7 @@
 
 For [fold](#def-folds) $\fold{\ifold}$,
 the **fold-out rule** $\fittedwo{\ifold}{\cdot}$
-is the [prediction rule](#def-prediction-rule)
+is the [fitted model](#def-fitted-model)
 that a [fitting procedure](#def-fitting-procedure) $\fitproc$ produces
 from the observations outside that fold:
 

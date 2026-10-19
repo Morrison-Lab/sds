@@ -7,7 +7,7 @@ is the mean,
 over [training sets](#def-training-set) $\trainset$ of $\nobs$ observations
 drawn independently from the population,
 of the [generalization error](#def-generalization-error)
-of the [prediction rule](#def-prediction-rule) that $\fitproc$ produces from $\trainset$:
+of the [fitted model](#def-fitted-model) that $\fitproc$ produces from $\trainset$:
 
 $$
 \expgenerr{\fitproc}{\nobs} \eqdef \E{\generr_{\trainset}},

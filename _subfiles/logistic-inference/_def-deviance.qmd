@@ -6,7 +6,7 @@ The **deviance** of a fitted logistic regression with labels $\outvar_\iobs \in 
 
 $$
 \deviance \eqdef -2 \, \llikf{\hvcoef}
-= -2 \sumin \cb{\outvar_\iobs \ln \hat\prob_i + \paren{1 - \outvar_\iobs} \ln\paren{1 - \hat\prob_i}},
+= -2 \sumin \cb{\outvar_\iobs \ln \hat\prob_i + \paren{1 - \outvar_\iobs} \lnf{1 - \hat\prob_i}},
 $$ {#eq-deviance}
 
 where $\hat\prob_i = \sigmoidf{\dprod{\hvcoef}{\vpredvar_\iobs}}$ is the fitted probability.

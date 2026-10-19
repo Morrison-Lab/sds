@@ -1,7 +1,7 @@
 :::{#thm-held-out-unbiased}
 #### The held-out sample mean loss estimates the generalization error
 
-Let a [prediction rule](#def-prediction-rule) $\fitted$
+Let a [fitted model](#def-fitted-model) $\fitted$
 be fitted to a [training set](#def-training-set) $\trainset$,
 and let a [held-out set](#def-held-out-set) of $\nheld$ observations
 $(\heldpredvar{1}, \heldoutvar{1}), \ldots, (\heldpredvar{\nheld}, \heldoutvar{\nheld})$

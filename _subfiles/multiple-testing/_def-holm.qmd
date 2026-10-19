@@ -2,7 +2,7 @@
 #### Holm's step-down procedure
 
 Given the cutoff rank $k^*$ of @def-holm-cutoff,
-**Holm's procedure** rejects $H_{(1)}, \ldots, H_{(k^* - 1)}$ and no others [@wikipedia_holm_bonferroni_method].
+**Holm's procedure** rejects $H_{(1)}, \ldots, H_{(k^* - 1)}$ and no others.
 
 Source: Holm [-@holm1979simple];
 @wikipedia_holm_bonferroni_method.

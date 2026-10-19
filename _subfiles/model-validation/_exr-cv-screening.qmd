@@ -16,7 +16,7 @@ An analyst
 Answer the following:
 
 1. What is the smallest possible generalization error (@eq-generalization-error)
-   of any prediction rule for $\Outvar$ here?
+   of any [fitted model](#def-fitted-model) for $\Outvar$ here?
 2. Simulate the analyst's procedure.
    What cross-validation estimate does it report?
 3. Repeat the simulation,

@@ -4,7 +4,7 @@
 Let $\fitproc$ be a [fitting procedure](#def-fitting-procedure),
 and let $\trainset$ be a random [training set](#def-training-set).
 The **expected prediction** of $\fitproc$ at a covariate value $\predvar$
-is the value $\predvalf{\predvar}$ of the [prediction rule](#def-prediction-rule) $\fitted$ at $\predvar$,
+is the value $\predvalf{\predvar}$ of the [fitted model](#def-fitted-model) $\fitted$ at $\predvar$,
 averaged over the population distribution of all training sets that might have been collected:
 
 $$

@@ -4,7 +4,7 @@
 In the **Bayesian** paradigm of statistical inference,
 an unknown parameter $\param$ is a random variable with its own probability distribution,
 and probability measures degree of belief
-[@dobson4e, Chapter 12, p. 272] [@wikipedia_bayesian_statistics].
+[@dobson4e, Chapter 12, p. 272].
 
 Source: @wikipedia_bayesian_statistics.
 :::
