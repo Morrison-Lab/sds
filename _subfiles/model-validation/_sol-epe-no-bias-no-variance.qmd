@@ -1,0 +1,7 @@
+:::{#sol-epe-no-bias-no-variance}
+
+$0 + 0 + 3 = 3$.
+The [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar = 3$ of the [noise](#def-noise) remains,
+so $3$ is the smallest [expected squared prediction error](#def-epe) any [prediction](prediction.qmd#def-prediction) can have here.
+
+:::
