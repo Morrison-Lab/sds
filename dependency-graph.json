@@ -2804,6 +2804,24 @@
    "external": false
   },
   {
+   "id": "sds/model-validation#def-adjusted-r-squared",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "def-adjusted-r-squared",
+   "kind": "def",
+   "title": "Adjusted coefficient of determination",
+   "external": false
+  },
+  {
+   "id": "sds/model-validation#def-aic",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "def-aic",
+   "kind": "def",
+   "title": "Akaike information criterion (AIC)",
+   "external": false
+  },
+  {
    "id": "sds/model-validation#def-average-fit",
    "site": "sds",
    "page": "model-validation",
@@ -2819,6 +2837,15 @@
    "div": "def-bias-variance-tradeoff",
    "kind": "def",
    "title": "Bias--variance trade-off",
+   "external": false
+  },
+  {
+   "id": "sds/model-validation#def-bic",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "def-bic",
+   "kind": "def",
+   "title": "Bayesian information criterion (BIC)",
    "external": false
   },
   {
@@ -3116,6 +3143,15 @@
    "div": "def-loocv",
    "kind": "def",
    "title": "Leave-one-out cross-validation",
+   "external": false
+  },
+  {
+   "id": "sds/model-validation#def-mallows-cp",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "def-mallows-cp",
+   "kind": "def",
+   "title": "Mallows' $C_p$",
    "external": false
   },
   {
@@ -5076,6 +5112,38 @@
    "sds/mcmc#def-stationary-distribution"
   ],
   [
+   "sds/model-validation#def-adjusted-r-squared",
+   "sds/correlation-regression#def-rss"
+  ],
+  [
+   "sds/model-validation#def-adjusted-r-squared",
+   "sds/correlation-regression#def-tss"
+  ],
+  [
+   "sds/model-validation#def-adjusted-r-squared",
+   "sds/model-validation#def-fitted-model"
+  ],
+  [
+   "sds/model-validation#def-aic",
+   "pds/variance-covariance#def-variance"
+  ],
+  [
+   "sds/model-validation#def-aic",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/model-validation#def-aic",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/model-validation#def-aic",
+   "sds/intro-MLEs#def-mle"
+  ],
+  [
+   "sds/model-validation#def-aic",
+   "sds/model-validation#def-noise"
+  ],
+  [
    "sds/model-validation#def-average-fit",
    "sds/model-validation#def-fitted-model"
   ],
@@ -5114,6 +5182,18 @@
   [
    "sds/model-validation#def-bias-variance-tradeoff",
    "sds/model-validation#def-training-set"
+  ],
+  [
+   "sds/model-validation#def-bic",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/model-validation#def-bic",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/model-validation#def-bic",
+   "sds/intro-MLEs#def-mle"
   ],
   [
    "sds/model-validation#def-covariate",
@@ -5514,6 +5594,30 @@
   [
    "sds/model-validation#def-loocv",
    "sds/model-validation#def-kfold"
+  ],
+  [
+   "sds/model-validation#def-mallows-cp",
+   "pds/variance-covariance#def-variance"
+  ],
+  [
+   "sds/model-validation#def-mallows-cp",
+   "sds/correlation-regression#def-rss"
+  ],
+  [
+   "sds/model-validation#def-mallows-cp",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/model-validation#def-mallows-cp",
+   "sds/model-validation#def-fitted-model"
+  ],
+  [
+   "sds/model-validation#def-mallows-cp",
+   "sds/model-validation#def-noise"
+  ],
+  [
+   "sds/model-validation#def-mallows-cp",
+   "sds/prediction#def-residual"
   ],
   [
    "sds/model-validation#def-model-family",

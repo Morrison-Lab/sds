@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-19 13:11:59 (PDT)</p>
+  <p class="date">Last modified: 2026-10-19 13:28:02 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -2666,8 +2666,167 @@ Figure&nbsp;7: 10-fold cross-validation estimates, with bars of one <a href="#/d
 </div>
 <p>The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization pRMSE of <a href="#/exm-train-test-error-simulated" class="quarto-xref">Example&nbsp;27</a> for each: 0.335 for degree 8 and 0.315 for degree 3.</p>
 </div>
-</section><section id="sec-cv-whole-procedure" class="slide level2 scrollable" data-number="9"><h2>
-<span class="header-section-number">9</span> Cross-validating the whole procedure</h2>
+</section><section id="sec-information-criteria" class="slide level2" data-number="9"><h2>
+<span class="header-section-number">9</span> Criteria that adjust the training error</h2>
+<div id="def-adjusted-r-squared" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 67 (Adjusted coefficient of determination)</strong></span> Let a regression model with <span class="math inline">\(p\)</span> predictors and a constant term be fitted to <span class="math inline">\(n\)</span> observations, with <span class="math inline">\(n&gt; p+ 1\)</span>. The <strong>adjusted coefficient of determination</strong> of the <a href="#/def-fitted-model">fitted model</a> is</p>
+<p><span class="math display">\[
+R^2_{\text{adj}} \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}) / (n- p- 1)}{\text{TSS} / (n- 1)},
+\]</span></p>
+<p>one minus the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> per degree of freedom, divided by the <a href="./correlation-regression.html#def-tss">total sum of squares</a> per degree of freedom. A larger value is better.</p>
+<p>Source: <span class="citation" data-cites="james2021islr2e">James et al. <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 6.1.3]</a></span>.</p>
+</div>
+</section><section class="slide level2"><!--
+This fragment makes mtcars_formulas and mtcars_full_sigma2,
+which _exm-mallows-cp.qmd, _exm-aic.qmd and _exm-bic.qmd use,
+so it renders before them.
+--><div id="exm-adjusted-r-squared" class="theorem example">
+<p><span class="theorem-title"><strong>Example 38 (Adjusted coefficient of determination of nested <code>mtcars</code> models)</strong></span> The <code>mtcars</code> <a href="#/def-data-set">data set</a> has the fuel economy <code>mpg</code> of 32 cars from the 1974 <em>Motor Trend</em> magazine. This example fits four <a href="./correlation-regression.html#def-nested-regression-models">nested</a> linear models of <code>mpg</code>, each adding one predictor to the one before, and computes <a href="#/def-adjusted-r-squared" class="quarto-xref">Definition&nbsp;67</a> from its formula.</p>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a>mtcars_formulas <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb34-2"><a aria-label="2"></a>  mpg <span class="sc">~</span> wt,</span>
+<span id="cb34-3"><a aria-label="3"></a>  mpg <span class="sc">~</span> wt <span class="sc">+</span> hp,</span>
+<span id="cb34-4"><a aria-label="4"></a>  mpg <span class="sc">~</span> wt <span class="sc">+</span> hp <span class="sc">+</span> qsec,</span>
+<span id="cb34-5"><a aria-label="5"></a>  mpg <span class="sc">~</span> wt <span class="sc">+</span> hp <span class="sc">+</span> qsec <span class="sc">+</span> drat</span>
+<span id="cb34-6"><a aria-label="6"></a>)</span>
+<span id="cb34-7"><a aria-label="7"></a>mtcars_fits <span class="ot">&lt;-</span> <span class="fu">lapply</span>(mtcars_formulas, lm, <span class="at">data =</span> mtcars)</span>
+<span id="cb34-8"><a aria-label="8"></a>mtcars_full_sigma2 <span class="ot">&lt;-</span> <span class="fu">summary</span>(mtcars_fits[[<span class="dv">4</span>]])<span class="sc">$</span>sigma<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb34-9"><a aria-label="9"></a></span>
+<span id="cb34-10"><a aria-label="10"></a>mtcars_tss <span class="ot">&lt;-</span> <span class="fu">sum</span>((mtcars<span class="sc">$</span>mpg <span class="sc">-</span> <span class="fu">mean</span>(mtcars<span class="sc">$</span>mpg))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb34-11"><a aria-label="11"></a>mtcars_criteria <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb34-12"><a aria-label="12"></a>  <span class="at">predictors =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb34-13"><a aria-label="13"></a>  <span class="at">r_squared =</span> <span class="fu">vapply</span>(mtcars_fits, \(f) <span class="fu">summary</span>(f)<span class="sc">$</span>r.squared, <span class="fu">numeric</span>(<span class="dv">1</span>)),</span>
+<span id="cb34-14"><a aria-label="14"></a>  <span class="at">adj_r_squared =</span> <span class="fu">vapply</span>(</span>
+<span id="cb34-15"><a aria-label="15"></a>    mtcars_fits,</span>
+<span id="cb34-16"><a aria-label="16"></a>    \(f) {</span>
+<span id="cb34-17"><a aria-label="17"></a>      df <span class="ot">&lt;-</span> <span class="fu">nrow</span>(mtcars) <span class="sc">-</span> <span class="fu">length</span>(<span class="fu">coef</span>(f))</span>
+<span id="cb34-18"><a aria-label="18"></a>      <span class="dv">1</span> <span class="sc">-</span> (<span class="fu">sum</span>(<span class="fu">resid</span>(f)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> df) <span class="sc">/</span> (mtcars_tss <span class="sc">/</span> (<span class="fu">nrow</span>(mtcars) <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb34-19"><a aria-label="19"></a>    },</span>
+<span id="cb34-20"><a aria-label="20"></a>    <span class="fu">numeric</span>(<span class="dv">1</span>)</span>
+<span id="cb34-21"><a aria-label="21"></a>  )</span>
+<span id="cb34-22"><a aria-label="22"></a>)</span>
+<span id="cb34-23"><a aria-label="23"></a>mtcars_criteria</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["predictors"],"name":[1],"type":["int"],"align":["right"]},{"label":["r_squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["adj_r_squared"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"0.752833","3":"0.744594"},{"1":"2","2":"0.826785","3":"0.814840"},{"1":"3","2":"0.834768","3":"0.817064"},{"1":"4","2":"0.845385","3":"0.822479"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The <a href="./correlation-regression.html#def-r-squared">coefficient of determination</a> <span class="math inline">\(R^2\)</span> never falls as a predictor is added, and here it rises from 0.753 to 0.845. The <a href="#/def-adjusted-r-squared">adjusted coefficient of determination</a> rises more slowly, from 0.745 to 0.822, because each added predictor costs a degree of freedom. It is largest for the model with 4 predictors. Its formula matches the <code>adj.r.squared</code> that <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> reports: TRUE.</p>
+</div>
+</section><section class="slide level2"><div id="def-mallows-cp" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 68 (Mallows’ <span class="math inline">\(C_p\)</span>)</strong></span> Let a least squares regression model with <span class="math inline">\(p\)</span> predictors be fitted to <span class="math inline">\(n\)</span> observations, and let <span class="math inline">\(\hat{\sigma^2}\)</span> be an <a href="./estimation.html#def-estimate">estimate</a> of the <a href="#/def-noise">noise</a> <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> <span class="math inline">\(\sigma^2\)</span>, usually the <a href="./prediction.html#def-residual">residual</a> variance of the model with all the predictors under consideration. <strong>Mallows’ <span class="math inline">\(C_p\)</span></strong> of the <a href="#/def-fitted-model">fitted model</a> is</p>
+<p><span class="math display">\[
+C_p \stackrel{\text{def}}{=}\frac{1}{n} \mathopen{}\left(\text{RSS}(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}) + 2 p\hat{\sigma^2}\right)\mathclose{},
+\]</span></p>
+<p>the average of the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> plus a penalty of <span class="math inline">\(2 \hat{\sigma^2}\)</span> for each predictor. A smaller value is better.</p>
+<p>Source: <span class="citation" data-cites="mallows1973some">Mallows <a href="#/references" role="doc-biblioref" onclick="">[15]</a></span>. This scaling is that of <span class="citation" data-cites="james2021islr2e">James et al. <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 6.1.3]</a></span>.</p>
+</div>
+</section><section class="slide level2"><!--
+This fragment uses mtcars_fits and mtcars_full_sigma2
+from _exm-adjusted-r-squared.qmd, so it renders after that one.
+--><div id="exm-mallows-cp" class="theorem example">
+<p><span class="theorem-title"><strong>Example 39 (Mallows’ <span class="math inline">\(C_p\)</span> of nested <code>mtcars</code> models)</strong></span> This example computes <a href="#/def-mallows-cp" class="quarto-xref">Definition&nbsp;68</a> for the four models of <a href="#/exm-adjusted-r-squared" class="quarto-xref">Example&nbsp;38</a>. The <a href="./estimation.html#def-estimate">estimate</a> <span class="math inline">\(\hat{\sigma^2}\)</span> of the <a href="#/def-noise">noise</a> <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> is the <a href="./prediction.html#def-residual">residual</a> variance of the model with all four predictors, 6.45.</p>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>mtcars_cp <span class="ot">&lt;-</span> <span class="fu">vapply</span>(</span>
+<span id="cb35-2"><a aria-label="2"></a>  <span class="fu">seq_along</span>(mtcars_fits),</span>
+<span id="cb35-3"><a aria-label="3"></a>  \(k) {</span>
+<span id="cb35-4"><a aria-label="4"></a>    rss <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">resid</span>(mtcars_fits[[k]])<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb35-5"><a aria-label="5"></a>    (rss <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> k <span class="sc">*</span> mtcars_full_sigma2) <span class="sc">/</span> <span class="fu">nrow</span>(mtcars)</span>
+<span id="cb35-6"><a aria-label="6"></a>  },</span>
+<span id="cb35-7"><a aria-label="7"></a>  <span class="fu">numeric</span>(<span class="dv">1</span>)</span>
+<span id="cb35-8"><a aria-label="8"></a>)</span>
+<span id="cb35-9"><a aria-label="9"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">predictors =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">cp =</span> mtcars_cp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["predictors"],"name":[1],"type":["int"],"align":["right"]},{"label":["cp"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"9.10058"},{"1":"2","2":"6.90128"},{"1":"3","2":"7.02341"},{"1":"4","2":"7.05280"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The model with 2 predictors has the smallest <span class="math inline">\(C_p\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="def-aic" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 69 (Akaike information criterion (AIC))</strong></span> Let a model with <span class="math inline">\(p^{*}\)</span> <a href="./estimation.html#def-estimate">estimated</a> parameters be fitted by <a href="./intro-MLEs.html#def-mle">maximum likelihood</a> to <span class="math inline">\(n\)</span> observations, and let <span class="math inline">\({\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\)</span> be the <a href="./intro-MLEs.html#def-loglik">log-likelihood</a> at the <a href="./intro-MLEs.html#def-mle">maximum likelihood estimate</a> <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span>. The <strong>Akaike information criterion</strong> of the model is</p>
+<p><span class="math display">\[
+\text{AIC} \stackrel{\text{def}}{=}-2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2 p^{*}.
+\]</span></p>
+<p>It is minus twice the maximized log-likelihood, plus two for each estimated parameter. For a Gaussian model, <span class="math inline">\(p^{*}\)</span> includes the <a href="#/def-noise">noise</a> <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>. A smaller AIC is better.</p>
+<p>Source: <span class="citation" data-cites="akaike1974new">Akaike <a href="#/references" role="doc-biblioref" onclick="">[16]</a></span>.</p>
+</div>
+</section><section class="slide level2"><!--
+This fragment uses mtcars_fits from _exm-adjusted-r-squared.qmd,
+so it renders after that one.
+--><div id="exm-aic" class="theorem example">
+<p><span class="theorem-title"><strong>Example 40 (AIC of nested <code>mtcars</code> models)</strong></span> This example computes <a href="#/def-aic" class="quarto-xref">Definition&nbsp;69</a> for the four models of <a href="#/exm-adjusted-r-squared" class="quarto-xref">Example&nbsp;38</a>, each fitted by <a href="./intro-MLEs.html#def-mle">maximum likelihood</a> with Gaussian <a href="#/def-noise">noise</a>. The number of <a href="./estimation.html#def-estimate">estimated</a> parameters is the number of coefficients plus one for the noise <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>.</p>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a>mtcars_aic <span class="ot">&lt;-</span> <span class="fu">vapply</span>(</span>
+<span id="cb36-2"><a aria-label="2"></a>  mtcars_fits,</span>
+<span id="cb36-3"><a aria-label="3"></a>  \(f) <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">as.numeric</span>(<span class="fu">logLik</span>(f)) <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> (<span class="fu">length</span>(<span class="fu">coef</span>(f)) <span class="sc">+</span> <span class="dv">1</span>),</span>
+<span id="cb36-4"><a aria-label="4"></a>  <span class="fu">numeric</span>(<span class="dv">1</span>)</span>
+<span id="cb36-5"><a aria-label="5"></a>)</span>
+<span id="cb36-6"><a aria-label="6"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb36-7"><a aria-label="7"></a>  <span class="at">predictors =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb36-8"><a aria-label="8"></a>  <span class="at">aic =</span> mtcars_aic,</span>
+<span id="cb36-9"><a aria-label="9"></a>  <span class="at">r_aic =</span> <span class="fu">vapply</span>(mtcars_fits, AIC, <span class="fu">numeric</span>(<span class="dv">1</span>))</span>
+<span id="cb36-10"><a aria-label="10"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["predictors"],"name":[1],"type":["int"],"align":["right"]},{"label":["aic"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["r_aic"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"166.029","3":"166.029"},{"1":"2","2":"156.652","3":"156.652"},{"1":"3","2":"157.143","3":"157.143"},{"1":"4","2":"157.017","3":"157.017"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The <code>aic</code> column matches the <code>r_aic</code> column that <code><a href="https://rdrr.io/r/stats/AIC.html">AIC()</a></code> returns: TRUE. The model with 2 predictors has the smallest AIC.</p>
+</div>
+</section><section class="slide level2"><div id="def-bic" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 70 (Bayesian information criterion (BIC))</strong></span> Let a model with <span class="math inline">\(p^{*}\)</span> <a href="./estimation.html#def-estimate">estimated</a> parameters be fitted by <a href="./intro-MLEs.html#def-mle">maximum likelihood</a> to <span class="math inline">\(n\)</span> observations, and let <span class="math inline">\({\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\)</span> be the <a href="./intro-MLEs.html#def-loglik">log-likelihood</a> at the <a href="./intro-MLEs.html#def-mle">maximum likelihood estimate</a> <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span>. The <strong>Bayesian information criterion</strong> of the model is</p>
+<p><span class="math display">\[
+\text{BIC} \stackrel{\text{def}}{=}-2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + p^{*}{\operatorname{log}\mathopen{}\left\{n\right\}\mathclose{}}.
+\]</span></p>
+<p>It is minus twice the maximized log-likelihood, plus <span class="math inline">\({\operatorname{log}\mathopen{}\left\{n\right\}\mathclose{}}\)</span> for each estimated parameter. A smaller BIC is better.</p>
+<p>Source: <span class="citation" data-cites="schwarz1978estimating">Schwarz <a href="#/references" role="doc-biblioref" onclick="">[17]</a></span>.</p>
+</div>
+</section><section class="slide level2"><!--
+This fragment uses mtcars_fits from _exm-adjusted-r-squared.qmd,
+so it renders after that one.
+--><div id="exm-bic" class="theorem example">
+<p><span class="theorem-title"><strong>Example 41 (BIC of nested <code>mtcars</code> models)</strong></span> This example computes <a href="#/def-bic" class="quarto-xref">Definition&nbsp;70</a> for the four models of <a href="#/exm-adjusted-r-squared" class="quarto-xref">Example&nbsp;38</a>, with <span class="math inline">\(p^{*}\)</span> counted as in <a href="#/exm-aic" class="quarto-xref">Example&nbsp;40</a>.</p>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a>mtcars_bic <span class="ot">&lt;-</span> <span class="fu">vapply</span>(</span>
+<span id="cb37-2"><a aria-label="2"></a>  mtcars_fits,</span>
+<span id="cb37-3"><a aria-label="3"></a>  \(f) {</span>
+<span id="cb37-4"><a aria-label="4"></a>    <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">as.numeric</span>(<span class="fu">logLik</span>(f)) <span class="sc">+</span></span>
+<span id="cb37-5"><a aria-label="5"></a>      (<span class="fu">length</span>(<span class="fu">coef</span>(f)) <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">log</span>(<span class="fu">nrow</span>(mtcars))</span>
+<span id="cb37-6"><a aria-label="6"></a>  },</span>
+<span id="cb37-7"><a aria-label="7"></a>  <span class="fu">numeric</span>(<span class="dv">1</span>)</span>
+<span id="cb37-8"><a aria-label="8"></a>)</span>
+<span id="cb37-9"><a aria-label="9"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb37-10"><a aria-label="10"></a>  <span class="at">predictors =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb37-11"><a aria-label="11"></a>  <span class="at">bic =</span> mtcars_bic,</span>
+<span id="cb37-12"><a aria-label="12"></a>  <span class="at">r_bic =</span> <span class="fu">vapply</span>(mtcars_fits, BIC, <span class="fu">numeric</span>(<span class="dv">1</span>))</span>
+<span id="cb37-13"><a aria-label="13"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["predictors"],"name":[1],"type":["int"],"align":["right"]},{"label":["bic"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["r_bic"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"170.427","3":"170.427"},{"1":"2","2":"162.515","3":"162.515"},{"1":"3","2":"164.471","3":"164.471"},{"1":"4","2":"165.812","3":"165.812"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The <code>bic</code> column matches the <code>r_bic</code> column that <code><a href="https://rdrr.io/r/stats/AIC.html">BIC()</a></code> returns: TRUE. The model with 2 predictors has the smallest BIC. With <span class="math inline">\(n=\)</span> 32, each parameter costs <span class="math inline">\({\operatorname{log}\mathopen{}\left\{n\right\}\mathclose{}} =\)</span> 3.47 in BIC against 2 in AIC, so BIC penalizes each added parameter more heavily than AIC does.</p>
+</div>
+</section><section class="slide level2"><div id="rem-criteria-training-error" class="proof remark">
+<p><span class="proof-title"><em>Remark 40</em> (Criteria that adjust the training error). </span><a href="#/def-adjusted-r-squared" class="quarto-xref">Definition&nbsp;67</a>, <a href="#/def-mallows-cp" class="quarto-xref">Definition&nbsp;68</a>, <a href="#/def-aic" class="quarto-xref">Definition&nbsp;69</a> and <a href="#/def-bic" class="quarto-xref">Definition&nbsp;70</a> each correct a fit measure computed on the <a href="#/def-training-set">training set</a> for the number of parameters. They need no <a href="#/def-held-out-set">held-out set</a>, so they cost one fit per model, where <a href="#/def-kfold">cross-validation</a> costs several.</p>
+<p>For a least squares model with Gaussian <a href="#/def-noise">noise</a> of known <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>, <span class="math inline">\(-2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\)</span> equals <span class="math inline">\(\text{RSS}(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}) / \sigma^2\)</span> plus a constant that does not depend on the model. AIC then equals <span class="math inline">\(nC_p / \sigma^2\)</span> plus a constant, so the two criteria rank models the same way.</p>
+<p>Each criterion assumes a <a href="#/def-model-family">model family</a> whose parameter count measures its <a href="#/def-flexibility">flexibility</a>. When the <a href="./estimation.html#def-estimate">estimate</a> of the noise variance comes from the <a href="#/def-fitted-model">fitted model</a> itself, it can reach zero, and the criteria then fail. Cross-validation makes no such assumption.</p>
+</div>
+</section><section id="sec-cv-whole-procedure" class="slide level2 scrollable" data-number="10"><h2>
+<span class="header-section-number">10</span> Cross-validating the whole procedure</h2>
 <div id="exr-cv-screening" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 14 (Screening predictors before cross-validating)</strong></span> A data set has <span class="math inline">\(n= 50\)</span> observations of an outcome <span class="math inline">\(Y\)</span> and of <span class="math inline">\(p= 1000\)</span> candidate predictors. In fact every variable is independent standard normal noise, so no predictor carries any information about <span class="math inline">\(Y\)</span>.</p>
 <p>An analyst</p>
@@ -2706,56 +2865,56 @@ assign_folds(), from _exm-kfold-simulated.qmd.
 <li><p>and 3. The function below runs one data set through both procedures. The only difference is whether the screening step sees the whole data set (<code>"outside"</code>) or only the training folds (<code>"inside"</code>).</p></li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a>top_predictors <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, n_keep) {</span>
-<span id="cb34-2"><a aria-label="2"></a>  <span class="fu">order</span>(<span class="fu">abs</span>(stats<span class="sc">::</span><span class="fu">cor</span>(x, y)), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="fu">seq_len</span>(n_keep)]</span>
-<span id="cb34-3"><a aria-label="3"></a>}</span>
-<span id="cb34-4"><a aria-label="4"></a></span>
-<span id="cb34-5"><a aria-label="5"></a>screened_cv <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, folds, n_keep, screen) {</span>
-<span id="cb34-6"><a aria-label="6"></a>  <span class="cf">if</span> (screen <span class="sc">==</span> <span class="st">"outside"</span>) {</span>
-<span id="cb34-7"><a aria-label="7"></a>    keep <span class="ot">&lt;-</span> <span class="fu">top_predictors</span>(x, y, n_keep)</span>
-<span id="cb34-8"><a aria-label="8"></a>  }</span>
-<span id="cb34-9"><a aria-label="9"></a>  sq_errors <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(y))</span>
-<span id="cb34-10"><a aria-label="10"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="fu">unique</span>(folds)) {</span>
-<span id="cb34-11"><a aria-label="11"></a>    in_fold <span class="ot">&lt;-</span> folds <span class="sc">==</span> j</span>
-<span id="cb34-12"><a aria-label="12"></a>    <span class="cf">if</span> (screen <span class="sc">==</span> <span class="st">"inside"</span>) {</span>
-<span id="cb34-13"><a aria-label="13"></a>      keep <span class="ot">&lt;-</span> <span class="fu">top_predictors</span>(x[<span class="sc">!</span>in_fold, ], y[<span class="sc">!</span>in_fold], n_keep)</span>
-<span id="cb34-14"><a aria-label="14"></a>    }</span>
-<span id="cb34-15"><a aria-label="15"></a>    train <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb34-16"><a aria-label="16"></a>      <span class="at">y =</span> y[<span class="sc">!</span>in_fold],</span>
-<span id="cb34-17"><a aria-label="17"></a>      tibble<span class="sc">::</span><span class="fu">as_tibble</span>(x[<span class="sc">!</span>in_fold, keep])</span>
-<span id="cb34-18"><a aria-label="18"></a>    )</span>
-<span id="cb34-19"><a aria-label="19"></a>    fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
-<span id="cb34-20"><a aria-label="20"></a>    held_out <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">as_tibble</span>(x[in_fold, keep])</span>
-<span id="cb34-21"><a aria-label="21"></a>    sq_errors[in_fold] <span class="ot">&lt;-</span> (<span class="fu">predict</span>(fit, <span class="at">newdata =</span> held_out) <span class="sc">-</span> y[in_fold])<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb34-22"><a aria-label="22"></a>  }</span>
-<span id="cb34-23"><a aria-label="23"></a>  <span class="fu">mean</span>(sq_errors)</span>
-<span id="cb34-24"><a aria-label="24"></a>}</span>
-<span id="cb34-25"><a aria-label="25"></a></span>
-<span id="cb34-26"><a aria-label="26"></a><span class="fu">set.seed</span>(<span class="dv">7102</span>)</span>
-<span id="cb34-27"><a aria-label="27"></a>n_obs <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb34-28"><a aria-label="28"></a>n_predictors <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb34-29"><a aria-label="29"></a>n_sims <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb34-30"><a aria-label="30"></a></span>
-<span id="cb34-31"><a aria-label="31"></a>screening_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(<span class="fu">seq_len</span>(n_sims), \(s) {</span>
-<span id="cb34-32"><a aria-label="32"></a>  x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(stats<span class="sc">::</span><span class="fu">rnorm</span>(n_obs <span class="sc">*</span> n_predictors), n_obs, n_predictors)</span>
-<span id="cb34-33"><a aria-label="33"></a>  <span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"x"</span>, <span class="fu">seq_len</span>(n_predictors))</span>
-<span id="cb34-34"><a aria-label="34"></a>  y <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">rnorm</span>(n_obs)</span>
-<span id="cb34-35"><a aria-label="35"></a>  folds <span class="ot">&lt;-</span> <span class="fu">assign_folds</span>(n_obs, <span class="at">k =</span> <span class="dv">5</span>)</span>
-<span id="cb34-36"><a aria-label="36"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb34-37"><a aria-label="37"></a>    <span class="at">sim =</span> s,</span>
-<span id="cb34-38"><a aria-label="38"></a>    <span class="at">outside =</span> <span class="fu">screened_cv</span>(x, y, folds, <span class="at">n_keep =</span> <span class="dv">10</span>, <span class="at">screen =</span> <span class="st">"outside"</span>),</span>
-<span id="cb34-39"><a aria-label="39"></a>    <span class="at">inside =</span> <span class="fu">screened_cv</span>(x, y, folds, <span class="at">n_keep =</span> <span class="dv">10</span>, <span class="at">screen =</span> <span class="st">"inside"</span>)</span>
-<span id="cb34-40"><a aria-label="40"></a>  )</span>
-<span id="cb34-41"><a aria-label="41"></a>}) <span class="sc">|&gt;</span></span>
-<span id="cb34-42"><a aria-label="42"></a>  purrr<span class="sc">::</span><span class="fu">list_rbind</span>()</span>
-<span id="cb34-43"><a aria-label="43"></a></span>
-<span id="cb34-44"><a aria-label="44"></a>screening_summary <span class="ot">&lt;-</span></span>
-<span id="cb34-45"><a aria-label="45"></a>  screening_results <span class="sc">|&gt;</span></span>
-<span id="cb34-46"><a aria-label="46"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
-<span id="cb34-47"><a aria-label="47"></a>    dplyr<span class="sc">::</span><span class="fu">across</span>(<span class="fu">c</span>(outside, inside), mean)</span>
-<span id="cb34-48"><a aria-label="48"></a>  )</span>
-<span id="cb34-49"><a aria-label="49"></a></span>
-<span id="cb34-50"><a aria-label="50"></a>screening_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a>top_predictors <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, n_keep) {</span>
+<span id="cb38-2"><a aria-label="2"></a>  <span class="fu">order</span>(<span class="fu">abs</span>(stats<span class="sc">::</span><span class="fu">cor</span>(x, y)), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="fu">seq_len</span>(n_keep)]</span>
+<span id="cb38-3"><a aria-label="3"></a>}</span>
+<span id="cb38-4"><a aria-label="4"></a></span>
+<span id="cb38-5"><a aria-label="5"></a>screened_cv <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, folds, n_keep, screen) {</span>
+<span id="cb38-6"><a aria-label="6"></a>  <span class="cf">if</span> (screen <span class="sc">==</span> <span class="st">"outside"</span>) {</span>
+<span id="cb38-7"><a aria-label="7"></a>    keep <span class="ot">&lt;-</span> <span class="fu">top_predictors</span>(x, y, n_keep)</span>
+<span id="cb38-8"><a aria-label="8"></a>  }</span>
+<span id="cb38-9"><a aria-label="9"></a>  sq_errors <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(y))</span>
+<span id="cb38-10"><a aria-label="10"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="fu">unique</span>(folds)) {</span>
+<span id="cb38-11"><a aria-label="11"></a>    in_fold <span class="ot">&lt;-</span> folds <span class="sc">==</span> j</span>
+<span id="cb38-12"><a aria-label="12"></a>    <span class="cf">if</span> (screen <span class="sc">==</span> <span class="st">"inside"</span>) {</span>
+<span id="cb38-13"><a aria-label="13"></a>      keep <span class="ot">&lt;-</span> <span class="fu">top_predictors</span>(x[<span class="sc">!</span>in_fold, ], y[<span class="sc">!</span>in_fold], n_keep)</span>
+<span id="cb38-14"><a aria-label="14"></a>    }</span>
+<span id="cb38-15"><a aria-label="15"></a>    train <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb38-16"><a aria-label="16"></a>      <span class="at">y =</span> y[<span class="sc">!</span>in_fold],</span>
+<span id="cb38-17"><a aria-label="17"></a>      tibble<span class="sc">::</span><span class="fu">as_tibble</span>(x[<span class="sc">!</span>in_fold, keep])</span>
+<span id="cb38-18"><a aria-label="18"></a>    )</span>
+<span id="cb38-19"><a aria-label="19"></a>    fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb38-20"><a aria-label="20"></a>    held_out <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">as_tibble</span>(x[in_fold, keep])</span>
+<span id="cb38-21"><a aria-label="21"></a>    sq_errors[in_fold] <span class="ot">&lt;-</span> (<span class="fu">predict</span>(fit, <span class="at">newdata =</span> held_out) <span class="sc">-</span> y[in_fold])<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb38-22"><a aria-label="22"></a>  }</span>
+<span id="cb38-23"><a aria-label="23"></a>  <span class="fu">mean</span>(sq_errors)</span>
+<span id="cb38-24"><a aria-label="24"></a>}</span>
+<span id="cb38-25"><a aria-label="25"></a></span>
+<span id="cb38-26"><a aria-label="26"></a><span class="fu">set.seed</span>(<span class="dv">7102</span>)</span>
+<span id="cb38-27"><a aria-label="27"></a>n_obs <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb38-28"><a aria-label="28"></a>n_predictors <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb38-29"><a aria-label="29"></a>n_sims <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb38-30"><a aria-label="30"></a></span>
+<span id="cb38-31"><a aria-label="31"></a>screening_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(<span class="fu">seq_len</span>(n_sims), \(s) {</span>
+<span id="cb38-32"><a aria-label="32"></a>  x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(stats<span class="sc">::</span><span class="fu">rnorm</span>(n_obs <span class="sc">*</span> n_predictors), n_obs, n_predictors)</span>
+<span id="cb38-33"><a aria-label="33"></a>  <span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"x"</span>, <span class="fu">seq_len</span>(n_predictors))</span>
+<span id="cb38-34"><a aria-label="34"></a>  y <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">rnorm</span>(n_obs)</span>
+<span id="cb38-35"><a aria-label="35"></a>  folds <span class="ot">&lt;-</span> <span class="fu">assign_folds</span>(n_obs, <span class="at">k =</span> <span class="dv">5</span>)</span>
+<span id="cb38-36"><a aria-label="36"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb38-37"><a aria-label="37"></a>    <span class="at">sim =</span> s,</span>
+<span id="cb38-38"><a aria-label="38"></a>    <span class="at">outside =</span> <span class="fu">screened_cv</span>(x, y, folds, <span class="at">n_keep =</span> <span class="dv">10</span>, <span class="at">screen =</span> <span class="st">"outside"</span>),</span>
+<span id="cb38-39"><a aria-label="39"></a>    <span class="at">inside =</span> <span class="fu">screened_cv</span>(x, y, folds, <span class="at">n_keep =</span> <span class="dv">10</span>, <span class="at">screen =</span> <span class="st">"inside"</span>)</span>
+<span id="cb38-40"><a aria-label="40"></a>  )</span>
+<span id="cb38-41"><a aria-label="41"></a>}) <span class="sc">|&gt;</span></span>
+<span id="cb38-42"><a aria-label="42"></a>  purrr<span class="sc">::</span><span class="fu">list_rbind</span>()</span>
+<span id="cb38-43"><a aria-label="43"></a></span>
+<span id="cb38-44"><a aria-label="44"></a>screening_summary <span class="ot">&lt;-</span></span>
+<span id="cb38-45"><a aria-label="45"></a>  screening_results <span class="sc">|&gt;</span></span>
+<span id="cb38-46"><a aria-label="46"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb38-47"><a aria-label="47"></a>    dplyr<span class="sc">::</span><span class="fu">across</span>(<span class="fu">c</span>(outside, inside), mean)</span>
+<span id="cb38-48"><a aria-label="48"></a>  )</span>
+<span id="cb38-49"><a aria-label="49"></a></span>
+<span id="cb38-50"><a aria-label="50"></a>screening_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -2772,7 +2931,7 @@ assign_folds(), from _exm-kfold-simulated.qmd.
 <p>The 10 predictors chosen from all 50 observations were chosen <em>because</em> they happen to correlate with <span class="math inline">\(Y\)</span> in the very observations that later serve as held-out folds. Those observations were not held out from the whole fitting procedure, so the independence that <a href="#/thm-held-out-unbiased" class="quarto-xref">Theorem&nbsp;5</a> needs fails.</p>
 </div>
 </section><section class="slide level2"><div id="rem-cv-every-step" class="proof remark">
-<p><span class="proof-title"><em>Remark 40</em> (Cross-validate the whole procedure). </span>Every step that uses the outcome is part of fitting, and must be repeated inside each fold using only that fold’s training observations <span class="citation" data-cites="hastie2009elements"><a href="#/references" role="doc-biblioref" onclick="">[3, Sec. 7.10.2]</a></span>. Such steps include:</p>
+<p><span class="proof-title"><em>Remark 41</em> (Cross-validate the whole procedure). </span>Every step that uses the outcome is part of fitting, and must be repeated inside each fold using only that fold’s training observations <span class="citation" data-cites="hastie2009elements"><a href="#/references" role="doc-biblioref" onclick="">[3, Sec. 7.10.2]</a></span>. Such steps include:</p>
 <ul>
 <li>screening or selecting predictors, as in <a href="#/exr-cv-screening" class="quarto-xref">Exercise&nbsp;14</a>;</li>
 <li>choosing transformations or a polynomial degree;</li>
@@ -2780,8 +2939,8 @@ assign_folds(), from _exm-kfold-simulated.qmd.
 </ul>
 <p><span class="citation" data-cites="hastie2009elements">Hastie et al. <a href="#/references" role="doc-biblioref" onclick="">[3, Sec. 7.10.2]</a></span> note that steps using only the predictors, such as dropping predictors with almost no variation, can be done once on all the data before the folds are formed. Repeating such a step inside each fold is never wrong, though, and it scores each held-out fold the way new data would be scored. Examples are estimating the mean and standard deviation used for <a href="./exploratory-descriptive.html#def-standardization">standardization</a>, and the values used to fill in missing predictor values, when they are computed without the outcome.</p>
 </div>
-</section><section id="further-reading" class="slide level2" data-number="10"><h2>
-<span class="header-section-number">10</span> Further reading</h2>
+</section><section id="further-reading" class="slide level2" data-number="11"><h2>
+<span class="header-section-number">11</span> Further reading</h2>
 <p><span class="citation" data-cites="sanchez2020matrix4sl">Sanchez <a href="#/references" role="doc-biblioref" onclick="">[13]</a></span> reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.</p>
 </section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
@@ -2850,6 +3009,18 @@ assign_folds(), from _exm-kfold-simulated.qmd.
 <div class="csl-left-margin">[14] </div>
 <div class="csl-right-inline">Wikipedia contributors, <span>“Leverage (statistics) — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Leverage_%28statistics%29">https://en.wikipedia.org/wiki/Leverage_%28statistics%29</a>
 </div>
+</div>
+<div id="ref-mallows1973some" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[15] </div>
+<div class="csl-right-inline">C. L. Mallows, <span>“Some comments on <span><span class="math inline">\(C_p\)</span></span>,”</span> <em>Technometrics</em>, vol. 15, no. 4, pp. 661–675, 1973, doi: <a href="https://doi.org/10.1080/00401706.1973.10489103">10.1080/00401706.1973.10489103</a>.</div>
+</div>
+<div id="ref-akaike1974new" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[16] </div>
+<div class="csl-right-inline">H. Akaike, <span>“A new look at the statistical model identification,”</span> <em>IEEE Transactions on Automatic Control</em>, vol. 19, no. 6, pp. 716–723, 1974, doi: <a href="https://doi.org/10.1109/TAC.1974.1100705">10.1109/TAC.1974.1100705</a>.</div>
+</div>
+<div id="ref-schwarz1978estimating" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[17] </div>
+<div class="csl-right-inline">G. Schwarz, <span>“Estimating the dimension of a model,”</span> <em>The Annals of Statistics</em>, vol. 6, no. 2, pp. 461–464, 1978, doi: <a href="https://doi.org/10.1214/aos/1176344136">10.1214/aos/1176344136</a>.</div>
 </div>
 </div>
 
