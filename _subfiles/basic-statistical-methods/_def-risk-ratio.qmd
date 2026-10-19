@@ -1,0 +1,13 @@
+::: {#def-risk-ratio}
+#### Risk ratio (also called the relative risk)
+
+Let:
+
+- $\risk_1$ be the [risk](#def-outcome-risk) of a binary outcome in group 1.
+- $\risk_2 > 0$ be the risk of the same outcome in the reference group, group 2.
+
+The **risk ratio**, also called the **relative risk**, of group 1 compared with group 2 is
+[@wikipedia_relative_risk]
+
+$$\riskratio \eqdef \frac{\risk_1}{\risk_2} \in [0, \infty).$$
+:::

@@ -1,0 +1,18 @@
+::: {#exm-hers-outcome-risk}
+#### Risk of regular exercise in each HERS treatment group
+
+In @tbl-hers-crosstab, the outcome is regular exercise at baseline.
+The estimated risk in each treatment group
+is the proportion of that group's column who exercise regularly:
+
+```{r}
+#| label: hers-outcome-risk
+#| code-fold: false
+risk_hat <- prop.table(table(hers$exercise, hers$HT), margin = 2)["yes", ]
+risk_hat
+```
+
+The estimated risk of regular exercise is
+`r round(risk_hat[["placebo"]], 3)` in the placebo group
+and `r round(risk_hat[["hormone therapy"]], 3)` in the hormone therapy group.
+:::

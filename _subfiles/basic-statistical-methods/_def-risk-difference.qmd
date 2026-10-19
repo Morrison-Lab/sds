@@ -1,0 +1,15 @@
+::: {#def-risk-difference}
+#### Risk difference
+
+Let:
+
+- $\risk_1$ be the [risk](#def-outcome-risk) of a binary outcome in group 1.
+- $\risk_2$ be the risk of the same outcome in group 2.
+
+The **risk difference** of group 1 compared with group 2 is
+[@wikipedia_absolute_risk_reduction]
+
+$$\RD \eqdef \risk_1 - \risk_2 \in [-1, 1].$$
+
+Group 2 is the **reference group**.
+:::

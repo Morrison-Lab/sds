@@ -1,0 +1,18 @@
+::: {#exm-hers-risk-difference}
+#### Risk difference of regular exercise in HERS
+
+With the placebo group as the reference group,
+the estimated risk difference of @def-risk-difference
+for the estimated risks of @exm-hers-outcome-risk is:
+
+```{r}
+#| label: hers-risk-difference
+#| code-fold: false
+rd_hat <- risk_hat[["hormone therapy"]] - risk_hat[["placebo"]]
+rd_hat
+```
+
+The estimated risk of regular exercise is `r round(rd_hat, 3)` higher
+in the hormone therapy group than in the placebo group.
+Multiplying by 100 gives `r round(100 * rd_hat, 1)` percentage points.
+:::
