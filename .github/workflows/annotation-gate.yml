@@ -25,6 +25,10 @@ jobs:
       run-id: ${{ github.event.workflow_run.id }}
       run-attempt: ${{ github.event.workflow_run.run_attempt }}
       head-sha: ${{ github.event.workflow_run.head_sha }}
+      # Tracked exception (gha#1103): the only submodule, latex-macros
+      # (d-morrison/macros), is public, so the review workflow's
+      # anonymous-clone notice is harmless.
+      # Remove this if a private submodule is ever added.
+      allow-patterns: |
+        SUBMODULES_TOKEN is empty; cloning submodules anonymously
     #   levels: 'warning,failure'              # skip notices
-    #   allow-patterns: |                      # tracked exceptions, regexes
-    #     lychee .* Rejected status code: 503
