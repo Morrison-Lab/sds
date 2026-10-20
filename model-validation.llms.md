@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 23:28:03 (PDT)
+Last modified: 2026-10-19 23:38:52 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -605,6 +605,168 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
+> **Example 25 (The expected prediction of a line on cylinders)** Treat the 392 cars of the `Auto` data [\[6\]](#ref-james2021islr2e) as the whole world of cars. A [training set](#def-training-set) is 30 cars drawn at random from it, and the learning algorithm fits the line of `mpg` on `cylinders`. Draw 2000 [training sets](#def-training-set), fit a line to each, and record each line’s [intercept](correlation-regression.llms.md#def-slr-intercept), [slope](correlation-regression.llms.md#def-slr-slope) and [prediction](prediction.llms.md#def-prediction) at 4 cylinders. Both tabs draw with the `SyncRNG` package [\[10\]](#ref-vandenburg2024syncrng), a random number generator with the same algorithm in R and Python, from the same seed, so they pick the same cars:
+>
+> ## Python
+>
+> Show R code
+>
+> ``` python
+> import numpy as np
+> import pandas as pd
+> from SyncRNG import SyncRNG
+>
+> auto_af = pd.read_csv("data/auto.csv").dropna(subset=["horsepower"])
+> cyl_af = auto_af["cylinders"].to_numpy(float)
+> mpg_af = auto_af["mpg"].to_numpy(float)
+>
+> rng_af = SyncRNG(seed=1)
+> coefs_af = np.empty((2000, 2))
+> for s_af in range(2000):
+>     # One training set: the first 30 rows of a shuffle of all the rows (Python counts from 0), and the line fitted to it.
+>     pick_af = rng_af.shuffle(list(range(len(mpg_af))))[:30]
+>     slope_af, intercept_af = np.polyfit(cyl_af[pick_af], mpg_af[pick_af], 1)
+>     coefs_af[s_af] = intercept_af, slope_af
+>
+> preds_af = coefs_af[:, 0] + coefs_af[:, 1] * 4
+>
+> # The expected prediction at 4 cylinders is the mean of those predictions.
+> # The Monte Carlo standard error of that mean is the spread of the predictions over sqrt(2000).
+> mc_se_af = preds_af.std(ddof=1) / np.sqrt(2000)
+> print(preds_af.mean().round(2), preds_af.min().round(2), preds_af.max().round(2), mc_se_af.round(3))
+> #> 28.72 23.89 32.74 0.031
+> ```
+>
+> ## R
+>
+> Show R code
+>
+> ``` downlit
+> auto_af <- read.csv("data/auto.csv")
+> auto_af <- na.omit(auto_af[, c("mpg", "cylinders", "horsepower")])
+>
+> # SyncRNG is a random number generator with the same algorithm
+> # in R and Python, so the draws match the Python tab.
+> library(SyncRNG)
+> rng_af <- SyncRNG(seed = 1)
+> coefs_af <- t(replicate(2000, {
+>   # One training set: the first 30 rows of a shuffle of all the rows,
+>   # and the line fitted to it.
+>   rows <- rng_af$shuffle(seq_len(nrow(auto_af)))[1:30]
+>   coef(lm(mpg ~ cylinders, data = auto_af[rows, ]))
+> }))
+>
+> preds_af <- coefs_af[, 1] + coefs_af[, 2] * 4
+>
+> # The expected prediction at 4 cylinders is the mean of those predictions.
+> # The Monte Carlo standard error of that mean is the spread of the
+> # predictions over sqrt(2000).
+> mc_se_af <- sd(preds_af) / sqrt(2000)
+> summary_af <- c(
+>   mean = mean(preds_af),
+>   min = min(preds_af),
+>   max = max(preds_af)
+> )
+> c(round(summary_af, 2), mc_se = round(mc_se_af, 3))
+> #>   mean    min    max  mc_se 
+> #> 28.720 23.890 32.740  0.031
+> ```
+>
+> No single [training set](#def-training-set) produces the [expected prediction](#def-average-fit). The 2000 lines [predict](prediction.llms.md#def-prediction) anywhere from 23.9 to 32.7 miles per gallon for a four-cylinder car, and their mean, 28.7, is the expected prediction \\{\mu\_{h}\mathopen{}\left(4\right)\mathclose{}}\\ of [Equation 30](#eq-average-fit), with a 95% Monte Carlo [confidence interval](inference.llms.md#def-confidence-interval) of 28.66 to 28.78 (1.96 Monte Carlo [standard errors](estimation.llms.md#def-SE) either side). The two tabs print the same numbers up to rounding.
+>
+> [Figure 1](#fig-average-fit-auto) plots 100 of the 2000 lines, their pointwise average, and the true [mean function](#def-mean-function):
+>
+> ## Python
+>
+> Show R code
+>
+> ``` python
+> import numpy as np
+> import matplotlib.pyplot as plt
+>
+> grid_af = np.arange(3, 9)
+> # The pointwise expected prediction is the mean of the fitted lines at each cylinder count.
+> avg_af = (coefs_af[:, [0]] + coefs_af[:, [1]] * grid_af).mean(axis=0)
+> # The true mean function is the mean mpg of the cars with each cylinder count.
+> truth_af = auto_af.groupby("cylinders")["mpg"].mean()
+>
+> fig, ax = plt.subplots(figsize=(6, 3.5), layout="constrained")
+> for intercept_af, slope_af in coefs_af[:100]:
+>     ax.plot(grid_af, intercept_af + slope_af * grid_af, color="grey", alpha=0.3, linewidth=0.8)
+> # One legend entry for the 100 grey lines, with a solid line to stand for them.
+> ax.plot([], [], color="grey", label="One fitted line (100 shown)")
+> ax.plot(grid_af, avg_af, color="steelblue", linewidth=2.5, label="Expected prediction")
+> ax.plot(truth_af.index, truth_af.values, color="darkorange", linewidth=2.5, marker="o", label="True mean function")
+> ax.set_xlabel("cylinders")
+> ax.set_ylabel("miles per gallon")
+> fig.legend(loc="outside lower center", ncol=3, frameon=False)
+> plt.show()
+> ```
+>
+> > **NOTE:**
+> >
+> > [![A plot of miles per gallon against cylinders, from 3 to 8. One hundred faint grey lines slope downward and fan out, most widely at 3 and 8 cylinders and most narrowly between 6 and 7 cylinders. A thick blue line, the average of all 2000 fitted lines, runs down through the middle of the grey lines. A thick orange line with points at 3, 4, 5, 6 and 8 cylinders, the mean mpg of the cars with that many cylinders, is not straight: it starts well below the blue line at 3 cylinders, rises above it at 4 and 5, and then follows it down to 8. A legend below the plot names the three: one fitted line, expected prediction, and true mean function.](model-validation_files/figure-html/fig-average-fit-auto-1.png)](model-validation_files/figure-html/fig-average-fit-auto-1.png "Figure 1: The fitted lines of 100 of the 2000 training sets (grey), their pointwise expected prediction (blue), and the true mean function (orange), for mpg against cylinders.")
+> >
+> > Figure 1: The fitted lines of 100 of the 2000 training sets (grey), their pointwise expected prediction (blue), and the true mean function (orange), for `mpg` against `cylinders`.
+>
+> ## R
+>
+> Show R code
+>
+> ``` downlit
+> library(ggplot2)
+>
+> grid_af <- 3:8
+> # One row per fitted line and cylinder count;
+> # the pointwise expected prediction is the mean over lines.
+> lines_af <- data.frame(
+>   line = rep(seq_len(nrow(coefs_af)), each = length(grid_af)),
+>   cylinders = grid_af,
+>   fit = as.vector(t(coefs_af[, 1] + outer(coefs_af[, 2], grid_af)))
+> )
+> avg_af <- aggregate(fit ~ cylinders, data = lines_af, FUN = mean)
+> # The true mean function is the mean mpg of the cars with each cylinder count.
+> truth_af <- aggregate(mpg ~ cylinders, data = auto_af, FUN = mean)
+>
+> line_name_af <- "One fitted line (100 shown)"
+> avg_name_af <- "Expected prediction"
+> truth_name_af <- "True mean function"
+>
+> ggplot() +
+>   geom_line(
+>     data = subset(lines_af, line <= 100),
+>     aes(cylinders, fit, group = line, colour = line_name_af),
+>     alpha = 0.3
+>   ) +
+>   geom_line(
+>     data = avg_af,
+>     aes(cylinders, fit, colour = avg_name_af),
+>     linewidth = 1.5
+>   ) +
+>   geom_line(
+>     data = truth_af,
+>     aes(cylinders, mpg, colour = truth_name_af),
+>     linewidth = 1.5
+>   ) +
+>   geom_point(
+>     data = truth_af,
+>     aes(cylinders, mpg, colour = truth_name_af),
+>     size = 3
+>   ) +
+>   scale_colour_manual(
+>     values = c("grey60", "steelblue", "darkorange"),
+>     breaks = c(line_name_af, avg_name_af, truth_name_af)
+>   ) +
+>   guides(colour = guide_legend(override.aes = list(alpha = 1))) +
+>   labs(x = "cylinders", y = "miles per gallon", colour = NULL) +
+>   theme_minimal() +
+>   theme(legend.position = "bottom")
+> ```
+>
+> [![A plot of miles per gallon against cylinders, from 3 to 8. One hundred faint grey lines slope downward and fan out, most widely at 3 and 8 cylinders and most narrowly between 6 and 7 cylinders. A thick blue line, the average of all 2000 fitted lines, runs down through the middle of the grey lines. A thick orange line with points at 3, 4, 5, 6 and 8 cylinders, the mean mpg of the cars with that many cylinders, is not straight: it starts well below the blue line at 3 cylinders, rises above it at 4 and 5, and then follows it down to 8. A legend below the plot names the three: one fitted line, expected prediction, and true mean function.](model-validation_files/figure-html/unnamed-chunk-3-3.png)](model-validation_files/figure-html/unnamed-chunk-3-3.png)
+
+> **NOTE:**
+>
 > **Definition 35 (Bias of a prediction)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, the prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is a random variable, because it depends on the random training data. The **bias** of the prediction is the expected [estimation error](estimation.llms.md#def-estimation-error) of the prediction as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\, which is its estimand here, not the new outcome it predicts:
 >
 > \\ {\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} = {\operatorname{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right\]\mathclose{}}. \tag{31}\\
@@ -615,7 +777,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> **Example 25 (Computing the bias of a prediction)** Suppose \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 10\\, and the predictions \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, over repeated training sets, average \\11\\. Then
+> **Example 26 (Computing the bias of a prediction)** Suppose \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 10\\, and the predictions \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, over repeated training sets, average \\11\\. Then
 >
 > \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left(\hat{y}\right)\mathclose{}}\right\]\mathclose{}} \\ &= {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}} \\ &= 11 - 10 \\ &= 1. \end{aligned} \\
 >
@@ -629,15 +791,15 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 >
 > \\ \sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(u\mid X= x\right)\mathclose{}}. \tag{32}\\
 >
-> Source: Wikipedia contributors [\[10\]](#ref-wikipedia_bias_variance_tradeoff); James et al. [\[6, Sec. 2.2.2\]](#ref-james2021islr2e).
+> Source: Wikipedia contributors [\[11\]](#ref-wikipedia_bias_variance_tradeoff); James et al. [\[6, Sec. 2.2.2\]](#ref-james2021islr2e).
 
 > **NOTE:**
 >
-> **Example 26 (The irreducible error of a normal population)** Take a [population](exploratory-descriptive.llms.md#def-population) whose outcome given the [covariate](#def-covariate) value \\x\\ has the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) \\{\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\, where \\\sigma^2= \sigma^2\\ and \\\sigma= 0.3\\. Its [noise](#def-noise) \\u= Y- \sin(2 \pi X)\\, given \\X= x\\, has the normal distribution with mean \\0\\ and [conditional variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) \\\sigma^2\\. The [irreducible error](#def-irreducible-error) at every \\x\\ is therefore \\\sigma^2= \sigma^2 = 0.09\\.
+> **Example 27 (The irreducible error of a normal population)** Take a [population](exploratory-descriptive.llms.md#def-population) whose outcome given the [covariate](#def-covariate) value \\x\\ has the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) \\{\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\, where \\\sigma^2= \sigma^2\\ and \\\sigma= 0.3\\. Its [noise](#def-noise) \\u= Y- \sin(2 \pi X)\\, given \\X= x\\, has the normal distribution with mean \\0\\ and [conditional variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) \\\sigma^2\\. The [irreducible error](#def-irreducible-error) at every \\x\\ is therefore \\\sigma^2= \sigma^2 = 0.09\\.
 
 > **NOTE:**
 >
-> *Remark 12* (What the irreducible error does and does not depend on). The [irreducible error](#def-irreducible-error) \\\sigma^2\\ does not depend on the [fitting procedure](#def-fitting-procedure) \\g\\, so no choice of [prediction](prediction.llms.md#def-prediction) can remove it. It is defined at the single [covariate](#def-covariate) value \\x\\, so it may differ from one covariate value to another: it does not assume constant [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) across covariate values. For example, in [Example 26](#exm-irreducible-error), every prediction has [expected squared prediction error](#def-epe) at least \\\sigma^2\\.
+> *Remark 12* (What the irreducible error does and does not depend on). The [irreducible error](#def-irreducible-error) \\\sigma^2\\ does not depend on the [fitting procedure](#def-fitting-procedure) \\g\\, so no choice of [prediction](prediction.llms.md#def-prediction) can remove it. It is defined at the single [covariate](#def-covariate) value \\x\\, so it may differ from one covariate value to another: it does not assume constant [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) across covariate values. For example, in [Example 27](#exm-irreducible-error), every prediction has [expected squared prediction error](#def-epe) at least \\\sigma^2\\.
 
 > **NOTE:**
 >
@@ -747,7 +909,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> **Example 27 (The two pMSEs differ by the noise variance)** Take a population whose mean function is known: \\Y\mid X= x\sim {\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\ with \\\sigma= 0.3\\. Let the [covariate](#def-covariate) value be \\x= 0.25\\, where the mean function value is \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 1\\, and fit a cubic polynomial by least squares to \\n= 30\\ observations. We draw \\5{,}000\\ training sets, each with its own new outcome at \\x\\, and average the squared errors of the two targets over them.
+> **Example 28 (The two pMSEs differ by the noise variance)** Take a population whose mean function is known: \\Y\mid X= x\sim {\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\ with \\\sigma= 0.3\\. Let the [covariate](#def-covariate) value be \\x= 0.25\\, where the mean function value is \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 1\\, and fit a cubic polynomial by least squares to \\n= 30\\ observations. We draw \\5{,}000\\ training sets, each with its own new outcome at \\x\\, and average the squared errors of the two targets over them.
 >
 > ``` downlit
 > split_x0 <- 0.25
@@ -869,7 +1031,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 >
 > \\ \begin{aligned} {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right)\mathclose{}}^{2} &\le {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right)\mathclose{}}^{2}, \\ {\operatorname{Var}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} &\ge {\operatorname{Var}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}, \qquad l= 1, \ldots, L- 1. \end{aligned} \tag{38}\\
 >
-> Source: James et al. [\[6, Sec. 2.2.2\]](#ref-james2021islr2e); Wikipedia contributors [\[10\]](#ref-wikipedia_bias_variance_tradeoff).
+> Source: James et al. [\[6, Sec. 2.2.2\]](#ref-james2021islr2e); Wikipedia contributors [\[11\]](#ref-wikipedia_bias_variance_tradeoff).
 
 > **NOTE:**
 >
@@ -911,7 +1073,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> **Example 28 (Training error and generalization error by degree)** Real data never reveal \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\, but a simulation can, because it can draw as many new observations as we like. Here the population is known: \\X\sim \operatorname{Uniform}(0, 1)\\ and \\Y\mid X= x\sim {\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\, with \\\sigma= 0.3\\. We draw one training set of \\n= 30\\ observations, fit a polynomial in \\x\\ of each degree from 1 to 10 by least squares, and score each fit on the training set and on \\10{,}000\\ new observations. By [Theorem 5](#thm-held-out-unbiased), the second score has expectation \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ given the training set, and with \\10{,}000\\ observations it is a precise estimate of it.
+> **Example 29 (Training error and generalization error by degree)** Real data never reveal \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\, but a simulation can, because it can draw as many new observations as we like. Here the population is known: \\X\sim \operatorname{Uniform}(0, 1)\\ and \\Y\mid X= x\sim {\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\, with \\\sigma= 0.3\\. We draw one training set of \\n= 30\\ observations, fit a polynomial in \\x\\ of each degree from 1 to 10 by least squares, and score each fit on the training set and on \\10{,}000\\ new observations. By [Theorem 5](#thm-held-out-unbiased), the second score has expectation \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ given the training set, and with \\10{,}000\\ observations it is a precise estimate of it.
 >
 > ``` downlit
 > sim_sigma <- 0.3
@@ -964,9 +1126,9 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 > >   ggplot2::theme(legend.position = "top")
 > > ```
 > >
-> > [![Root mean squared error against polynomial degree from 1 to 10. The training error falls as the degree grows. The estimated generalization error falls at the low degrees, then levels off and rises slightly. A dashed horizontal line marks the noise standard deviation, 0.3.](model-validation_files/figure-html/train-test-error-plot-1.png)](model-validation_files/figure-html/train-test-error-plot-1.png "Figure 1: Training sRMSE and estimated generalization error (sRMSE on 10{,}000 new observations) of polynomial fits to one simulated training set of n= 30. The dashed line is the noise standard deviation \sigma, the square root of the irreducible error.")
+> > [![Root mean squared error against polynomial degree from 1 to 10. The training error falls as the degree grows. The estimated generalization error falls at the low degrees, then levels off and rises slightly. A dashed horizontal line marks the noise standard deviation, 0.3.](model-validation_files/figure-html/train-test-error-plot-1.png)](model-validation_files/figure-html/train-test-error-plot-1.png "Figure 2: Training sRMSE and estimated generalization error (sRMSE on 10{,}000 new observations) of polynomial fits to one simulated training set of n= 30. The dashed line is the noise standard deviation \sigma, the square root of the irreducible error.")
 > >
-> > Figure 1: Training sRMSE and estimated generalization error (sRMSE on \\10{,}000\\ new observations) of polynomial fits to one simulated training set of \\n= 30\\. The dashed line is the noise standard deviation \\\sigma\\, the square root of the [irreducible error](#def-irreducible-error).
+> > Figure 2: Training sRMSE and estimated generalization error (sRMSE on \\10{,}000\\ new observations) of polynomial fits to one simulated training set of \\n= 30\\. The dashed line is the noise standard deviation \\\sigma\\, the square root of the [irreducible error](#def-irreducible-error).
 >
 > Show R code
 >
@@ -1017,17 +1179,17 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> **Example 29 (Split sizes for 32 cars)** In [Exercise 10](#exr-data-splits), a rule of 60% / 20% / 20% on \\n= 32\\ cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.
+> **Example 30 (Split sizes for 32 cars)** In [Exercise 10](#exr-data-splits), a rule of 60% / 20% / 20% on \\n= 32\\ cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.
 
 > **NOTE:**
 >
 > **Definition 40 (Model selection)** **Model selection** is choosing one [fitted model](#def-fitted-model) from a set of candidate fitted models from different [model families](#def-model-family), using observations that were [held out](#def-held-out-set) from fitting.
 >
-> Source: Wikipedia contributors [\[11\]](#ref-wikipedia_model_selection).
+> Source: Wikipedia contributors [\[12\]](#ref-wikipedia_model_selection).
 
 > **NOTE:**
 >
-> **Example 30 (Choosing a polynomial degree)** In [Example 17](#exm-tuning-parameter), the candidates are the least-squares fitted models from four polynomial model families, the families of degree \\1\\ (“linear”), \\2\\ (“quadratic”), \\3\\ (“cubic”) and \\4\\ (“quartic”). Choosing among these four fitted models is model selection, and the observations it uses are cars held out from fitting.
+> **Example 31 (Choosing a polynomial degree)** In [Example 17](#exm-tuning-parameter), the candidates are the least-squares fitted models from four polynomial model families, the families of degree \\1\\ (“linear”), \\2\\ (“quadratic”), \\3\\ (“cubic”) and \\4\\ (“quartic”). Choosing among these four fitted models is model selection, and the observations it uses are cars held out from fitting.
 
 > **NOTE:**
 >
@@ -1077,7 +1239,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> **Example 31 (Test error rate of a low-birth-weight classifier)** The `birthwt` data hold births at Baystate Medical Center in Springfield, Massachusetts [\[7\]](#ref-hosmer1989applied), as distributed in R’s `MASS` package [\[8\]](#ref-venables2002modern). The outcome `low` is 1 for a birth weight under 2.5 kg and 0 otherwise. We fit a [logistic regression](logistic-inference.llms.md#def-logistic-regression) of `low` on the mother’s age, weight at her last menstrual period, smoking status, history of hypertension, and presence of uterine irritability. The [fitted model](#def-fitted-model) [predicts](prediction.llms.md#def-prediction) `low = 1` when its fitted [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) exceeds 0.5. We use every third row as the [test set](#def-test-set) and fit on the remaining rows, the [training set](#def-training-set).
+> **Example 32 (Test error rate of a low-birth-weight classifier)** The `birthwt` data hold births at Baystate Medical Center in Springfield, Massachusetts [\[7\]](#ref-hosmer1989applied), as distributed in R’s `MASS` package [\[8\]](#ref-venables2002modern). The outcome `low` is 1 for a birth weight under 2.5 kg and 0 otherwise. We fit a [logistic regression](logistic-inference.llms.md#def-logistic-regression) of `low` on the mother’s age, weight at her last menstrual period, smoking status, history of hypertension, and presence of uterine irritability. The [fitted model](#def-fitted-model) [predicts](prediction.llms.md#def-prediction) `low = 1` when its fitted [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) exceeds 0.5. We use every third row as the [test set](#def-test-set) and fit on the remaining rows, the [training set](#def-training-set).
 >
 > ## R
 >
@@ -1155,7 +1317,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> **Example 32 (Numerical example)** This example ([Example 32](#exm-train-validation-test-split)) uses R’s built-in `mtcars` dataset (\\n=32\\ cars) to predict fuel efficiency (`mpg`) from vehicle weight (`wt`). It uses one random split to compare linear, quadratic, cubic, and quartic models (`mpg ~ wt`, `mpg ~ wt + I(wt^2)`, `mpg ~ wt + I(wt^2) + I(wt^3)`, and `mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)`) on a validation set, then reports the chosen model’s test sRMSE on untouched test data [\[6, p. 213\]](#ref-james2021islr2e).
+> **Example 33 (Numerical example)** This example ([Example 33](#exm-train-validation-test-split)) uses R’s built-in `mtcars` dataset (\\n=32\\ cars) to predict fuel efficiency (`mpg`) from vehicle weight (`wt`). It uses one random split to compare linear, quadratic, cubic, and quartic models (`mpg ~ wt`, `mpg ~ wt + I(wt^2)`, `mpg ~ wt + I(wt^2) + I(wt^3)`, and `mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)`) on a validation set, then reports the chosen model’s test sRMSE on untouched test data [\[6, p. 213\]](#ref-james2021islr2e).
 >
 > > **NOTE:**
 > >
@@ -1336,9 +1498,9 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 > > plot_partitions_with_fit(model_linear, "linear fit")
 > > ```
 > >
-> > [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted linear regression line is superimposed.](model-validation_files/figure-html/unnamed-chunk-3-1.png)](model-validation_files/figure-html/unnamed-chunk-3-1.png "Figure 2: Linear model fit superimposed on data partitions")
+> > [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted linear regression line is superimposed.](model-validation_files/figure-html/unnamed-chunk-6-1.png)](model-validation_files/figure-html/unnamed-chunk-6-1.png "Figure 3: Linear model fit superimposed on data partitions")
 > >
-> > Figure 2: Linear model fit superimposed on data partitions
+> > Figure 3: Linear model fit superimposed on data partitions
 >
 > > **NOTE:**
 > >
@@ -1348,9 +1510,9 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 > > plot_partitions_with_fit(model_quadratic, "quadratic fit")
 > > ```
 > >
-> > [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted quadratic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-4-1.png)](model-validation_files/figure-html/unnamed-chunk-4-1.png "Figure 3: Quadratic model fit superimposed on data partitions")
+> > [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted quadratic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-7-1.png)](model-validation_files/figure-html/unnamed-chunk-7-1.png "Figure 4: Quadratic model fit superimposed on data partitions")
 > >
-> > Figure 3: Quadratic model fit superimposed on data partitions
+> > Figure 4: Quadratic model fit superimposed on data partitions
 >
 > > **NOTE:**
 > >
@@ -1360,9 +1522,9 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 > > plot_partitions_with_fit(model_cubic, "cubic fit")
 > > ```
 > >
-> > [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted cubic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-5-1.png)](model-validation_files/figure-html/unnamed-chunk-5-1.png "Figure 4: Cubic model fit superimposed on data partitions")
+> > [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted cubic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-8-1.png)](model-validation_files/figure-html/unnamed-chunk-8-1.png "Figure 5: Cubic model fit superimposed on data partitions")
 > >
-> > Figure 4: Cubic model fit superimposed on data partitions
+> > Figure 5: Cubic model fit superimposed on data partitions
 >
 > > **NOTE:**
 > >
@@ -1372,9 +1534,9 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 > > plot_partitions_with_fit(model_quartic, "quartic fit")
 > > ```
 > >
-> > [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted quartic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-6-1.png)](model-validation_files/figure-html/unnamed-chunk-6-1.png "Figure 5: Quartic model fit superimposed on data partitions")
+> > [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted quartic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-9-1.png)](model-validation_files/figure-html/unnamed-chunk-9-1.png "Figure 6: Quartic model fit superimposed on data partitions")
 > >
-> > Figure 5: Quartic model fit superimposed on data partitions
+> > Figure 6: Quartic model fit superimposed on data partitions
 >
 > > **NOTE:**
 > >
@@ -1468,7 +1630,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 >     - Compute predicted values for the observations in fold \\\mathcal{F}\_{j}\\.
 > 3.  Compute a summary prediction-error measure across all folds.
 >
-> Source: Wikipedia contributors [\[12\]](#ref-wikipedia_cross_validation_statistics).
+> Source: Wikipedia contributors [\[13\]](#ref-wikipedia_cross_validation_statistics).
 
 > **NOTE:**
 >
@@ -1534,7 +1696,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> **Example 33 (Cross-validation versus the generalization error)** This example applies [\\k\\-fold cross-validation](#def-kfold) with \\k= 5\\ to the simulated training set of [Example 28](#exm-train-test-error-simulated), using only those 30 observations. The function `assign_folds()` assigns each observation to a fold at random, `cv_squared_errors()` fits the model once per fold without that fold and returns each observation’s squared prediction error, and `cv_mse()` averages them, which is [Equation 49](#eq-cv-estimate).
+> **Example 34 (Cross-validation versus the generalization error)** This example applies [\\k\\-fold cross-validation](#def-kfold) with \\k= 5\\ to the simulated training set of [Example 29](#exm-train-test-error-simulated), using only those 30 observations. The function `assign_folds()` assigns each observation to a fold at random, `cv_squared_errors()` fits the model once per fold without that fold and returns each observation’s squared prediction error, and `cv_mse()` averages them, which is [Equation 49](#eq-cv-estimate).
 >
 > ``` downlit
 > assign_folds <- function(n, k) {
@@ -1565,7 +1727,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 > #> 6 6 6 6 6
 > ```
 >
-> The same fold assignment is used for every degree, so the degrees are compared on the same splits. The table and figure report the square root of each cross-validation estimate, so that it is in the same unit as the training sRMSE and generalization pRMSE of [Example 28](#exm-train-test-error-simulated).
+> The same fold assignment is used for every degree, so the degrees are compared on the same splits. The table and figure report the square root of each cross-validation estimate, so that it is in the same unit as the training sRMSE and generalization pRMSE of [Example 29](#exm-train-test-error-simulated).
 >
 > Show R code
 >
@@ -1615,9 +1777,9 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 > >   ggplot2::theme(legend.position = "top")
 > > ```
 > >
-> > [![Root mean squared error against polynomial degree from 1 to 10, with three curves for the training error, the estimated generalization error, and the 5-fold cross-validation estimate. The training error falls as the degree grows. The other two curves fall at the low degrees, then level off; the cross-validation curve rises sharply at the highest degrees.](model-validation_files/figure-html/cv-simulated-plot-1.png)](model-validation_files/figure-html/cv-simulated-plot-1.png "Figure 6: Figure 1 with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data.")
+> > [![Root mean squared error against polynomial degree from 1 to 10, with three curves for the training error, the estimated generalization error, and the 5-fold cross-validation estimate. The training error falls as the degree grows. The other two curves fall at the low degrees, then level off; the cross-validation curve rises sharply at the highest degrees.](model-validation_files/figure-html/cv-simulated-plot-1.png)](model-validation_files/figure-html/cv-simulated-plot-1.png "Figure 7: Figure 2 with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data.")
 > >
-> > Figure 6: [Figure 1](#fig-train-test-error) with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data.
+> > Figure 7: [Figure 2](#fig-train-test-error) with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data.
 >
 > Show R code
 >
@@ -1687,7 +1849,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> **Example 34 (Four-fold cross-validation of the `mtcars` polynomials)** This example applies the \\k= 4\\ folds of [Exercise 11](#exr-kfold) to the four polynomial models of [Exercise 1](#exr-overfitting), now using all \\n= 32\\ cars and the `cv_mse()` function of [Example 33](#exm-kfold-simulated). The fold assignment is random, so the estimate is too; to show how much, we repeat the whole procedure with 5 different random fold assignments.
+> **Example 35 (Four-fold cross-validation of the `mtcars` polynomials)** This example applies the \\k= 4\\ folds of [Exercise 11](#exr-kfold) to the four polynomial models of [Exercise 1](#exr-overfitting), now using all \\n= 32\\ cars and the `cv_mse()` function of [Example 34](#exm-kfold-simulated). The fold assignment is random, so the estimate is too; to show how much, we repeat the whole procedure with 5 different random fold assignments.
 >
 > > **NOTE:**
 > >
@@ -1783,7 +1945,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 >
 > 1.  \\32 / 32 = 1\\ car per fold.
 > 2.  One model per fold, so \\32\\ models, each fitted to the \\32 - 1 = 31\\ other cars.
-> 3.  No. With one car per fold, every assignment of cars to folds produces the same 32 fits, only numbered differently, and [Equation 49](#eq-cv-estimate) does not depend on the numbering. Unlike [Example 34](#exm-kfold-mtcars), the estimate is not random.
+> 3.  No. With one car per fold, every assignment of cars to folds produces the same 32 fits, only numbered differently, and [Equation 49](#eq-cv-estimate) does not depend on the numbering. Unlike [Example 35](#exm-kfold-mtcars), the estimate is not random.
 
 > **NOTE:**
 >
@@ -1791,7 +1953,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 >
 > \\ \widehat{\operatorname{Err}}\_{\text{CV}(n)} = \frac{1}{n} \sum\_{i\in I} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\_{i}\right)\mathclose{}} - y\_{i}\right)\mathclose{}}^{2}. \tag{52}\\
 >
-> Source: James et al. [\[6, Sec. 5.1.2\]](#ref-james2021islr2e); Wikipedia contributors [\[12\]](#ref-wikipedia_cross_validation_statistics).
+> Source: James et al. [\[6, Sec. 5.1.2\]](#ref-james2021islr2e); Wikipedia contributors [\[13\]](#ref-wikipedia_cross_validation_statistics).
 
 > **NOTE:**
 >
@@ -1837,7 +1999,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> *Remark 30* (Source: Cross-product matrix (sum-of-squares and cross-products matrix)). Also called a **sum-of-squares and cross-products matrix** [\[13\]](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products” (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)).
+> *Remark 30* (Source: Cross-product matrix (sum-of-squares and cross-products matrix)). Also called a **sum-of-squares and cross-products matrix** [\[14\]](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products” (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)).
 
 > **NOTE:**
 >
@@ -1849,15 +2011,15 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 >
 > > **NOTE:**
 > >
-> > I restated the SSCP reading and the covariance special case from Sanchez [\[13\]](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products” (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) in this page’s notation. The book carries a non-commercial, share-alike license, so I paraphrased it and copied none of its text.
+> > I restated the SSCP reading and the covariance special case from Sanchez [\[14\]](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products” (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) in this page’s notation. The book carries a non-commercial, share-alike license, so I paraphrased it and copied none of its text.
 
 > **NOTE:**
 >
-> **Definition 59 (Leverage)** Consider a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols), with [term vectors](#def-term-vector) \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}\\, \\i\in I\\, and an invertible [cross-product matrix](#def-cross-product-matrix) \\A\\. The **leverage** of observation \\i\\ is [\[14\]](#ref-wikipedia_leverage_statistics)
+> **Definition 59 (Leverage)** Consider a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols), with [term vectors](#def-term-vector) \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}\\, \\i\in I\\, and an invertible [cross-product matrix](#def-cross-product-matrix) \\A\\. The **leverage** of observation \\i\\ is [\[15\]](#ref-wikipedia_leverage_statistics)
 >
 > \\ h\_{i} \stackrel{\text{def}}{=}{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}}^{\top} A^{-1} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}. \tag{55}\\
 >
-> Source: Wikipedia contributors [\[14\]](#ref-wikipedia_leverage_statistics).
+> Source: Wikipedia contributors [\[15\]](#ref-wikipedia_leverage_statistics).
 
 > **NOTE:**
 >
@@ -1879,7 +2041,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> **Example 35 (Leave-one-out cross-validation of the `mtcars` polynomials)** This example computes \\\widehat{\operatorname{Err}}\_{\text{CV}(32)}\\ for the four `mtcars` polynomials of [Exercise 1](#exr-overfitting) in two ways: by fitting each model 32 times, as in [Equation 52](#eq-loocv), and by the single-fit formula of [Theorem 7](#thm-loocv-shortcut), with the leverages from [`hatvalues()`](https://rdrr.io/r/stats/influence.measures.html).
+> **Example 36 (Leave-one-out cross-validation of the `mtcars` polynomials)** This example computes \\\widehat{\operatorname{Err}}\_{\text{CV}(32)}\\ for the four `mtcars` polynomials of [Exercise 1](#exr-overfitting) in two ways: by fitting each model 32 times, as in [Equation 52](#eq-loocv), and by the single-fit formula of [Theorem 7](#thm-loocv-shortcut), with the leverages from [`hatvalues()`](https://rdrr.io/r/stats/influence.measures.html).
 >
 > ``` downlit
 > loocv_by_formula <- function(formula, data) {
@@ -1937,7 +2099,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> **Example 36 (Inputs of the cross-validation choice procedure)** The [cross-validation choice procedure](#def-cv-choice) \\g\\ over polynomials of several degrees is specified by these inputs:
+> **Example 37 (Inputs of the cross-validation choice procedure)** The [cross-validation choice procedure](#def-cv-choice) \\g\\ over polynomials of several degrees is specified by these inputs:
 >
 > - [model family](#def-model-family) \\\mathcal{H}\\: the polynomials of every candidate degree;
 > - [objective function](#def-objective-function) \\\mathcal{J}\\: the residual sum of squares within each candidate, and the [cross-validation estimate](#def-cv-estimate-indexed) between candidates;
@@ -2004,7 +2166,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> **Example 37 (The one-standard-error rule for the simulated polynomials)** This example applies 10-fold cross-validation to the simulated training set of [Example 28](#exm-train-test-error-simulated), records the sMSE in each fold, and applies [Definition 66](#def-one-se-rule) to the ten degrees.
+> **Example 38 (The one-standard-error rule for the simulated polynomials)** This example applies 10-fold cross-validation to the simulated training set of [Example 29](#exm-train-test-error-simulated), records the sMSE in each fold, and applies [Definition 66](#def-one-se-rule) to the ten degrees.
 >
 > Show R code
 >
@@ -2062,11 +2224,11 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 > >   ggplot2::theme_bw()
 > > ```
 > >
-> > [![Ten-fold cross-validation estimate against polynomial degree from 1 to 10, with error bars of one fold-based standard error. A dashed horizontal line sits one fold-based standard error above the smallest estimate.](model-validation_files/figure-html/one-se-rule-plot-1.png)](model-validation_files/figure-html/one-se-rule-plot-1.png "Figure 7: 10-fold cross-validation estimates, with bars of one fold-based standard error (Equation 60). The dashed line is one fold-based standard error above the smallest estimate.")
+> > [![Ten-fold cross-validation estimate against polynomial degree from 1 to 10, with error bars of one fold-based standard error. A dashed horizontal line sits one fold-based standard error above the smallest estimate.](model-validation_files/figure-html/one-se-rule-plot-1.png)](model-validation_files/figure-html/one-se-rule-plot-1.png "Figure 8: 10-fold cross-validation estimates, with bars of one fold-based standard error (Equation 60). The dashed line is one fold-based standard error above the smallest estimate.")
 > >
-> > Figure 7: 10-fold cross-validation estimates, with bars of one [fold-based standard error](#def-cv-se) ([Equation 60](#eq-cv-se)). The dashed line is one fold-based standard error above the smallest estimate.
+> > Figure 8: 10-fold cross-validation estimates, with bars of one [fold-based standard error](#def-cv-se) ([Equation 60](#eq-cv-se)). The dashed line is one fold-based standard error above the smallest estimate.
 >
-> The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization pRMSE of [Example 28](#exm-train-test-error-simulated) for each: 0.335 for degree 8 and 0.315 for degree 3.
+> The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization pRMSE of [Example 29](#exm-train-test-error-simulated) for each: 0.335 for degree 8 and 0.315 for degree 3.
 
 ## 9 Criteria that adjust the training error
 
@@ -2082,7 +2244,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 > **NOTE:**
 >
-> **Example 38 (Adjusted coefficient of determination of nested `mtcars` models)** The `mtcars` [data set](#def-data-set) has the fuel economy `mpg` of 32 cars from the 1974 *Motor Trend* magazine. This example fits four [nested](correlation-regression.llms.md#def-nested-regression-models) linear models of `mpg`, each adding one predictor to the one before, and computes [Definition 67](#def-adjusted-r-squared) from its formula.
+> **Example 39 (Adjusted coefficient of determination of nested `mtcars` models)** The `mtcars` [data set](#def-data-set) has the fuel economy `mpg` of 32 cars from the 1974 *Motor Trend* magazine. This example fits four [nested](correlation-regression.llms.md#def-nested-regression-models) linear models of `mpg`, each adding one predictor to the one before, and computes [Definition 67](#def-adjusted-r-squared) from its formula.
 >
 > Show R code
 >
@@ -2122,11 +2284,11 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 >
 > the average of the [residual sum of squares](correlation-regression.llms.md#def-rss) plus a penalty of \\2 \hat{\sigma^2}\\ for each predictor. A smaller value is better.
 >
-> Source: Mallows [\[15\]](#ref-mallows1973some). This scaling is that of James et al. [\[6, Sec. 6.1.3\]](#ref-james2021islr2e).
+> Source: Mallows [\[16\]](#ref-mallows1973some). This scaling is that of James et al. [\[6, Sec. 6.1.3\]](#ref-james2021islr2e).
 
 > **NOTE:**
 >
-> **Example 39 (Mallows’ \\C_p\\ of nested `mtcars` models)** This example computes [Definition 68](#def-mallows-cp) for the four models of [Example 38](#exm-adjusted-r-squared). The [estimate](estimation.llms.md#def-estimate) \\\hat{\sigma^2}\\ of the [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) is the [residual](prediction.llms.md#def-residual) variance of the model with all four predictors, 6.45.
+> **Example 40 (Mallows’ \\C_p\\ of nested `mtcars` models)** This example computes [Definition 68](#def-mallows-cp) for the four models of [Example 39](#exm-adjusted-r-squared). The [estimate](estimation.llms.md#def-estimate) \\\hat{\sigma^2}\\ of the [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) is the [residual](prediction.llms.md#def-residual) variance of the model with all four predictors, 6.45.
 >
 > Show R code
 >
@@ -2152,11 +2314,11 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 >
 > It is minus twice the maximized log-likelihood, plus two for each estimated parameter. For a Gaussian model, \\p^{\*}\\ includes the [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance). A smaller AIC is better.
 >
-> Source: Akaike [\[16\]](#ref-akaike1974new).
+> Source: Akaike [\[17\]](#ref-akaike1974new).
 
 > **NOTE:**
 >
-> **Example 40 (AIC of nested `mtcars` models)** This example computes [Definition 69](#def-aic) for the four models of [Example 38](#exm-adjusted-r-squared), each fitted by [maximum likelihood](intro-MLEs.llms.md#def-mle) with Gaussian [noise](#def-noise). The number of [estimated](estimation.llms.md#def-estimate) parameters is the number of coefficients plus one for the noise [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+> **Example 41 (AIC of nested `mtcars` models)** This example computes [Definition 69](#def-aic) for the four models of [Example 39](#exm-adjusted-r-squared), each fitted by [maximum likelihood](intro-MLEs.llms.md#def-mle) with Gaussian [noise](#def-noise). The number of [estimated](estimation.llms.md#def-estimate) parameters is the number of coefficients plus one for the noise [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
 >
 > Show R code
 >
@@ -2183,11 +2345,11 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 >
 > It is minus twice the maximized log-likelihood, plus \\{\operatorname{log}\mathopen{}\left\\n\right\\\mathclose{}}\\ for each estimated parameter. A smaller BIC is better.
 >
-> Source: Schwarz [\[17\]](#ref-schwarz1978estimating).
+> Source: Schwarz [\[18\]](#ref-schwarz1978estimating).
 
 > **NOTE:**
 >
-> **Example 41 (BIC of nested `mtcars` models)** This example computes [Definition 70](#def-bic) for the four models of [Example 38](#exm-adjusted-r-squared), with \\p^{\*}\\ counted as in [Example 40](#exm-aic).
+> **Example 42 (BIC of nested `mtcars` models)** This example computes [Definition 70](#def-bic) for the four models of [Example 39](#exm-adjusted-r-squared), with \\p^{\*}\\ counted as in [Example 41](#exm-aic).
 >
 > Show R code
 >
@@ -2318,7 +2480,7 @@ Last modified: 2026-10-19 23:28:03 (PDT)
 
 ## 11 Further reading
 
-Sanchez [\[13\]](#ref-sanchez2020matrix4sl) reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.
+Sanchez [\[14\]](#ref-sanchez2020matrix4sl) reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.
 
 ## References
 
@@ -2360,33 +2522,37 @@ Wikipedia contributors, “Overfitting — Wikipedia, the free encyclopedia.” 
 
 \[10\]
 
-Wikipedia contributors, “Bias–variance tradeoff — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff>
+G. van den Burg, *SyncRNG: A synchronized Tausworthe RNG for R and Python*. 2024. doi: [10.32614/CRAN.package.SyncRNG](https://doi.org/10.32614/CRAN.package.SyncRNG).
 
 \[11\]
 
-Wikipedia contributors, “Model selection — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Model_selection>
+Wikipedia contributors, “Bias–variance tradeoff — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff>
 
 \[12\]
 
-Wikipedia contributors, “Cross-validation (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29>
+Wikipedia contributors, “Model selection — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Model_selection>
 
 \[13\]
 
-G. Sanchez, “A matrix algebra companion for statistical learning (matrix4sl).” Online book, work in progress. Licensed CC BY-NC-SA 4.0, 2020. Available: <https://www.gastonsanchez.com/matrix4sl/>
+Wikipedia contributors, “Cross-validation (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29>
 
 \[14\]
 
-Wikipedia contributors, “Leverage (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Leverage_%28statistics%29>
+G. Sanchez, “A matrix algebra companion for statistical learning (matrix4sl).” Online book, work in progress. Licensed CC BY-NC-SA 4.0, 2020. Available: <https://www.gastonsanchez.com/matrix4sl/>
 
 \[15\]
 
-C. L. Mallows, “Some comments on \\C_p\\,” *Technometrics*, vol. 15, no. 4, pp. 661–675, 1973, doi: [10.1080/00401706.1973.10489103](https://doi.org/10.1080/00401706.1973.10489103).
+Wikipedia contributors, “Leverage (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Leverage_%28statistics%29>
 
 \[16\]
 
-H. Akaike, “A new look at the statistical model identification,” *IEEE Transactions on Automatic Control*, vol. 19, no. 6, pp. 716–723, 1974, doi: [10.1109/TAC.1974.1100705](https://doi.org/10.1109/TAC.1974.1100705).
+C. L. Mallows, “Some comments on \\C_p\\,” *Technometrics*, vol. 15, no. 4, pp. 661–675, 1973, doi: [10.1080/00401706.1973.10489103](https://doi.org/10.1080/00401706.1973.10489103).
 
 \[17\]
+
+H. Akaike, “A new look at the statistical model identification,” *IEEE Transactions on Automatic Control*, vol. 19, no. 6, pp. 716–723, 1974, doi: [10.1109/TAC.1974.1100705](https://doi.org/10.1109/TAC.1974.1100705).
+
+\[18\]
 
 G. Schwarz, “Estimating the dimension of a model,” *The Annals of Statistics*, vol. 6, no. 2, pp. 461–464, 1978, doi: [10.1214/aos/1176344136](https://doi.org/10.1214/aos/1176344136).
 

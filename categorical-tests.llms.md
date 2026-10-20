@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 23:28:03 (PDT)
+Last modified: 2026-10-19 23:38:52 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -468,6 +468,64 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
+> **Theorem 6 (The conditional odds ratio is reversible)** Let:
+>
+> - \\X\\ and \\Y\\ be [binary](data.llms.md#def-binary-var) random variables, each with values \\0\\ and \\1\\.
+> - \\Z\\ be a random variable, and \\z\\ be a value of \\Z\\.
+> - \\{\operatorname{P}\mathopen{}\left(X = x, Y = y, Z = z\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
+>
+> The [odds ratio](#def-odds-ratio) of \\Y = 1\\ comparing \\X = 1\\ with the [reference group](#def-reference-group) \\X = 0\\, among the units with \\Z = z\\, equals the odds ratio of \\X = 1\\ comparing \\Y = 1\\ with \\Y = 0\\, among the units with \\Z = z\\:
+>
+> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X, Z = z\right)\mathclose{}} = {\text{ϙ}\_{\omega}\mathopen{}\left(X \mid Y, Z = z\right)\mathclose{}}. \\
+
+> **NOTE:**
+>
+> *Proof*. First, find the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ in the group \\X = x\\ among the units with \\Z = z\\:
+>
+> \\ \begin{aligned} \omega\_{x} &= \frac{{\operatorname{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}}{1 - {\operatorname{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}} && \text{(definition of odds)} \\ &= \frac{{\operatorname{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(Y = 0 \mid X = x, Z = z\right)\mathclose{}}} && \text{(the two values of \$Y\$ have conditional probabilities that sum to 1)} \\ &= \frac{{\operatorname{P}\mathopen{}\left(X = x, Y = 1, Z = z\right)\mathclose{}} / {\operatorname{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(X = x, Y = 0, Z = z\right)\mathclose{}} / {\operatorname{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}} && \text{(definition of conditional probability, in numerator and denominator)} \\ &= \frac{{\operatorname{P}\mathopen{}\left(X = x, Y = 1, Z = z\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(X = x, Y = 0, Z = z\right)\mathclose{}}} && \text{(divide the numerator and the denominator by the same positive number \${\operatorname{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}\$)} \end{aligned} \\
+>
+> The [odds ratio](#def-odds-ratio) is the odds \\\omega_1\\ divided by the odds \\\omega_0\\. Dividing by a fraction is multiplying by its reciprocal, so
+>
+> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X, Z = z\right)\mathclose{}} = \frac{{\operatorname{P}\mathopen{}\left(X = 1, Y = 1, Z = z\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(X = 0, Y = 0, Z = z\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(X = 1, Y = 0, Z = z\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(X = 0, Y = 1, Z = z\right)\mathclose{}}}. \\
+>
+> The same steps with the roles of \\X\\ and \\Y\\ exchanged give
+>
+> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(X \mid Y, Z = z\right)\mathclose{}} = \frac{{\operatorname{P}\mathopen{}\left(Y = 1, X = 1, Z = z\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(Y = 0, X = 0, Z = z\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(Y = 1, X = 0, Z = z\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(Y = 0, X = 1, Z = z\right)\mathclose{}}}. \\
+>
+> The event \\{\mathopen{}\left\\Y = y, X = x, Z = z\right\\\mathclose{}}\\ is the event \\{\mathopen{}\left\\X = x, Y = y, Z = z\right\\\mathclose{}}\\, so each joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) here equals the joint probability with its arguments in the other order. The denominator is a product of two joint probabilities, and multiplication is commutative. Reordering its two factors gives the denominator of the first display.
+
+> **NOTE:**
+>
+> **Example 14 (Reversing the roles of treatment and exercise within diabetes strata in HERS)** In [Example 13](#exm-hers-odds-ratio-reversible), the roles of hormone therapy and regular exercise are reversed among all the women. Here the same two [odds ratios](#def-odds-ratio) are computed separately for the women with diabetes and the women without it:
+>
+> ``` downlit
+> or_by_diabetes <- sapply(c("no", "yes"), function(z) {
+>   counts <- table(
+>     HT = hers$HT[hers$diabetes == z],
+>     exercise = hers$exercise[hers$diabetes == z]
+>   )
+>   ht <- "hormone therapy"
+>   c(
+>     ht_odds_ratio = unname(
+>       (counts[ht, "yes"] / counts["placebo", "yes"]) /
+>         (counts[ht, "no"] / counts["placebo", "no"])
+>     ),
+>     exercise_odds_ratio = unname(
+>       (counts[ht, "yes"] / counts[ht, "no"]) /
+>         (counts["placebo", "yes"] / counts["placebo", "no"])
+>     )
+>   )
+> })
+> or_by_diabetes
+> #>                          no     yes
+> #> ht_odds_ratio       1.02222 1.08842
+> #> exercise_odds_ratio 1.02222 1.08842
+> ```
+>
+> The first row compares the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of hormone therapy between the women who exercise regularly and those who do not. The second row compares the odds of regular exercise between the hormone therapy and placebo groups. Among the women without diabetes the two odds ratios are 1.022 and 1.022, and among the women with diabetes they are 1.088 and 1.088. In each stratum the two agree, as [Theorem 6](#thm-conditional-odds-ratio-reversible) states. The stratum odds ratios differ from the [odds ratio](#def-odds-ratio) 1.028 of [Example 11](#exm-hers-odds-ratio) for all the women, because the theorem equates the two odds ratios within a stratum, not either one with the marginal odds ratio.
+
+> **NOTE:**
+>
 > **Definition 9 (Case)** In a study that selects its participants by whether they have an outcome of interest, a **case** is a participant who has the outcome [\[8, Ch. 8\]](#ref-me4).
 
 > **NOTE:**
@@ -480,7 +538,7 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
-> **Example 14 (A case-control study of regular exercise in HERS)** Take the women who exercise regularly as the [cases](#def-case). Draw as many [controls](#def-control) as there are cases, at random, from the women who do not exercise regularly. Then compare the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of hormone therapy between the cases and the controls:
+> **Example 15 (A case-control study of regular exercise in HERS)** Take the women who exercise regularly as the [cases](#def-case). Draw as many [controls](#def-control) as there are cases, at random, from the women who do not exercise regularly. Then compare the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of hormone therapy between the cases and the controls:
 >
 > ``` downlit
 > set.seed(571)

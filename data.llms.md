@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 23:28:03 (PDT)
+Last modified: 2026-10-19 23:38:52 (PDT)
 
 ## 1 Types of variables
 
@@ -306,7 +306,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Exercise 2 (Examples of binary variables)** What are some examples of binary variables in health sciences and data science?
+> **Exercise 2 (Examples of binary variables)** What are some examples of [binary variables](#def-binary-var) in the health sciences?
 
 > **NOTE:**
 >

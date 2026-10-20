@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 23:28:03 (PDT)
+Last modified: 2026-10-19 23:38:52 (PDT)
 
 ## 1 Introduction
 
@@ -816,9 +816,11 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Definition 21 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
+> **Definition 21 (Standardization (z-scoring, standard scaling))** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
 >
 > \\z_i \stackrel{\text{def}}{=}\frac{x_i- \bar x}{s}\\
+>
+> Standardization is also called **z-scoring** or **standard scaling**.
 >
 > Source: Wikipedia contributors [\[20\]](#ref-wikipedia_standard_score).
 

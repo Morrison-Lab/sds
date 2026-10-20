@@ -788,6 +788,15 @@
    "external": false
   },
   {
+   "id": "sds/categorical-tests#thm-conditional-odds-ratio-reversible",
+   "site": "sds",
+   "page": "categorical-tests",
+   "div": "thm-conditional-odds-ratio-reversible",
+   "kind": "thm",
+   "title": "The conditional odds ratio is reversible",
+   "external": false
+  },
+  {
    "id": "sds/categorical-tests#thm-odds-ratio-cross-product",
    "site": "sds",
    "page": "categorical-tests",
@@ -1990,7 +1999,7 @@
    "page": "exploratory-descriptive",
    "div": "def-standardization",
    "kind": "def",
-   "title": "Standardization",
+   "title": "Standardization (z-scoring, standard scaling)",
    "external": false
   },
   {
@@ -4273,6 +4282,18 @@
   [
    "sds/categorical-tests#thm-chi-square-null",
    "sds/categorical-tests#def-chi-square-test"
+  ],
+  [
+   "sds/categorical-tests#thm-conditional-odds-ratio-reversible",
+   "sds/categorical-tests#def-odds-ratio"
+  ],
+  [
+   "sds/categorical-tests#thm-conditional-odds-ratio-reversible",
+   "sds/categorical-tests#def-reference-group"
+  ],
+  [
+   "sds/categorical-tests#thm-conditional-odds-ratio-reversible",
+   "sds/data#def-binary-var"
   ],
   [
    "sds/categorical-tests#thm-odds-ratio-cross-product",
