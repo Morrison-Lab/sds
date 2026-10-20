@@ -1,13 +1,18 @@
 :::{#def-negative-classification}
 #### Negative classification
 
-In a [binary classification problem](#def-binary-classification) with classes $\scrC = \set{k_1, k_0}$,
-let $Y \in \scrC$ be the class assigned to an observation drawn from a [population](exploratory-descriptive.qmd#def-population)
-(for example, $Y = c(X)$ when a [classification rule](#def-classification-rule) $c$ classifies the observation from its feature $X$).
-A **negative classification**
-(also called **negative** or a **negative result**, and written $\negclass$)
+In a [binary classification problem](#def-binary-classification) with $\scrC = \set{k_1, k_0}$,
+$k_0$ is called the **negative class**,
+and for an observation drawn from a [population](exploratory-descriptive.qmd#def-population)
+and assigned [class](#def-class) $Y \in \scrC$
+(for example, $Y = c(X)$ when a [classification rule](#def-classification-rule) $c$ classifies the observation from its feature $X$),
+a **negative classification**
+(also called **negative**, and written $\negclass$)
 is the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event)
 that the observation is assigned to $k_0$:
 
 $$\negclass \eqdef \set{Y = k_0}$$ {#eq-negative-classification}
+
+Source: @wikipedia_statistical_classification;
+@wikipedia_sensitivity_and_specificity.
 :::

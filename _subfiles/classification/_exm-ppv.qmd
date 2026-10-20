@@ -9,8 +9,8 @@ gives the positive predictive value (@def-ppv):
 $$\Pr(D \mid \posclass) \approx 0.88$$ {#eq-ppv-exm}
 
 Even with a highly accurate test (99% sensitive and 99% specific),
-only about 88% of the people who test positive have COVID-19,
-because the prevalence (7%) is low enough that
-false positives make up a meaningful fraction of all positive tests.
+only about 88% of the people who test [positive](#def-positive-classification) have COVID-19,
+because the [prevalence](#def-prevalence) (7%) is low enough that
+[false positives](#def-false-positive) make up a meaningful fraction of all positive tests.
 
 :::

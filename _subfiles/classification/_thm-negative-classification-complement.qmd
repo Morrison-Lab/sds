@@ -1,9 +1,9 @@
 :::{#thm-negative-classification-complement}
 #### Negative classification is the complement of positive classification
 
-In a [binary classification problem](#def-binary-classification) with classes $\scrC = \set{k_1, k_0}$,
-when each observation is assigned a class $Y \in \scrC$,
-the [negative classification](#def-negative-classification) event $\negclass$
+In a [binary classification problem](#def-binary-classification) with $\scrC = \set{k_1, k_0}$,
+when each observation is assigned a [class](#def-class) $Y \in \scrC$,
+the [negative classification](#def-negative-classification) [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $\negclass$
 is the [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement)
 of the [positive classification](#def-positive-classification) event $\posclass$:
 

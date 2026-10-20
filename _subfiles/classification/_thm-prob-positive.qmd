@@ -4,7 +4,7 @@
 Let $\text{sens}$ be the [sensitivity](#def-sensitivity) of a diagnostic test,
 $\text{spec}$ its [specificity](#def-specificity),
 and $\prev$ the [prevalence](#def-prevalence) of the disease.
-Then the probability $\Pr(\posclass)$ that the test is [positive](#def-positive-classification) is:
+Then the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\Pr(\posclass)$ that the test is [positive](#def-positive-classification) is:
 
 $$
 \Pr(\posclass) =

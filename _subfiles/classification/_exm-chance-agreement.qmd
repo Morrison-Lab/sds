@@ -8,7 +8,7 @@ By @thm-prob-positive,
 with [sensitivity](#def-sensitivity) $\text{sens} = 0.99$,
 [specificity](#def-specificity) $\text{spec} = 0.99$,
 and [prevalence](#def-prevalence) $\prev = \Prf{D} = 0.07$,
-the probability of a [positive](#def-positive-classification) test is:
+the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a [positive](#def-positive-classification) test is:
 
 $$
 \ba

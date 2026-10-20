@@ -13,12 +13,12 @@ in terms of:
 
 :::{#sol-ppv-bayes}
 
-Abbreviate the sensitivity as $\text{sens}$,
-the specificity as $\text{spec}$,
-and the prevalence as $\prev$.
+Abbreviate the [sensitivity](#def-sensitivity) as $\text{sens}$,
+the [specificity](#def-specificity) as $\text{spec}$,
+and the [prevalence](#def-prevalence) as $\prev$.
 By
 [Bayes' theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes),
-with the probability of a positive test from @exr-prob-positive:
+with the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a [positive](#def-positive-classification) test from @exr-prob-positive:
 
 $$
 \ba

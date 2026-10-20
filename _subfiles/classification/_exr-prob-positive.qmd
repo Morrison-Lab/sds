@@ -1,7 +1,7 @@
 :::{#exr-prob-positive}
 #### Probability of a positive test
 
-Derive an expression for the probability $\Pr(\posclass)$ that a diagnostic test is [positive](#def-positive-classification)
+Derive an expression for the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\Pr(\posclass)$ that a diagnostic test is [positive](#def-positive-classification)
 in terms of:
 
 - the test's [sensitivity](#def-sensitivity);

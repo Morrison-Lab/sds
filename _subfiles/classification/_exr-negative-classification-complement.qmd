@@ -1,9 +1,9 @@
 :::{#exr-negative-classification-complement}
 #### Negative classification as a complement
 
-In a [binary classification problem](#def-binary-classification) with classes $\scrC = \set{k_1, k_0}$,
-show that when each observation is assigned a class $Y \in \scrC$,
-the [negative classification](#def-negative-classification) event $\negclass$
+In a [binary classification problem](#def-binary-classification) with $\scrC = \set{k_1, k_0}$,
+show that when each observation is assigned a [class](#def-class) $Y \in \scrC$,
+the [negative classification](#def-negative-classification) [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $\negclass$
 is the [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement)
 of the [positive classification](#def-positive-classification) event $\posclass$:
 $\negclass = \neg \posclass$.
@@ -14,7 +14,7 @@ $\negclass = \neg \posclass$.
 :::{#sol-negative-classification-complement}
 
 Because $\scrC = \set{k_1, k_0}$ with $\abs{\scrC} = 2$ (@def-binary-classification),
-the classes $k_1$ and $k_0$ are distinct,
+the [classes](#def-class) $k_1$ and $k_0$ are distinct,
 so $Y \in \scrC$ equals $k_0$ if and only if $Y \neq k_1$:
 
 $$
