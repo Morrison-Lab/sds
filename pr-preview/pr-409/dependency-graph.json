@@ -880,6 +880,15 @@
    "external": false
   },
   {
+   "id": "sds/classification#def-binary-classification",
+   "site": "sds",
+   "page": "classification",
+   "div": "def-binary-classification",
+   "kind": "def",
+   "title": "Binary classification",
+   "external": false
+  },
+  {
    "id": "sds/classification#def-chance-agreement",
    "site": "sds",
    "page": "classification",
@@ -970,6 +979,15 @@
    "external": false
   },
   {
+   "id": "sds/classification#def-negative-classification",
+   "site": "sds",
+   "page": "classification",
+   "div": "def-negative-classification",
+   "kind": "def",
+   "title": "Negative classification",
+   "external": false
+  },
+  {
    "id": "sds/classification#def-npv",
    "site": "sds",
    "page": "classification",
@@ -994,6 +1012,15 @@
    "div": "def-positive-agreement",
    "kind": "def",
    "title": "Positive agreement",
+   "external": false
+  },
+  {
+   "id": "sds/classification#def-positive-classification",
+   "site": "sds",
+   "page": "classification",
+   "div": "def-positive-classification",
+   "kind": "def",
+   "title": "Positive classification",
    "external": false
   },
   {
@@ -1039,6 +1066,15 @@
    "div": "thm-neg-agreement-harmonic",
    "kind": "thm",
    "title": "Negative agreement is a harmonic mean",
+   "external": false
+  },
+  {
+   "id": "sds/classification#thm-negative-classification-complement",
+   "site": "sds",
+   "page": "classification",
+   "div": "thm-negative-classification-complement",
+   "kind": "thm",
+   "title": "Negative classification is the complement of positive classification",
    "external": false
   },
   {
@@ -4399,6 +4435,14 @@
    "sds/classification#def-agreement-table"
   ],
   [
+   "sds/classification#def-agreement-table",
+   "sds/classification#def-negative-classification"
+  ],
+  [
+   "sds/classification#def-agreement-table",
+   "sds/classification#def-positive-classification"
+  ],
+  [
    "sds/classification#def-agreement-test-measures",
    "sds/classification#def-agreement-table"
   ],
@@ -4419,6 +4463,14 @@
    "sds/classification#def-specificity"
   ],
   [
+   "sds/classification#def-binary-classification",
+   "sds/classification#def-class"
+  ],
+  [
+   "sds/classification#def-binary-classification",
+   "sds/classification#def-classification"
+  ],
+  [
    "sds/classification#def-chance-agreement",
    "pds/independence#def-indpt"
   ],
@@ -4436,11 +4488,11 @@
   ],
   [
    "sds/classification#def-chance-agreement",
-   "sds/classification#def-class"
+   "sds/classification#def-overall-agreement"
   ],
   [
    "sds/classification#def-chance-agreement",
-   "sds/classification#def-overall-agreement"
+   "sds/classification#def-positive-classification"
   ],
   [
    "sds/classification#def-chance-agreement",
@@ -4527,6 +4579,38 @@
    "sds/classification#def-agreement-table"
   ],
   [
+   "sds/classification#def-negative-agreement",
+   "sds/classification#def-negative-classification"
+  ],
+  [
+   "sds/classification#def-negative-classification",
+   "pds/probability-basics#def-event"
+  ],
+  [
+   "sds/classification#def-negative-classification",
+   "sds/classification#def-binary-classification"
+  ],
+  [
+   "sds/classification#def-negative-classification",
+   "sds/classification#def-class"
+  ],
+  [
+   "sds/classification#def-negative-classification",
+   "sds/classification#def-classification-rule"
+  ],
+  [
+   "sds/classification#def-negative-classification",
+   "sds/exploratory-descriptive#def-population"
+  ],
+  [
+   "sds/classification#def-npv",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/classification#def-npv",
+   "sds/classification#def-negative-classification"
+  ],
+  [
    "sds/classification#def-overall-agreement",
    "pds/probability-basics#def-complement"
   ],
@@ -4540,7 +4624,7 @@
   ],
   [
    "sds/classification#def-overall-agreement",
-   "sds/classification#def-class"
+   "sds/classification#def-positive-classification"
   ],
   [
    "sds/classification#def-overall-agreement",
@@ -4549,6 +4633,54 @@
   [
    "sds/classification#def-positive-agreement",
    "sds/classification#def-agreement-table"
+  ],
+  [
+   "sds/classification#def-positive-agreement",
+   "sds/classification#def-positive-classification"
+  ],
+  [
+   "sds/classification#def-positive-classification",
+   "pds/probability-basics#def-event"
+  ],
+  [
+   "sds/classification#def-positive-classification",
+   "sds/classification#def-binary-classification"
+  ],
+  [
+   "sds/classification#def-positive-classification",
+   "sds/classification#def-class"
+  ],
+  [
+   "sds/classification#def-positive-classification",
+   "sds/classification#def-classification-rule"
+  ],
+  [
+   "sds/classification#def-positive-classification",
+   "sds/exploratory-descriptive#def-population"
+  ],
+  [
+   "sds/classification#def-ppv",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/classification#def-ppv",
+   "sds/classification#def-positive-classification"
+  ],
+  [
+   "sds/classification#def-sensitivity",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/classification#def-sensitivity",
+   "sds/classification#def-positive-classification"
+  ],
+  [
+   "sds/classification#def-specificity",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/classification#def-specificity",
+   "sds/classification#def-negative-classification"
   ],
   [
    "sds/classification#thm-neg-agreement-harmonic",
@@ -4561,6 +4693,30 @@
   [
    "sds/classification#thm-neg-agreement-harmonic",
    "sds/classification#def-negative-agreement"
+  ],
+  [
+   "sds/classification#thm-negative-classification-complement",
+   "pds/probability-basics#def-complement"
+  ],
+  [
+   "sds/classification#thm-negative-classification-complement",
+   "pds/probability-basics#def-event"
+  ],
+  [
+   "sds/classification#thm-negative-classification-complement",
+   "sds/classification#def-binary-classification"
+  ],
+  [
+   "sds/classification#thm-negative-classification-complement",
+   "sds/classification#def-class"
+  ],
+  [
+   "sds/classification#thm-negative-classification-complement",
+   "sds/classification#def-negative-classification"
+  ],
+  [
+   "sds/classification#thm-negative-classification-complement",
+   "sds/classification#def-positive-classification"
   ],
   [
    "sds/classification#thm-pos-agreement-harmonic",
@@ -4589,6 +4745,14 @@
   [
    "sds/classification#thm-ppv-bayes",
    "sds/classification#def-specificity"
+  ],
+  [
+   "sds/classification#thm-prob-positive",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/classification#thm-prob-positive",
+   "sds/classification#def-positive-classification"
   ],
   [
    "sds/classification#thm-prob-positive",
