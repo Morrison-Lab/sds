@@ -113,6 +113,26 @@
    "url": "https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability"
   },
   {
+   "id": "pds/probability-basics#def-complement",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-complement",
+   "kind": "def",
+   "title": "complement",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-complement"
+  },
+  {
+   "id": "pds/probability-basics#def-event",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-event",
+   "kind": "def",
+   "title": "event",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-event"
+  },
+  {
    "id": "pds/probability-basics#def-odds",
    "site": "pds",
    "page": "probability-basics",
@@ -902,6 +922,33 @@
    "div": "def-cohen-kappa",
    "kind": "def",
    "title": "Cohen's kappa",
+   "external": false
+  },
+  {
+   "id": "sds/classification#def-estimated-chance-agreement",
+   "site": "sds",
+   "page": "classification",
+   "div": "def-estimated-chance-agreement",
+   "kind": "def",
+   "title": "Estimated chance agreement",
+   "external": false
+  },
+  {
+   "id": "sds/classification#def-estimated-cohen-kappa",
+   "site": "sds",
+   "page": "classification",
+   "div": "def-estimated-cohen-kappa",
+   "kind": "def",
+   "title": "Estimated Cohen's kappa",
+   "external": false
+  },
+  {
+   "id": "sds/classification#def-estimated-overall-agreement",
+   "site": "sds",
+   "page": "classification",
+   "div": "def-estimated-overall-agreement",
+   "kind": "def",
+   "title": "Estimated overall agreement",
    "external": false
   },
   {
@@ -4373,7 +4420,31 @@
   ],
   [
    "sds/classification#def-chance-agreement",
-   "sds/classification#def-agreement-table"
+   "pds/independence#def-indpt"
+  ],
+  [
+   "sds/classification#def-chance-agreement",
+   "pds/probability-basics#def-complement"
+  ],
+  [
+   "sds/classification#def-chance-agreement",
+   "pds/probability-basics#def-event"
+  ],
+  [
+   "sds/classification#def-chance-agreement",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/classification#def-chance-agreement",
+   "sds/classification#def-class"
+  ],
+  [
+   "sds/classification#def-chance-agreement",
+   "sds/classification#def-overall-agreement"
+  ],
+  [
+   "sds/classification#def-chance-agreement",
+   "sds/exploratory-descriptive#def-population"
   ],
   [
    "sds/classification#def-class",
@@ -4392,12 +4463,88 @@
    "sds/classification#def-overall-agreement"
   ],
   [
+   "sds/classification#def-estimated-chance-agreement",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/classification#def-estimated-chance-agreement",
+   "sds/classification#def-agreement-table"
+  ],
+  [
+   "sds/classification#def-estimated-chance-agreement",
+   "sds/classification#def-chance-agreement"
+  ],
+  [
+   "sds/classification#def-estimated-chance-agreement",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/classification#def-estimated-chance-agreement",
+   "sds/exploratory-descriptive#def-sample-proportion"
+  ],
+  [
+   "sds/classification#def-estimated-cohen-kappa",
+   "sds/classification#def-agreement-table"
+  ],
+  [
+   "sds/classification#def-estimated-cohen-kappa",
+   "sds/classification#def-cohen-kappa"
+  ],
+  [
+   "sds/classification#def-estimated-cohen-kappa",
+   "sds/classification#def-estimated-chance-agreement"
+  ],
+  [
+   "sds/classification#def-estimated-cohen-kappa",
+   "sds/classification#def-estimated-overall-agreement"
+  ],
+  [
+   "sds/classification#def-estimated-cohen-kappa",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/classification#def-estimated-overall-agreement",
+   "sds/classification#def-agreement-table"
+  ],
+  [
+   "sds/classification#def-estimated-overall-agreement",
+   "sds/classification#def-class"
+  ],
+  [
+   "sds/classification#def-estimated-overall-agreement",
+   "sds/classification#def-overall-agreement"
+  ],
+  [
+   "sds/classification#def-estimated-overall-agreement",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/classification#def-estimated-overall-agreement",
+   "sds/exploratory-descriptive#def-sample-proportion"
+  ],
+  [
    "sds/classification#def-negative-agreement",
    "sds/classification#def-agreement-table"
   ],
   [
    "sds/classification#def-overall-agreement",
-   "sds/classification#def-agreement-table"
+   "pds/probability-basics#def-complement"
+  ],
+  [
+   "sds/classification#def-overall-agreement",
+   "pds/probability-basics#def-event"
+  ],
+  [
+   "sds/classification#def-overall-agreement",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/classification#def-overall-agreement",
+   "sds/classification#def-class"
+  ],
+  [
+   "sds/classification#def-overall-agreement",
+   "sds/exploratory-descriptive#def-population"
   ],
   [
    "sds/classification#def-positive-agreement",

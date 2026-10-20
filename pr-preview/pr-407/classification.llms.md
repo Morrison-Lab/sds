@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-20 10:14:56 (PDT)
+Last modified: 2026-10-20 10:42:11 (PDT)
 
 ## 1 Introduction
 
@@ -280,65 +280,96 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 10 (Overall agreement)** The **overall agreement** of an agreement table ([Definition 9](#def-agreement-table)) is the proportion of observations on which the agent and the reference agree:
+> **Definition 10 (Overall agreement)** Let:
 >
-> \\p_o \stackrel{\text{def}}{=}\frac{a + d}{n} \tag{25}\\
+> - \\A\\ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the agent assigns the positive [class](#def-class) to an observation drawn from a [population](exploratory-descriptive.llms.md#def-population), with [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement) \\\neg A\\.
+> - \\R\\ be the event that the reference assigns the positive class to the same observation, with complement \\\neg R\\.
+>
+> The **overall agreement** of the agent and the reference on that population is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that they assign the same class to the observation:
+>
+> \\p_o \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(A \cap R\right)\mathclose{}} + {\Pr\mathopen{}\left(\neg A \cap \neg R\right)\mathclose{}} \tag{25}\\
+>
+> Source: Cohen [\[7\]](#ref-cohen1960coefficient).
 
 > **NOTE:**
 >
-> **Example 9 (Overall agreement for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), the overall agreement ([Definition 10](#def-overall-agreement)) is:
+> **Example 9 (Overall agreement for the COVID-19 test)** Apply the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) to the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), with the test as the agent (\\A = +\\) and the disease status as the reference (\\R = D\\). By the [multiplication rule for conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-law-conditional-prob), with [sensitivity](#def-sensitivity) \\{\Pr\mathopen{}\left(+ \mid D\right)\mathclose{}} = 0.99\\, [specificity](#def-specificity) \\{\Pr\mathopen{}\left(\neg + \mid \neg D\right)\mathclose{}} = 0.99\\, [prevalence](#def-prevalence) \\{\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07\\, and \\{\Pr\mathopen{}\left(\neg D\right)\mathclose{}} = 0.93\\ ([Example 4](#exm-prevalence)), the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a person has COVID-19 and tests positive is:
 >
-> \\ \begin{aligned} p_o &= \frac{693 + 9{,}207}{10{,}000} && \text{(definition of } p_o \text{, with the table's counts)} \\ &= \frac{9{,}900}{10{,}000} && \text{(add)} \\ &= 0.99 && \text{(divide)} \end{aligned} \tag{26}\\
+> \\ \begin{aligned} {\Pr\mathopen{}\left(+ \cap D\right)\mathclose{}} &= {\Pr\mathopen{}\left(+ \mid D\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(D\right)\mathclose{}} && \text{(multiplication rule for conditional probability)} \\ &= 0.99 \cdot 0.07 && \text{(substitute the sensitivity and prevalence)} \\ &= 0.0693 && \text{(multiply)} \end{aligned} \tag{26}\\
+>
+> and the probability that a person does not have COVID-19 and tests negative is:
+>
+> \\ \begin{aligned} {\Pr\mathopen{}\left(\neg + \cap \neg D\right)\mathclose{}} &= {\Pr\mathopen{}\left(\neg + \mid \neg D\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(\neg D\right)\mathclose{}} && \text{(multiplication rule for conditional probability)} \\ &= 0.99 \cdot 0.93 && \text{(substitute the specificity and } {\Pr\mathopen{}\left(\neg D\right)\mathclose{}} \text{)} \\ &= 0.9207 && \text{(multiply)} \end{aligned} \tag{27}\\
+>
+> Then the [overall agreement](#def-overall-agreement) is:
+>
+> \\ \begin{aligned} p_o &= {\Pr\mathopen{}\left(+ \cap D\right)\mathclose{}} + {\Pr\mathopen{}\left(\neg + \cap \neg D\right)\mathclose{}} && \text{(definition of } p_o \text{)} \\ &= 0.0693 + 0.9207 && \text{(substitute the two joint probabilities)} \\ &= 0.99 && \text{(add)} \end{aligned} \tag{28}\\
 
 > **NOTE:**
 >
-> **Definition 11 (Positive agreement)** The **positive agreement** (also called the *average positive agreement*) of an agreement table ([Definition 9](#def-agreement-table)) with \\2a + b + c \> 0\\ is the number of positive calls the agent and the reference share, counted once for each classifier, as a proportion of all their positive calls:
+> **Definition 11 (Estimated overall agreement)** The **estimated overall agreement** of an [agreement table](#def-agreement-table) is the [sample proportion](exploratory-descriptive.llms.md#def-sample-proportion) of observations on which the agent and the reference assign the same [class](#def-class), which [estimates](estimation.llms.md#def-estimate) the [overall agreement](#def-overall-agreement) \\p_o\\:
 >
-> \\p\_{\text{pos}} \stackrel{\text{def}}{=}\frac{2a}{2a + b + c} \tag{27}\\
+> \\\widehat{p}\_o \stackrel{\text{def}}{=}\frac{a + d}{n} \tag{29}\\
 >
-> Source: Cicchetti and Feinstein [\[7\]](#ref-cicchetti1990high).
+> Source: Cohen [\[7\]](#ref-cohen1960coefficient).
 
 > **NOTE:**
 >
-> **Example 10 (Positive agreement for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), the positive agreement ([Definition 11](#def-positive-agreement)) is:
+> **Example 10 (Estimated overall agreement for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 8](#exm-agreement-table-covid), the [estimated overall agreement](#def-estimated-overall-agreement) is:
 >
-> \\ \begin{aligned} p\_{\text{pos}} &= \frac{2 \times 693}{2 \times 693 + 93 + 7} && \text{(definition of } p\_{\text{pos}} \text{, with the table's counts)} \\ &= \frac{1{,}386}{1{,}386 + 93 + 7} && \text{(multiply)} \\ &= \frac{1{,}386}{1{,}486} && \text{(add)} \\ &\approx 0.933 && \text{(divide)} \end{aligned} \tag{28}\\
+> \\ \begin{aligned} \widehat{p}\_o &= \frac{693 + 9{,}207}{10{,}000} && \text{(definition of } \widehat{p}\_o \text{, with the table's counts)} \\ &= \frac{9{,}900}{10{,}000} && \text{(add)} \\ &= 0.99 && \text{(divide)} \end{aligned} \tag{30}\\
+>
+> This [estimate](estimation.llms.md#def-estimate) equals the [overall agreement](#def-overall-agreement) \\p_o = 0.99\\ of [Example 9](#exm-overall-agreement), because the table’s cell [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) \\a / n = 0.0693\\ and \\d / n = 0.9207\\ equal the joint [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) \\{\Pr\mathopen{}\left(+ \cap D\right)\mathclose{}}\\ and \\{\Pr\mathopen{}\left(\neg + \cap \neg D\right)\mathclose{}}\\.
+
+> **NOTE:**
+>
+> **Definition 12 (Positive agreement)** The **positive agreement** (also called the *average positive agreement*) of an agreement table ([Definition 9](#def-agreement-table)) with \\2a + b + c \> 0\\ is the number of positive calls the agent and the reference share, counted once for each classifier, as a proportion of all their positive calls:
+>
+> \\p\_{\text{pos}} \stackrel{\text{def}}{=}\frac{2a}{2a + b + c} \tag{31}\\
+>
+> Source: Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high).
+
+> **NOTE:**
+>
+> **Example 11 (Positive agreement for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), the positive agreement ([Definition 12](#def-positive-agreement)) is:
+>
+> \\ \begin{aligned} p\_{\text{pos}} &= \frac{2 \times 693}{2 \times 693 + 93 + 7} && \text{(definition of } p\_{\text{pos}} \text{, with the table's counts)} \\ &= \frac{1{,}386}{1{,}386 + 93 + 7} && \text{(multiply)} \\ &= \frac{1{,}386}{1{,}486} && \text{(add)} \\ &\approx 0.933 && \text{(divide)} \end{aligned} \tag{32}\\
 >
 > The positive agreement is lower than the overall agreement ([Example 9](#exm-overall-agreement)), because the 93 false positives are large relative to the 693 true positives.
 
 > **NOTE:**
 >
-> **Definition 12 (Negative agreement)** The **negative agreement** (also called the *average negative agreement*) of an agreement table ([Definition 9](#def-agreement-table)) with \\2d + b + c \> 0\\ is the number of negative calls the agent and the reference share, counted once for each classifier, as a proportion of all their negative calls:
+> **Definition 13 (Negative agreement)** The **negative agreement** (also called the *average negative agreement*) of an agreement table ([Definition 9](#def-agreement-table)) with \\2d + b + c \> 0\\ is the number of negative calls the agent and the reference share, counted once for each classifier, as a proportion of all their negative calls:
 >
-> \\p\_{\text{neg}} \stackrel{\text{def}}{=}\frac{2d}{2d + b + c} \tag{29}\\
+> \\p\_{\text{neg}} \stackrel{\text{def}}{=}\frac{2d}{2d + b + c} \tag{33}\\
 >
-> Source: Cicchetti and Feinstein [\[7\]](#ref-cicchetti1990high).
+> Source: Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high).
 
 > **NOTE:**
 >
-> **Example 11 (Negative agreement for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), the negative agreement ([Definition 12](#def-negative-agreement)) is:
+> **Example 12 (Negative agreement for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), the negative agreement ([Definition 13](#def-negative-agreement)) is:
 >
-> \\ \begin{aligned} p\_{\text{neg}} &= \frac{2 \times 9{,}207}{2 \times 9{,}207 + 93 + 7} && \text{(definition of } p\_{\text{neg}} \text{, with the table's counts)} \\ &= \frac{18{,}414}{18{,}414 + 93 + 7} && \text{(multiply)} \\ &= \frac{18{,}414}{18{,}514} && \text{(add)} \\ &\approx 0.995 && \text{(divide)} \end{aligned} \tag{30}\\
+> \\ \begin{aligned} p\_{\text{neg}} &= \frac{2 \times 9{,}207}{2 \times 9{,}207 + 93 + 7} && \text{(definition of } p\_{\text{neg}} \text{, with the table's counts)} \\ &= \frac{18{,}414}{18{,}414 + 93 + 7} && \text{(multiply)} \\ &= \frac{18{,}414}{18{,}514} && \text{(add)} \\ &\approx 0.995 && \text{(divide)} \end{aligned} \tag{34}\\
 >
 > The negative agreement is even higher than the overall agreement ([Example 9](#exm-overall-agreement)), because the 100 disagreements are small relative to the 9,207 shared negative calls.
 
 > **NOTE:**
 >
-> **Definition 13 (Agent-only rate)** The **agent-only rate** of an agreement table ([Definition 9](#def-agreement-table)) is the proportion of observations that the agent calls positive and the reference calls negative:
+> **Definition 14 (Agent-only rate)** The **agent-only rate** of an agreement table ([Definition 9](#def-agreement-table)) is the proportion of observations that the agent calls positive and the reference calls negative:
 >
-> \\p\_{\text{agent}} \stackrel{\text{def}}{=}\frac{b}{n} \tag{31}\\
+> \\p\_{\text{agent}} \stackrel{\text{def}}{=}\frac{b}{n} \tag{35}\\
 
 > **NOTE:**
 >
-> **Example 12 (Agent-only rate for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), the agent-only rate ([Definition 13](#def-agent-only-rate)) is:
+> **Example 13 (Agent-only rate for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), the agent-only rate ([Definition 14](#def-agent-only-rate)) is:
 >
-> \\ \begin{aligned} p\_{\text{agent}} &= \frac{93}{10{,}000} && \text{(definition of } p\_{\text{agent}} \text{, with the table's counts)} \\ &= 0.0093 && \text{(divide)} \end{aligned} \tag{32}\\
+> \\ \begin{aligned} p\_{\text{agent}} &= \frac{93}{10{,}000} && \text{(definition of } p\_{\text{agent}} \text{, with the table's counts)} \\ &= 0.0093 && \text{(divide)} \end{aligned} \tag{36}\\
 >
 > so about 9 of every 1,000 people tested are called positive by the test and negative by the reference.
 
 > **NOTE:**
 >
-> **Definition 14 (Test measures estimated from an agreement table)** Treating the reference as the truth, an agreement table ([Definition 9](#def-agreement-table)) estimates four measures of the agent:
+> **Definition 15 (Test measures estimated from an agreement table)** Treating the reference as the truth, an agreement table ([Definition 9](#def-agreement-table)) estimates four measures of the agent:
 >
 > - its [sensitivity](#def-sensitivity);
 > - its [specificity](#def-specificity);
@@ -347,11 +378,11 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > Each estimate is the matching proportion of the table’s cells, defined when its denominator is positive:
 >
-> \\ \begin{aligned} \widehat{\text{sensitivity}} &\stackrel{\text{def}}{=}\frac{a}{a + c}, \\ \widehat{\text{specificity}} &\stackrel{\text{def}}{=}\frac{d}{b + d}, \\ \widehat{\text{PPV}} &\stackrel{\text{def}}{=}\frac{a}{a + b}, \\ \widehat{\text{NPV}} &\stackrel{\text{def}}{=}\frac{d}{c + d}. \end{aligned} \tag{33}\\
+> \\ \begin{aligned} \widehat{\text{sensitivity}} &\stackrel{\text{def}}{=}\frac{a}{a + c}, \\ \widehat{\text{specificity}} &\stackrel{\text{def}}{=}\frac{d}{b + d}, \\ \widehat{\text{PPV}} &\stackrel{\text{def}}{=}\frac{a}{a + b}, \\ \widehat{\text{NPV}} &\stackrel{\text{def}}{=}\frac{d}{c + d}. \end{aligned} \tag{37}\\
 
 > **NOTE:**
 >
-> **Example 13 (Test measures for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), [Definition 14](#def-agreement-test-measures) gives:
+> **Example 14 (Test measures for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), [Definition 15](#def-agreement-test-measures) gives:
 >
 > ``` downlit
 > test_measures <- with(as.list(agree_covid), c(
@@ -371,130 +402,171 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 15 (Harmonic mean)** The **harmonic mean** of two positive numbers \\x\\ and \\y\\ is the reciprocal of the average of their reciprocals:
+> **Definition 16 (Harmonic mean)** The **harmonic mean** of two positive numbers \\x\\ and \\y\\ is the reciprocal of the average of their reciprocals:
 >
-> \\H(x, y) \stackrel{\text{def}}{=}\frac{2}{\frac{1}{x} + \frac{1}{y}} \tag{34}\\
+> \\H(x, y) \stackrel{\text{def}}{=}\frac{2}{\frac{1}{x} + \frac{1}{y}} \tag{38}\\
 >
-> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_harmonic_mean).
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_harmonic_mean).
 
 > **NOTE:**
 >
-> **Example 14 (Harmonic mean of 0.5 and 1)** By [Definition 15](#def-harmonic-mean):
+> **Example 15 (Harmonic mean of 0.5 and 1)** By [Definition 16](#def-harmonic-mean):
 >
-> \\ \begin{aligned} H(0.5, 1) &= \frac{2}{\frac{1}{0.5} + \frac{1}{1}} && \text{(definition of } H \text{)} \\ &= \frac{2}{2 + 1} && \text{(take each reciprocal)} \\ &= \frac{2}{3} && \text{(add)} \\ &\approx 0.667 && \text{(divide)} \end{aligned} \tag{35}\\
+> \\ \begin{aligned} H(0.5, 1) &= \frac{2}{\frac{1}{0.5} + \frac{1}{1}} && \text{(definition of } H \text{)} \\ &= \frac{2}{2 + 1} && \text{(take each reciprocal)} \\ &= \frac{2}{3} && \text{(add)} \\ &\approx 0.667 && \text{(divide)} \end{aligned} \tag{39}\\
 >
 > The ordinary average of 0.5 and 1 is 0.75; the harmonic mean sits closer to the smaller number.
 
 > **NOTE:**
 >
-> **Exercise 4 (Positive agreement from PPV and sensitivity)** For an agreement table ([Definition 9](#def-agreement-table)) with \\a \> 0\\, write the [harmonic mean](#def-harmonic-mean) of the estimated positive predictive value and sensitivity ([Definition 14](#def-agreement-test-measures)) in terms of the table’s cells.
+> **Exercise 4 (Positive agreement from PPV and sensitivity)** For an agreement table ([Definition 9](#def-agreement-table)) with \\a \> 0\\, write the [harmonic mean](#def-harmonic-mean) of the estimated positive predictive value and sensitivity ([Definition 15](#def-agreement-test-measures)) in terms of the table’s cells.
 
 > **NOTE:**
 >
 > *Solution 4*. Because \\a \> 0\\, both \\a + b\\ and \\a + c\\ are positive, so both estimates are defined and positive:
 >
-> \\ \begin{aligned} H\mathopen{}\left(\widehat{\text{PPV}}, \widehat{\text{sensitivity}}\right)\mathclose{} &= \frac{2}{\frac{1}{\widehat{\text{PPV}}} + \frac{1}{\widehat{\text{sensitivity}}}} && \text{(definition of } H \text{)} \\ &= \frac{2}{\frac{1}{a / (a + b)} + \frac{1}{\widehat{\text{sensitivity}}}} && \text{(definition of } \widehat{\text{PPV}} \text{)} \\ &= \frac{2}{\frac{1}{a / (a + b)} + \frac{1}{a / (a + c)}} && \text{(definition of } \widehat{\text{sensitivity}} \text{)} \\ &= \frac{2}{\frac{a + b}{a} + \frac{1}{a / (a + c)}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{a + b}{a} + \frac{a + c}{a}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{(a + b) + (a + c)}{a}} && \text{(add fractions with a common denominator)} \\ &= \frac{2}{\frac{a + b + a + c}{a}} && \text{(remove parentheses)} \\ &= \frac{2}{\frac{a + a + b + c}{a}} && \text{(reorder terms)} \\ &= \frac{2}{\frac{2a + b + c}{a}} && \text{(} a + a = 2a \text{)} \\ &= 2 \cdot\frac{a}{2a + b + c} && \text{(dividing by a fraction multiplies by its reciprocal)} \\ &= \frac{2a}{2a + b + c} && \text{(multiply)} \end{aligned} \tag{36}\\
+> \\ \begin{aligned} H\mathopen{}\left(\widehat{\text{PPV}}, \widehat{\text{sensitivity}}\right)\mathclose{} &= \frac{2}{\frac{1}{\widehat{\text{PPV}}} + \frac{1}{\widehat{\text{sensitivity}}}} && \text{(definition of } H \text{)} \\ &= \frac{2}{\frac{1}{a / (a + b)} + \frac{1}{\widehat{\text{sensitivity}}}} && \text{(definition of } \widehat{\text{PPV}} \text{)} \\ &= \frac{2}{\frac{1}{a / (a + b)} + \frac{1}{a / (a + c)}} && \text{(definition of } \widehat{\text{sensitivity}} \text{)} \\ &= \frac{2}{\frac{a + b}{a} + \frac{1}{a / (a + c)}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{a + b}{a} + \frac{a + c}{a}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{(a + b) + (a + c)}{a}} && \text{(add fractions with a common denominator)} \\ &= \frac{2}{\frac{a + b + a + c}{a}} && \text{(remove parentheses)} \\ &= \frac{2}{\frac{a + a + b + c}{a}} && \text{(reorder terms)} \\ &= \frac{2}{\frac{2a + b + c}{a}} && \text{(} a + a = 2a \text{)} \\ &= 2 \cdot\frac{a}{2a + b + c} && \text{(dividing by a fraction multiplies by its reciprocal)} \\ &= \frac{2a}{2a + b + c} && \text{(multiply)} \end{aligned} \tag{40}\\
 
 > **NOTE:**
 >
-> **Theorem 4 (Positive agreement is a harmonic mean)** For an agreement table with \\a \> 0\\, the positive agreement ([Definition 11](#def-positive-agreement)) is the harmonic mean ([Definition 15](#def-harmonic-mean)) of the estimated positive predictive value and sensitivity ([Definition 14](#def-agreement-test-measures)):
+> **Theorem 4 (Positive agreement is a harmonic mean)** For an agreement table with \\a \> 0\\, the positive agreement ([Definition 12](#def-positive-agreement)) is the harmonic mean ([Definition 16](#def-harmonic-mean)) of the estimated positive predictive value and sensitivity ([Definition 15](#def-agreement-test-measures)):
 >
-> \\ p\_{\text{pos}} = H\mathopen{}\left(\widehat{\text{PPV}}, \widehat{\text{sensitivity}}\right)\mathclose{} \tag{37}\\
+> \\ p\_{\text{pos}} = H\mathopen{}\left(\widehat{\text{PPV}}, \widehat{\text{sensitivity}}\right)\mathclose{} \tag{41}\\
 
 > **NOTE:**
 >
-> *Proof*. By [Exercise 4](#exr-pos-agreement-harmonic), the harmonic mean equals \\2a / (2a + b + c)\\, which is \\p\_{\text{pos}}\\ by [Definition 11](#def-positive-agreement).
+> *Proof*. By [Exercise 4](#exr-pos-agreement-harmonic), the harmonic mean equals \\2a / (2a + b + c)\\, which is \\p\_{\text{pos}}\\ by [Definition 12](#def-positive-agreement).
 
 > **NOTE:**
 >
-> **Example 15 (Positive agreement of the COVID-19 test as a harmonic mean)** For the agreement table of [Example 8](#exm-agreement-table-covid), the estimated positive predictive value is \\693 / 786\\ and the estimated sensitivity is \\693 / 700\\ ([Example 13](#exm-agreement-test-measures)). [Theorem 4](#thm-pos-agreement-harmonic) gives:
+> **Example 16 (Positive agreement of the COVID-19 test as a harmonic mean)** For the agreement table of [Example 8](#exm-agreement-table-covid), the estimated positive predictive value is \\693 / 786\\ and the estimated sensitivity is \\693 / 700\\ ([Example 14](#exm-agreement-test-measures)). [Theorem 4](#thm-pos-agreement-harmonic) gives:
 >
-> \\ \begin{aligned} p\_{\text{pos}} &= \frac{2}{\frac{1}{693 / 786} + \frac{1}{693 / 700}} && \text{(harmonic mean of the two estimates)} \\ &= \frac{2}{\frac{786}{693} + \frac{1}{693 / 700}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{786}{693} + \frac{700}{693}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{1{,}486}{693}} && \text{(add fractions with a common denominator)} \\ &= 2 \cdot\frac{693}{1{,}486} && \text{(dividing by a fraction multiplies by its reciprocal)} \\ &= \frac{1{,}386}{1{,}486} && \text{(multiply)} \\ &\approx 0.933 && \text{(divide)} \end{aligned} \tag{38}\\
+> \\ \begin{aligned} p\_{\text{pos}} &= \frac{2}{\frac{1}{693 / 786} + \frac{1}{693 / 700}} && \text{(harmonic mean of the two estimates)} \\ &= \frac{2}{\frac{786}{693} + \frac{1}{693 / 700}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{786}{693} + \frac{700}{693}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{1{,}486}{693}} && \text{(add fractions with a common denominator)} \\ &= 2 \cdot\frac{693}{1{,}486} && \text{(dividing by a fraction multiplies by its reciprocal)} \\ &= \frac{1{,}386}{1{,}486} && \text{(multiply)} \\ &\approx 0.933 && \text{(divide)} \end{aligned} \tag{42}\\
 >
-> which matches [Example 10](#exm-positive-agreement). The lower positive predictive value (about 0.88) pulls the positive agreement down from the sensitivity (0.99), as in [Example 14](#exm-harmonic-mean).
+> which matches [Example 11](#exm-positive-agreement). The lower positive predictive value (about 0.88) pulls the positive agreement down from the sensitivity (0.99), as in [Example 15](#exm-harmonic-mean).
 
 > **NOTE:**
 >
-> **Exercise 5 (Negative agreement from NPV and specificity)** For an agreement table ([Definition 9](#def-agreement-table)) with \\d \> 0\\, write the [harmonic mean](#def-harmonic-mean) of the estimated negative predictive value and specificity ([Definition 14](#def-agreement-test-measures)) in terms of the table’s cells.
+> **Exercise 5 (Negative agreement from NPV and specificity)** For an agreement table ([Definition 9](#def-agreement-table)) with \\d \> 0\\, write the [harmonic mean](#def-harmonic-mean) of the estimated negative predictive value and specificity ([Definition 15](#def-agreement-test-measures)) in terms of the table’s cells.
 
 > **NOTE:**
 >
 > *Solution 5*. Because \\d \> 0\\, both \\c + d\\ and \\b + d\\ are positive, so both estimates are defined and positive:
 >
-> \\ \begin{aligned} H\mathopen{}\left(\widehat{\text{NPV}}, \widehat{\text{specificity}}\right)\mathclose{} &= \frac{2}{\frac{1}{\widehat{\text{NPV}}} + \frac{1}{\widehat{\text{specificity}}}} && \text{(definition of } H \text{)} \\ &= \frac{2}{\frac{1}{d / (c + d)} + \frac{1}{\widehat{\text{specificity}}}} && \text{(definition of } \widehat{\text{NPV}} \text{)} \\ &= \frac{2}{\frac{1}{d / (c + d)} + \frac{1}{d / (b + d)}} && \text{(definition of } \widehat{\text{specificity}} \text{)} \\ &= \frac{2}{\frac{c + d}{d} + \frac{1}{d / (b + d)}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{c + d}{d} + \frac{b + d}{d}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{(c + d) + (b + d)}{d}} && \text{(add fractions with a common denominator)} \\ &= \frac{2}{\frac{c + d + b + d}{d}} && \text{(remove parentheses)} \\ &= \frac{2}{\frac{d + d + b + c}{d}} && \text{(reorder terms)} \\ &= \frac{2}{\frac{2d + b + c}{d}} && \text{(} d + d = 2d \text{)} \\ &= 2 \cdot\frac{d}{2d + b + c} && \text{(dividing by a fraction multiplies by its reciprocal)} \\ &= \frac{2d}{2d + b + c} && \text{(multiply)} \end{aligned} \tag{39}\\
+> \\ \begin{aligned} H\mathopen{}\left(\widehat{\text{NPV}}, \widehat{\text{specificity}}\right)\mathclose{} &= \frac{2}{\frac{1}{\widehat{\text{NPV}}} + \frac{1}{\widehat{\text{specificity}}}} && \text{(definition of } H \text{)} \\ &= \frac{2}{\frac{1}{d / (c + d)} + \frac{1}{\widehat{\text{specificity}}}} && \text{(definition of } \widehat{\text{NPV}} \text{)} \\ &= \frac{2}{\frac{1}{d / (c + d)} + \frac{1}{d / (b + d)}} && \text{(definition of } \widehat{\text{specificity}} \text{)} \\ &= \frac{2}{\frac{c + d}{d} + \frac{1}{d / (b + d)}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{c + d}{d} + \frac{b + d}{d}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{(c + d) + (b + d)}{d}} && \text{(add fractions with a common denominator)} \\ &= \frac{2}{\frac{c + d + b + d}{d}} && \text{(remove parentheses)} \\ &= \frac{2}{\frac{d + d + b + c}{d}} && \text{(reorder terms)} \\ &= \frac{2}{\frac{2d + b + c}{d}} && \text{(} d + d = 2d \text{)} \\ &= 2 \cdot\frac{d}{2d + b + c} && \text{(dividing by a fraction multiplies by its reciprocal)} \\ &= \frac{2d}{2d + b + c} && \text{(multiply)} \end{aligned} \tag{43}\\
 
 > **NOTE:**
 >
-> **Theorem 5 (Negative agreement is a harmonic mean)** For an agreement table with \\d \> 0\\, the negative agreement ([Definition 12](#def-negative-agreement)) is the harmonic mean ([Definition 15](#def-harmonic-mean)) of the estimated negative predictive value and specificity ([Definition 14](#def-agreement-test-measures)):
+> **Theorem 5 (Negative agreement is a harmonic mean)** For an agreement table with \\d \> 0\\, the negative agreement ([Definition 13](#def-negative-agreement)) is the harmonic mean ([Definition 16](#def-harmonic-mean)) of the estimated negative predictive value and specificity ([Definition 15](#def-agreement-test-measures)):
 >
-> \\ p\_{\text{neg}} = H\mathopen{}\left(\widehat{\text{NPV}}, \widehat{\text{specificity}}\right)\mathclose{} \tag{40}\\
+> \\ p\_{\text{neg}} = H\mathopen{}\left(\widehat{\text{NPV}}, \widehat{\text{specificity}}\right)\mathclose{} \tag{44}\\
 
 > **NOTE:**
 >
-> *Proof*. By [Exercise 5](#exr-neg-agreement-harmonic), the harmonic mean equals \\2d / (2d + b + c)\\, which is \\p\_{\text{neg}}\\ by [Definition 12](#def-negative-agreement).
+> *Proof*. By [Exercise 5](#exr-neg-agreement-harmonic), the harmonic mean equals \\2d / (2d + b + c)\\, which is \\p\_{\text{neg}}\\ by [Definition 13](#def-negative-agreement).
 
 > **NOTE:**
 >
-> **Example 16 (Negative agreement of the COVID-19 test as a harmonic mean)** For the agreement table of [Example 8](#exm-agreement-table-covid), the estimated negative predictive value is \\9{,}207 / 9{,}214\\ and the estimated specificity is \\9{,}207 / 9{,}300\\ ([Example 13](#exm-agreement-test-measures)). [Theorem 5](#thm-neg-agreement-harmonic) gives:
+> **Example 17 (Negative agreement of the COVID-19 test as a harmonic mean)** For the agreement table of [Example 8](#exm-agreement-table-covid), the estimated negative predictive value is \\9{,}207 / 9{,}214\\ and the estimated specificity is \\9{,}207 / 9{,}300\\ ([Example 14](#exm-agreement-test-measures)). [Theorem 5](#thm-neg-agreement-harmonic) gives:
 >
-> \\ \begin{aligned} p\_{\text{neg}} &= \frac{2}{\frac{1}{9{,}207 / 9{,}214} + \frac{1}{9{,}207 / 9{,}300}} && \text{(harmonic mean of the two estimates)} \\ &= \frac{2}{\frac{9{,}214}{9{,}207} + \frac{1}{9{,}207 / 9{,}300}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{9{,}214}{9{,}207} + \frac{9{,}300}{9{,}207}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{18{,}514}{9{,}207}} && \text{(add fractions with a common denominator)} \\ &= 2 \cdot\frac{9{,}207}{18{,}514} && \text{(dividing by a fraction multiplies by its reciprocal)} \\ &= \frac{18{,}414}{18{,}514} && \text{(multiply)} \\ &\approx 0.995 && \text{(divide)} \end{aligned} \tag{41}\\
+> \\ \begin{aligned} p\_{\text{neg}} &= \frac{2}{\frac{1}{9{,}207 / 9{,}214} + \frac{1}{9{,}207 / 9{,}300}} && \text{(harmonic mean of the two estimates)} \\ &= \frac{2}{\frac{9{,}214}{9{,}207} + \frac{1}{9{,}207 / 9{,}300}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{9{,}214}{9{,}207} + \frac{9{,}300}{9{,}207}} && \text{(reciprocal of a fraction)} \\ &= \frac{2}{\frac{18{,}514}{9{,}207}} && \text{(add fractions with a common denominator)} \\ &= 2 \cdot\frac{9{,}207}{18{,}514} && \text{(dividing by a fraction multiplies by its reciprocal)} \\ &= \frac{18{,}414}{18{,}514} && \text{(multiply)} \\ &\approx 0.995 && \text{(divide)} \end{aligned} \tag{45}\\
 >
-> which matches [Example 11](#exm-negative-agreement).
+> which matches [Example 12](#exm-negative-agreement).
 
 ## 8 Cohen’s kappa
 
 > **NOTE:**
 >
-> **Definition 16 (Chance agreement)** The **chance agreement** of an agreement table ([Definition 9](#def-agreement-table)) is the overall agreement we would expect if the agent and the reference classified independently, each with its observed proportion of positive calls:
+> **Definition 17 (Chance agreement)** Let:
 >
-> \\p_e \stackrel{\text{def}}{=}\frac{(a + b)(a + c) + (c + d)(b + d)}{n^2} \tag{42}\\
+> - \\A\\ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the agent assigns the positive [class](#def-class) to an observation drawn from a [population](exploratory-descriptive.llms.md#def-population), with [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement) \\\neg A\\.
+> - \\R\\ be the event that the reference assigns the positive class to the same observation, with complement \\\neg R\\.
 >
-> Source: Cohen [\[9\]](#ref-cohen1960coefficient).
+> The **chance agreement** of the agent and the reference on that population is the [overall agreement](#def-overall-agreement) they would have if \\A\\ and \\R\\ were [statistically independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) with their marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) \\{\Pr\mathopen{}\left(A\right)\mathclose{}}\\ and \\{\Pr\mathopen{}\left(R\right)\mathclose{}}\\:
+>
+> \\p_e \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(A\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(R\right)\mathclose{}} + {\Pr\mathopen{}\left(\neg A\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(\neg R\right)\mathclose{}} \tag{46}\\
+>
+> Source: Cohen [\[7\]](#ref-cohen1960coefficient).
 
 > **NOTE:**
 >
-> **Example 17 (Chance agreement for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), the chance agreement ([Definition 16](#def-chance-agreement)) is:
+> **Example 18 (Chance agreement for the COVID-19 test)** Apply the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) to the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), with the test as the agent (\\A = +\\) and the disease status as the reference (\\R = D\\). By [Theorem 1](#thm-prob-positive), with [sensitivity](#def-sensitivity) \\\text{sens} = 0.99\\, [specificity](#def-specificity) \\\text{spec} = 0.99\\, and [prevalence](#def-prevalence) \\\pi= {\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07\\, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a positive test is:
 >
-> \\ \begin{aligned} p_e &= \frac{786 \times 700 + 9{,}214 \times 9{,}300}{10{,}000^2} && \text{(definition of } p_e \text{, with the table's counts)} \\ &= \frac{550{,}200 + 85{,}690{,}200}{10{,}000^2} && \text{(multiply)} \\ &= \frac{86{,}240{,}400}{10{,}000^2} && \text{(add)} \\ &= \frac{86{,}240{,}400}{100{,}000{,}000} && \text{(square)} \\ &= 0.862404 && \text{(divide)} \end{aligned} \tag{43}\\
+> \\ \begin{aligned} {\Pr\mathopen{}\left(+\right)\mathclose{}} &= \text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{} && \text{(probability of a positive test)} \\ &= 0.99 \cdot 0.07 + \mathopen{}\left(1 - 0.99\right)\mathclose{} \cdot\mathopen{}\left(1 - 0.07\right)\mathclose{} && \text{(substitute the given values)} \\ &= 0.99 \cdot 0.07 + 0.01 \cdot 0.93 && \text{(subtract inside each pair of parentheses)} \\ &= 0.0693 + 0.0093 && \text{(multiply each product)} \\ &= 0.0786 && \text{(add)} \end{aligned} \tag{47}\\
 >
-> Because nearly everyone tests negative and is negative, two independent classifiers with these margins would agree on about 86% of people by chance alone.
+> By the [complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0), the probability of a negative test is:
+>
+> \\ \begin{aligned} {\Pr\mathopen{}\left(\neg +\right)\mathclose{}} &= 1 - {\Pr\mathopen{}\left(+\right)\mathclose{}} && \text{(complement rule)} \\ &= 1 - 0.0786 && \text{(substitute } {\Pr\mathopen{}\left(+\right)\mathclose{}} \text{)} \\ &= 0.9214 && \text{(subtract)} \end{aligned} \tag{48}\\
+>
+> With \\{\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07\\ and \\{\Pr\mathopen{}\left(\neg D\right)\mathclose{}} = 0.93\\ ([Example 4](#exm-prevalence)), the [chance agreement](#def-chance-agreement) is:
+>
+> \\ \begin{aligned} p_e &= {\Pr\mathopen{}\left(+\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(D\right)\mathclose{}} + {\Pr\mathopen{}\left(\neg +\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(\neg D\right)\mathclose{}} && \text{(definition of } p_e \text{)} \\ &= 0.0786 \cdot 0.07 + 0.9214 \cdot 0.93 && \text{(substitute the marginal probabilities)} \\ &= 0.005502 + 0.856902 && \text{(multiply each product)} \\ &= 0.862404 && \text{(add)} \end{aligned} \tag{49}\\
+>
+> Because nearly everyone tests negative and does not have COVID-19, two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) classifiers with \\{\Pr\mathopen{}\left(+\right)\mathclose{}} = 0.0786\\ and \\{\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07\\ would agree on about 86% of people by chance alone.
 
 > **NOTE:**
 >
-> **Definition 17 (Cohen’s kappa)** For an agreement table with \\p_e \< 1\\, **Cohen’s kappa** is the agreement beyond chance, as a fraction of the largest possible agreement beyond chance, built from the overall agreement ([Definition 10](#def-overall-agreement)) and the chance agreement ([Definition 16](#def-chance-agreement)) [\[10\]](#ref-wikipedia_cohens_kappa):
+> **Definition 18 (Estimated chance agreement)** The **estimated chance agreement** of an [agreement table](#def-agreement-table) [estimates](estimation.llms.md#def-estimate) the [chance agreement](#def-chance-agreement) \\p_e\\ by replacing the marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) \\{\Pr\mathopen{}\left(A\right)\mathclose{}}\\, \\{\Pr\mathopen{}\left(R\right)\mathclose{}}\\, \\{\Pr\mathopen{}\left(\neg A\right)\mathclose{}}\\, and \\{\Pr\mathopen{}\left(\neg R\right)\mathclose{}}\\ with the table’s marginal [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) \\(a + b) / n\\, \\(a + c) / n\\, \\(c + d) / n\\, and \\(b + d) / n\\:
 >
-> \\\kappa \stackrel{\text{def}}{=}\frac{p_o - p_e}{1 - p_e} \tag{44}\\
+> \\\widehat{p}\_e \stackrel{\text{def}}{=}\frac{(a + b)(a + c) + (c + d)(b + d)}{n^2} \tag{50}\\
 >
-> > **NOTE:**
-> >
-> > Cohen [\[9\]](#ref-cohen1960coefficient); Wikipedia contributors [\[10\]](#ref-wikipedia_cohens_kappa).
+> Source: Cohen [\[7\]](#ref-cohen1960coefficient).
 
 > **NOTE:**
 >
-> **Example 18 (Cohen’s kappa for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), \\p_o = 0.99\\ ([Example 9](#exm-overall-agreement)) and \\p_e = 0.862404\\ ([Example 17](#exm-chance-agreement)), so Cohen’s kappa ([Definition 17](#def-cohen-kappa)) is:
+> **Example 19 (Estimated chance agreement for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 8](#exm-agreement-table-covid), the [estimated chance agreement](#def-estimated-chance-agreement) is:
 >
-> \\ \begin{aligned} \kappa &= \frac{0.99 - 0.862404}{1 - 0.862404} && \text{(definition of } \kappa \text{)} \\ &= \frac{0.127596}{1 - 0.862404} && \text{(subtract in the numerator)} \\ &= \frac{0.127596}{0.137596} && \text{(subtract in the denominator)} \\ &\approx 0.927 && \text{(divide)} \end{aligned} \tag{45}\\
+> \\ \begin{aligned} \widehat{p}\_e &= \frac{786 \times 700 + 9{,}214 \times 9{,}300}{10{,}000^2} && \text{(definition of } \widehat{p}\_e \text{, with the table's counts)} \\ &= \frac{550{,}200 + 85{,}690{,}200}{10{,}000^2} && \text{(multiply)} \\ &= \frac{86{,}240{,}400}{10{,}000^2} && \text{(add)} \\ &= \frac{86{,}240{,}400}{100{,}000{,}000} && \text{(square)} \\ &= 0.862404 && \text{(divide)} \end{aligned} \tag{51}\\
 >
-> Show R code
+> This [estimate](estimation.llms.md#def-estimate) equals the [chance agreement](#def-chance-agreement) \\p_e = 0.862404\\ of [Example 18](#exm-chance-agreement), because the table’s marginal [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) equal the marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) \\{\Pr\mathopen{}\left(+\right)\mathclose{}}\\, \\{\Pr\mathopen{}\left(D\right)\mathclose{}}\\, \\{\Pr\mathopen{}\left(\neg +\right)\mathclose{}}\\, and \\{\Pr\mathopen{}\left(\neg D\right)\mathclose{}}\\.
+
+> **NOTE:**
+>
+> **Definition 19 (Cohen’s kappa)** For an agent and a reference with [chance agreement](#def-chance-agreement) \\p_e \< 1\\, **Cohen’s kappa** is the agreement beyond chance, as a fraction of the largest possible agreement beyond chance, built from the [overall agreement](#def-overall-agreement) \\p_o\\ and the chance agreement \\p_e\\:
+>
+> \\\kappa \stackrel{\text{def}}{=}\frac{p_o - p_e}{1 - p_e} \tag{52}\\
+>
+> Source: Cohen [\[7\]](#ref-cohen1960coefficient); Wikipedia contributors [\[10\]](#ref-wikipedia_cohens_kappa).
+
+> **NOTE:**
+>
+> **Example 20 (Cohen’s kappa for the COVID-19 test)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) in the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), the [overall agreement](#def-overall-agreement) is \\p_o = 0.99\\ ([Example 9](#exm-overall-agreement)) and the [chance agreement](#def-chance-agreement) is \\p_e = 0.862404\\ ([Example 18](#exm-chance-agreement)), so [Cohen’s kappa](#def-cohen-kappa) is:
+>
+> \\ \begin{aligned} \kappa &= \frac{0.99 - 0.862404}{1 - 0.862404} && \text{(definition of } \kappa \text{)} \\ &= \frac{0.127596}{1 - 0.862404} && \text{(subtract in the numerator)} \\ &= \frac{0.127596}{0.137596} && \text{(subtract in the denominator)} \\ &\approx 0.927 && \text{(divide)} \end{aligned} \tag{53}\\
+
+> **NOTE:**
+>
+> **Definition 20 (Estimated Cohen’s kappa)** For an [agreement table](#def-agreement-table) with [estimated chance agreement](#def-estimated-chance-agreement) \\\widehat{p}\_e \< 1\\, the **estimated Cohen’s kappa** [estimates](estimation.llms.md#def-estimate) [Cohen’s kappa](#def-cohen-kappa) \\\kappa\\ from the [estimated overall agreement](#def-estimated-overall-agreement) \\\widehat{p}\_o\\ and the estimated chance agreement \\\widehat{p}\_e\\:
+>
+> \\\hat{\kappa}\stackrel{\text{def}}{=}\frac{\widehat{p}\_o - \widehat{p}\_e}{1 - \widehat{p}\_e} \tag{54}\\
+>
+> Source: Cohen [\[7\]](#ref-cohen1960coefficient); Wikipedia contributors [\[10\]](#ref-wikipedia_cohens_kappa).
+
+> **NOTE:**
+>
+> **Example 21 (Estimated Cohen’s kappa for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 8](#exm-agreement-table-covid), the [estimated overall agreement](#def-estimated-overall-agreement) is \\\widehat{p}\_o = 0.99\\ ([Example 10](#exm-estimated-overall-agreement)) and the [estimated chance agreement](#def-estimated-chance-agreement) is \\\widehat{p}\_e = 0.862404\\ ([Example 19](#exm-estimated-chance-agreement)), so the [estimated Cohen’s kappa](#def-estimated-cohen-kappa) is:
+>
+> \\ \begin{aligned} \hat{\kappa} &= \frac{0.99 - 0.862404}{1 - 0.862404} && \text{(definition of } \hat{\kappa}\text{)} \\ &= \frac{0.127596}{1 - 0.862404} && \text{(subtract in the numerator)} \\ &= \frac{0.127596}{0.137596} && \text{(subtract in the denominator)} \\ &\approx 0.927 && \text{(divide)} \end{aligned} \tag{55}\\
 >
 > ``` downlit
 > kappa_from_table <- function(a, b, c, d) {
 >   n <- a + b + c + d
->   p_o <- (a + d) / n
->   p_e <- ((a + b) * (a + c) + (c + d) * (b + d)) / n^2
->   (p_o - p_e) / (1 - p_e)
+>   p_o_hat <- (a + d) / n
+>   p_e_hat <- ((a + b) * (a + c) + (c + d) * (b + d)) / n^2
+>   (p_o_hat - p_e_hat) / (1 - p_e_hat)
 > }
 > do.call(kappa_from_table, as.list(agree_covid))
 > #> [1] 0.927323
 > ```
+>
+> This [estimate](estimation.llms.md#def-estimate) equals [Cohen’s kappa](#def-cohen-kappa) \\\kappa \approx 0.927\\ of [Example 20](#exm-cohen-kappa-covid), because \\\widehat{p}\_o = p_o\\ and \\\widehat{p}\_e = p_e\\.
 
 > **NOTE:**
 >
-> **Example 19 (High agreement but low kappa)** Now apply the same test to \\n = 100{,}000\\ people in a population where the prevalence is only 0.5%. Then:
+> **Example 22 (High agreement but low kappa)** Now apply the same test to \\n = 100{,}000\\ people in a [population](exploratory-descriptive.llms.md#def-population) where the [prevalence](#def-prevalence) is only 0.5%. Then:
 >
 > - \\0.005 \times 100{,}000 = 500\\ people have COVID-19 and \\100{,}000 - 500 = 99{,}500\\ do not;
-> - with 99% sensitivity, the test is positive for \\a = 0.99 \times 500 = 495\\ people with COVID-19 and negative for \\c = 500 - 495 = 5\\;
-> - with 99% specificity, the false positive rate is \\1 - 0.99 = 0.01\\, so the test is positive for \\b = 0.01 \times 99{,}500 = 995\\ people without COVID-19 and negative for \\d = 99{,}500 - 995 = 98{,}505\\.
+> - with 99% [sensitivity](#def-sensitivity), the test is positive for \\a = 0.99 \times 500 = 495\\ people with COVID-19 and negative for \\c = 500 - 495 = 5\\;
+> - with 99% [specificity](#def-specificity), the false positive rate is \\1 - 0.99 = 0.01\\, so the test is positive for \\b = 0.01 \times 99{,}500 = 995\\ people without COVID-19 and negative for \\d = 99{,}500 - 995 = 98{,}505\\.
 >
 > ``` downlit
 > agree_rare <- c(a = 495, b = 995, c = 5, d = 98505)
@@ -509,15 +581,15 @@ So far, we have compared a test with the true disease status. The same tools app
 > #>   0.9900   0.4975   0.9949   0.4937
 > ```
 >
-> The overall agreement is still 0.99, but kappa drops to about 0.49 and the positive agreement to about 0.50, while the negative agreement stays at about 0.995. The two specific agreements show where the disagreement lies: the test and the reference agree on negatives and disagree on about half of the positive calls.
+> The [estimated overall agreement](#def-estimated-overall-agreement) is still 0.99, but the [estimated Cohen’s kappa](#def-estimated-cohen-kappa) drops to about 0.49 and the [positive agreement](#def-positive-agreement) to about 0.50, while the [negative agreement](#def-negative-agreement) stays at about 0.995. The positive and negative agreements show where the classifiers disagree: the test and the reference agree on negatives and disagree on about half of the positive calls.
 >
 > Source: Feinstein and Cicchetti [\[11\]](#ref-feinstein1990high) (the first paradox).
 
 > **NOTE:**
 >
-> *Remark 3* (Kappa depends on prevalence). When both classifiers call one category rarely, the chance agreement \\p_e\\ is close to 1, so the same overall agreement leaves little room for agreement beyond chance, and kappa can be low even when the overall agreement is high, as [Example 19](#exm-kappa-paradox) shows. Cicchetti and Feinstein [\[7\]](#ref-cicchetti1990high) recommend reporting the positive and negative agreements alongside kappa, so that poor agreement on the rarer category is not hidden.
+> *Remark 3* (Kappa depends on prevalence). When both classifiers call one [class](#def-class) rarely, the [chance agreement](#def-chance-agreement) \\p_e\\ is close to 1, so the same [overall agreement](#def-overall-agreement) leaves little room for agreement beyond chance, and [Cohen’s kappa](#def-cohen-kappa) can be low even when the overall agreement is high, as [Example 22](#exm-kappa-paradox) shows. Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high) recommend reporting the [positive agreement](#def-positive-agreement) and [negative agreement](#def-negative-agreement) alongside Cohen’s kappa, so that poor agreement on the rarer class is not hidden.
 >
-> Source: Feinstein and Cicchetti [\[11\]](#ref-feinstein1990high); Cicchetti and Feinstein [\[7\]](#ref-cicchetti1990high).
+> Source: Feinstein and Cicchetti [\[11\]](#ref-feinstein1990high); Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high).
 
 ## References
 
@@ -547,15 +619,15 @@ Wikipedia contributors, “Confusion matrix — Wikipedia, the free encyclopedia
 
 \[7\]
 
-D. V. Cicchetti and A. R. Feinstein, “High agreement but low kappa: II. Resolving the paradoxes,” *Journal of Clinical Epidemiology*, vol. 43, no. 6, pp. 551–558, 1990, doi: [10.1016/0895-4356(90)90159-M](https://doi.org/10.1016/0895-4356(90)90159-M).
+J. Cohen, “A coefficient of agreement for nominal scales,” *Educational and Psychological Measurement*, vol. 20, no. 1, pp. 37–46, 1960, doi: [10.1177/001316446002000104](https://doi.org/10.1177/001316446002000104).
 
 \[8\]
 
-Wikipedia contributors, “Harmonic mean — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Harmonic_mean>
+D. V. Cicchetti and A. R. Feinstein, “High agreement but low kappa: II. Resolving the paradoxes,” *Journal of Clinical Epidemiology*, vol. 43, no. 6, pp. 551–558, 1990, doi: [10.1016/0895-4356(90)90159-M](https://doi.org/10.1016/0895-4356(90)90159-M).
 
 \[9\]
 
-J. Cohen, “A coefficient of agreement for nominal scales,” *Educational and Psychological Measurement*, vol. 20, no. 1, pp. 37–46, 1960, doi: [10.1177/001316446002000104](https://doi.org/10.1177/001316446002000104).
+Wikipedia contributors, “Harmonic mean — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Harmonic_mean>
 
 \[10\]
 
