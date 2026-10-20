@@ -36,6 +36,7 @@ Imports:
     rjags,
     rmb,
     scales,
+    SyncRNG,
     tibble
 Remotes: 
     d-morrison/rmb
