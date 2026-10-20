@@ -109,6 +109,14 @@ and the [odds ratio](#def-odds-ratio) measure the strength of the association.
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_thm-conditional-odds-ratio-reversible.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-conditional-odds-ratio-reversible.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_def-case.qmd >}}
 
 {{< slidebreak >}}
