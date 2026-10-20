@@ -1,18 +1,53 @@
 :::{#exm-overall-agreement}
 #### Overall agreement for the COVID-19 test
 
-For the agreement table of @exm-agreement-table-covid,
-the overall agreement (@def-overall-agreement) is:
+Apply the COVID-19 test of @exm-sensitivity and @exm-specificity
+to the [population](exploratory-descriptive.qmd#def-population) of @exm-prevalence,
+with the test as the agent ($A = +$) and the disease status as the reference ($R = D$).
+By the [multiplication rule for conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-law-conditional-prob),
+with [sensitivity](#def-sensitivity) $\Prf{+ \mid D} = 0.99$,
+[specificity](#def-specificity) $\Prf{\neg + \mid \neg D} = 0.99$,
+[prevalence](#def-prevalence) $\Prf{D} = 0.07$,
+and $\Prf{\neg D} = 0.93$ (@exm-prevalence),
+the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a person has COVID-19 and tests positive is:
+
+$$
+\ba
+\Prf{+ \cap D}
+&= \Prf{+ \mid D} \cd \Prf{D}
+&& \text{(multiplication rule for conditional probability)} \\
+&= 0.99 \cd 0.07
+&& \text{(substitute the sensitivity and prevalence)} \\
+&= 0.0693
+&& \text{(multiply)}
+\ea
+$$ {#eq-exm-overall-agreement-pos}
+
+and the probability that a person does not have COVID-19 and tests negative is:
+
+$$
+\ba
+\Prf{\neg + \cap \neg D}
+&= \Prf{\neg + \mid \neg D} \cd \Prf{\neg D}
+&& \text{(multiplication rule for conditional probability)} \\
+&= 0.99 \cd 0.93
+&& \text{(substitute the specificity and } \Prf{\neg D} \text{)} \\
+&= 0.9207
+&& \text{(multiply)}
+\ea
+$$ {#eq-exm-overall-agreement-neg}
+
+Then the [overall agreement](#def-overall-agreement) is:
 
 $$
 \ba
 p_o
-&= \frac{693 + 9{,}207}{10{,}000}
-&& \text{(definition of } p_o \text{, with the table's counts)} \\
-&= \frac{9{,}900}{10{,}000}
-&& \text{(add)} \\
+&= \Prf{+ \cap D} + \Prf{\neg + \cap \neg D}
+&& \text{(definition of } p_o \text{)} \\
+&= 0.0693 + 0.9207
+&& \text{(substitute the two joint probabilities)} \\
 &= 0.99
-&& \text{(divide)}
+&& \text{(add)}
 \ea
 $$ {#eq-exm-overall-agreement}
 

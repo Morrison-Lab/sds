@@ -1,0 +1,22 @@
+:::{#exm-estimated-overall-agreement}
+#### Estimated overall agreement for the COVID-19 test
+
+For the [agreement table](#def-agreement-table) of @exm-agreement-table-covid,
+the [estimated overall agreement](#def-estimated-overall-agreement) is:
+
+$$
+\ba
+\Est{p}_o
+&= \frac{693 + 9{,}207}{10{,}000}
+&& \text{(definition of } \Est{p}_o \text{, with the table's counts)} \\
+&= \frac{9{,}900}{10{,}000}
+&& \text{(add)} \\
+&= 0.99
+&& \text{(divide)}
+\ea
+$$ {#eq-exm-estimated-overall-agreement}
+
+This [estimate](estimation.qmd#def-estimate) equals the [overall agreement](#def-overall-agreement) $p_o = 0.99$ of @exm-overall-agreement,
+because the table's cell [counts](data.qmd#def-count) equal their expected counts.
+
+:::

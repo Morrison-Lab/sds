@@ -1,12 +1,17 @@
 :::{#def-chance-agreement}
 #### Chance agreement
 
-The **chance agreement** of an agreement table (@def-agreement-table)
-is the overall agreement we would expect
-if the agent and the reference classified independently,
-each with its observed proportion of positive calls:
+Let:
 
-$$p_e \eqdef \frac{(a + b)(a + c) + (c + d)(b + d)}{n^2}$$ {#eq-chance-agreement}
+- $A$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the agent assigns the positive [class](#def-class) to an observation drawn from a [population](exploratory-descriptive.qmd#def-population), with [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement) $\neg A$.
+- $R$ be the event that the reference assigns the positive class to the same observation, with complement $\neg R$.
+
+The **chance agreement** of the agent and the reference on that population
+is the [overall agreement](#def-overall-agreement) they would have
+if $A$ and $R$ were [statistically independent](https://morrison-lab.github.io/pds/independence.html#def-indpt)
+with their marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\Prf{A}$ and $\Prf{R}$:
+
+$$p_e \eqdef \Prf{A} \cd \Prf{R} + \Prf{\neg A} \cd \Prf{\neg R}$$ {#eq-chance-agreement}
 
 Source: @cohen1960coefficient.
 

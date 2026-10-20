@@ -1,27 +1,65 @@
 :::{#exm-chance-agreement}
 #### Chance agreement for the COVID-19 test
 
-For the agreement table of @exm-agreement-table-covid,
-the chance agreement (@def-chance-agreement) is:
+Apply the COVID-19 test of @exm-sensitivity and @exm-specificity
+to the [population](exploratory-descriptive.qmd#def-population) of @exm-prevalence,
+with the test as the agent ($A = +$) and the disease status as the reference ($R = D$).
+By @thm-prob-positive,
+with [sensitivity](#def-sensitivity) $\text{sens} = 0.99$,
+[specificity](#def-specificity) $\text{spec} = 0.99$,
+and [prevalence](#def-prevalence) $\prev = \Prf{D} = 0.07$,
+the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a positive test is:
+
+$$
+\ba
+\Prf{+}
+&= \text{sens} \cd \prev + \paren{1 - \text{spec}} \cd \paren{1 - \prev}
+&& \text{(probability of a positive test)} \\
+&= 0.99 \cd 0.07 + \paren{1 - 0.99} \cd \paren{1 - 0.07}
+&& \text{(substitute the given values)} \\
+&= 0.99 \cd 0.07 + 0.01 \cd 0.93
+&& \text{(subtract inside each pair of parentheses)} \\
+&= 0.0693 + 0.0093
+&& \text{(multiply each product)} \\
+&= 0.0786
+&& \text{(add)}
+\ea
+$$ {#eq-exm-chance-agreement-prob-pos}
+
+By the [complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0),
+the probability of a negative test is:
+
+$$
+\ba
+\Prf{\neg +}
+&= 1 - \Prf{+}
+&& \text{(complement rule)} \\
+&= 1 - 0.0786
+&& \text{(substitute } \Prf{+} \text{)} \\
+&= 0.9214
+&& \text{(subtract)}
+\ea
+$$ {#eq-exm-chance-agreement-prob-neg}
+
+With $\Prf{D} = 0.07$ and $\Prf{\neg D} = 0.93$ (@exm-prevalence),
+the [chance agreement](#def-chance-agreement) is:
 
 $$
 \ba
 p_e
-&= \frac{786 \times 700 + 9{,}214 \times 9{,}300}{10{,}000^2}
-&& \text{(definition of } p_e \text{, with the table's counts)} \\
-&= \frac{550{,}200 + 85{,}690{,}200}{10{,}000^2}
-&& \text{(multiply)} \\
-&= \frac{86{,}240{,}400}{10{,}000^2}
-&& \text{(add)} \\
-&= \frac{86{,}240{,}400}{100{,}000{,}000}
-&& \text{(square)} \\
+&= \Prf{+} \cd \Prf{D} + \Prf{\neg +} \cd \Prf{\neg D}
+&& \text{(definition of } p_e \text{)} \\
+&= 0.0786 \cd 0.07 + 0.9214 \cd 0.93
+&& \text{(substitute the marginal probabilities)} \\
+&= 0.005502 + 0.856902
+&& \text{(multiply each product)} \\
 &= 0.862404
-&& \text{(divide)}
+&& \text{(add)}
 \ea
 $$ {#eq-exm-chance-agreement}
 
-Because nearly everyone tests negative and is negative,
-two independent classifiers with these margins
+Because nearly everyone tests negative and does not have COVID-19,
+two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) classifiers with these marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)
 would agree on about 86% of people by chance alone.
 
 :::

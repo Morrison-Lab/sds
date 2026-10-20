@@ -1,0 +1,13 @@
+:::{#def-estimated-cohen-kappa}
+#### Estimated Cohen's kappa
+
+For an [agreement table](#def-agreement-table) with [estimated chance agreement](#def-estimated-chance-agreement) $\Est{p}_e < 1$,
+the **estimated Cohen's kappa** [estimates](estimation.qmd#def-estimate) [Cohen's kappa](#def-cohen-kappa) $\kappa$
+from the [estimated overall agreement](#def-estimated-overall-agreement) $\Est{p}_o$
+and the estimated chance agreement $\Est{p}_e$:
+
+$$\ek \eqdef \frac{\Est{p}_o - \Est{p}_e}{1 - \Est{p}_e}$$ {#eq-estimated-cohen-kappa}
+
+Source: @cohen1960coefficient; @wikipedia_cohens_kappa.
+
+:::

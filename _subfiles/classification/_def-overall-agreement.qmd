@@ -1,10 +1,16 @@
 :::{#def-overall-agreement}
 #### Overall agreement
 
-The **overall agreement** of an agreement table (@def-agreement-table)
-is the proportion of observations
-on which the agent and the reference agree:
+Let:
 
-$$p_o \eqdef \frac{a + d}{n}$$ {#eq-overall-agreement}
+- $A$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the agent assigns the positive [class](#def-class) to an observation drawn from a [population](exploratory-descriptive.qmd#def-population), with [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement) $\neg A$.
+- $R$ be the event that the reference assigns the positive class to the same observation, with complement $\neg R$.
+
+The **overall agreement** of the agent and the reference on that population
+is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that they assign the same class to the observation:
+
+$$p_o \eqdef \Prf{A \cap R} + \Prf{\neg A \cap \neg R}$$ {#eq-overall-agreement}
+
+Source: @cohen1960coefficient.
 
 :::
