@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 14:45:09 (PDT)
+Last modified: 2026-10-19 23:28:03 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -214,6 +214,10 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
+> *Remark 4* (Cumulative incidence has a second meaning). The name [cumulative incidence](#def-outcome-risk) for the [risk](#def-outcome-risk) fits a closed [population](exploratory-descriptive.llms.md#def-population), where no one enters or leaves after the start of the time period [\[8, Ch. 4\]](#ref-me4). The same name is also used for a different quantity: when several event types compete, the cumulative incidence function of one event type at time \\t\\ is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that this type of event occurs by time \\t\\ [\[8, Ch. 22\]](#ref-me4). This page uses the name only for the risk of a [binary](data.llms.md#def-binary-var) outcome.
+
+> **NOTE:**
+>
 > **Definition 5 (Reference group)** In a comparison of an outcome measure between two groups, the **reference group** is the group whose measure is the subtrahend of a difference or the denominator of a quotient. The other group is the group being compared with it.
 
 > **NOTE:**
@@ -231,7 +235,7 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > \\\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2 \in \[-1, 1\].\\
 >
-> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_absolute_risk_reduction).
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_absolute_risk_reduction).
 
 > **NOTE:**
 >
@@ -312,7 +316,7 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
-> *Remark 4* (The risk ratio is not the rate ratio). Some texts call the [risk ratio](#def-risk-ratio) the rate ratio. The rate ratio is a different quantity: the quotient of two event rates, as in count regression.
+> *Remark 5* (The risk ratio is not the rate ratio). Some texts call the [risk ratio](#def-risk-ratio) the rate ratio. The rate ratio is a different quantity: the quotient of two event rates, as in count regression.
 
 > **NOTE:**
 >
@@ -369,7 +373,7 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > Here \\\omega_g = \pi_g / (1 - \pi_g)\\ for the [risk](#def-outcome-risk) \\\pi_g\\ of group \\g\\.
 >
-> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_odds_ratio).
+> Source: Wikipedia contributors [\[10\]](#ref-wikipedia_odds_ratio).
 
 > **NOTE:**
 >
@@ -464,15 +468,15 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
-> **Definition 9 (Case)** In a study that selects its participants by whether they have an outcome of interest, a **case** is a participant who has the outcome [\[10, Ch. 8\]](#ref-me4).
+> **Definition 9 (Case)** In a study that selects its participants by whether they have an outcome of interest, a **case** is a participant who has the outcome [\[8, Ch. 8\]](#ref-me4).
 
 > **NOTE:**
 >
-> **Definition 10 (Control)** In a study that selects its participants by whether they have an outcome of interest, a **control** is a participant who does not have the outcome, sampled from the same [population](exploratory-descriptive.llms.md#def-population) as the [cases](#def-case) [\[10, Ch. 8\]](#ref-me4).
+> **Definition 10 (Control)** In a study that selects its participants by whether they have an outcome of interest, a **control** is a participant who does not have the outcome, sampled from the same [population](exploratory-descriptive.llms.md#def-population) as the [cases](#def-case) [\[8, Ch. 8\]](#ref-me4).
 
 > **NOTE:**
 >
-> **Definition 11 (Case-control study)** A **case-control study** is an observational study that selects its participants by outcome: it includes the [cases](#def-case) of a [population](exploratory-descriptive.llms.md#def-population) and a [sample](exploratory-descriptive.llms.md#def-sample) of [controls](#def-control) from the same population, and then compares the exposure of the two groups [\[10, Ch. 8\]](#ref-me4).
+> **Definition 11 (Case-control study)** A **case-control study** is an observational study that selects its participants by outcome: it includes the [cases](#def-case) of a [population](exploratory-descriptive.llms.md#def-population) and a [sample](exploratory-descriptive.llms.md#def-sample) of [controls](#def-control) from the same population, and then compares the exposure of the two groups [\[8, Ch. 8\]](#ref-me4).
 
 > **NOTE:**
 >
@@ -495,7 +499,7 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
-> *Remark 5* (Controls in experiments). The word “control” has a second meaning. In an experiment, the investigator assigns the exposure. The **controls** are the participants who receive the baseline treatment for comparison, such as a placebo [\[10, Ch. 6\]](#ref-me4). These controls are chosen by assignment, not by outcome. They are not the [controls](#def-control) of a [case-control study](#def-case-control-study).
+> *Remark 6* (Controls in experiments). The word “control” has a second meaning. In an experiment, the investigator assigns the exposure. The **controls** are the participants who receive the baseline treatment for comparison, such as a placebo [\[8, Ch. 6\]](#ref-me4). These controls are chosen by assignment, not by outcome. They are not the [controls](#def-control) of a [case-control study](#def-case-control-study).
 
 > **NOTE:**
 >
@@ -533,14 +537,14 @@ Wikipedia contributors, “Relative risk — Wikipedia, the free encyclopedia.�
 
 \[8\]
 
-Wikipedia contributors, “Absolute risk reduction — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Absolute_risk_reduction>
+K. J. Rothman, T. L. Lash, T. J. VanderWeele, and S. Haneuse, *Modern epidemiology*, 4th ed. Philadelphia: Wolters Kluwer, 2021.
 
 \[9\]
 
-Wikipedia contributors, “Odds ratio — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Odds_ratio>
+Wikipedia contributors, “Absolute risk reduction — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Absolute_risk_reduction>
 
 \[10\]
 
-K. J. Rothman, T. L. Lash, T. J. VanderWeele, and S. Haneuse, *Modern epidemiology*, 4th ed. Philadelphia: Wolters Kluwer, 2021.
+Wikipedia contributors, “Odds ratio — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Odds_ratio>
 
 Back to top
