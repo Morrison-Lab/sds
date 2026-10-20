@@ -21,6 +21,5 @@ $$
 $$ {#eq-exm-estimated-chance-agreement}
 
 This [estimate](estimation.qmd#def-estimate) equals the [chance agreement](#def-chance-agreement) $p_e = 0.862404$ of @exm-chance-agreement,
-because the table's marginal [counts](data.qmd#def-count) equal their expected counts.
-
+because the table's marginal [sample proportions](exploratory-descriptive.qmd#def-sample-proportion) equal the marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\Prf{+}$, $\Prf{D}$, $\Prf{\neg +}$, and $\Prf{\neg D}$.
 :::

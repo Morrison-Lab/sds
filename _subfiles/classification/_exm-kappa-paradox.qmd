@@ -33,7 +33,7 @@ and the [positive agreement](#def-positive-agreement) to about
 `r format(round(rare_metrics[["positive"]], 2), nsmall = 2)`,
 while the [negative agreement](#def-negative-agreement) stays at about
 `r format(round(rare_metrics[["negative"]], 3), nsmall = 3)`.
-The two specific agreements show where the disagreement lies:
+The positive and negative agreements show where the classifiers disagree:
 the test and the reference agree on negatives
 and disagree on about half of the positive calls.
 

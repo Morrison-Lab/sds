@@ -17,6 +17,5 @@ $$
 $$ {#eq-exm-estimated-overall-agreement}
 
 This [estimate](estimation.qmd#def-estimate) equals the [overall agreement](#def-overall-agreement) $p_o = 0.99$ of @exm-overall-agreement,
-because the table's cell [counts](data.qmd#def-count) equal their expected counts.
-
+because the table's cell [sample proportions](exploratory-descriptive.qmd#def-sample-proportion) $a / n = 0.0693$ and $d / n = 0.9207$ equal the joint [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\Prf{+ \cap D}$ and $\Prf{\neg + \cap \neg D}$.
 :::

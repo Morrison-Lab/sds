@@ -59,7 +59,7 @@ p_e
 $$ {#eq-exm-chance-agreement}
 
 Because nearly everyone tests negative and does not have COVID-19,
-two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) classifiers with these marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)
+two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) classifiers with $\Prf{+} = 0.0786$ and $\Prf{D} = 0.07$
 would agree on about 86% of people by chance alone.
 
 :::
