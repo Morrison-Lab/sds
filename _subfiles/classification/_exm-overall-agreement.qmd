@@ -3,18 +3,18 @@
 
 Apply the COVID-19 test of @exm-sensitivity and @exm-specificity
 to the [population](exploratory-descriptive.qmd#def-population) of @exm-prevalence,
-with the test as the agent ($A = +$) and the disease status as the reference ($R = D$).
+with the test as the agent ($A = \posclass$) and the disease status as the reference ($R = D$).
 By the [multiplication rule for conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-law-conditional-prob),
-with [sensitivity](#def-sensitivity) $\Prf{+ \mid D} = 0.99$,
-[specificity](#def-specificity) $\Prf{\neg + \mid \neg D} = 0.99$,
+with [sensitivity](#def-sensitivity) $\Prf{\posclass \mid D} = 0.99$,
+[specificity](#def-specificity) $\Prf{\negclass \mid \neg D} = 0.99$,
 [prevalence](#def-prevalence) $\Prf{D} = 0.07$,
 and $\Prf{\neg D} = 0.93$ (@exm-prevalence),
-the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a person has COVID-19 and tests positive is:
+the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a person has COVID-19 and tests [positive](#def-positive-classification) is:
 
 $$
 \ba
-\Prf{+ \cap D}
-&= \Prf{+ \mid D} \cd \Prf{D}
+\Prf{\posclass \cap D}
+&= \Prf{\posclass \mid D} \cd \Prf{D}
 && \text{(multiplication rule for conditional probability)} \\
 &= 0.99 \cd 0.07
 && \text{(substitute the sensitivity and prevalence)} \\
@@ -23,12 +23,12 @@ $$
 \ea
 $$ {#eq-exm-overall-agreement-pos}
 
-and the probability that a person does not have COVID-19 and tests negative is:
+and the probability that a person does not have COVID-19 and tests [negative](#def-negative-classification) is:
 
 $$
 \ba
-\Prf{\neg + \cap \neg D}
-&= \Prf{\neg + \mid \neg D} \cd \Prf{\neg D}
+\Prf{\negclass \cap \neg D}
+&= \Prf{\negclass \mid \neg D} \cd \Prf{\neg D}
 && \text{(multiplication rule for conditional probability)} \\
 &= 0.99 \cd 0.93
 && \text{(substitute the specificity and } \Prf{\neg D} \text{)} \\
@@ -42,7 +42,7 @@ Then the [overall agreement](#def-overall-agreement) is:
 $$
 \ba
 p_o
-&= \Prf{+ \cap D} + \Prf{\neg + \cap \neg D}
+&= \Prf{\posclass \cap D} + \Prf{\negclass \cap \neg D}
 && \text{(definition of } p_o \text{)} \\
 &= 0.0693 + 0.9207
 && \text{(substitute the two joint probabilities)} \\

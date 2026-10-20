@@ -1,7 +1,7 @@
 :::{#exr-prob-positive}
 #### Probability of a positive test
 
-Derive an expression for the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\Pr(+)$ that a diagnostic test is positive
+Derive an expression for the probability $\Pr(\posclass)$ that a diagnostic test is [positive](#def-positive-classification)
 in terms of:
 
 - the test's [sensitivity](#def-sensitivity);
@@ -19,14 +19,14 @@ over the partition $\set{D, \neg D}$:
 
 $$
 \ba
-\Pr(+)
-&= \Pr(+ \mid D) \cd \Pr(D) + \Pr(+ \mid \neg D) \cd \Pr(\neg D)
+\Pr(\posclass)
+&= \Pr(\posclass \mid D) \cd \Pr(D) + \Pr(\posclass \mid \neg D) \cd \Pr(\neg D)
 && \text{(law of total probability)} \\
-&= \text{sensitivity} \cd \Pr(D) + \Pr(+ \mid \neg D) \cd \Pr(\neg D)
+&= \text{sensitivity} \cd \Pr(D) + \Pr(\posclass \mid \neg D) \cd \Pr(\neg D)
 && \text{(definition of sensitivity)} \\
-&= \text{sensitivity} \cd \text{prevalence} + \Pr(+ \mid \neg D) \cd \Pr(\neg D)
+&= \text{sensitivity} \cd \text{prevalence} + \Pr(\posclass \mid \neg D) \cd \Pr(\neg D)
 && \text{(definition of prevalence)} \\
-&= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \Pr(\neg + \mid \neg D)} \cd \Pr(\neg D)
+&= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \Pr(\negclass \mid \neg D)} \cd \Pr(\neg D)
 && \text{(complement rule, conditional on } \neg D \text{)} \\
 &= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \text{specificity}} \cd \Pr(\neg D)
 && \text{(definition of specificity)} \\

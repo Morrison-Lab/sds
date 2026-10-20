@@ -2,10 +2,10 @@
 #### Sensitivity
 
 The **sensitivity** of a diagnostic test is the probability
-that the test is positive ($+$),
+that the test is [positive](#def-positive-classification) ($\posclass$),
 given that the person tested has the disease ($D$):
 
-$$\text{sensitivity} \eqdef \Pr(+ \mid D)$$ {#eq-sensitivity}
+$$\text{sensitivity} \eqdef \Pr(\posclass \mid D)$$ {#eq-sensitivity}
 
 Source: @wikipedia_sensitivity_and_specificity.
 :::

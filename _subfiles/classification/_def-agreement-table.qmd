@@ -2,7 +2,7 @@
 #### Agreement table
 
 For $n$ observations that an agent and a reference
-each classify as positive or negative,
+each classify as [positive](#def-positive-classification) or [negative](#def-negative-classification),
 the **agreement table** counts the four combinations:
 
 | | Reference positive | Reference negative | Total |

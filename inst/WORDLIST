@@ -60,12 +60,14 @@ loocv
 mapsto
 MH
 mtcars
+negclass
 npv
 NPV
 overfit
 pds
 pMAE
 pMSE
+posclass
 ppv
 PPV
 prev

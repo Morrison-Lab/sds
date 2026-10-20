@@ -2,10 +2,10 @@
 #### Specificity
 
 The **specificity** of a diagnostic test is the probability
-that the test is negative ($\neg +$),
+that the test is [negative](#def-negative-classification) ($\negclass$),
 given that the person tested does not have the disease ($\neg D$):
 
-$$\text{specificity} \eqdef \Pr(\neg + \mid \neg D)$$ {#eq-specificity}
+$$\text{specificity} \eqdef \Pr(\negclass \mid \neg D)$$ {#eq-specificity}
 
 Source: @wikipedia_sensitivity_and_specificity.
 :::

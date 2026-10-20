@@ -23,13 +23,13 @@ with the probability of a positive test from @exr-prob-positive:
 $$
 \ba
 \text{PPV}
-&\eqdef \Pr(D \mid +)
+&\eqdef \Pr(D \mid \posclass)
 && \text{(definition of PPV)} \\
-&= \frac{\Pr(+ \mid D) \cd \Pr(D)}{\Pr(+)}
+&= \frac{\Pr(\posclass \mid D) \cd \Pr(D)}{\Pr(\posclass)}
 && \text{(Bayes' theorem)} \\
-&= \frac{\text{sens} \cd \Pr(D)}{\Pr(+)}
+&= \frac{\text{sens} \cd \Pr(D)}{\Pr(\posclass)}
 && \text{(definition of sensitivity)} \\
-&= \frac{\text{sens} \cd \prev}{\Pr(+)}
+&= \frac{\text{sens} \cd \prev}{\Pr(\posclass)}
 && \text{(definition of prevalence)} \\
 &= \frac{\text{sens} \cd \prev}{\text{sens} \cd \prev + \paren{1 - \text{spec}} \cd \paren{1 - \prev}}
 && \text{(probability of a positive test)}

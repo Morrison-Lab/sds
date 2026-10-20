@@ -22,6 +22,26 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/classification/_def-binary-classification.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_def-positive-classification.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_def-negative-classification.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exr-negative-classification-complement.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_thm-negative-classification-complement.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/classification/_exm-classification.qmd >}}
 
 {{< slidebreak >}}

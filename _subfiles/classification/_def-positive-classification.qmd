@@ -1,0 +1,13 @@
+:::{#def-positive-classification}
+#### Positive classification
+
+In a [binary classification problem](#def-binary-classification) with classes $\scrC = \set{k_1, k_0}$,
+let $Y \in \scrC$ be the class assigned to an observation drawn from a [population](exploratory-descriptive.qmd#def-population)
+(for example, $Y = c(X)$ when a [classification rule](#def-classification-rule) $c$ classifies the observation from its feature $X$).
+A **positive classification**
+(also called **positive** or a **positive result**, and written $\posclass$)
+is the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event)
+that the observation is assigned to $k_1$:
+
+$$\posclass \eqdef \set{Y = k_1}$$ {#eq-positive-classification}
+:::
