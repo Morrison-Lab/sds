@@ -1,7 +1,7 @@
 :::{#def-sensitivity}
 #### Sensitivity
 
-The **sensitivity** of a diagnostic test is the probability
+The **sensitivity** of a diagnostic test is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)
 that the test is [positive](#def-positive-classification) ($\posclass$),
 given that the person tested has the disease ($D$):
 

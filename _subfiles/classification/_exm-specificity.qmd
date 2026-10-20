@@ -15,8 +15,10 @@ its false positive rate is:
 $$
 \ba
 \Pr(\posclass \mid \neg D)
-&= 1 - \Pr(\negclass \mid \neg D)
+&= 1 - \Pr(\neg \posclass \mid \neg D)
 && \text{(complement rule, conditional on } \neg D \text{)} \\
+&= 1 - \Pr(\negclass \mid \neg D)
+&& \text{(negative classification is the complement of positive)} \\
 &= 1 - 0.99
 && \text{(substitute the specificity)} \\
 &= 0.01

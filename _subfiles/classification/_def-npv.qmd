@@ -1,7 +1,7 @@
 :::{#def-npv}
 #### Negative predictive value (NPV)
 
-The **negative predictive value** of a diagnostic test is the probability
+The **negative predictive value** of a diagnostic test is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)
 that the person tested does not have the disease ($\neg D$),
 given that the test is [negative](#def-negative-classification) ($\negclass$):
 

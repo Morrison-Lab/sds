@@ -15,7 +15,9 @@ in terms of:
 
 By the
 [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob)
-over the partition $\set{D, \neg D}$:
+over the partition $\set{D, \neg D}$,
+the [complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0),
+and @thm-negative-classification-complement:
 
 $$
 \ba
@@ -26,8 +28,10 @@ $$
 && \text{(definition of sensitivity)} \\
 &= \text{sensitivity} \cd \text{prevalence} + \Pr(\posclass \mid \neg D) \cd \Pr(\neg D)
 && \text{(definition of prevalence)} \\
-&= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \Pr(\negclass \mid \neg D)} \cd \Pr(\neg D)
+&= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \Pr(\neg \posclass \mid \neg D)} \cd \Pr(\neg D)
 && \text{(complement rule, conditional on } \neg D \text{)} \\
+&= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \Pr(\negclass \mid \neg D)} \cd \Pr(\neg D)
+&& \text{(negative classification is the complement of positive)} \\
 &= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \text{specificity}} \cd \Pr(\neg D)
 && \text{(definition of specificity)} \\
 &= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \text{specificity}} \cd \paren{1 - \Pr(D)}

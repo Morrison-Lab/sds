@@ -2,8 +2,7 @@
 #### Negative classification
 
 In a [binary classification problem](#def-binary-classification) with $\scrC = \set{k_1, k_0}$,
-$k_0$ is called the **negative class**,
-and for an observation drawn from a [population](exploratory-descriptive.qmd#def-population)
+for an observation drawn from a [population](exploratory-descriptive.qmd#def-population)
 and assigned [class](#def-class) $Y \in \scrC$
 (for example, $Y = c(X)$ when a [classification rule](#def-classification-rule) $c$ classifies the observation from its feature $X$),
 a **negative classification**

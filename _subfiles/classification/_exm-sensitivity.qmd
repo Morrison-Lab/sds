@@ -2,7 +2,7 @@
 #### Sensitivity of a COVID-19 test
 
 Suppose a COVID-19 test is [positive](#def-positive-classification) for 99% of the people who have COVID-19.
-Let $D$ be the event "the person has COVID-19"
+Let $D$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) "the person has COVID-19"
 and $\posclass$ the event "the test is positive".
 Then the test's sensitivity (@def-sensitivity) is:
 

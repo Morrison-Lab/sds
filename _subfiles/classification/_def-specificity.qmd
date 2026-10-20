@@ -1,7 +1,7 @@
 :::{#def-specificity}
 #### Specificity
 
-The **specificity** of a diagnostic test is the probability
+The **specificity** of a diagnostic test is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)
 that the test is [negative](#def-negative-classification) ($\negclass$),
 given that the person tested does not have the disease ($\neg D$):
 

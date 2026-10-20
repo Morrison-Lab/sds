@@ -33,6 +33,8 @@ the probability of a [negative](#def-negative-classification) test is:
 $$
 \ba
 \Prf{\negclass}
+&= \Prf{\neg \posclass}
+&& \text{(negative classification is the complement of positive)} \\
 &= 1 - \Prf{\posclass}
 && \text{(complement rule)} \\
 &= 1 - 0.0786

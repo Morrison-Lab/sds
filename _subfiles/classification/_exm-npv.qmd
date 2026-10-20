@@ -2,7 +2,7 @@
 #### NPV of a COVID-19 test
 
 For the COVID-19 test of @exm-sensitivity and @exm-specificity,
-used in the population of @exm-prevalence,
+used in the [population](exploratory-descriptive.qmd#def-population) of @exm-prevalence,
 the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a [negative](#def-negative-classification) test for a person with COVID-19 is,
 by the
 [complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0)
@@ -11,6 +11,8 @@ and @thm-negative-classification-complement:
 $$
 \ba
 \Pr(\negclass \mid D)
+&= \Pr(\neg \posclass \mid D)
+&& \text{(negative classification is the complement of positive)} \\
 &= 1 - \Pr(\posclass \mid D)
 && \text{(complement rule, conditional on } D \text{)} \\
 &= 1 - 0.99

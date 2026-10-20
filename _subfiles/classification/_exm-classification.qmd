@@ -3,7 +3,7 @@
 
 In a [binary classification problem](#def-binary-classification),
 a COVID-19 test assigns each person tested to one of $K = 2$ [classes](#def-class),
-$k_1 =$ "has COVID-19" or $k_0 =$ "does not have COVID-19",
+"has COVID-19" ($k_1$) or "does not have COVID-19" ($k_0$),
 based on a single feature $x$:
 whether the test's result is "[positive](#def-positive-classification)" or "[negative](#def-negative-classification)".
 The test is the [classification rule](#def-classification-rule)

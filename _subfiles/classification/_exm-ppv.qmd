@@ -2,7 +2,7 @@
 #### PPV of a COVID-19 test
 
 For the COVID-19 test of @exm-sensitivity and @exm-specificity,
-used in the population of @exm-prevalence,
+used in the [population](exploratory-descriptive.qmd#def-population) of @exm-prevalence,
 [Bayes' theorem](https://morrison-lab.github.io/pds/probability-basics.html#exm-bayes)
 gives the positive predictive value (@def-ppv):
 
@@ -11,6 +11,6 @@ $$\Pr(D \mid \posclass) \approx 0.88$$ {#eq-ppv-exm}
 Even with a highly accurate test (99% sensitive and 99% specific),
 only about 88% of the people who test [positive](#def-positive-classification) have COVID-19,
 because the [prevalence](#def-prevalence) (7%) is low enough that
-[false positives](#def-false-positive) make up a meaningful fraction of all positive tests.
+false positives make up a meaningful fraction of all positive tests.
 
 :::

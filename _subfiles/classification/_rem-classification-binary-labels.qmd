@@ -3,5 +3,5 @@
 
 In a [binary classification problem](#def-binary-classification),
 the two [classes](#def-class) $k_1$ and $k_0$ are often labeled "[positive](#def-positive-classification)" and "[negative](#def-negative-classification)",
-or, in medical diagnostic testing, "diseased" ($D$) and "healthy" ($\neg D$).
+or, in medical diagnostic testing, "has the disease" and "does not have the disease".
 :::
