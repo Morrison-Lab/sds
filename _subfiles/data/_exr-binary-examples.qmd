@@ -1,7 +1,7 @@
 ::: {#exr-binary-examples}
 #### Examples of binary variables
 
-What are some examples of binary variables in health sciences and data science?
+What are some examples of [binary variables](#def-binary-var) in the health sciences?
 :::
 
 :::{#sol-binary-examples}
