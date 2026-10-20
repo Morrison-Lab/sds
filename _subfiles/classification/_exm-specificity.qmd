@@ -2,20 +2,23 @@
 #### Specificity of a COVID-19 test
 
 Suppose the COVID-19 test of @exm-sensitivity
-is negative for 99% of the people who do not have COVID-19.
+is [negative](#def-negative-classification) for 99% of the people who do not have COVID-19.
 Then its specificity (@def-specificity) is:
 
-$$\Pr(\neg + \mid \neg D) = 0.99$$ {#eq-specificity-exm}
+$$\Pr(\negclass \mid \neg D) = 0.99$$ {#eq-specificity-exm}
 
 By the
-[complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0),
+[complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0)
+and @thm-negative-classification-complement,
 its false positive rate is:
 
 $$
 \ba
-\Pr(+ \mid \neg D)
-&= 1 - \Pr(\neg + \mid \neg D)
+\Pr(\posclass \mid \neg D)
+&= 1 - \Pr(\neg \posclass \mid \neg D)
 && \text{(complement rule, conditional on } \neg D \text{)} \\
+&= 1 - \Pr(\negclass \mid \neg D)
+&& \text{(negative classification is the complement of positive)} \\
 &= 1 - 0.99
 && \text{(substitute the specificity)} \\
 &= 0.01

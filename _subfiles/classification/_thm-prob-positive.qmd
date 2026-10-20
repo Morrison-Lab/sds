@@ -4,10 +4,10 @@
 Let $\text{sens}$ be the [sensitivity](#def-sensitivity) of a diagnostic test,
 $\text{spec}$ its [specificity](#def-specificity),
 and $\prev$ the [prevalence](#def-prevalence) of the disease.
-Then the probability $\Pr(+)$ that the test is positive is:
+Then the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\Pr(\posclass)$ that the test is [positive](#def-positive-classification) is:
 
 $$
-\Pr(+) =
+\Pr(\posclass) =
 \text{sens} \cd \prev
 + \paren{1 - \text{spec}} \cd \paren{1 - \prev}
 $$ {#eq-prob-positive}

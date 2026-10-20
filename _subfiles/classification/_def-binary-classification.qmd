@@ -1,0 +1,12 @@
+:::{#def-binary-classification}
+#### Binary classification
+
+A **binary classification problem** is a [classification problem](#def-classification)
+whose set of [classes](#def-class) $\scrC$ consists of $K = 2$ distinct categories,
+one representing the presence of a condition of interest ($k_1$)
+and the other representing its absence ($k_0$):
+
+$$\scrC = \set{k_1, k_0}, \quad \abs{\scrC} = 2$$ {#eq-binary-classification}
+
+Source: @wikipedia_statistical_classification.
+:::

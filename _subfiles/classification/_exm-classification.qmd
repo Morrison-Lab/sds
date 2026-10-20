@@ -1,22 +1,24 @@
 :::{#exm-classification}
 #### A diagnostic test as a classification rule
 
-A COVID-19 test assigns each person tested to one of $K = 2$ classes,
-"has COVID-19" or "does not have COVID-19",
+In a [binary classification problem](#def-binary-classification),
+a COVID-19 test assigns each person tested to one of $K = 2$ [classes](#def-class),
+"has COVID-19" ($k_1$) or "does not have COVID-19" ($k_0$),
 based on a single feature $x$:
-the test's result,
-positive ($+$) or negative ($\neg +$).
-The test is the classification rule
-(@def-classification-rule)
-that assigns a positive result to "has COVID-19"
-and a negative result to "does not have COVID-19":
+whether the test's result is "[positive](#def-positive-classification)" or "[negative](#def-negative-classification)".
+The test is the [classification rule](#def-classification-rule)
+that assigns a positive result to $k_1$
+and a negative result to $k_0$:
 
 $$
 c(x) \eqdef
 \begin{cases}
-\text{has COVID-19} & \text{if } x = + \\
-\text{does not have COVID-19} & \text{if } x = \neg +
+\text{has COVID-19} & \text{if } x = \text{positive} \\
+\text{does not have COVID-19} & \text{if } x = \text{negative}
 \end{cases}
 $$ {#eq-classification-exm}
 
+For a person drawn from a [population](exploratory-descriptive.qmd#def-population) with test result $X$,
+the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the test is positive is $\posclass = \set{c(X) = \text{has COVID-19}}$,
+and the event that the test is negative is $\negclass = \set{c(X) = \text{does not have COVID-19}}$.
 :::

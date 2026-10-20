@@ -3,8 +3,10 @@
 
 Let:
 
-- $A$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the agent assigns the positive [class](#def-class) to an observation drawn from a [population](exploratory-descriptive.qmd#def-population), with [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement) $\neg A$.
-- $R$ be the event that the reference assigns the positive class to the same observation, with complement $\neg R$.
+- $A$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the agent makes a [positive classification](#def-positive-classification)
+  for an observation drawn from a [population](exploratory-descriptive.qmd#def-population),
+  with [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement) $\neg A$.
+- $R$ be the event that the reference makes a positive classification for the same observation, with complement $\neg R$.
 
 The **overall agreement** of the agent and the reference on that population
 is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that they assign the same class to the observation:

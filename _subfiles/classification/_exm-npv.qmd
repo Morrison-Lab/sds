@@ -2,15 +2,18 @@
 #### NPV of a COVID-19 test
 
 For the COVID-19 test of @exm-sensitivity and @exm-specificity,
-used in the population of @exm-prevalence,
-the probability of a negative test for a person with COVID-19 is,
+used in the [population](exploratory-descriptive.qmd#def-population) of @exm-prevalence,
+the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a [negative](#def-negative-classification) test for a person with COVID-19 is,
 by the
-[complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0):
+[complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0)
+and @thm-negative-classification-complement:
 
 $$
 \ba
-\Pr(\neg + \mid D)
-&= 1 - \Pr(+ \mid D)
+\Pr(\negclass \mid D)
+&= \Pr(\neg \posclass \mid D)
+&& \text{(negative classification is the complement of positive)} \\
+&= 1 - \Pr(\posclass \mid D)
 && \text{(complement rule, conditional on } D \text{)} \\
 &= 1 - 0.99
 && \text{(substitute the sensitivity)} \\
@@ -28,10 +31,10 @@ the negative predictive value (@def-npv) is:
 
 $$
 \ba
-\Pr(\neg D \mid \neg +)
-&= \frac{\Pr(\neg + \mid \neg D) \cd \Pr(\neg D)}{\Pr(\neg +)}
+\Pr(\neg D \mid \negclass)
+&= \frac{\Pr(\negclass \mid \neg D) \cd \Pr(\neg D)}{\Pr(\negclass)}
 && \text{(Bayes' theorem)} \\
-&= \frac{\Pr(\neg + \mid \neg D) \cd \Pr(\neg D)}{\Pr(\neg + \mid \neg D) \cd \Pr(\neg D) + \Pr(\neg + \mid D) \cd \Pr(D)}
+&= \frac{\Pr(\negclass \mid \neg D) \cd \Pr(\neg D)}{\Pr(\negclass \mid \neg D) \cd \Pr(\neg D) + \Pr(\negclass \mid D) \cd \Pr(D)}
 && \text{(law of total probability)} \\
 &= \frac{0.99 \cd 0.93}{0.99 \cd 0.93 + 0.01 \cd 0.07}
 && \text{(substitute the given values)} \\
