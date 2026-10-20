@@ -1,0 +1,13 @@
+:::{#def-estimated-overall-agreement}
+#### Estimated overall agreement
+
+The **estimated overall agreement** of an [agreement table](#def-agreement-table)
+is the [sample proportion](exploratory-descriptive.qmd#def-sample-proportion) of observations
+on which the agent and the reference assign the same [class](#def-class),
+which [estimates](estimation.qmd#def-estimate) the [overall agreement](#def-overall-agreement) $p_o$:
+
+$$\Est{p}_o \eqdef \frac{a + d}{n}$$ {#eq-estimated-overall-agreement}
+
+Source: @cohen1960coefficient.
+
+:::

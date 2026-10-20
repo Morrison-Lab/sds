@@ -1,0 +1,37 @@
+:::{#exm-estimated-cohen-kappa}
+#### Estimated Cohen's kappa for the COVID-19 test
+
+For the [agreement table](#def-agreement-table) of @exm-agreement-table-covid,
+the [estimated overall agreement](#def-estimated-overall-agreement) is $\Est{p}_o = 0.99$ (@exm-estimated-overall-agreement)
+and the [estimated chance agreement](#def-estimated-chance-agreement) is $\Est{p}_e = 0.862404$ (@exm-estimated-chance-agreement),
+so the [estimated Cohen's kappa](#def-estimated-cohen-kappa) is:
+
+$$
+\ba
+\ek
+&= \frac{0.99 - 0.862404}{1 - 0.862404}
+&& \text{(definition of } \ek \text{)} \\
+&= \frac{0.127596}{1 - 0.862404}
+&& \text{(subtract in the numerator)} \\
+&= \frac{0.127596}{0.137596}
+&& \text{(subtract in the denominator)} \\
+&\approx 0.927
+&& \text{(divide)}
+\ea
+$$ {#eq-exm-estimated-cohen-kappa}
+
+```{r}
+#| code-fold: false
+kappa_from_table <- function(a, b, c, d) {
+  n <- a + b + c + d
+  p_o_hat <- (a + d) / n
+  p_e_hat <- ((a + b) * (a + c) + (c + d) * (b + d)) / n^2
+  (p_o_hat - p_e_hat) / (1 - p_e_hat)
+}
+do.call(kappa_from_table, as.list(agree_covid))
+```
+
+This [estimate](estimation.qmd#def-estimate) equals [Cohen's kappa](#def-cohen-kappa) $\kappa \approx 0.927$ of @exm-cohen-kappa-covid,
+because $\Est{p}_o = p_o$ and $\Est{p}_e = p_e$.
+
+:::

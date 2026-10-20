@@ -1,0 +1,15 @@
+:::{#def-estimated-chance-agreement}
+#### Estimated chance agreement
+
+The **estimated chance agreement** of an [agreement table](#def-agreement-table)
+[estimates](estimation.qmd#def-estimate) the [chance agreement](#def-chance-agreement) $p_e$
+by replacing the marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)
+$\Prf{A}$, $\Prf{R}$, $\Prf{\neg A}$, and $\Prf{\neg R}$
+with the table's marginal [sample proportions](exploratory-descriptive.qmd#def-sample-proportion)
+$(a + b) / n$, $(a + c) / n$, $(c + d) / n$, and $(b + d) / n$:
+
+$$\Est{p}_e \eqdef \frac{(a + b)(a + c) + (c + d)(b + d)}{n^2}$$ {#eq-estimated-chance-agreement}
+
+Source: @cohen1960coefficient.
+
+:::

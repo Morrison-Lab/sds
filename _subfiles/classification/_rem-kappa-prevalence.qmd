@@ -1,14 +1,14 @@
 :::{#rem-kappa-prevalence}
 #### Kappa depends on prevalence
 
-When both classifiers call one category rarely,
-the chance agreement $p_e$ is close to 1,
-so the same overall agreement leaves little room for agreement beyond chance,
-and kappa can be low even when the overall agreement is high,
+When both classifiers call one [class](#def-class) rarely,
+the [chance agreement](#def-chance-agreement) $p_e$ is close to 1,
+so the same [overall agreement](#def-overall-agreement) leaves little room for agreement beyond chance,
+and [Cohen's kappa](#def-cohen-kappa) can be low even when the overall agreement is high,
 as @exm-kappa-paradox shows.
 @cicchetti1990high recommend reporting
-the positive and negative agreements alongside kappa,
-so that poor agreement on the rarer category is not hidden.
+the [positive agreement](#def-positive-agreement) and [negative agreement](#def-negative-agreement) alongside Cohen's kappa,
+so that poor agreement on the rarer class is not hidden.
 
 Source: @feinstein1990high; @cicchetti1990high.
 

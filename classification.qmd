@@ -130,6 +130,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/classification/_def-estimated-overall-agreement.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-estimated-overall-agreement.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/classification/_def-positive-agreement.qmd >}}
 
 {{< slidebreak >}}
@@ -206,6 +214,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/classification/_def-estimated-chance-agreement.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-estimated-chance-agreement.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/classification/_def-cohen-kappa.qmd >}}
 
 {{< slidebreak >}}
@@ -214,11 +230,20 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/classification/_def-estimated-cohen-kappa.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-estimated-cohen-kappa.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/classification/_exm-kappa-paradox.qmd >}}
 
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/classification/_rem-kappa-prevalence.qmd >}}
+
 
 
 ## References {.unnumbered}
