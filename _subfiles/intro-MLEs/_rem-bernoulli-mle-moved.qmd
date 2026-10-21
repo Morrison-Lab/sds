@@ -1,7 +1,7 @@
 ::: {#rem-bernoulli-mle-moved}
 #### Where the Bernoulli derivation is
 
-The step-by-step derivation for a Bernoulli model without covariates
+The step-by-step derivation for a Bernoulli model without [covariates](model-validation.qmd#def-covariate)
 is on its own page, [Maximum likelihood for a Bernoulli model](bernoulli-mle.qmd).
 It was a section of this page, with the id `sec-bernoulli-mle`.
 :::
