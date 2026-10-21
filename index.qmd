@@ -39,7 +39,7 @@ Inference:
   Wald and likelihood ratio tests, and Newton-Raphson,
   with worked examples;
 - [Maximum likelihood for a Bernoulli model](bernoulli-mle.qmd):
-  the full derivation for a Bernoulli sample, in class order;
+  a worked derivation for Bernoulli data;
 - [Properties of estimators](estimator-properties.qmd):
   consistency, relative efficiency, and the Cramér--Rao lower bound.
 - [Sufficiency and the Rao--Blackwell theorem](sufficiency.qmd):
