@@ -2,7 +2,7 @@
 #### Maximum likelihood estimate of a binary sample
 
 In the setting of @exr-bernoulli-score-equation,
-use @thm-bernoulli-hessian-nd to find the [maximum likelihood estimate](#def-mle) $\hprob_{\text{ML}}$ of $\prob$.
+use @thm-bernoulli-hessian-nd to find the [maximum likelihood estimate](intro-MLEs.qmd#def-mle) $\hprob_{\text{ML}}$ of $\prob$.
 
 :::
 
@@ -11,7 +11,7 @@ use @thm-bernoulli-hessian-nd to find the [maximum likelihood estimate](#def-mle
 :::{#sol-bernoulli-mle}
 
 By @thm-bernoulli-hessian-nd, $\llik$ is strictly concave on $(0, 1)$.
-A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else.
+A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](intro-MLEs.qmd#def-critical-point) is maximized there, and nowhere else.
 With $0 < \outbar < 1$, @thm-bernoulli-score-equation says the only critical point of $\llik$ in $(0, 1)$ is $\outbar$.
 So $\llik$ is maximized at $\prob = \outbar$.
 

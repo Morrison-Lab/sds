@@ -2,7 +2,7 @@
 #### Negative definiteness of the Hessian of a binary sample
 
 In the setting of @exr-bernoulli-hessian-sum,
-show that the [Hessian](#def-hessian) $\hess(\prob)$ is negative definite for every $\prob \in (0, 1)$. <!-- check-term-links: allow -->
+show that the [Hessian](intro-MLEs.qmd#def-hessian) $\hess(\prob)$ is negative definite for every $\prob \in (0, 1)$. <!-- check-term-links: allow -->
 
 :::
 

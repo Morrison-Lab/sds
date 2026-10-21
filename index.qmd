@@ -38,6 +38,8 @@ Inference:
   likelihood, score, information, the asymptotic distribution of MLEs,
   Wald and likelihood ratio tests, and Newton-Raphson,
   with worked examples;
+- [Maximum likelihood for a Bernoulli model](bernoulli-mle.qmd):
+  the likelihood, score, and Hessian of binary outcomes, derived step by step;
 - [Properties of estimators](estimator-properties.qmd):
   consistency, relative efficiency, and the Cramér--Rao lower bound.
 - [Sufficiency and the Rao--Blackwell theorem](sufficiency.qmd):

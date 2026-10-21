@@ -3,7 +3,7 @@
 
 If $\Outvar_\iobs \sim \Ber(\prob)$ has observed value $\outvar_\iobs \in \cb{0, 1}$
 and precision $\precision = 1 / \Var{\Outvar_\iobs} = 1 / \paren{\prob(1 - \prob)}$,
-its [score](#def-score) contribution is the precision times the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $\outvar_\iobs$ from its mean $\prob$:
+its [score](intro-MLEs.qmd#def-score) contribution is the precision times the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $\outvar_\iobs$ from its mean $\prob$:
 
 $$\score_\iobs(\prob) = \precision (\outvar_\iobs - \prob)$$
 

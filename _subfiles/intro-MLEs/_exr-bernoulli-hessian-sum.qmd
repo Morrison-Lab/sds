@@ -2,7 +2,7 @@
 #### Hessian of a binary sample
 
 In the setting of @exr-bernoulli-score-sum,
-assemble the [Hessian](#def-hessian) $\hess(\prob)$ of the whole [sample](exploratory-descriptive.qmd#def-sample)
+assemble the [Hessian](intro-MLEs.qmd#def-hessian) $\hess(\prob)$ of the whole [sample](exploratory-descriptive.qmd#def-sample)
 from the Hessian contributions.
 
 :::

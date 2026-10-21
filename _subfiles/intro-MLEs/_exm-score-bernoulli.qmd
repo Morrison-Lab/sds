@@ -1,0 +1,7 @@
+:::{#exm-score-bernoulli}
+#### Score of one Bernoulli observation
+
+For a Bernoulli variable with event probability $\prob$ and observed value $x \in \cb{0, 1}$,
+the [score](#def-score) is $(x - \prob) / \paren{\prob(1 - \prob)}$,
+derived in [the Bernoulli score](bernoulli-mle.qmd#thm-bernoulli-score).
+:::
