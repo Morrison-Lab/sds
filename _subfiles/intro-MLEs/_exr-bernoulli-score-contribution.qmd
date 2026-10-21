@@ -5,7 +5,7 @@ In the setting of @exr-bernoulli-loglik-contribution, let:
 
 - $\precision \eqdef 1 / \Var{\Outvar_\iobs}$ be the precision of $\Outvar_\iobs$.
 
-Derive the score contribution $\score_\iobs(\prob) \eqdef \deriv{\prob} \llik_\iobs(\prob)$ of observation $\iobs$,
+Derive the [score](#def-score) contribution $\score_\iobs(\prob) \eqdef \deriv{\prob} \llik_\iobs(\prob)$ of observation $\iobs$,
 and write it using $\precision$.
 
 :::

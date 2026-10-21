@@ -1,8 +1,8 @@
 :::{#thm-bernoulli-mle}
 #### Maximum likelihood estimate of a binary sample
 
-If $\Outvar_\iobs \simind \Ber(\prob)$ for $\iobs = 1, \dots, n$ and the observed sample mean satisfies $0 < \outbar < 1$,
-then the Hessian $\hess(\prob)$ is negative definite for every $\prob \in (0, 1)$,
+If $\Outvar_\iobs \simind \Ber(\prob)$ for $\iobs = 1, \dots, n$ and the observed [sample mean](exploratory-descriptive.qmd#def-sample-mean) satisfies $0 < \outbar < 1$,
+then the [Hessian](#def-hessian) $\hess(\prob)$ is negative definite for every $\prob \in (0, 1)$, <!-- check-term-links: allow -->
 and the [maximum likelihood estimate](#def-mle) of $\prob$ is the sample mean:
 
 $$\hprob_{\text{ML}} = \outbar$$

@@ -2,9 +2,9 @@
 #### Score function of a binary sample
 
 In the setting of @exr-bernoulli-score-contribution,
-let $\outbar \eqdef \avgin \outvar_\iobs$ be the sample mean of the observed outcomes.
-Assemble the score function $\score(\prob)$ of the whole sample
-from the score contributions.
+let $\outbar \eqdef \avgin \outvar_\iobs$ be the [sample mean](exploratory-descriptive.qmd#def-sample-mean) of the observed outcomes.
+Assemble the [score function](#def-score) $\score(\prob)$ of the whole [sample](exploratory-descriptive.qmd#def-sample)
+from the [score](#def-score) contributions.
 
 :::
 

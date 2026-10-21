@@ -3,10 +3,10 @@
 
 Let:
 
-- $\Outvar_\iobs \simind \Ber(\prob)$ for $\iobs = 1, \dots, n$, with no covariates;
+- $\Outvar_\iobs \simind \Ber(\prob)$ for $\iobs = 1, \dots, n$, with no [covariates](model-validation.qmd#def-covariate);
 - $\outvar_\iobs \in \cb{0, 1}$ be the observed value of $\Outvar_\iobs$.
 
-Derive the log-likelihood contribution $\llik_\iobs(\prob)$ of observation $\iobs$,
+Derive the [log-likelihood](#def-loglik) contribution $\llik_\iobs(\prob)$ of observation $\iobs$,
 the [log](#def-loglik) of its [likelihood component](#def-lik-factor).
 
 :::
