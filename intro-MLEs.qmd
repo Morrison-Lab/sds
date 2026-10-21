@@ -488,6 +488,16 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-hessian-nd.qmd >}}
+
+{{< slidebreak >}}
+
+### The maximum likelihood estimate
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-mle.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-mle.qmd >}}
 
 {{< slidebreak >}}

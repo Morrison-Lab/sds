@@ -3,7 +3,6 @@
 
 In the setting of @exr-bernoulli-hessian-sum,
 show that the [Hessian](#def-hessian) $\hess(\prob)$ is negative definite for every $\prob \in (0, 1)$. <!-- check-term-links: allow -->
-Then conclude what it implies for the solution in @thm-bernoulli-score-equation.
 
 :::
 
@@ -28,9 +27,6 @@ $$
 \hess(\prob) = -n \paren{\frac{\outbar}{\sqf{\prob}} + \frac{1 - \outbar}{\sqf{1 - \prob}}} < 0
 $$
 
-This holds for every $\prob \in (0, 1)$,
-so $\llik$ is strictly concave on $(0, 1)$.
-A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) has at most one [critical point](#def-critical-point), and it is the maximum.
-With $0 < \outbar < 1$, @thm-bernoulli-score-equation says $\outbar$ is that critical point.
+This holds for every $\prob \in (0, 1)$.
 
 :::
