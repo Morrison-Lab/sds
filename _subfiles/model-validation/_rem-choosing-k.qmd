@@ -17,7 +17,8 @@ in the cross-validation estimate itself
   and their errors may be more strongly correlated.
   An average of strongly correlated errors varies more
   from one data set to another than an average of weakly correlated ones.
-  This is a heuristic, not a theorem [@hastie2009elements, sec. 7.10].
+  This is a heuristic, not a theorem
+  [@hastie2009elements, sec. 7.10].
   How correlated the errors are depends on how much the fitted model changes
   when one observation changes,
   so for a stable fitting method the variance need not rise with $\nfolds$.
