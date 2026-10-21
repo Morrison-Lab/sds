@@ -1,0 +1,64 @@
+:::{#exr-bernoulli-hessian-contribution}
+#### Hessian contribution of one binary outcome
+
+In the setting of @exr-bernoulli-score-contribution,
+derive the Hessian contribution $\hess_\iobs(\prob) \eqdef \deriv{\prob} \score_\iobs(\prob)$ of observation $\iobs$.
+Start from the score contribution written as a difference of two fractions,
+$\score_\iobs(\prob) = \outvar_\iobs / \prob - (1 - \outvar_\iobs) / (1 - \prob)$,
+the form in @sol-derive-bernoulli-score before its fractions are combined.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-hessian-contribution}
+
+$$
+\begin{aligned}
+\hess_\iobs(\prob)
+&= \deriv{\prob} \score_\iobs(\prob)
+&& \text{(definition of the Hessian contribution)}\\
+&= \deriv{\prob} \paren{\frac{\outvar_\iobs}{\prob} - \frac{1 - \outvar_\iobs}{1 - \prob}}
+&& \text{(score contribution as a difference of fractions)}\\
+&= \deriv{\prob} \paren{\outvar_\iobs \prob^{-1} - (1 - \outvar_\iobs) (1 - \prob)^{-1}}
+&& \text{(write each fraction as a negative power)}\\
+&= \outvar_\iobs \deriv{\prob} \prob^{-1} - (1 - \outvar_\iobs) \deriv{\prob} (1 - \prob)^{-1}
+&& \text{(linearity and constant multiple rule)}
+\end{aligned}
+$$
+
+The first derivative is:
+
+$$
+\deriv{\prob} \prob^{-1}
+= -\prob^{-2}
+\qquad \text{(power rule)}
+$$
+
+The second derivative needs the chain rule:
+
+$$
+\begin{aligned}
+\deriv{\prob} (1 - \prob)^{-1}
+&= -(1 - \prob)^{-2} \deriv{\prob} (1 - \prob)
+&& \text{(chain rule and power rule)}\\
+&= -(1 - \prob)^{-2} (-1)
+&& \text{($\deriv{\prob} (1 - \prob) = -1$, as in the score exercise)}\\
+&= (1 - \prob)^{-2}
+&& \text{(multiply)}
+\end{aligned}
+$$
+
+Substituting both derivatives back in:
+
+$$
+\begin{aligned}
+\hess_\iobs(\prob)
+&= \outvar_\iobs \paren{-\prob^{-2}} - (1 - \outvar_\iobs) (1 - \prob)^{-2}
+&& \text{(substitute the two derivatives)}\\
+&= -\frac{\outvar_\iobs}{\sqf{\prob}} - \frac{1 - \outvar_\iobs}{\sqf{1 - \prob}}
+&& \text{(write the negative powers as fractions)}
+\end{aligned}
+$$
+
+:::

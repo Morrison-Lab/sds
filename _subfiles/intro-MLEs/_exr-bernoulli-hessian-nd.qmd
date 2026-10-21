@@ -1,0 +1,35 @@
+:::{#exr-bernoulli-hessian-nd}
+#### Negative definiteness of the Hessian of a binary sample
+
+In the setting of @exr-bernoulli-hessian-sum,
+show that the Hessian $\hess(\prob)$ is negative definite for every $\prob \in (0, 1)$.
+Then conclude what it implies for the solution in @thm-bernoulli-score-equation.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-hessian-nd}
+
+A $1 \times 1$ matrix is negative definite exactly when its only entry is negative,
+so it is enough to show $\hess(\prob) < 0$.
+
+Fix $\prob \in (0, 1)$. Then:
+
+- $\sqf{\prob} > 0$ and $\sqf{1 - \prob} > 0$;
+- $\outbar \ge 0$ and $1 - \outbar \ge 0$, because $\outvar_\iobs \in \cb{0, 1}$;
+- $\outbar$ and $1 - \outbar$ are not both zero, because they sum to $1$.
+
+So $\outbar / \sqf{\prob} + (1 - \outbar) / \sqf{1 - \prob}$ is a sum of two nonnegative terms, at least one of them positive.
+It is therefore positive, and with $n > 0$:
+
+$$
+\hess(\prob) = -n \paren{\frac{\outbar}{\sqf{\prob}} + \frac{1 - \outbar}{\sqf{1 - \prob}}} < 0
+$$
+
+This holds for every $\prob \in (0, 1)$,
+so $\llik$ is strictly concave on $(0, 1)$.
+A strictly concave function has at most one critical point, and it is the maximum.
+With $0 < \outbar < 1$, @thm-bernoulli-score-equation says $\outbar$ is that critical point.
+
+:::

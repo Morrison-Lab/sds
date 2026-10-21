@@ -1,0 +1,16 @@
+:::{#thm-bernoulli-score-sum}
+#### Score function of a binary sample
+
+If $\Outvar_\iobs \simind \Ber(\prob)$ for $\iobs = 1, \dots, n$,
+with observed sample mean $\outbar$ and precision $\precision = 1 / \paren{\prob(1 - \prob)}$,
+the score function is:
+
+$$\score(\prob) = n \precision (\outbar - \prob)$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-bernoulli-score-sum, worked in @sol-bernoulli-score-sum.
+
+:::

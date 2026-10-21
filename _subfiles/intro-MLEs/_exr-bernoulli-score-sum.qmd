@@ -1,0 +1,35 @@
+:::{#exr-bernoulli-score-sum}
+#### Score function of a binary sample
+
+In the setting of @exr-bernoulli-score-contribution,
+let $\outbar \eqdef \avgin \outvar_\iobs$ be the sample mean of the observed outcomes.
+Assemble the score function $\score(\prob)$ of the whole sample
+from the score contributions.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-score-sum}
+
+$$
+\begin{aligned}
+\score(\prob)
+&= \sumin \score_\iobs(\prob)
+&& \text{(score of an independent sample is the sum of the score contributions)}\\
+&= \sumin \precision (\outvar_\iobs - \prob)
+&& \text{(score contribution of a binary outcome)}\\
+&= \precision \sumin (\outvar_\iobs - \prob)
+&& \text{($\precision$ is the same for every $\iobs$)}\\
+&= \precision \paren{\sumin \outvar_\iobs - \sumin \prob}
+&& \text{(split the sum)}\\
+&= \precision \paren{\sumin \outvar_\iobs - n \prob}
+&& \text{($\textstyle\sumin \prob = n \prob$)}\\
+&= \precision \paren{n \outbar - n \prob}
+&& \text{($\textstyle\sumin \outvar_\iobs = n \outbar$)}\\
+&= n \precision (\outbar - \prob)
+&& \text{(factor out $n$)}
+\end{aligned}
+$$
+
+:::

@@ -420,6 +420,78 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< include sds/_subfiles/dobson-cyclone-example.qmd >}}
 
+## Maximum likelihood for a Bernoulli model without covariates {#sec-bernoulli-mle}
+
+### Log-likelihood contributions
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-loglik-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+### Score contributions
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+### The score function of the sample
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score-sum.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score-sum.qmd >}}
+
+{{< slidebreak >}}
+
+### Solving the score equation
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+### Hessian contributions
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-hessian-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+### The Hessian of the sample
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-sum.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-hessian-sum.qmd >}}
+
+{{< slidebreak >}}
+
+### Checking that the Hessian is negative definite
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-nd.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-mle.qmd >}}
+
+{{< slidebreak >}}
+
 ## Maximum likelihood for univariate Gaussian models {#sec-gaussian-mle}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-setup.qmd >}}

@@ -1,0 +1,32 @@
+:::{#exr-bernoulli-loglik-contribution}
+#### Log-likelihood contribution of one binary outcome
+
+Let:
+
+- $\Outvar_\iobs \simind \Ber(\prob)$ for $\iobs = 1, \dots, n$, with no covariates;
+- $\outvar_\iobs \in \cb{0, 1}$ be the observed value of $\Outvar_\iobs$.
+
+Derive the log-likelihood contribution $\llik_\iobs(\prob)$ of observation $\iobs$,
+the [log](#def-loglik) of its [likelihood component](#def-lik-factor).
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-loglik-contribution}
+
+$$
+\begin{aligned}
+\llik_\iobs(\prob)
+&= \logf{\Pr(\Outvar_\iobs = \outvar_\iobs)}
+&& \text{(log of the likelihood component)}\\
+&= \logf{\prob^{\outvar_\iobs} (1 - \prob)^{1 - \outvar_\iobs}}
+&& \text{(Bernoulli PMF)}\\
+&= \logf{\prob^{\outvar_\iobs}} + \logf{(1 - \prob)^{1 - \outvar_\iobs}}
+&& \text{(log of a product)}\\
+&= \outvar_\iobs \logf{\prob} + (1 - \outvar_\iobs) \logf{1 - \prob}
+&& \text{(log of a power)}
+\end{aligned}
+$$
+
+:::

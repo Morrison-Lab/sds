@@ -1,0 +1,18 @@
+:::{#thm-bernoulli-score-contribution}
+#### Score contribution of one binary outcome
+
+If $\Outvar_\iobs \sim \Ber(\prob)$ has observed value $\outvar_\iobs \in \cb{0, 1}$
+and precision $\precision = 1 / \Var{\Outvar_\iobs} = 1 / \paren{\prob(1 - \prob)}$,
+its score contribution is the precision times the deviation of $\outvar_\iobs$ from its mean $\prob$:
+
+$$\score_\iobs(\prob) = \precision (\outvar_\iobs - \prob)$$
+
+The precision $\precision$ is the same for every $\iobs$, because all $\Outvar_\iobs$ share the event probability $\prob$.
+
+:::
+
+::: proof
+
+This is the solution to @exr-bernoulli-score-contribution, worked in @sol-bernoulli-score-contribution.
+
+:::
