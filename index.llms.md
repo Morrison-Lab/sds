@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 02:34:23 (PDT)
+Last modified: 2026-10-22 09:54:26 (PDT)
 
 These notes collect the statistics that data science courses assume.
 
@@ -23,8 +23,6 @@ Inference:
 - [Estimation](estimation.llms.md): estimands, estimators, bias, mean squared error, and standard error;
 - [Statistical inference](inference.llms.md): hypothesis tests, p-values, the \\t\\, chi-square, and \\F\\ distributions, confidence intervals, and how to interpret negative findings;
 - [Maximum likelihood inference](intro-MLEs.llms.md): likelihood, score, information, the asymptotic distribution of MLEs, Wald and likelihood ratio tests, and Newton-Raphson, with worked examples;
-- [Maximum likelihood for a Bernoulli model](bernoulli-mle.llms.md): a worked derivation for Bernoulli data;
-- [Maximum likelihood for a Gaussian model](gaussian-mle.llms.md): a worked derivation for Gaussian data;
 - [Properties of estimators](estimator-properties.llms.md): consistency, relative efficiency, and the Cramér–Rao lower bound.
 - [Sufficiency and the Rao–Blackwell theorem](sufficiency.llms.md): sufficient statistics, the factorization theorem, and improving an unbiased estimator.
 
