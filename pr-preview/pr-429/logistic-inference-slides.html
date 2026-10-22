@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-22 13:40:01 (PDT)</p>
+  <p class="date">Last modified: 2026-10-22 15:45:15 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -393,7 +393,7 @@ text-align: center;
 <div id="def-deviance" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Deviance)</strong></span> The <strong>deviance</strong> of a fitted logistic regression with labels <span class="math inline">\(y_i\in {\mathopen{}\left\{0, 1\right\}\mathclose{}}\)</span> is minus twice its maximized log-likelihood:</p>
 <p><span id="eq-deviance"><span class="math display">\[
-D\stackrel{\text{def}}{=}-2 \, {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}
+\operatorname{dev}\stackrel{\text{def}}{=}-2 \, {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}
 = -2 \sum_{i=1}^n\mathopen{}\left\{y_i\ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} {\ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}}\right\}\mathclose{},
 \tag{2}\]</span></span></p>
 <p>where <span class="math inline">\(\hat\pi_i = {\sigma\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i\right)\mathclose{}}\)</span> is the fitted probability.</p>
@@ -425,20 +425,20 @@ D\stackrel{\text{def}}{=}-2 \, {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\un
 <span id="cb2-8"><a aria-label="8"></a><span class="co">#&gt; by_hand     glm </span></span>
 <span id="cb2-9"><a aria-label="9"></a><span class="co">#&gt; 7.63817 7.63817</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Both give <span class="math inline">\(D= 7.638\)</span>.</p>
+<p>Both give <span class="math inline">\(\operatorname{dev}= 7.638\)</span>.</p>
 </div>
 <div id="rem-deviance-shortfall" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Why the deviance measures a shortfall). </span>For labels <span class="math inline">\(y_i\in {\mathopen{}\left\{0, 1\right\}\mathclose{}}\)</span> the largest log-likelihood any model can reach is <span class="math inline">\(0\)</span>, by giving each label probability <span class="math inline">\(1\)</span>. So <span class="math inline">\(D\)</span> is twice the amount by which the maximized log-likelihood falls short of that largest value.</p>
+<p><span class="proof-title"><em>Remark 1</em> (Why the deviance measures a shortfall). </span>For labels <span class="math inline">\(y_i\in {\mathopen{}\left\{0, 1\right\}\mathclose{}}\)</span> the largest log-likelihood any model can reach is <span class="math inline">\(0\)</span>, by giving each label probability <span class="math inline">\(1\)</span>. So <span class="math inline">\(\operatorname{dev}\)</span> is twice the amount by which the maximized log-likelihood falls short of that largest value.</p>
 </div>
 </section><section class="slide level2"><div id="def-null-deviance" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Null deviance)</strong></span> The <strong>null deviance</strong> is the <a href="#/def-deviance">deviance</a> of the model with an intercept and no other predictors:</p>
 <p><span id="eq-null-deviance"><span class="math display">\[
-D_0= -2 n \mathopen{}\left\{\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)\mathclose{} {\ln\mathopen{}\left(1 - \bar y\right)\mathclose{}}\right\}\mathclose{},
+\operatorname{dev}_0= -2 n \mathopen{}\left\{\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)\mathclose{} {\ln\mathopen{}\left(1 - \bar y\right)\mathclose{}}\right\}\mathclose{},
 \tag{3}\]</span></span></p>
 <p>where <span class="math inline">\(\bar y\)</span> is the fraction of labels equal to <span class="math inline">\(1\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-null-deviance" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3 (The null deviance of the six-patient trial)</strong></span> Three of the six patients recovered, so <span class="math inline">\(\bar y= 1/2\)</span> and <a href="#/eq-null-deviance" class="quarto-xref">Equation&nbsp;3</a> gives <span class="math inline">\(D_0= 2 \times 6 \ln 2\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 3 (The null deviance of the six-patient trial)</strong></span> Three of the six patients recovered, so <span class="math inline">\(\bar y= 1/2\)</span> and <a href="#/eq-null-deviance" class="quarto-xref">Equation&nbsp;3</a> gives <span class="math inline">\(\operatorname{dev}_0= 2 \times 6 \ln 2\)</span>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># null deviance from the formula with ybar = 1/2</span></span>
 <span id="cb3-2"><a aria-label="2"></a>wf_null_hand <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">6</span> <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">2</span>)</span>
@@ -448,19 +448,19 @@ D_0= -2 n \mathopen{}\left\{\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)
 <span id="cb3-6"><a aria-label="6"></a><span class="co">#&gt; by_hand     glm </span></span>
 <span id="cb3-7"><a aria-label="7"></a><span class="co">#&gt; 8.31777 8.31777</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Both give <span class="math inline">\(D_0= 8.318\)</span>.</p>
+<p>Both give <span class="math inline">\(\operatorname{dev}_0= 8.318\)</span>.</p>
 </div>
 <div id="rem-null-deviance-fit" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em> (Where the null deviance formula comes from). </span>The intercept-only model gives every observation the same fitted probability, and the maximizing value is the overall fraction <span class="math inline">\(\bar y\)</span> of labels equal to <span class="math inline">\(1\)</span>. Substituting <span class="math inline">\(\bar y\)</span> for each <span class="math inline">\(\hat\pi_i\)</span> in <a href="#/eq-deviance" class="quarto-xref">Equation&nbsp;2</a> gives <a href="#/eq-null-deviance" class="quarto-xref">Equation&nbsp;3</a>.</p>
 </div>
 </section><section class="slide level2"><div id="thm-deviance-drop" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (The drop in deviance is the likelihood ratio statistic)</strong></span> Let <span class="math inline">\(D_0\)</span> be the <a href="#/def-null-deviance">null deviance</a> and <span class="math inline">\(D\)</span> the <a href="#/def-deviance">deviance</a> of a logistic regression with <span class="math inline">\(q\)</span> predictors besides the intercept. Then the <a href="./intro-MLEs.html#def-lrt-stat">likelihood ratio statistic</a> of <span class="math inline">\(H_0\)</span>: all <span class="math inline">\(q\)</span> slopes are zero is</p>
+<p><span class="theorem-title"><strong>Theorem 1 (The drop in deviance is the likelihood ratio statistic)</strong></span> Let <span class="math inline">\(\operatorname{dev}_0\)</span> be the <a href="#/def-null-deviance">null deviance</a> and <span class="math inline">\(\operatorname{dev}\)</span> the <a href="#/def-deviance">deviance</a> of a logistic regression with <span class="math inline">\(q\)</span> predictors besides the intercept. Then the <a href="./intro-MLEs.html#def-lrt-stat">likelihood ratio statistic</a> of <span class="math inline">\(H_0\)</span>: all <span class="math inline">\(q\)</span> slopes are zero is</p>
 <p><span class="math display">\[
-\Lambda= D_0- D.
+\Lambda= \operatorname{dev}_0- \operatorname{dev}.
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>In the notation of the <a href="./intro-MLEs.html#def-lrt-stat">likelihood ratio statistic</a>, the unrestricted MLE <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> is the fitted coefficient vector <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\)</span>, and <span class="math inline">\(\hat{\theta}_0\)</span> is the fit of the intercept-only model that <span class="math inline">\(H_0\)</span> imposes. Then <span class="math inline">\({\ell\mathopen{}\left(\hat\theta_{\text{ML}}\right)\mathclose{}} = -D/ 2\)</span> and <span class="math inline">\({\ell\mathopen{}\left(\hat{\theta}_0\right)\mathclose{}} = -D_0/ 2\)</span>. Substituting both into the definition gives <span class="math inline">\(\Lambda= 2 \mathopen{}\left(-D/2 + D_0/2\right)\mathclose{} = D_0- D\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>In the notation of the <a href="./intro-MLEs.html#def-lrt-stat">likelihood ratio statistic</a>, the unrestricted MLE <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> is the fitted coefficient vector <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\)</span>, and <span class="math inline">\(\hat{\theta}_0\)</span> is the fit of the intercept-only model that <span class="math inline">\(H_0\)</span> imposes. Then <span class="math inline">\({\ell\mathopen{}\left(\hat\theta_{\text{ML}}\right)\mathclose{}} = -\operatorname{dev}/ 2\)</span> and <span class="math inline">\({\ell\mathopen{}\left(\hat{\theta}_0\right)\mathclose{}} = -\operatorname{dev}_0/ 2\)</span>. Substituting both into the definition gives <span class="math inline">\(\Lambda= 2 \mathopen{}\left(-\operatorname{dev}/2 + \operatorname{dev}_0/2\right)\mathclose{} = \operatorname{dev}_0- \operatorname{dev}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-deviance-drop" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (The likelihood ratio statistic of the treatment effect)</strong></span> In the six-patient trial, <span class="math inline">\(q = 1\)</span>.</p>
@@ -473,7 +473,7 @@ D_0= -2 n \mathopen{}\left\{\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)
 <p>The statistic is <span class="math inline">\(0.68\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="cor-deviance-drop-distribution" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 1 (Distribution of the drop in deviance)</strong></span> Suppose the regularity conditions of <a href="./intro-MLEs.html#thm-wilks">Wilks’ theorem</a> hold for the logistic regression model. Then for a large sample the drop in deviance <span class="math inline">\(D_0- D\)</span> has approximately a <span class="math inline">\(\chi^2_q\)</span> distribution when <span class="math inline">\(H_0\)</span> holds.</p>
+<p><span class="theorem-title"><strong>Corollary 1 (Distribution of the drop in deviance)</strong></span> Suppose the regularity conditions of <a href="./intro-MLEs.html#thm-wilks">Wilks’ theorem</a> hold for the logistic regression model. Then for a large sample the drop in deviance <span class="math inline">\(\operatorname{dev}_0- \operatorname{dev}\)</span> has approximately a <span class="math inline">\(\chi^2_q\)</span> distribution when <span class="math inline">\(H_0\)</span> holds.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/thm-deviance-drop" class="quarto-xref">Theorem&nbsp;1</a> the drop in deviance is the likelihood ratio statistic of <span class="math inline">\(q\)</span> constraints, and <a href="./intro-MLEs.html#thm-wilks">Wilks’ theorem</a> gives its approximate distribution.</p>
@@ -579,13 +579,13 @@ s_k = \sum_{i:\, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$
 </section><section class="slide level2"><div id="def-saturated-deviance" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Deviance relative to the saturated model)</strong></span> The <strong>deviance relative to the saturated model</strong> of a fitted model is twice the amount by which its maximized log-likelihood <span class="math inline">\({\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\)</span> falls short of the maximized log-likelihood <span class="math inline">\(\ell_{\mathrm{sat}}\)</span> of the <a href="#/def-saturated-model">saturated model</a>:</p>
 <p><span id="eq-saturated-deviance"><span class="math display">\[
-D_{\mathrm{sat}}= 2 \mathopen{}\left(\ell_{\mathrm{sat}}- {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\right)\mathclose{}.
+\operatorname{dev}_{\mathrm{sat}}= 2 \mathopen{}\left(\ell_{\mathrm{sat}}- {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\right)\mathclose{}.
 \tag{5}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="thm-saturated-deviance" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3 (The deviance relative to the saturated model, from grouped counts)</strong></span> For a fitted logistic regression with fitted event probabilities <span class="math inline">\(\hat\pi_k\)</span> at the <span class="math inline">\(K\)</span> covariate patterns,</p>
 <p><span id="eq-saturated-deviance-grouped"><span class="math display">\[
-D_{\mathrm{sat}}
+\operatorname{dev}_{\mathrm{sat}}
 = 2 \sum_{k=1}^{K}\mathopen{}\left\{s_k {\ln\mathopen{}\left(\frac{s_k}{m_k \hat\pi_k}\right)\mathclose{}}
 + \mathopen{}\left(m_k - s_k\right)\mathclose{} {\ln\mathopen{}\left(\frac{m_k - s_k}{m_k \mathopen{}\left(1 - \hat\pi_k\right)\mathclose{}}\right)\mathclose{}}\right\}\mathclose{},
 \tag{6}\]</span></span></p>
@@ -612,14 +612,14 @@ D_{\mathrm{sat}}
 </section><section class="slide level2"><div id="cor-deviance-shift" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 2 (The deviance is the saturated-model deviance shifted by a constant)</strong></span> The <a href="#/def-deviance">deviance</a> of a fitted logistic regression and its <a href="#/def-saturated-deviance">deviance relative to the saturated model</a> differ by a constant that depends on the data and not on the fitted model:</p>
 <p><span class="math display">\[
-D= D_{\mathrm{sat}}- 2 \ell_{\mathrm{sat}}.
+\operatorname{dev}= \operatorname{dev}_{\mathrm{sat}}- 2 \ell_{\mathrm{sat}}.
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><a href="#/def-deviance" class="quarto-xref">Definition&nbsp;2</a> gives <span class="math inline">\(D= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\)</span>. Distributing the <span class="math inline">\(2\)</span> in <a href="#/eq-saturated-deviance" class="quarto-xref">Equation&nbsp;5</a> gives <span class="math inline">\(D_{\mathrm{sat}}= 2 \ell_{\mathrm{sat}}- 2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\)</span>. Substituting <span class="math inline">\(D= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\)</span> into this expression gives <span class="math inline">\(D_{\mathrm{sat}}= 2 \ell_{\mathrm{sat}}+ D\)</span>. Subtracting <span class="math inline">\(2 \ell_{\mathrm{sat}}\)</span> from both sides gives the claim.</p>
+<p><span class="proof-title"><em>Proof</em>. </span><a href="#/def-deviance" class="quarto-xref">Definition&nbsp;2</a> gives <span class="math inline">\(\operatorname{dev}= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\)</span>. Distributing the <span class="math inline">\(2\)</span> in <a href="#/eq-saturated-deviance" class="quarto-xref">Equation&nbsp;5</a> gives <span class="math inline">\(\operatorname{dev}_{\mathrm{sat}}= 2 \ell_{\mathrm{sat}}- 2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\)</span>. Substituting <span class="math inline">\(\operatorname{dev}= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\)</span> into this expression gives <span class="math inline">\(\operatorname{dev}_{\mathrm{sat}}= 2 \ell_{\mathrm{sat}}+ \operatorname{dev}\)</span>. Subtracting <span class="math inline">\(2 \ell_{\mathrm{sat}}\)</span> from both sides gives the claim.</p>
 </div>
 <div id="rem-deviance-shift" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em> (Why the shift does not change the drop in deviance). </span>The constant <span class="math inline">\(2 \ell_{\mathrm{sat}}\)</span> in <a href="#/cor-deviance-shift" class="quarto-xref">Corollary&nbsp;2</a> is the same for every model fit to the same data, because the saturated model depends only on the data. So the difference between the deviances of two models, such as the drop in deviance of <a href="#/thm-deviance-drop" class="quarto-xref">Theorem&nbsp;1</a>, is the same whether it is computed from <span class="math inline">\(D\)</span> or from <span class="math inline">\(D_{\mathrm{sat}}\)</span>. The two deviances differ in their size, though: when every pattern has one replicate, the saturated model fits every label exactly, <span class="math inline">\(\ell_{\mathrm{sat}}= 0\)</span>, and <span class="math inline">\(D_{\mathrm{sat}}= D\)</span>.</p>
+<p><span class="proof-title"><em>Remark 6</em> (Why the shift does not change the drop in deviance). </span>The constant <span class="math inline">\(2 \ell_{\mathrm{sat}}\)</span> in <a href="#/cor-deviance-shift" class="quarto-xref">Corollary&nbsp;2</a> is the same for every model fit to the same data, because the saturated model depends only on the data. So the difference between the deviances of two models, such as the drop in deviance of <a href="#/thm-deviance-drop" class="quarto-xref">Theorem&nbsp;1</a>, is the same whether it is computed from <span class="math inline">\(\operatorname{dev}\)</span> or from <span class="math inline">\(\operatorname{dev}_{\mathrm{sat}}\)</span>. The two deviances differ in their size, though: when every pattern has one replicate, the saturated model fits every label exactly, <span class="math inline">\(\ell_{\mathrm{sat}}= 0\)</span>, and <span class="math inline">\(\operatorname{dev}_{\mathrm{sat}}= \operatorname{dev}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-saturated-deviance" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (The deviance of the low-birth-weight model, ungrouped and grouped)</strong></span> Fit a logistic regression of low birth weight on smoking and race, once to the 189 individual babies and once to the 6 grouped counts of <a href="#/exm-covariate-patterns" class="quarto-xref">Example&nbsp;6</a>. R’s <code><a href="https://rdrr.io/r/stats/deviance.html">deviance()</a></code> is the deviance of <a href="#/def-deviance" class="quarto-xref">Definition&nbsp;2</a> for the first fit and the deviance relative to the saturated model of <a href="#/def-saturated-deviance" class="quarto-xref">Definition&nbsp;8</a> for the second. We check the second against <a href="#/eq-saturated-deviance-grouped" class="quarto-xref">Equation&nbsp;6</a> computed by hand.</p>
@@ -653,10 +653,10 @@ D= D_{\mathrm{sat}}- 2 \ell_{\mathrm{sat}}.
 <span id="cb7-27"><a aria-label="27"></a><span class="co">#&gt;       by_hand   glm_grouped glm_ungrouped </span></span>
 <span id="cb7-28"><a aria-label="28"></a><span class="co">#&gt;       3.15694       3.15694     219.97471</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The deviance relative to the saturated model is <span class="math inline">\(D_{\mathrm{sat}}= 3.157\)</span> on the grouped counts, and the deviance is <span class="math inline">\(D= 219.975\)</span> on the individual babies.</p>
+<p>The deviance relative to the saturated model is <span class="math inline">\(\operatorname{dev}_{\mathrm{sat}}= 3.157\)</span> on the grouped counts, and the deviance is <span class="math inline">\(\operatorname{dev}= 219.975\)</span> on the individual babies.</p>
 </div>
 </section><section class="slide level2"><div id="exm-deviance-shift" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8 (The shift between the two deviances)</strong></span> For the two fits of <a href="#/exm-saturated-deviance" class="quarto-xref">Example&nbsp;7</a>, <a href="#/cor-deviance-shift" class="quarto-xref">Corollary&nbsp;2</a> says that <span class="math inline">\(D- D_{\mathrm{sat}}= -2 \ell_{\mathrm{sat}}\)</span>. The left side is 216.818. We compute the right side from the observed proportions of <a href="#/thm-saturated-mle" class="quarto-xref">Theorem&nbsp;2</a>.</p>
+<p><span class="theorem-title"><strong>Example 8 (The shift between the two deviances)</strong></span> For the two fits of <a href="#/exm-saturated-deviance" class="quarto-xref">Example&nbsp;7</a>, <a href="#/cor-deviance-shift" class="quarto-xref">Corollary&nbsp;2</a> says that <span class="math inline">\(\operatorname{dev}- \operatorname{dev}_{\mathrm{sat}}= -2 \ell_{\mathrm{sat}}\)</span>. The left side is 216.818. We compute the right side from the observed proportions of <a href="#/thm-saturated-mle" class="quarto-xref">Theorem&nbsp;2</a>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="co"># twice the saturated log-likelihood, from the observed proportions</span></span>
 <span id="cb8-2"><a aria-label="2"></a>bw_phat_sat <span class="ot">&lt;-</span> bw_grouped<span class="sc">$</span>nevents <span class="sc">/</span> bw_grouped<span class="sc">$</span>nreps</span>

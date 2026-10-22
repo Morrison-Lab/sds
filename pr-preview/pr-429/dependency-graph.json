@@ -23,6 +23,16 @@
    "url": "https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm"
   },
   {
+   "id": "mds/vector-calculus#def-hessian",
+   "site": "mds",
+   "page": "vector-calculus",
+   "div": "def-hessian",
+   "kind": "def",
+   "title": "hessian",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/vector-calculus.html#def-hessian"
+  },
+  {
    "id": "pds/expectation#def-cond-pdf",
    "site": "pds",
    "page": "expectation",
@@ -2254,7 +2264,7 @@
    "page": "intro-MLEs",
    "div": "cor-bernoulli-hessian-contribution-fraction",
    "kind": "cor",
-   "title": "Hessian contribution of one binary outcome as a single fraction",
+   "title": "Hessian contribution of one binary outcome over a common denominator",
    "external": false
   },
   {
@@ -2399,15 +2409,6 @@
    "div": "def-power",
    "kind": "def",
    "title": "Power",
-   "external": false
-  },
-  {
-   "id": "sds/intro-MLEs#def-precision-rv",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "def-precision-rv",
-   "kind": "def",
-   "title": "Precision of a random variable",
    "external": false
   },
   {
@@ -5382,6 +5383,10 @@
   ],
   [
    "sds/intro-MLEs#cor-bernoulli-hessian-contribution-fraction",
+   "pds/variance-covariance#def-precision"
+  ],
+  [
+   "sds/intro-MLEs#cor-bernoulli-hessian-contribution-fraction",
    "sds/intro-MLEs#def-hessian"
   ],
   [
@@ -5417,16 +5422,16 @@
    "sds/intro-MLEs#def-newton-raphson"
   ],
   [
+   "sds/intro-MLEs#def-hessian",
+   "mds/vector-calculus#def-hessian"
+  ],
+  [
    "sds/intro-MLEs#def-mle",
    "sds/intro-MLEs#def-lik"
   ],
   [
    "sds/intro-MLEs#def-oinf",
    "sds/intro-MLEs#def-hessian"
-  ],
-  [
-   "sds/intro-MLEs#def-precision-rv",
-   "pds/variance-covariance#def-variance"
   ],
   [
    "sds/intro-MLEs#def-score-equation",
@@ -5502,6 +5507,10 @@
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score",
+   "pds/variance-covariance#def-precision"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score",
    "sds/intro-MLEs#def-score"
   ],
   [
@@ -5518,7 +5527,7 @@
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-contribution",
-   "sds/intro-MLEs#def-precision-rv"
+   "pds/variance-covariance#def-precision"
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-contribution",
@@ -5534,11 +5543,11 @@
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-sum",
-   "sds/exploratory-descriptive#def-sample-mean"
+   "pds/variance-covariance#def-precision"
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-sum",
-   "sds/intro-MLEs#def-precision-rv"
+   "sds/exploratory-descriptive#def-sample-mean"
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-sum",

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 13:40:01 (PDT)
+Last modified: 2026-10-22 15:45:15 (PDT)
 
 ## 1 Scientific models
 
@@ -114,7 +114,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 
 > **NOTE:**
 >
-> **Example 5 (Sampling distribution of a sample mean)** Suppose student heights are \\X_i\\ \sim\_{\operatorname{iid}}\\ {\operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}}\\ with standard deviation \\\sigma= 10\\ cm, and we sample \\n = 25\\ students. The sample mean \\\bar X\\ is a linear combination of independent Gaussian variables, so it is also Gaussian, with mean \\{\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{}} = \mu\\ and variance \\{\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{}} = \sigma^2/ n\\. Its sampling distribution is therefore
+> **Example 5 (Sampling distribution of a sample mean)** Suppose student heights are \\X_i\\ \sim\_{\operatorname{iid}}\\ {\operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}}\\ with standard deviation \\\sigma= 10\\ cm, and we sample \\n = 25\\ students. The sample mean \\\bar X\\ is a linear combination of independent Gaussian variables, so it is also Gaussian, with mean \\{\mathbb{E}\mathopen{}\left\[\bar X\right\]\mathclose{}} = \mu\\ and variance \\{\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{}} = \sigma^2/ n\\. Its sampling distribution is therefore
 >
 > \\\bar X \sim {\operatorname{N}\mathopen{}\left(\mu, \sigma^2/ 25\right)\mathclose{}},\\
 >
@@ -168,21 +168,21 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > **Definition 7 (Bias)** The **bias** of an estimator \\\hat{\theta}\\ for an estimand \\\theta\\ is the expected value of the [estimation error](#def-estimation-error):
 >
-> \\{\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right\]\mathclose{}} \tag{1}\\
+> \\{\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right\]\mathclose{}} \tag{1}\\
 >
 > Source: Wikipedia contributors [\[12\]](#ref-wikipedia_bias_of_an_estimator).
 
 > **NOTE:**
 >
-> **Exercise 1 (Bias in terms of the expectation)** Derive an expression for the [bias](#def-bias) \\{\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\ of an [estimator](#def-estimator) \\\hat{\theta}\\ in terms of its expected value \\{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\\ and the estimand \\\theta\\.
+> **Exercise 1 (Bias in terms of the expectation)** Derive an expression for the [bias](#def-bias) \\{\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\ of an [estimator](#def-estimator) \\\hat{\theta}\\ in terms of its expected value \\{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\\ and the estimand \\\theta\\.
 
 > **NOTE:**
 >
-> *Solution 1*. \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &\stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right\]\mathclose{}} && \text{(definition of bias)}\\ &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}- \theta\right\]\mathclose{}} && \text{(definition of estimation error)}\\ &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} - {\operatorname{E}\mathopen{}\left\[\theta\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} - \theta && \text{(\$\theta\$ is a constant)} \end{aligned} \\
+> *Solution 1*. \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &\stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right\]\mathclose{}} && \text{(definition of bias)}\\ &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}- \theta\right\]\mathclose{}} && \text{(definition of estimation error)}\\ &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} - {\mathbb{E}\mathopen{}\left\[\theta\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} - \theta && \text{(\$\theta\$ is a constant)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 1 (Bias equals expectation minus truth)** \\{\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = {\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} - \theta\\
+> **Theorem 1 (Bias equals expectation minus truth)** \\{\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = {\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} - \theta\\
 
 > **NOTE:**
 >
@@ -190,13 +190,13 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> **Example 7 (Bias of two estimators of a population mean)** Let \\X_1, \ldots, X_n\\ each have expectation \\{\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}} = \mu\\, as in [Example 4](#exm-estimator). By [Theorem 1](#thm-bias-exprs), the bias of the sample mean \\\bar X\\ is:
+> **Example 7 (Bias of two estimators of a population mean)** Let \\X_1, \ldots, X_n\\ each have expectation \\{\mathbb{E}\mathopen{}\left\[X_i\right\]\mathclose{}} = \mu\\, as in [Example 4](#exm-estimator). By [Theorem 1](#thm-bias-exprs), the bias of the sample mean \\\bar X\\ is:
 >
-> \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{}} - \mu && \text{(bias equals expectation minus truth)}\\ &= {\operatorname{E}\mathopen{}\left\[\frac{1}{n}\sum\_{i=1}^nX_i\right\]\mathclose{}} - \mu && \text{(definition of \$\bar X\$)}\\ &= \frac{1}{n}{\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i\right\]\mathclose{}} - \mu && \text{(factor the constant \$\tfrac{1}{n}\$ out of the expectation)}\\ &= \frac{1}{n}\sum\_{i=1}^n{\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}} - \mu && \text{(linearity of expectation)}\\ &= \frac{1}{n}\sum\_{i=1}^n\mu- \mu && \text{(\${\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}} = \mu\$ for every \$i\$)}\\ &= \frac{1}{n} \cdot n\mu- \mu && \text{(sum of \$n\$ copies of \$\mu\$)}\\ &= \mu- \mu && \text{(cancel \$n\$)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[\bar X\right\]\mathclose{}} - \mu && \text{(bias equals expectation minus truth)}\\ &= {\mathbb{E}\mathopen{}\left\[\frac{1}{n}\sum\_{i=1}^nX_i\right\]\mathclose{}} - \mu && \text{(definition of \$\bar X\$)}\\ &= \frac{1}{n}{\mathbb{E}\mathopen{}\left\[\sum\_{i=1}^nX_i\right\]\mathclose{}} - \mu && \text{(factor the constant \$\tfrac{1}{n}\$ out of the expectation)}\\ &= \frac{1}{n}\sum\_{i=1}^n{\mathbb{E}\mathopen{}\left\[X_i\right\]\mathclose{}} - \mu && \text{(linearity of expectation)}\\ &= \frac{1}{n}\sum\_{i=1}^n\mu- \mu && \text{(\${\mathbb{E}\mathopen{}\left\[X_i\right\]\mathclose{}} = \mu\$ for every \$i\$)}\\ &= \frac{1}{n} \cdot n\mu- \mu && \text{(sum of \$n\$ copies of \$\mu\$)}\\ &= \mu- \mu && \text{(cancel \$n\$)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
 >
 > and the bias of the single-observation estimator \\\hat{\mu}^{(2)} = X_1\\ is:
 >
-> \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[X_1\right\]\mathclose{}} - \mu && \text{(bias equals expectation minus truth)}\\ &= \mu- \mu && \text{(\${\operatorname{E}\mathopen{}\left\[X_1\right\]\mathclose{}} = \mu\$)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[X_1\right\]\mathclose{}} - \mu && \text{(bias equals expectation minus truth)}\\ &= \mu- \mu && \text{(\${\mathbb{E}\mathopen{}\left\[X_1\right\]\mathclose{}} = \mu\$)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
 >
 > So both estimators have zero bias, even though \\\bar X\\ uses all \\n\\ observations and \\X_1\\ uses only one.
 
@@ -206,23 +206,23 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > **Definition 8 (Mean squared error)** The **population mean squared error (pMSE)** of an estimator \\\hat{\theta}\\, also called its **mean squared error** or its **expected squared estimation error (ESEE)**, denoted \\{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\ or \\{\operatorname{ESEE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
 >
-> \\{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}}\\
+> \\{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}}\\
 >
 > Source: Wikipedia contributors [\[13\]](#ref-wikipedia_mean_squared_error).
 
 > **NOTE:**
 >
-> **Exercise 2 (Expanding the squared bias)** Using [Theorem 1](#thm-bias-exprs), expand the squared [bias](#def-bias) \\{\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2}\\ in terms of \\{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\\ and the estimand \\\theta\\.
+> **Exercise 2 (Expanding the squared bias)** Using [Theorem 1](#thm-bias-exprs), expand the squared [bias](#def-bias) \\{\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2}\\ in terms of \\{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\\ and the estimand \\\theta\\.
 
 > **NOTE:**
 >
-> *Solution 2*. \\ \begin{aligned} {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} &= {\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} - \theta\right)\mathclose{}}^{2} && \text{(bias equals expectation minus truth)}\\ &= {\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\right)\mathclose{}}^{2} - 2{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ \theta^2 && \text{(expand the binomial square)} \end{aligned} \\
+> *Solution 2*. \\ \begin{aligned} {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} &= {\mathopen{}\left({\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} - \theta\right)\mathclose{}}^{2} && \text{(bias equals expectation minus truth)}\\ &= {\mathopen{}\left({\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\right)\mathclose{}}^{2} - 2{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ \theta^2 && \text{(expand the binomial square)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 2 (Expanded squared bias)** For any one-dimensional estimator \\\hat{\theta}\\ of an estimand \\\theta\\, the squared [bias](#def-bias) is:
 >
-> \\{\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} = {\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\right)\mathclose{}}^{2} - 2{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ \theta^2\\
+> \\{\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} = {\mathopen{}\left({\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\right)\mathclose{}}^{2} - 2{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ \theta^2\\
 
 > **NOTE:**
 >
@@ -230,23 +230,23 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> **Exercise 3 (Squared bias plus variance)** Using [Exercise 2](#exr-sq-bias-expand), write \\{\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\ in terms of \\{\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}}\\, \\{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\\, and the estimand \\\theta\\.
+> **Exercise 3 (Squared bias plus variance)** Using [Exercise 2](#exr-sq-bias-expand), write \\{\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\ in terms of \\{\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}}\\, \\{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\\, and the estimand \\\theta\\.
 
 > **NOTE:**
 >
 > *Solution 3*. The variance is ([simplified expression for variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance)):
 >
-> \\{\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = {\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - {\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\right)\mathclose{}}^{2} \tag{2}\\
+> \\{\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = {\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - {\mathopen{}\left({\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\right)\mathclose{}}^{2} \tag{2}\\
 >
-> Let the [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [estimator](#def-estimator) \\\hat{\theta}\\ be \\\mu\_{\hat{\theta}} = {\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\\. Then the variance of \\\hat{\theta}\\ is \\{\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2}\\, and the squared [bias](#def-bias) of \\\hat{\theta}\\ for the [estimand](#def-estimand) \\\theta\\ from [Exercise 2](#exr-sq-bias-expand) is \\{\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} - 2\mu\_{\hat{\theta}}\theta+ \theta^2\\. Add them and simplify:
+> Let the [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [estimator](#def-estimator) \\\hat{\theta}\\ be \\\mu\_{\hat{\theta}} = {\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\\. Then the variance of \\\hat{\theta}\\ is \\{\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2}\\, and the squared [bias](#def-bias) of \\\hat{\theta}\\ for the [estimand](#def-estimand) \\\theta\\ from [Exercise 2](#exr-sq-bias-expand) is \\{\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} - 2\mu\_{\hat{\theta}}\theta+ \theta^2\\. Add them and simplify:
 >
-> \\ \begin{aligned} {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &= {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} && \text{(substitute the squared bias)}\\ &= {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + {\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} && \text{(substitute the variance)}\\ &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} && \text{(reorder the terms)}\\ &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + \mathopen{}\left({\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2}\right)\mathclose{} && \text{(group the last two terms)}\\ &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + 0 && \text{(\$a - a = 0\$)}\\ &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 && \text{(\$a + 0 = a\$)} \end{aligned} \tag{3}\\
+> \\ \begin{aligned} {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &= {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} && \text{(substitute the squared bias)}\\ &= {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + {\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} && \text{(substitute the variance)}\\ &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} && \text{(reorder the terms)}\\ &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + \mathopen{}\left({\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2} - {\mathopen{}\left(\mu\_{\hat{\theta}}\right)\mathclose{}}^{2}\right)\mathclose{} && \text{(group the last two terms)}\\ &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 + 0 && \text{(\$a - a = 0\$)}\\ &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2\mu\_{\hat{\theta}}\theta+ \theta^2 && \text{(\$a + 0 = a\$)} \end{aligned} \tag{3}\\
 
 > **NOTE:**
 >
 > **Theorem 3 (Expanded squared bias plus variance)** For any one-dimensional estimator \\\hat{\theta}\\ of an estimand \\\theta\\, the squared bias plus the variance is:
 >
-> \\{\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = {\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ \theta^2\\
+> \\{\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = {\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ \theta^2\\
 
 > **NOTE:**
 >
@@ -254,17 +254,17 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> **Exercise 4 (Expanding the population mean squared error)** Derive an expression for the [pMSE](#def-mse) \\{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\ in terms of \\{\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}}\\, \\{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\\, and the estimand \\\theta\\.
+> **Exercise 4 (Expanding the population mean squared error)** Derive an expression for the [pMSE](#def-mse) \\{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\ in terms of \\{\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}}\\, \\{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\\, and the estimand \\\theta\\.
 
 > **NOTE:**
 >
-> *Solution 4*. \\ \begin{aligned} {\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &\stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}} && \text{(definition of MSE)}\\ &= {\operatorname{E}\mathopen{}\left\[(\hat{\theta}- \theta)^2\right\]\mathclose{}} && \text{(definition of estimation error)}\\ &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}^2 - 2\hat{\theta}\theta+ \theta^2\right\]\mathclose{}} && \text{(expand the binomial square)}\\ &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - {\operatorname{E}\mathopen{}\left\[2\hat{\theta}\theta\right\]\mathclose{}} + {\operatorname{E}\mathopen{}\left\[\theta^2\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ {\operatorname{E}\mathopen{}\left\[\theta^2\right\]\mathclose{}} && \text{(factor the constant \$2\theta\$ out of the middle expectation)}\\ &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ \theta^2 && \text{(the expectation of a constant is that constant)} \end{aligned} \\
+> *Solution 4*. \\ \begin{aligned} {\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &\stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}} && \text{(definition of MSE)}\\ &= {\mathbb{E}\mathopen{}\left\[(\hat{\theta}- \theta)^2\right\]\mathclose{}} && \text{(definition of estimation error)}\\ &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}^2 - 2\hat{\theta}\theta+ \theta^2\right\]\mathclose{}} && \text{(expand the binomial square)}\\ &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - {\mathbb{E}\mathopen{}\left\[2\hat{\theta}\theta\right\]\mathclose{}} + {\mathbb{E}\mathopen{}\left\[\theta^2\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ {\mathbb{E}\mathopen{}\left\[\theta^2\right\]\mathclose{}} && \text{(factor the constant \$2\theta\$ out of the middle expectation)}\\ &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ \theta^2 && \text{(the expectation of a constant is that constant)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 4 (Expanded population mean squared error)** For any one-dimensional estimator \\\hat{\theta}\\ of an estimand \\\theta\\, the [pMSE](#def-mse) is:
 >
-> \\{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = {\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ \theta^2\\
+> \\{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = {\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ \theta^2\\
 
 > **NOTE:**
 >
@@ -278,7 +278,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> *Proof*. By [Theorem 4](#thm-mse-expand) and [Theorem 3](#thm-bias-sq-plus-var), \\{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\ and \\{\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\ both equal \\{\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ \theta^2\\, so they are equal to each other.
+> *Proof*. By [Theorem 4](#thm-mse-expand) and [Theorem 3](#thm-bias-sq-plus-var), \\{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\ and \\{\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\ both equal \\{\mathbb{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}} - 2{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\theta+ \theta^2\\, so they are equal to each other.
 
 > **NOTE:**
 >
@@ -354,37 +354,37 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > Both estimators are built from the sum of squared deviations \\\sum\_{i=1}^n(X_i- \bar X)^2\\, so we first find its expectation. Using
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{}} &= {\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}} + {\mathopen{}\left({\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}}\right)\mathclose{}}^{2} \\ &= \sigma^2+ \mu^2 \end{aligned} \\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[X_i^2\right\]\mathclose{}} &= {\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}} + {\mathopen{}\left({\mathbb{E}\mathopen{}\left\[X_i\right\]\mathclose{}}\right)\mathclose{}}^{2} \\ &= \sigma^2+ \mu^2 \end{aligned} \\
 >
 > and
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}} &= {\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{}} + {\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{}}\right)\mathclose{}}^{2} \\ &= \sigma^2/n + \mu^2 \end{aligned} \\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}} &= {\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{}} + {\mathopen{}\left({\mathbb{E}\mathopen{}\left\[\bar X\right\]\mathclose{}}\right)\mathclose{}}^{2} \\ &= \sigma^2/n + \mu^2 \end{aligned} \\
 >
 > (by [Example 8](#exm-mse-sample-mean) and [Example 7](#exm-bias-sample-mean)):
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n(X_i- \bar X)^2\right\]\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n\mathopen{}\left(X_i^2 - 2 X_i\bar X + \bar X^2\right)\mathclose{}\right\]\mathclose{}} && \text{(expand each square)}\\ &= {\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - \sum\_{i=1}^n2 X_i\bar X + \sum\_{i=1}^n\bar X^2\right\]\mathclose{}} && \text{(split the sum)}\\ &= {\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \sum\_{i=1}^nX_i+ \sum\_{i=1}^n\bar X^2\right\]\mathclose{}} && \text{(factor \$2\bar X\$ out of the middle sum)}\\ &= {\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \sum\_{i=1}^nX_i+ n \bar X^2\right\]\mathclose{}} && \text{(sum of \$n\$ copies of \$\bar X^2\$)}\\ &= {\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \cdot n \bar X + n \bar X^2\right\]\mathclose{}} && \text{(\$\textstyle\sum\_{i=1}^nX_i= n \bar X\$)}\\ &= {\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2n \bar X^2 + n \bar X^2\right\]\mathclose{}} && \text{(multiply \$2\bar X \cdot n \bar X\$)}\\ &= {\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - n \bar X^2\right\]\mathclose{}} && \text{(collect the \$\bar X^2\$ terms)}\\ &= {\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2\right\]\mathclose{}} - {\operatorname{E}\mathopen{}\left\[n \bar X^2\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= \sum\_{i=1}^n{\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{}} - {\operatorname{E}\mathopen{}\left\[n \bar X^2\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= \sum\_{i=1}^n{\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{}} - n {\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}} && \text{(factor the constant \$n\$ out of the expectation)}\\ &= \sum\_{i=1}^n(\sigma^2+ \mu^2) - n {\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}} && \text{(substitute \${\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{}}\$)}\\ &= n(\sigma^2+ \mu^2) - n {\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}} && \text{(sum of \$n\$ copies of \$\sigma^2+ \mu^2\$)}\\ &= n(\sigma^2+ \mu^2) - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(substitute \${\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}}\$)}\\ &= n\sigma^2+ n\mu^2 - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(distribute \$n\$ over \$\sigma^2+ \mu^2\$)}\\ &= n\sigma^2+ n\mu^2 - \mathopen{}\left(n \cdot \frac{\sigma^2}{n} + n\mu^2\right)\mathclose{} && \text{(distribute \$n\$ over \$\frac{\sigma^2}{n} + \mu^2\$)}\\ &= n\sigma^2+ n\mu^2 - \mathopen{}\left(\sigma^2+ n\mu^2\right)\mathclose{} && \text{(cancel \$n\$ in \$n \cdot \frac{\sigma^2}{n}\$)}\\ &= n\sigma^2+ n\mu^2 - \sigma^2- n\mu^2 && \text{(distribute the minus sign)}\\ &= n\sigma^2- \sigma^2 && \text{(cancel \$n\mu^2\$)}\\ &= (n - 1)\sigma^2 && \text{(factor out \$\sigma^2\$)} \end{aligned} \\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[\sum\_{i=1}^n(X_i- \bar X)^2\right\]\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[\sum\_{i=1}^n\mathopen{}\left(X_i^2 - 2 X_i\bar X + \bar X^2\right)\mathclose{}\right\]\mathclose{}} && \text{(expand each square)}\\ &= {\mathbb{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - \sum\_{i=1}^n2 X_i\bar X + \sum\_{i=1}^n\bar X^2\right\]\mathclose{}} && \text{(split the sum)}\\ &= {\mathbb{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \sum\_{i=1}^nX_i+ \sum\_{i=1}^n\bar X^2\right\]\mathclose{}} && \text{(factor \$2\bar X\$ out of the middle sum)}\\ &= {\mathbb{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \sum\_{i=1}^nX_i+ n \bar X^2\right\]\mathclose{}} && \text{(sum of \$n\$ copies of \$\bar X^2\$)}\\ &= {\mathbb{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \cdot n \bar X + n \bar X^2\right\]\mathclose{}} && \text{(\$\textstyle\sum\_{i=1}^nX_i= n \bar X\$)}\\ &= {\mathbb{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2n \bar X^2 + n \bar X^2\right\]\mathclose{}} && \text{(multiply \$2\bar X \cdot n \bar X\$)}\\ &= {\mathbb{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - n \bar X^2\right\]\mathclose{}} && \text{(collect the \$\bar X^2\$ terms)}\\ &= {\mathbb{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2\right\]\mathclose{}} - {\mathbb{E}\mathopen{}\left\[n \bar X^2\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= \sum\_{i=1}^n{\mathbb{E}\mathopen{}\left\[X_i^2\right\]\mathclose{}} - {\mathbb{E}\mathopen{}\left\[n \bar X^2\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= \sum\_{i=1}^n{\mathbb{E}\mathopen{}\left\[X_i^2\right\]\mathclose{}} - n {\mathbb{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}} && \text{(factor the constant \$n\$ out of the expectation)}\\ &= \sum\_{i=1}^n(\sigma^2+ \mu^2) - n {\mathbb{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}} && \text{(substitute \${\mathbb{E}\mathopen{}\left\[X_i^2\right\]\mathclose{}}\$)}\\ &= n(\sigma^2+ \mu^2) - n {\mathbb{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}} && \text{(sum of \$n\$ copies of \$\sigma^2+ \mu^2\$)}\\ &= n(\sigma^2+ \mu^2) - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(substitute \${\mathbb{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}}\$)}\\ &= n\sigma^2+ n\mu^2 - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(distribute \$n\$ over \$\sigma^2+ \mu^2\$)}\\ &= n\sigma^2+ n\mu^2 - \mathopen{}\left(n \cdot \frac{\sigma^2}{n} + n\mu^2\right)\mathclose{} && \text{(distribute \$n\$ over \$\frac{\sigma^2}{n} + \mu^2\$)}\\ &= n\sigma^2+ n\mu^2 - \mathopen{}\left(\sigma^2+ n\mu^2\right)\mathclose{} && \text{(cancel \$n\$ in \$n \cdot \frac{\sigma^2}{n}\$)}\\ &= n\sigma^2+ n\mu^2 - \sigma^2- n\mu^2 && \text{(distribute the minus sign)}\\ &= n\sigma^2- \sigma^2 && \text{(cancel \$n\mu^2\$)}\\ &= (n - 1)\sigma^2 && \text{(factor out \$\sigma^2\$)} \end{aligned} \\
 >
 > So
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[S^2\right\]\mathclose{}} &= \frac{1}{n-1}(n-1)\sigma^2\\ &= \sigma^2, \end{aligned} \\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[S^2\right\]\mathclose{}} &= \frac{1}{n-1}(n-1)\sigma^2\\ &= \sigma^2, \end{aligned} \\
 >
 > and by [Theorem 1](#thm-bias-exprs), \\{\operatorname{Bias}\mathopen{}\left(S^2\right)\mathclose{}} = 0\\: the sample variance is [unbiased](#def-unbiased).
 >
-> For the divide-by-\\n\\ estimator, \\{\operatorname{E}\mathopen{}\left\[\hat{\sigma}^2\right\]\mathclose{}} = \frac{1}{n}(n-1)\sigma^2\\, so:
+> For the divide-by-\\n\\ estimator, \\{\mathbb{E}\mathopen{}\left\[\hat{\sigma}^2\right\]\mathclose{}} = \frac{1}{n}(n-1)\sigma^2\\, so:
 >
-> \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[\hat{\sigma}^2\right\]\mathclose{}} - \sigma^2 && \text{(bias equals expectation minus truth)}\\ &= \frac{n-1}{n}\sigma^2- \sigma^2 && \text{(substitute \${\operatorname{E}\mathopen{}\left\[\hat{\sigma}^2\right\]\mathclose{}}\$)}\\ &= \frac{n-1}{n}\sigma^2- \frac{n}{n}\sigma^2 && \text{(write \$\sigma^2\$ over the common denominator \$n\$)}\\ &= \frac{n - 1 - n}{n}\sigma^2 && \text{(combine the fractions)}\\ &= \frac{-1}{n}\sigma^2 && \text{(\$n - 1 - n = -1\$)}\\ &= -\frac{\sigma^2}{n} && \text{(multiply)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[\hat{\sigma}^2\right\]\mathclose{}} - \sigma^2 && \text{(bias equals expectation minus truth)}\\ &= \frac{n-1}{n}\sigma^2- \sigma^2 && \text{(substitute \${\mathbb{E}\mathopen{}\left\[\hat{\sigma}^2\right\]\mathclose{}}\$)}\\ &= \frac{n-1}{n}\sigma^2- \frac{n}{n}\sigma^2 && \text{(write \$\sigma^2\$ over the common denominator \$n\$)}\\ &= \frac{n - 1 - n}{n}\sigma^2 && \text{(combine the fractions)}\\ &= \frac{-1}{n}\sigma^2 && \text{(\$n - 1 - n = -1\$)}\\ &= -\frac{\sigma^2}{n} && \text{(multiply)} \end{aligned} \\
 >
 > This estimator is biased: on average it underestimates \\\sigma^2\\, by an amount that shrinks to zero as \\n\\ grows.
 
 > **NOTE:**
 >
-> **Exercise 5 (Expected value of an unbiased estimator)** Using [Theorem 1](#thm-bias-exprs), find \\{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\\ for an [unbiased](#def-unbiased) estimator \\\hat{\theta}\\ of \\\theta\\.
+> **Exercise 5 (Expected value of an unbiased estimator)** Using [Theorem 1](#thm-bias-exprs), find \\{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}}\\ for an [unbiased](#def-unbiased) estimator \\\hat{\theta}\\ of \\\theta\\.
 
 > **NOTE:**
 >
-> *Solution 5*. \\ \begin{aligned} 0 &= {\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} && \text{(definition of unbiased)}\\ &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} - \theta && \text{(bias equals expectation minus truth)} \end{aligned} \\
+> *Solution 5*. \\ \begin{aligned} 0 &= {\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} && \text{(definition of unbiased)}\\ &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} - \theta && \text{(bias equals expectation minus truth)} \end{aligned} \\
 >
-> Adding \\\theta\\ to both sides gives \\{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} = \theta\\.
+> Adding \\\theta\\ to both sides gives \\{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} = \theta\\.
 
 > **NOTE:**
 >
@@ -398,7 +398,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > **Theorem 6 (Properties of unbiased estimators)** If \\\hat{\theta}\\ is an [unbiased](#def-unbiased) estimator of \\\theta\\, then:
 >
-> \\{\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} = \theta \tag{5}\\
+> \\{\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} = \theta \tag{5}\\
 >
 > \\{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} \tag{6}\\
 
@@ -416,7 +416,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > **Definition 12 (Mean absolute error)** The **population mean absolute error (pMAE)** of an estimator, also called its **mean absolute error**, is the expectation of the absolute value of the [estimation error](#def-estimation-error):
 >
-> \\ {\operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\mathopen{}\left\|{\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right\|\mathclose{}\right\]\mathclose{}} \\
+> \\ {\operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\mathopen{}\left\|{\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right\|\mathclose{}\right\]\mathclose{}} \\
 >
 > Source: Wikipedia contributors [\[16\]](#ref-wikipedia_mean_absolute_error).
 
@@ -424,7 +424,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > **Example 12 (Population mean absolute error of a Gaussian estimator)** Suppose an estimator \\\hat{\theta}\\ has a Gaussian distribution with mean \\\theta\\ and standard deviation \\\tau\\, so that its estimation error \\{\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = \hat{\theta}- \theta\\ has the same distribution as \\\tau Z\\, where \\Z\\ has a standard Gaussian distribution with density \\\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\\. Then:
 >
-> \\ \begin{aligned} {\operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[\mathopen{}\left\|\tau Z\right\|\mathclose{}\right\]\mathclose{}} && \text{(definition of MAE)}\\ &= {\operatorname{E}\mathopen{}\left\[\tau\mathopen{}\left\|Z\right\|\mathclose{}\right\]\mathclose{}} && \text{(\$\mathopen{}\left\|\tau Z\right\|\mathclose{} = \tau\mathopen{}\left\|Z\right\|\mathclose{}\$ because \$\tau\> 0\$)}\\ &= \tau{\operatorname{E}\mathopen{}\left\[\mathopen{}\left\|Z\right\|\mathclose{}\right\]\mathclose{}} && \text{(factor the constant \$\tau\$ out of the expectation)}\\ &= \tau\int\_{-\infty}^{\infty} \mathopen{}\left\|z\right\|\mathclose{} \phi(z) \\ dz && \text{(expectation of a function of \$Z\$)}\\ &= \tau\cdot 2 \int\_{0}^{\infty} \mathopen{}\left\|z\right\|\mathclose{} \phi(z) \\ dz && \text{(\$\mathopen{}\left\|z\right\|\mathclose{}\phi(z)\$ is symmetric about 0)}\\ &= \tau\cdot 2 \int\_{0}^{\infty} z \phi(z) \\ dz && \text{(\$\mathopen{}\left\|z\right\|\mathclose{} = z\$ for \$z \ge 0\$)}\\ &= \tau\cdot 2 \mathopen{}\left\[-\phi(z)\right\]\mathclose{}\_{0}^{\infty} && \text{(\$\phi'(z) = -z\phi(z)\$)}\\ &= \tau\cdot 2 \mathopen{}\left(\lim\_{z \to \infty} \mathopen{}\left\[-\phi(z)\right\]\mathclose{} - \mathopen{}\left(-\phi(0)\right)\mathclose{}\right)\mathclose{} && \text{(evaluate at the limits)}\\ &= \tau\cdot 2 \mathopen{}\left(\lim\_{z \to \infty} \mathopen{}\left\[-\phi(z)\right\]\mathclose{} + \phi(0)\right)\mathclose{} && \text{(subtracting a negative is adding)}\\ &= \tau\cdot 2 \mathopen{}\left(0 + \phi(0)\right)\mathclose{} && \text{(\$\phi(z) \to 0\$ as \$z \to \infty\$)}\\ &= \tau\cdot 2 \phi(0) && \text{(drop the zero term)}\\ &= \tau\cdot 2 (2\pi)^{-1/2} && \text{(\$\phi(0) = (2\pi)^{-1/2}\$)}\\ &= \tau\cdot 2 \cdot \frac{1}{\sqrt{2\pi}} && \text{(write \$(2\pi)^{-1/2}\$ as \$1/\sqrt{2\pi}\$)}\\ &= \tau\cdot \frac{2}{\sqrt{2\pi}} && \text{(multiply)}\\ &= \tau\cdot \frac{\sqrt{4}}{\sqrt{2\pi}} && \text{(write \$2\$ as \$\sqrt{4}\$)}\\ &= \tau\sqrt{4/(2\pi)} && \text{(quotient of square roots)}\\ &= \tau\sqrt{2/\pi} && \text{(cancel the common factor 2 in \$4/(2\pi)\$)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[\mathopen{}\left\|\tau Z\right\|\mathclose{}\right\]\mathclose{}} && \text{(definition of MAE)}\\ &= {\mathbb{E}\mathopen{}\left\[\tau\mathopen{}\left\|Z\right\|\mathclose{}\right\]\mathclose{}} && \text{(\$\mathopen{}\left\|\tau Z\right\|\mathclose{} = \tau\mathopen{}\left\|Z\right\|\mathclose{}\$ because \$\tau\> 0\$)}\\ &= \tau{\mathbb{E}\mathopen{}\left\[\mathopen{}\left\|Z\right\|\mathclose{}\right\]\mathclose{}} && \text{(factor the constant \$\tau\$ out of the expectation)}\\ &= \tau\int\_{-\infty}^{\infty} \mathopen{}\left\|z\right\|\mathclose{} \phi(z) \\ dz && \text{(expectation of a function of \$Z\$)}\\ &= \tau\cdot 2 \int\_{0}^{\infty} \mathopen{}\left\|z\right\|\mathclose{} \phi(z) \\ dz && \text{(\$\mathopen{}\left\|z\right\|\mathclose{}\phi(z)\$ is symmetric about 0)}\\ &= \tau\cdot 2 \int\_{0}^{\infty} z \phi(z) \\ dz && \text{(\$\mathopen{}\left\|z\right\|\mathclose{} = z\$ for \$z \ge 0\$)}\\ &= \tau\cdot 2 \mathopen{}\left\[-\phi(z)\right\]\mathclose{}\_{0}^{\infty} && \text{(\$\phi'(z) = -z\phi(z)\$)}\\ &= \tau\cdot 2 \mathopen{}\left(\lim\_{z \to \infty} \mathopen{}\left\[-\phi(z)\right\]\mathclose{} - \mathopen{}\left(-\phi(0)\right)\mathclose{}\right)\mathclose{} && \text{(evaluate at the limits)}\\ &= \tau\cdot 2 \mathopen{}\left(\lim\_{z \to \infty} \mathopen{}\left\[-\phi(z)\right\]\mathclose{} + \phi(0)\right)\mathclose{} && \text{(subtracting a negative is adding)}\\ &= \tau\cdot 2 \mathopen{}\left(0 + \phi(0)\right)\mathclose{} && \text{(\$\phi(z) \to 0\$ as \$z \to \infty\$)}\\ &= \tau\cdot 2 \phi(0) && \text{(drop the zero term)}\\ &= \tau\cdot 2 (2\pi)^{-1/2} && \text{(\$\phi(0) = (2\pi)^{-1/2}\$)}\\ &= \tau\cdot 2 \cdot \frac{1}{\sqrt{2\pi}} && \text{(write \$(2\pi)^{-1/2}\$ as \$1/\sqrt{2\pi}\$)}\\ &= \tau\cdot \frac{2}{\sqrt{2\pi}} && \text{(multiply)}\\ &= \tau\cdot \frac{\sqrt{4}}{\sqrt{2\pi}} && \text{(write \$2\$ as \$\sqrt{4}\$)}\\ &= \tau\sqrt{4/(2\pi)} && \text{(quotient of square roots)}\\ &= \tau\sqrt{2/\pi} && \text{(cancel the common factor 2 in \$4/(2\pi)\$)} \end{aligned} \\
 >
 > So for an [unbiased](#def-unbiased) Gaussian estimator, the pMAE is about \\0.80\\ times the standard deviation \\\tau\\, while the [pRMSE](#def-rmse) is \\\tau\\ itself ([Theorem 6](#thm-unbiased-props)).
 

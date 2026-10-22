@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 13:40:01 (PDT)
+Last modified: 2026-10-22 15:45:15 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models [\[1, Ch. 12\]](#ref-dobson4e). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -122,7 +122,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > One head moves the posterior density toward large values of \\\theta\\. The posterior mean is
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[\theta\mid y = 1\right\]\mathclose{}} &= \int_0^1 \theta\cdot \operatorname{p}(\theta\mid y = 1)\\ d\theta && \text{(expectation under the posterior density)}\\ &= \int_0^1 \theta\cdot 2\theta\\ d\theta && \text{(substituting the posterior density)}\\ &= \int_0^1 2\theta^2\\ d\theta && \text{(\$\theta\cdot \theta= \theta^2\$)}\\ &= \mathopen{}\left\[\frac{2\theta^3}{3}\right\]\mathclose{}\_0^1 && \text{(antiderivative of \$2\theta^2\$)}\\ &= \frac{2 \cdot 1^3}{3} - \frac{2 \cdot 0^3}{3} && \text{(evaluating at the limits)}\\ &= \frac{2}{3} && \text{(arithmetic)}, \end{aligned} \tag{4}\\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[\theta\mid y = 1\right\]\mathclose{}} &= \int_0^1 \theta\cdot \operatorname{p}(\theta\mid y = 1)\\ d\theta && \text{(expectation under the posterior density)}\\ &= \int_0^1 \theta\cdot 2\theta\\ d\theta && \text{(substituting the posterior density)}\\ &= \int_0^1 2\theta^2\\ d\theta && \text{(\$\theta\cdot \theta= \theta^2\$)}\\ &= \mathopen{}\left\[\frac{2\theta^3}{3}\right\]\mathclose{}\_0^1 && \text{(antiderivative of \$2\theta^2\$)}\\ &= \frac{2 \cdot 1^3}{3} - \frac{2 \cdot 0^3}{3} && \text{(evaluating at the limits)}\\ &= \frac{2}{3} && \text{(arithmetic)}, \end{aligned} \tag{4}\\
 >
 > up from the prior mean of \\1/2\\.
 
@@ -915,7 +915,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > With the posterior \\\operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of [Example 15](#exm-prior-posterior-figure),
 >
-> \\ \begin{aligned} {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right)\mathclose{}} &= \int_0^1 {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{}}\\ \operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\pi && \text{(definition of the posterior predictive distribution)}\\ &= \int_0^1 \pi\\ \operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\pi && \text{(Bernoulli model)}\\ &= {\operatorname{E}\mathopen{}\left\[\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}} && \text{(definition of the posterior mean)}. \end{aligned} \\
+> \\ \begin{aligned} {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right)\mathclose{}} &= \int_0^1 {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{}}\\ \operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\pi && \text{(definition of the posterior predictive distribution)}\\ &= \int_0^1 \pi\\ \operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\pi && \text{(Bernoulli model)}\\ &= {\mathbb{E}\mathopen{}\left\[\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}} && \text{(definition of the posterior mean)}. \end{aligned} \\
 >
 > So the posterior predictive probability that the next mother smoked is the posterior mean of \\\pi\\, 0.393. The code below checks this by simulation: draw \\\pi\\ from its posterior, then draw \\Y^{\mathrm{new}}\\ given that \\\pi\\.
 >
