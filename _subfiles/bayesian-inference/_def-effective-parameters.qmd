@@ -1,7 +1,7 @@
 ::: {#def-effective-parameters}
 #### Effective number of parameters
 
-Let $\overline{\dicdev} \eqdef \E{\dicdevf{\vparam} \mid \vy}$ be the posterior mean of the [deviance](#def-bayes-deviance),
+Let $\overline{\dicdev} \eqdef \E{\dicdevf{\vparam} \mid \vy}$ be the [posterior](#def-posterior) mean of the [deviance](#def-bayes-deviance),
 and let $\bar{\vparam} \eqdef \E{\vparam \mid \vy}$ be the posterior mean of the parameters.
 The **effective number of parameters** is
 
