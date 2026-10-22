@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 12:34:18 (PDT)
+Last modified: 2026-10-22 13:40:01 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -506,19 +506,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > **Example 9 (When the support depends on the parameter)** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \text{Uniform}(0, \theta)\\. The likelihood is \\\mathcal{L}(\theta) = \theta^{-n}\\ for \\\theta\ge \max_i x_i\\ (and 0 otherwise), so on that range \\\ell(\theta) = -n \log \theta\\ and \\\ell'(\theta) = -n/\theta\\. The score is a nonzero constant, so \\{\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{}} = -n/\theta\ne 0\\: [Equation 12](#eq-score-mean-zero) fails, because the set of possible data values, \\(0, \theta)\\, depends on \\\theta\\.
 
-Sources disagree on the symbols for the observed and expected information ([Table 1](#tbl-info-mat-symbols)).
-
-> **NOTE:**
->
-> | Source | Observed information | Expected information |
-> |----|----|----|
-> | These notes | \\I\\ | \\\mathcal{I}\\ |
-> | Dobson and Barnett [\[1\]](#ref-dobson4e) | \\-U'\\ | \\\mathfrak{I}\\ |
-> | Dunn and Smyth [\[13\]](#ref-dunn2018generalized) | \\\mathfrak{I}\\ | \\\mathcal{I}\\ |
-> | McLachlan and Krishnan [\[2\]](#ref-mclachlan2007em) | \\I\\ | \\\mathcal{I}\\ |
-> | Wood [\[14\]](#ref-wood2017generalized) | \\\hat{I}\\ | \\\mathcal{I}\\ |
->
-> Table 1: Notation for information matrices in several sources
+These notes write the [observed information](intro-MLEs.llms.md#def-oinf) as \\I\\ and the [expected information](intro-MLEs.llms.md#def-einf) as \\\mathcal{I}\\. Sources disagree on these symbols. The [Notation Across Sources page](https://morrison-lab.github.io/macros/notation-across-sources.html#sec-notation-information) of the macros site lists them side by side.
 
 ### 1.8 Asymptotic distribution of the maximum likelihood estimate
 
@@ -530,7 +518,7 @@ Sources disagree on the symbols for the observed and expected information ([Tabl
 
 > **NOTE:**
 >
-> *Proof*. The proof is beyond the scope of these notes; see [\[15\]](#ref-lehmannELST), Theorem 7.5.2, p. 501 and [\[16\]](#ref-newey1994large).
+> *Proof*. The proof is beyond the scope of these notes; see [\[13\]](#ref-lehmannELST), Theorem 7.5.2, p. 501 and [\[14\]](#ref-newey1994large).
 
 > **NOTE:**
 >
@@ -552,7 +540,7 @@ where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\mathord{\sma
 
 > **NOTE:**
 >
-> *Remark 6* (Observed versus expected information). Using the observed information is often more convenient, and there are settings where it is provably better by some criteria [\[17\]](#ref-efron1978assessing).
+> *Remark 6* (Observed versus expected information). Using the observed information is often more convenient, and there are settings where it is provably better by some criteria [\[15\]](#ref-efron1978assessing).
 
 > **NOTE:**
 >
@@ -586,7 +574,7 @@ By [Theorem 14](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/{\mathop{\wideha
 >
 > \\Z \stackrel{\text{def}}{=}\frac{\hat{\theta}\_k - \theta\_{k,0}}{{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}}}.\\
 >
-> Source: Wikipedia contributors [\[18\]](#ref-wikipedia_wald_test).
+> Source: Wikipedia contributors [\[16\]](#ref-wikipedia_wald_test).
 
 > **NOTE:**
 >
@@ -623,7 +611,7 @@ By [Theorem 14](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/{\mathop{\wideha
 >
 > \\ \Lambda\stackrel{\text{def}}{=}2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\hat{\theta}\_0)\right)\mathclose{} \\
 >
-> Source: Wikipedia contributors [\[19\]](#ref-wikipedia_likelihood_ratio_test).
+> Source: Wikipedia contributors [\[17\]](#ref-wikipedia_likelihood_ratio_test).
 
 > **NOTE:**
 >
@@ -695,11 +683,11 @@ By [Theorem 14](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/{\mathop{\wideha
 >
 > \\ \Lambda \overset{d}{\to} \chi^2_q \\
 >
-> Source: Wikipedia contributors [\[20\]](#ref-wikipedia_wilks_theorem).
+> Source: Wikipedia contributors [\[18\]](#ref-wikipedia_wilks_theorem).
 
 > **NOTE:**
 >
-> *Proof*. We sketch the argument for a scalar parameter and the point null hypothesis \\H_0: \theta= \theta_0\\, which imposes \\q = 1\\ constraint. For the full proof, see [\[21\]](#ref-wilks1938) or [\[1, Sec. 5.7\]](#ref-dobson4e).
+> *Proof*. We sketch the argument for a scalar parameter and the point null hypothesis \\H_0: \theta= \theta_0\\, which imposes \\q = 1\\ constraint. For the full proof, see [\[19\]](#ref-wilks1938) or [\[1, Sec. 5.7\]](#ref-dobson4e).
 >
 > By [Lemma 3](#lem-wilks-lrt-quadratic), \\\Lambda\approx I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2\\. Under the regularity conditions, \\I(\hat\theta\_{\text{ML}})/\mathcal{I}(\theta_0) \to 1\\ in probability, by the law of large numbers and the consistency of \\\hat\theta\_{\text{ML}}\\; this sketch assumes that step rather than proving it. So, with \\Z\\ as in [Lemma 4](#lem-wilks-std-gaussian):
 >
@@ -755,7 +743,7 @@ See also [\[1, Sec. 5.7\]](#ref-dobson4e) and <https://online.stat.psu.edu/stat5
 > | Two-sample population means | Two-sample t-test (pooled variance) | \\T\_{n_1+n_2-2}\\ | z-test | \\Z \sim N(0,1)\\ |
 > | \\K\\-group population means (ANOVA) | F-test | \\F\_{K-1,\\ n-K}\\ | [Likelihood ratio test](#thm-wilks) or [Wald test](#def-wald-test) | \\\chi^2\_{K-1}\\ |
 >
-> Table 2: Exact tests that assume Gaussian outcomes, and their approximate, large-sample counterparts based on maximum likelihood. \\p\\ is the number of regression coefficients.
+> Table 1: Exact tests that assume Gaussian outcomes, and their approximate, large-sample counterparts based on maximum likelihood. \\p\\ is the number of regression coefficients.
 
 > **NOTE:**
 >
@@ -769,7 +757,7 @@ See also [\[1, Sec. 5.7\]](#ref-dobson4e) and <https://online.stat.psu.edu/stat5
 >
 > \\ {\Pr\mathopen{}\left(L \le Y^\* \le U\right)\mathclose{}} = 1 - \alpha \\
 >
-> Source: Wikipedia contributors [\[22\]](#ref-wikipedia_prediction_interval).
+> Source: Wikipedia contributors [\[20\]](#ref-wikipedia_prediction_interval).
 
 Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ {\operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}}\\ with \\\sigma^2\\ known, and we want to predict the sample mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat{\mu}= \bar X\\, and the difference \\\bar X^\* - \hat{\mu}\\ (the negative of the [prediction error](prediction.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
 
@@ -797,7 +785,7 @@ Adapted from [\[1, Sec. 1.6.5\]](#ref-dobson4e).
 
 ### 2.1 Data
 
-[Table 3](#tbl-cyclones-data) records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 [\[1, Sec. 1.6.5\]](#ref-dobson4e). [Figure 1](#fig-dobson-cyclone-time-series) graphs the number of cyclones by season. Let \\X_i\\ represent the number of cyclones in season \\i\\, and \\x_i\\ its observed value.
+[Table 2](#tbl-cyclones-data) records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 [\[1, Sec. 1.6.5\]](#ref-dobson4e). [Figure 1](#fig-dobson-cyclone-time-series) graphs the number of cyclones by season. Let \\X_i\\ represent the number of cyclones in season \\i\\, and \\x_i\\ its observed value.
 
 > **NOTE:**
 >
@@ -831,7 +819,7 @@ Adapted from [\[1, Sec. 1.6.5\]](#ref-dobson4e).
 > | 1967/8  |     12 |      7 |
 > | 1968/9  |     13 |      4 |
 >
-> Table 3: Number of tropical cyclones during each November-to-April season in northeastern Australia [\[1, Sec. 1.6.5\]](#ref-dobson4e)
+> Table 2: Number of tropical cyclones during each November-to-April season in northeastern Australia [\[1, Sec. 1.6.5\]](#ref-dobson4e)
 
 ### 2.2 Exploratory analysis
 
@@ -880,7 +868,7 @@ Suppose we want to learn how many cyclones to expect per season.
 >
 > Figure 2: Bar plot of cyclones per season
 
-[Table 4](#tbl-dobson-cyclones-sumstat) provides summary statistics.
+[Table 3](#tbl-dobson-cyclones-sumstat) provides summary statistics.
 
 > **NOTE:**
 >
@@ -903,7 +891,7 @@ Suppose we want to learn how many cyclones to expect per season.
 > |--------:|------:|-----:|---------:|
 > |      13 |    72 | 5.54 |      6.1 |
 >
-> Table 4: Summary statistics for the `cyclones` data
+> Table 3: Summary statistics for the `cyclones` data
 
 ### 2.3 Model
 
@@ -960,7 +948,7 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 > - Population mean: \\{\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}} = {\lambda}\\.
 > - Population variance: \\{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = {\lambda}\\.
 >
-> The sample mean and variance in [Table 4](#tbl-dobson-cyclones-sumstat) are of similar size, as the model implies.
+> The sample mean and variance in [Table 3](#tbl-dobson-cyclones-sumstat) are of similar size, as the model implies.
 
 > **NOTE:**
 >
@@ -1262,7 +1250,7 @@ The expected information is sometimes simpler to compute than the observed infor
 >
 > \\ \begin{aligned} {\widehat{\lambda}}^\*+ {\mathopen{}\left(\mathcal{I}({\widehat{\lambda}}^\*)\right)\mathclose{}}^{-1} \ell'({\widehat{\lambda}}^\*) &= {\widehat{\lambda}}^\*+ \frac{{\widehat{\lambda}}^\*}{n}\mathopen{}\left(\frac{n\bar x}{{\widehat{\lambda}}^\*} - n\right)\mathclose{} && \text{(substitute \$\mathcal{I}\$ and \$\ell'\$)}\\ &= {\widehat{\lambda}}^\*+ \bar x - {\widehat{\lambda}}^\* && \text{(distribute \${\widehat{\lambda}}^\*/n\$)}\\ &= \bar x && \text{(cancel \${\widehat{\lambda}}^\*\$)} \end{aligned} \\
 >
-> So Fisher scoring reaches the MLE \\\bar x\\ in one step, while Newton-Raphson needs several ([Table 5](#tbl-mle-converge)).
+> So Fisher scoring reaches the MLE \\\bar x\\ in one step, while Newton-Raphson needs several ([Table 4](#tbl-mle-converge)).
 
 > **NOTE:**
 >
@@ -1464,7 +1452,7 @@ We update \\{\widehat{\lambda}}^\*\leftarrow 4.375\\ and repeat the process ([Fi
 >
 > Figure 12: The approximate score function at the updated estimate
 
-We repeat this process until the log-likelihood stops changing ([Table 5](#tbl-mle-converge)).
+We repeat this process until the log-likelihood stops changing ([Table 4](#tbl-mle-converge)).
 
 > **NOTE:**
 >
@@ -1517,7 +1505,7 @@ We repeat this process until the log-likelihood stops changing ([Table 5](#tbl-
 > |         4 | 5.53844 |        -28.9175 |  0.00005 | -2.34724 |      0.00014 |
 > |         5 | 5.53846 |        -28.9175 |  0.00000 | -2.34722 |      0.00000 |
 >
-> Table 5: Convergence of the Newton-Raphson algorithm to the MLE for the cyclone data
+> Table 4: Convergence of the Newton-Raphson algorithm to the MLE for the cyclone data
 
 The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise 33](#exr-find-mle)).
 
@@ -1560,13 +1548,13 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> *Solution 35*. \\ \begin{aligned} \mathcal{L}(\pi; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) &= \prod\_{i=1}^n\mathcal{L}\_i(\pi) && \text{(product of likelihood components)}\\ &= \prod\_{i=1}^n\Pr(Y_i= y_i) && \text{(definition of likelihood components)}\\ &= \prod\_{i=1}^n\pi^{y_i} (1 - \pi)^{1 - y_i} && \text{(Bernoulli PMF)}\\ &= \mathopen{}\left(\prod\_{i=1}^n\pi^{y_i}\right)\mathclose{} \mathopen{}\left(\prod\_{i=1}^n(1 - \pi)^{1 - y_i}\right)\mathclose{} && \text{(regroup the factors of the product)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{\sum\_{i=1}^n(1 - y_i)} && \text{(product of powers of a common base)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{\sum\_{i=1}^n1 - \sum\_{i=1}^ny_i} && \text{(split the sum in the exponent)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i} && \text{(\$\textstyle\sum\_{i=1}^n1 = n\$)} \end{aligned} \\
+> *Solution 35*. \\ \begin{aligned} \mathcal{L}(\pi; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) &= \prod\_{i=1}^n\mathcal{L}\_i(\pi) && \text{(product of likelihood components)}\\ &= \prod\_{i=1}^n\Pr(Y_i= y_i) && \text{(definition of likelihood components)}\\ &= \prod\_{i=1}^n\pi^{y_i} (1 - \pi)^{1 - y_i} && \text{(Bernoulli PMF)}\\ &= \mathopen{}\left(\prod\_{i=1}^n\pi^{y_i}\right)\mathclose{} \mathopen{}\left(\prod\_{i=1}^n(1 - \pi)^{1 - y_i}\right)\mathclose{} && \text{(regroup the factors of the product)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{\sum\_{i=1}^n(1 - y_i)} && \text{(product of powers of a common base)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{\sum\_{i=1}^n1 - \sum\_{i=1}^ny_i} && \text{(split the sum in the exponent)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i} && \text{(\$\textstyle\sum\_{i=1}^n1 = n\$)}\\ &= \pi^{{s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}} (1 - \pi)^{n - {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}} && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} \stackrel{\text{def}}{=}\textstyle\sum\_{i=1}^ny_i\$)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 16 (Likelihood of binary outcomes with one event probability)** Let \\Y_1, \dots, Y_n\\ be mutually independent binary random variables, each with the same event probability \\\pi\\: \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\. For observed outcomes \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\, with each \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, the likelihood \\\mathcal{L}(\pi; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of \\\pi\\ depends on the data only through the number of events \\\sum\_{i=1}^ny_i\\:
+> **Theorem 16 (Likelihood of binary outcomes with one event probability)** Let \\Y_1, \dots, Y_n\\ be mutually independent binary random variables, each with the same event probability \\\pi\\: \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\. For observed outcomes \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\, with each \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, the likelihood \\\mathcal{L}(\pi; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of \\\pi\\ depends on the data only through the number of outcomes equal to 1, which is the sum of the elements \\{s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} \stackrel{\text{def}}{=}\sum\_{i=1}^ny_i\\ of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\:
 >
-> \\\mathcal{L}(\pi; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i}\\
+> \\\mathcal{L}(\pi; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \pi^{{s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}} (1 - \pi)^{n - {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}}\\
 
 > **NOTE:**
 >
@@ -1625,15 +1613,15 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> *Solution 38*. Starting from the likelihood in [Theorem 16](#thm-bernoulli-likelihood-one-group):
+> *Solution 38*. Starting from the [likelihood](#def-lik) in [Theorem 16](#thm-bernoulli-likelihood-one-group), where \\{s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} \stackrel{\text{def}}{=}\sum\_{i=1}^ny_i\\:
 >
-> \\ \begin{aligned} \ell(\pi; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) &= {\operatorname{log}\mathopen{}\left\\\pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i}\right\\\mathclose{}} && \text{(log of the likelihood)}\\ &= {\operatorname{log}\mathopen{}\left\\\pi^{\sum\_{i=1}^ny_i}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\(1 - \pi)^{n - \sum\_{i=1}^ny_i}\right\\\mathclose{}} && \text{(log of a product)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} {\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} + \mathopen{}\left(n - \sum\_{i=1}^ny_i\right)\mathclose{} {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(log of a power)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} {\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} + n {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} - \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(distribute \${\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}}\$)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} {\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} - \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} + n {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(reorder the terms)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \mathopen{}\left({\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} - {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}}\right)\mathclose{} + n {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(collect the terms in \$\textstyle\sum\_{i=1}^ny_i\$)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} {\operatorname{log}\mathopen{}\left\\\frac{\pi}{1 - \pi}\right\\\mathclose{}} + n {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(log of a quotient)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \eta+ n {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(definition of \$\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell(\pi; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) &= {\operatorname{log}\mathopen{}\left\\\pi^{{s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}} (1 - \pi)^{n - {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}}\right\\\mathclose{}} && \text{(log of the likelihood)}\\ &= {\operatorname{log}\mathopen{}\left\\\pi^{{s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\(1 - \pi)^{n - {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}}\right\\\mathclose{}} && \text{(log of a product)}\\ &= {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} {\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} + \mathopen{}\left(n - {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\right)\mathclose{} {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(log of a power)}\\ &= {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} {\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} + n {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} - {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(distribute \${\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}}\$)}\\ &= {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} {\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} - {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} + n {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(reorder the terms)}\\ &= {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} \mathopen{}\left({\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} - {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}}\right)\mathclose{} + n {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(collect the terms in \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} {\operatorname{log}\mathopen{}\left\\\frac{\pi}{1 - \pi}\right\\\mathclose{}} + n {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(log of a quotient)}\\ &= {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} \eta+ n {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(definition of \$\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\$)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 18 (Log-likelihood of binary outcomes with one event probability)** Let \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i = 1, \dots, n\\, with observed outcomes \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\, each \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. The log-likelihood \\\ell(\pi; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of the event probability \\\pi\\, written with the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) \\\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\\, is:
 >
-> \\\ell(\pi; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \eta+ n {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}}\\
+> \\\ell(\pi; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} \eta+ n {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}}\\
 
 > **NOTE:**
 >
@@ -1706,7 +1694,7 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> *Solution 41*. \\ \begin{aligned} \ell'(\pi) &= \sum\_{i=1}^n\ell'\_i(\pi) && \text{(score of an independent sample is the sum of the score contributions)}\\ &= \sum\_{i=1}^n\tau\delta_i && \text{(score contribution of a binary outcome)}\\ &= \tau\sum\_{i=1}^n\delta_i && \text{(\$\tau\$ is the same for every \$i\$)}\\ &= \tau\sum\_{i=1}^n(y_i- \pi) && \text{(definition of \$\delta_i\$)}\\ &= \tau\mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(split the sum)}\\ &= \tau\mathopen{}\left(\sum\_{i=1}^ny_i- n \pi\right)\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^n\pi= n \pi\$)}\\ &= \tau\mathopen{}\left(n \bar{y}- n \pi\right)\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^ny_i= n \bar{y}\$)}\\ &= n \tau(\bar{y}- \pi) && \text{(factor out \$n\$)} \end{aligned} \\
+> *Solution 41*. \\ \begin{aligned} \ell'(\pi) &= \sum\_{i=1}^n\ell'\_i(\pi) && \text{(score of an independent sample is the sum of the score contributions)}\\ &= \sum\_{i=1}^n\tau\delta_i && \text{(score contribution of a binary outcome)}\\ &= \tau\sum\_{i=1}^n\delta_i && \text{(\$\tau\$ is the same for every \$i\$)}\\ &= \tau\sum\_{i=1}^n(y_i- \pi) && \text{(definition of \$\delta_i\$)}\\ &= \tau\mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(split the sum)}\\ &= \tau\mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= \tau\mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - n \pi\right)\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^n\pi= n \pi\$)}\\ &= \tau\mathopen{}\left(n \bar{y}- n \pi\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n \bar{y}\$)}\\ &= n \tau(\bar{y}- \pi) && \text{(factor out \$n\$)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -1774,45 +1762,71 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> **Exercise 44 (Hessian contribution of one binary outcome in terms of the precision and deviation)** In the setting of [Exercise 43](#exr-bernoulli-hessian-contribution), write the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ using the [precision](#def-precision-rv) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\, the two quantities that make up the [score](#def-score) contribution in [Theorem 20](#thm-bernoulli-score-contribution).
+> **Exercise 44 (Hessian contribution of one binary outcome as a single fraction)** In the setting of [Exercise 43](#exr-bernoulli-hessian-contribution), write the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ as a single fraction, by finding a common denominator for its two terms.
 
 > **NOTE:**
 >
-> *Solution 44*. Starting from [Theorem 23](#thm-bernoulli-hessian-contribution), substitute \\y_i= \pi+ \delta_i\\ and \\1 - y_i= 1 - \pi- \delta_i\\:
+> *Solution 44*. Starting from [Theorem 23](#thm-bernoulli-hessian-contribution):
 >
-> \\ \begin{aligned} \ell''\_i(\pi) &= -\frac{y_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1 - y_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(the contribution from the theorem above)}\\ &= -\frac{\pi+ \delta_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1 - \pi- \delta_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(substitute \$y_i= \pi+ \delta_i\$)}\\ &= -\frac{\pi}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{\delta_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1 - \pi}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} + \frac{\delta_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(split each numerator into two terms)}\\ &= -\frac{1}{\pi} - \frac{\delta_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1}{1 - \pi} + \frac{\delta_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(\$a / {\mathopen{}\left(a\right)\mathclose{}}^{2} = 1 / a\$ for \$a = \pi\$ and \$a = 1 - \pi\$)}\\ &= -\mathopen{}\left(\frac{1}{\pi} + \frac{1}{1 - \pi}\right)\mathclose{} - \delta_i\mathopen{}\left(\frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(collect the terms with and without \$\delta_i\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell''\_i(\pi) &= -\frac{y_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1 - y_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(the contribution from the theorem above)}\\ &= -\frac{y_i{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} - \frac{\mathopen{}\left(1 - y_i\right)\mathclose{} {\mathopen{}\left(\pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(write both terms over the common denominator \${\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}\$)}\\ &= -\frac{y_i{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2} + \mathopen{}\left(1 - y_i\right)\mathclose{} {\mathopen{}\left(\pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(combine over the common denominator)}\\ &= -\frac{y_i{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2} + \mathopen{}\left(1 - y_i\right)\mathclose{} {\mathopen{}\left(\pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}}^{2}} && \text{(\${\mathopen{}\left(a\right)\mathclose{}}^{2} {\mathopen{}\left(b\right)\mathclose{}}^{2} = {\mathopen{}\left(ab\right)\mathclose{}}^{2}\$)} \end{aligned} \\
 >
-> The first bracket is the [precision](#def-precision-rv):
+> The numerator simplifies in the following steps:
 >
-> \\ \begin{aligned} \frac{1}{\pi} + \frac{1}{1 - \pi} &= \frac{1 - \pi}{\pi(1 - \pi)} + \frac{\pi}{\pi(1 - \pi)} && \text{(common denominator)}\\ &= \frac{1}{\pi(1 - \pi)} && \text{(add the numerators)}\\ &= \tau && \text{(definition of \$\tau\$)} \end{aligned} \\
+> \\ \begin{aligned} y_i{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2} + \mathopen{}\left(1 - y_i\right)\mathclose{} {\mathopen{}\left(\pi\right)\mathclose{}}^{2} &= y_i\mathopen{}\left(1 - 2 \pi+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{} + \mathopen{}\left(1 - y_i\right)\mathclose{} {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(expand \${\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}\$)}\\ &= y_i- 2 \pi y_i+ y_i{\mathopen{}\left(\pi\right)\mathclose{}}^{2} + {\mathopen{}\left(\pi\right)\mathclose{}}^{2} - y_i{\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(distribute \$y_i\$ and \${\mathopen{}\left(\pi\right)\mathclose{}}^{2}\$)}\\ &= y_i- 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + y_i{\mathopen{}\left(\pi\right)\mathclose{}}^{2} - y_i{\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(reorder the terms)}\\ &= y_i- 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + 0 && \text{(\$y_i{\mathopen{}\left(\pi\right)\mathclose{}}^{2} - y_i{\mathopen{}\left(\pi\right)\mathclose{}}^{2} = 0\$)}\\ &= y_i- 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(\$a + 0 = a\$)}\\ &= \mathopen{}\left(1 - 2 \pi\right)\mathclose{} y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(collect the terms in \$y_i\$)} \end{aligned} \\
 >
-> The second bracket is a multiple of \\\tau^2\\:
+> Substituting the numerator back in:
 >
-> \\ \begin{aligned} \frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} &= \frac{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} - \frac{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(common denominator)}\\ &= \frac{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2} - {\mathopen{}\left(\pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(combine over the common denominator)}\\ &= \frac{1 - 2 \pi+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} - {\mathopen{}\left(\pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(expand \${\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}\$)}\\ &= \frac{1 - 2 \pi+ 0}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(\${\mathopen{}\left(\pi\right)\mathclose{}}^{2} - {\mathopen{}\left(\pi\right)\mathclose{}}^{2} = 0\$)}\\ &= \frac{1 - 2 \pi}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(\$a + 0 = a\$)}\\ &= \mathopen{}\left(1 - 2 \pi\right)\mathclose{} \frac{1}{{\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}}^{2}} && \text{(\${\mathopen{}\left(a\right)\mathclose{}}^{2} {\mathopen{}\left(b\right)\mathclose{}}^{2} = {\mathopen{}\left(ab\right)\mathclose{}}^{2}\$)}\\ &= \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} && \text{(definition of \$\tau\$)} \end{aligned} \\
->
-> Substituting both brackets back in:
->
-> \\ \ell''\_i(\pi) = -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \delta_i \qquad \text{(substitute the two brackets)} \\
+> \\ \ell''\_i(\pi) = -\frac{\mathopen{}\left(1 - 2 \pi\right)\mathclose{} y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}}^{2}} \qquad \text{(substitute the numerator)} \\
 
 > **NOTE:**
 >
-> **Corollary 2 (Hessian contribution of one binary outcome in terms of the precision and deviation)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ and [precision](#def-precision-rv) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, its [Hessian](#def-hessian) contribution is, with the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\:
+> **Corollary 2 (Hessian contribution of one binary outcome as a single fraction)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, its [Hessian](#def-hessian) contribution is:
+>
+> \\\ell''\_i(\pi) = -\frac{\mathopen{}\left(1 - 2 \pi\right)\mathclose{} y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}}^{2}}\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 44](#exr-bernoulli-hessian-contribution-fraction), worked in [Solution 44](#sol-bernoulli-hessian-contribution-fraction). It follows from [Theorem 23](#thm-bernoulli-hessian-contribution).
+
+> **NOTE:**
+>
+> **Exercise 45 (Hessian contribution of one binary outcome in terms of the precision and deviation)** In the setting of [Exercise 43](#exr-bernoulli-hessian-contribution), derive the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ starting from the simplified [score](#def-score) contribution \\\ell'\_i(\pi) = \tau\delta_i\\ in [Theorem 20](#thm-bernoulli-score-contribution), with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\. Both \\\tau\\ and \\\delta_i\\ depend on \\\pi\\, while the observed value \\y_i\\ does not.
+
+> **NOTE:**
+>
+> *Solution 45*. \\ \begin{aligned} \ell''\_i(\pi) &= \frac{\partial}{\partial \pi} \ell'\_i(\pi) && \text{(definition of the Hessian contribution)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(\tau\delta_i\right)\mathclose{} && \text{(score contribution)}\\ &= \mathopen{}\left(\frac{\partial}{\partial \pi} \tau\right)\mathclose{} \delta_i+ \tau\frac{\partial}{\partial \pi} \delta_i && \text{(product rule)} \end{aligned} \\
+>
+> The derivative of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is:
+>
+> \\ \begin{aligned} \frac{\partial}{\partial \pi} \delta_i &= \frac{\partial}{\partial \pi} \mathopen{}\left(y_i- \pi\right)\mathclose{} && \text{(definition of \$\delta_i\$)}\\ &= \frac{\partial}{\partial \pi} y_i- \frac{\partial}{\partial \pi} \pi && \text{(linearity of differentiation)}\\ &= 0 - 1 && \text{(derivatives of a constant and of \$\pi\$)}\\ &= -1 && \text{(subtract)} \end{aligned} \\
+>
+> The derivative of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) needs the chain rule:
+>
+> \\ \begin{aligned} \frac{\partial}{\partial \pi} \tau &= \frac{\partial}{\partial \pi} \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}^{-1} && \text{(definition of \$\tau\$ as a negative power)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{}^{-1} && \text{(distribute \$\pi\$)}\\ &= -\mathopen{}\left(\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{}^{-2} \frac{\partial}{\partial \pi} \mathopen{}\left(\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{} && \text{(chain rule and power rule)}\\ &= -\mathopen{}\left(\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{}^{-2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{} && \text{(linearity and power rule)}\\ &= -\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}^{-2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{} && \text{(factor \$\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2} = \pi(1 - \pi)\$)}\\ &= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{} && \text{(definition of \$\tau\$)} \end{aligned} \\
+>
+> Substituting both derivatives back in:
+>
+> \\ \begin{aligned} \ell''\_i(\pi) &= \mathopen{}\left(-{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{}\right)\mathclose{} \delta_i+ \tau(-1) && \text{(substitute the two derivatives)}\\ &= -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \delta_i && \text{(multiply by \$-1\$ and reorder the terms)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Corollary 3 (Hessian contribution of one binary outcome in terms of the precision and deviation)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, its [Hessian](#def-hessian) contribution is, with the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\:
 >
 > \\\ell''\_i(\pi) = -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \delta_i\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 44](#exr-bernoulli-hessian-contribution-precision), worked in [Solution 44](#sol-bernoulli-hessian-contribution-precision). It follows from [Theorem 23](#thm-bernoulli-hessian-contribution).
+> *Proof*. This is the solution to [Exercise 45](#exr-bernoulli-hessian-contribution-precision), worked in [Solution 45](#sol-bernoulli-hessian-contribution-precision). It follows from [Theorem 23](#thm-bernoulli-hessian-contribution).
 
 ### 3.9 The Hessian of the sample
 
 > **NOTE:**
 >
-> **Exercise 45 (Hessian of a binary sample)** In the setting of [Exercise 41](#exr-bernoulli-score-sum), assemble the [Hessian](#def-hessian) \\\ell''(\pi)\\ of the whole [sample](exploratory-descriptive.llms.md#def-sample) from the Hessian contributions.
+> **Exercise 46 (Hessian of a binary sample)** In the setting of [Exercise 41](#exr-bernoulli-score-sum), assemble the [Hessian](#def-hessian) \\\ell''(\pi)\\ of the whole [sample](exploratory-descriptive.llms.md#def-sample) from the Hessian contributions.
 
 > **NOTE:**
 >
-> *Solution 45*. \\ \begin{aligned} \ell''(\pi) &= \sum\_{i=1}^n\ell''\_i(\pi) && \text{(the derivative of a sum is the sum of the derivatives)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{y_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1 - y_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(Hessian contribution of a binary outcome)}\\ &= -\frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} \sum\_{i=1}^ny_i- \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \sum\_{i=1}^n(1 - y_i) && \text{(split the sum; the denominators do not depend on \$i\$)}\\ &= -\frac{n \bar{y}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \mathopen{}\left(n - n \bar{y}\right)\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^ny_i= n \bar{y}\$ and \$\textstyle\sum\_{i=1}^n1 = n\$)}\\ &= -\frac{n \bar{y}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{n (1 - \bar{y})}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(factor out \$n\$)}\\ &= -n \mathopen{}\left(\frac{\bar{y}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} + \frac{1 - \bar{y}}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(factor out \$-n\$)} \end{aligned} \\
+> *Solution 46*. \\ \begin{aligned} \ell''(\pi) &= \sum\_{i=1}^n\ell''\_i(\pi) && \text{(the derivative of a sum is the sum of the derivatives)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{y_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1 - y_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(Hessian contribution of a binary outcome)}\\ &= -\frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} \sum\_{i=1}^ny_i- \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \sum\_{i=1}^n(1 - y_i) && \text{(split the sum; the denominators do not depend on \$i\$)}\\ &= -\frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \sum\_{i=1}^n(1 - y_i) && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= -\frac{n \bar{y}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \mathopen{}\left(n - n \bar{y}\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n \bar{y}\$ and \$\textstyle\sum\_{i=1}^n1 = n\$)}\\ &= -\frac{n \bar{y}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{n (1 - \bar{y})}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(factor out \$n\$)}\\ &= -n \mathopen{}\left(\frac{\bar{y}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} + \frac{1 - \bar{y}}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(factor out \$-n\$)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -1822,17 +1836,17 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 45](#exr-bernoulli-hessian-sum), worked in [Solution 45](#sol-bernoulli-hessian-sum).
+> *Proof*. This is the solution to [Exercise 46](#exr-bernoulli-hessian-sum), worked in [Solution 46](#sol-bernoulli-hessian-sum).
 
 ### 3.10 Checking that the Hessian is negative definite
 
 > **NOTE:**
 >
-> **Exercise 46 (Negative definiteness of the Hessian of a binary sample)** In the setting of [Exercise 45](#exr-bernoulli-hessian-sum), show that the [Hessian](#def-hessian) \\\ell''(\pi)\\ is negative definite for every \\\pi\in (0, 1)\\.
+> **Exercise 47 (Negative definiteness of the Hessian of a binary sample)** In the setting of [Exercise 46](#exr-bernoulli-hessian-sum), show that the [Hessian](#def-hessian) \\\ell''(\pi)\\ is negative definite for every \\\pi\in (0, 1)\\.
 
 > **NOTE:**
 >
-> *Solution 46*. A \\1 \times 1\\ matrix is negative definite exactly when its only entry is negative, so it is enough to show \\\ell''(\pi) \< 0\\.
+> *Solution 47*. A \\1 \times 1\\ matrix is negative definite exactly when its only entry is negative, so it is enough to show \\\ell''(\pi) \< 0\\.
 >
 > Fix \\\pi\in (0, 1)\\. Then:
 >
@@ -1852,17 +1866,17 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 46](#exr-bernoulli-hessian-nd), worked in [Solution 46](#sol-bernoulli-hessian-nd). It builds on [Theorem 24](#thm-bernoulli-hessian-sum).
+> *Proof*. This is the solution to [Exercise 47](#exr-bernoulli-hessian-nd), worked in [Solution 47](#sol-bernoulli-hessian-nd). It builds on [Theorem 24](#thm-bernoulli-hessian-sum).
 
 ### 3.11 The maximum likelihood estimate
 
 > **NOTE:**
 >
-> **Exercise 47 (Maximum likelihood estimate of a binary sample)** In the setting of [Exercise 42](#exr-bernoulli-score-equation), use [Theorem 25](#thm-bernoulli-hessian-nd) to find the [maximum likelihood estimate](#def-mle) \\\hat{\pi}\_{\text{ML}}\\ of \\\pi\\.
+> **Exercise 48 (Maximum likelihood estimate of a binary sample)** In the setting of [Exercise 42](#exr-bernoulli-score-equation), use [Theorem 25](#thm-bernoulli-hessian-nd) to find the [maximum likelihood estimate](#def-mle) \\\hat{\pi}\_{\text{ML}}\\ of \\\pi\\.
 
 > **NOTE:**
 >
-> *Solution 47*. By [Theorem 25](#thm-bernoulli-hessian-nd), \\\ell\\ is strictly concave on \\(0, 1)\\. A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else. With \\0 \< \bar{y}\< 1\\, [Theorem 22](#thm-bernoulli-score-equation) says the only critical point of \\\ell\\ in \\(0, 1)\\ is \\\bar{y}\\. So \\\ell\\ is maximized at \\\pi= \bar{y}\\.
+> *Solution 48*. By [Theorem 25](#thm-bernoulli-hessian-nd), \\\ell\\ is strictly concave on \\(0, 1)\\. A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else. With \\0 \< \bar{y}\< 1\\, [Theorem 22](#thm-bernoulli-score-equation) says the only critical point of \\\ell\\ in \\(0, 1)\\ is \\\bar{y}\\. So \\\ell\\ is maximized at \\\pi= \bar{y}\\.
 
 > **NOTE:**
 >
@@ -1872,7 +1886,7 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 47](#exr-bernoulli-mle), worked in [Solution 47](#sol-bernoulli-mle). It builds on [Theorem 22](#thm-bernoulli-score-equation) and [Theorem 25](#thm-bernoulli-hessian-nd).
+> *Proof*. This is the solution to [Exercise 48](#exr-bernoulli-mle), worked in [Solution 48](#sol-bernoulli-mle). It builds on [Theorem 22](#thm-bernoulli-score-equation) and [Theorem 25](#thm-bernoulli-hessian-nd).
 
 ## 4 Maximum likelihood for univariate Gaussian models
 
@@ -1984,15 +1998,15 @@ This example fits a Gaussian model to real data by maximum likelihood, and then 
 
 ### 5.1 Data
 
-The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) [\[23\]](#ref-HulleyStephen1998RToE).
+The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) [\[21\]](#ref-HulleyStephen1998RToE).
 
-The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo [\[23\]](#ref-HulleyStephen1998RToE). Women were followed for an average of 4.1 years [\[23\]](#ref-HulleyStephen1998RToE).
+The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo [\[21\]](#ref-HulleyStephen1998RToE). Women were followed for an average of 4.1 years [\[21\]](#ref-HulleyStephen1998RToE).
 
-The primary outcome was nonfatal myocardial infarction or CHD death [\[23\]](#ref-HulleyStephen1998RToE).
+The primary outcome was nonfatal myocardial infarction or CHD death [\[21\]](#ref-HulleyStephen1998RToE).
 
 We model the distribution of fasting glucose among HERS participants who do not have diabetes and do not exercise.
 
-The HERS data are distributed with Vittinghoff et al. [\[24\]](#ref-vittinghoff2e) on the book’s companion website:
+The HERS data are distributed with Vittinghoff et al. [\[22\]](#ref-vittinghoff2e) on the book’s companion website:
 
 ``` downlit
 # one unbroken string, so that link checkers test the whole URL:
@@ -2000,7 +2014,7 @@ url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home
 hers <- haven::read_dta(url)
 ```
 
-The `rmb` R package includes the same file, which these notes use so that rendering does not depend on the website ([Table 6](#tbl-HERS)):
+The `rmb` R package includes the same file, which these notes use so that rendering does not depend on the website ([Table 5](#tbl-HERS)):
 
 > **NOTE:**
 >
@@ -2009,7 +2023,7 @@ The `rmb` R package includes the same file, which these notes use so that render
 > hers |> head()
 > ```
 >
-> Table 6: The first rows of the HERS dataset
+> Table 5: The first rows of the HERS dataset
 
 To keep the likelihood graphs readable, we use only the first 100 eligible participants ([Figure 14](#fig-hers-glucose-hist)); with the whole subset, the likelihood would be too concentrated to graph clearly.
 
@@ -2320,7 +2334,7 @@ power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 
 > **NOTE:**
 >
-> *Remark 13* (Choosing the alternative, and observed power). The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat{\mu}\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed [\[25\]](#ref-hoenig2001abuse).
+> *Remark 13* (Choosing the alternative, and observed power). The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat{\mu}\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed [\[23\]](#ref-hoenig2001abuse).
 
 ### 5.7 Simulation
 
@@ -2444,7 +2458,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 48 (Binomial likelihood (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\Y \sim \text{Binomial}(n, \pi)\\, so that
+> **Exercise 49 (Binomial likelihood (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\Y \sim \text{Binomial}(n, \pi)\\, so that
 >
 > \\ \operatorname{p}(Y = y \mid \pi) = \binom{n}{y} \pi^y (1-\pi)^{n-y}, \quad y \in \\0, 1, \ldots, n\\. \\
 >
@@ -2460,7 +2474,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> *Solution 48*. **(a)**
+> *Solution 49*. **(a)**
 >
 > \\ \begin{aligned} \ell(\pi; y) &= {\operatorname{log}\mathopen{}\left\\\binom{n}{y} \pi^y (1-\pi)^{n-y}\right\\\mathclose{}} && \text{(log of the binomial PMF)} \\ &= {\operatorname{log}\mathopen{}\left\\\binom{n}{y}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\\pi^y\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\(1-\pi)^{n-y}\right\\\mathclose{}} && \text{(log of a product)} \\ &= {\operatorname{log}\mathopen{}\left\\\binom{n}{y}\right\\\mathclose{}} + y{\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} + (n-y){\operatorname{log}\mathopen{}\left\\1-\pi\right\\\mathclose{}} && \text{(log of a power)} \end{aligned} \\
 >
@@ -2492,7 +2506,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 49 (Gaussian log-likelihood (adapted from Kleinbaum et al. [\[26\]](#ref-kleinbaum2014applied), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}(\mu, \sigma^2)\\.
+> **Exercise 50 (Gaussian log-likelihood (adapted from Kleinbaum et al. [\[24\]](#ref-kleinbaum2014applied), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}(\mu, \sigma^2)\\.
 >
 > **(a)** Write the likelihood \\\mathcal{L}(\mu, \sigma^2; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\ for the observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\\.
 >
@@ -2502,7 +2516,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> *Solution 49*. **(a)**
+> *Solution 50*. **(a)**
 >
 > \\ \begin{aligned} \mathcal{L}(\mu, \sigma^2; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \prod\_{i=1}^n(2\pi\sigma^2)^{-1/2} {\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}} && \text{(likelihood of an \$\operatorname{iid}\$ sample)} \\ &= \mathopen{}\left(\prod\_{i=1}^n(2\pi\sigma^2)^{-1/2}\right)\mathclose{} \mathopen{}\left(\prod\_{i=1}^n{\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}}\right)\mathclose{} && \text{(regroup the factors of the product)} \\ &= (2\pi\sigma^2)^{-n/2} \prod\_{i=1}^n{\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}} && \text{(product of \$n\$ copies of a power)} \\ &= (2\pi\sigma^2)^{-n/2} {\operatorname{exp}\mathopen{}\left\\\sum\_{i=1}^n-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}} && \text{(product of exponentials)} \\ &= (2\pi\sigma^2)^{-n/2} {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i-\mu)^2\right\\\mathclose{}} && \text{(factor the constant out of the sum)} \end{aligned} \\
 >
@@ -2542,7 +2556,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 50 (Score at the MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\.
+> **Exercise 51 (Score at the MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\.
 >
 > **(a)** Write the log-likelihood \\\ell({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\.
 >
@@ -2554,7 +2568,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> *Solution 50*. **(a)**
+> *Solution 51*. **(a)**
 >
 > \\ \begin{aligned} \ell({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= {\operatorname{log}\mathopen{}\left\\\prod\_{i=1}^n\frac{{\lambda}^{x_i} e^{-{\lambda}}}{x_i!}\right\\\mathclose{}} && \text{(log of the likelihood of an \$\operatorname{iid}\$ sample)} \\ &= \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\\frac{{\lambda}^{x_i} e^{-{\lambda}}}{x_i!}\right\\\mathclose{}} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left({\operatorname{log}\mathopen{}\left\\{\lambda}^{x_i} e^{-{\lambda}}\right\\\mathclose{}} - {\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a quotient)} \\ &= \sum\_{i=1}^n\mathopen{}\left({\operatorname{log}\mathopen{}\left\\{\lambda}^{x_i}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-{\lambda}}\right\\\mathclose{}} - {\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left(x_i{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-{\lambda}}\right\\\mathclose{}} - {\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a power)} \\ &= \sum\_{i=1}^n\mathopen{}\left(x_i{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - {\lambda}- {\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}}\right)\mathclose{} && \text{(\$\operatorname{log}\$ undoes \$\operatorname{exp}\$)} \\ &= \sum\_{i=1}^nx_i{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - \sum\_{i=1}^n{\lambda}- \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}} && \text{(split the sum)} \\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - \sum\_{i=1}^n{\lambda}- \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}} && \text{(factor \${\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}}\$ out of the first sum)} \\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - n{\lambda}- \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}} && \text{(sum of \$n\$ copies of \${\lambda}\$)} \end{aligned} \\
 >
@@ -2580,7 +2594,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 51 (Standard error of an MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\.
+> **Exercise 52 (Standard error of an MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\.
 >
 > **(a)** Derive the Hessian \\\ell''({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{\partial}{\partial \[}2\]{{\lambda}}\ell({\lambda};\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\.
 >
@@ -2592,9 +2606,9 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> *Solution 51*. **(a)**
+> *Solution 52*. **(a)**
 >
-> From [Exercise 50](#exr-prac-score-zero), \\\ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{n\bar{x}}{{\lambda}} - n\\.
+> From [Exercise 51](#exr-prac-score-zero), \\\ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{n\bar{x}}{{\lambda}} - n\\.
 >
 > \\ \begin{aligned} \ell''({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\frac{n\bar{x}}{{\lambda}} - n\right\]\mathclose{} && \text{(Poisson score)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n\bar{x}{\lambda}^{-1} - n\right\]\mathclose{} && \text{(write \$\tfrac{n\bar{x}}{{\lambda}}\$ as \$n\bar{x}{\lambda}^{-1}\$)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n\bar{x}{\lambda}^{-1}\right\]\mathclose{} - \frac{\partial}{\partial {\lambda}} n && \text{(linearity of differentiation)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n\bar{x}{\lambda}^{-1}\right\]\mathclose{} - 0 && \text{(derivative of a constant)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n\bar{x}{\lambda}^{-1}\right\]\mathclose{} && \text{(drop the zero term)} \\ &= n\bar{x}\frac{\partial}{\partial {\lambda}}{\lambda}^{-1} && \text{(constant multiple rule)} \\ &= n\bar{x}\mathopen{}\left(-{\lambda}^{-2}\right)\mathclose{} && \text{(power rule)} \\ &= -n\bar{x}{\lambda}^{-2} && \text{(multiply)} \\ &= -\frac{n\bar{x}}{{\lambda}^2} && \text{(write the negative power as a fraction)} \end{aligned} \\
 >
@@ -2624,7 +2638,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 52 (Exponential MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \text{Exponential}(\mu)\\, so that \\ \operatorname{p}(X = x \mid \mu) = \frac{1}{\mu} e^{-x/\mu}, \quad x \> 0, \quad \mu\> 0. \\
+> **Exercise 53 (Exponential MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \text{Exponential}(\mu)\\, so that \\ \operatorname{p}(X = x \mid \mu) = \frac{1}{\mu} e^{-x/\mu}, \quad x \> 0, \quad \mu\> 0. \\
 >
 > **(a)** Write the log-likelihood \\\ell(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\ for the observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\\.
 >
@@ -2636,7 +2650,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> *Solution 52*. **(a)**
+> *Solution 53*. **(a)**
 >
 > \\ \begin{aligned} \ell(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= {\operatorname{log}\mathopen{}\left\\\prod\_{i=1}^n\frac{1}{\mu} e^{-x_i/\mu}\right\\\mathclose{}} && \text{(log of the likelihood of an \$\operatorname{iid}\$ sample)} \\ &= \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\\frac{1}{\mu} e^{-x_i/\mu}\right\\\mathclose{}} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left({\operatorname{log}\mathopen{}\left\\\frac{1}{\mu}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-x_i/\mu}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-x_i/\mu}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a reciprocal)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{x_i}{\mu}\right)\mathclose{} && \text{(\$\operatorname{log}\$ undoes \$\operatorname{exp}\$)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}}\right)\mathclose{} - \sum\_{i=1}^n\frac{x_i}{\mu} && \text{(split the sum)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \sum\_{i=1}^n\frac{x_i}{\mu} && \text{(sum of \$n\$ identical terms)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{1}{\mu}\sum\_{i=1}^nx_i && \text{(factor the constant \$\tfrac{1}{\mu}\$ out of the sum)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{n\bar{x}}{\mu} && \text{(\$\textstyle\sum\_{i=1}^nx_i= n\bar{x}\$)} \end{aligned} \\
 >
@@ -2730,57 +2744,49 @@ Wikipedia contributors, “Fisher information — Wikipedia, the free encycloped
 
 \[13\]
 
-P. K. Dunn and G. K. Smyth, *Generalized linear models with examples in R*, vol. 53. Springer, 2018. doi: [10.1007/978-1-4419-0118-7](https://doi.org/10.1007/978-1-4419-0118-7).
+E. L. Lehmann, *Elements of large-sample theory*. in Springer texts in statistics. New York: Springer, 1999. doi: [10.1007/b98855](https://doi.org/10.1007/b98855).
 
 \[14\]
 
-S. N. Wood, *Generalized additive models: An introduction with r*, 2nd ed. Chapman; Hall/CRC, 2017. doi: [10.1201/9781315370279](https://doi.org/10.1201/9781315370279).
+W. K. Newey and D. McFadden, “Large sample estimation and hypothesis testing,” in *Handbook of econometrics*, vol. 4, R. Engle and D. McFadden, Eds., Elsevier, 1994, pp. 2111–2245. doi: [10.1016/S1573-4412(05)80005-4](https://doi.org/10.1016/S1573-4412(05)80005-4).
 
 \[15\]
 
-E. L. Lehmann, *Elements of large-sample theory*. in Springer texts in statistics. New York: Springer, 1999. doi: [10.1007/b98855](https://doi.org/10.1007/b98855).
+B. Efron and D. V. Hinkley, “Assessing the accuracy of the maximum likelihood estimator: Observed versus expected Fisher information,” *Biometrika*, vol. 65, no. 3, pp. 457–483, 1978, doi: [10.1093/biomet/65.3.457](https://doi.org/10.1093/biomet/65.3.457).
 
 \[16\]
 
-W. K. Newey and D. McFadden, “Large sample estimation and hypothesis testing,” in *Handbook of econometrics*, vol. 4, R. Engle and D. McFadden, Eds., Elsevier, 1994, pp. 2111–2245. doi: [10.1016/S1573-4412(05)80005-4](https://doi.org/10.1016/S1573-4412(05)80005-4).
+Wikipedia contributors, “Wald test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wald_test>
 
 \[17\]
 
-B. Efron and D. V. Hinkley, “Assessing the accuracy of the maximum likelihood estimator: Observed versus expected Fisher information,” *Biometrika*, vol. 65, no. 3, pp. 457–483, 1978, doi: [10.1093/biomet/65.3.457](https://doi.org/10.1093/biomet/65.3.457).
+Wikipedia contributors, “Likelihood-ratio test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Likelihood-ratio_test>
 
 \[18\]
 
-Wikipedia contributors, “Wald test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wald_test>
+Wikipedia contributors, “Wilks’ theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wilks%27_theorem>
 
 \[19\]
 
-Wikipedia contributors, “Likelihood-ratio test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Likelihood-ratio_test>
+S. S. Wilks, “The large-sample distribution of the likelihood ratio for testing composite hypotheses,” *The Annals of Mathematical Statistics*, vol. 9, no. 1, pp. 60–62, 1938, doi: [10.1214/aoms/1177732360](https://doi.org/10.1214/aoms/1177732360).
 
 \[20\]
 
-Wikipedia contributors, “Wilks’ theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wilks%27_theorem>
+Wikipedia contributors, “Prediction interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Prediction_interval>
 
 \[21\]
 
-S. S. Wilks, “The large-sample distribution of the likelihood ratio for testing composite hypotheses,” *The Annals of Mathematical Statistics*, vol. 9, no. 1, pp. 60–62, 1938, doi: [10.1214/aoms/1177732360](https://doi.org/10.1214/aoms/1177732360).
+S. Hulley *et al.*, “Randomized trial of estrogen plus progestin for secondary prevention of coronary heart disease in postmenopausal women,” *JAMA : the journal of the American Medical Association*, vol. 280, no. 7, pp. 605–613, 1998, doi: [10.1001/jama.280.7.605](https://doi.org/10.1001/jama.280.7.605).
 
 \[22\]
 
-Wikipedia contributors, “Prediction interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Prediction_interval>
+E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
 
 \[23\]
 
-S. Hulley *et al.*, “Randomized trial of estrogen plus progestin for secondary prevention of coronary heart disease in postmenopausal women,” *JAMA : the journal of the American Medical Association*, vol. 280, no. 7, pp. 605–613, 1998, doi: [10.1001/jama.280.7.605](https://doi.org/10.1001/jama.280.7.605).
-
-\[24\]
-
-E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
-
-\[25\]
-
 J. M. Hoenig and D. M. Heisey, “The abuse of power: The pervasive fallacy of power calculations for data analysis,” *The American Statistician*, vol. 55, no. 1, pp. 19–24, 2001, doi: [10.1198/000313001300339897](https://doi.org/10.1198/000313001300339897).
 
-\[26\]
+\[24\]
 
 D. G. Kleinbaum, L. L. Kupper, A. Nizam, K. Muller, and E. Rosenberg, *Applied regression analysis and other multivariable methods*, 5th ed. Cengage Learning, 2014. Available: <https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/>
 
