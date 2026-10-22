@@ -2,7 +2,7 @@
 #### Score contribution of one binary outcome
 
 If $\Outvar_\iobs \sim \Ber(\prob)$ has observed value $\outvar_\iobs \in \cb{0, 1}$
-and [precision](#def-precision-rv) $\precision = 1 / \Var{\Outvar_\iobs} = 1 / \paren{\prob(1 - \prob)}$,
+and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \Var{\Outvar_\iobs} = 1 / \paren{\prob(1 - \prob)}$,
 its [score](#def-score) contribution is the precision times the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs \eqdef \outvar_\iobs - \prob$ of $\outvar_\iobs$ from its mean $\prob$:
 
 $$\score_\iobs(\prob) = \precision \devn_\iobs$$
