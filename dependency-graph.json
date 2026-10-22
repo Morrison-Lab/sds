@@ -2239,6 +2239,15 @@
    "external": false
   },
   {
+   "id": "sds/intro-MLEs#cor-bernoulli-loglik-contribution-logodds",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "cor-bernoulli-loglik-contribution-logodds",
+   "kind": "cor",
+   "title": "Log-likelihood contribution of one binary outcome in terms of the log-odds",
+   "external": false
+  },
+  {
    "id": "sds/intro-MLEs#def-critical-point",
    "site": "sds",
    "page": "intro-MLEs",
@@ -5342,6 +5351,14 @@
   [
    "sds/inference#def-test-statistic",
    "sds/inference#def-null-hypothesis"
+  ],
+  [
+   "sds/intro-MLEs#cor-bernoulli-loglik-contribution-logodds",
+   "pds/probability-basics#def-odds"
+  ],
+  [
+   "sds/intro-MLEs#cor-bernoulli-loglik-contribution-logodds",
+   "sds/intro-MLEs#def-loglik"
   ],
   [
    "sds/intro-MLEs#def-einf",
