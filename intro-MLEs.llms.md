@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 11:32:21 (PDT)
+Last modified: 2026-10-22 12:55:38 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -506,19 +506,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > **Example 9 (When the support depends on the parameter)** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \text{Uniform}(0, \theta)\\. The likelihood is \\\mathcal{L}(\theta) = \theta^{-n}\\ for \\\theta\ge \max_i x_i\\ (and 0 otherwise), so on that range \\\ell(\theta) = -n \log \theta\\ and \\\ell'(\theta) = -n/\theta\\. The score is a nonzero constant, so \\{\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{}} = -n/\theta\ne 0\\: [Equation 12](#eq-score-mean-zero) fails, because the set of possible data values, \\(0, \theta)\\, depends on \\\theta\\.
 
-Sources disagree on the symbols for the observed and expected information ([Table 1](#tbl-info-mat-symbols)).
-
-> **NOTE:**
->
-> | Source | Observed information | Expected information |
-> |----|----|----|
-> | These notes | \\I\\ | \\\mathcal{I}\\ |
-> | Dobson and Barnett [\[1\]](#ref-dobson4e) | \\-U'\\ | \\\mathfrak{I}\\ |
-> | Dunn and Smyth [\[13\]](#ref-dunn2018generalized) | \\\mathfrak{I}\\ | \\\mathcal{I}\\ |
-> | McLachlan and Krishnan [\[2\]](#ref-mclachlan2007em) | \\I\\ | \\\mathcal{I}\\ |
-> | Wood [\[14\]](#ref-wood2017generalized) | \\\hat{I}\\ | \\\mathcal{I}\\ |
->
-> Table 1: Notation for information matrices in several sources
+These notes write the [observed information](intro-MLEs.llms.md#def-oinf) as \\I\\ and the [expected information](intro-MLEs.llms.md#def-einf) as \\\mathcal{I}\\. Sources disagree on these symbols. The [Notation Across Sources page](https://morrison-lab.github.io/macros/notation-across-sources.html#sec-notation-information) of the macros site lists them side by side.
 
 ### 1.8 Asymptotic distribution of the maximum likelihood estimate
 
@@ -530,7 +518,7 @@ Sources disagree on the symbols for the observed and expected information ([Tabl
 
 > **NOTE:**
 >
-> *Proof*. The proof is beyond the scope of these notes; see [\[15\]](#ref-lehmannELST), Theorem 7.5.2, p. 501 and [\[16\]](#ref-newey1994large).
+> *Proof*. The proof is beyond the scope of these notes; see [\[13\]](#ref-lehmannELST), Theorem 7.5.2, p. 501 and [\[14\]](#ref-newey1994large).
 
 > **NOTE:**
 >
@@ -552,7 +540,7 @@ where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\mathord{\sma
 
 > **NOTE:**
 >
-> *Remark 6* (Observed versus expected information). Using the observed information is often more convenient, and there are settings where it is provably better by some criteria [\[17\]](#ref-efron1978assessing).
+> *Remark 6* (Observed versus expected information). Using the observed information is often more convenient, and there are settings where it is provably better by some criteria [\[15\]](#ref-efron1978assessing).
 
 > **NOTE:**
 >
@@ -586,7 +574,7 @@ By [Theorem 14](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/{\mathop{\wideha
 >
 > \\Z \stackrel{\text{def}}{=}\frac{\hat{\theta}\_k - \theta\_{k,0}}{{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}}}.\\
 >
-> Source: Wikipedia contributors [\[18\]](#ref-wikipedia_wald_test).
+> Source: Wikipedia contributors [\[16\]](#ref-wikipedia_wald_test).
 
 > **NOTE:**
 >
@@ -623,7 +611,7 @@ By [Theorem 14](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/{\mathop{\wideha
 >
 > \\ \Lambda\stackrel{\text{def}}{=}2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\hat{\theta}\_0)\right)\mathclose{} \\
 >
-> Source: Wikipedia contributors [\[19\]](#ref-wikipedia_likelihood_ratio_test).
+> Source: Wikipedia contributors [\[17\]](#ref-wikipedia_likelihood_ratio_test).
 
 > **NOTE:**
 >
@@ -695,11 +683,11 @@ By [Theorem 14](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/{\mathop{\wideha
 >
 > \\ \Lambda \overset{d}{\to} \chi^2_q \\
 >
-> Source: Wikipedia contributors [\[20\]](#ref-wikipedia_wilks_theorem).
+> Source: Wikipedia contributors [\[18\]](#ref-wikipedia_wilks_theorem).
 
 > **NOTE:**
 >
-> *Proof*. We sketch the argument for a scalar parameter and the point null hypothesis \\H_0: \theta= \theta_0\\, which imposes \\q = 1\\ constraint. For the full proof, see [\[21\]](#ref-wilks1938) or [\[1, Sec. 5.7\]](#ref-dobson4e).
+> *Proof*. We sketch the argument for a scalar parameter and the point null hypothesis \\H_0: \theta= \theta_0\\, which imposes \\q = 1\\ constraint. For the full proof, see [\[19\]](#ref-wilks1938) or [\[1, Sec. 5.7\]](#ref-dobson4e).
 >
 > By [Lemma 3](#lem-wilks-lrt-quadratic), \\\Lambda\approx I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2\\. Under the regularity conditions, \\I(\hat\theta\_{\text{ML}})/\mathcal{I}(\theta_0) \to 1\\ in probability, by the law of large numbers and the consistency of \\\hat\theta\_{\text{ML}}\\; this sketch assumes that step rather than proving it. So, with \\Z\\ as in [Lemma 4](#lem-wilks-std-gaussian):
 >
@@ -755,7 +743,7 @@ See also [\[1, Sec. 5.7\]](#ref-dobson4e) and <https://online.stat.psu.edu/stat5
 > | Two-sample population means | Two-sample t-test (pooled variance) | \\T\_{n_1+n_2-2}\\ | z-test | \\Z \sim N(0,1)\\ |
 > | \\K\\-group population means (ANOVA) | F-test | \\F\_{K-1,\\ n-K}\\ | [Likelihood ratio test](#thm-wilks) or [Wald test](#def-wald-test) | \\\chi^2\_{K-1}\\ |
 >
-> Table 2: Exact tests that assume Gaussian outcomes, and their approximate, large-sample counterparts based on maximum likelihood. \\p\\ is the number of regression coefficients.
+> Table 1: Exact tests that assume Gaussian outcomes, and their approximate, large-sample counterparts based on maximum likelihood. \\p\\ is the number of regression coefficients.
 
 > **NOTE:**
 >
@@ -769,7 +757,7 @@ See also [\[1, Sec. 5.7\]](#ref-dobson4e) and <https://online.stat.psu.edu/stat5
 >
 > \\ {\Pr\mathopen{}\left(L \le Y^\* \le U\right)\mathclose{}} = 1 - \alpha \\
 >
-> Source: Wikipedia contributors [\[22\]](#ref-wikipedia_prediction_interval).
+> Source: Wikipedia contributors [\[20\]](#ref-wikipedia_prediction_interval).
 
 Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ {\operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}}\\ with \\\sigma^2\\ known, and we want to predict the sample mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat{\mu}= \bar X\\, and the difference \\\bar X^\* - \hat{\mu}\\ (the negative of the [prediction error](prediction.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
 
@@ -797,7 +785,7 @@ Adapted from [\[1, Sec. 1.6.5\]](#ref-dobson4e).
 
 ### 2.1 Data
 
-[Table 3](#tbl-cyclones-data) records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 [\[1, Sec. 1.6.5\]](#ref-dobson4e). [Figure 1](#fig-dobson-cyclone-time-series) graphs the number of cyclones by season. Let \\X_i\\ represent the number of cyclones in season \\i\\, and \\x_i\\ its observed value.
+[Table 2](#tbl-cyclones-data) records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 [\[1, Sec. 1.6.5\]](#ref-dobson4e). [Figure 1](#fig-dobson-cyclone-time-series) graphs the number of cyclones by season. Let \\X_i\\ represent the number of cyclones in season \\i\\, and \\x_i\\ its observed value.
 
 > **NOTE:**
 >
@@ -831,7 +819,7 @@ Adapted from [\[1, Sec. 1.6.5\]](#ref-dobson4e).
 > | 1967/8  |     12 |      7 |
 > | 1968/9  |     13 |      4 |
 >
-> Table 3: Number of tropical cyclones during each November-to-April season in northeastern Australia [\[1, Sec. 1.6.5\]](#ref-dobson4e)
+> Table 2: Number of tropical cyclones during each November-to-April season in northeastern Australia [\[1, Sec. 1.6.5\]](#ref-dobson4e)
 
 ### 2.2 Exploratory analysis
 
@@ -880,7 +868,7 @@ Suppose we want to learn how many cyclones to expect per season.
 >
 > Figure 2: Bar plot of cyclones per season
 
-[Table 4](#tbl-dobson-cyclones-sumstat) provides summary statistics.
+[Table 3](#tbl-dobson-cyclones-sumstat) provides summary statistics.
 
 > **NOTE:**
 >
@@ -903,7 +891,7 @@ Suppose we want to learn how many cyclones to expect per season.
 > |--------:|------:|-----:|---------:|
 > |      13 |    72 | 5.54 |      6.1 |
 >
-> Table 4: Summary statistics for the `cyclones` data
+> Table 3: Summary statistics for the `cyclones` data
 
 ### 2.3 Model
 
@@ -960,7 +948,7 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 > - Population mean: \\{\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}} = {\lambda}\\.
 > - Population variance: \\{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = {\lambda}\\.
 >
-> The sample mean and variance in [Table 4](#tbl-dobson-cyclones-sumstat) are of similar size, as the model implies.
+> The sample mean and variance in [Table 3](#tbl-dobson-cyclones-sumstat) are of similar size, as the model implies.
 
 > **NOTE:**
 >
@@ -1262,7 +1250,7 @@ The expected information is sometimes simpler to compute than the observed infor
 >
 > \\ \begin{aligned} {\widehat{\lambda}}^\*+ {\mathopen{}\left(\mathcal{I}({\widehat{\lambda}}^\*)\right)\mathclose{}}^{-1} \ell'({\widehat{\lambda}}^\*) &= {\widehat{\lambda}}^\*+ \frac{{\widehat{\lambda}}^\*}{n}\mathopen{}\left(\frac{n\bar x}{{\widehat{\lambda}}^\*} - n\right)\mathclose{} && \text{(substitute \$\mathcal{I}\$ and \$\ell'\$)}\\ &= {\widehat{\lambda}}^\*+ \bar x - {\widehat{\lambda}}^\* && \text{(distribute \${\widehat{\lambda}}^\*/n\$)}\\ &= \bar x && \text{(cancel \${\widehat{\lambda}}^\*\$)} \end{aligned} \\
 >
-> So Fisher scoring reaches the MLE \\\bar x\\ in one step, while Newton-Raphson needs several ([Table 5](#tbl-mle-converge)).
+> So Fisher scoring reaches the MLE \\\bar x\\ in one step, while Newton-Raphson needs several ([Table 4](#tbl-mle-converge)).
 
 > **NOTE:**
 >
@@ -1464,7 +1452,7 @@ We update \\{\widehat{\lambda}}^\*\leftarrow 4.375\\ and repeat the process ([Fi
 >
 > Figure 12: The approximate score function at the updated estimate
 
-We repeat this process until the log-likelihood stops changing ([Table 5](#tbl-mle-converge)).
+We repeat this process until the log-likelihood stops changing ([Table 4](#tbl-mle-converge)).
 
 > **NOTE:**
 >
@@ -1517,7 +1505,7 @@ We repeat this process until the log-likelihood stops changing ([Table 5](#tbl-
 > |         4 | 5.53844 |        -28.9175 |  0.00005 | -2.34724 |      0.00014 |
 > |         5 | 5.53846 |        -28.9175 |  0.00000 | -2.34722 |      0.00000 |
 >
-> Table 5: Convergence of the Newton-Raphson algorithm to the MLE for the cyclone data
+> Table 4: Convergence of the Newton-Raphson algorithm to the MLE for the cyclone data
 
 The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise 33](#exr-find-mle)).
 
@@ -1952,15 +1940,15 @@ This example fits a Gaussian model to real data by maximum likelihood, and then 
 
 ### 5.1 Data
 
-The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) [\[23\]](#ref-HulleyStephen1998RToE).
+The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) [\[21\]](#ref-HulleyStephen1998RToE).
 
-The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo [\[23\]](#ref-HulleyStephen1998RToE). Women were followed for an average of 4.1 years [\[23\]](#ref-HulleyStephen1998RToE).
+The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo [\[21\]](#ref-HulleyStephen1998RToE). Women were followed for an average of 4.1 years [\[21\]](#ref-HulleyStephen1998RToE).
 
-The primary outcome was nonfatal myocardial infarction or CHD death [\[23\]](#ref-HulleyStephen1998RToE).
+The primary outcome was nonfatal myocardial infarction or CHD death [\[21\]](#ref-HulleyStephen1998RToE).
 
 We model the distribution of fasting glucose among HERS participants who do not have diabetes and do not exercise.
 
-The HERS data are distributed with Vittinghoff et al. [\[24\]](#ref-vittinghoff2e) on the book’s companion website:
+The HERS data are distributed with Vittinghoff et al. [\[22\]](#ref-vittinghoff2e) on the book’s companion website:
 
 ``` downlit
 # one unbroken string, so that link checkers test the whole URL:
@@ -1968,7 +1956,7 @@ url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home
 hers <- haven::read_dta(url)
 ```
 
-The `rmb` R package includes the same file, which these notes use so that rendering does not depend on the website ([Table 6](#tbl-HERS)):
+The `rmb` R package includes the same file, which these notes use so that rendering does not depend on the website ([Table 5](#tbl-HERS)):
 
 > **NOTE:**
 >
@@ -1977,7 +1965,7 @@ The `rmb` R package includes the same file, which these notes use so that render
 > hers |> head()
 > ```
 >
-> Table 6: The first rows of the HERS dataset
+> Table 5: The first rows of the HERS dataset
 
 To keep the likelihood graphs readable, we use only the first 100 eligible participants ([Figure 14](#fig-hers-glucose-hist)); with the whole subset, the likelihood would be too concentrated to graph clearly.
 
@@ -2288,7 +2276,7 @@ power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 
 > **NOTE:**
 >
-> *Remark 13* (Choosing the alternative, and observed power). The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat{\mu}\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed [\[25\]](#ref-hoenig2001abuse).
+> *Remark 13* (Choosing the alternative, and observed power). The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat{\mu}\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed [\[23\]](#ref-hoenig2001abuse).
 
 ### 5.7 Simulation
 
@@ -2460,7 +2448,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 48 (Gaussian log-likelihood (adapted from Kleinbaum et al. [\[26\]](#ref-kleinbaum2014applied), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}(\mu, \sigma^2)\\.
+> **Exercise 48 (Gaussian log-likelihood (adapted from Kleinbaum et al. [\[24\]](#ref-kleinbaum2014applied), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}(\mu, \sigma^2)\\.
 >
 > **(a)** Write the likelihood \\\mathcal{L}(\mu, \sigma^2; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\ for the observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\\.
 >
@@ -2698,57 +2686,49 @@ Wikipedia contributors, “Fisher information — Wikipedia, the free encycloped
 
 \[13\]
 
-P. K. Dunn and G. K. Smyth, *Generalized linear models with examples in R*, vol. 53. Springer, 2018. doi: [10.1007/978-1-4419-0118-7](https://doi.org/10.1007/978-1-4419-0118-7).
+E. L. Lehmann, *Elements of large-sample theory*. in Springer texts in statistics. New York: Springer, 1999. doi: [10.1007/b98855](https://doi.org/10.1007/b98855).
 
 \[14\]
 
-S. N. Wood, *Generalized additive models: An introduction with r*, 2nd ed. Chapman; Hall/CRC, 2017. doi: [10.1201/9781315370279](https://doi.org/10.1201/9781315370279).
+W. K. Newey and D. McFadden, “Large sample estimation and hypothesis testing,” in *Handbook of econometrics*, vol. 4, R. Engle and D. McFadden, Eds., Elsevier, 1994, pp. 2111–2245. doi: [10.1016/S1573-4412(05)80005-4](https://doi.org/10.1016/S1573-4412(05)80005-4).
 
 \[15\]
 
-E. L. Lehmann, *Elements of large-sample theory*. in Springer texts in statistics. New York: Springer, 1999. doi: [10.1007/b98855](https://doi.org/10.1007/b98855).
+B. Efron and D. V. Hinkley, “Assessing the accuracy of the maximum likelihood estimator: Observed versus expected Fisher information,” *Biometrika*, vol. 65, no. 3, pp. 457–483, 1978, doi: [10.1093/biomet/65.3.457](https://doi.org/10.1093/biomet/65.3.457).
 
 \[16\]
 
-W. K. Newey and D. McFadden, “Large sample estimation and hypothesis testing,” in *Handbook of econometrics*, vol. 4, R. Engle and D. McFadden, Eds., Elsevier, 1994, pp. 2111–2245. doi: [10.1016/S1573-4412(05)80005-4](https://doi.org/10.1016/S1573-4412(05)80005-4).
+Wikipedia contributors, “Wald test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wald_test>
 
 \[17\]
 
-B. Efron and D. V. Hinkley, “Assessing the accuracy of the maximum likelihood estimator: Observed versus expected Fisher information,” *Biometrika*, vol. 65, no. 3, pp. 457–483, 1978, doi: [10.1093/biomet/65.3.457](https://doi.org/10.1093/biomet/65.3.457).
+Wikipedia contributors, “Likelihood-ratio test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Likelihood-ratio_test>
 
 \[18\]
 
-Wikipedia contributors, “Wald test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wald_test>
+Wikipedia contributors, “Wilks’ theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wilks%27_theorem>
 
 \[19\]
 
-Wikipedia contributors, “Likelihood-ratio test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Likelihood-ratio_test>
+S. S. Wilks, “The large-sample distribution of the likelihood ratio for testing composite hypotheses,” *The Annals of Mathematical Statistics*, vol. 9, no. 1, pp. 60–62, 1938, doi: [10.1214/aoms/1177732360](https://doi.org/10.1214/aoms/1177732360).
 
 \[20\]
 
-Wikipedia contributors, “Wilks’ theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wilks%27_theorem>
+Wikipedia contributors, “Prediction interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Prediction_interval>
 
 \[21\]
 
-S. S. Wilks, “The large-sample distribution of the likelihood ratio for testing composite hypotheses,” *The Annals of Mathematical Statistics*, vol. 9, no. 1, pp. 60–62, 1938, doi: [10.1214/aoms/1177732360](https://doi.org/10.1214/aoms/1177732360).
+S. Hulley *et al.*, “Randomized trial of estrogen plus progestin for secondary prevention of coronary heart disease in postmenopausal women,” *JAMA : the journal of the American Medical Association*, vol. 280, no. 7, pp. 605–613, 1998, doi: [10.1001/jama.280.7.605](https://doi.org/10.1001/jama.280.7.605).
 
 \[22\]
 
-Wikipedia contributors, “Prediction interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Prediction_interval>
+E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
 
 \[23\]
 
-S. Hulley *et al.*, “Randomized trial of estrogen plus progestin for secondary prevention of coronary heart disease in postmenopausal women,” *JAMA : the journal of the American Medical Association*, vol. 280, no. 7, pp. 605–613, 1998, doi: [10.1001/jama.280.7.605](https://doi.org/10.1001/jama.280.7.605).
-
-\[24\]
-
-E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
-
-\[25\]
-
 J. M. Hoenig and D. M. Heisey, “The abuse of power: The pervasive fallacy of power calculations for data analysis,” *The American Statistician*, vol. 55, no. 1, pp. 19–24, 2001, doi: [10.1198/000313001300339897](https://doi.org/10.1198/000313001300339897).
 
-\[26\]
+\[24\]
 
 D. G. Kleinbaum, L. L. Kupper, A. Nizam, K. Muller, and E. Rosenberg, *Applied regression analysis and other multivariable methods*, 5th ed. Cengage Learning, 2014. Available: <https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/>
 
