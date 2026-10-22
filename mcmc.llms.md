@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 16:10:27 (PDT)
+Last modified: 2026-10-22 16:26:34 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models [\[1, Ch. 13\]](#ref-dobson4e). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -436,7 +436,7 @@ To compare models fit to the same data by Bayesian inference, we need a measure 
 >
 > **Definition 14 (Deviance of a parameter value)** In the deviance information criterion, the **deviance** of a parameter value \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\ is
 >
-> \\ D(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}). \\
+> \\ {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\right)\mathclose{}} \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}). \\
 
 > **NOTE:**
 >
@@ -444,29 +444,35 @@ To compare models fit to the same data by Bayesian inference, we need a measure 
 
 > **NOTE:**
 >
-> **Definition 15 (Effective number of parameters)** Let \\\overline{D} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[D(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the posterior mean of the [deviance](#def-bayes-deviance), and let \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the posterior mean of the parameters. The **effective number of parameters** is
+> **Definition 15 (Posterior mean deviance)** The **posterior mean deviance** \\\overline{\operatorname{dev}\_{\mathrm{DIC}}}\\ is the [posterior](#def-posterior) mean of the [deviance](#def-bayes-deviance) of a parameter value:
 >
-> \\ p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}). \\
+> \\ \overline{\operatorname{dev}\_{\mathrm{DIC}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[{\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\right)\mathclose{}} \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}. \\
 
 > **NOTE:**
 >
-> **Definition 16 (Deviance information criterion)** The **deviance information criterion** is
+> **Definition 16 (Effective number of parameters)** Let \\\overline{\operatorname{dev}\_{\mathrm{DIC}}}\\ be the [posterior mean deviance](#def-mean-bayes-deviance), and let \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the [posterior](#def-posterior) mean of the parameters. The **effective number of parameters** is
 >
-> \\ \operatorname{DIC} \stackrel{\text{def}}{=}D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) + 2\\p_D, \\
+> \\ p_D \stackrel{\text{def}}{=}\overline{\operatorname{dev}\_{\mathrm{DIC}}} - {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}. \\
+
+> **NOTE:**
 >
-> with \\D\\ from [Definition 14](#def-bayes-deviance) and \\p_D\\ from [Definition 15](#def-effective-parameters).
+> **Definition 17 (Deviance information criterion)** The **deviance information criterion** is
+>
+> \\ \operatorname{DIC} \stackrel{\text{def}}{=}{\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2\\p_D, \\
+>
+> with \\\operatorname{dev}\_{\mathrm{DIC}}\\ from [Definition 14](#def-bayes-deviance) and \\p_D\\ from [Definition 16](#def-effective-parameters).
 >
 > Source: Wikipedia contributors [\[11\]](#ref-wikipedia_deviance_information_criterion).
 
-Substituting [Definition 15](#def-effective-parameters) gives an equivalent form:
+Substituting [Definition 16](#def-effective-parameters) gives an equivalent form:
 
-\\ \begin{aligned} \operatorname{DIC} &= D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) + 2\mathopen{}\left(\overline{D} - D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})\right)\mathclose{} && \text{(definition of \$p_D\$)}\\ &= 2\overline{D} - D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) && \text{(collecting terms)}\\ &= \overline{D} + \mathopen{}\left(\overline{D} - D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})\right)\mathclose{} && \text{(splitting \$2\overline{D}\$)}\\ &= \overline{D} + p_D && \text{(definition of \$p_D\$)}. \end{aligned} \\
+\\ \begin{aligned} \operatorname{DIC} &= {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2\mathopen{}\left(\overline{\operatorname{dev}\_{\mathrm{DIC}}} - {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\right)\mathclose{} && \text{(definition of \$p_D\$)}\\ &= 2\overline{\operatorname{dev}\_{\mathrm{DIC}}} - {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} && \text{(collecting terms)}\\ &= \overline{\operatorname{dev}\_{\mathrm{DIC}}} + \mathopen{}\left(\overline{\operatorname{dev}\_{\mathrm{DIC}}} - {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\right)\mathclose{} && \text{(splitting \$2\overline{\operatorname{dev}\_{\mathrm{DIC}}}\$)}\\ &= \overline{\operatorname{dev}\_{\mathrm{DIC}}} + p_D && \text{(definition of \$p_D\$)}. \end{aligned} \\
 
-The term \\D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})\\ rewards fit, while \\p_D\\ penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful [\[1, Ch. 13\]](#ref-dobson4e), p. 306. Both \\\overline{D}\\ and \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\ are [Monte Carlo estimates](#def-monte-carlo-estimate) from the posterior draws, so DIC is a by-product of an MCMC run.
+The term \\{\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\\ rewards fit, while \\p_D\\ penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful [\[1, Ch. 13\]](#ref-dobson4e), p. 306. Both \\\overline{\operatorname{dev}\_{\mathrm{DIC}}}\\ and \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\ are [Monte Carlo estimates](#def-monte-carlo-estimate) from the posterior draws, so DIC is a by-product of an MCMC run.
 
 > **NOTE:**
 >
-> **Example 12 (DIC for the Bernoulli model)** For \\r = 55\\ successes in \\n = 91\\ trials, \\D(\pi) = -2\mathopen{}\left(r \log \pi+ (n - r) \log(1 - \pi)\right)\mathclose{}\\. We estimate \\\overline{D}\\ and \\\bar\pi\\ from 5,000 draws from the \\\operatorname{Beta}(56, 37)\\ posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli):
+> **Example 12 (DIC for the Bernoulli model)** For \\r = 55\\ successes in \\n = 91\\ trials, \\{\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\pi\right)\mathclose{}} = -2\mathopen{}\left(r \log \pi+ (n - r) \log(1 - \pi)\right)\mathclose{}\\. We [estimate](estimation.llms.md#def-estimate) \\\overline{\operatorname{dev}\_{\mathrm{DIC}}}\\ and \\\bar\pi\\ from 5,000 draws from the \\\operatorname{Beta}(56, 37)\\ posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli):
 >
 > ``` downlit
 > deviance_bernoulli <- function(pi, r = 55, n = 91) {

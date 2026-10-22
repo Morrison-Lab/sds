@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-22 16:10:27 (PDT)</p>
+  <p class="date">Last modified: 2026-10-22 16:26:34 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -825,43 +825,49 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^{m} \mathopen{}\left(\
 </section><section class="slide level2"><div id="def-bayes-deviance" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 14 (Deviance of a parameter value)</strong></span> In the deviance information criterion, the <strong>deviance</strong> of a parameter value <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> is</p>
 <p><span class="math display">\[
-D(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}).
+{\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\right)\mathclose{}} \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}).
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-bayes-deviance-constant" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Bayesian deviance and the generalized linear model deviance). </span>This deviance is minus twice the log-likelihood. A generalized linear model’s deviance subtracts the same quantity for the saturated model, which does not depend on <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>, so the two differ by a constant that cancels in comparisons between models of the same data.</p>
 </div>
-</section><section class="slide level2"><div id="def-effective-parameters" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 15 (Effective number of parameters)</strong></span> Let <span class="math inline">\(\overline{D} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[D(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}\)</span> be the posterior mean of the <a href="#/def-bayes-deviance">deviance</a>, and let <span class="math inline">\(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}\)</span> be the posterior mean of the parameters. The <strong>effective number of parameters</strong> is</p>
+</section><section class="slide level2"><div id="def-mean-bayes-deviance" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 15 (Posterior mean deviance)</strong></span> The <strong>posterior mean deviance</strong> <span class="math inline">\(\overline{\operatorname{dev}_{\mathrm{DIC}}}\)</span> is the <a href="#/def-posterior">posterior</a> mean of the <a href="#/def-bayes-deviance">deviance</a> of a parameter value:</p>
 <p><span class="math display">\[
-p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}).
+\overline{\operatorname{dev}_{\mathrm{DIC}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[{\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\right)\mathclose{}} \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}.
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="def-effective-parameters" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16 (Effective number of parameters)</strong></span> Let <span class="math inline">\(\overline{\operatorname{dev}_{\mathrm{DIC}}}\)</span> be the <a href="#/def-mean-bayes-deviance">posterior mean deviance</a>, and let <span class="math inline">\(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}\)</span> be the <a href="#/def-posterior">posterior</a> mean of the parameters. The <strong>effective number of parameters</strong> is</p>
+<p><span class="math display">\[
+p_D \stackrel{\text{def}}{=}\overline{\operatorname{dev}_{\mathrm{DIC}}} - {\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}.
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-dic" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 16 (Deviance information criterion)</strong></span> The <strong>deviance information criterion</strong> is</p>
+<p><span class="theorem-title"><strong>Definition 17 (Deviance information criterion)</strong></span> The <strong>deviance information criterion</strong> is</p>
 <p><span class="math display">\[
-\operatorname{DIC} \stackrel{\text{def}}{=}D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}) + 2\,p_D,
+\operatorname{DIC} \stackrel{\text{def}}{=}{\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2\,p_D,
 \]</span></p>
-<p>with <span class="math inline">\(D\)</span> from <a href="#/def-bayes-deviance" class="quarto-xref">Definition&nbsp;14</a> and <span class="math inline">\(p_D\)</span> from <a href="#/def-effective-parameters" class="quarto-xref">Definition&nbsp;15</a>.</p>
+<p>with <span class="math inline">\(\operatorname{dev}_{\mathrm{DIC}}\)</span> from <a href="#/def-bayes-deviance" class="quarto-xref">Definition&nbsp;14</a> and <span class="math inline">\(p_D\)</span> from <a href="#/def-effective-parameters" class="quarto-xref">Definition&nbsp;16</a>.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_deviance_information_criterion">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[11]</a></span>.</p>
 </div>
-</section><section class="slide level2"><p>Substituting <a href="#/def-effective-parameters" class="quarto-xref">Definition&nbsp;15</a> gives an equivalent form:</p>
+</section><section class="slide level2"><p>Substituting <a href="#/def-effective-parameters" class="quarto-xref">Definition&nbsp;16</a> gives an equivalent form:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{DIC}
-&amp;= D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}) + 2\mathopen{}\left(\overline{D} - D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})\right)\mathclose{}
+&amp;= {\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2\mathopen{}\left(\overline{\operatorname{dev}_{\mathrm{DIC}}} - {\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\right)\mathclose{}
 &amp;&amp; \text{(definition of $p_D$)}\\
-&amp;= 2\overline{D} - D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})
+&amp;= 2\overline{\operatorname{dev}_{\mathrm{DIC}}} - {\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}
 &amp;&amp; \text{(collecting terms)}\\
-&amp;= \overline{D} + \mathopen{}\left(\overline{D} - D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})\right)\mathclose{}
-&amp;&amp; \text{(splitting $2\overline{D}$)}\\
-&amp;= \overline{D} + p_D
+&amp;= \overline{\operatorname{dev}_{\mathrm{DIC}}} + \mathopen{}\left(\overline{\operatorname{dev}_{\mathrm{DIC}}} - {\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\right)\mathclose{}
+&amp;&amp; \text{(splitting $2\overline{\operatorname{dev}_{\mathrm{DIC}}}$)}\\
+&amp;= \overline{\operatorname{dev}_{\mathrm{DIC}}} + p_D
 &amp;&amp; \text{(definition of $p_D$)}.
 \end{aligned}
 \]</span></p>
-<p>The term <span class="math inline">\(D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})\)</span> rewards fit, while <span class="math inline">\(p_D\)</span> penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[1, Ch. 13]</a>, p.&nbsp;306</span>. Both <span class="math inline">\(\overline{D}\)</span> and <span class="math inline">\(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span> are <a href="#/def-monte-carlo-estimate">Monte Carlo estimates</a> from the posterior draws, so DIC is a by-product of an MCMC run.</p>
+<p>The term <span class="math inline">\({\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\)</span> rewards fit, while <span class="math inline">\(p_D\)</span> penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[1, Ch. 13]</a>, p.&nbsp;306</span>. Both <span class="math inline">\(\overline{\operatorname{dev}_{\mathrm{DIC}}}\)</span> and <span class="math inline">\(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span> are <a href="#/def-monte-carlo-estimate">Monte Carlo estimates</a> from the posterior draws, so DIC is a by-product of an MCMC run.</p>
 </section><section class="slide level2"><div id="exm-dic-bernoulli" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12 (DIC for the Bernoulli model)</strong></span> For <span class="math inline">\(r = 55\)</span> successes in <span class="math inline">\(n = 91\)</span> trials, <span class="math inline">\(D(\pi) = -2\mathopen{}\left(r \log \pi+ (n - r) \log(1 - \pi)\right)\mathclose{}\)</span>. We estimate <span class="math inline">\(\overline{D}\)</span> and <span class="math inline">\(\bar\pi\)</span> from 5,000 draws from the <span class="math inline">\(\operatorname{Beta}(56, 37)\)</span> posterior of <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a>:</p>
+<p><span class="theorem-title"><strong>Example 12 (DIC for the Bernoulli model)</strong></span> For <span class="math inline">\(r = 55\)</span> successes in <span class="math inline">\(n = 91\)</span> trials, <span class="math inline">\({\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\pi\right)\mathclose{}} = -2\mathopen{}\left(r \log \pi+ (n - r) \log(1 - \pi)\right)\mathclose{}\)</span>. We <a href="./estimation.html#def-estimate">estimate</a> <span class="math inline">\(\overline{\operatorname{dev}_{\mathrm{DIC}}}\)</span> and <span class="math inline">\(\bar\pi\)</span> from 5,000 draws from the <span class="math inline">\(\operatorname{Beta}(56, 37)\)</span> posterior of <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>deviance_bernoulli <span class="ot">&lt;-</span> <span class="cf">function</span>(pi, <span class="at">r =</span> <span class="dv">55</span>, <span class="at">n =</span> <span class="dv">91</span>) {</span>
 <span id="cb9-2"><a aria-label="2"></a>  <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> (r <span class="sc">*</span> <span class="fu">log</span>(pi) <span class="sc">+</span> (n <span class="sc">-</span> r) <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> pi))</span>

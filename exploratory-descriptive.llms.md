@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 16:10:27 (PDT)
+Last modified: 2026-10-22 16:26:34 (PDT)
 
 ## 1 Introduction
 
@@ -205,7 +205,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 5 (Sample mean)** The **sample mean** of \\n\\ observations \\x_1, \ldots, x_n\\ is:
 >
-> \\\bar{x}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\
+> \\{\bar{x}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\
 
 > **NOTE:**
 >
@@ -242,7 +242,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 7 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is:
 >
-> \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(x_i- \bar{x})^2\\
+> \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(x_i- {\bar{x}})^2\\
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_variance).
 
@@ -569,7 +569,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 >
 > **Definition 19 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is:
 >
-> \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y})} {\sqrt{\sum\_{i=1}^n(x_i- \bar{x})^2} \sqrt{\sum\_{i=1}^n(y_i- \bar{y})^2}}\\
+> \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}})} {\sqrt{\sum\_{i=1}^n(x_i- {\bar{x}})^2} \sqrt{\sum\_{i=1}^n(y_i- {\bar{y}})^2}}\\
 >
 > It is defined when neither variable is constant, so that both sums of squares are positive.
 >

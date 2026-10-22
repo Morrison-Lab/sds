@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 16:10:27 (PDT)
+Last modified: 2026-10-22 16:26:34 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -1244,7 +1244,7 @@ For \\\operatorname{iid}\\ data, \\\frac{1}{n}I_e(\theta; \mathord{\smash\[b\]{\
 
 > **NOTE:**
 >
-> **Example 12 (Finding the MLE using the Newton-Raphson algorithm)** We found the MLE \\\hat{{\lambda}}= \bar{x}\\ by solving the score equation \\\ell'({\lambda}) = 0\\ algebraically ([Exercise 31](#exr-solve-score-equation)). If we could not have solved it, we could instead start from an initial guess such as \\{\widehat{\lambda}}^\*= 3\\ and apply the [Newton-Raphson algorithm](#sec-newton-raphson).
+> **Example 12 (Finding the MLE using the Newton-Raphson algorithm)** We found the MLE \\\hat{{\lambda}}= {\bar{x}}\\ by solving the score equation \\\ell'({\lambda}) = 0\\ algebraically ([Exercise 31](#exr-solve-score-equation)). If we could not have solved it, we could instead start from an initial guess such as \\{\widehat{\lambda}}^\*= 3\\ and apply the [Newton-Raphson algorithm](#sec-newton-raphson).
 >
 > ``` downlit
 > cur_lambda_est <- 3
@@ -1691,17 +1691,17 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Exercise 41 (Score function of a binary sample)** In the setting of [Exercise 40](#exr-bernoulli-score-contribution), let \\\bar{y}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^ny_i\\ be the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of the observed outcomes. Assemble the [score function](#def-score) \\\ell'(\pi)\\ of the whole [sample](exploratory-descriptive.llms.md#def-sample) from the [score](#def-score) contributions.
+> **Exercise 41 (Score function of a binary sample)** In the setting of [Exercise 40](#exr-bernoulli-score-contribution), let \\{\bar{y}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^ny_i\\ be the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of the observed outcomes. Assemble the [score function](#def-score) \\\ell'(\pi)\\ of the whole [sample](exploratory-descriptive.llms.md#def-sample) from the [score](#def-score) contributions.
 
 > **NOTE:**
 >
-> *Solution 41*. \\ \begin{aligned} \ell'(\pi) &= \sum\_{i=1}^n\ell'\_i(\pi) && \text{(score of an independent sample is the sum of the score contributions)}\\ &= \sum\_{i=1}^n\tau\delta_i && \text{(score contribution of a binary outcome)}\\ &= \tau\sum\_{i=1}^n\delta_i && \text{(\$\tau\$ is the same for every \$i\$)}\\ &= \tau\sum\_{i=1}^n(y_i- \pi) && \text{(definition of \$\delta_i\$)}\\ &= \tau\mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(split the sum)}\\ &= \tau\mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= \tau\mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - n \pi\right)\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^n\pi= n \pi\$)}\\ &= \tau\mathopen{}\left(n \bar{y}- n \pi\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n \bar{y}\$)}\\ &= n \tau(\bar{y}- \pi) && \text{(factor out \$n\$)} \end{aligned} \\
+> *Solution 41*. \\ \begin{aligned} \ell'(\pi) &= \sum\_{i=1}^n\ell'\_i(\pi) && \text{(score of an independent sample is the sum of the score contributions)}\\ &= \sum\_{i=1}^n\tau\delta_i && \text{(score contribution of a binary outcome)}\\ &= \tau\sum\_{i=1}^n\delta_i && \text{(\$\tau\$ is the same for every \$i\$)}\\ &= \tau\sum\_{i=1}^n(y_i- \pi) && \text{(definition of \$\delta_i\$)}\\ &= \tau\mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(split the sum)}\\ &= \tau\mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= \tau\mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - n \pi\right)\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^n\pi= n \pi\$)}\\ &= \tau\mathopen{}\left(n {\bar{y}}- n \pi\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n {\bar{y}}\$)}\\ &= n \tau({\bar{y}}- \pi) && \text{(factor out \$n\$)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 21 (Score function of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\, with observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) \\\bar{y}\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, the [score function](#def-score) is:
+> **Theorem 21 (Score function of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\, with observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) \\{\bar{y}}\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, the [score function](#def-score) is:
 >
-> \\\ell'(\pi) = n \tau(\bar{y}- \pi)\\
+> \\\ell'(\pi) = n \tau({\bar{y}}- \pi)\\
 
 > **NOTE:**
 >
@@ -1711,19 +1711,19 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Exercise 42 (Solving the score equation of a binary sample)** In the setting of [Exercise 41](#exr-bernoulli-score-sum), assume \\0 \< \bar{y}\< 1\\: the [sample](exploratory-descriptive.llms.md#def-sample) has at least one [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) and at least one non-event. Solve the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ for \\\pi\in (0, 1)\\.
+> **Exercise 42 (Solving the score equation of a binary sample)** In the setting of [Exercise 41](#exr-bernoulli-score-sum), assume \\0 \< {\bar{y}}\< 1\\: the [sample](exploratory-descriptive.llms.md#def-sample) has at least one [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) and at least one non-event. Solve the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ for \\\pi\in (0, 1)\\.
 
 > **NOTE:**
 >
 > *Solution 42*. For \\\pi\in (0, 1)\\, \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ is finite and positive, and \\n \> 0\\, so \\n \tau\neq 0\\.
 >
-> \\ \begin{aligned} 0 &= \ell'(\pi) && \text{(score equation)}\\ 0 &= n \tau(\bar{y}- \pi) && \text{(score function of a binary sample)}\\ 0 &= \bar{y}- \pi && \text{(divide both sides by \$n \tau\neq 0\$)}\\ \pi&= \bar{y} && \text{(add \$\pi\$ to both sides)} \end{aligned} \\
+> \\ \begin{aligned} 0 &= \ell'(\pi) && \text{(score equation)}\\ 0 &= n \tau({\bar{y}}- \pi) && \text{(score function of a binary sample)}\\ 0 &= {\bar{y}}- \pi && \text{(divide both sides by \$n \tau\neq 0\$)}\\ \pi&= {\bar{y}} && \text{(add \$\pi\$ to both sides)} \end{aligned} \\
 >
-> Since \\0 \< \bar{y}\< 1\\, this solution lies in \\(0, 1)\\.
+> Since \\0 \< {\bar{y}}\< 1\\, this solution lies in \\(0, 1)\\.
 
 > **NOTE:**
 >
-> **Theorem 22 (Solution of the score equation of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\ and the observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) satisfies \\0 \< \bar{y}\< 1\\, then the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ has exactly one solution in \\(0, 1)\\: the sample mean \\\pi= \bar{y}\\.
+> **Theorem 22 (Solution of the score equation of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\ and the observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) satisfies \\0 \< {\bar{y}}\< 1\\, then the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ has exactly one solution in \\(0, 1)\\: the sample mean \\\pi= {\bar{y}}\\.
 
 > **NOTE:**
 >
@@ -1839,13 +1839,13 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Solution 46*. \\ \begin{aligned} \ell''(\pi) &= \sum\_{i=1}^n\ell''\_i(\pi) && \text{(the derivative of a sum is the sum of the derivatives)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{y_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1 - y_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(Hessian contribution of a binary outcome)}\\ &= -\frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} \sum\_{i=1}^ny_i- \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \sum\_{i=1}^n(1 - y_i) && \text{(split the sum; the denominators do not depend on \$i\$)}\\ &= -\frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \sum\_{i=1}^n(1 - y_i) && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= -\frac{n \bar{y}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \mathopen{}\left(n - n \bar{y}\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n \bar{y}\$ and \$\textstyle\sum\_{i=1}^n1 = n\$)}\\ &= -\frac{n \bar{y}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{n (1 - \bar{y})}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(factor out \$n\$)}\\ &= -n \mathopen{}\left(\frac{\bar{y}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} + \frac{1 - \bar{y}}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(factor out \$-n\$)} \end{aligned} \\
+> *Solution 46*. \\ \begin{aligned} \ell''(\pi) &= \sum\_{i=1}^n\ell''\_i(\pi) && \text{(the derivative of a sum is the sum of the derivatives)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{y_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1 - y_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(Hessian contribution of a binary outcome)}\\ &= -\frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} \sum\_{i=1}^ny_i- \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \sum\_{i=1}^n(1 - y_i) && \text{(split the sum; the denominators do not depend on \$i\$)}\\ &= -\frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \sum\_{i=1}^n(1 - y_i) && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= -\frac{n {\bar{y}}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \mathopen{}\left(n - n {\bar{y}}\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n {\bar{y}}\$ and \$\textstyle\sum\_{i=1}^n1 = n\$)}\\ &= -\frac{n {\bar{y}}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{n (1 - {\bar{y}})}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(factor out \$n\$)}\\ &= -n \mathopen{}\left(\frac{{\bar{y}}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} + \frac{1 - {\bar{y}}}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(factor out \$-n\$)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 24 (Hessian of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\, with observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) \\\bar{y}\\, the [Hessian](#def-hessian) of the [log-likelihood](#def-loglik) is the \\1 \times 1\\ matrix whose only entry is:
+> **Theorem 24 (Hessian of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\, with observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) \\{\bar{y}}\\, the [Hessian](#def-hessian) of the [log-likelihood](#def-loglik) is the \\1 \times 1\\ matrix whose only entry is:
 >
-> \\\ell''(\pi) = -n \mathopen{}\left(\frac{\bar{y}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} + \frac{1 - \bar{y}}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{}\\
+> \\\ell''(\pi) = -n \mathopen{}\left(\frac{{\bar{y}}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} + \frac{1 - {\bar{y}}}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{}\\
 
 > **NOTE:**
 >
@@ -1864,12 +1864,12 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 > Fix \\\pi\in (0, 1)\\. Then:
 >
 > - \\{\mathopen{}\left(\pi\right)\mathclose{}}^{2} \> 0\\ and \\{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2} \> 0\\;
-> - \\\bar{y}\ge 0\\ and \\1 - \bar{y}\ge 0\\, because \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\;
-> - \\\bar{y}\\ and \\1 - \bar{y}\\ are not both zero, because they sum to \\1\\.
+> - \\{\bar{y}}\ge 0\\ and \\1 - {\bar{y}}\ge 0\\, because \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\;
+> - \\{\bar{y}}\\ and \\1 - {\bar{y}}\\ are not both zero, because they sum to \\1\\.
 >
-> So \\\bar{y}/ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + (1 - \bar{y}) / {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}\\ is a sum of two nonnegative terms, at least one of them positive. It is therefore positive, and with \\n \> 0\\:
+> So \\{\bar{y}}/ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + (1 - {\bar{y}}) / {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}\\ is a sum of two nonnegative terms, at least one of them positive. It is therefore positive, and with \\n \> 0\\:
 >
-> \\ \ell''(\pi) = -n \mathopen{}\left(\frac{\bar{y}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} + \frac{1 - \bar{y}}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} \< 0 \\
+> \\ \ell''(\pi) = -n \mathopen{}\left(\frac{{\bar{y}}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} + \frac{1 - {\bar{y}}}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} \< 0 \\
 >
 > This holds for every \\\pi\in (0, 1)\\.
 
@@ -1889,13 +1889,13 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Solution 48*. By [Theorem 25](#thm-bernoulli-hessian-nd), \\\ell\\ is strictly concave on \\(0, 1)\\. A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else. With \\0 \< \bar{y}\< 1\\, [Theorem 22](#thm-bernoulli-score-equation) says the only critical point of \\\ell\\ in \\(0, 1)\\ is \\\bar{y}\\. So \\\ell\\ is maximized at \\\pi= \bar{y}\\.
+> *Solution 48*. By [Theorem 25](#thm-bernoulli-hessian-nd), \\\ell\\ is strictly concave on \\(0, 1)\\. A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else. With \\0 \< {\bar{y}}\< 1\\, [Theorem 22](#thm-bernoulli-score-equation) says the only critical point of \\\ell\\ in \\(0, 1)\\ is \\{\bar{y}}\\. So \\\ell\\ is maximized at \\\pi= {\bar{y}}\\.
 
 > **NOTE:**
 >
-> **Theorem 26 (Maximum likelihood estimate of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\ and the observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) satisfies \\0 \< \bar{y}\< 1\\, the [maximum likelihood estimate](#def-mle) of \\\pi\\ is the sample mean:
+> **Theorem 26 (Maximum likelihood estimate of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\ and the observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) satisfies \\0 \< {\bar{y}}\< 1\\, the [maximum likelihood estimate](#def-mle) of \\\pi\\ is the sample mean:
 >
-> \\\hat{\pi}\_{\text{ML}} = \bar{y}\\
+> \\\hat{\pi}\_{\text{ML}} = {\bar{y}}\\
 
 > **NOTE:**
 >
@@ -2551,7 +2551,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \mu}\ell &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n2(x_i- \mu) \cdot (-1) && \text{(inner derivative is \$-1\$)} \\ &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n-2(x_i- \mu) && \text{(multiply)} \\ &= -\frac{1}{2\sigma^2} \cdot (-2) \sum\_{i=1}^n(x_i- \mu) && \text{(factor the constant \$-2\$ out of the sum)} \\ &= \frac{1}{\sigma^2}\sum\_{i=1}^n(x_i- \mu) && \text{(multiply the constants)} \\ &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i- \sum\_{i=1}^n\mu\right)\mathclose{} && \text{(split the sum)} \\ &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i- n\mu\right)\mathclose{} && \text{(sum of \$n\$ copies of \$\mu\$)} \end{aligned} \\
 >
-> Setting this to zero: \\\hat{\mu}\_{ML} = \bar{x}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\.
+> Setting this to zero: \\\hat{\mu}\_{ML} = {\bar{x}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\.
 >
 > **Deriving \\\hat{\sigma}^2\_{ML}\\:**
 >
@@ -2561,9 +2561,9 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > \\ \begin{aligned} 0 &= -\frac{n}{2}(\sigma^2)^{-1} + \frac{1}{2}(\sigma^2)^{-2}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(set the derivative to zero)} \\ \frac{n}{2}(\sigma^2)^{-1} &= \frac{1}{2}(\sigma^2)^{-2}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(add \$\tfrac{n}{2}(\sigma^2)^{-1}\$ to both sides)} \\ n(\sigma^2)^{-1}(\sigma^2)^2 &= (\sigma^2)^{-2}(\sigma^2)^2\sum\_{i=1}^n(x_i- \mu)^2 && \text{(multiply both sides by \$2(\sigma^2)^2\$)} \\ n\sigma^2 &= (\sigma^2)^{-2}(\sigma^2)^2\sum\_{i=1}^n(x_i- \mu)^2 && \text{(\$(\sigma^2)^{-1}(\sigma^2)^2 = \sigma^2\$)} \\ n\sigma^2 &= \sum\_{i=1}^n(x_i- \mu)^2 && \text{(\$(\sigma^2)^{-2}(\sigma^2)^2 = 1\$)} \\ \sigma^2 &= \frac{1}{n}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(divide both sides by \$n\$)} \end{aligned} \\
 >
-> Substituting \\\hat{\mu}\_{ML} = \bar{x}\\:
+> Substituting \\\hat{\mu}\_{ML} = {\bar{x}}\\:
 >
-> \\ \hat{\sigma}^2\_{ML} = \frac{1}{n}\sum\_{i=1}^n(x_i- \bar{x})^2 \\
+> \\ \hat{\sigma}^2\_{ML} = \frac{1}{n}\sum\_{i=1}^n(x_i- {\bar{x}})^2 \\
 >
 > Note: this maximum likelihood estimator is a biased estimator of \\\sigma^2\\; the unbiased sample variance divides by \\n-1\\.
 
@@ -2587,23 +2587,23 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > **(b)**
 >
-> \\ \begin{aligned} \ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - n{\lambda}- \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}}\right\]\mathclose{} && \text{(log-likelihood from (a))} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}}\right\]\mathclose{} - \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\lambda}\right\]\mathclose{} - \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}}\right\]\mathclose{} && \text{(linearity of differentiation)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}}\right\]\mathclose{} - \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\lambda}\right\]\mathclose{} - 0 && \text{(derivative of a constant)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}}\right\]\mathclose{} - \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\lambda}\right\]\mathclose{} && \text{(drop the zero term)} \\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}\frac{\partial}{\partial {\lambda}}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - n\frac{\partial}{\partial {\lambda}}{\lambda} && \text{(constant multiple rule)} \\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\lambda}^{-1} - n\frac{\partial}{\partial {\lambda}}{\lambda} && \text{(derivative of \$\log\$)} \\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\lambda}^{-1} - n && \text{(derivative of \${\lambda}\$ with respect to itself)} \\ &= \frac{\sum\_{i=1}^nx_i}{{\lambda}} - n && \text{(write the negative power as a fraction)} \\ &= \frac{n\bar{x}}{{\lambda}} - n && \text{(\$\textstyle\sum\_{i=1}^nx_i= n\bar{x}\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - n{\lambda}- \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}}\right\]\mathclose{} && \text{(log-likelihood from (a))} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}}\right\]\mathclose{} - \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\lambda}\right\]\mathclose{} - \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}}\right\]\mathclose{} && \text{(linearity of differentiation)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}}\right\]\mathclose{} - \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\lambda}\right\]\mathclose{} - 0 && \text{(derivative of a constant)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}}\right\]\mathclose{} - \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\lambda}\right\]\mathclose{} && \text{(drop the zero term)} \\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}\frac{\partial}{\partial {\lambda}}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - n\frac{\partial}{\partial {\lambda}}{\lambda} && \text{(constant multiple rule)} \\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\lambda}^{-1} - n\frac{\partial}{\partial {\lambda}}{\lambda} && \text{(derivative of \$\log\$)} \\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\lambda}^{-1} - n && \text{(derivative of \${\lambda}\$ with respect to itself)} \\ &= \frac{\sum\_{i=1}^nx_i}{{\lambda}} - n && \text{(write the negative power as a fraction)} \\ &= \frac{n{\bar{x}}}{{\lambda}} - n && \text{(\$\textstyle\sum\_{i=1}^nx_i= n{\bar{x}}\$)} \end{aligned} \\
 >
 > **(c)**
 >
 > The MLE solves \\\ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = 0\\, so evaluating the score there afterwards is a check on the algebra. Setting \\\ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = 0\\:
 >
-> \\ \begin{aligned} 0 &= \frac{n\bar{x}}{{\lambda}} - n && \text{(score from (b))} \\ \frac{n\bar{x}}{{\lambda}} &= n && \text{(add \$n\$ to both sides)} \\ n\bar{x}&= n{\lambda} && \text{(multiply both sides by \${\lambda}\$)} \\ \hat{\lambda}\_{ML} &= \bar{x} && \text{(divide both sides by \$n\$)} \end{aligned} \\
+> \\ \begin{aligned} 0 &= \frac{n{\bar{x}}}{{\lambda}} - n && \text{(score from (b))} \\ \frac{n{\bar{x}}}{{\lambda}} &= n && \text{(add \$n\$ to both sides)} \\ n{\bar{x}}&= n{\lambda} && \text{(multiply both sides by \${\lambda}\$)} \\ \hat{\lambda}\_{ML} &= {\bar{x}} && \text{(divide both sides by \$n\$)} \end{aligned} \\
 >
-> If \\\bar{x}\> 0\\ (equivalently, at least one \\x_i\> 0\\), then
+> If \\{\bar{x}}\> 0\\ (equivalently, at least one \\x_i\> 0\\), then
 >
-> \\ \begin{aligned} \ell'(\bar{x}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{n\bar{x}}{\bar{x}} - n && \text{(score from (b) at \${\lambda}= \bar{x}\$)} \\ &= n - n && \text{(cancel \$\bar{x}\$, since \$\bar{x}\> 0\$)} \\ &= 0 && \text{(subtract)} \end{aligned} \\
+> \\ \begin{aligned} \ell'({\bar{x}}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{n{\bar{x}}}{{\bar{x}}} - n && \text{(score from (b) at \${\lambda}= {\bar{x}}\$)} \\ &= n - n && \text{(cancel \${\bar{x}}\$, since \${\bar{x}}\> 0\$)} \\ &= 0 && \text{(subtract)} \end{aligned} \\
 >
-> If instead all \\x_i= 0\\, then \\\bar{x}= 0\\ and \\\hat{\lambda}\_{ML} = 0\\ is a boundary value. In that case, the score formula \\\ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{n\bar{x}}{{\lambda}} - n\\ is not defined at \\{\lambda}= 0\\, so the usual interior verification \\\ell'(\hat{\lambda}\_{ML}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = 0\\ does not apply.
+> If instead all \\x_i= 0\\, then \\{\bar{x}}= 0\\ and \\\hat{\lambda}\_{ML} = 0\\ is a boundary value. In that case, the score formula \\\ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{n{\bar{x}}}{{\lambda}} - n\\ is not defined at \\{\lambda}= 0\\, so the usual interior verification \\\ell'(\hat{\lambda}\_{ML}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = 0\\ does not apply.
 >
 > **(d)**
 >
-> The score measures the rate of change of the log-likelihood. When it equals zero, increasing or decreasing \\{\lambda}\\ slightly would not improve the fit; we are at a “flat” point. Intuitively, \\\hat{\lambda}\_{ML} = \bar{x}\\ is the value of \\{\lambda}\\ that makes the expected count per observation (\\{\lambda}\\) exactly equal to the observed sample average count (\\\bar{x}\\).
+> The score measures the rate of change of the log-likelihood. When it equals zero, increasing or decreasing \\{\lambda}\\ slightly would not improve the fit; we are at a “flat” point. Intuitively, \\\hat{\lambda}\_{ML} = {\bar{x}}\\ is the value of \\{\lambda}\\ that makes the expected count per observation (\\{\lambda}\\) exactly equal to the observed sample average count (\\{\bar{x}}\\).
 
 > **NOTE:**
 >
@@ -2621,19 +2621,19 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > *Solution 52*. **(a)**
 >
-> From [Exercise 51](#exr-prac-score-zero), \\\ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{n\bar{x}}{{\lambda}} - n\\.
+> From [Exercise 51](#exr-prac-score-zero), \\\ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{n{\bar{x}}}{{\lambda}} - n\\.
 >
-> \\ \begin{aligned} \ell''({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\frac{n\bar{x}}{{\lambda}} - n\right\]\mathclose{} && \text{(Poisson score)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n\bar{x}{\lambda}^{-1} - n\right\]\mathclose{} && \text{(write \$\tfrac{n\bar{x}}{{\lambda}}\$ as \$n\bar{x}{\lambda}^{-1}\$)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n\bar{x}{\lambda}^{-1}\right\]\mathclose{} - \frac{\partial}{\partial {\lambda}} n && \text{(linearity of differentiation)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n\bar{x}{\lambda}^{-1}\right\]\mathclose{} - 0 && \text{(derivative of a constant)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n\bar{x}{\lambda}^{-1}\right\]\mathclose{} && \text{(drop the zero term)} \\ &= n\bar{x}\frac{\partial}{\partial {\lambda}}{\lambda}^{-1} && \text{(constant multiple rule)} \\ &= n\bar{x}\mathopen{}\left(-{\lambda}^{-2}\right)\mathclose{} && \text{(power rule)} \\ &= -n\bar{x}{\lambda}^{-2} && \text{(multiply)} \\ &= -\frac{n\bar{x}}{{\lambda}^2} && \text{(write the negative power as a fraction)} \end{aligned} \\
+> \\ \begin{aligned} \ell''({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\frac{n{\bar{x}}}{{\lambda}} - n\right\]\mathclose{} && \text{(Poisson score)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\bar{x}}{\lambda}^{-1} - n\right\]\mathclose{} && \text{(write \$\tfrac{n{\bar{x}}}{{\lambda}}\$ as \$n{\bar{x}}{\lambda}^{-1}\$)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\bar{x}}{\lambda}^{-1}\right\]\mathclose{} - \frac{\partial}{\partial {\lambda}} n && \text{(linearity of differentiation)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\bar{x}}{\lambda}^{-1}\right\]\mathclose{} - 0 && \text{(derivative of a constant)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\bar{x}}{\lambda}^{-1}\right\]\mathclose{} && \text{(drop the zero term)} \\ &= n{\bar{x}}\frac{\partial}{\partial {\lambda}}{\lambda}^{-1} && \text{(constant multiple rule)} \\ &= n{\bar{x}}\mathopen{}\left(-{\lambda}^{-2}\right)\mathclose{} && \text{(power rule)} \\ &= -n{\bar{x}}{\lambda}^{-2} && \text{(multiply)} \\ &= -\frac{n{\bar{x}}}{{\lambda}^2} && \text{(write the negative power as a fraction)} \end{aligned} \\
 >
 > **(b)**
 >
-> \\ \begin{aligned} I({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= -\ell''({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) && \text{(observed information is the negative Hessian)} \\ &= -\mathopen{}\left(-\frac{n\bar{x}}{{\lambda}^2}\right)\mathclose{} && \text{(Hessian from (a))} \\ &= \frac{n\bar{x}}{{\lambda}^2} && \text{(two negatives make a positive)} \end{aligned} \\
+> \\ \begin{aligned} I({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= -\ell''({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) && \text{(observed information is the negative Hessian)} \\ &= -\mathopen{}\left(-\frac{n{\bar{x}}}{{\lambda}^2}\right)\mathclose{} && \text{(Hessian from (a))} \\ &= \frac{n{\bar{x}}}{{\lambda}^2} && \text{(two negatives make a positive)} \end{aligned} \\
 >
 > **(c)**
 >
-> Assuming \\\bar{x}\> 0\\ (i.e., at least one \\x_i\> 0\\), substituting \\\hat{\lambda}\_{ML} = \bar{x}\\:
+> Assuming \\{\bar{x}}\> 0\\ (i.e., at least one \\x_i\> 0\\), substituting \\\hat{\lambda}\_{ML} = {\bar{x}}\\:
 >
-> \\ \begin{aligned} I(\hat{\lambda}\_{ML}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{n\bar{x}}{\bar{x}^2} && \text{(observed information at \${\lambda}= \bar{x}\$)} \\ &= \frac{n}{\bar{x}} && \text{(cancel one factor of \$\bar{x}\$)} \end{aligned} \\
+> \\ \begin{aligned} I(\hat{\lambda}\_{ML}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{n{\bar{x}}}{{\bar{x}}^2} && \text{(observed information at \${\lambda}= {\bar{x}}\$)} \\ &= \frac{n}{{\bar{x}}} && \text{(cancel one factor of \${\bar{x}}\$)} \end{aligned} \\
 >
 > **(d)**
 >
@@ -2641,13 +2641,13 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > \\ \hat{\lambda}\_{ML} \\\dot\sim\\ \operatorname{N}\\\mathopen{}\left({\lambda},\\ {\mathopen{}\left(\mathcal{I}({\lambda})\right)\mathclose{}}^{-1}\right)\mathclose{} \\
 >
-> We estimate this asymptotic variance using the observed information evaluated at the MLE. Since \\I(\hat{\lambda}\_{ML};\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})^{-1} = \bar{x}/n\\:
+> We estimate this asymptotic variance using the observed information evaluated at the MLE. Since \\I(\hat{\lambda}\_{ML};\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})^{-1} = {\bar{x}}/n\\:
 >
-> \\ {\operatorname{SE}\mathopen{}\left(\hat{\lambda}\_{ML}\right)\mathclose{}} \approx \sqrt{\frac{\bar{x}}{n}} \\
+> \\ {\operatorname{SE}\mathopen{}\left(\hat{\lambda}\_{ML}\right)\mathclose{}} \approx \sqrt{\frac{{\bar{x}}}{n}} \\
 >
 > An approximate 95% CI for \\{\lambda}\\ is:
 >
-> \\ \hat{\lambda}\_{ML} \pm 1.96 \times \sqrt{\frac{\bar{x}}{n}} = \bar{x}\pm 1.96\sqrt{\frac{\bar{x}}{n}} \\
+> \\ \hat{\lambda}\_{ML} \pm 1.96 \times \sqrt{\frac{{\bar{x}}}{n}} = {\bar{x}}\pm 1.96\sqrt{\frac{{\bar{x}}}{n}} \\
 
 > **NOTE:**
 >
@@ -2657,7 +2657,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > **(b)** Derive the score function \\\ell'(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{\partial}{\partial \mu}\ell(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\.
 >
-> **(c)** Set the score equal to zero and show that \\\hat\mu\_{ML} = \bar{x}\\. Compute the second derivative and verify this critical point is a maximum.
+> **(c)** Set the score equal to zero and show that \\\hat\mu\_{ML} = {\bar{x}}\\. Compute the second derivative and verify this critical point is a maximum.
 >
 > **(d)** Derive the observed information \\I(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = -\ell''(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\, evaluate it at \\\hat\mu\_{ML}\\, and give an approximate 95% confidence interval for \\\mu\\.
 
@@ -2665,45 +2665,45 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > *Solution 53*. **(a)**
 >
-> \\ \begin{aligned} \ell(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= {\operatorname{log}\mathopen{}\left\\\prod\_{i=1}^n\frac{1}{\mu} e^{-x_i/\mu}\right\\\mathclose{}} && \text{(log of the likelihood of an \$\operatorname{iid}\$ sample)} \\ &= \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\\frac{1}{\mu} e^{-x_i/\mu}\right\\\mathclose{}} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left({\operatorname{log}\mathopen{}\left\\\frac{1}{\mu}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-x_i/\mu}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-x_i/\mu}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a reciprocal)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{x_i}{\mu}\right)\mathclose{} && \text{(\$\operatorname{log}\$ undoes \$\operatorname{exp}\$)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}}\right)\mathclose{} - \sum\_{i=1}^n\frac{x_i}{\mu} && \text{(split the sum)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \sum\_{i=1}^n\frac{x_i}{\mu} && \text{(sum of \$n\$ identical terms)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{1}{\mu}\sum\_{i=1}^nx_i && \text{(factor the constant \$\tfrac{1}{\mu}\$ out of the sum)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{n\bar{x}}{\mu} && \text{(\$\textstyle\sum\_{i=1}^nx_i= n\bar{x}\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= {\operatorname{log}\mathopen{}\left\\\prod\_{i=1}^n\frac{1}{\mu} e^{-x_i/\mu}\right\\\mathclose{}} && \text{(log of the likelihood of an \$\operatorname{iid}\$ sample)} \\ &= \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\\frac{1}{\mu} e^{-x_i/\mu}\right\\\mathclose{}} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left({\operatorname{log}\mathopen{}\left\\\frac{1}{\mu}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-x_i/\mu}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-x_i/\mu}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a reciprocal)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{x_i}{\mu}\right)\mathclose{} && \text{(\$\operatorname{log}\$ undoes \$\operatorname{exp}\$)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}}\right)\mathclose{} - \sum\_{i=1}^n\frac{x_i}{\mu} && \text{(split the sum)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \sum\_{i=1}^n\frac{x_i}{\mu} && \text{(sum of \$n\$ identical terms)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{1}{\mu}\sum\_{i=1}^nx_i && \text{(factor the constant \$\tfrac{1}{\mu}\$ out of the sum)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{n{\bar{x}}}{\mu} && \text{(\$\textstyle\sum\_{i=1}^nx_i= n{\bar{x}}\$)} \end{aligned} \\
 >
 > **(b)**
 >
-> \\ \begin{aligned} \ell'(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{n\bar{x}}{\mu}\right)\mathclose{} && \text{(log-likelihood from (a))} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - n\bar{x}\mu^{-1}\right)\mathclose{} && \text{(write \$\tfrac{n\bar{x}}{\mu}\$ as \$n\bar{x}\mu^{-1}\$)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}}\right)\mathclose{} - \frac{\partial}{\partial \mu}\mathopen{}\left(n\bar{x}\mu^{-1}\right)\mathclose{} && \text{(linearity of differentiation)} \\ &= -n\frac{\partial}{\partial \mu}{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - n\bar{x}\frac{\partial}{\partial \mu}\mu^{-1} && \text{(constant multiple rule)} \\ &= -n\mu^{-1} - n\bar{x}\frac{\partial}{\partial \mu}\mu^{-1} && \text{(derivative of \$\log\$)} \\ &= -n\mu^{-1} - n\bar{x}\mathopen{}\left(-\mu^{-2}\right)\mathclose{} && \text{(power rule)} \\ &= -n\mu^{-1} + n\bar{x}\mu^{-2} && \text{(multiply)} \\ &= -\frac{n}{\mu} + \frac{n\bar{x}}{\mu^2} && \text{(write the negative powers as fractions)} \\ &= -\frac{n\mu}{\mu^2} + \frac{n\bar{x}}{\mu^2} && \text{(write both terms over the common denominator)} \\ &= \frac{-n\mu+ n\bar{x}}{\mu^2} && \text{(combine the fractions)} \\ &= \frac{n\bar{x}- n\mu}{\mu^2} && \text{(reorder the numerator)} \\ &= \frac{n}{\mu^2}\mathopen{}\left(\bar{x}- \mu\right)\mathclose{} && \text{(factor out \$\tfrac{n}{\mu^2}\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell'(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{n{\bar{x}}}{\mu}\right)\mathclose{} && \text{(log-likelihood from (a))} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - n{\bar{x}}\mu^{-1}\right)\mathclose{} && \text{(write \$\tfrac{n{\bar{x}}}{\mu}\$ as \$n{\bar{x}}\mu^{-1}\$)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}}\right)\mathclose{} - \frac{\partial}{\partial \mu}\mathopen{}\left(n{\bar{x}}\mu^{-1}\right)\mathclose{} && \text{(linearity of differentiation)} \\ &= -n\frac{\partial}{\partial \mu}{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - n{\bar{x}}\frac{\partial}{\partial \mu}\mu^{-1} && \text{(constant multiple rule)} \\ &= -n\mu^{-1} - n{\bar{x}}\frac{\partial}{\partial \mu}\mu^{-1} && \text{(derivative of \$\log\$)} \\ &= -n\mu^{-1} - n{\bar{x}}\mathopen{}\left(-\mu^{-2}\right)\mathclose{} && \text{(power rule)} \\ &= -n\mu^{-1} + n{\bar{x}}\mu^{-2} && \text{(multiply)} \\ &= -\frac{n}{\mu} + \frac{n{\bar{x}}}{\mu^2} && \text{(write the negative powers as fractions)} \\ &= -\frac{n\mu}{\mu^2} + \frac{n{\bar{x}}}{\mu^2} && \text{(write both terms over the common denominator)} \\ &= \frac{-n\mu+ n{\bar{x}}}{\mu^2} && \text{(combine the fractions)} \\ &= \frac{n{\bar{x}}- n\mu}{\mu^2} && \text{(reorder the numerator)} \\ &= \frac{n}{\mu^2}\mathopen{}\left({\bar{x}}- \mu\right)\mathclose{} && \text{(factor out \$\tfrac{n}{\mu^2}\$)} \end{aligned} \\
 >
 > **(c)**
 >
 > Setting \\\ell'(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = 0\\:
 >
-> \\ \begin{aligned} 0 &= \frac{n}{\mu^2}\mathopen{}\left(\bar{x}- \mu\right)\mathclose{} && \text{(score from (b))} \\ 0 &= \bar{x}- \mu && \text{(multiply both sides by \$\tfrac{\mu^2}{n}\$)} \\ \hat\mu\_{ML} &= \bar{x} && \text{(add \$\mu\$ to both sides)} \end{aligned} \\
+> \\ \begin{aligned} 0 &= \frac{n}{\mu^2}\mathopen{}\left({\bar{x}}- \mu\right)\mathclose{} && \text{(score from (b))} \\ 0 &= {\bar{x}}- \mu && \text{(multiply both sides by \$\tfrac{\mu^2}{n}\$)} \\ \hat\mu\_{ML} &= {\bar{x}} && \text{(add \$\mu\$ to both sides)} \end{aligned} \\
 >
 > The second derivative is:
 >
-> \\ \begin{aligned} \ell''(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{\mu} + \frac{n\bar{x}}{\mu^2}\right)\mathclose{} && \text{(score from (b))} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\mu^{-1} + n\bar{x}\mu^{-2}\right)\mathclose{} && \text{(write the fractions as negative powers)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\mu^{-1}\right)\mathclose{} + \frac{\partial}{\partial \mu}\mathopen{}\left(n\bar{x}\mu^{-2}\right)\mathclose{} && \text{(linearity of differentiation)} \\ &= -n\frac{\partial}{\partial \mu}\mu^{-1} + n\bar{x}\frac{\partial}{\partial \mu}\mu^{-2} && \text{(constant multiple rule)} \\ &= -n\mathopen{}\left(-\mu^{-2}\right)\mathclose{} + n\bar{x}\frac{\partial}{\partial \mu}\mu^{-2} && \text{(power rule for \$\mu^{-1}\$)} \\ &= -n\mathopen{}\left(-\mu^{-2}\right)\mathclose{} + n\bar{x}\mathopen{}\left(-2\mu^{-3}\right)\mathclose{} && \text{(power rule for \$\mu^{-2}\$)} \\ &= n\mu^{-2} - 2n\bar{x}\mu^{-3} && \text{(multiply)} \\ &= \frac{n}{\mu^2} - \frac{2n\bar{x}}{\mu^3} && \text{(write the negative powers as fractions)} \end{aligned} \\
+> \\ \begin{aligned} \ell''(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{\mu} + \frac{n{\bar{x}}}{\mu^2}\right)\mathclose{} && \text{(score from (b))} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\mu^{-1} + n{\bar{x}}\mu^{-2}\right)\mathclose{} && \text{(write the fractions as negative powers)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\mu^{-1}\right)\mathclose{} + \frac{\partial}{\partial \mu}\mathopen{}\left(n{\bar{x}}\mu^{-2}\right)\mathclose{} && \text{(linearity of differentiation)} \\ &= -n\frac{\partial}{\partial \mu}\mu^{-1} + n{\bar{x}}\frac{\partial}{\partial \mu}\mu^{-2} && \text{(constant multiple rule)} \\ &= -n\mathopen{}\left(-\mu^{-2}\right)\mathclose{} + n{\bar{x}}\frac{\partial}{\partial \mu}\mu^{-2} && \text{(power rule for \$\mu^{-1}\$)} \\ &= -n\mathopen{}\left(-\mu^{-2}\right)\mathclose{} + n{\bar{x}}\mathopen{}\left(-2\mu^{-3}\right)\mathclose{} && \text{(power rule for \$\mu^{-2}\$)} \\ &= n\mu^{-2} - 2n{\bar{x}}\mu^{-3} && \text{(multiply)} \\ &= \frac{n}{\mu^2} - \frac{2n{\bar{x}}}{\mu^3} && \text{(write the negative powers as fractions)} \end{aligned} \\
 >
-> Evaluated at \\\hat\mu\_{ML} = \bar{x}\\:
+> Evaluated at \\\hat\mu\_{ML} = {\bar{x}}\\:
 >
-> \\ \begin{aligned} \ell''(\bar{x}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{n}{\bar{x}^2} - \frac{2n\bar{x}}{\bar{x}^3} && \text{(second derivative at \$\mu= \bar{x}\$)} \\ &= \frac{n}{\bar{x}^2} - \frac{2n}{\bar{x}^2} && \text{(cancel one factor of \$\bar{x}\$)} \\ &= -\frac{n}{\bar{x}^2} && \text{(combine like terms)} \end{aligned} \\
+> \\ \begin{aligned} \ell''({\bar{x}}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{n}{{\bar{x}}^2} - \frac{2n{\bar{x}}}{{\bar{x}}^3} && \text{(second derivative at \$\mu= {\bar{x}}\$)} \\ &= \frac{n}{{\bar{x}}^2} - \frac{2n}{{\bar{x}}^2} && \text{(cancel one factor of \${\bar{x}}\$)} \\ &= -\frac{n}{{\bar{x}}^2} && \text{(combine like terms)} \end{aligned} \\
 >
-> Since \\n \> 0\\ and \\\bar{x}^2 \> 0\\, the second derivative is negative, so \\\hat\mu\_{ML} = \bar{x}\\ is a maximum.
+> Since \\n \> 0\\ and \\{\bar{x}}^2 \> 0\\, the second derivative is negative, so \\\hat\mu\_{ML} = {\bar{x}}\\ is a maximum.
 >
 > **(d)**
 >
 > The observed information is:
 >
-> \\ \begin{aligned} I(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= -\ell''(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) && \text{(observed information is the negative Hessian)} \\ &= -\mathopen{}\left(\frac{n}{\mu^2} - \frac{2n\bar{x}}{\mu^3}\right)\mathclose{} && \text{(second derivative from (c))} \\ &= -\frac{n}{\mu^2} + \frac{2n\bar{x}}{\mu^3} && \text{(distribute the minus sign)} \\ &= \frac{2n\bar{x}}{\mu^3} - \frac{n}{\mu^2} && \text{(reorder the terms)} \end{aligned} \\
+> \\ \begin{aligned} I(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= -\ell''(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) && \text{(observed information is the negative Hessian)} \\ &= -\mathopen{}\left(\frac{n}{\mu^2} - \frac{2n{\bar{x}}}{\mu^3}\right)\mathclose{} && \text{(second derivative from (c))} \\ &= -\frac{n}{\mu^2} + \frac{2n{\bar{x}}}{\mu^3} && \text{(distribute the minus sign)} \\ &= \frac{2n{\bar{x}}}{\mu^3} - \frac{n}{\mu^2} && \text{(reorder the terms)} \end{aligned} \\
 >
-> Evaluated at \\\hat\mu\_{ML} = \bar{x}\\:
+> Evaluated at \\\hat\mu\_{ML} = {\bar{x}}\\:
 >
-> \\ \begin{aligned} I(\hat\mu\_{ML}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{2n\bar{x}}{\bar{x}^3} - \frac{n}{\bar{x}^2} && \text{(observed information at \$\mu= \bar{x}\$)} \\ &= \frac{2n}{\bar{x}^2} - \frac{n}{\bar{x}^2} && \text{(cancel one factor of \$\bar{x}\$)} \\ &= \frac{n}{\bar{x}^2} && \text{(combine like terms)} \end{aligned} \\
+> \\ \begin{aligned} I(\hat\mu\_{ML}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{2n{\bar{x}}}{{\bar{x}}^3} - \frac{n}{{\bar{x}}^2} && \text{(observed information at \$\mu= {\bar{x}}\$)} \\ &= \frac{2n}{{\bar{x}}^2} - \frac{n}{{\bar{x}}^2} && \text{(cancel one factor of \${\bar{x}}\$)} \\ &= \frac{n}{{\bar{x}}^2} && \text{(combine like terms)} \end{aligned} \\
 >
-> So \\{\operatorname{SE}\mathopen{}\left(\hat\mu\_{ML}\right)\mathclose{}} \approx \sqrt{I(\hat\mu\_{ML}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})^{-1}} = \frac{\bar{x}}{\sqrt{n}}\\.
+> So \\{\operatorname{SE}\mathopen{}\left(\hat\mu\_{ML}\right)\mathclose{}} \approx \sqrt{I(\hat\mu\_{ML}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})^{-1}} = \frac{{\bar{x}}}{\sqrt{n}}\\.
 >
 > An approximate 95% CI for \\\mu\\ is:
 >
-> \\ \hat\mu\_{ML} \pm 1.96 \times \frac{\bar{x}}{\sqrt{n}} = \bar{x}\pm \frac{1.96\bar{x}}{\sqrt{n}} \\
+> \\ \hat\mu\_{ML} \pm 1.96 \times \frac{{\bar{x}}}{\sqrt{n}} = {\bar{x}}\pm \frac{1.96{\bar{x}}}{\sqrt{n}} \\
 >
-> Note: the exponential distribution has \\{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \mu^2\\, so \\{\operatorname{SE}\mathopen{}\left(\hat\mu\_{ML}\right)\mathclose{}} = \mu/\sqrt{n}\\, which is estimated by \\\bar{x}/\sqrt{n}\\. More generally, the standard error of a sample mean is \\{\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}}/\sqrt{n}\\; here that reduces to \\\mu/\sqrt{n}\\ because \\{\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}} = \mu\\ for the exponential distribution.
+> Note: the exponential distribution has \\{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \mu^2\\, so \\{\operatorname{SE}\mathopen{}\left(\hat\mu\_{ML}\right)\mathclose{}} = \mu/\sqrt{n}\\, which is estimated by \\{\bar{x}}/\sqrt{n}\\. More generally, the standard error of a sample mean is \\{\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}}/\sqrt{n}\\; here that reduces to \\\mu/\sqrt{n}\\ because \\{\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}} = \mu\\ for the exponential distribution.
 
 ## References
 

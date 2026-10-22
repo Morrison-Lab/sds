@@ -2970,6 +2970,15 @@
    "external": false
   },
   {
+   "id": "sds/mcmc#def-mean-bayes-deviance",
+   "site": "sds",
+   "page": "mcmc",
+   "div": "def-mean-bayes-deviance",
+   "kind": "def",
+   "title": "Posterior mean deviance",
+   "external": false
+  },
+  {
    "id": "sds/mcmc#def-mh",
    "site": "sds",
    "page": "mcmc",
@@ -5691,11 +5700,15 @@
   ],
   [
    "sds/mcmc#def-effective-parameters",
-   "sds/mcmc#def-bayes-deviance"
+   "sds/mcmc#def-mean-bayes-deviance"
   ],
   [
    "sds/mcmc#def-gibbs-sampler",
    "sds/mcmc#def-full-conditional"
+  ],
+  [
+   "sds/mcmc#def-mean-bayes-deviance",
+   "sds/mcmc#def-bayes-deviance"
   ],
   [
    "sds/mcmc#def-mh",
