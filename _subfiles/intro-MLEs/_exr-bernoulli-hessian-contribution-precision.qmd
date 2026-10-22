@@ -23,8 +23,10 @@ $$
 && \text{(the contribution from the theorem above)}\\
 &= -\frac{\prob + \devn_\iobs}{\sqf{\prob}} - \frac{1 - \prob - \devn_\iobs}{\sqf{1 - \prob}}
 && \text{(substitute $\outvar_\iobs = \prob + \devn_\iobs$)}\\
+&= -\frac{\prob}{\sqf{\prob}} - \frac{\devn_\iobs}{\sqf{\prob}} - \frac{1 - \prob}{\sqf{1 - \prob}} + \frac{\devn_\iobs}{\sqf{1 - \prob}}
+&& \text{(split each numerator into two terms)}\\
 &= -\frac{1}{\prob} - \frac{\devn_\iobs}{\sqf{\prob}} - \frac{1}{1 - \prob} + \frac{\devn_\iobs}{\sqf{1 - \prob}}
-&& \text{(split each numerator and cancel one factor)}\\
+&& \text{($a / \sqf{a} = 1 / a$ for $a = \prob$ and $a = 1 - \prob$)}\\
 &= -\paren{\frac{1}{\prob} + \frac{1}{1 - \prob}} - \devn_\iobs \paren{\frac{1}{\sqf{\prob}} - \frac{1}{\sqf{1 - \prob}}}
 && \text{(collect the terms with and without $\devn_\iobs$)}
 \end{aligned}
@@ -51,10 +53,16 @@ $$
 \frac{1}{\sqf{\prob}} - \frac{1}{\sqf{1 - \prob}}
 &= \frac{\sqf{1 - \prob}}{\sqf{\prob} \sqf{1 - \prob}} - \frac{\sqf{\prob}}{\sqf{\prob} \sqf{1 - \prob}}
 && \text{(common denominator)}\\
-&= \frac{1 - 2 \prob + \sqf{\prob} - \sqf{\prob}}{\sqf{\prob(1 - \prob)}}
-&& \text{(expand $\sqf{1 - \prob}$ and add the numerators)}\\
+&= \frac{\sqf{1 - \prob} - \sqf{\prob}}{\sqf{\prob} \sqf{1 - \prob}}
+&& \text{(combine over the common denominator)}\\
+&= \frac{1 - 2 \prob + \sqf{\prob} - \sqf{\prob}}{\sqf{\prob} \sqf{1 - \prob}}
+&& \text{(expand $\sqf{1 - \prob}$)}\\
+&= \frac{1 - 2 \prob + 0}{\sqf{\prob} \sqf{1 - \prob}}
+&& \text{($\sqf{\prob} - \sqf{\prob} = 0$)}\\
+&= \frac{1 - 2 \prob}{\sqf{\prob} \sqf{1 - \prob}}
+&& \text{($a + 0 = a$)}\\
 &= \paren{1 - 2 \prob} \frac{1}{\sqf{\prob(1 - \prob)}}
-&& \text{(simplify the numerator)}\\
+&& \text{($\sqf{a} \sqf{b} = \sqf{ab}$)}\\
 &= \paren{1 - 2 \prob} \sqf{\precision}
 && \text{(definition of $\precision$)}
 \end{aligned}
