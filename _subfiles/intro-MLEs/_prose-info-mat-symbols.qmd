@@ -1,0 +1,3 @@
+These notes write the observed information as $\oinf$ and the expected information as $\einf$.
+Sources disagree on these symbols.
+The [Notation Across Sources page](https://morrison-lab.github.io/macros/notation-across-sources.html#sec-notation-information) of the macros site lists them side by side.
