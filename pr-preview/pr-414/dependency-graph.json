@@ -2365,6 +2365,15 @@
    "external": false
   },
   {
+   "id": "sds/intro-MLEs#def-precision-rv",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "def-precision-rv",
+   "kind": "def",
+   "title": "Precision of a random variable",
+   "external": false
+  },
+  {
    "id": "sds/intro-MLEs#def-prediction-interval",
    "site": "sds",
    "page": "intro-MLEs",
@@ -5355,6 +5364,10 @@
    "sds/intro-MLEs#def-hessian"
   ],
   [
+   "sds/intro-MLEs#def-precision-rv",
+   "pds/variance-covariance#def-variance"
+  ],
+  [
    "sds/intro-MLEs#def-score-equation",
    "sds/intro-MLEs#def-score"
   ],
@@ -5411,6 +5424,10 @@
    "sds/intro-MLEs#def-loglik"
   ],
   [
+   "sds/intro-MLEs#thm-bernoulli-loglik-one-group",
+   "pds/probability-basics#def-odds"
+  ],
+  [
    "sds/intro-MLEs#thm-bernoulli-mle",
    "sds/exploratory-descriptive#def-sample-mean"
   ],
@@ -5436,6 +5453,10 @@
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-contribution",
+   "sds/intro-MLEs#def-precision-rv"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-contribution",
    "sds/intro-MLEs#def-score"
   ],
   [
@@ -5449,6 +5470,10 @@
   [
    "sds/intro-MLEs#thm-bernoulli-score-sum",
    "sds/exploratory-descriptive#def-sample-mean"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-sum",
+   "sds/intro-MLEs#def-precision-rv"
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-sum",
