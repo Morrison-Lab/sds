@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-22 14:37:13 (PDT)</p>
+  <p class="date">Last modified: 2026-10-22 15:47:56 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -831,21 +831,27 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^{m} \mathopen{}\left(\
 </section><section class="slide level2"><div id="rem-bayes-deviance-constant" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Bayesian deviance and the generalized linear model deviance). </span>This deviance is minus twice the log-likelihood. A generalized linear model’s deviance subtracts the same quantity for the saturated model, which does not depend on <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>, so the two differ by a constant that cancels in comparisons between models of the same data.</p>
 </div>
+</section><section class="slide level2"><div id="def-mean-bayes-deviance" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 15 (Posterior mean deviance)</strong></span> The <strong>posterior mean deviance</strong> <span class="math inline">\(\overline{\operatorname{dev}_{\mathrm{DIC}}}\)</span> is the <a href="#/def-posterior">posterior</a> mean of the <a href="#/def-bayes-deviance">deviance</a> of a parameter value:</p>
+<p><span class="math display">\[
+\overline{\operatorname{dev}_{\mathrm{DIC}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[{\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\right)\mathclose{}} \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}.
+\]</span></p>
+</div>
 </section><section class="slide level2"><div id="def-effective-parameters" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 15 (Effective number of parameters)</strong></span> Let <span class="math inline">\(\overline{\operatorname{dev}_{\mathrm{DIC}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[{\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\right)\mathclose{}} \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}\)</span> be the <a href="#/def-posterior">posterior</a> mean of the <a href="#/def-bayes-deviance">deviance</a>, and let <span class="math inline">\(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}\)</span> be the posterior mean of the parameters. The <strong>effective number of parameters</strong> is</p>
+<p><span class="theorem-title"><strong>Definition 16 (Effective number of parameters)</strong></span> Let <span class="math inline">\(\overline{\operatorname{dev}_{\mathrm{DIC}}}\)</span> be the <a href="#/def-mean-bayes-deviance">posterior mean deviance</a>, and let <span class="math inline">\(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}\)</span> be the <a href="#/def-posterior">posterior</a> mean of the parameters. The <strong>effective number of parameters</strong> is</p>
 <p><span class="math display">\[
 p_D \stackrel{\text{def}}{=}\overline{\operatorname{dev}_{\mathrm{DIC}}} - {\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}.
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-dic" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 16 (Deviance information criterion)</strong></span> The <strong>deviance information criterion</strong> is</p>
+<p><span class="theorem-title"><strong>Definition 17 (Deviance information criterion)</strong></span> The <strong>deviance information criterion</strong> is</p>
 <p><span class="math display">\[
 \operatorname{DIC} \stackrel{\text{def}}{=}{\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2\,p_D,
 \]</span></p>
-<p>with <span class="math inline">\(\operatorname{dev}_{\mathrm{DIC}}\)</span> from <a href="#/def-bayes-deviance" class="quarto-xref">Definition&nbsp;14</a> and <span class="math inline">\(p_D\)</span> from <a href="#/def-effective-parameters" class="quarto-xref">Definition&nbsp;15</a>.</p>
+<p>with <span class="math inline">\(\operatorname{dev}_{\mathrm{DIC}}\)</span> from <a href="#/def-bayes-deviance" class="quarto-xref">Definition&nbsp;14</a> and <span class="math inline">\(p_D\)</span> from <a href="#/def-effective-parameters" class="quarto-xref">Definition&nbsp;16</a>.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_deviance_information_criterion">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[11]</a></span>.</p>
 </div>
-</section><section class="slide level2"><p>Substituting <a href="#/def-effective-parameters" class="quarto-xref">Definition&nbsp;15</a> gives an equivalent form:</p>
+</section><section class="slide level2"><p>Substituting <a href="#/def-effective-parameters" class="quarto-xref">Definition&nbsp;16</a> gives an equivalent form:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{DIC}

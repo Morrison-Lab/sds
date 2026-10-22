@@ -23,6 +23,16 @@
    "url": "https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm"
   },
   {
+   "id": "mds/vector-calculus#def-hessian",
+   "site": "mds",
+   "page": "vector-calculus",
+   "div": "def-hessian",
+   "kind": "def",
+   "title": "hessian",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/vector-calculus.html#def-hessian"
+  },
+  {
    "id": "pds/expectation#def-cond-pdf",
    "site": "pds",
    "page": "expectation",
@@ -201,6 +211,16 @@
    "title": "deviation pop mean",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean"
+  },
+  {
+   "id": "pds/variance-covariance#def-precision",
+   "site": "pds",
+   "page": "variance-covariance",
+   "div": "def-precision",
+   "kind": "def",
+   "title": "precision",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/variance-covariance.html#def-precision"
   },
   {
    "id": "pds/variance-covariance#def-sd",
@@ -2374,15 +2394,6 @@
    "external": false
   },
   {
-   "id": "sds/intro-MLEs#def-precision-rv",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "def-precision-rv",
-   "kind": "def",
-   "title": "Precision of a random variable",
-   "external": false
-  },
-  {
    "id": "sds/intro-MLEs#def-prediction-interval",
    "site": "sds",
    "page": "intro-MLEs",
@@ -2938,6 +2949,15 @@
    "div": "def-mcmc",
    "kind": "def",
    "title": "Markov chain Monte Carlo",
+   "external": false
+  },
+  {
+   "id": "sds/mcmc#def-mean-bayes-deviance",
+   "site": "sds",
+   "page": "mcmc",
+   "div": "def-mean-bayes-deviance",
+   "kind": "def",
+   "title": "Posterior mean deviance",
    "external": false
   },
   {
@@ -5373,16 +5393,16 @@
    "sds/intro-MLEs#def-newton-raphson"
   ],
   [
+   "sds/intro-MLEs#def-hessian",
+   "mds/vector-calculus#def-hessian"
+  ],
+  [
    "sds/intro-MLEs#def-mle",
    "sds/intro-MLEs#def-lik"
   ],
   [
    "sds/intro-MLEs#def-oinf",
    "sds/intro-MLEs#def-hessian"
-  ],
-  [
-   "sds/intro-MLEs#def-precision-rv",
-   "pds/variance-covariance#def-variance"
   ],
   [
    "sds/intro-MLEs#def-score-equation",
@@ -5458,6 +5478,10 @@
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score",
+   "pds/variance-covariance#def-precision"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score",
    "sds/intro-MLEs#def-score"
   ],
   [
@@ -5474,7 +5498,7 @@
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-contribution",
-   "sds/intro-MLEs#def-precision-rv"
+   "pds/variance-covariance#def-precision"
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-contribution",
@@ -5490,11 +5514,11 @@
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-sum",
-   "sds/exploratory-descriptive#def-sample-mean"
+   "pds/variance-covariance#def-precision"
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-sum",
-   "sds/intro-MLEs#def-precision-rv"
+   "sds/exploratory-descriptive#def-sample-mean"
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-sum",
@@ -5638,11 +5662,15 @@
   ],
   [
    "sds/mcmc#def-effective-parameters",
-   "sds/mcmc#def-bayes-deviance"
+   "sds/mcmc#def-mean-bayes-deviance"
   ],
   [
    "sds/mcmc#def-gibbs-sampler",
    "sds/mcmc#def-full-conditional"
+  ],
+  [
+   "sds/mcmc#def-mean-bayes-deviance",
+   "sds/mcmc#def-bayes-deviance"
   ],
   [
    "sds/mcmc#def-mh",

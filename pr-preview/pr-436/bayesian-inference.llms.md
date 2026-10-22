@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 14:37:13 (PDT)
+Last modified: 2026-10-22 15:47:56 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models [\[1, Ch. 12\]](#ref-dobson4e). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -154,9 +154,9 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > The last line is, up to a constant, the density of a Gaussian distribution with mean \\m\\ and variance \\1/(n+1)\\, so the posterior is
 >
-> \\ \mu\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\\sim\\ {\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x},\\ \frac{1}{n+1}\right)\mathclose{}}. \tag{8}\\
+> \\ \mu\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\\sim\\ {\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}},\\ \frac{1}{n+1}\right)\mathclose{}}. \tag{8}\\
 >
-> The posterior mean \\\frac{n}{n+1}\bar{x}\\ is the sample mean shrunk toward the prior mean \\0\\, and the shrinkage factor \\\frac{n}{n+1}\\ approaches \\1\\ as \\n \to \infty\\.
+> The posterior mean \\\frac{n}{n+1}{\bar{x}}\\ is the sample mean shrunk toward the prior mean \\0\\, and the shrinkage factor \\\frac{n}{n+1}\\ approaches \\1\\ as \\n \to \infty\\.
 
 ### 2.2 The posterior mode
 
@@ -212,15 +212,15 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Example 8 (The MAP estimate of a Gaussian mean)** In [Example 6](#exm-normal-normal), the posterior is \\{\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x}, \frac{1}{n+1}\right)\mathclose{}}\\. A Gaussian density is largest at its mean, so
+> **Example 8 (The MAP estimate of a Gaussian mean)** In [Example 6](#exm-normal-normal), the posterior is \\{\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}}, \frac{1}{n+1}\right)\mathclose{}}\\. A Gaussian density is largest at its mean, so
 >
-> \\\hat{\theta}\_{\text{MAP}} = \frac{n}{n+1}\bar{x}.\\
+> \\\hat{\theta}\_{\text{MAP}} = \frac{n}{n+1}{\bar{x}}.\\
 >
 > [Corollary 2](#cor-map-penalized) gives the same answer from the penalized form. Up to terms that do not involve \\\mu\\, the negative log-likelihood is \\\frac{1}{2}\sum\_{i=1}^n(x_i- \mu)^2\\ and the penalty is \\\frac{1}{2}\mu^2\\. Setting the derivative of their sum to zero gives
 >
-> \\ \begin{aligned} 0 &= -\sum\_{i=1}^n(x_i- \mu) + \mu && \text{(derivative of the sum with respect to \$\mu\$)}\\ &= -n\bar{x}+ n\mu+ \mu && \text{(\$\sum_i x_i= n\bar{x}\$)}\\ &= (n+1)\mu- n\bar{x}, && \text{(collecting the terms in \$\mu\$)} \end{aligned} \\
+> \\ \begin{aligned} 0 &= -\sum\_{i=1}^n(x_i- \mu) + \mu && \text{(derivative of the sum with respect to \$\mu\$)}\\ &= -n{\bar{x}}+ n\mu+ \mu && \text{(\$\sum_i x_i= n{\bar{x}}\$)}\\ &= (n+1)\mu- n{\bar{x}}, && \text{(collecting the terms in \$\mu\$)} \end{aligned} \\
 >
-> so \\\mu= \frac{n}{n+1}\bar{x}\\. The penalty \\\frac{1}{2}\mu^2\\ pulls the estimate toward the prior mean \\0\\, and its pull weakens relative to the data as \\n\\ grows.
+> so \\\mu= \frac{n}{n+1}{\bar{x}}\\. The penalty \\\frac{1}{2}\mu^2\\ pulls the estimate toward the prior mean \\0\\, and its pull weakens relative to the data as \\n\\ grows.
 >
 > [Figure 1](#fig-map-penalized) shows the penalized form for simulated data (\\n = 20\\, true mean \\2\\). The penalty is a parabola centered at the prior mean \\0\\. Adding it to the negative log-likelihood moves the minimizer from the sample mean toward \\0\\.
 >
@@ -279,7 +279,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 
 > **NOTE:**
 >
-> **Example 10 (Credible and confidence intervals for a Gaussian mean)** We simulate \\n = 20\\ observations from the model of [Example 6](#exm-normal-normal), with true mean \\\mu= 2\\, and compute both a 95% confidence interval, \\\bar x \pm 1.96 / \sqrt{n}\\ (the variance is known to be 1), and the equal-tailed 95% credible interval from the \\{\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x},\\ \frac{1}{n+1}\right)\mathclose{}}\\ posterior:
+> **Example 10 (Credible and confidence intervals for a Gaussian mean)** We simulate \\n = 20\\ observations from the model of [Example 6](#exm-normal-normal), with true mean \\\mu= 2\\, and compute both a 95% confidence interval, \\\bar x \pm 1.96 / \sqrt{n}\\ (the variance is known to be 1), and the equal-tailed 95% credible interval from the \\{\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}},\\ \frac{1}{n+1}\right)\mathclose{}}\\ posterior:
 >
 > ``` downlit
 > set.seed(1)
@@ -963,7 +963,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 > **Example 22 (Two test quantities for the smoking data)** The `birthwt` data also record each mother’s race, coded as white, Black, or other. The Beta-Bernoulli model gives every mother the same probability \\\pi\\ of smoking, whatever her race. Two test quantities for these data are:
 >
 > - the number of mothers who smoked, \\T_1(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \sum\_{i=1}^ny_i\\;
-> - the spread of the smoking proportions across the three race groups, \\T_2(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \max_g \bar{y}\_g - \min_g \bar{y}\_g\\, where \\\bar{y}\_g\\ is the proportion of mothers in group \\g\\ who smoked.
+> - the spread of the smoking proportions across the three race groups, \\T_2(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \max_g {\bar{y}}\_g - \min_g {\bar{y}}\_g\\, where \\{\bar{y}}\_g\\ is the proportion of mothers in group \\g\\ who smoked.
 >
 > The model can match \\T_1\\ by choosing \\\pi\\, but it predicts that \\T_2\\ is small, because it gives every group the same \\\pi\\. Their observed values are:
 >

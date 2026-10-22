@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 14:37:13 (PDT)
+Last modified: 2026-10-22 15:47:56 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models [\[1, Ch. 13\]](#ref-dobson4e). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -444,21 +444,27 @@ To compare models fit to the same data by Bayesian inference, we need a measure 
 
 > **NOTE:**
 >
-> **Definition 15 (Effective number of parameters)** Let \\\overline{\operatorname{dev}\_{\mathrm{DIC}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[{\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\right)\mathclose{}} \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the [posterior](#def-posterior) mean of the [deviance](#def-bayes-deviance), and let \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the posterior mean of the parameters. The **effective number of parameters** is
+> **Definition 15 (Posterior mean deviance)** The **posterior mean deviance** \\\overline{\operatorname{dev}\_{\mathrm{DIC}}}\\ is the [posterior](#def-posterior) mean of the [deviance](#def-bayes-deviance) of a parameter value:
+>
+> \\ \overline{\operatorname{dev}\_{\mathrm{DIC}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[{\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\right)\mathclose{}} \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}. \\
+
+> **NOTE:**
+>
+> **Definition 16 (Effective number of parameters)** Let \\\overline{\operatorname{dev}\_{\mathrm{DIC}}}\\ be the [posterior mean deviance](#def-mean-bayes-deviance), and let \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the [posterior](#def-posterior) mean of the parameters. The **effective number of parameters** is
 >
 > \\ p_D \stackrel{\text{def}}{=}\overline{\operatorname{dev}\_{\mathrm{DIC}}} - {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}. \\
 
 > **NOTE:**
 >
-> **Definition 16 (Deviance information criterion)** The **deviance information criterion** is
+> **Definition 17 (Deviance information criterion)** The **deviance information criterion** is
 >
 > \\ \operatorname{DIC} \stackrel{\text{def}}{=}{\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2\\p_D, \\
 >
-> with \\\operatorname{dev}\_{\mathrm{DIC}}\\ from [Definition 14](#def-bayes-deviance) and \\p_D\\ from [Definition 15](#def-effective-parameters).
+> with \\\operatorname{dev}\_{\mathrm{DIC}}\\ from [Definition 14](#def-bayes-deviance) and \\p_D\\ from [Definition 16](#def-effective-parameters).
 >
 > Source: Wikipedia contributors [\[11\]](#ref-wikipedia_deviance_information_criterion).
 
-Substituting [Definition 15](#def-effective-parameters) gives an equivalent form:
+Substituting [Definition 16](#def-effective-parameters) gives an equivalent form:
 
 \\ \begin{aligned} \operatorname{DIC} &= {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2\mathopen{}\left(\overline{\operatorname{dev}\_{\mathrm{DIC}}} - {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\right)\mathclose{} && \text{(definition of \$p_D\$)}\\ &= 2\overline{\operatorname{dev}\_{\mathrm{DIC}}} - {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} && \text{(collecting terms)}\\ &= \overline{\operatorname{dev}\_{\mathrm{DIC}}} + \mathopen{}\left(\overline{\operatorname{dev}\_{\mathrm{DIC}}} - {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\right)\mathclose{} && \text{(splitting \$2\overline{\operatorname{dev}\_{\mathrm{DIC}}}\$)}\\ &= \overline{\operatorname{dev}\_{\mathrm{DIC}}} + p_D && \text{(definition of \$p_D\$)}. \end{aligned} \\
 
