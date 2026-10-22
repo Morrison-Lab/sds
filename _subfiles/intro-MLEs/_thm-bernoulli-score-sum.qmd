@@ -7,7 +7,7 @@ with observed [sample mean](exploratory-descriptive.qmd#def-sample-mean) $\outba
 and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$,
 the [score function](#def-score) is:
 
-$$\score(\prob) = n \precision \devn_{\outbar} = n \precision (\outbar - \prob)$$
+$$\score(\prob) = n \precision \devn_{\outbar}$$
 
 :::
 
