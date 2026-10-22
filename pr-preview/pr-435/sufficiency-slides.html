@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+<title>Statistics for Data Science – Sufficiency and the Rao–Blackwell Theorem</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+<style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+<link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-3a7eae3b872f08785a56513611f0329a.css">
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VLDZY2T3JF"></script><script type="text/plain" cookie-consent="tracking">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VLDZY2T3JF', { 'anonymize_ip': true});
+  </script><script type="text/javascript" charset="UTF-8">
+  document.addEventListener('DOMContentLoaded', function () {
+  cookieconsent.run({
+    "notice_banner_type":"simple",
+    "consent_type":"implied",
+    "palette":"light",
+    "language":"en",
+    "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+    "notice_banner_reject_button_hide":false,
+    "preferences_center_close_button_hide":false,
+    "website_name":""
+    ,
+  "language":"en"
+    });
+  });
+  </script><link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<!--
+    Colour-theme dropdown for the qwt revealjs format: Light, Off-white,
+    Parchment, Dark. Pulled into every slide deck via the `include-in-header`
+    entry in the `revealjs:` block of `_quarto-website.yml`. Pairs with
+    `styles-reveal.scss`, which defines the palette CSS variables; the select
+    reads those vars so it stays legible in every palette. Light is the
+    default variable set, Off-white and Parchment are a data-palette attribute
+    on <html>, and Dark is the body.qwt-dark class. The choice is saved under
+    "mln-theme", the key the website's theme dropdown (theme-picker.html) uses,
+    so it carries across the site and the decks. First-time visitors get
+    Dark if their system prefers it, and Off-white otherwise.
+  --><style>
+    #qwt-theme-select {
+      position: fixed;
+      bottom: 8px;
+      left: 8px;
+      /* Matches reveal.js's `.slide-number` and the `#revealjs-html-link` chip
+         from `revealjs-html-links.lua`; the three elements occupy different
+         corners so they don't overlap. Keep them aligned if you bump this. */
+      z-index: 31;
+      padding: 2px 4px;
+      border: 1px solid var(--qwt-border, rgba(0, 0, 0, 0.2));
+      border-radius: 4px;
+      background: var(--qwt-chip-bg, rgba(255, 255, 255, 0.8));
+      color: var(--qwt-fg, #000);
+      cursor: pointer;
+      font: 12px sans-serif;
+      opacity: 0.7;
+    }
+    #qwt-theme-select:hover,
+    #qwt-theme-select:focus-visible {
+      opacity: 1;
+      border-color: var(--qwt-fg, rgba(0, 0, 0, 0.4));
+    }
+    #qwt-theme-select:focus-visible {
+      outline: 2px solid var(--qwt-link, #2a76dd);
+      outline-offset: 2px;
+    }
+    @media print { #qwt-theme-select { display: none; } }
+  </style>
+<script>
+  (function () {
+    "use strict";
+    var KEY = "mln-theme";
+    var DARK_CLASS = "qwt-dark";
+    var OPTIONS = [["light", "Light"], ["offwhite", "Off-white"], ["parchment", "Parchment"], ["dark", "Dark"]];
+    var root = document.documentElement;
+
+    function valid(choice) {
+      return OPTIONS.some(function (o) { return o[0] === choice; });
+    }
+
+    function stored() {
+      try { return localStorage.getItem(KEY); } catch (e) { return null; }
+    }
+
+    function initialTheme() {
+      var saved = stored();
+      if (valid(saved)) return saved;
+      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      }
+      return "offwhite";
+    }
+
+    function applyTheme(choice) {
+      if (choice === "offwhite" || choice === "parchment") {
+        root.setAttribute("data-palette", choice);
+      } else {
+        root.removeAttribute("data-palette");
+      }
+      // The body can be missing when this runs from <head>; init() re-applies it.
+      if (document.body) document.body.classList.toggle(DARK_CLASS, choice === "dark");
+    }
+
+    var start = initialTheme();
+    applyTheme(start); // set the palette before first paint
+
+    function init() {
+      if (document.getElementById("qwt-theme-select")) return;
+      applyTheme(start);
+      var sel = document.createElement("select");
+      sel.id = "qwt-theme-select";
+      sel.setAttribute("aria-label", "Colour theme");
+      OPTIONS.forEach(function (o) {
+        var opt = document.createElement("option");
+        opt.value = o[0];
+        opt.textContent = o[1];
+        sel.appendChild(opt);
+      });
+      sel.value = start;
+      sel.addEventListener("change", function () {
+        applyTheme(sel.value);
+        try { localStorage.setItem(KEY, sel.value); } catch (e) { /* private mode */ }
+      });
+      document.body.appendChild(sel);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
+  </script><link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="site_libs/plotly-binding-4.12.1/plotly.js"></script><script src="site_libs/typedarray-0.1/typedarray.min.js"></script><script src="site_libs/jquery-3.5.1/jquery.min.js"></script><link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Sufficiency and the Rao–Blackwell Theorem</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">Last modified: 2026-10-22 14:16:35 (PDT)</p>
+</section><section class="slide level2"><style>
+.quarto-figure-center > figure {
+text-align: center;
+}
+</style>
+<p>A <a href="#/def-statistic">statistic</a> summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.</p>
+</section><section id="sec-sufficiency" class="slide level2" data-number="1"><h2>
+<span class="header-section-number">1</span> Sufficient statistics</h2>
+<div id="def-statistic" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Statistic)</strong></span> A <strong>statistic</strong> is a function of the sample, <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\)</span>, that does not depend on any unknown parameter. Its value at the observed data, <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}\)</span>, is a number or vector we can compute.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>.</p>
+</div>
+</section><section class="slide level2"><div id="rem-statistic-estimator" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Estimators are statistics). </span>Every <a href="./estimation.html#def-estimator">estimator</a> is a statistic, one chosen to land close to an <a href="./estimation.html#def-estimand">estimand</a>. This page asks which statistics lose no information about the parameter, and how to use one to improve an estimator.</p>
+</div>
+</section><section class="slide level2"><div id="def-sufficient" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Sufficient statistic)</strong></span> Let <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\)</span> be a discrete sample whose distribution depends on a parameter <span class="math inline">\(\theta\)</span>. A <a href="#/def-statistic">statistic</a> <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\)</span> is <strong>sufficient</strong> for <span class="math inline">\(\theta\)</span> if, for every sample <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> and every value <span class="math inline">\(t\)</span>, the conditional probability of the sample given the statistic is the same for every value of <span class="math inline">\(\theta\)</span> at which the statistic takes the value <span class="math inline">\(t\)</span> with positive probability:</p>
+<p><span id="eq-sufficient"><span class="math display">\[
+\Pr_{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}
+\text{ does not depend on } \theta
+\quad \text{wherever } \Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{} &gt; 0
+\tag{1}\]</span></span></p>
+<p>Source: <span class="citation" data-cites="wikipedia_sufficient_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
+</div>
+<div id="rem-source-sufficient" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Source: Sufficient statistic). </span><span class="citation" data-cites="fisher1922mathematical">Fisher <a href="#/references" role="doc-biblioref" onclick="">[3]</a></span> introduced sufficiency; <span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#/references" role="doc-biblioref" onclick="">[4]</a>, Def. 6.2.1, p.&nbsp;272</span>.</p>
+</div>
+</section><section class="slide level2"><div id="rem-sufficient-meaning" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em> (What sufficiency says). </span>Once we know <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\)</span>, the remaining randomness in the sample has the same distribution whatever the parameter is, so the sample carries no further information about <span class="math inline">\(\theta\)</span> beyond <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\)</span>. A statistic can therefore stand in for the whole sample when we estimate <span class="math inline">\(\theta\)</span>.</p>
+<p>The sample itself, taking <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\)</span>, is always sufficient but does not reduce the data; a useful sufficient statistic is a much shorter summary, such as a sum or a mean.</p>
+<p>Sufficiency by itself does not give a best estimator: it says which summaries lose nothing, not which function of them to use. The Rao–Blackwell theorem below shows how to improve a given unbiased estimator.</p>
+<p>For a continuous sample, the definition, the factorization theorem and the conditional expectations below use densities and integrals instead of probability mass functions and sums.</p>
+</div>
+</section><section class="slide level2"><div id="thm-factorization" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Factorization theorem)</strong></span> Let <span class="math inline">\(\operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{}\)</span> be the joint probability mass function of a discrete sample <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\)</span>. A statistic <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\)</span> is <a href="#/def-sufficient">sufficient</a> for <span class="math inline">\(\theta\)</span> if and only if there are nonnegative functions <span class="math inline">\(g\)</span> and <span class="math inline">\(h\)</span> such that, for every sample <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> and every <span class="math inline">\(\theta\)</span>,</p>
+<p><span id="eq-factorization"><span class="math display">\[
+\operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{} = {g\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}} ; \theta\right)\mathclose{}} \, {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}
+\tag{2}\]</span></span></p>
+<p>where <span class="math inline">\({h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}\)</span> does not depend on <span class="math inline">\(\theta\)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_sufficient_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> be a value of the <a href="./exploratory-descriptive.html#def-sample">sample</a> <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\)</span> and write <span class="math inline">\(t \stackrel{\text{def}}{=}{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}\)</span>. The event <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> lies inside the event <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\)</span>.</p>
+<p><strong>Sufficient implies a factorization.</strong> Define <span class="math inline">\({g\mathopen{}\left(t ; \theta\right)\mathclose{}} \stackrel{\text{def}}{=}\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}\)</span> and let <span class="math inline">\({h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}\)</span> be the conditional probability <span class="math inline">\(\Pr_{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}\)</span> at any <span class="math inline">\(\theta\)</span> with <span class="math inline">\(\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{} &gt; 0\)</span>. By <a href="#/eq-sufficient">sufficiency</a>, <span class="math inline">\({h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}\)</span> does not depend on which such <span class="math inline">\(\theta\)</span> we use. (If <span class="math inline">\(\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{} = 0\)</span> for every <span class="math inline">\(\theta\)</span>, set <span class="math inline">\({h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}} \stackrel{\text{def}}{=}0\)</span>.) Both functions are nonnegative, and at a <span class="math inline">\(\theta\)</span> with <span class="math inline">\(\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{} = 0\)</span> both sides of <a href="#/eq-factorization" class="quarto-xref">Equation&nbsp;2</a> are zero, because the event <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> lies inside the event <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\)</span>. At every other <span class="math inline">\(\theta\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{}
+&amp;= \Pr_{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}
+&amp;&amp; \text{(definition of the joint mass function)}\\
+&amp;= \Pr_{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}},\ {T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}
+&amp;&amp; \text{(the first event is inside the second)}\\
+&amp;= \Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{} \,
+   \Pr_{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}
+&amp;&amp; \text{(conditional probability)}\\
+&amp;= {g\mathopen{}\left(t ; \theta\right)\mathclose{}} \, {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}
+&amp;&amp; \text{(definitions of $g$ and $h$)}
+\end{aligned}
+\]</span></p>
+<p><strong>A factorization implies sufficient.</strong> Suppose <a href="#/eq-factorization" class="quarto-xref">Equation&nbsp;2</a> holds, and let <span class="math inline">\(t\)</span> be a value with <span class="math inline">\(\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{} &gt; 0\)</span>. The event <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\)</span> is the union of the disjoint events <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\)</span> over the samples <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\)</span> with <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = t\)</span>, so</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}
+&amp;= \sum_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}:\, {T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = t} \operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}; \theta\right)\mathclose{}
+&amp;&amp; \text{(disjoint events add)}\\
+&amp;= \sum_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}:\, {T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = t} {g\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} ; \theta\right)\mathclose{}} \, {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}}
+&amp;&amp; \text{(factorization)}\\
+&amp;= \sum_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}:\, {T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = t} {g\mathopen{}\left(t ; \theta\right)\mathclose{}} \, {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}}
+&amp;&amp; \text{(each term has ${T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = t$)}\\
+&amp;= {g\mathopen{}\left(t ; \theta\right)\mathclose{}} \sum_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}:\, {T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = t} {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}}
+&amp;&amp; \text{(factor out the common term)}
+\end{aligned}
+\]</span></p>
+<p>This is positive, so <span class="math inline">\({g\mathopen{}\left(t ; \theta\right)\mathclose{}} &gt; 0\)</span>. For a sample <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> with <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}} = t\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr_{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}
+&amp;= \frac{\operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{}}{\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}}
+&amp;&amp; \text{(conditional probability)}\\
+&amp;= \frac{{g\mathopen{}\left(t ; \theta\right)\mathclose{}} \, {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}}
+        {{g\mathopen{}\left(t ; \theta\right)\mathclose{}} \sum_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}:\, {T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = t} {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}}}
+&amp;&amp; \text{(factorization, and the display above)}\\
+&amp;= \frac{{h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}}{\sum_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}:\, {T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = t} {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}}}
+&amp;&amp; \text{(divide by ${g\mathopen{}\left(t ; \theta\right)\mathclose{}} &gt; 0$)}
+\end{aligned}
+\]</span></p>
+<p>which does not depend on <span class="math inline">\(\theta\)</span>. For a sample <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> with <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}} \neq t\)</span> the conditional probability is zero, which does not depend on <span class="math inline">\(\theta\)</span> either. So <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\)</span> is sufficient.</p>
+</div>
+<div id="rem-source-factorization" class="proof remark">
+<p><span class="proof-title"><em>Remark 4</em> (Source: Factorization theorem). </span><span class="citation" data-cites="halmos1949application">Halmos and Savage <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>, whom <span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#/references" role="doc-biblioref" onclick="">[4]</a>, Thm. 6.2.6, p.&nbsp;276, and its footnote</span> credit with the general form, and Neyman (1935) with an earlier one.</p>
+</div>
+</section><section class="slide level2"><div id="exm-poisson-sufficient" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (The sum is sufficient for a Poisson rate)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span> and <span class="math inline">\(S \stackrel{\text{def}}{=}\sum_{i=1}^nX_i\)</span>. The joint mass function of the sample is</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; {\lambda}\right)\mathclose{}
+&amp;= \prod_{i=1}^n \frac{e^{-{\lambda}} {\lambda}^{x_i}}{x_i!}
+&amp;&amp; \text{(independent Poisson mass functions)}\\
+&amp;= e^{-n{\lambda}} {\lambda}^{\sum_{i=1}^nx_i} \prod_{i=1}^n \frac{1}{x_i!}
+&amp;&amp; \text{(collect the factors)}
+\end{aligned}
+\]</span></p>
+<p>This has the form of <a href="#/eq-factorization" class="quarto-xref">Equation&nbsp;2</a> with <span class="math inline">\({g\mathopen{}\left(t ; {\lambda}\right)\mathclose{}} = e^{-n{\lambda}} {\lambda}^{t}\)</span> and <span class="math inline">\({h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}} = \prod_{i=1}^n 1 / x_i!\)</span>, where <span class="math inline">\(t = \sum_{i=1}^nx_i\)</span>. So the sum <span class="math inline">\(S\)</span> is <a href="#/def-sufficient">sufficient</a> for <span class="math inline">\({\lambda}\)</span> by <a href="#/thm-factorization" class="quarto-xref">Theorem&nbsp;1</a>.</p>
+</div>
+</section><section id="sec-rao-blackwell" class="slide level2" data-number="2"><h2>
+<span class="header-section-number">2</span> The Rao–Blackwell theorem</h2>
+<div id="def-rao-blackwellized" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Rao–Blackwellized estimator)</strong></span> Let <span class="math inline">\(\hat{\theta}\)</span> be an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\theta\)</span>, and let <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\)</span> be a <a href="#/def-sufficient">sufficient</a> statistic for <span class="math inline">\(\theta\)</span>. The <strong>Rao–Blackwellized estimator</strong> is the conditional expectation of <span class="math inline">\(\hat{\theta}\)</span> given the statistic:</p>
+<p><span id="eq-rao-blackwellized"><span class="math display">\[
+\hat{\theta}_{\mathrm{RB}} \stackrel{\text{def}}{=}{{\operatorname{E}\mathopen{}\left[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\right]\mathclose{}}}
+\tag{3}\]</span></span></p>
+</div>
+</section><section class="slide level2"><div id="lem-rb-statistic" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (The Rao–Blackwellized estimator is a statistic)</strong></span> Let <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\)</span> be a <a href="#/def-sufficient">sufficient</a> statistic for <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\hat{\theta}\)</span> an estimator of <span class="math inline">\(\theta\)</span> with finite expectation. Then <span class="math inline">\({{\operatorname{E}\mathopen{}\left[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\right]\mathclose{}}}\)</span> does not depend on <span class="math inline">\(\theta\)</span>, so it is a <a href="#/def-statistic">statistic</a> and an estimator.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Take a <a href="./data.html#def-discrete-var">discrete</a> <a href="./exploratory-descriptive.html#def-sample">sample</a>, and choose a value <span class="math inline">\(t\)</span> that the <a href="#/def-statistic">statistic</a> <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\)</span> takes with positive <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a>. Write <span class="math inline">\(\hat{\theta}= \hat{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+{{\operatorname{E}\mathopen{}\left[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right]\mathclose{}}}
+&amp;= \sum_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}} \hat{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{} \, \Pr_{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}
+&amp;&amp; \text{(conditional expectation)}
+\end{aligned}
+\]</span></p>
+<p>Each term involves <span class="math inline">\(\hat{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}\)</span>, which does not depend on <span class="math inline">\(\theta\)</span>, and the conditional probability, which does not depend on <span class="math inline">\(\theta\)</span> by <a href="#/eq-sufficient" class="quarto-xref">Equation&nbsp;1</a>. So the sum does not depend on <span class="math inline">\(\theta\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="thm-rb-unbiased" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Rao–Blackwellizing preserves unbiasedness)</strong></span> If <span class="math inline">\(\hat{\theta}\)</span> is an <a href="./estimation.html#def-unbiased">unbiased</a> estimator of <span class="math inline">\(\theta\)</span> and <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\)</span> is a <a href="#/def-sufficient">sufficient</a> statistic for <span class="math inline">\(\theta\)</span>, then <span class="math inline">\({{\operatorname{E}\mathopen{}\left[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\right]\mathclose{}}}\)</span> is also unbiased for <span class="math inline">\(\theta\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We use the <a href="https://morrison-lab.github.io/pds/expectation.html#thm-lie">law of iterated expectations</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\operatorname{E}\mathopen{}\left[{{\operatorname{E}\mathopen{}\left[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\right]\mathclose{}}}\right]\mathclose{}}
+&amp;= {\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}}
+&amp;&amp; \text{(law of iterated expectations)}\\
+&amp;= \theta
+&amp;&amp; \text{($\hat{\theta}$ is unbiased)}
+\end{aligned}
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="thm-rao-blackwell" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Rao–Blackwell theorem)</strong></span> Let <span class="math inline">\(\hat{\theta}\)</span> be an <a href="./estimation.html#def-unbiased">unbiased</a> estimator of <span class="math inline">\(\theta\)</span> with finite variance, and let <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\)</span> be a <a href="#/def-sufficient">sufficient</a> statistic for <span class="math inline">\(\theta\)</span>. Then the <a href="#/def-rao-blackwellized">Rao–Blackwellized estimator</a> is unbiased and has variance no larger than that of <span class="math inline">\(\hat{\theta}\)</span>, for every <span class="math inline">\(\theta\)</span>:</p>
+<p><span id="eq-rao-blackwell"><span class="math display">\[
+{\operatorname{Var}\mathopen{}\left({{\operatorname{E}\mathopen{}\left[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\right]\mathclose{}}}\right)\mathclose{}} \le {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}
+\tag{4}\]</span></span></p>
+<p>Source: <span class="citation" data-cites="rao1945information blackwell1947conditional CaseBerg01 wikipedia_rao_blackwell_theorem"><a href="#/references" role="doc-biblioref" onclick="">[6]</a>, <a href="#/references" role="doc-biblioref" onclick="">[7]</a>, <a href="#/references" role="doc-biblioref" onclick="">[4]</a>, Thm.&nbsp;7.3.17, p.&nbsp;342, <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Unbiasedness is <a href="#/thm-rb-unbiased" class="quarto-xref">Theorem&nbsp;2</a>. For the variance, we use the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance">law of total variance</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}
+&amp;= {\operatorname{Var}\mathopen{}\left({{\operatorname{E}\mathopen{}\left[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\right]\mathclose{}}}\right)\mathclose{}} + {\operatorname{E}\mathopen{}\left[{{\operatorname{Var}\mathopen{}\left(\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\right)\mathclose{}}}\right]\mathclose{}}
+&amp;&amp; \text{(law of total variance)}\\
+&amp;\ge {\operatorname{Var}\mathopen{}\left({{\operatorname{E}\mathopen{}\left[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\right]\mathclose{}}}\right)\mathclose{}}
+&amp;&amp; \text{(a variance is nonnegative)}
+\end{aligned}
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="exr-poisson-zero-conditional" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1 (Conditional probability of a zero given the Poisson sum)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span> and <span class="math inline">\(S \stackrel{\text{def}}{=}\sum_{i=1}^nX_i\)</span>. Find <span class="math inline">\({\Pr\mathopen{}\left(X_1 = 0 \mid S = t\right)\mathclose{}}\)</span> for each <span class="math inline">\(t = 0, 1, 2, \ldots\)</span>. You may use that <span class="math inline">\(S \sim \operatorname{Pois}(n{\lambda})\)</span>, by <a href="https://morrison-lab.github.io/pds/distributions.html#thm-sum-pois">the sum of independent Poisson variables</a> and induction on <span class="math inline">\(n\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-poisson-zero-conditional" class="proof solution">
+<p><span class="proof-title"><em>Solution 1</em>. </span>The event <span class="math inline">\(X_1 = 0\)</span> and <span class="math inline">\(S = t\)</span> happens exactly when <span class="math inline">\(X_1 = 0\)</span> and <span class="math inline">\(X_2 + \cdots + X_n = t\)</span>, and <span class="math inline">\(X_2 + \cdots + X_n \sim \operatorname{Pois}\mathopen{}\left((n-1){\lambda}\right)\mathclose{}\)</span> is independent of <span class="math inline">\(X_1\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\Pr\mathopen{}\left(X_1 = 0 \mid S = t\right)\mathclose{}}
+&amp;= \frac{{\Pr\mathopen{}\left(X_1 = 0,\ S = t\right)\mathclose{}}}{{\Pr\mathopen{}\left(S = t\right)\mathclose{}}}
+&amp;&amp; \text{(conditional probability)}\\
+&amp;= \frac{{\Pr\mathopen{}\left(X_1 = 0,\ X_2 + \cdots + X_n = t\right)\mathclose{}}}{{\Pr\mathopen{}\left(S = t\right)\mathclose{}}}
+&amp;&amp; \text{(on $X_1 = 0$, $S$ is that sum)}\\
+&amp;= \frac{{\Pr\mathopen{}\left(X_1 = 0\right)\mathclose{}} {\Pr\mathopen{}\left(X_2 + \cdots + X_n = t\right)\mathclose{}}}{{\Pr\mathopen{}\left(S = t\right)\mathclose{}}}
+&amp;&amp; \text{(independence)}\\
+&amp;= \frac{e^{-{\lambda}} \cdot e^{-(n-1){\lambda}} \mathopen{}\left((n-1){\lambda}\right)\mathclose{}^t / t!}{e^{-n{\lambda}} \mathopen{}\left(n{\lambda}\right)\mathclose{}^t / t!}
+&amp;&amp; \text{(Poisson mass functions)}\\
+&amp;= \frac{e^{-n{\lambda}} \mathopen{}\left((n-1){\lambda}\right)\mathclose{}^t / t!}{e^{-n{\lambda}} \mathopen{}\left(n{\lambda}\right)\mathclose{}^t / t!}
+&amp;&amp; \text{($e^{-{\lambda}} e^{-(n-1){\lambda}} = e^{-n{\lambda}}$)}\\
+&amp;= \frac{\mathopen{}\left((n-1){\lambda}\right)\mathclose{}^t}{\mathopen{}\left(n{\lambda}\right)\mathclose{}^t}
+&amp;&amp; \text{(cancel $e^{-n{\lambda}} / t!$)}\\
+&amp;= \mathopen{}\left(\frac{n-1}{n}\right)\mathclose{}^t
+&amp;&amp; \text{(cancel ${\lambda}^t$, combine powers)}
+\end{aligned}
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="lem-poisson-zero-rb" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2 (Conditional probability of a zero given the Poisson sum)</strong></span> For <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span> and <span class="math inline">\(S \stackrel{\text{def}}{=}\sum_{i=1}^nX_i\)</span>,</p>
+<p><span id="eq-poisson-zero-conditional"><span class="math display">\[
+{\Pr\mathopen{}\left(X_1 = 0 \mid S = t\right)\mathclose{}} = \mathopen{}\left(\frac{n-1}{n}\right)\mathclose{}^t
+\tag{5}\]</span></span></p>
+<p>for every <span class="math inline">\(t = 0, 1, 2, \ldots\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-poisson-zero-conditional" class="quarto-xref">Exercise&nbsp;1</a>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-rao-blackwell-poisson" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (Rao–Blackwellizing an estimate of the chance of a zero count)</strong></span> The <code>birthwt</code> data record the number of previous premature labors (<code>ptl</code>) for 189 women in a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied"><a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>; the data ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this site has a copy at <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>. Treat counts like these as a Poisson sample, <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>, with <span class="math inline">\({\lambda}\)</span> equal to the sample mean of <code>ptl</code>, 0.196.</p>
+<p>The estimand is the probability of a zero count, <span class="math inline">\(\pi= \Pr(X_i= 0) = e^{-{\lambda}}\)</span>. Index the model by <span class="math inline">\(\pi\)</span> instead of <span class="math inline">\({\lambda}\)</span> (the map <span class="math inline">\({\lambda}\mapsto e^{-{\lambda}}\)</span> is one-to-one); then the sum <span class="math inline">\(S = \sum_{i=1}^nX_i\)</span> is still <a href="#/def-sufficient">sufficient</a>, by <a href="#/exm-poisson-sufficient" class="quarto-xref">Example&nbsp;1</a>.</p>
+<p>The crude estimator is the indicator that the first observation is zero, <span class="math inline">\(\hat{\pi}_1 = {\mathbb{1}\mathopen{}\left\{X_1 = 0\right\}\mathclose{}}\)</span>, which uses one observation and is unbiased for <span class="math inline">\(\pi\)</span>. Its Rao–Blackwellization is</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{\pi}_2
+&amp;= {{\operatorname{E}\mathopen{}\left[\hat{\pi}_1 \mid S\right]\mathclose{}}}
+&amp;&amp; \text{(definition of the Rao--Blackwellized estimator)}\\
+&amp;= {\Pr\mathopen{}\left(X_1 = 0 \mid S\right)\mathclose{}}
+&amp;&amp; \text{(the mean of an indicator is a probability)}\\
+&amp;= \mathopen{}\left(\frac{n-1}{n}\right)\mathclose{}^S
+&amp;&amp; \text{(conditional probability of a zero)}
+\end{aligned}
+\]</span></p>
+<p>By <a href="#/lem-poisson-zero-rb" class="quarto-xref">Lemma&nbsp;2</a>, the conditional probability in the last line is the one in <a href="#/eq-poisson-zero-conditional" class="quarto-xref">Equation&nbsp;5</a>. For <span class="math inline">\(n = 20\)</span> we draw 10,000 samples, compute both estimators on each, and report each one’s sample mean (with a 95% confidence interval) and variance (with a 95% confidence interval from the normal approximation to the sampling distribution of a sample variance).</p>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>birthwt <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/birthwt.csv"</span>)</span>
+<span id="cb1-2"><a aria-label="2"></a></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="co"># The Poisson rate: the observed mean number of previous premature labors.</span></span>
+<span id="cb1-4"><a aria-label="4"></a>lambda <span class="ot">&lt;-</span> <span class="fu">mean</span>(birthwt<span class="sc">$</span>ptl)</span>
+<span id="cb1-5"><a aria-label="5"></a><span class="co"># The estimand: the probability of a zero count.</span></span>
+<span id="cb1-6"><a aria-label="6"></a>pi_true <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>lambda)</span>
+<span id="cb1-7"><a aria-label="7"></a></span>
+<span id="cb1-8"><a aria-label="8"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb1-9"><a aria-label="9"></a>n_reps <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb1-10"><a aria-label="10"></a></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="fu">set.seed</span>(<span class="dv">1945</span>)</span>
+<span id="cb1-12"><a aria-label="12"></a><span class="co"># One row per sample of n counts.</span></span>
+<span id="cb1-13"><a aria-label="13"></a>samples <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rpois</span>(n <span class="sc">*</span> n_reps, lambda), <span class="at">nrow =</span> n_reps)</span>
+<span id="cb1-14"><a aria-label="14"></a>s_sum <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(samples)</span>
+<span id="cb1-15"><a aria-label="15"></a></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="co"># The crude estimator and its Rao-Blackwellization.</span></span>
+<span id="cb1-17"><a aria-label="17"></a>est <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-18"><a aria-label="18"></a>  <span class="at">crude =</span> <span class="fu">as.numeric</span>(samples[, <span class="dv">1</span>] <span class="sc">==</span> <span class="dv">0</span>),</span>
+<span id="cb1-19"><a aria-label="19"></a>  <span class="at">rao_blackwell =</span> ((n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> n)<span class="sc">^</span>s_sum</span>
+<span id="cb1-20"><a aria-label="20"></a>)</span>
+<span id="cb1-21"><a aria-label="21"></a></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="co"># Mean with a t interval; variance with a normal-approximation interval,</span></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="co"># using the standard error sqrt((m4 - s^4) / N) of a sample variance.</span></span>
+<span id="cb1-24"><a aria-label="24"></a>summarize_estimator <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-25"><a aria-label="25"></a>  tt <span class="ot">&lt;-</span> <span class="fu">t.test</span>(x)</span>
+<span id="cb1-26"><a aria-label="26"></a>  v <span class="ot">&lt;-</span> <span class="fu">var</span>(x)</span>
+<span id="cb1-27"><a aria-label="27"></a>  m4 <span class="ot">&lt;-</span> <span class="fu">mean</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">4</span>)</span>
+<span id="cb1-28"><a aria-label="28"></a>  se_v <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((m4 <span class="sc">-</span> v<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">length</span>(x))</span>
+<span id="cb1-29"><a aria-label="29"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb1-30"><a aria-label="30"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(x),</span>
+<span id="cb1-31"><a aria-label="31"></a>    <span class="at">mean_lower =</span> tt<span class="sc">$</span>conf.int[<span class="dv">1</span>],</span>
+<span id="cb1-32"><a aria-label="32"></a>    <span class="at">mean_upper =</span> tt<span class="sc">$</span>conf.int[<span class="dv">2</span>],</span>
+<span id="cb1-33"><a aria-label="33"></a>    <span class="at">variance =</span> v,</span>
+<span id="cb1-34"><a aria-label="34"></a>    <span class="at">var_lower =</span> v <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> se_v,</span>
+<span id="cb1-35"><a aria-label="35"></a>    <span class="at">var_upper =</span> v <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> se_v</span>
+<span id="cb1-36"><a aria-label="36"></a>  )</span>
+<span id="cb1-37"><a aria-label="37"></a>}</span>
+<span id="cb1-38"><a aria-label="38"></a>rb_summary <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(est, summarize_estimator))</span>
+<span id="cb1-39"><a aria-label="39"></a><span class="fu">round</span>(rb_summary, <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mean"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["mean_lower"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["mean_upper"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["variance"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["var_lower"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["var_upper"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.8159","2":"0.8083","3":"0.8235","4":"0.1502","5":"0.1454","6":"0.1550","_rn_":"crude"},{"1":"0.8229","2":"0.8213","3":"0.8245","4":"0.0066","5":"0.0064","6":"0.0068","_rn_":"rao_blackwell"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The estimand is <span class="math inline">\(\pi=\)</span> 0.822. Both estimators have simulated sample means near it, as <a href="#/thm-rb-unbiased" class="quarto-xref">Theorem&nbsp;2</a> says they must. The variance of the Rao–Blackwellized estimator is about 22.7 times smaller than that of the crude estimator, as <a href="#/thm-rao-blackwell" class="quarto-xref">Theorem&nbsp;3</a> requires.</p>
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>est_long <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-2"><a aria-label="2"></a>  <span class="at">estimate =</span> <span class="fu">c</span>(est<span class="sc">$</span>crude, est<span class="sc">$</span>rao_blackwell),</span>
+<span id="cb2-3"><a aria-label="3"></a>  <span class="at">estimator =</span> <span class="fu">rep</span>(</span>
+<span id="cb2-4"><a aria-label="4"></a>    <span class="fu">c</span>(<span class="st">"crude (first observation is zero)"</span>, <span class="st">"Rao-Blackwellized"</span>),</span>
+<span id="cb2-5"><a aria-label="5"></a>    <span class="at">each =</span> n_reps</span>
+<span id="cb2-6"><a aria-label="6"></a>  )</span>
+<span id="cb2-7"><a aria-label="7"></a>)</span>
+<span id="cb2-8"><a aria-label="8"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(est_long, <span class="fu">aes</span>(<span class="at">x =</span> estimate)) <span class="sc">+</span></span>
+<span id="cb2-9"><a aria-label="9"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a aria-label="10"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> pi_true, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb2-11"><a aria-label="11"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>estimator, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb2-12"><a aria-label="12"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"estimate of the probability of a zero count"</span>, <span class="at">y =</span> <span class="st">"count"</span>)</span>
+<span id="cb2-13"><a aria-label="13"></a><span class="cf">if</span> (knitr<span class="sc">::</span><span class="fu">is_html_output</span>()) plotly<span class="sc">::</span><span class="fu">ggplotly</span>(p) <span class="cf">else</span> p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div id="fig-rao-blackwell-poisson" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-rao-blackwell-poisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The sampling distribution of the crude and Rao–Blackwellized estimators (<span class="math inline">\(n = 20\)</span>, 10,000 samples); the dashed line marks the estimand
+</figcaption><div aria-describedby="fig-rao-blackwell-poisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-965dc9fbe491b6c4a499" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-965dc9fbe491b6c4a499">{"x":{"data":[{"orientation":"v","width":[0.034482758620689655,0.034482758620689655,0.034482758620689669,0.034482758620689641,0.034482758620689669,0.034482758620689613,0.034482758620689613,0.034482758620689724,0.034482758620689724,0.034482758620689724,0.034482758620689613,0.034482758620689724,0.034482758620689724,0.034482758620689613,0.034482758620689724,0.034482758620689558,0.034482758620689502,0.034482758620689724,0.034482758620689502,0.034482758620689724,0.034482758620689502,0.034482758620689502,0.034482758620689724,0.034482758620689502,0.034482758620689502,0.034482758620689724,0.034482758620689502,0.034482758620689502,0.034482758620689724,0.034482758620689946],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[0,0.034482758620689655,0.068965517241379309,0.10344827586206896,0.13793103448275862,0.17241379310344829,0.2068965517241379,0.24137931034482757,0.27586206896551724,0.31034482758620696,0.34482758620689657,0.37931034482758619,0.41379310344827591,0.44827586206896552,0.48275862068965514,0.51724137931034475,0.55172413793103448,0.58620689655172409,0.6206896551724137,0.65517241379310343,0.68965517241379315,0.72413793103448265,0.75862068965517238,0.7931034482758621,0.8275862068965516,0.86206896551724133,0.89655172413793105,0.93103448275862055,0.96551724137931028,1],"y":[1841,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8159],"text":["count: 1841<br />estimate: 0.0000000","count:    0<br />estimate: 0.0344828","count:    0<br />estimate: 0.0689655","count:    0<br />estimate: 0.1034483","count:    0<br />estimate: 0.1379310","count:    0<br />estimate: 0.1724138","count:    0<br />estimate: 0.2068966","count:    0<br />estimate: 0.2413793","count:    0<br />estimate: 0.2758621","count:    0<br />estimate: 0.3103448","count:    0<br />estimate: 0.3448276","count:    0<br />estimate: 0.3793103","count:    0<br />estimate: 0.4137931","count:    0<br />estimate: 0.4482759","count:    0<br />estimate: 0.4827586","count:    0<br />estimate: 0.5172414","count:    0<br />estimate: 0.5517241","count:    0<br />estimate: 0.5862069","count:    0<br />estimate: 0.6206897","count:    0<br />estimate: 0.6551724","count:    0<br />estimate: 0.6896552","count:    0<br />estimate: 0.7241379","count:    0<br />estimate: 0.7586207","count:    0<br />estimate: 0.7931034","count:    0<br />estimate: 0.8275862","count:    0<br />estimate: 0.8620690","count:    0<br />estimate: 0.8965517","count:    0<br />estimate: 0.9310345","count:    0<br />estimate: 0.9655172","count: 8159<br />estimate: 1.0000000"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.034482758620689655,0.034482758620689655,0.034482758620689669,0.034482758620689641,0.034482758620689669,0.034482758620689613,0.034482758620689613,0.034482758620689724,0.034482758620689724,0.034482758620689724,0.034482758620689613,0.034482758620689724,0.034482758620689724,0.034482758620689613,0.034482758620689724,0.034482758620689558,0.034482758620689502,0.034482758620689724,0.034482758620689502,0.034482758620689724,0.034482758620689502,0.034482758620689502,0.034482758620689724,0.034482758620689502,0.034482758620689502,0.034482758620689724,0.034482758620689502,0.034482758620689502,0.034482758620689724,0.034482758620689946],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[0,0.034482758620689655,0.068965517241379309,0.10344827586206896,0.13793103448275862,0.17241379310344829,0.2068965517241379,0.24137931034482757,0.27586206896551724,0.31034482758620696,0.34482758620689657,0.37931034482758619,0.41379310344827591,0.44827586206896552,0.48275862068965514,0.51724137931034475,0.55172413793103448,0.58620689655172409,0.6206896551724137,0.65517241379310343,0.68965517241379315,0.72413793103448265,0.75862068965517238,0.7931034482758621,0.8275862068965516,0.86206896551724133,0.89655172413793105,0.93103448275862055,0.96551724137931028,1],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,24,48,101,280,536,987,1541,0,1940,2059,1489,0,776,218],"text":["count:    0<br />estimate: 0.0000000","count:    0<br />estimate: 0.0344828","count:    0<br />estimate: 0.0689655","count:    0<br />estimate: 0.1034483","count:    0<br />estimate: 0.1379310","count:    0<br />estimate: 0.1724138","count:    0<br />estimate: 0.2068966","count:    0<br />estimate: 0.2413793","count:    0<br />estimate: 0.2758621","count:    0<br />estimate: 0.3103448","count:    0<br />estimate: 0.3448276","count:    0<br />estimate: 0.3793103","count:    0<br />estimate: 0.4137931","count:    0<br />estimate: 0.4482759","count:    1<br />estimate: 0.4827586","count:    0<br />estimate: 0.5172414","count:   24<br />estimate: 0.5517241","count:   48<br />estimate: 0.5862069","count:  101<br />estimate: 0.6206897","count:  280<br />estimate: 0.6551724","count:  536<br />estimate: 0.6896552","count:  987<br />estimate: 0.7241379","count: 1541<br />estimate: 0.7586207","count:    0<br />estimate: 0.7931034","count: 1940<br />estimate: 0.8275862","count: 2059<br />estimate: 0.8620690","count: 1489<br />estimate: 0.8965517","count:    0<br />estimate: 0.9310345","count:  776<br />estimate: 0.9655172","count:  218<br />estimate: 1.0000000"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","frame":null},{"x":[0.82220362488319698,0.82220362488319698],"y":[-407.95000000000005,8566.9500000000007],"text":"xintercept: 0.822204","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.82220362488319698,0.82220362488319698],"y":[-102.95,2161.9499999999998],"text":"xintercept: 0.822204","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":36.058115400581165,"r":7.3059360730593621,"b":39.651307596513085,"l":52.403486924034887},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.068965517241379309,1.0689655172413794],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.25,0.5,0.75,0.99999999999999989],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y2","title":"","hoverformat":".2f"},"annotations":[{"text":"estimate of the probability of a zero count","x":0.5,"y":0,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"top","annotationType":"axis","yshift":-22.98048982980491},{"text":"count","x":0,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis","xshift":-35.732669157326697},{"text":"crude (first observation is zero)","x":0.5,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"serif","size":12.7521793275218},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Rao-Blackwellized","x":0.5,"y":0.48432959734329595,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"serif","size":12.7521793275218},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"}],"yaxis":{"domain":[0.51567040265670405,1],"automargin":true,"type":"linear","autorange":false,"range":[-407.95000000000005,8566.9500000000007],"tickmode":"array","ticktext":["0","2000","4000","6000","8000"],"tickvals":[-5.6843418860808015e-14,1999.9999999999998,4000,6000,8000.0000000000009],"categoryorder":"array","categoryarray":["0","2000","4000","6000","8000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0.51567040265670405,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":24.441677044416778,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":0.48432959734329595},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":24.441677044416778,"yanchor":0.48432959734329595,"ysizemode":"pixel"}],"yaxis2":{"type":"linear","autorange":false,"range":[-102.95,2161.9499999999998],"tickmode":"array","ticktext":["0","500","1000","1500","2000"],"tickvals":[0,500.00000000000006,1000,1500,1999.9999999999998],"categoryorder":"array","categoryarray":["0","500","1000","1500","2000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0,0.48432959734329595],"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top"},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3ed5414b089c":{"x":{},"type":"bar"},"3ed5d3dba48":{"xintercept":{}}},"cur_data":"3ed5414b089c","visdat":{"3ed5414b089c":["function (y) ","x"],"3ed5d3dba48":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section><section class="slide level2"><div id="rem-rb-insufficient" class="proof remark">
+<p><span class="proof-title"><em>Remark 5</em> (Sufficiency is needed). </span>If <span class="math inline">\({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\)</span> is not sufficient, then <span class="math inline">\({{\operatorname{E}\mathopen{}\left[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}\right]\mathclose{}}}\)</span> may depend on <span class="math inline">\(\theta\)</span>, in which case it is not an estimator at all (<span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#/references" role="doc-biblioref" onclick="">[4]</a>, Example 7.3.18</span>).</p>
+</div>
+</section><section id="sec-sufficiency-reading" class="slide level2" data-number="3"><h2>
+<span class="header-section-number">3</span> Further reading</h2>
+<ul>
+<li>The <a href="https://stat210a.berkeley.edu/fall-2024/">Fall 2024 course site for UC Berkeley’s Stat 210A, <em>Theoretical Statistics</em></a> (Will Fithian) has a course reader on exponential families, sufficiency, completeness and unbiased estimation.</li>
+</ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-wikipedia_statistic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Statistic — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Statistic">https://en.wikipedia.org/wiki/Statistic</a>
+</div>
+</div>
+<div id="ref-wikipedia_sufficient_statistic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Sufficient statistic — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Sufficient_statistic">https://en.wikipedia.org/wiki/Sufficient_statistic</a>
+</div>
+</div>
+<div id="ref-fisher1922mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">R. A. Fisher, <span>“On the mathematical foundations of theoretical statistics,”</span> <em>Philosophical Transactions of the Royal Society of London. Series A</em>, vol. 222, no. 594–604, pp. 309–368, 1922, doi: <a href="https://doi.org/10.1098/rsta.1922.0009">10.1098/rsta.1922.0009</a>.</div>
+</div>
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">G. Casella and R. Berger, <em>Statistical inference</em>, 2nd ed. Cengage Learning, 2002. Available: <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>
+</div>
+</div>
+<div id="ref-halmos1949application" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">P. R. Halmos and L. J. Savage, <span>“Application of the <span>Radon–Nikodym</span> theorem to the theory of sufficient statistics,”</span> <em>The Annals of Mathematical Statistics</em>, vol. 20, no. 2, pp. 225–241, 1949, doi: <a href="https://doi.org/10.1214/aoms/1177730032">10.1214/aoms/1177730032</a>.</div>
+</div>
+<div id="ref-rao1945information" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">C. R. Rao, <span>“Information and the accuracy attainable in the estimation of statistical parameters,”</span> <em>Bulletin of the Calcutta Mathematical Society</em>, vol. 37, pp. 81–91, 1945.</div>
+</div>
+<div id="ref-blackwell1947conditional" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">D. Blackwell, <span>“Conditional expectation and unbiased sequential estimation,”</span> <em>The Annals of Mathematical Statistics</em>, vol. 18, no. 1, pp. 105–110, 1947, doi: <a href="https://doi.org/10.1214/aoms/1177730497">10.1214/aoms/1177730497</a>.</div>
+</div>
+<div id="ref-wikipedia_rao_blackwell_theorem" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Rao–blackwell theorem — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Rao%E2%80%93Blackwell_theorem">https://en.wikipedia.org/wiki/Rao%E2%80%93Blackwell_theorem</a>
+</div>
+</div>
+<div id="ref-hosmer1989applied" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">D. W. Hosmer and S. Lemeshow, <em>Applied logistic regression</em>. New York: Wiley, 1989.</div>
+</div>
+</div>
+
+
+<script>
+const defaultAnchorIconFallback = "#";
+
+function getDefaultAnchorTemplate() {
+  const defaultAnchor = document.querySelector("a.anchorjs-link[data-anchorjs-icon]");
+  if (!defaultAnchor) {
+    return null;
+  }
+
+  return {
+    icon: defaultAnchor.getAttribute("data-anchorjs-icon"),
+    style: defaultAnchor.getAttribute("style")
+  };
+}
+
+function alignEquationAnchorWithDefault(anchor, template) {
+  if (!anchor) {
+    return;
+  }
+
+  anchor.classList.remove("external");
+
+  if (template && template.icon) {
+    anchor.setAttribute("data-anchorjs-icon", template.icon);
+    anchor.textContent = "";
+  } else if (!anchor.textContent) {
+    anchor.textContent = defaultAnchorIconFallback;
+  }
+
+  if (template && template.style) {
+    anchor.setAttribute("style", template.style);
+  } else {
+    anchor.removeAttribute("style");
+  }
+}
+
+function alignEquationAnchorsWithDefault() {
+  const template = getDefaultAnchorTemplate();
+  document.querySelectorAll("a.equation-anchor").forEach(function (anchor) {
+    alignEquationAnchorWithDefault(anchor, template);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const equations = document.querySelectorAll("span[id^='eq-']");
+  equations.forEach(function (equation) {
+    if (equation.querySelector(".equation-anchor")) {
+      return;
+    }
+
+    if (!equation.querySelector(".math.display")) {
+      return;
+    }
+
+    const id = equation.getAttribute("id");
+    if (!id) {
+      return;
+    }
+
+    equation.classList.add("equation-anchor-target");
+
+    const anchor = document.createElement("a");
+    anchor.className = "equation-anchor anchorjs-link";
+    anchor.href = "#" + id;
+    anchor.setAttribute("aria-label", "Permalink to this equation");
+    equation.appendChild(anchor);
+  });
+
+  alignEquationAnchorsWithDefault();
+});
+
+window.addEventListener("load", alignEquationAnchorsWithDefault);
+</script><script>
+(function () {
+  var css = [
+    "#revealjs-html-link {",
+    "  position: fixed;",
+    "  top: 8px;",
+    "  right: 8px;",
+    "  z-index: 31;",
+    "  font-size: 0.55em;",
+    "  line-height: 1;",
+    "}",
+    "#revealjs-html-link a {",
+    "  color: var(--qwt-muted, rgba(0, 0, 0, 0.5));",
+    "  text-decoration: none;",
+    "  border: 1px solid var(--qwt-border, rgba(0, 0, 0, 0.2));",
+    "  padding: 4px 8px;",
+    "  border-radius: 4px;",
+    "  background: var(--qwt-chip-bg, rgba(255, 255, 255, 0.8));",
+    "  transition: color 0.15s, background 0.15s, border-color 0.15s;",
+    "}",
+    "#revealjs-html-link a:hover {",
+    "  color: var(--qwt-fg, rgba(0, 0, 0, 0.9));",
+    "  background: var(--qwt-chip-bg-hover, rgba(255, 255, 255, 0.98));",
+    "  border-color: var(--qwt-fg, rgba(0, 0, 0, 0.4));",
+    "}"
+  ].join("\n");
+
+  function getHtmlBase() {
+    var url = window.location.href.split("#")[0];
+    return url.replace(/-slides\.html$/, ".html");
+  }
+
+  function getCurrentSectionId() {
+    if (typeof Reveal === "undefined" || !Reveal.getCurrentSlide) {
+      return null;
+    }
+    var slide = Reveal.getCurrentSlide();
+    if (!slide) {
+      return null;
+    }
+    // If the current slide itself has an id, use it
+    if (slide.id) {
+      return slide.id;
+    }
+    // Walk backwards through sibling sections to find the nearest one with an id
+    var sibling = slide.previousElementSibling;
+    while (sibling) {
+      if (sibling.tagName === "SECTION" && sibling.id) {
+        return sibling.id;
+      }
+      sibling = sibling.previousElementSibling;
+    }
+    // Fall back to the first section[id] inside the parent container
+    var parent = slide.parentElement;
+    if (parent && parent.tagName === "SECTION") {
+      var firstNamed = parent.querySelector("section[id]");
+      if (firstNamed) {
+        return firstNamed.id;
+      }
+    }
+    return null;
+  }
+
+  function updateHtmlLink() {
+    var anchor = document.getElementById("revealjs-html-anchor");
+    if (!anchor) {
+      return;
+    }
+    var sectionId = getCurrentSectionId();
+    anchor.href = getHtmlBase() + (sectionId ? "#" + sectionId : "");
+  }
+
+  function initRevealJsHtmlLink() {
+    var htmlBase = getHtmlBase();
+
+    // Don't add the link if the URL doesn't follow the -slides.html convention
+    if (htmlBase === window.location.href.split("#")[0]) {
+      return;
+    }
+
+    // Inject styles
+    var styleElement = document.createElement("style");
+    styleElement.textContent = css;
+    document.head.appendChild(styleElement);
+
+    // Create the link element and append it directly to body so it stays
+    // visible across all slides regardless of Reveal.js section visibility
+    var div = document.createElement("div");
+    div.id = "revealjs-html-link";
+    var anchor = document.createElement("a");
+    anchor.id = "revealjs-html-anchor";
+    anchor.href = htmlBase;
+    anchor.target = "_blank";
+    anchor.title = "View this section in the HTML notes";
+    anchor.setAttribute("aria-label", "View this section in the HTML notes");
+    anchor.innerHTML = "&#128196;&nbsp;Webpage version";
+    div.appendChild(anchor);
+    document.body.appendChild(div);
+
+    // Register Reveal.js slide-change listener to keep the link updated
+    if (typeof Reveal !== "undefined") {
+      Reveal.on("ready", updateHtmlLink);
+      Reveal.on("slidechanged", updateHtmlLink);
+    }
+
+    updateHtmlLink();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initRevealJsHtmlLink);
+  } else {
+    initRevealJsHtmlLink();
+  }
+})();
+</script></section>
+</div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="site_libs/revealjs/plugin/notes/notes.js"></script><script src="site_libs/revealjs/plugin/search/search.js"></script><script src="site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script><script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/morrison-lab\.github\.io\/sds\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+
+
+</body></html>
