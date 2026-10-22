@@ -4,7 +4,7 @@
 Let $\Outvar_\iobs \simind \Ber(\prob)$ for $i = 1, \dots, n$,
 with observed outcomes $\vy \eqdef (\dsn{y})$, each $\outvar_\iobs \in \cb{0, 1}$.
 The log-likelihood $\llik(\prob; \vy)$ of the event probability $\prob$,
-written with the log-odds $\logodds \eqdef \logit(\prob)$, is:
+written with the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) $\logodds \eqdef \logit(\prob)$, is:
 
 $$\llik(\prob; \vy) = \paren{\sumin \outvar_\iobs} \logodds + n \logf{1 - \prob}$$
 
