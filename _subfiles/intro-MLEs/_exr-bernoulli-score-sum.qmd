@@ -3,7 +3,7 @@
 
 In the setting of @exr-bernoulli-score-contribution,
 let $\outbar \eqdef \avgin \outvar_\iobs$ be the [sample mean](exploratory-descriptive.qmd#def-sample-mean) of the observed outcomes,
-and let $\devn_{\outbar} \eqdef \outbar - \prob$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $\outbar$ from its mean $\prob$.
+and let $\smeandev \eqdef \outbar - \prob$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $\outbar$ from its mean $\prob$.
 Assemble the [score function](#def-score) $\score(\prob)$ of the whole [sample](exploratory-descriptive.qmd#def-sample)
 from the [score](#def-score) contributions.
 
@@ -34,8 +34,8 @@ $$
 && \text{($\sumof{\vy} = n \outbar$)}\\
 &= n \precision (\outbar - \prob)
 && \text{(factor out $n$)}\\
-&= n \precision \devn_{\outbar}
-&& \text{(definition of $\devn_{\outbar}$)}
+&= n \precision \smeandev
+&& \text{(definition of $\smeandev$)}
 \end{aligned}
 $$
 
