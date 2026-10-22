@@ -17,10 +17,12 @@ $$
 \score(\prob)
 &= \sumin \score_\iobs(\prob)
 && \text{(score of an independent sample is the sum of the score contributions)}\\
-&= \sumin \precision (\outvar_\iobs - \prob)
+&= \sumin \precision \devn_\iobs
 && \text{(score contribution of a binary outcome)}\\
-&= \precision \sumin (\outvar_\iobs - \prob)
+&= \precision \sumin \devn_\iobs
 && \text{($\precision$ is the same for every $\iobs$)}\\
+&= \precision \sumin (\outvar_\iobs - \prob)
+&& \text{(definition of $\devn_\iobs$)}\\
 &= \precision \paren{\sumin \outvar_\iobs - \sumin \prob}
 && \text{(split the sum)}\\
 &= \precision \paren{\sumin \outvar_\iobs - n \prob}

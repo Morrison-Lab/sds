@@ -3,10 +3,11 @@
 
 In the setting of @exr-bernoulli-loglik-contribution, let:
 
+- $\devn_\iobs \eqdef \outvar_\iobs - \prob$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $\outvar_\iobs$ from its mean $\prob$;
 - $\precision \eqdef 1 / \Var{\Outvar_\iobs}$ be the [precision](intro-MLEs.qmd#def-precision-rv) of $\Outvar_\iobs$.
 
 Derive the [score](intro-MLEs.qmd#def-score) contribution $\score_\iobs(\prob) \eqdef \deriv{\prob} \llik_\iobs(\prob)$ of observation $\iobs$,
-and write it using $\precision$.
+and write it using $\devn_\iobs$ and $\precision$.
 
 :::
 
@@ -21,11 +22,13 @@ $$
 && \text{(definition of the score contribution)}\\
 &= \frac{\outvar_\iobs - \prob}{\prob(1 - \prob)}
 && \text{(score of a Bernoulli variable, with $x = \outvar_\iobs$)}\\
-&= \frac{\outvar_\iobs - \prob}{\Var{\Outvar_\iobs}}
+&= \frac{\devn_\iobs}{\prob(1 - \prob)}
+&& \text{(definition of $\devn_\iobs$)}\\
+&= \frac{\devn_\iobs}{\Var{\Outvar_\iobs}}
 && \text{($\Var{\Outvar_\iobs} = \prob(1 - \prob)$)}\\
-&= \frac{1}{\Var{\Outvar_\iobs}} (\outvar_\iobs - \prob)
+&= \frac{1}{\Var{\Outvar_\iobs}} \devn_\iobs
 && \text{(a fraction is its numerator times the reciprocal of its denominator)}\\
-&= \precision (\outvar_\iobs - \prob)
+&= \precision \devn_\iobs
 && \text{(definition of $\precision$)}
 \end{aligned}
 $$
