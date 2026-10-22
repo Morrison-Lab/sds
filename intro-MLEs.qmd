@@ -183,6 +183,14 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_def-precision.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-precision-bernoulli.qmd >}}
+
+{{< slidebreak >}}
+
 ### Information matrices
 
 <!-- No slidebreak here: the heading shares its slide with the def-hessian div. -->
