@@ -1,0 +1,7 @@
+::: {#rem-gaussian-mle-moved}
+#### Where the Gaussian derivation is
+
+The step-by-step derivation for a univariate Gaussian model
+is on its own page, [Maximum likelihood for a Gaussian model](gaussian-mle.qmd).
+It was a section of this page.
+:::
