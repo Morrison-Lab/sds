@@ -17,8 +17,8 @@ $$
 
 Substituting the maximizer $\mean = \bar x$,
 which does not depend on $\varpar$,
-maximizes the [profile log-likelihood](intro-MLEs.qmd#def-profile-loglik)
-of [the Gaussian example](intro-MLEs.qmd#exm-profile-loglik), and gives:
+maximizes the [profile log-likelihood](#def-profile-loglik)
+of [the Gaussian example](#exm-profile-loglik), and gives:
 
 $$\hsdpar^2_{\text{ML}} = \avgin (\rvar_\iobs - \bar x)^2$$
 

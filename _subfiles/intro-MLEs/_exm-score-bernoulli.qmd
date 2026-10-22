@@ -3,5 +3,5 @@
 
 For a Bernoulli variable with [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\prob$ and observed value $x \in \cb{0, 1}$,
 the [score](#def-score) is $(x - \prob) / \paren{\prob(1 - \prob)}$,
-derived in [the Bernoulli score](bernoulli-mle.qmd#thm-bernoulli-score).
+derived in [the Bernoulli score](#thm-bernoulli-score).
 :::

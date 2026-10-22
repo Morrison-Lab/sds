@@ -2,7 +2,7 @@
 #### Score function of a Bernoulli variable
 
 Let $X \sim \Ber(\prob)$, with event probability $\prob$ and observed value $x \in \cb{0, 1}$.
-The [score](intro-MLEs.qmd#def-score) $\score$ of the single observation $x$
+The [score](#def-score) $\score$ of the single observation $x$
 is the derivative of its log-likelihood $\loglik$ with respect to $\prob$.
 It equals the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn \eqdef x - \E{X}$ of $x$ from the mean $\E{X}$,
 divided by the variance $\Var{X}$:

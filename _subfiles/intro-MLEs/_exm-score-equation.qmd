@@ -3,7 +3,7 @@
 
 For $n$ independent Bernoulli observations with $r = \sum_i \outvar_\iobs$ successes,
 the score is $\sumin (\outvar_\iobs - \prob)/\paren{\prob(1 - \prob)} = (r - n\prob)/\paren{\prob(1-\prob)}$
-(summing [Bernoulli score](bernoulli-mle.qmd#thm-bernoulli-score) over the observations),
+(summing [Bernoulli score](#thm-bernoulli-score) over the observations),
 so for $0 < r < n$ the score equation $(r - n\prob)/\paren{\prob(1-\prob)} = 0$
 has the single solution $\prob = r/n$.
 :::
