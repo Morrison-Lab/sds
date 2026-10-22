@@ -143,10 +143,6 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_exm-score-bernoulli.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include sds/_subfiles/intro-MLEs/_exr-pois-score.qmd >}}
 
 {{< slidebreak >}}
@@ -171,19 +167,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_note-score-exponential-family.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include sds/_subfiles/intro-MLEs/_def-score-equation.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/intro-MLEs/_exm-score-equation.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/intro-MLEs/_def-precision.qmd >}}
 
 {{< slidebreak >}}
 
@@ -219,11 +203,11 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_rem-einf-vs-oinf.qmd >}}
+{{< include sds/_subfiles/intro-MLEs/_def_oinf.qmd >}}
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_def_oinf.qmd >}}
+{{< include sds/_subfiles/intro-MLEs/_rem-einf-vs-oinf.qmd >}}
 
 {{< slidebreak >}}
 
@@ -448,7 +432,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### The score of one observation
+### Score contributions
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score.qmd >}}
 
@@ -458,7 +442,13 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### Score contributions
+{{< include sds/_subfiles/intro-MLEs/_exm-score-bernoulli.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_note-score-exponential-family.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score-contribution.qmd >}}
 
@@ -485,6 +475,10 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-score-equation.qmd >}}
 
 {{< slidebreak >}}
 
@@ -546,6 +540,14 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
+### The profile log-likelihood
+
+{{< include sds/_subfiles/intro-MLEs/_def-profile-loglik.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-profile-loglik.qmd >}}
+
 ### MLE of $\varpar$ {#sec-gaussian-mle-sigma}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-sigma.qmd >}}
@@ -561,14 +563,6 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 ### Information matrix and standard errors {#sec-covariance-matrix}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-information.qmd >}}
-
-### The profile log-likelihood
-
-{{< include sds/_subfiles/intro-MLEs/_def-profile-loglik.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/intro-MLEs/_exm-profile-loglik.qmd >}}
 
 ## Example: hormone therapy study {#sec-hers-mle-example}
 
