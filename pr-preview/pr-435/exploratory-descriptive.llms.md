@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 14:16:35 (PDT)
+Last modified: 2026-10-22 16:14:19 (PDT)
 
 ## 1 Introduction
 
@@ -163,7 +163,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 2 (Population distribution)** The **population distribution** of a variable \\X\\ is the distribution of \\X\\ for a unit [chosen at random](https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice) from a population ([Definition 1](#def-population)): the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that \\X\\ falls in a set \\A\\ is
 >
-> \\{\operatorname{P}\mathopen{}\left(A\right)\mathclose{}} \stackrel{\text{def}}{=}\Pr(X \in A),\\
+> \\{\mathbb{P}\mathopen{}\left(A\right)\mathclose{}} \stackrel{\text{def}}{=}\Pr(X \in A),\\
 >
 > where the probability refers to the random choice of the unit.
 
@@ -171,9 +171,9 @@ dplyr::glimpse(wcgs)
 >
 > *Remark*. A population may be finite or infinite. For a finite population \\U\\ of \\N\\ units, with \\X(u)\\ the value of \\X\\ for unit \\u\\, the random choice gives each unit probability \\1/N\\, so
 >
-> \\{\operatorname{P}\mathopen{}\left(A\right)\mathclose{}} = \frac{\mathopen{}\left\|{\mathopen{}\left\\u \in U : X(u) \in A\right\\\mathclose{}}\right\|\mathclose{}}{N}.\\
+> \\{\mathbb{P}\mathopen{}\left(A\right)\mathclose{}} = \frac{\mathopen{}\left\|{\mathopen{}\left\\u \in U : X(u) \in A\right\\\mathclose{}}\right\|\mathclose{}}{N}.\\
 >
-> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function \\{\operatorname{F}\mathopen{}\left(t\right)\mathclose{}} = {\operatorname{P}\mathopen{}\left((-\infty, t\]\right)\mathclose{}}\\ or, when it has one, by its probability mass or density function.
+> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function \\{\operatorname{F}\mathopen{}\left(t\right)\mathclose{}} = {\mathbb{P}\mathopen{}\left((-\infty, t\]\right)\mathclose{}}\\ or, when it has one, by its probability mass or density function.
 
 > **NOTE:**
 >
@@ -183,9 +183,9 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 4 (Random sample)** A sample ([Definition 3](#def-sample)) is a **random sample** when the units are chosen by a chance mechanism such that the observations are [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid) draws from the population distribution ([Definition 2](#def-population-distribution)):
 >
-> \\X_1, \ldots, X_n \operatorname{iid}\\ \operatorname{P},\\
+> \\X_1, \ldots, X_n \operatorname{iid}\\ \mathbb{P},\\
 >
-> where \\\operatorname{P}\\ is the population distribution.
+> where \\\mathbb{P}\\ is the population distribution.
 >
 > Source: Wikipedia contributors [\[4\]](#ref-wikipedia_simple_random_sample).
 
@@ -205,7 +205,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 5 (Sample mean)** The **sample mean** of \\n\\ observations \\x_1, \ldots, x_n\\ is:
 >
-> \\\bar{x}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\
+> \\{\bar{x}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\
 
 > **NOTE:**
 >
@@ -242,7 +242,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 7 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is:
 >
-> \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(x_i- \bar{x})^2\\
+> \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(x_i- {\bar{x}})^2\\
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_variance).
 
@@ -569,7 +569,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 >
 > **Definition 19 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is:
 >
-> \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y})} {\sqrt{\sum\_{i=1}^n(x_i- \bar{x})^2} \sqrt{\sum\_{i=1}^n(y_i- \bar{y})^2}}\\
+> \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}})} {\sqrt{\sum\_{i=1}^n(x_i- {\bar{x}})^2} \sqrt{\sum\_{i=1}^n(y_i- {\bar{y}})^2}}\\
 >
 > It is defined when neither variable is constant, so that both sums of squares are positive.
 >

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 14:16:35 (PDT)
+Last modified: 2026-10-22 16:14:19 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -394,28 +394,28 @@ Tests of independence say whether two binary variables are associated, but not h
 > **Exercise 3** Let:
 >
 > - \\X\\ and \\Y\\ be [binary](data.llms.md#def-binary-var) random variables, each with values \\0\\ and \\1\\.
-> - \\{\operatorname{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
+> - \\{\mathbb{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
 >
-> Express the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ given \\X = x\\ in terms of the joint probabilities \\{\operatorname{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}\\ and \\{\operatorname{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}\\.
+> Express the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ given \\X = x\\ in terms of the joint probabilities \\{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}\\ and \\{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}\\.
 
 > **NOTE:**
 >
-> *Solution 3*. \\ \begin{aligned} \omega &= \frac{{\operatorname{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{1 - {\operatorname{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}} && \text{(definition of odds)} \\ &= \frac{{\operatorname{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(Y = 0 \mid X = x\right)\mathclose{}}} && \text{(the two values of \$Y\$ have conditional probabilities that sum to 1)} \\ &= \frac{{\operatorname{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}} / {\operatorname{P}\mathopen{}\left(X = x\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}} / {\operatorname{P}\mathopen{}\left(X = x\right)\mathclose{}}} && \text{(definition of conditional probability, in numerator and denominator)} \\ &= \frac{{\operatorname{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}} && \text{(divide the numerator and the denominator by the same positive number \${\operatorname{P}\mathopen{}\left(X = x\right)\mathclose{}}\$)} \end{aligned} \\
+> *Solution 3*. \\ \begin{aligned} \omega &= \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{1 - {\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}} && \text{(definition of odds)} \\ &= \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 0 \mid X = x\right)\mathclose{}}} && \text{(the two values of \$Y\$ have conditional probabilities that sum to 1)} \\ &= \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}} && \text{(definition of conditional probability, in numerator and denominator)} \\ &= \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}} && \text{(divide the numerator and the denominator by the same positive number \${\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}\$)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 4 (The odds ratio as a ratio of cross products)** Let:
 >
 > - \\X\\ and \\Y\\ be [binary](data.llms.md#def-binary-var) random variables, each with values \\0\\ and \\1\\.
-> - \\{\operatorname{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
+> - \\{\mathbb{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
 >
 > The [odds ratio](#def-odds-ratio) of \\Y = 1\\ comparing the group \\X = 1\\ with the [reference group](#def-reference-group) \\X = 0\\ is
 >
-> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X\right)\mathclose{}} = \frac{{\operatorname{P}\mathopen{}\left(X = 1, Y = 1\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(X = 0, Y = 0\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(X = 1, Y = 0\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(X = 0, Y = 1\right)\mathclose{}}}. \\
+> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X\right)\mathclose{}} = \frac{{\mathbb{P}\mathopen{}\left(X = 1, Y = 1\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(X = 0, Y = 0\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = 1, Y = 0\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(X = 0, Y = 1\right)\mathclose{}}}. \\
 
 > **NOTE:**
 >
-> *Proof*. By [Solution 3](#sol-odds-from-joint-probs), the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ in the group \\X = 1\\ are \\{\operatorname{P}\mathopen{}\left(X = 1, Y = 1\right)\mathclose{}} / {\operatorname{P}\mathopen{}\left(X = 1, Y = 0\right)\mathclose{}}\\. By the same solution, the odds of \\Y = 1\\ in the group \\X = 0\\ are \\{\operatorname{P}\mathopen{}\left(X = 0, Y = 1\right)\mathclose{}} / {\operatorname{P}\mathopen{}\left(X = 0, Y = 0\right)\mathclose{}}\\. The [odds ratio](#def-odds-ratio) is the first odds divided by the second. Dividing by a fraction is multiplying by its reciprocal, which gives the stated product of the four joint probabilities.
+> *Proof*. By [Solution 3](#sol-odds-from-joint-probs), the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ in the group \\X = 1\\ are \\{\mathbb{P}\mathopen{}\left(X = 1, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = 1, Y = 0\right)\mathclose{}}\\. By the same solution, the odds of \\Y = 1\\ in the group \\X = 0\\ are \\{\mathbb{P}\mathopen{}\left(X = 0, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = 0, Y = 0\right)\mathclose{}}\\. The [odds ratio](#def-odds-ratio) is the first odds divided by the second. Dividing by a fraction is multiplying by its reciprocal, which gives the stated product of the four joint probabilities.
 
 > **NOTE:**
 >
@@ -437,7 +437,7 @@ Tests of independence say whether two binary variables are associated, but not h
 > **Theorem 5 (The odds ratio is reversible)** Let:
 >
 > - \\X\\ and \\Y\\ be [binary](data.llms.md#def-binary-var) random variables, each with values \\0\\ and \\1\\.
-> - \\{\operatorname{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
+> - \\{\mathbb{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
 >
 > The [odds ratio](#def-odds-ratio) of \\Y = 1\\ comparing \\X = 1\\ with \\X = 0\\ equals the odds ratio of \\X = 1\\ comparing \\Y = 1\\ with \\Y = 0\\:
 >
@@ -447,7 +447,7 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > *Proof*. By [Theorem 4](#thm-odds-ratio-cross-product), with the roles of \\X\\ and \\Y\\ exchanged,
 >
-> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(X \mid Y\right)\mathclose{}} = \frac{{\operatorname{P}\mathopen{}\left(Y = 1, X = 1\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(Y = 0, X = 0\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(Y = 1, X = 0\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(Y = 0, X = 1\right)\mathclose{}}}. \\
+> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(X \mid Y\right)\mathclose{}} = \frac{{\mathbb{P}\mathopen{}\left(Y = 1, X = 1\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(Y = 0, X = 0\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 1, X = 0\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(Y = 0, X = 1\right)\mathclose{}}}. \\
 >
 > The event \\{\mathopen{}\left\\Y = y, X = x\right\\\mathclose{}}\\ is the event \\{\mathopen{}\left\\X = x, Y = y\right\\\mathclose{}}\\, so each joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) here equals the joint probability with its arguments in the other order. The denominator is a product of two joint probabilities, and multiplication is commutative. Reordering its two factors gives the denominator of [Theorem 4](#thm-odds-ratio-cross-product) for \\{\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X\right)\mathclose{}}\\.
 
@@ -472,7 +472,7 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > - \\X\\ and \\Y\\ be [binary](data.llms.md#def-binary-var) random variables, each with values \\0\\ and \\1\\.
 > - \\Z\\ be a random variable, and \\z\\ be a value of \\Z\\.
-> - \\{\operatorname{P}\mathopen{}\left(X = x, Y = y, Z = z\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
+> - \\{\mathbb{P}\mathopen{}\left(X = x, Y = y, Z = z\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
 >
 > The [odds ratio](#def-odds-ratio) of \\Y = 1\\ comparing \\X = 1\\ with the [reference group](#def-reference-group) \\X = 0\\, among the units with \\Z = z\\, equals the odds ratio of \\X = 1\\ comparing \\Y = 1\\ with \\Y = 0\\, among the units with \\Z = z\\:
 >
@@ -482,15 +482,15 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > *Proof*. First, find the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ in the group \\X = x\\ among the units with \\Z = z\\:
 >
-> \\ \begin{aligned} \omega\_{x} &= \frac{{\operatorname{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}}{1 - {\operatorname{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}} && \text{(definition of odds)} \\ &= \frac{{\operatorname{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(Y = 0 \mid X = x, Z = z\right)\mathclose{}}} && \text{(the two values of \$Y\$ have conditional probabilities that sum to 1)} \\ &= \frac{{\operatorname{P}\mathopen{}\left(X = x, Y = 1, Z = z\right)\mathclose{}} / {\operatorname{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(X = x, Y = 0, Z = z\right)\mathclose{}} / {\operatorname{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}} && \text{(definition of conditional probability, in numerator and denominator)} \\ &= \frac{{\operatorname{P}\mathopen{}\left(X = x, Y = 1, Z = z\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(X = x, Y = 0, Z = z\right)\mathclose{}}} && \text{(divide the numerator and the denominator by the same positive number \${\operatorname{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}\$)} \end{aligned} \\
+> \\ \begin{aligned} \omega\_{x} &= \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}}{1 - {\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}} && \text{(definition of odds)} \\ &= \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 0 \mid X = x, Z = z\right)\mathclose{}}} && \text{(the two values of \$Y\$ have conditional probabilities that sum to 1)} \\ &= \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1, Z = z\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0, Z = z\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}} && \text{(definition of conditional probability, in numerator and denominator)} \\ &= \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0, Z = z\right)\mathclose{}}} && \text{(divide the numerator and the denominator by the same positive number \${\mathbb{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}\$)} \end{aligned} \\
 >
 > The [odds ratio](#def-odds-ratio) is the odds \\\omega_1\\ divided by the odds \\\omega_0\\. Dividing by a fraction is multiplying by its reciprocal, so
 >
-> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X, Z = z\right)\mathclose{}} = \frac{{\operatorname{P}\mathopen{}\left(X = 1, Y = 1, Z = z\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(X = 0, Y = 0, Z = z\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(X = 1, Y = 0, Z = z\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(X = 0, Y = 1, Z = z\right)\mathclose{}}}. \\
+> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X, Z = z\right)\mathclose{}} = \frac{{\mathbb{P}\mathopen{}\left(X = 1, Y = 1, Z = z\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(X = 0, Y = 0, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = 1, Y = 0, Z = z\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(X = 0, Y = 1, Z = z\right)\mathclose{}}}. \\
 >
 > The same steps with the roles of \\X\\ and \\Y\\ exchanged give
 >
-> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(X \mid Y, Z = z\right)\mathclose{}} = \frac{{\operatorname{P}\mathopen{}\left(Y = 1, X = 1, Z = z\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(Y = 0, X = 0, Z = z\right)\mathclose{}}}{{\operatorname{P}\mathopen{}\left(Y = 1, X = 0, Z = z\right)\mathclose{}} {\operatorname{P}\mathopen{}\left(Y = 0, X = 1, Z = z\right)\mathclose{}}}. \\
+> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(X \mid Y, Z = z\right)\mathclose{}} = \frac{{\mathbb{P}\mathopen{}\left(Y = 1, X = 1, Z = z\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(Y = 0, X = 0, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 1, X = 0, Z = z\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(Y = 0, X = 1, Z = z\right)\mathclose{}}}. \\
 >
 > The event \\{\mathopen{}\left\\Y = y, X = x, Z = z\right\\\mathclose{}}\\ is the event \\{\mathopen{}\left\\X = x, Y = y, Z = z\right\\\mathclose{}}\\, so each joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) here equals the joint probability with its arguments in the other order. The denominator is a product of two joint probabilities, and multiplication is commutative. Reordering its two factors gives the denominator of the first display.
 

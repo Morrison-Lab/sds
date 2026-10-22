@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 14:16:35 (PDT)
+Last modified: 2026-10-22 16:14:19 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -80,7 +80,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > **Definition 5 (Mean function)** The **mean function** \\\mu\\ of an outcome \\Y\\ given a covariate \\X\\ maps each covariate value \\x\\ to the mean of \\Y\\ given \\X= x\\:
 >
-> \\ {\mu\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[Y\mid X= x\right\]\mathclose{}}. \tag{4}\\
+> \\ {\mu\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[Y\mid X= x\right\]\mathclose{}}. \tag{4}\\
 
 > **NOTE:**
 >
@@ -118,11 +118,11 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 
 > **NOTE:**
 >
-> **Definition 9 (Preprocessing)** The **preprocessing** \\\phi\\ of a fitting procedure is the map from [covariate](#def-covariate) values \\x\\ to the features \\\phi\mathopen{}\left(x\right)\mathclose{}\\ that the procedure’s [model family](#def-model-family) uses as inputs.
+> **Definition 9 (Preprocessing)** The **preprocessing** \\D\\ of a fitting procedure is the map from [covariate](#def-covariate) values \\x\\ to the features \\D\mathopen{}\left(x\right)\mathclose{}\\ that the procedure’s [model family](#def-model-family) uses as inputs.
 
 > **NOTE:**
 >
-> **Example 7 (Standardizing a covariate)** [Standardization](exploratory-descriptive.llms.md#def-standardization) is a [preprocessing](#def-preprocessing) \\\phi\\: it maps each covariate value \\x\\ to its standardized value.
+> **Example 7 (Standardizing a covariate)** [Standardization](exploratory-descriptive.llms.md#def-standardization) is a [preprocessing](#def-preprocessing) \\D\\: it maps each covariate value \\x\\ to its standardized value.
 
 > **NOTE:**
 >
@@ -153,7 +153,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 > - [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) \\\mathcal{A}\\;
 > - [random seed](#def-random-seed) \\\mathfrak{s}\\;
 > - [tuning parameters](#def-tuning-parameter) \\\lambda\\;
-> - [preprocessing](#def-preprocessing) \\\phi\\.
+> - [preprocessing](#def-preprocessing) \\D\\.
 
 > **NOTE:**
 >
@@ -164,7 +164,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 > - [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) \\\mathcal{A}\\: solving the [normal equations](correlation-regression.llms.md#def-normal-equations);
 > - [random seed](#def-random-seed) \\\mathfrak{s}\\: none, since nothing is random;
 > - [tuning parameter](#def-tuning-parameter) \\\lambda\\: the degree \\d\\;
-> - [preprocessing](#def-preprocessing) \\\phi\\: none.
+> - [preprocessing](#def-preprocessing) \\D\\: none.
 
 > **NOTE:**
 >
@@ -222,25 +222,25 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > **Definition 17 (Noise)** Let \\\mathopen{}\left(X, Y\right)\mathclose{}\\ be the [covariate](#def-covariate) and the outcome of one observation from a [population](exploratory-descriptive.llms.md#def-population).
 >
-> The **noise** \\u\\ of the observation is the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of the outcome \\Y\\ from the value of the [mean function](#def-mean-function) \\{\mu\mathopen{}\left(X\right)\mathclose{}}\\ evaluated at \\Y\\’s own covariate, \\X\\:
+> The **noise** \\\varepsilon\\ of the observation is the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of the outcome \\Y\\ from the value of the [mean function](#def-mean-function) \\{\mu\mathopen{}\left(X\right)\mathclose{}}\\ evaluated at \\Y\\’s own covariate, \\X\\:
 >
-> \\ u\stackrel{\text{def}}{=}Y- {\mu\mathopen{}\left(X\right)\mathclose{}}. \tag{10}\\
+> \\ \varepsilon\stackrel{\text{def}}{=}Y- {\mu\mathopen{}\left(X\right)\mathclose{}}. \tag{10}\\
 
 > **NOTE:**
 >
-> **Example 13 (The noise of one observation)** Suppose an observation has the [covariate](#def-covariate) value \\X= x\\ with [mean function](#def-mean-function) value \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 5\\. If its outcome is \\Y= 5.3\\, its [noise](#def-noise) is \\u= 5.3 - 5 = 0.3\\. If its outcome is \\Y= 4.6\\, its noise is \\u= 4.6 - 5 = -0.4\\. The observation may belong to a [training set](#def-training-set) or be a [new observation](#def-new-observation): the definition does not distinguish them.
+> **Example 13 (The noise of one observation)** Suppose an observation has the [covariate](#def-covariate) value \\X= x\\ with [mean function](#def-mean-function) value \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 5\\. If its outcome is \\Y= 5.3\\, its [noise](#def-noise) is \\\varepsilon= 5.3 - 5 = 0.3\\. If its outcome is \\Y= 4.6\\, its noise is \\\varepsilon= 4.6 - 5 = -0.4\\. The observation may belong to a [training set](#def-training-set) or be a [new observation](#def-new-observation): the definition does not distinguish them.
 
 > **NOTE:**
 >
-> **Theorem 1 (The noise has population mean zero)** Given \\X\_{\*}= x\\, the [noise](#def-noise) \\u\\ has [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) \\0\\:
+> **Theorem 1 (The noise has population mean zero)** Given \\X\_{\*}= x\\, the [noise](#def-noise) \\\varepsilon\\ has [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) \\0\\:
 >
-> \\ {\operatorname{E}\mathopen{}\left\[u\mid X\_{\*}= x\right\]\mathclose{}} = 0. \tag{11}\\
+> \\ {\mathbb{E}\mathopen{}\left\[\varepsilon\mid X\_{\*}= x\right\]\mathclose{}} = 0. \tag{11}\\
 
 > **NOTE:**
 >
 > *Proof*. Take every expectation to be [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) on \\X\_{\*}= x\\. The value \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ is a constant given \\X\_{\*}= x\\.
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[u\right\]\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[Y\_{\*}- {\mu\mathopen{}\left(x\right)\mathclose{}}\right\]\mathclose{}} && \text{(definition of the noise)} \\ &= {\operatorname{E}\mathopen{}\left\[Y\_{\*}\right\]\mathclose{}} - {\mu\mathopen{}\left(x\right)\mathclose{}} && \text{(linearity of expectation; a constant is its own mean)} \\ &= {\mu\mathopen{}\left(x\right)\mathclose{}} - {\mu\mathopen{}\left(x\right)\mathclose{}} && \text{(definition of the mean function)} \\ &= 0 && \text{(} a - a = 0 \text{)} \end{aligned} \\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[\varepsilon\right\]\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[Y\_{\*}- {\mu\mathopen{}\left(x\right)\mathclose{}}\right\]\mathclose{}} && \text{(definition of the noise)} \\ &= {\mathbb{E}\mathopen{}\left\[Y\_{\*}\right\]\mathclose{}} - {\mu\mathopen{}\left(x\right)\mathclose{}} && \text{(linearity of expectation; a constant is its own mean)} \\ &= {\mu\mathopen{}\left(x\right)\mathclose{}} - {\mu\mathopen{}\left(x\right)\mathclose{}} && \text{(definition of the mean function)} \\ &= 0 && \text{(} a - a = 0 \text{)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -256,13 +256,13 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 
 > **NOTE:**
 >
-> *Remark 4* (Squared-error loss). Each error defined below holds for any [loss](#def-observation-loss). The examples, exercises and the bias-variance decomposition use *squared-error loss*, \\{L\mathopen{}\left(y, \hat{y}\right)\mathclose{}} = {\mathopen{}\left(\hat{y} - y\right)\mathclose{}}^{2}\\, unless they say otherwise. Then the loss on an observation is the square of its [prediction error](prediction.llms.md#def-prediction-error), \\\ell\_{i} = \varepsilon\_{i}^2\\, and each average loss below is a sample mean squared error.
+> *Remark 4* (Squared-error loss). Each error defined below holds for any [loss](#def-observation-loss). The examples, exercises and the bias-variance decomposition use *squared-error loss*, \\{L\mathopen{}\left(y, \hat{y}\right)\mathclose{}} = {\mathopen{}\left(\hat{y} - y\right)\mathclose{}}^{2}\\, unless they say otherwise. Then the loss on an observation is the square of its [prediction error](prediction.llms.md#def-prediction-error), \\\ell\_{i} = {\varepsilon\_{\text{pred}}}\_{i}^2\\, and each average loss below is a sample mean squared error.
 
 > **NOTE:**
 >
 > **Definition 19 (Generalization error)** The **generalization error** of a [fitted model](#def-fitted-model) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its expected [loss](#def-observation-loss) \\\ell\_{\*}\\ on a [new observation](#def-new-observation) \\(X\_{\*}, Y\_{\*})\\, with \\\mathcal{D}\_{\text{train}}\\ held fixed:
 >
-> \\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}. \tag{13}\\
+> \\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}. \tag{13}\\
 >
 > Source: Wikipedia contributors [\[5\]](#ref-wikipedia_generalization_error).
 
@@ -449,11 +449,11 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > 1.  Average the loss over the distribution of \\(X\_{\*}, Y\_{\*})\\, with \\\mathcal{D}\_{\text{train}}\\, and so the [fitted model](#def-fitted-model) \\\hat y\\, held fixed:
 >
->     \\{\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}.\\
+>     \\{\mathbb{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}.\\
 >
 >     For squared-error loss, the loss is the squared prediction error:
 >
->     \\{\operatorname{E}\mathopen{}\left\[\varepsilon\_{\*}^2 \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}.\\
+>     \\{\mathbb{E}\mathopen{}\left\[{\varepsilon\_{\text{pred}}}\_{\*}^2 \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}.\\
 >
 > 2.  The fitted model \\\hat y\\ is known, because we fitted it. The joint distribution of \\(X\_{\*}, Y\_{\*})\\ is unknown, so the expectation cannot be computed. If we knew that distribution, we would not need data to [estimate](estimation.llms.md#def-estimate) the [true mean function](#def-mean-function) \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ of the outcome variable given the input value \\x\\.
 >
@@ -463,7 +463,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > **Definition 25 (Expected generalization error (expected prediction error, expected test error))** The **expected generalization error** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the mean, over [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently from the population, of the [generalization error](#def-generalization-error) of the [fitted model](#def-fitted-model) that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
 >
-> \\ {\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{}}, \quad \mathcal{D}\_{\text{train}}= \mathopen{}\left((X\_{i}, Y\_{i})\right)\mathclose{}\_{i\in I}, \quad \mathopen{}\left\|I\right\|\mathclose{} = n. \tag{18}\\
+> \\ {\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{}}, \quad \mathcal{D}\_{\text{train}}= \mathopen{}\left((X\_{i}, Y\_{i})\right)\mathclose{}\_{i\in I}, \quad \mathopen{}\left\|I\right\|\mathclose{} = n. \tag{18}\\
 
 > **NOTE:**
 >
@@ -473,7 +473,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > **Definition 26 (Distribution model)** A **distribution model** \\P\\ for an outcome \\Y\\ given a [covariate](#def-covariate) \\X\\ gives each covariate value \\x\\ a probability distribution for \\Y\\ given \\X= x\\, specified by its [cumulative distribution function](https://morrison-lab.github.io/pds/random-variables.html#def-cdf). The [mean function](#def-mean-function) \\\mu\_{P}\\ of \\P\\ maps each covariate value \\x\\ to the mean of that distribution:
 >
-> \\ {\mu\_{P}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\_{P}\mathopen{}\left\[Y\mid X= x\right\]\mathclose{}}. \tag{19}\\
+> \\ {\mu\_{P}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\_{P}\mathopen{}\left\[Y\mid X= x\right\]\mathclose{}}. \tag{19}\\
 
 > **NOTE:**
 >
@@ -509,7 +509,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > **Definition 29 (Distribution model)** A **distribution model** \\P\\ for an outcome \\Y\\ given a [covariate](#def-covariate) \\X\\ gives each covariate value \\x\\ a probability distribution for \\Y\\ given \\X= x\\, specified by its [cumulative distribution function](https://morrison-lab.github.io/pds/random-variables.html#def-cdf). The [mean function](#def-mean-function) \\\mu\_{P}\\ of \\P\\ maps each covariate value \\x\\ to the mean of that distribution:
 >
-> \\ {\mu\_{P}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\_{P}\mathopen{}\left\[Y\mid X= x\right\]\mathclose{}}. \tag{23}\\
+> \\ {\mu\_{P}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\_{P}\mathopen{}\left\[Y\mid X= x\right\]\mathclose{}}. \tag{23}\\
 
 > **NOTE:**
 >
@@ -545,7 +545,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > **Definition 32 (Expected prediction loss at a covariate value)** The **expected prediction loss at \\x\\** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the expected [loss](#def-observation-loss) \\\ell\_{\*}\mathopen{}\left(\hat y\right)\mathclose{}\\ of the [fitted model](#def-fitted-model) \\\hat y= {\hat y\_{\mathcal{D}\_{\text{train}}}}\\ that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\, on a new outcome \\Y\_{\*}\\ with \\X\_{\*}= x\\, averaged over random [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently of \\(X\_{\*}, Y\_{\*})\\, and over \\Y\_{\*}\\. The [fitted model](#def-fitted-model) \\{\hat y\_{\mathcal{D}\_{\text{train}}}}\\ is random because \\\mathcal{D}\_{\text{train}}\\ is:
 >
-> \\ {\operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\ell\_{\*}\mathopen{}\left({\hat y\_{\mathcal{D}\_{\text{train}}}}\right)\mathclose{} \mid X\_{\*}= x\right\]\mathclose{}}. \tag{27}\\
+> \\ {\operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\ell\_{\*}\mathopen{}\left({\hat y\_{\mathcal{D}\_{\text{train}}}}\right)\mathclose{} \mid X\_{\*}= x\right\]\mathclose{}}. \tag{27}\\
 
 > **NOTE:**
 >
@@ -553,9 +553,9 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 
 > **NOTE:**
 >
-> **Definition 33 (Expected prediction error at a covariate value)** The **expected prediction error at \\x\\** (**EPE**; also the **expected squared prediction error**, **ESPE**) of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is its [expected prediction loss](#def-epl) under [squared-error loss](#rem-squared-error-loss), the expected value of the squared [prediction error](prediction.llms.md#def-prediction-error) \\\varepsilon\_{\*}\mathopen{}\left(\hat y\right)\mathclose{} = {\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}} - Y\_{\*}\\ of the [fitted model](#def-fitted-model) \\\hat y= {\hat y\_{\mathcal{D}\_{\text{train}}}}\\ that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
+> **Definition 33 (Expected prediction error at a covariate value)** The **expected prediction error at \\x\\** (**EPE**; also the **expected squared prediction error**, **ESPE**) of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is its [expected prediction loss](#def-epl) under [squared-error loss](#rem-squared-error-loss), the expected value of the squared [prediction error](prediction.llms.md#def-prediction-error) \\{\varepsilon\_{\text{pred}}}\_{\*}\mathopen{}\left(\hat y\right)\mathclose{} = {\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}} - Y\_{\*}\\ of the [fitted model](#def-fitted-model) \\\hat y= {\hat y\_{\mathcal{D}\_{\text{train}}}}\\ that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
 >
-> \\ {\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\varepsilon\_{\*}\mathopen{}\left({\hat y\_{\mathcal{D}\_{\text{train}}}}\right)\mathclose{}^2 \mid X\_{\*}= x\right\]\mathclose{}}. \tag{28}\\
+> \\ {\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[{\varepsilon\_{\text{pred}}}\_{\*}\mathopen{}\left({\hat y\_{\mathcal{D}\_{\text{train}}}}\right)\mathclose{}^2 \mid X\_{\*}= x\right\]\mathclose{}}. \tag{28}\\
 
 > **NOTE:**
 >
@@ -573,7 +573,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 
 > **NOTE:**
 >
-> *Solution 3*. \\ \begin{aligned} & {\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}} \\ &\quad = {\operatorname{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{}} && \text{(definition)} \\ &\quad = {\operatorname{E}\mathopen{}\left\[{\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}\right\]\mathclose{}} && \text{(definition)} \\ &\quad = {\operatorname{E}\mathopen{}\left\[\ell\_{\*}\right\]\mathclose{}} && \text{(iterated expectations)} \\ &\quad = {\operatorname{E}\mathopen{}\left\[{\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid X\_{\*}\right\]\mathclose{}}\right\]\mathclose{}} && \text{(iterated expectations)} \\ &\quad = {\operatorname{E}\mathopen{}\left\[{\operatorname{EPL}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}}\right\]\mathclose{}} && \text{(definition)} \end{aligned} \\
+> *Solution 3*. \\ \begin{aligned} & {\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}} \\ &\quad = {\mathbb{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{}} && \text{(definition)} \\ &\quad = {\mathbb{E}\mathopen{}\left\[{\mathbb{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}\right\]\mathclose{}} && \text{(definition)} \\ &\quad = {\mathbb{E}\mathopen{}\left\[\ell\_{\*}\right\]\mathclose{}} && \text{(iterated expectations)} \\ &\quad = {\mathbb{E}\mathopen{}\left\[{\mathbb{E}\mathopen{}\left\[\ell\_{\*} \mid X\_{\*}\right\]\mathclose{}}\right\]\mathclose{}} && \text{(iterated expectations)} \\ &\quad = {\mathbb{E}\mathopen{}\left\[{\operatorname{EPL}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}}\right\]\mathclose{}} && \text{(definition)} \end{aligned} \\
 >
 > The steps labeled “definition” apply [Equation 18](#eq-expected-generalization-error), [Equation 13](#eq-generalization-error) and [Equation 27](#eq-epl), in that order. Here \\\ell\_{\*}\\ abbreviates \\\ell\_{\*}\mathopen{}\left(\hat y\right)\mathclose{}\\, the [loss](#def-observation-loss) of the [fitted model](#def-fitted-model) \\{\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}} = {{\hat y\_{\mathcal{D}\_{\text{train}}}}\mathopen{}\left(X\_{\*}\right)\mathclose{}}\\ ([Equation 9](#eq-prediction-rule)) on the new observation. The two steps labeled “iterated expectations” use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie), the first conditioning on \\\mathcal{D}\_{\text{train}}\\ and the second on \\X\_{\*}\\. The last line needs \\\mathcal{D}\_{\text{train}}\\ to be independent of \\(X\_{\*}, Y\_{\*})\\: then, given \\X\_{\*}= x\\, \\\mathcal{D}\_{\text{train}}\\ still has its unconditional distribution, as [Definition 32](#def-epl) requires.
 
@@ -581,7 +581,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > **Theorem 2 (The expected generalization error averages the loss at each covariate value)** If the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is independent of the new observation \\(X\_{\*}, Y\_{\*})\\, the [expected generalization error](#def-expected-generalization-error) of a [fitting procedure](#def-fitting-procedure) \\g\\ is the mean of its [expected prediction loss at \\x\\](#def-epl) over the distribution of \\X\_{\*}\\:
 >
-> \\ {\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}} = {\operatorname{E}\mathopen{}\left\[{\operatorname{EPL}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}}\right\]\mathclose{}}. \tag{29}\\
+> \\ {\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}} = {\mathbb{E}\mathopen{}\left\[{\operatorname{EPL}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}}\right\]\mathclose{}}. \tag{29}\\
 
 > **NOTE:**
 >
@@ -591,7 +591,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > **Definition 34 (Expected prediction)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). The **expected prediction** of \\g\\ at a covariate value \\x\\ is the value \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ of the [fitted model](#def-fitted-model) \\\hat y\\ at \\x\\, averaged over the population distribution of all training sets that might have been collected:
 >
-> \\ {\mu\_{h}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[{\hat y\mathopen{}\left(x\right)\mathclose{}}\right\]\mathclose{}}}. \tag{30}\\
+> \\ {\mu\_{h}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[{\hat y\mathopen{}\left(x\right)\mathclose{}}\right\]\mathclose{}}}. \tag{30}\\
 
 > **NOTE:**
 >
@@ -769,7 +769,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > **Definition 35 (Bias of a prediction)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, the prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is a random variable, because it depends on the random training data. The **bias** of the prediction is the expected [estimation error](estimation.llms.md#def-estimation-error) of the prediction as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\, which is its estimand here, not the new outcome it predicts:
 >
-> \\ {\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} = {\operatorname{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right\]\mathclose{}}. \tag{31}\\
+> \\ {\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} = {\mathbb{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right\]\mathclose{}}. \tag{31}\\
 
 > **NOTE:**
 >
@@ -779,23 +779,23 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > **Example 26 (Computing the bias of a prediction)** Suppose \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 10\\, and the predictions \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, over repeated training sets, average \\11\\. Then
 >
-> \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left(\hat{y}\right)\mathclose{}}\right\]\mathclose{}} \\ &= {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}} \\ &= 11 - 10 \\ &= 1. \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left(\hat{y}\right)\mathclose{}}\right\]\mathclose{}} \\ &= {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}} \\ &= 11 - 10 \\ &= 1. \end{aligned} \\
 >
 > The squared bias is \\1^2 = 1\\, the value in [Exercise 4](#exr-epe-three-sources).
 
 > **NOTE:**
 >
-> **Definition 36 (Irreducible error)** Let \\\mathopen{}\left(X, Y\right)\mathclose{}\\ be the [covariate](#def-covariate) and the outcome of one observation from a [population](exploratory-descriptive.llms.md#def-population), and let \\u\\ be its [noise](#def-noise).
+> **Definition 36 (Irreducible error)** Let \\\mathopen{}\left(X, Y\right)\mathclose{}\\ be the [covariate](#def-covariate) and the outcome of one observation from a [population](exploratory-descriptive.llms.md#def-population), and let \\\varepsilon\\ be its [noise](#def-noise).
 >
 > The **irreducible error** at the covariate value \\x\\ is the [conditional population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) of the noise given \\X= x\\:
 >
-> \\ \sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(u\mid X= x\right)\mathclose{}}. \tag{32}\\
+> \\ \sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(\varepsilon\mid X= x\right)\mathclose{}}. \tag{32}\\
 >
 > Source: Wikipedia contributors [\[11\]](#ref-wikipedia_bias_variance_tradeoff); James et al. [\[6, Sec. 2.2.2\]](#ref-james2021islr2e).
 
 > **NOTE:**
 >
-> **Example 27 (The irreducible error of a normal population)** Take a [population](exploratory-descriptive.llms.md#def-population) whose outcome given the [covariate](#def-covariate) value \\x\\ has the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) \\{\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\, where \\\sigma^2= \sigma^2\\ and \\\sigma= 0.3\\. Its [noise](#def-noise) \\u= Y- \sin(2 \pi X)\\, given \\X= x\\, has the normal distribution with mean \\0\\ and [conditional variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) \\\sigma^2\\. The [irreducible error](#def-irreducible-error) at every \\x\\ is therefore \\\sigma^2= \sigma^2 = 0.09\\.
+> **Example 27 (The irreducible error of a normal population)** Take a [population](exploratory-descriptive.llms.md#def-population) whose outcome given the [covariate](#def-covariate) value \\x\\ has the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) \\{\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\, where \\\sigma^2= \sigma^2\\ and \\\sigma= 0.3\\. Its [noise](#def-noise) \\\varepsilon= Y- \sin(2 \pi X)\\, given \\X= x\\, has the normal distribution with mean \\0\\ and [conditional variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) \\\sigma^2\\. The [irreducible error](#def-irreducible-error) at every \\x\\ is therefore \\\sigma^2= \sigma^2 = 0.09\\.
 
 > **NOTE:**
 >
@@ -835,15 +835,15 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 
 > **NOTE:**
 >
-> *Solution 6*. A better method can reduce the squared [bias](#def-prediction-bias) and the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, because both depend on how \\g\\ is built. It cannot reduce \\\sigma^2\\, which is the variance of the [noise](#def-noise) \\u\\ in the new outcome.
+> *Solution 6*. A better method can reduce the squared [bias](#def-prediction-bias) and the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, because both depend on how \\g\\ is built. It cannot reduce \\\sigma^2\\, which is the variance of the [noise](#def-noise) \\\varepsilon\\ in the new outcome.
 
 > **NOTE:**
 >
 > **Exercise 7 (Separate the noise)** Let:
 >
 > - \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\,
-> - \\u\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
-> - \\\sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(u\right)\mathclose{}}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+> - \\\varepsilon\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
+> - \\\sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(\varepsilon\right)\mathclose{}}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
 >
 > Assume:
 >
@@ -852,7 +852,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > Take every expectation below to be conditional on \\X\_{\*}= x\\. Add and subtract \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ inside the square of the [expected prediction error](#def-epe),
 >
-> \\ {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}}, \\
+> \\ {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}}, \\
 >
 > expand it, and take the expectation term by term.
 >
@@ -862,25 +862,25 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > *Solution 7*. Express the [prediction error](prediction.llms.md#def-prediction-error) as [noise](#def-noise) plus the error of the [prediction](prediction.llms.md#def-prediction), used as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\:
 >
-> \\ \begin{aligned} Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}} &= \mathopen{}\left(Y\_{\*}- {\mu\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} + \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{} && \text{(add and subtract } {\mu\mathopen{}\left(x\right)\mathclose{}} \text{)} \\ &= u+ \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{} && \text{(definition of } Y\_{\*}\text{)} \end{aligned} \\
+> \\ \begin{aligned} Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}} &= \mathopen{}\left(Y\_{\*}- {\mu\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} + \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{} && \text{(add and subtract } {\mu\mathopen{}\left(x\right)\mathclose{}} \text{)} \\ &= \varepsilon+ \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{} && \text{(definition of } Y\_{\*}\text{)} \end{aligned} \\
 >
 > Square it:
 >
-> \\ \begin{aligned} {\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2} &= u^2 + 2 u\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{} + {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}}^{2} && \text{(expand the square of a sum)} \end{aligned} \\
+> \\ \begin{aligned} {\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2} &= \varepsilon^2 + 2 \varepsilon\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{} + {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}}^{2} && \text{(expand the square of a sum)} \end{aligned} \\
 >
 > Take the expectation of each term in turn, using [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation) to split the sum.
 >
-> For the noise term, the [variance identity](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance) gives \\\sigma^2= {\operatorname{E}\mathopen{}\left\[u^2\right\]\mathclose{}} - {\mathopen{}\left({\operatorname{E}\mathopen{}\left\[u\right\]\mathclose{}}\right)\mathclose{}}^{2}\\:
+> For the noise term, the [variance identity](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance) gives \\\sigma^2= {\mathbb{E}\mathopen{}\left\[\varepsilon^2\right\]\mathclose{}} - {\mathopen{}\left({\mathbb{E}\mathopen{}\left\[\varepsilon\right\]\mathclose{}}\right)\mathclose{}}^{2}\\:
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[u^2\right\]\mathclose{}} &= \sigma^2+ {\mathopen{}\left({\operatorname{E}\mathopen{}\left\[u\right\]\mathclose{}}\right)\mathclose{}}^{2} && \text{(variance identity)} \\ &= \sigma^2+ 0^2 && \text{(the noise has population mean } 0 \text{)} \\ &= \sigma^2 && \text{(} 0^2 = 0 \text{, and } \sigma^2+ 0 = \sigma^2\text{)} \end{aligned} \\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[\varepsilon^2\right\]\mathclose{}} &= \sigma^2+ {\mathopen{}\left({\mathbb{E}\mathopen{}\left\[\varepsilon\right\]\mathclose{}}\right)\mathclose{}}^{2} && \text{(variance identity)} \\ &= \sigma^2+ 0^2 && \text{(the noise has population mean } 0 \text{)} \\ &= \sigma^2 && \text{(} 0^2 = 0 \text{, and } \sigma^2+ 0 = \sigma^2\text{)} \end{aligned} \\
 >
-> For the cross term, \\u= Y\_{\*}- {\mu\mathopen{}\left(x\right)\mathclose{}}\\ shifts \\Y\_{\*}\\ by a constant, and \\Y\_{\*}\\ is independent of \\\mathcal{D}\_{\text{train}}\\, so \\u\\ is independent of \\\mathcal{D}\_{\text{train}}\\, and hence of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ and of \\{\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\\. The expectation of a product of independent random variables is the product of their expectations:
+> For the cross term, \\\varepsilon= Y\_{\*}- {\mu\mathopen{}\left(x\right)\mathclose{}}\\ shifts \\Y\_{\*}\\ by a constant, and \\Y\_{\*}\\ is independent of \\\mathcal{D}\_{\text{train}}\\, so \\\varepsilon\\ is independent of \\\mathcal{D}\_{\text{train}}\\, and hence of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ and of \\{\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\\. The expectation of a product of independent random variables is the product of their expectations:
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[2 u\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}\right\]\mathclose{}} &= 2 {\operatorname{E}\mathopen{}\left\[u\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}\right\]\mathclose{}} && \text{(constant factor 2)} \\ &= 2 {\operatorname{E}\mathopen{}\left\[u\right\]\mathclose{}} {\operatorname{E}\mathopen{}\left\[{\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right\]\mathclose{}} && \text{(independence)} \\ &= 2 \cdot 0 \cdot {\operatorname{E}\mathopen{}\left\[{\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right\]\mathclose{}} && \text{(the noise has population mean } 0 \text{)} \\ &= 0 && \text{(zero times a number)} \end{aligned} \\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[2 \varepsilon\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}\right\]\mathclose{}} &= 2 {\mathbb{E}\mathopen{}\left\[\varepsilon\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}\right\]\mathclose{}} && \text{(constant factor 2)} \\ &= 2 {\mathbb{E}\mathopen{}\left\[\varepsilon\right\]\mathclose{}} {\mathbb{E}\mathopen{}\left\[{\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right\]\mathclose{}} && \text{(independence)} \\ &= 2 \cdot 0 \cdot {\mathbb{E}\mathopen{}\left\[{\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right\]\mathclose{}} && \text{(the noise has population mean } 0 \text{)} \\ &= 0 && \text{(zero times a number)} \end{aligned} \\
 >
 > Adding the three expectations,
 >
-> \\ {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}} = \sigma^2+ {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}}^{2}\right\]\mathclose{}}. \tag{33}\\
+> \\ {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left(Y\_{\*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}} = \sigma^2+ {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}}^{2}\right\]\mathclose{}}. \tag{33}\\
 >
 > The noise has [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) \\0\\ by [Theorem 1](#thm-noise-mean-zero), so the algebra used only one hypothesis about the [new observation](#def-new-observation): it is independent of the [training set](#def-training-set). Independence holds for a fresh observation, and it fails for an observation the procedure was trained on, whose noise helped determine the prediction. It also fails when the new observation depends on the training data (for example, a later time in the same series), or when the same [test set](#def-test-set) was used to choose the procedure.
 >
@@ -891,8 +891,8 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 > **Theorem 3 (The pMSE of a prediction is the pMSE of the mean estimate plus the noise variance)** Let:
 >
 > - \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\,
-> - \\u\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
-> - \\\sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(u\right)\mathclose{}}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+> - \\\varepsilon\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
+> - \\\sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(\varepsilon\right)\mathclose{}}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
 >
 > Assume:
 >
@@ -942,11 +942,11 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > **Exercise 8 (Separate the bias)** [Equation 33](#eq-epe-after-noise) leaves one term that still mixes two ideas:
 >
-> \\ {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}}. \\
+> \\ {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}}. \\
 >
 > A prediction can miss \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ because its [expected prediction](#def-average-fit) is off, or because it gives a different result for every training set. These are different failures with different fixes, so the term should split into one piece for each.
 >
-> Split it with the same technique as before: add and subtract the expected prediction \\{{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\\ ([Equation 30](#eq-average-fit)), expand, and take the expectation term by term.
+> Split it with the same technique as before: add and subtract the expected prediction \\{{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\\ ([Equation 30](#eq-average-fit)), expand, and take the expectation term by term.
 >
 > Which of the three terms is not random at all, and what makes the cross term zero this time?
 
@@ -954,29 +954,29 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > *Solution 8*. Insert the expected prediction:
 >
-> \\ \begin{aligned} {\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y} &= \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} + \mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{} && \text{(add and subtract } {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\text{)} \end{aligned} \\
+> \\ \begin{aligned} {\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y} &= \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} + \mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{} && \text{(add and subtract } {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\text{)} \end{aligned} \\
 >
 > Square it:
 >
-> \\ \begin{aligned} {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2} &= {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2} + 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{} + {\mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{}}^{2} && \text{(expand the square of a sum)} \end{aligned} \\
+> \\ \begin{aligned} {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2} &= {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2} + 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{} + {\mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{}}^{2} && \text{(expand the square of a sum)} \end{aligned} \\
 >
 > Take the expectation of each term in turn.
 >
-> The first term does not depend on \\\mathcal{D}\_{\text{train}}\\: \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ is a constant, and \\{{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\\ has already been averaged over training sets. The expectation of a constant is that constant:
+> The first term does not depend on \\\mathcal{D}\_{\text{train}}\\: \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ is a constant, and \\{{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\\ has already been averaged over training sets. The expectation of a constant is that constant:
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2}\right\]\mathclose{}} &= {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2} && \text{(expectation of a constant)} \\ &= {\mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2} && \text{(a number and its negative have the same square)} \\ &= {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}}\right)\mathclose{}}^{2} && \text{(definition of bias)} \end{aligned} \\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2}\right\]\mathclose{}} &= {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2} && \text{(expectation of a constant)} \\ &= {\mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2} && \text{(a number and its negative have the same square)} \\ &= {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}}\right)\mathclose{}}^{2} && \text{(definition of bias)} \end{aligned} \\
 >
 > The cross term vanishes, and this time not by independence but because the expected prediction is the expectation of the prediction. The first factor is a constant, so it comes out of the expectation:
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{}\right\]\mathclose{}} &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} {\operatorname{E}\mathopen{}\left\[{{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right\]\mathclose{}} && \text{(constant factors)} \\ &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\mathopen{}\left\[{{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right\]\mathclose{}} - {\operatorname{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} && \text{(linearity)} \\ &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\operatorname{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} && \text{(expectation of a constant)} \\ &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} && \text{(definition of the expected prediction)} \\ &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \cdot 0 && \text{(} a - a = 0 \text{)} \\ &= 0 && \text{(a number times zero)} \end{aligned} \\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{}\right\]\mathclose{}} &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} {\mathbb{E}\mathopen{}\left\[{{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right\]\mathclose{}} && \text{(constant factors)} \\ &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({\mathbb{E}\mathopen{}\left\[{{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right\]\mathclose{}} - {\mathbb{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} && \text{(linearity)} \\ &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mathbb{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} && \text{(expectation of a constant)} \\ &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} && \text{(definition of the expected prediction)} \\ &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \cdot 0 && \text{(} a - a = 0 \text{)} \\ &= 0 && \text{(a number times zero)} \end{aligned} \\
 >
 > The third term is the expectation of the squared deviation of the prediction from its mean, which is the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of the prediction:
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{y}- {{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2}\right\]\mathclose{}} && \text{(a number and its negative have the same square)} \\ &= {\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}} && \text{(definition of variance)} \end{aligned} \\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left(\hat{y}- {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2}\right\]\mathclose{}} && \text{(a number and its negative have the same square)} \\ &= {\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}} && \text{(definition of variance)} \end{aligned} \\
 >
 > Adding the three expectations,
 >
-> \\ {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}} = {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}}. \tag{35}\\
+> \\ {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}} = {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}}. \tag{35}\\
 >
 > Neither cross term needed the noise to be normal, and neither assumed anything about the fitting procedure: \\g\\ can be a line, a tree or a neural network. This split is specific to squared-error loss, the loss of this chapter’s examples.
 
@@ -985,25 +985,25 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 > **Theorem 4 (Bias, variance and noise)** Let:
 >
 > - \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\,
-> - \\u\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
-> - \\\sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(u\right)\mathclose{}}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), and
-> - \\{\operatorname{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\\ and \\{\operatorname{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\\ be short forms of the [bias](#def-prediction-bias) \\{\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}}\\ and the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\{\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}}\\ of the [prediction](prediction.llms.md#def-prediction).
+> - \\\varepsilon\\ be the [noise](#def-noise) of \\Y\_{\*}\\, and
+> - \\\sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(\varepsilon\right)\mathclose{}}\\ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), and
+> - \\{\mathbb{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\\ and \\{\mathbb{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\\ be short forms of the [bias](#def-prediction-bias) \\{\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}}\\ and the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\{\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}}\\ of the [prediction](prediction.llms.md#def-prediction).
 >
 > Assume:
 >
 > - the new [covariate](#def-covariate) value \\X\_{\*}\\ equals the covariate value \\x\\ of the [prediction](prediction.llms.md#def-prediction),
 > - the population variance \\\sigma^2\\ is finite, and
-> - the expected squared prediction \\{\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}}\\ is finite.
+> - the expected squared prediction \\{\mathbb{E}\mathopen{}\left\[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}}\\ is finite.
 >
 > Then the [expected prediction error at \\x\\](#def-epe) is the squared [bias](#def-prediction-bias) of the prediction \\\hat{y}\\, used as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\, plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), plus \\\sigma^2\\:
 >
-> \\ {\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} = {\mathopen{}\left({\operatorname{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}} + \sigma^2. \tag{36}\\
+> \\ {\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} = {\mathopen{}\left({\mathbb{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^{2} + {\mathbb{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}} + \sigma^2. \tag{36}\\
 
 > **NOTE:**
 >
 > *Proof*. Every expectation below is conditional on \\X\_{\*}= x\\, as in the exercises. By [Solution 7](#sol-epe-split-noise), the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\. By [Solution 8](#sol-epe-split-bias), that pMSE is the squared bias plus the variance. Substituting [Equation 35](#eq-epe-after-bias) into [Equation 33](#eq-epe-after-noise):
 >
-> \\ \begin{aligned} {\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} &= \sigma^2+ {\operatorname{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}} && \text{(separating the noise)} \\ &= \sigma^2+ {\mathopen{}\left({\operatorname{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}} && \text{(separating the bias)} \\ &= {\mathopen{}\left({\operatorname{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}} + \sigma^2 && \text{(reorder the terms)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} &= \sigma^2+ {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}} && \text{(separating the noise)} \\ &= \sigma^2+ {\mathopen{}\left({\mathbb{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^{2} + {\mathbb{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}} && \text{(separating the bias)} \\ &= {\mathopen{}\left({\mathbb{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^{2} + {\mathbb{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}} + \sigma^2 && \text{(reorder the terms)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -1047,13 +1047,13 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > Find, given \\\mathcal{D}\_{\text{train}}\\, the expected sample mean loss of the held-out predictions, in terms of the generalization error \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\:
 >
-> \\ {\operatorname{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}. \\
+> \\ {\mathbb{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}}. \\
 
 > **NOTE:**
 >
-> *Solution 9*. Given \\\mathcal{D}\_{\text{train}}\\, the [fitted model](#def-fitted-model) \\\hat y\\ is fixed. Each held-out pair has the same distribution as \\(X\_{\*}, Y\_{\*})\\ and is independent of \\\mathcal{D}\_{\text{train}}\\, so each loss has conditional expectation \\{\operatorname{E}\mathopen{}\left\[\ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ by [Equation 13](#eq-generalization-error). Then
+> *Solution 9*. Given \\\mathcal{D}\_{\text{train}}\\, the [fitted model](#def-fitted-model) \\\hat y\\ is fixed. Each held-out pair has the same distribution as \\(X\_{\*}, Y\_{\*})\\ and is independent of \\\mathcal{D}\_{\text{train}}\\, so each loss has conditional expectation \\{\mathbb{E}\mathopen{}\left\[\ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ by [Equation 13](#eq-generalization-error). Then
 >
-> \\ \begin{aligned} & {\operatorname{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} \\ &\quad = \frac{1}{m} {\operatorname{E}\mathopen{}\left\[\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} && \text{(constant } 1/m\text{ out)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} {\operatorname{E}\mathopen{}\left\[\ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} && \text{(linearity of } \operatorname{E}\text{)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(each term, as above)} \\ &\quad = \frac{1}{m} \mathopen{}\left(m\\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right)\mathclose{} && \text{(} m\text{ equal terms)} \\ &\quad = \mathopen{}\left(\frac{1}{m} \cdot m\right)\mathclose{} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(regroup the product)} \\ &\quad = 1 \cdot \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && (\tfrac{1}{m} \cdot m= 1) \\ &\quad = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(multiplying by 1 changes nothing)} \end{aligned} \\
+> \\ \begin{aligned} & {\mathbb{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} \\ &\quad = \frac{1}{m} {\mathbb{E}\mathopen{}\left\[\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} && \text{(constant } 1/m\text{ out)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} {\mathbb{E}\mathopen{}\left\[\ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} && \text{(linearity of } \mathbb{E}\text{)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(each term, as above)} \\ &\quad = \frac{1}{m} \mathopen{}\left(m\\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right)\mathclose{} && \text{(} m\text{ equal terms)} \\ &\quad = \mathopen{}\left(\frac{1}{m} \cdot m\right)\mathclose{} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(regroup the product)} \\ &\quad = 1 \cdot \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && (\tfrac{1}{m} \cdot m= 1) \\ &\quad = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(multiplying by 1 changes nothing)} \end{aligned} \\
 >
 > The step labeled “each term, as above” is the one that needs the held-out set to be independent of \\\mathcal{D}\_{\text{train}}\\.
 
@@ -1061,7 +1061,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 >
 > **Theorem 5 (The held-out sample mean loss estimates the generalization error)** Let a [fitted model](#def-fitted-model) \\\hat y\\ be fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, and let a [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ be drawn from the same population as \\(X\_{\*}, Y\_{\*})\\, each independently of \\\mathcal{D}\_{\text{train}}\\. Write \\\ell\_{\*,j}\\ for the [loss](#def-observation-loss) of \\\hat y\\ on held-out observation \\j\\. Then, given \\\mathcal{D}\_{\text{train}}\\, the expected sample mean loss of the held-out predictions is the [generalization error](#def-generalization-error):
 >
-> \\ {\operatorname{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}. \\
+> \\ {\mathbb{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}. \\
 
 > **NOTE:**
 >
@@ -2027,9 +2027,9 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 
 > **NOTE:**
 >
-> **Theorem 7 (Leave-one-out cross-validation for least squares)** For a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols) with every [leverage](#def-leverage) \\h\_{i} \< 1\\, the [leave-one-out estimate](#def-loocv) can be computed from the single fit to all \\n\\ observations, from its [fitted values](prediction.llms.md#def-fitted-value) \\\hat y\_{i}\\, their [prediction errors](prediction.llms.md#def-prediction-error) \\\varepsilon\_{i} = \hat y\_{i} - y\_{i}\\, and the leverages:
+> **Theorem 7 (Leave-one-out cross-validation for least squares)** For a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols) with every [leverage](#def-leverage) \\h\_{i} \< 1\\, the [leave-one-out estimate](#def-loocv) can be computed from the single fit to all \\n\\ observations, from its [fitted values](prediction.llms.md#def-fitted-value) \\\hat y\_{i}\\, their [prediction errors](prediction.llms.md#def-prediction-error) \\{\varepsilon\_{\text{pred}}}\_{i} = \hat y\_{i} - y\_{i}\\, and the leverages:
 >
-> \\ \widehat{\operatorname{Err}}\_{\text{CV}(n)} = \frac{1}{n} \sum\_{i\in I} {\mathopen{}\left(\frac{\varepsilon\_{i}}{1 - h\_{i}}\right)\mathclose{}}^{2}. \tag{56}\\
+> \\ \widehat{\operatorname{Err}}\_{\text{CV}(n)} = \frac{1}{n} \sum\_{i\in I} {\mathopen{}\left(\frac{{\varepsilon\_{\text{pred}}}\_{i}}{1 - h\_{i}}\right)\mathclose{}}^{2}. \tag{56}\\
 
 > **NOTE:**
 >
@@ -2106,7 +2106,7 @@ Last modified: 2026-10-22 14:16:35 (PDT)
 > - [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) \\\mathcal{A}\\: the [normal equations](correlation-regression.llms.md#def-normal-equations) for each candidate, then keeping the candidate with the smallest cross-validation estimate of its [expected generalization error](#def-expected-generalization-error) \\{\operatorname{Err}^{g\_{d}}\mathopen{}\left(n\right)\mathclose{}}\\;
 > - [random seed](#def-random-seed) \\\mathfrak{s}\\: fixes the random [fold assignment](#def-fold-assignment);
 > - [tuning parameter](#def-tuning-parameter) \\\lambda\\: none, since cross-validation chooses the degree;
-> - [preprocessing](#def-preprocessing) \\\phi\\: none.
+> - [preprocessing](#def-preprocessing) \\D\\: none.
 
 > **NOTE:**
 >
