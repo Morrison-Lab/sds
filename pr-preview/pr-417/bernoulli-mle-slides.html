@@ -275,7 +275,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-21 14:06:33 (PDT)</p>
+  <p class="date">Last modified: 2026-10-22 01:19:36 (PDT)</p>
 </section><section id="sec-bernoulli-mle" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Maximum likelihood for a Bernoulli model without covariates</h2>
 <style>
@@ -359,7 +359,7 @@ text-align: center;
 <p><span class="math display">\[\ell_i(\pi) = y_i{\operatorname{log}\mathopen{}\left\{\pi\right\}\mathclose{}} + (1 - y_i) {\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}}\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-loglik-contribution" class="quarto-xref">Exercise&nbsp;2</a>, worked in <a href="#/sol-bernoulli-loglik-contribution" class="quarto-xref">Solution&nbsp;2</a>. Rewriting it with the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-odds">log-odds</a> <span class="math inline">\(\operatorname{logit}(\pi)\)</span> and summing over <span class="math inline">\(i\)</span> gives <a href="#/thm-bernoulli-loglik-one-group" class="quarto-xref">Theorem&nbsp;3</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-loglik-contribution" class="quarto-xref">Exercise&nbsp;2</a>, worked in <a href="#/sol-bernoulli-loglik-contribution" class="quarto-xref">Solution&nbsp;2</a>. Rewriting it with the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-odds">log-odds</a> <span class="math inline">\(\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\)</span> and summing over <span class="math inline">\(i\)</span> gives <a href="#/thm-bernoulli-loglik-one-group" class="quarto-xref">Theorem&nbsp;3</a>.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="1.3" id="the-log-likelihood-of-the-sample">
 <span class="header-section-number">1.3</span> The log-likelihood of the sample</h3>
@@ -385,14 +385,14 @@ text-align: center;
 &amp;&amp; \text{(collect the terms in $\textstyle\sum_{i=1}^ny_i$)}\\
 &amp;= \mathopen{}\left(\sum_{i=1}^ny_i\right)\mathclose{} {\operatorname{log}\mathopen{}\left\{\frac{\pi}{1 - \pi}\right\}\mathclose{}} + n {\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}}
 &amp;&amp; \text{(log of a quotient)}\\
-&amp;= \mathopen{}\left(\sum_{i=1}^ny_i\right)\mathclose{} \operatorname{logit}(\pi) + n {\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}}
-&amp;&amp; \text{(definition of $\operatorname{logit}$)}
+&amp;= \mathopen{}\left(\sum_{i=1}^ny_i\right)\mathclose{} \eta+ n {\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}}
+&amp;&amp; \text{(definition of $\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)$)}
 \end{aligned}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="thm-bernoulli-loglik-one-group" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (Log-likelihood of binary outcomes with one event probability)</strong></span> Let <span class="math inline">\(Y_i\ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span> for <span class="math inline">\(i = 1, \dots, n\)</span>, with observed outcomes <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\)</span>, each <span class="math inline">\(y_i\in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>. The log-likelihood <span class="math inline">\(\ell(\pi; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\)</span> of the event probability <span class="math inline">\(\pi\)</span>, written with the log-odds <span class="math inline">\(\operatorname{logit}(\pi)\)</span>, is:</p>
-<p><span class="math display">\[\ell(\pi; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \mathopen{}\left(\sum_{i=1}^ny_i\right)\mathclose{} \operatorname{logit}(\pi) + n {\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}}\]</span></p>
+<p><span class="theorem-title"><strong>Theorem 3 (Log-likelihood of binary outcomes with one event probability)</strong></span> Let <span class="math inline">\(Y_i\ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span> for <span class="math inline">\(i = 1, \dots, n\)</span>, with observed outcomes <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\)</span>, each <span class="math inline">\(y_i\in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>. The log-likelihood <span class="math inline">\(\ell(\pi; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\)</span> of the event probability <span class="math inline">\(\pi\)</span>, written with the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-odds">log-odds</a> <span class="math inline">\(\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\)</span>, is:</p>
+<p><span class="math display">\[\ell(\pi; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \mathopen{}\left(\sum_{i=1}^ny_i\right)\mathclose{} \eta+ n {\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}}\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-loglik-one-group" class="quarto-xref">Exercise&nbsp;3</a>, worked in <a href="#/sol-bernoulli-loglik-one-group" class="quarto-xref">Solution&nbsp;3</a>. It builds on <a href="#/thm-bernoulli-likelihood-one-group" class="quarto-xref">Theorem&nbsp;1</a>.</p>
@@ -400,7 +400,8 @@ text-align: center;
 </section><section class="slide level2"><h3 data-number="1.4" id="the-score-of-one-observation">
 <span class="header-section-number">1.4</span> The score of one observation</h3>
 <div id="exr-derive-bernoulli-score" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4 (Score function of a Bernoulli variable)</strong></span> Derive the score function for a single Bernoulli random variable <span class="math inline">\(X\)</span>. In other words, differentiate the log-likelihood of a single Bernoulli random variable <span class="math inline">\(X\)</span> with respect to the event probability parameter <span class="math inline">\(\pi\)</span>. Simplify as much as possible.</p>
+<p><span class="theorem-title"><strong>Exercise 4 (Score function of a Bernoulli variable)</strong></span> Let <span class="math inline">\(\delta\stackrel{\text{def}}{=}x - {\operatorname{E}\mathopen{}\left[X\right]\mathclose{}}\)</span> be the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> of the observed value <span class="math inline">\(x\)</span> from the mean of <span class="math inline">\(X\)</span>.</p>
+<p>Derive the score function for a single Bernoulli random variable <span class="math inline">\(X\)</span>. In other words, differentiate the log-likelihood of a single Bernoulli random variable <span class="math inline">\(X\)</span> with respect to the event probability parameter <span class="math inline">\(\pi\)</span>. Simplify as much as possible.</p>
 </div>
 </section><section class="slide level2"><div id="sol-derive-bernoulli-score" class="proof solution">
 <p><span class="proof-title"><em>Solution 4</em>. </span>With <span class="math inline">\(n = 1\)</span>, <a href="#/thm-bernoulli-loglik-one-group" class="quarto-xref">Theorem&nbsp;3</a> gives <span class="math inline">\(\ell= x {\operatorname{log}\mathopen{}\left\{\pi\right\}\mathclose{}} + (1 - x) {\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}}\)</span>, so:</p>
@@ -455,14 +456,16 @@ text-align: center;
 &amp;&amp; \text{(cancel $x\pi$)}\\
 &amp;= \frac{x - {\operatorname{E}\mathopen{}\left[X\right]\mathclose{}}}{\pi(1 - \pi)}
 &amp;&amp; \text{(${\operatorname{E}\mathopen{}\left[X\right]\mathclose{}} = \pi$)}\\
-&amp;= \frac{x - {\operatorname{E}\mathopen{}\left[X\right]\mathclose{}}}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}}
+&amp;= \frac{\delta}{\pi(1 - \pi)}
+&amp;&amp; \text{(definition of $\delta$)}\\
+&amp;= \frac{\delta}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}}
 &amp;&amp; \text{(${\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \pi(1 - \pi)$)}
 \end{aligned}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="thm-bernoulli-score" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4 (Score function of a Bernoulli variable)</strong></span> Let <span class="math inline">\(X \sim \operatorname{Ber}(\pi)\)</span>, with event probability <span class="math inline">\(\pi\)</span> and observed value <span class="math inline">\(x \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>. The <a href="./intro-MLEs.html#def-score">score</a> <span class="math inline">\(\ell'\)</span> of the single observation <span class="math inline">\(x\)</span> is the derivative of its log-likelihood <span class="math inline">\(\ell\)</span> with respect to <span class="math inline">\(\pi\)</span>. It equals the deviation of <span class="math inline">\(x\)</span> from the mean <span class="math inline">\({\operatorname{E}\mathopen{}\left[X\right]\mathclose{}}\)</span>, divided by the variance <span class="math inline">\({\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\)</span>:</p>
-<p><span class="math display">\[\ell'= \frac{x - {\operatorname{E}\mathopen{}\left[X\right]\mathclose{}}}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}} = \frac{x - \pi}{\pi(1 - \pi)}\]</span></p>
+<p><span class="theorem-title"><strong>Theorem 4 (Score function of a Bernoulli variable)</strong></span> Let <span class="math inline">\(X \sim \operatorname{Ber}(\pi)\)</span>, with event probability <span class="math inline">\(\pi\)</span> and observed value <span class="math inline">\(x \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>. The <a href="./intro-MLEs.html#def-score">score</a> <span class="math inline">\(\ell'\)</span> of the single observation <span class="math inline">\(x\)</span> is the derivative of its log-likelihood <span class="math inline">\(\ell\)</span> with respect to <span class="math inline">\(\pi\)</span>. It equals the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> <span class="math inline">\(\delta\stackrel{\text{def}}{=}x - {\operatorname{E}\mathopen{}\left[X\right]\mathclose{}}\)</span> of <span class="math inline">\(x\)</span> from the mean <span class="math inline">\({\operatorname{E}\mathopen{}\left[X\right]\mathclose{}}\)</span>, divided by the variance <span class="math inline">\({\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\)</span>:</p>
+<p><span class="math display">\[\ell'= \frac{\delta}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}} = \frac{\delta}{\pi(1 - \pi)}\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-derive-bernoulli-score" class="quarto-xref">Exercise&nbsp;4</a>, worked in <a href="#/sol-derive-bernoulli-score" class="quarto-xref">Solution&nbsp;4</a>. It builds on <a href="#/thm-bernoulli-loglik-one-group" class="quarto-xref">Theorem&nbsp;3</a>, with <span class="math inline">\(n = 1\)</span>.</p>
@@ -473,9 +476,11 @@ text-align: center;
 <p><span class="theorem-title"><strong>Exercise 5 (Score contribution of one binary outcome)</strong></span> In the setting of <a href="#/exr-bernoulli-loglik-contribution" class="quarto-xref">Exercise&nbsp;2</a>, let:</p>
 <ul>
 <li>
-<span class="math inline">\(\tau\stackrel{\text{def}}{=}1 / {\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}\)</span> be the precision of <span class="math inline">\(Y_i\)</span>.</li>
+<span class="math inline">\(\delta_i\stackrel{\text{def}}{=}y_i- \pi\)</span> be the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> of <span class="math inline">\(y_i\)</span> from its mean <span class="math inline">\(\pi\)</span>;</li>
+<li>
+<span class="math inline">\(\tau\stackrel{\text{def}}{=}1 / {\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}\)</span> be the <a href="./intro-MLEs.html#def-precision-rv">precision</a> of <span class="math inline">\(Y_i\)</span>.</li>
 </ul>
-<p>Derive the <a href="./intro-MLEs.html#def-score">score</a> contribution <span class="math inline">\(\ell'_i(\pi) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell_i(\pi)\)</span> of observation <span class="math inline">\(i\)</span>, and write it using <span class="math inline">\(\tau\)</span>.</p>
+<p>Derive the <a href="./intro-MLEs.html#def-score">score</a> contribution <span class="math inline">\(\ell'_i(\pi) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell_i(\pi)\)</span> of observation <span class="math inline">\(i\)</span>, and write it using <span class="math inline">\(\delta_i\)</span> and <span class="math inline">\(\tau\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-bernoulli-score-contribution" class="proof solution">
 <p><span class="proof-title"><em>Solution 5</em>. </span><span class="math display">\[
@@ -485,18 +490,20 @@ text-align: center;
 &amp;&amp; \text{(definition of the score contribution)}\\
 &amp;= \frac{y_i- \pi}{\pi(1 - \pi)}
 &amp;&amp; \text{(score of a Bernoulli variable, with $x = y_i$)}\\
-&amp;= \frac{y_i- \pi}{{\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}}
+&amp;= \frac{\delta_i}{\pi(1 - \pi)}
+&amp;&amp; \text{(definition of $\delta_i$)}\\
+&amp;= \frac{\delta_i}{{\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}}
 &amp;&amp; \text{(${\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}} = \pi(1 - \pi)$)}\\
-&amp;= \frac{1}{{\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}} (y_i- \pi)
+&amp;= \frac{1}{{\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}} \delta_i
 &amp;&amp; \text{(a fraction is its numerator times the reciprocal of its denominator)}\\
-&amp;= \tau(y_i- \pi)
+&amp;= \tau\delta_i
 &amp;&amp; \text{(definition of $\tau$)}
 \end{aligned}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="thm-bernoulli-score-contribution" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5 (Score contribution of one binary outcome)</strong></span> If <span class="math inline">\(Y_i\sim \operatorname{Ber}(\pi)\)</span> has observed value <span class="math inline">\(y_i\in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> and precision <span class="math inline">\(\tau= 1 / {\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}} = 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span>, its <a href="./intro-MLEs.html#def-score">score</a> contribution is the precision times the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> of <span class="math inline">\(y_i\)</span> from its mean <span class="math inline">\(\pi\)</span>:</p>
-<p><span class="math display">\[\ell'_i(\pi) = \tau(y_i- \pi)\]</span></p>
+<p><span class="theorem-title"><strong>Theorem 5 (Score contribution of one binary outcome)</strong></span> If <span class="math inline">\(Y_i\sim \operatorname{Ber}(\pi)\)</span> has observed value <span class="math inline">\(y_i\in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> and <a href="./intro-MLEs.html#def-precision-rv">precision</a> <span class="math inline">\(\tau= 1 / {\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}} = 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span>, its <a href="./intro-MLEs.html#def-score">score</a> contribution is the precision times the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> <span class="math inline">\(\delta_i\stackrel{\text{def}}{=}y_i- \pi\)</span> of <span class="math inline">\(y_i\)</span> from its mean <span class="math inline">\(\pi\)</span>:</p>
+<p><span class="math display">\[\ell'_i(\pi) = \tau\delta_i\]</span></p>
 <p>The precision <span class="math inline">\(\tau\)</span> is the same for every <span class="math inline">\(i\)</span>, because all <span class="math inline">\(Y_i\)</span> share the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-event">event</a> <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\pi\)</span>.</p>
 </div>
 <div class="proof">
@@ -513,10 +520,12 @@ text-align: center;
 \ell'(\pi)
 &amp;= \sum_{i=1}^n\ell'_i(\pi)
 &amp;&amp; \text{(score of an independent sample is the sum of the score contributions)}\\
-&amp;= \sum_{i=1}^n\tau(y_i- \pi)
+&amp;= \sum_{i=1}^n\tau\delta_i
 &amp;&amp; \text{(score contribution of a binary outcome)}\\
-&amp;= \tau\sum_{i=1}^n(y_i- \pi)
+&amp;= \tau\sum_{i=1}^n\delta_i
 &amp;&amp; \text{($\tau$ is the same for every $i$)}\\
+&amp;= \tau\sum_{i=1}^n(y_i- \pi)
+&amp;&amp; \text{(definition of $\delta_i$)}\\
 &amp;= \tau\mathopen{}\left(\sum_{i=1}^ny_i- \sum_{i=1}^n\pi\right)\mathclose{}
 &amp;&amp; \text{(split the sum)}\\
 &amp;= \tau\mathopen{}\left(\sum_{i=1}^ny_i- n \pi\right)\mathclose{}
@@ -529,7 +538,7 @@ text-align: center;
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="thm-bernoulli-score-sum" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 6 (Score function of a binary sample)</strong></span> If <span class="math inline">\(Y_i\ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span> for <span class="math inline">\(i= 1, \dots, n\)</span>, with observed <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> <span class="math inline">\(\bar{y}\)</span> and precision <span class="math inline">\(\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span>, the <a href="./intro-MLEs.html#def-score">score function</a> is:</p>
+<p><span class="theorem-title"><strong>Theorem 6 (Score function of a binary sample)</strong></span> If <span class="math inline">\(Y_i\ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span> for <span class="math inline">\(i= 1, \dots, n\)</span>, with observed <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> <span class="math inline">\(\bar{y}\)</span> and <a href="./intro-MLEs.html#def-precision-rv">precision</a> <span class="math inline">\(\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span>, the <a href="./intro-MLEs.html#def-score">score function</a> is:</p>
 <p><span class="math display">\[\ell'(\pi) = n \tau(\bar{y}- \pi)\]</span></p>
 </div>
 <div class="proof">
