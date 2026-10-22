@@ -18,7 +18,7 @@ $$
 $$ {#eq-prediction-bias}
 
 This expected error is signed, not squared.
-It is not the [expected squared prediction error](#def-epe) (EPE).
+It is not the [expected squared prediction error](#def-epe).
 
 :::
 
