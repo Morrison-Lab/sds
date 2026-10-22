@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 14:07:34 (PDT)
+Last modified: 2026-10-22 15:19:15 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -98,35 +98,35 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > **Definition 3 (Rao–Blackwellized estimator)** Let \\\hat{\theta}\\ be an [estimator](estimation.llms.md#def-estimator) of \\\theta\\, and let \\{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. The **Rao–Blackwellized estimator** is the conditional expectation of \\\hat{\theta}\\ given the statistic:
 >
-> \\ \hat{\theta}\_{\mathrm{RB}} \stackrel{\text{def}}{=}{{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}} \tag{3}\\
+> \\ \hat{\theta}\_{\mathrm{RB}} \stackrel{\text{def}}{=}{{\mathbb{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}} \tag{3}\\
 
 > **NOTE:**
 >
-> **Lemma 1 (The Rao–Blackwellized estimator is a statistic)** Let \\{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\ and \\\hat{\theta}\\ an estimator of \\\theta\\ with finite expectation. Then \\{{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\\ does not depend on \\\theta\\, so it is a [statistic](#def-statistic) and an estimator.
+> **Lemma 1 (The Rao–Blackwellized estimator is a statistic)** Let \\{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\ and \\\hat{\theta}\\ an estimator of \\\theta\\ with finite expectation. Then \\{{\mathbb{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\\ does not depend on \\\theta\\, so it is a [statistic](#def-statistic) and an estimator.
 
 > **NOTE:**
 >
 > *Proof*. Take a [discrete](data.llms.md#def-discrete-var) [sample](exploratory-descriptive.llms.md#def-sample), and choose a value \\t\\ that the [statistic](#def-statistic) \\{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\\ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability). Write \\\hat{\theta}= \hat{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\.
 >
-> \\ \begin{aligned} {{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right\]\mathclose{}}} &= \sum\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}} \hat{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{} \\ \Pr\_{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{} && \text{(conditional expectation)} \end{aligned} \\
+> \\ \begin{aligned} {{\mathbb{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right\]\mathclose{}}} &= \sum\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}} \hat{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{} \\ \Pr\_{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{} && \text{(conditional expectation)} \end{aligned} \\
 >
 > Each term involves \\\hat{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{}\\, which does not depend on \\\theta\\, and the conditional probability, which does not depend on \\\theta\\ by [Equation 1](#eq-sufficient). So the sum does not depend on \\\theta\\.
 
 > **NOTE:**
 >
-> **Theorem 2 (Rao–Blackwellizing preserves unbiasedness)** If \\\hat{\theta}\\ is an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ and \\{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\\ is a [sufficient](#def-sufficient) statistic for \\\theta\\, then \\{{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\\ is also unbiased for \\\theta\\.
+> **Theorem 2 (Rao–Blackwellizing preserves unbiasedness)** If \\\hat{\theta}\\ is an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ and \\{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\\ is a [sufficient](#def-sufficient) statistic for \\\theta\\, then \\{{\mathbb{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\\ is also unbiased for \\\theta\\.
 
 > **NOTE:**
 >
 > *Proof*. We use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie):
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[{{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\right\]\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} && \text{(law of iterated expectations)}\\ &= \theta && \text{(\$\hat{\theta}\$ is unbiased)} \end{aligned} \\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[{{\mathbb{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\right\]\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}} && \text{(law of iterated expectations)}\\ &= \theta && \text{(\$\hat{\theta}\$ is unbiased)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 3 (Rao–Blackwell theorem)** Let \\\hat{\theta}\\ be an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ with finite variance, and let \\{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. Then the [Rao–Blackwellized estimator](#def-rao-blackwellized) is unbiased and has variance no larger than that of \\\hat{\theta}\\, for every \\\theta\\:
 >
-> \\ {\operatorname{Var}\mathopen{}\left({{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\right)\mathclose{}} \le {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} \tag{4}\\
+> \\ {\operatorname{Var}\mathopen{}\left({{\mathbb{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\right)\mathclose{}} \le {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} \tag{4}\\
 >
 > Source: [\[6\]](#ref-rao1945information), [\[7\]](#ref-blackwell1947conditional), [\[4\]](#ref-CaseBerg01), Thm. 7.3.17, p. 342, [\[8\]](#ref-wikipedia_rao_blackwell_theorem).
 
@@ -134,7 +134,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > *Proof*. Unbiasedness is [Theorem 2](#thm-rb-unbiased). For the variance, we use the [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance):
 >
-> \\ \begin{aligned} {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &= {\operatorname{Var}\mathopen{}\left({{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\right)\mathclose{}} + {\operatorname{E}\mathopen{}\left\[{{\operatorname{Var}\mathopen{}\left(\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right)\mathclose{}}}\right\]\mathclose{}} && \text{(law of total variance)}\\ &\ge {\operatorname{Var}\mathopen{}\left({{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\right)\mathclose{}} && \text{(a variance is nonnegative)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &= {\operatorname{Var}\mathopen{}\left({{\mathbb{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\right)\mathclose{}} + {\mathbb{E}\mathopen{}\left\[{{\operatorname{Var}\mathopen{}\left(\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right)\mathclose{}}}\right\]\mathclose{}} && \text{(law of total variance)}\\ &\ge {\operatorname{Var}\mathopen{}\left({{\mathbb{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\right)\mathclose{}} && \text{(a variance is nonnegative)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -166,7 +166,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > The crude estimator is the indicator that the first observation is zero, \\\hat{\pi}\_1 = {\mathbb{1}\mathopen{}\left\\X_1 = 0\right\\\mathclose{}}\\, which uses one observation and is unbiased for \\\pi\\. Its Rao–Blackwellization is
 >
-> \\ \begin{aligned} \hat{\pi}\_2 &= {{\operatorname{E}\mathopen{}\left\[\hat{\pi}\_1 \mid S\right\]\mathclose{}}} && \text{(definition of the Rao--Blackwellized estimator)}\\ &= {\Pr\mathopen{}\left(X_1 = 0 \mid S\right)\mathclose{}} && \text{(the mean of an indicator is a probability)}\\ &= \mathopen{}\left(\frac{n-1}{n}\right)\mathclose{}^S && \text{(conditional probability of a zero)} \end{aligned} \\
+> \\ \begin{aligned} \hat{\pi}\_2 &= {{\mathbb{E}\mathopen{}\left\[\hat{\pi}\_1 \mid S\right\]\mathclose{}}} && \text{(definition of the Rao--Blackwellized estimator)}\\ &= {\Pr\mathopen{}\left(X_1 = 0 \mid S\right)\mathclose{}} && \text{(the mean of an indicator is a probability)}\\ &= \mathopen{}\left(\frac{n-1}{n}\right)\mathclose{}^S && \text{(conditional probability of a zero)} \end{aligned} \\
 >
 > By [Lemma 2](#lem-poisson-zero-rb), the conditional probability in the last line is the one in [Equation 5](#eq-poisson-zero-conditional). For \\n = 20\\ we draw 10,000 samples, compute both estimators on each, and report each one’s sample mean (with a 95% confidence interval) and variance (with a 95% confidence interval from the normal approximation to the sampling distribution of a sample variance).
 >
@@ -240,7 +240,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> *Remark 5* (Sufficiency is needed). If \\{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\\ is not sufficient, then \\{{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger [\[4\]](#ref-CaseBerg01), Example 7.3.18).
+> *Remark 5* (Sufficiency is needed). If \\{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\\ is not sufficient, then \\{{\mathbb{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger [\[4\]](#ref-CaseBerg01), Example 7.3.18).
 
 ## 3 Further reading
 

@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-22 14:07:34 (PDT)</p>
+  <p class="date">Last modified: 2026-10-22 15:19:15 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -606,13 +606,13 @@ N_\iota(y_\sigma)
 &amp;&amp; \text{(for each $\sigma$, $Y_\sigma$ has the distribution of $Y$, by exchangeability)}\\
 &amp;= \Pr_{H_0}\mathopen{}\left(N_\sigma(Y) \le k\right)\mathclose{}
 &amp;&amp; \text{(relabeling identity)}\\
-&amp;= {\operatorname{E}\mathopen{}\left[\mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}}
+&amp;= {\mathbb{E}\mathopen{}\left[\mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}}
 &amp;&amp; \text{(probability of an event is the expected value of its indicator)}\\
-&amp;= \frac{1}{n!} \sum_{\sigma \in S_n} {\operatorname{E}\mathopen{}\left[\mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}}
+&amp;= \frac{1}{n!} \sum_{\sigma \in S_n} {\mathbb{E}\mathopen{}\left[\mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}}
 &amp;&amp; \text{(the average of $n!$ equal terms)}\\
-&amp;= \frac{1}{n!} {\operatorname{E}\mathopen{}\left[\sum_{\sigma \in S_n} \mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}}
+&amp;= \frac{1}{n!} {\mathbb{E}\mathopen{}\left[\sum_{\sigma \in S_n} \mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}}
 &amp;&amp; \text{(expectation of a sum is the sum of expectations)}\\
-&amp;\le \frac{1}{n!} {\operatorname{E}\mathopen{}\left[k\right]\mathclose{}}
+&amp;\le \frac{1}{n!} {\mathbb{E}\mathopen{}\left[k\right]\mathclose{}}
 &amp;&amp; \text{(counting bound, with $N = n!$ and $t_\sigma = T(Y_\sigma)$)}\\
 &amp;= \frac{k}{n!}
 &amp;&amp; \text{(the expected value of a constant is the constant)}

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 14:07:34 (PDT)
+Last modified: 2026-10-22 15:19:15 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models [\[1, Ch. 13\]](#ref-dobson4e). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -20,7 +20,7 @@ When the posterior has a known closed form, as in [the Beta-Bernoulli example](b
 
 > **NOTE:**
 >
-> **Example 1 (A sequence that converges to the standard Gaussian)** Let \\\theta^{(t+1)} = 0.5\\\theta^{(t)} + u_t\\, with \\u_t \\ \sim\_{\operatorname{iid}}\\ {\operatorname{N}\mathopen{}\left(0, 0.75\right)\mathclose{}}\\ independent of the past. Each draw depends on the previous one. If \\\theta^{(t)}\\ has mean \\m_t\\ and variance \\v_t\\, then \\m\_{t+1} = 0.5\\ m_t\\ and \\v\_{t+1} = 0.25\\ v_t + 0.75\\, so from any starting value \\m_t \to 0\\ and \\v_t \to 1\\: the draws’ distribution converges to \\{\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}\\. This sequence is an MCMC method for sampling the standard Gaussian distribution; its draws are correlated, unlike independent draws.
+> **Example 1 (A sequence that converges to the standard Gaussian)** Let \\\theta^{(t+1)} = 0.5\\\theta^{(t)} + \varepsilon_t\\, with \\\varepsilon_t \\ \sim\_{\operatorname{iid}}\\ {\operatorname{N}\mathopen{}\left(0, 0.75\right)\mathclose{}}\\ independent of the past. Each draw depends on the previous one. If \\\theta^{(t)}\\ has mean \\m_t\\ and variance \\v_t\\, then \\m\_{t+1} = 0.5\\ m_t\\ and \\v\_{t+1} = 0.25\\ v_t + 0.75\\, so from any starting value \\m_t \to 0\\ and \\v_t \to 1\\: the draws’ distribution converges to \\{\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}\\. This sequence is an MCMC method for sampling the standard Gaussian distribution; its draws are correlated, unlike independent draws.
 
 ### 1.1 Why the normalizing constant is hard to compute
 
@@ -34,7 +34,7 @@ an integral over every dimension of \\\mathord{\smash\[b\]{\underset{\raise.3ex\
 
 > **NOTE:**
 >
-> **Definition 2 (Monte Carlo estimate)** Given draws \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}, \ldots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(M)} \\ \sim\_{\operatorname{iid}}\\ \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ and a function \\g\\, the **Monte Carlo estimate** of the [posterior](#def-posterior) expectation \\{\operatorname{E}\mathopen{}\left\[g(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ is
+> **Definition 2 (Monte Carlo estimate)** Given draws \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}, \ldots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(M)} \\ \sim\_{\operatorname{iid}}\\ \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ and a function \\g\\, the **Monte Carlo estimate** of the [posterior](#def-posterior) expectation \\{\mathbb{E}\mathopen{}\left\[g(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ is
 >
 > \\ \frac{1}{M} \sum\_{m=1}^{M} g\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(m)}\right)\mathclose{}. \\
 >
@@ -123,7 +123,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 >
 > *Solution 1*. Suppose \\\theta^{(t)} \sim {\operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}}\\. By [Example 4](#exm-ar1-chain), \\\varepsilon^{(t+1)}\\ is independent of \\\theta^{(t)}\\, so \\\theta^{(t+1)} = \rho\\ \theta^{(t)} + \varepsilon^{(t+1)}\\, a linear combination of independent Gaussian random variables, is Gaussian [\[6\]](#ref-CaseBerg01), Corollary 4.6.10. By [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation), its mean is
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[\theta^{(t+1)}\right\]\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[\rho\\ \theta^{(t)} + \varepsilon^{(t+1)}\right\]\mathclose{}} && \text{(definition of the chain)}\\ &= \rho\\ {\operatorname{E}\mathopen{}\left\[\theta^{(t)}\right\]\mathclose{}} + {\operatorname{E}\mathopen{}\left\[\varepsilon^{(t+1)}\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= \rho\cdot 0 + 0 && \text{(substituting the two means)}\\ &= 0 && \text{(arithmetic)}. \end{aligned} \tag{2}\\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[\theta^{(t+1)}\right\]\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[\rho\\ \theta^{(t)} + \varepsilon^{(t+1)}\right\]\mathclose{}} && \text{(definition of the chain)}\\ &= \rho\\ {\mathbb{E}\mathopen{}\left\[\theta^{(t)}\right\]\mathclose{}} + {\mathbb{E}\mathopen{}\left\[\varepsilon^{(t+1)}\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= \rho\cdot 0 + 0 && \text{(substituting the two means)}\\ &= 0 && \text{(arithmetic)}. \end{aligned} \tag{2}\\
 >
 > Independent random variables are [uncorrelated](https://morrison-lab.github.io/pds/variance-covariance.html#thm-indpt-uncorrelated), so \\{\operatorname{Cov}\mathopen{}\left(\theta^{(t)}, \varepsilon^{(t+1)}\right)\mathclose{}} = 0\\, and by the [variance of a sum of two random variables](https://morrison-lab.github.io/pds/variance-covariance.html#cor-var-lincom2), the variance is
 >
@@ -444,7 +444,7 @@ To compare models fit to the same data by Bayesian inference, we need a measure 
 
 > **NOTE:**
 >
-> **Definition 15 (Effective number of parameters)** Let \\\overline{D} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[D(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the posterior mean of the [deviance](#def-bayes-deviance), and let \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the posterior mean of the parameters. The **effective number of parameters** is
+> **Definition 15 (Effective number of parameters)** Let \\\overline{D} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[D(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the posterior mean of the [deviance](#def-bayes-deviance), and let \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the posterior mean of the parameters. The **effective number of parameters** is
 >
 > \\ p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}). \\
 

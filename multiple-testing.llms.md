@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 14:07:34 (PDT)
+Last modified: 2026-10-22 15:19:15 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests [\[1\]](#ref-wikipedia_multiple_comparisons_problem).
 
@@ -256,7 +256,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > **Definition 5 (False discovery rate)** The **false discovery rate** (FDR) is the expected value of the [false discovery proportion](#def-fdp):
 >
-> \\ \text{FDR} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\text{FDP}\right\]\mathclose{}}. \\
+> \\ \text{FDR} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\text{FDP}\right\]\mathclose{}}. \\
 >
 > Source: Wikipedia contributors [\[7\]](#ref-wikipedia_false_discovery_rate).
 
@@ -270,7 +270,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Example 5 (FDR of unadjusted testing in the simulated family)** In the 2000 repetitions of [Example 4](#exm-fwer), average the false discovery proportion of each repetition to estimate the FDR. The *power* of a procedure is the expected fraction of the 100 false null hypotheses it rejects, \\{\operatorname{E}\mathopen{}\left\[S\right\]\mathclose{}} / m_1\\:
+> **Example 5 (FDR of unadjusted testing in the simulated family)** In the 2000 repetitions of [Example 4](#exm-fwer), average the false discovery proportion of each repetition to estimate the FDR. The *power* of a procedure is the expected fraction of the 100 false null hypotheses it rejects, \\{\mathbb{E}\mathopen{}\left\[S\right\]\mathclose{}} / m_1\\:
 >
 > ``` downlit
 > summarize_counts <- function(counts, m1 = 100) {
@@ -416,7 +416,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > *Proof*. The inequality in the second line is [Lemma 2](#lem-indicator-union).
 >
-> \\ \begin{aligned} {\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[\mathbb{1}\_{A_1 \cup \cdots \cup A_k}\right\]\mathclose{}} && \text{(the expected value of an indicator is the probability of its event)}\\ &\le {\operatorname{E}\mathopen{}\left\[\mathbb{1}\_{A_1} + \cdots + \mathbb{1}\_{A_k}\right\]\mathclose{}} && \text{(indicator inequality, and expectation preserves inequalities)}\\ &= {\operatorname{E}\mathopen{}\left\[\mathbb{1}\_{A_1}\right\]\mathclose{}} + \cdots + {\operatorname{E}\mathopen{}\left\[\mathbb{1}\_{A_k}\right\]\mathclose{}} && \text{(expectation of a sum is the sum of expectations)}\\ &= \Pr(A_1) + \cdots + \Pr(A_k) && \text{(the expected value of an indicator is the probability of its event)} \end{aligned} \\
+> \\ \begin{aligned} {\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[\mathbb{1}\_{A_1 \cup \cdots \cup A_k}\right\]\mathclose{}} && \text{(the expected value of an indicator is the probability of its event)}\\ &\le {\mathbb{E}\mathopen{}\left\[\mathbb{1}\_{A_1} + \cdots + \mathbb{1}\_{A_k}\right\]\mathclose{}} && \text{(indicator inequality, and expectation preserves inequalities)}\\ &= {\mathbb{E}\mathopen{}\left\[\mathbb{1}\_{A_1}\right\]\mathclose{}} + \cdots + {\mathbb{E}\mathopen{}\left\[\mathbb{1}\_{A_k}\right\]\mathclose{}} && \text{(expectation of a sum is the sum of expectations)}\\ &= \Pr(A_1) + \cdots + \Pr(A_k) && \text{(the expected value of an indicator is the probability of its event)} \end{aligned} \\
 
 > **NOTE:**
 >

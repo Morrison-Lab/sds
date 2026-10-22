@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 14:07:34 (PDT)
+Last modified: 2026-10-22 15:19:15 (PDT)
 
 ## 1 Introduction
 
@@ -218,15 +218,15 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > and the Welch–Satterthwaite degrees of freedom
 >
-> \\\hat{\nu}\stackrel{\text{def}}{=}\frac{\mathopen{}\left(\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}\right)\mathclose{}^2} {\dfrac{(s_1^2 / n_1)^2}{n_1 - 1} + \dfrac{(s_2^2 / n_2)^2}{n_2 - 1}}.\\
+> \\\hat{\operatorname{df}}\stackrel{\text{def}}{=}\frac{\mathopen{}\left(\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}\right)\mathclose{}^2} {\dfrac{(s_1^2 / n_1)^2}{n_1 - 1} + \dfrac{(s_2^2 / n_2)^2}{n_2 - 1}}.\\
 >
-> Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{\hat{\nu}}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
+> Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{\hat{\operatorname{df}}}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
 >
 > Source: Wikipedia contributors [\[5\]](#ref-wikipedia_welchs_t_test).
 
 > **NOTE:**
 >
-> *Remark 2* (Properties of Welch’s test). Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, \\t\_{\hat{\nu}}\\ is only an approximation to the null distribution of \\t\\. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under \\H_0\\, as in [the WCGS cholesterol example](inference.llms.md#exm-p-value-wcgs). Welch’s test is the default in R’s [`t.test()`](https://rdrr.io/r/stats/t.test.html).
+> *Remark 2* (Properties of Welch’s test). Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, \\t\_{\hat{\operatorname{df}}}\\ is only an approximation to the null distribution of \\t\\. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under \\H_0\\, as in [the WCGS cholesterol example](inference.llms.md#exm-p-value-wcgs). Welch’s test is the default in R’s [`t.test()`](https://rdrr.io/r/stats/t.test.html).
 
 > **NOTE:**
 >
@@ -359,9 +359,9 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > **Definition 6 (Welch confidence interval for a difference in means)** With the notation of [Definition 3](#def-two-sample-t-test), the **Welch \\100(1-\alpha)\\\\ confidence interval** for \\\mu_1 - \mu_2\\ is
 >
-> \\(\bar{x}\_1 - \bar{x}\_2) \pm t\_{\hat{\nu},\\ 1 - \alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},\\
+> \\(\bar{x}\_1 - \bar{x}\_2) \pm t\_{\hat{\operatorname{df}},\\ 1 - \alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},\\
 >
-> where \\t\_{\hat{\nu},\\ 1 - \alpha/2}\\ is the \\1 - \alpha/2\\ quantile of the \\t\_{\hat{\nu}}\\ distribution. It is an approximate [confidence interval](inference.llms.md#def-confidence-interval).
+> where \\t\_{\hat{\operatorname{df}},\\ 1 - \alpha/2}\\ is the \\1 - \alpha/2\\ quantile of the \\t\_{\hat{\operatorname{df}}}\\ distribution. It is an approximate [confidence interval](inference.llms.md#def-confidence-interval).
 
 > **NOTE:**
 >
