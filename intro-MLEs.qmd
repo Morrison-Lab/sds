@@ -271,7 +271,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_tbl-info-mat-symbols.qmd >}}
+{{< include sds/_subfiles/intro-MLEs/_prose-info-mat-symbols.qmd >}}
 
 {{< slidebreak >}}
 
