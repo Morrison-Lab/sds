@@ -1,0 +1,34 @@
+:::{#exr-bernoulli-loglik-contribution-logodds}
+#### Log-likelihood contribution of one binary outcome in terms of the log-odds
+
+In the setting of @exr-bernoulli-loglik-contribution,
+write the [log-likelihood](#def-loglik) contribution $\llik_\iobs(\prob)$
+using the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) $\logodds \eqdef \logit(\prob)$.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-loglik-contribution-logodds}
+
+Starting from @thm-bernoulli-loglik-contribution:
+
+$$
+\begin{aligned}
+\llik_\iobs(\prob)
+&= \outvar_\iobs \logf{\prob} + (1 - \outvar_\iobs) \logf{1 - \prob}
+&& \text{(the contribution from the theorem above)}\\
+&= \outvar_\iobs \logf{\prob} + \logf{1 - \prob} - \outvar_\iobs \logf{1 - \prob}
+&& \text{(distribute $\logf{1 - \prob}$)}\\
+&= \outvar_\iobs \logf{\prob} - \outvar_\iobs \logf{1 - \prob} + \logf{1 - \prob}
+&& \text{(reorder the terms)}\\
+&= \outvar_\iobs \paren{\logf{\prob} - \logf{1 - \prob}} + \logf{1 - \prob}
+&& \text{(collect the terms in $\outvar_\iobs$)}\\
+&= \outvar_\iobs \logf{\frac{\prob}{1 - \prob}} + \logf{1 - \prob}
+&& \text{(log of a quotient)}\\
+&= \outvar_\iobs \logodds + \logf{1 - \prob}
+&& \text{(definition of $\logodds \eqdef \logit(\prob)$)}
+\end{aligned}
+$$
+
+:::
