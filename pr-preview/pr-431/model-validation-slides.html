@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-22 12:45:37 (PDT)</p>
+  <p class="date">Last modified: 2026-10-22 13:58:27 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -452,10 +452,10 @@ h\mapsto {\mathcal{J}\mathopen{}\left(h; \mathcal{D}\right)\mathclose{}}, \quad 
 <p><span class="theorem-title"><strong>Example 6 (Reproducing a random split)</strong></span> Randomly splitting a <a href="#/def-data-set">data set</a> in half twice with the same <a href="#/def-random-seed">random seed</a> <span class="math inline">\(\mathfrak{s}\)</span> gives the same two halves. Splitting it with two different seeds gives two different splits.</p>
 </div>
 </section><section class="slide level2"><div id="def-preprocessing" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9 (Preprocessing)</strong></span> The <strong>preprocessing</strong> <span class="math inline">\(\phi\)</span> of a fitting procedure is the map from <a href="#/def-covariate">covariate</a> values <span class="math inline">\(x\)</span> to the features <span class="math inline">\(\phi\mathopen{}\left(x\right)\mathclose{}\)</span> that the procedure’s <a href="#/def-model-family">model family</a> uses as inputs.</p>
+<p><span class="theorem-title"><strong>Definition 9 (Preprocessing)</strong></span> The <strong>preprocessing</strong> <span class="math inline">\(D\)</span> of a fitting procedure is the map from <a href="#/def-covariate">covariate</a> values <span class="math inline">\(x\)</span> to the features <span class="math inline">\(D\mathopen{}\left(x\right)\mathclose{}\)</span> that the procedure’s <a href="#/def-model-family">model family</a> uses as inputs.</p>
 </div>
 </section><section class="slide level2"><div id="exm-preprocessing" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7 (Standardizing a covariate)</strong></span> <a href="./exploratory-descriptive.html#def-standardization">Standardization</a> is a <a href="#/def-preprocessing">preprocessing</a> <span class="math inline">\(\phi\)</span>: it maps each covariate value <span class="math inline">\(x\)</span> to its standardized value.</p>
+<p><span class="theorem-title"><strong>Example 7 (Standardizing a covariate)</strong></span> <a href="./exploratory-descriptive.html#def-standardization">Standardization</a> is a <a href="#/def-preprocessing">preprocessing</a> <span class="math inline">\(D\)</span>: it maps each covariate value <span class="math inline">\(x\)</span> to its standardized value.</p>
 </div>
 </section><section class="slide level2"><div id="def-tuning-parameter" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 10 (Tuning parameter)</strong></span> A <strong>tuning parameter</strong> is a setting <span class="math inline">\(\lambda\)</span> that the analyst fixes before the model is fitted, rather than one computed from the data, and that selects one <a href="https://morrison-lab.github.io/pds/expectation.html#def-prediction">prediction function</a> from a family:</p>
@@ -491,7 +491,7 @@ h\mapsto {\mathcal{J}\mathopen{}\left(h; \mathcal{D}\right)\mathclose{}}, \quad 
 <li>
 <a href="#/def-tuning-parameter">tuning parameters</a> <span class="math inline">\(\lambda\)</span>;</li>
 <li>
-<a href="#/def-preprocessing">preprocessing</a> <span class="math inline">\(\phi\)</span>.</li>
+<a href="#/def-preprocessing">preprocessing</a> <span class="math inline">\(D\)</span>.</li>
 </ul>
 </div>
 </section><section class="slide level2"><div id="exm-fitting-procedure" class="theorem example">
@@ -508,7 +508,7 @@ h\mapsto {\mathcal{J}\mathopen{}\left(h; \mathcal{D}\right)\mathclose{}}, \quad 
 <li>
 <a href="#/def-tuning-parameter">tuning parameter</a> <span class="math inline">\(\lambda\)</span>: the degree <span class="math inline">\(d\)</span>;</li>
 <li>
-<a href="#/def-preprocessing">preprocessing</a> <span class="math inline">\(\phi\)</span>: none.</li>
+<a href="#/def-preprocessing">preprocessing</a> <span class="math inline">\(D\)</span>: none.</li>
 </ul>
 </div>
 </section><section class="slide level2"><div id="def-training-set" class="theorem definition">
@@ -686,7 +686,7 @@ h\mapsto {\mathcal{J}\mathopen{}\left(h; \mathcal{D}\right)\mathclose{}}, \quad 
 <span id="cb4-17"><a aria-label="17"></a>    <span class="st">"held_out"</span>: empirical_risk(birthwt[is_held_out]),</span>
 <span id="cb4-18"><a aria-label="18"></a>}</span>
 <span id="cb4-19"><a aria-label="19"></a>empirical_risks</span>
-<span id="cb4-20"><a aria-label="20"></a><span class="co">#&gt; {'training': np.float64(488364.99564830225), 'held_out': np.float64(503648.7535191132)}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-20"><a aria-label="20"></a><span class="co">#&gt; {'training': np.float64(488364.9956483022), 'held_out': np.float64(503648.75351911323)}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -2661,10 +2661,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span id="cb35-3"><a aria-label="3"></a>  mtcars_loocv<span class="sc">$</span>degree[<span class="fu">which.min</span>(mtcars_loocv<span class="sc">$</span>formula)]</span>
 <span id="cb35-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">max_difference =</span> loocv_max_diff, <span class="at">best_degree =</span> mtcars_best_loocv)</span>
 <span id="cb35-5"><a aria-label="5"></a><span class="co">#&gt; max_difference    best_degree </span></span>
-<span id="cb35-6"><a aria-label="6"></a><span class="co">#&gt;    7.10543e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb35-6"><a aria-label="6"></a><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
 <p><span class="proof-title"><em>Remark 34</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k= n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;28</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;27</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\({\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each <a href="#/def-fitted-model">fitted model</a> is fitted to <span class="math inline">\(n- 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\({\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[6, Sec. 5.1.4]</a></span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;7</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
@@ -2699,7 +2699,7 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <li>
 <a href="#/def-tuning-parameter">tuning parameter</a> <span class="math inline">\(\lambda\)</span>: none, since cross-validation chooses the degree;</li>
 <li>
-<a href="#/def-preprocessing">preprocessing</a> <span class="math inline">\(\phi\)</span>: none.</li>
+<a href="#/def-preprocessing">preprocessing</a> <span class="math inline">\(D\)</span>: none.</li>
 </ul>
 </div>
 </section><section class="slide level2"><div id="def-nested-cv" class="theorem definition">

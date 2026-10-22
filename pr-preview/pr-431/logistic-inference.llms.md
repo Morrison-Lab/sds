@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 12:45:37 (PDT)
+Last modified: 2026-10-22 13:58:27 (PDT)
 
 ## 1 Introduction
 
@@ -44,7 +44,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Definition 2 (Deviance)** The **deviance** of a fitted logistic regression with labels \\y_i\in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\ is minus twice its maximized log-likelihood:
 >
-> \\ D\stackrel{\text{def}}{=}-2 \\ {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}} = -2 \sum\_{i=1}^n\mathopen{}\left\\y_i\ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} {\ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}}\right\\\mathclose{}, \tag{2}\\
+> \\ \operatorname{dev}\stackrel{\text{def}}{=}-2 \\ {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}} = -2 \sum\_{i=1}^n\mathopen{}\left\\y_i\ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} {\ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}}\right\\\mathclose{}, \tag{2}\\
 >
 > where \\\hat\pi_i = {\sigma\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}}\\ is the fitted probability.
 >
@@ -70,23 +70,23 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 > #> 7.63817 7.63817
 > ```
 >
-> Both give \\D= 7.638\\.
+> Both give \\\operatorname{dev}= 7.638\\.
 
 > **NOTE:**
 >
-> *Remark 1* (Why the deviance measures a shortfall). For labels \\y_i\in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\ the largest log-likelihood any model can reach is \\0\\, by giving each label probability \\1\\. So \\D\\ is twice the amount by which the maximized log-likelihood falls short of that largest value.
+> *Remark 1* (Why the deviance measures a shortfall). For labels \\y_i\in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\ the largest log-likelihood any model can reach is \\0\\, by giving each label probability \\1\\. So \\\operatorname{dev}\\ is twice the amount by which the maximized log-likelihood falls short of that largest value.
 
 > **NOTE:**
 >
 > **Definition 3 (Null deviance)** The **null deviance** is the [deviance](#def-deviance) of the model with an intercept and no other predictors:
 >
-> \\ D_0= -2 n \mathopen{}\left\\\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)\mathclose{} {\ln\mathopen{}\left(1 - \bar y\right)\mathclose{}}\right\\\mathclose{}, \tag{3}\\
+> \\ \operatorname{dev}\_0= -2 n \mathopen{}\left\\\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)\mathclose{} {\ln\mathopen{}\left(1 - \bar y\right)\mathclose{}}\right\\\mathclose{}, \tag{3}\\
 >
 > where \\\bar y\\ is the fraction of labels equal to \\1\\.
 
 > **NOTE:**
 >
-> **Example 3 (The null deviance of the six-patient trial)** Three of the six patients recovered, so \\\bar y= 1/2\\ and [Equation 3](#eq-null-deviance) gives \\D_0= 2 \times 6 \ln 2\\.
+> **Example 3 (The null deviance of the six-patient trial)** Three of the six patients recovered, so \\\bar y= 1/2\\ and [Equation 3](#eq-null-deviance) gives \\\operatorname{dev}\_0= 2 \times 6 \ln 2\\.
 >
 > ``` downlit
 > # null deviance from the formula with ybar = 1/2
@@ -98,7 +98,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 > #> 8.31777 8.31777
 > ```
 >
-> Both give \\D_0= 8.318\\.
+> Both give \\\operatorname{dev}\_0= 8.318\\.
 
 > **NOTE:**
 >
@@ -106,13 +106,13 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Theorem 1 (The drop in deviance is the likelihood ratio statistic)** Let \\D_0\\ be the [null deviance](#def-null-deviance) and \\D\\ the [deviance](#def-deviance) of a logistic regression with \\q\\ predictors besides the intercept. Then the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat) of \\H_0\\: all \\q\\ slopes are zero is
+> **Theorem 1 (The drop in deviance is the likelihood ratio statistic)** Let \\\operatorname{dev}\_0\\ be the [null deviance](#def-null-deviance) and \\\operatorname{dev}\\ the [deviance](#def-deviance) of a logistic regression with \\q\\ predictors besides the intercept. Then the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat) of \\H_0\\: all \\q\\ slopes are zero is
 >
-> \\ \Lambda= D_0- D. \\
+> \\ \Lambda= \operatorname{dev}\_0- \operatorname{dev}. \\
 
 > **NOTE:**
 >
-> *Proof*. In the notation of the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat), the unrestricted MLE \\\hat\theta\_{\text{ML}}\\ is the fitted coefficient vector \\\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\\, and \\\hat{\theta}\_0\\ is the fit of the intercept-only model that \\H_0\\ imposes. Then \\{\ell\mathopen{}\left(\hat\theta\_{\text{ML}}\right)\mathclose{}} = -D/ 2\\ and \\{\ell\mathopen{}\left(\hat{\theta}\_0\right)\mathclose{}} = -D_0/ 2\\. Substituting both into the definition gives \\\Lambda= 2 \mathopen{}\left(-D/2 + D_0/2\right)\mathclose{} = D_0- D\\.
+> *Proof*. In the notation of the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat), the unrestricted MLE \\\hat\theta\_{\text{ML}}\\ is the fitted coefficient vector \\\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\\, and \\\hat{\theta}\_0\\ is the fit of the intercept-only model that \\H_0\\ imposes. Then \\{\ell\mathopen{}\left(\hat\theta\_{\text{ML}}\right)\mathclose{}} = -\operatorname{dev}/ 2\\ and \\{\ell\mathopen{}\left(\hat{\theta}\_0\right)\mathclose{}} = -\operatorname{dev}\_0/ 2\\. Substituting both into the definition gives \\\Lambda= 2 \mathopen{}\left(-\operatorname{dev}/2 + \operatorname{dev}\_0/2\right)\mathclose{} = \operatorname{dev}\_0- \operatorname{dev}\\.
 
 > **NOTE:**
 >
@@ -129,7 +129,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Corollary 1 (Distribution of the drop in deviance)** Suppose the regularity conditions of [Wilks’ theorem](intro-MLEs.llms.md#thm-wilks) hold for the logistic regression model. Then for a large sample the drop in deviance \\D_0- D\\ has approximately a \\\chi^2_q\\ distribution when \\H_0\\ holds.
+> **Corollary 1 (Distribution of the drop in deviance)** Suppose the regularity conditions of [Wilks’ theorem](intro-MLEs.llms.md#thm-wilks) hold for the logistic regression model. Then for a large sample the drop in deviance \\\operatorname{dev}\_0- \operatorname{dev}\\ has approximately a \\\chi^2_q\\ distribution when \\H_0\\ holds.
 
 > **NOTE:**
 >
@@ -218,13 +218,13 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Definition 8 (Deviance relative to the saturated model)** The **deviance relative to the saturated model** of a fitted model is twice the amount by which its maximized log-likelihood \\{\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\\ falls short of the maximized log-likelihood \\\ell\_{\mathrm{sat}}\\ of the [saturated model](#def-saturated-model):
 >
-> \\ D\_{\mathrm{sat}}= 2 \mathopen{}\left(\ell\_{\mathrm{sat}}- {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\right)\mathclose{}. \tag{5}\\
+> \\ \operatorname{dev}\_{\mathrm{sat}}= 2 \mathopen{}\left(\ell\_{\mathrm{sat}}- {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\right)\mathclose{}. \tag{5}\\
 
 > **NOTE:**
 >
 > **Theorem 3 (The deviance relative to the saturated model, from grouped counts)** For a fitted logistic regression with fitted event probabilities \\\hat\pi_k\\ at the \\K\\ covariate patterns,
 >
-> \\ D\_{\mathrm{sat}} = 2 \sum\_{k=1}^{K}\mathopen{}\left\\s_k {\ln\mathopen{}\left(\frac{s_k}{m_k \hat\pi_k}\right)\mathclose{}} + \mathopen{}\left(m_k - s_k\right)\mathclose{} {\ln\mathopen{}\left(\frac{m_k - s_k}{m_k \mathopen{}\left(1 - \hat\pi_k\right)\mathclose{}}\right)\mathclose{}}\right\\\mathclose{}, \tag{6}\\
+> \\ \operatorname{dev}\_{\mathrm{sat}} = 2 \sum\_{k=1}^{K}\mathopen{}\left\\s_k {\ln\mathopen{}\left(\frac{s_k}{m_k \hat\pi_k}\right)\mathclose{}} + \mathopen{}\left(m_k - s_k\right)\mathclose{} {\ln\mathopen{}\left(\frac{m_k - s_k}{m_k \mathopen{}\left(1 - \hat\pi_k\right)\mathclose{}}\right)\mathclose{}}\right\\\mathclose{}, \tag{6}\\
 >
 > where a term with \\s_k = 0\\ or \\s_k = m_k\\ contributes \\0\\ in its zero-count part.
 
@@ -240,15 +240,15 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Corollary 2 (The deviance is the saturated-model deviance shifted by a constant)** The [deviance](#def-deviance) of a fitted logistic regression and its [deviance relative to the saturated model](#def-saturated-deviance) differ by a constant that depends on the data and not on the fitted model:
 >
-> \\ D= D\_{\mathrm{sat}}- 2 \ell\_{\mathrm{sat}}. \\
+> \\ \operatorname{dev}= \operatorname{dev}\_{\mathrm{sat}}- 2 \ell\_{\mathrm{sat}}. \\
 
 > **NOTE:**
 >
-> *Proof*. [Definition 2](#def-deviance) gives \\D= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\\. Distributing the \\2\\ in [Equation 5](#eq-saturated-deviance) gives \\D\_{\mathrm{sat}}= 2 \ell\_{\mathrm{sat}}- 2 {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\\. Substituting \\D= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\\ into this expression gives \\D\_{\mathrm{sat}}= 2 \ell\_{\mathrm{sat}}+ D\\. Subtracting \\2 \ell\_{\mathrm{sat}}\\ from both sides gives the claim.
+> *Proof*. [Definition 2](#def-deviance) gives \\\operatorname{dev}= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\\. Distributing the \\2\\ in [Equation 5](#eq-saturated-deviance) gives \\\operatorname{dev}\_{\mathrm{sat}}= 2 \ell\_{\mathrm{sat}}- 2 {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\\. Substituting \\\operatorname{dev}= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\\ into this expression gives \\\operatorname{dev}\_{\mathrm{sat}}= 2 \ell\_{\mathrm{sat}}+ \operatorname{dev}\\. Subtracting \\2 \ell\_{\mathrm{sat}}\\ from both sides gives the claim.
 
 > **NOTE:**
 >
-> *Remark 6* (Why the shift does not change the drop in deviance). The constant \\2 \ell\_{\mathrm{sat}}\\ in [Corollary 2](#cor-deviance-shift) is the same for every model fit to the same data, because the saturated model depends only on the data. So the difference between the deviances of two models, such as the drop in deviance of [Theorem 1](#thm-deviance-drop), is the same whether it is computed from \\D\\ or from \\D\_{\mathrm{sat}}\\. The two deviances differ in their size, though: when every pattern has one replicate, the saturated model fits every label exactly, \\\ell\_{\mathrm{sat}}= 0\\, and \\D\_{\mathrm{sat}}= D\\.
+> *Remark 6* (Why the shift does not change the drop in deviance). The constant \\2 \ell\_{\mathrm{sat}}\\ in [Corollary 2](#cor-deviance-shift) is the same for every model fit to the same data, because the saturated model depends only on the data. So the difference between the deviances of two models, such as the drop in deviance of [Theorem 1](#thm-deviance-drop), is the same whether it is computed from \\\operatorname{dev}\\ or from \\\operatorname{dev}\_{\mathrm{sat}}\\. The two deviances differ in their size, though: when every pattern has one replicate, the saturated model fits every label exactly, \\\ell\_{\mathrm{sat}}= 0\\, and \\\operatorname{dev}\_{\mathrm{sat}}= \operatorname{dev}\\.
 
 > **NOTE:**
 >
@@ -285,11 +285,11 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 > #>       3.15694       3.15694     219.97471
 > ```
 >
-> The deviance relative to the saturated model is \\D\_{\mathrm{sat}}= 3.157\\ on the grouped counts, and the deviance is \\D= 219.975\\ on the individual babies.
+> The deviance relative to the saturated model is \\\operatorname{dev}\_{\mathrm{sat}}= 3.157\\ on the grouped counts, and the deviance is \\\operatorname{dev}= 219.975\\ on the individual babies.
 
 > **NOTE:**
 >
-> **Example 8 (The shift between the two deviances)** For the two fits of [Example 7](#exm-saturated-deviance), [Corollary 2](#cor-deviance-shift) says that \\D- D\_{\mathrm{sat}}= -2 \ell\_{\mathrm{sat}}\\. The left side is 216.818. We compute the right side from the observed proportions of [Theorem 2](#thm-saturated-mle).
+> **Example 8 (The shift between the two deviances)** For the two fits of [Example 7](#exm-saturated-deviance), [Corollary 2](#cor-deviance-shift) says that \\\operatorname{dev}- \operatorname{dev}\_{\mathrm{sat}}= -2 \ell\_{\mathrm{sat}}\\. The left side is 216.818. We compute the right side from the observed proportions of [Theorem 2](#thm-saturated-mle).
 >
 > ``` downlit
 > # twice the saturated log-likelihood, from the observed proportions

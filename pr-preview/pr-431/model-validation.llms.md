@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 12:45:37 (PDT)
+Last modified: 2026-10-22 13:58:27 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -118,11 +118,11 @@ Last modified: 2026-10-22 12:45:37 (PDT)
 
 > **NOTE:**
 >
-> **Definition 9 (Preprocessing)** The **preprocessing** \\\phi\\ of a fitting procedure is the map from [covariate](#def-covariate) values \\x\\ to the features \\\phi\mathopen{}\left(x\right)\mathclose{}\\ that the procedure’s [model family](#def-model-family) uses as inputs.
+> **Definition 9 (Preprocessing)** The **preprocessing** \\D\\ of a fitting procedure is the map from [covariate](#def-covariate) values \\x\\ to the features \\D\mathopen{}\left(x\right)\mathclose{}\\ that the procedure’s [model family](#def-model-family) uses as inputs.
 
 > **NOTE:**
 >
-> **Example 7 (Standardizing a covariate)** [Standardization](exploratory-descriptive.llms.md#def-standardization) is a [preprocessing](#def-preprocessing) \\\phi\\: it maps each covariate value \\x\\ to its standardized value.
+> **Example 7 (Standardizing a covariate)** [Standardization](exploratory-descriptive.llms.md#def-standardization) is a [preprocessing](#def-preprocessing) \\D\\: it maps each covariate value \\x\\ to its standardized value.
 
 > **NOTE:**
 >
@@ -153,7 +153,7 @@ Last modified: 2026-10-22 12:45:37 (PDT)
 > - [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) \\\mathcal{A}\\;
 > - [random seed](#def-random-seed) \\\mathfrak{s}\\;
 > - [tuning parameters](#def-tuning-parameter) \\\lambda\\;
-> - [preprocessing](#def-preprocessing) \\\phi\\.
+> - [preprocessing](#def-preprocessing) \\D\\.
 
 > **NOTE:**
 >
@@ -164,7 +164,7 @@ Last modified: 2026-10-22 12:45:37 (PDT)
 > - [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) \\\mathcal{A}\\: solving the [normal equations](correlation-regression.llms.md#def-normal-equations);
 > - [random seed](#def-random-seed) \\\mathfrak{s}\\: none, since nothing is random;
 > - [tuning parameter](#def-tuning-parameter) \\\lambda\\: the degree \\d\\;
-> - [preprocessing](#def-preprocessing) \\\phi\\: none.
+> - [preprocessing](#def-preprocessing) \\D\\: none.
 
 > **NOTE:**
 >
@@ -341,7 +341,7 @@ Last modified: 2026-10-22 12:45:37 (PDT)
 >     "held_out": empirical_risk(birthwt[is_held_out]),
 > }
 > empirical_risks
-> #> {'training': np.float64(488364.99564830225), 'held_out': np.float64(503648.7535191132)}
+> #> {'training': np.float64(488364.9956483022), 'held_out': np.float64(503648.75351911323)}
 > ```
 >
 > Of the 189 babies, 126 are in the [training set](#def-training-set). The [fitted model](#def-fitted-model) has an [empirical risk](#def-empirical-risk) of 488,365 squared grams on the training set and 503,649 squared grams on the [held-out set](#def-held-out-set). Its square root, 699 grams, is the typical [prediction error](prediction.llms.md#def-prediction-error) on the training set.
@@ -2074,10 +2074,10 @@ Last modified: 2026-10-22 12:45:37 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    7.10543e-15    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
@@ -2106,7 +2106,7 @@ Last modified: 2026-10-22 12:45:37 (PDT)
 > - [optimization algorithm](https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm) \\\mathcal{A}\\: the [normal equations](correlation-regression.llms.md#def-normal-equations) for each candidate, then keeping the candidate with the smallest cross-validation estimate of its [expected generalization error](#def-expected-generalization-error) \\{\operatorname{Err}^{g\_{d}}\mathopen{}\left(n\right)\mathclose{}}\\;
 > - [random seed](#def-random-seed) \\\mathfrak{s}\\: fixes the random [fold assignment](#def-fold-assignment);
 > - [tuning parameter](#def-tuning-parameter) \\\lambda\\: none, since cross-validation chooses the degree;
-> - [preprocessing](#def-preprocessing) \\\phi\\: none.
+> - [preprocessing](#def-preprocessing) \\D\\: none.
 
 > **NOTE:**
 >
