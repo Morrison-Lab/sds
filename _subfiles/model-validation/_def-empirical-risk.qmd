@@ -9,7 +9,7 @@ the counterpart computed from data of the [risk](https://morrison-lab.github.io/
 which is the expected loss:
 
 $$
-\epoprisk\paren{\fitted} \eqdef \frac{1}{\nobs} \sumin \obsloss{\iobs}\paren{\fitted}.
+\epopriskf{\fitted} \eqdef \frac{1}{\nobs} \sumin \obsloss{\iobs}\paren{\fitted}.
 $$ {#eq-empirical-risk}
 
 A subscript names the set the empirical risk is evaluated on,
