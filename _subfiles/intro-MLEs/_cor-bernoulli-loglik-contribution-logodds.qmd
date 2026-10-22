@@ -12,6 +12,5 @@ $$\llik_\iobs(\prob) = \outvar_\iobs \logodds + \logf{1 - \prob}$$
 
 This is the solution to @exr-bernoulli-loglik-contribution-logodds, worked in @sol-bernoulli-loglik-contribution-logodds.
 It follows from @thm-bernoulli-loglik-contribution.
-Summing over $\iobs$ gives @thm-bernoulli-loglik-one-group.
 
 :::
