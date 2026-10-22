@@ -4,9 +4,9 @@
 In the setting of @exr-bernoulli-loglik-contribution, let:
 
 - $\devn_\iobs \eqdef \outvar_\iobs - \prob$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $\outvar_\iobs$ from its mean $\prob$;
-- $\precision \eqdef 1 / \Var{\Outvar_\iobs}$ be the [precision](intro-MLEs.qmd#def-precision-rv) of $\Outvar_\iobs$.
+- $\precision \eqdef 1 / \Var{\Outvar_\iobs}$ be the [precision](#def-precision-rv) of $\Outvar_\iobs$.
 
-Derive the [score](intro-MLEs.qmd#def-score) contribution $\score_\iobs(\prob) \eqdef \deriv{\prob} \llik_\iobs(\prob)$ of observation $\iobs$,
+Derive the [score](#def-score) contribution $\score_\iobs(\prob) \eqdef \deriv{\prob} \llik_\iobs(\prob)$ of observation $\iobs$,
 and write it using $\devn_\iobs$ and $\precision$.
 
 :::

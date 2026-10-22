@@ -2,8 +2,8 @@
 #### Hessian contribution of one binary outcome
 
 In the setting of @exr-bernoulli-score-contribution,
-derive the [Hessian](intro-MLEs.qmd#def-hessian) contribution $\hess_\iobs(\prob) \eqdef \deriv{\prob} \score_\iobs(\prob)$ of observation $\iobs$.
-Start from the [score](intro-MLEs.qmd#def-score) contribution written as a difference of two fractions,
+derive the [Hessian](#def-hessian) contribution $\hess_\iobs(\prob) \eqdef \deriv{\prob} \score_\iobs(\prob)$ of observation $\iobs$.
+Start from the [score](#def-score) contribution written as a difference of two fractions,
 $\score_\iobs(\prob) = \outvar_\iobs / \prob - (1 - \outvar_\iobs) / (1 - \prob)$,
 the form in @sol-derive-bernoulli-score before its fractions are combined.
 

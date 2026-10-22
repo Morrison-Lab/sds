@@ -410,11 +410,149 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 ## Maximum likelihood for a Bernoulli model without covariates {#sec-bernoulli-mle}
 
-{{< include sds/_subfiles/intro-MLEs/_rem-bernoulli-mle-moved.qmd >}}
+### The likelihood
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-likelihood-one-group.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-likelihood-one-group.qmd >}}
+
+{{< slidebreak >}}
+
+### Log-likelihood contributions
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-loglik-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+### The log-likelihood of the sample
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-one-group.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-loglik-one-group.qmd >}}
+
+{{< slidebreak >}}
+
+### The score of one observation
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score.qmd >}}
+
+{{< slidebreak >}}
+
+### Score contributions
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+### The score function of the sample
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score-sum.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score-sum.qmd >}}
+
+{{< slidebreak >}}
+
+### Solving the score equation
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+### Hessian contributions
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-hessian-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+### The Hessian of the sample
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-sum.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-hessian-sum.qmd >}}
+
+{{< slidebreak >}}
+
+### Checking that the Hessian is negative definite
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-nd.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-hessian-nd.qmd >}}
+
+{{< slidebreak >}}
+
+### The maximum likelihood estimate
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-mle.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-mle.qmd >}}
+
+{{< slidebreak >}}
 
 ## Maximum likelihood for univariate Gaussian models {#sec-gaussian-mle}
 
-{{< include sds/_subfiles/intro-MLEs/_rem-gaussian-mle-moved.qmd >}}
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-setup.qmd >}}
+
+{{< slidebreak >}}
+
+### The score function
+
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-score.qmd >}}
+
+{{< slidebreak >}}
+
+### MLE of $\mean$
+
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-mu.qmd >}}
+
+{{< slidebreak >}}
+
+### MLE of $\varpar$ {#sec-gaussian-mle-sigma}
+
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-sigma.qmd >}}
+
+{{< slidebreak >}}
+
+### Second derivatives
+
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-hessian.qmd >}}
+
+{{< slidebreak >}}
+
+### Information matrix and standard errors {#sec-covariance-matrix}
+
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-information.qmd >}}
 
 ### The profile log-likelihood
 

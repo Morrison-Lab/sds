@@ -2,7 +2,7 @@
 #### Profile log-likelihood of a Gaussian variance
 
 In the Gaussian model, $\hmean = \bar x$ maximizes $\llik$ over $\mean$
-for every value of $\varpar$ ([Gaussian MLEs](gaussian-mle.qmd#sec-gaussian-mle)),
+for every value of $\varpar$ ([Gaussian MLEs](#sec-gaussian-mle)),
 so the profile log-likelihood of $\varpar$ is
 
 $$

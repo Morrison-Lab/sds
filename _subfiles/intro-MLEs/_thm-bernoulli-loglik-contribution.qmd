@@ -2,7 +2,7 @@
 #### Log-likelihood contribution of one binary outcome
 
 If $\Outvar_\iobs \sim \Ber(\prob)$ has observed value $\outvar_\iobs \in \cb{0, 1}$,
-its [log-likelihood](intro-MLEs.qmd#def-loglik) contribution is:
+its [log-likelihood](#def-loglik) contribution is:
 
 $$\llik_\iobs(\prob) = \outvar_\iobs \logf{\prob} + (1 - \outvar_\iobs) \logf{1 - \prob}$$
 

@@ -18,7 +18,7 @@ Let $\vy \eqdef (\dsn{y})$ be a dataset of
 mutually independent binary outcomes,
 all with the same event probability $\prob$:
 $\Outvar_\iobs \simind \Ber(\prob)$.
-Derive the [likelihood](intro-MLEs.qmd#def-lik) of $\vy$.
+Derive the [likelihood](#def-lik) of $\vy$.
 
 :::
 
