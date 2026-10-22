@@ -28,6 +28,7 @@ ROOT = Path(__file__).resolve().parent.parent
 LABEL = "preview:pdf"
 # A `pdf:` key at the two-space indent of a `format:` map, and the lines that
 # belong to it: blank lines, and anything indented deeper (comments included).
+EMPTY_FORMAT = re.compile(r"^format:[ \t]*\n(?=\S|\Z)", re.M)
 PDF_BLOCK = re.compile(r"^  pdf:[^\n]*\n(?:(?:[ \t]*\n)|(?:    [^\n]*\n))*", re.M)
 
 
@@ -47,7 +48,8 @@ def skip_requested() -> bool:
 
 def strip_pdf(text: str, front_matter_only: bool) -> str:
     if not front_matter_only:
-        return PDF_BLOCK.sub("", text)
+        # Drop a `format:` key left with no children, which Quarto would read as null.
+        return EMPTY_FORMAT.sub("", PDF_BLOCK.sub("", text))
     if not text.startswith("---\n"):
         return text
     end = text.find("\n---\n", 4)
