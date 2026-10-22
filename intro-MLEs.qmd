@@ -498,6 +498,14 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-contribution-precision.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_cor-bernoulli-hessian-contribution-precision.qmd >}}
+
+{{< slidebreak >}}
+
 ### The Hessian of the sample
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-sum.qmd >}}

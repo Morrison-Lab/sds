@@ -1,0 +1,71 @@
+:::{#exr-bernoulli-hessian-contribution-precision}
+#### Hessian contribution of one binary outcome in terms of the precision and deviation
+
+In the setting of @exr-bernoulli-hessian-contribution,
+write the [Hessian](#def-hessian) contribution $\hess_\iobs(\prob)$
+using the [precision](#def-precision-rv) $\precision = 1 / \paren{\prob(1 - \prob)}$
+and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs \eqdef \outvar_\iobs - \prob$,
+the two quantities that make up the score contribution in @thm-bernoulli-score-contribution.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-hessian-contribution-precision}
+
+Starting from @thm-bernoulli-hessian-contribution,
+substitute $\outvar_\iobs = \prob + \devn_\iobs$ and $1 - \outvar_\iobs = 1 - \prob - \devn_\iobs$:
+
+$$
+\begin{aligned}
+\hess_\iobs(\prob)
+&= -\frac{\outvar_\iobs}{\sqf{\prob}} - \frac{1 - \outvar_\iobs}{\sqf{1 - \prob}}
+&& \text{(the contribution from the theorem above)}\\
+&= -\frac{\prob + \devn_\iobs}{\sqf{\prob}} - \frac{1 - \prob - \devn_\iobs}{\sqf{1 - \prob}}
+&& \text{(substitute $\outvar_\iobs = \prob + \devn_\iobs$)}\\
+&= -\frac{1}{\prob} - \frac{\devn_\iobs}{\sqf{\prob}} - \frac{1}{1 - \prob} + \frac{\devn_\iobs}{\sqf{1 - \prob}}
+&& \text{(split each numerator and cancel one factor)}\\
+&= -\paren{\frac{1}{\prob} + \frac{1}{1 - \prob}} - \devn_\iobs \paren{\frac{1}{\sqf{\prob}} - \frac{1}{\sqf{1 - \prob}}}
+&& \text{(collect the terms with and without $\devn_\iobs$)}
+\end{aligned}
+$$
+
+The first bracket is the precision:
+
+$$
+\begin{aligned}
+\frac{1}{\prob} + \frac{1}{1 - \prob}
+&= \frac{1 - \prob}{\prob(1 - \prob)} + \frac{\prob}{\prob(1 - \prob)}
+&& \text{(common denominator)}\\
+&= \frac{1}{\prob(1 - \prob)}
+&& \text{(add the numerators)}\\
+&= \precision
+&& \text{(definition of $\precision$)}
+\end{aligned}
+$$
+
+The second bracket is a multiple of $\precision^2$:
+
+$$
+\begin{aligned}
+\frac{1}{\sqf{\prob}} - \frac{1}{\sqf{1 - \prob}}
+&= \frac{\sqf{1 - \prob}}{\sqf{\prob} \sqf{1 - \prob}} - \frac{\sqf{\prob}}{\sqf{\prob} \sqf{1 - \prob}}
+&& \text{(common denominator)}\\
+&= \frac{1 - 2 \prob + \sqf{\prob} - \sqf{\prob}}{\sqf{\prob(1 - \prob)}}
+&& \text{(expand $\sqf{1 - \prob}$ and add the numerators)}\\
+&= \paren{1 - 2 \prob} \frac{1}{\sqf{\prob(1 - \prob)}}
+&& \text{(simplify the numerator)}\\
+&= \paren{1 - 2 \prob} \sqf{\precision}
+&& \text{(definition of $\precision$)}
+\end{aligned}
+$$
+
+Substituting both brackets back in:
+
+$$
+\hess_\iobs(\prob)
+= -\precision - \paren{1 - 2 \prob} \sqf{\precision} \devn_\iobs
+\qquad \text{(substitute the two brackets)}
+$$
+
+:::
