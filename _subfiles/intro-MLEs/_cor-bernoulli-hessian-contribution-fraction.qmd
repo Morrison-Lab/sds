@@ -1,0 +1,16 @@
+:::{#cor-bernoulli-hessian-contribution-fraction}
+#### Hessian contribution of one binary outcome as a single fraction
+
+If $\Outvar_\iobs \sim \Ber(\prob)$ has observed value $\outvar_\iobs \in \cb{0, 1}$,
+its [Hessian](#def-hessian) contribution is:
+
+$$\hess_\iobs(\prob) = -\frac{\paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}}{\sqf{\prob(1 - \prob)}}$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-bernoulli-hessian-contribution-fraction, worked in @sol-bernoulli-hessian-contribution-fraction.
+It follows from @thm-bernoulli-hessian-contribution.
+
+:::
