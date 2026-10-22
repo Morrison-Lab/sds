@@ -2,7 +2,7 @@
 #### Hessian of a binary sample
 
 If $\Outvar_\iobs \simind \Ber(\prob)$ for $\iobs = 1, \dots, n$, with observed [sample mean](exploratory-descriptive.qmd#def-sample-mean) $\outbar$,
-the [Hessian](#def-hessian) of the [log-likelihood](#def-loglik) is the $1 \times 1$ matrix whose only entry is:
+the [Hessian](intro-MLEs.qmd#def-hessian) of the [log-likelihood](intro-MLEs.qmd#def-loglik) is the $1 \times 1$ matrix whose only entry is:
 
 $$\hess(\prob) = -n \paren{\frac{\outbar}{\sqf{\prob}} + \frac{1 - \outbar}{\sqf{1 - \prob}}}$$
 

@@ -3,7 +3,7 @@
 
 In the setting of @exr-bernoulli-score-sum, assume $0 < \outbar < 1$:
 the [sample](exploratory-descriptive.qmd#def-sample) has at least one [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) and at least one non-event.
-Solve the [score equation](#def-score-equation) $\score(\prob) = 0$ for $\prob \in (0, 1)$.
+Solve the [score equation](intro-MLEs.qmd#def-score-equation) $\score(\prob) = 0$ for $\prob \in (0, 1)$.
 
 :::
 

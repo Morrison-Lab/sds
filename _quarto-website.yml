@@ -55,6 +55,8 @@ website:
             href: inference.qmd
           - text: "Maximum Likelihood"
             href: intro-MLEs.qmd
+          - text: "Maximum Likelihood for a Bernoulli Model"
+            href: bernoulli-mle.qmd
           - text: "Properties of Estimators"
             href: estimator-properties.qmd
           - text: "Sufficiency"
@@ -117,6 +119,8 @@ website:
             href: inference.qmd
           - text: "Maximum Likelihood"
             href: intro-MLEs.qmd
+          - text: "Maximum Likelihood for a Bernoulli Model"
+            href: bernoulli-mle.qmd
           - text: "Properties of Estimators"
             href: estimator-properties.qmd
           - text: "Sufficiency"

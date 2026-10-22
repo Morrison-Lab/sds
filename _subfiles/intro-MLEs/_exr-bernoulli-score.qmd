@@ -1,6 +1,8 @@
 :::{#exr-derive-bernoulli-score}
 #### Score function of a Bernoulli variable
 
+Let $\devn \eqdef x - \E{X}$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of the observed value $x$ from the mean of $X$.
+
 Derive the score function for a single Bernoulli random variable $X$.
 In other words, differentiate the log-likelihood of
 a single Bernoulli random variable $X$
@@ -71,7 +73,9 @@ $$
 && \text{(cancel $x\prob$)}\\
 &= \frac{x - \E{X}}{\prob(1 - \prob)}
 && \text{($\E{X} = \prob$)}\\
-&= \frac{x - \E{X}}{\Var{X}}
+&= \frac{\devn}{\prob(1 - \prob)}
+&& \text{(definition of $\devn$)}\\
+&= \frac{\devn}{\Var{X}}
 && \text{($\Var{X} = \prob(1 - \prob)$)}
 \end{aligned}
 $$

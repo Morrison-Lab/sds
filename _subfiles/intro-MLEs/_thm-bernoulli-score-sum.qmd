@@ -2,8 +2,8 @@
 #### Score function of a binary sample
 
 If $\Outvar_\iobs \simind \Ber(\prob)$ for $\iobs = 1, \dots, n$,
-with observed [sample mean](exploratory-descriptive.qmd#def-sample-mean) $\outbar$ and [precision](#def-precision-rv) $\precision = 1 / \paren{\prob(1 - \prob)}$,
-the [score function](#def-score) is:
+with observed [sample mean](exploratory-descriptive.qmd#def-sample-mean) $\outbar$ and [precision](intro-MLEs.qmd#def-precision-rv) $\precision = 1 / \paren{\prob(1 - \prob)}$,
+the [score function](intro-MLEs.qmd#def-score) is:
 
 $$\score(\prob) = n \precision (\outbar - \prob)$$
 
