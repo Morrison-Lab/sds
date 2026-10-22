@@ -1,0 +1,7 @@
+:::{#exm-precision-bernoulli}
+#### Precision of a Bernoulli variable
+
+If $\Outvar \sim \Ber(\prob)$ with $0 < \prob < 1$,
+then $\Var{\Outvar} = \prob(1 - \prob)$,
+so the [precision](#def-precision-rv) of $\Outvar$ is $\precision = 1 / \paren{\prob(1 - \prob)}$.
+:::

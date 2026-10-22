@@ -1,0 +1,15 @@
+:::{#thm-bernoulli-hessian-contribution}
+#### Hessian contribution of one binary outcome
+
+If $\Outvar_\iobs \sim \Ber(\prob)$ has observed value $\outvar_\iobs \in \cb{0, 1}$,
+its [Hessian](#def-hessian) contribution is:
+
+$$\hess_\iobs(\prob) = -\frac{\outvar_\iobs}{\sqf{\prob}} - \frac{1 - \outvar_\iobs}{\sqf{1 - \prob}}$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-bernoulli-hessian-contribution, worked in @sol-bernoulli-hessian-contribution.
+
+:::

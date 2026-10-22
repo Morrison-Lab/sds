@@ -1,0 +1,17 @@
+:::{#thm-bernoulli-loglik-contribution}
+#### Log-likelihood contribution of one binary outcome
+
+If $\Outvar_\iobs \sim \Ber(\prob)$ has observed value $\outvar_\iobs \in \cb{0, 1}$,
+its [log-likelihood](#def-loglik) contribution is:
+
+$$\llik_\iobs(\prob) = \outvar_\iobs \logf{\prob} + (1 - \outvar_\iobs) \logf{1 - \prob}$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-bernoulli-loglik-contribution, worked in @sol-bernoulli-loglik-contribution.
+Rewriting it with the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) $\logodds \eqdef \logit(\prob)$
+and summing over $\iobs$ gives @thm-bernoulli-loglik-one-group.
+
+:::
