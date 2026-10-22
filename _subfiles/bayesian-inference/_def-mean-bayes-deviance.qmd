@@ -1,0 +1,9 @@
+::: {#def-mean-bayes-deviance}
+#### Posterior mean deviance
+
+The **posterior mean deviance** $\overline{\dicdev}$ is the [posterior](#def-posterior) mean of the [deviance](#def-bayes-deviance) of a parameter value:
+
+$$
+\overline{\dicdev} \eqdef \E{\dicdevf{\vparam} \mid \vy}.
+$$
+:::
