@@ -42,7 +42,9 @@ $$
 &= \prob^{\sumin \outvar_\iobs} (1 - \prob)^{\sumin 1 - \sumin \outvar_\iobs}
 && \text{(split the sum in the exponent)}\\
 &= \prob^{\sumin \outvar_\iobs} (1 - \prob)^{n - \sumin \outvar_\iobs}
-&& \text{($\textstyle\sumin 1 = n$)}
+&& \text{($\textstyle\sumin 1 = n$)}\\
+&= \prob^{\sumof{\vy}} (1 - \prob)^{n - \sumof{\vy}}
+&& \text{(definition of $\sumof{\vy} \eqdef \textstyle\sumin \outvar_\iobs$)}
 \end{aligned}
 $$
 

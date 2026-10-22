@@ -10,26 +10,27 @@ from @exr-bernoulli-likelihood-one-group.
 
 :::{#sol-bernoulli-loglik-one-group}
 
-Starting from the likelihood in @thm-bernoulli-likelihood-one-group:
+Starting from the [likelihood](#def-lik) in @thm-bernoulli-likelihood-one-group,
+where $\sumof{\vy} \eqdef \sumin \outvar_\iobs$:
 
 $$
 \begin{aligned}
 \llik(\prob; \vy)
-&= \logf{\prob^{\sumin \outvar_\iobs} (1 - \prob)^{n - \sumin \outvar_\iobs}}
+&= \logf{\prob^{\sumof{\vy}} (1 - \prob)^{n - \sumof{\vy}}}
 && \text{(log of the likelihood)}\\
-&= \logf{\prob^{\sumin \outvar_\iobs}} + \logf{(1 - \prob)^{n - \sumin \outvar_\iobs}}
+&= \logf{\prob^{\sumof{\vy}}} + \logf{(1 - \prob)^{n - \sumof{\vy}}}
 && \text{(log of a product)}\\
-&= \paren{\sumin \outvar_\iobs} \logf{\prob} + \paren{n - \sumin \outvar_\iobs} \logf{1 - \prob}
+&= \sumof{\vy} \logf{\prob} + \paren{n - \sumof{\vy}} \logf{1 - \prob}
 && \text{(log of a power)}\\
-&= \paren{\sumin \outvar_\iobs} \logf{\prob} + n \logf{1 - \prob} - \paren{\sumin \outvar_\iobs} \logf{1 - \prob}
+&= \sumof{\vy} \logf{\prob} + n \logf{1 - \prob} - \sumof{\vy} \logf{1 - \prob}
 && \text{(distribute $\logf{1 - \prob}$)}\\
-&= \paren{\sumin \outvar_\iobs} \logf{\prob} - \paren{\sumin \outvar_\iobs} \logf{1 - \prob} + n \logf{1 - \prob}
+&= \sumof{\vy} \logf{\prob} - \sumof{\vy} \logf{1 - \prob} + n \logf{1 - \prob}
 && \text{(reorder the terms)}\\
-&= \paren{\sumin \outvar_\iobs} \paren{\logf{\prob} - \logf{1 - \prob}} + n \logf{1 - \prob}
-&& \text{(collect the terms in $\textstyle\sumin \outvar_\iobs$)}\\
-&= \paren{\sumin \outvar_\iobs} \logf{\frac{\prob}{1 - \prob}} + n \logf{1 - \prob}
+&= \sumof{\vy} \paren{\logf{\prob} - \logf{1 - \prob}} + n \logf{1 - \prob}
+&& \text{(collect the terms in $\sumof{\vy}$)}\\
+&= \sumof{\vy} \logf{\frac{\prob}{1 - \prob}} + n \logf{1 - \prob}
 && \text{(log of a quotient)}\\
-&= \paren{\sumin \outvar_\iobs} \logodds + n \logf{1 - \prob}
+&= \sumof{\vy} \logodds + n \logf{1 - \prob}
 && \text{(definition of $\logodds \eqdef \logit(\prob)$)}
 \end{aligned}
 $$

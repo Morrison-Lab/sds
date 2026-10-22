@@ -25,10 +25,12 @@ $$
 && \text{(definition of $\devn_\iobs$)}\\
 &= \precision \paren{\sumin \outvar_\iobs - \sumin \prob}
 && \text{(split the sum)}\\
-&= \precision \paren{\sumin \outvar_\iobs - n \prob}
+&= \precision \paren{\sumof{\vy} - \sumin \prob}
+&& \text{(definition of $\sumof{\vy}$)}\\
+&= \precision \paren{\sumof{\vy} - n \prob}
 && \text{($\textstyle\sumin \prob = n \prob$)}\\
 &= \precision \paren{n \outbar - n \prob}
-&& \text{($\textstyle\sumin \outvar_\iobs = n \outbar$)}\\
+&& \text{($\sumof{\vy} = n \outbar$)}\\
 &= n \precision (\outbar - \prob)
 && \text{(factor out $n$)}
 \end{aligned}
