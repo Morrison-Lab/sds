@@ -35,7 +35,8 @@ jobs:
       # which the Bayesian inference page's MCMC examples run.
       apt-packages: 'jags'
       setup-chrome: false
-      # PDF handouts are part of the default render below, so TinyTeX is always needed.
+      # A PR labelled `preview:pdf` renders the PDF handouts (tools/skip-pdf-in-previews.py
+      # removes them otherwise), and the publish build always does, so install TinyTeX.
       tinytex: true
       # `_quarto.yml` already selects the `website` profile by default.
       render-profile: ''
