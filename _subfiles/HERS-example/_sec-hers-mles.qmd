@@ -1,4 +1,4 @@
-By the [Gaussian MLEs](#sec-gaussian-mle),
+By the [Gaussian MLEs](gaussian-mle.qmd#sec-gaussian-mle),
 $\hmean_{\text{ML}} = \bar x$ and $\hvarpar_{\text{ML}} = \frac{1}{n}\sum_i (\rvar_\iobs - \bar x)^2$:
 
 ```{r}
