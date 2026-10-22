@@ -6,16 +6,50 @@ and let $\trainset$ be a random [training set](#def-training-set).
 At a covariate value $\predvar$,
 the prediction $\predvalf{\predvar}$ is a random variable,
 because it depends on the random training data.
+Let $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) with $\newpredvar = \predvar$.
 The **bias** of the prediction
-is the expected [estimation error](estimation.qmd#def-estimation-error) of the prediction
-as an [estimator](estimation.qmd#def-estimator)
-of the [mean function](#def-mean-function) value $\truemeanf{\predvar}$,
-which is its estimand here, not the new outcome it predicts:
+is the expected [prediction error](prediction.qmd#def-prediction-error)
+of the prediction $\predvalf{\predvar}$ of the new outcome $\newoutvar$.
+The expectation averages over training sets and over the new outcome:
 
 $$
 \bias{\predvalf{\predvar}}
-= \E{\erf{\predvalf{\predvar}}}.
+= \E{\esterr{\predvalf{\predvar}}{\newoutvar}}.
 $$ {#eq-prediction-bias}
+
+This expected error is signed, not squared.
+It is not the [expected prediction error](#def-epe), which is the expected squared prediction error.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#thm-prediction-bias-average-fit}
+#### The bias as the expected prediction minus the mean function
+
+The [bias](#def-prediction-bias) of the prediction at $\predvar$
+is the [expected prediction](#def-average-fit) minus the [mean function](#def-mean-function) value:
+
+$$
+\bias{\predvalf{\predvar}}
+= \Epredval - \truemeanf{\predvar}.
+$$ {#eq-prediction-bias-average-fit}
+
+:::
+
+::: proof
+
+The new outcome is independent of the training set,
+and its mean is $\truemeanf{\predvar}$ because the [noise has mean zero](#thm-noise-mean-zero).
+
+$$
+\begin{aligned}
+\bias{\predvalf{\predvar}}
+&= \E{\esterr{\predvalf{\predvar}}{\newoutvar}} && \text{(definition of bias)} \\
+&= \Epredval - \E{\newoutvar} && \text{(linearity of expectation)} \\
+&= \Epredval - \truemeanf{\predvar} && \text{(the noise has mean zero)} .
+\end{aligned}
+$$
 
 :::
 
@@ -40,8 +74,7 @@ Then
 $$
 \begin{aligned}
 \bias{\predval}
-&= \E{\erf{\predval}} \\
-&= \Epredval - \truemeanf{\predvar} \\
+&= \Epredval - \truemeanf{\predvar} && \text{(@thm-prediction-bias-average-fit)} \\
 &= 11 - 10 \\
 &= 1.
 \end{aligned}
