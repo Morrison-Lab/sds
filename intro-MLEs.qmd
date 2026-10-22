@@ -147,11 +147,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_exr-pois-score.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/intro-MLEs/_thm-pois-score.qmd >}}
+{{< include sds/_subfiles/intro-MLEs/_rem-pois-exp-score-moved.qmd >}}
 
 {{< slidebreak >}}
 
@@ -160,14 +156,6 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_thm-gauss-score.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/intro-MLEs/_exr-exp-score.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/intro-MLEs/_thm-exp-score.qmd >}}
 
 {{< slidebreak >}}
 

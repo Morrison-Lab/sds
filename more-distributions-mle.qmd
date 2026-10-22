@@ -1,0 +1,33 @@
+---
+title: "Maximum Likelihood for More Distributions"
+format:
+  html: default
+  revealjs:
+    output-file: more-distributions-mle-slides.html
+  pdf:
+    output-file: more-distributions-mle-handout.pdf
+  docx:
+    output-file: more-distributions-mle-handout.docx
+---
+
+## Maximum likelihood for Poisson and exponential models {#sec-more-distributions-mle}
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+### The score of a Poisson variable
+
+{{< include sds/_subfiles/intro-MLEs/_exr-pois-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-pois-score.qmd >}}
+
+{{< slidebreak >}}
+
+### The score of an exponential variable
+
+{{< include sds/_subfiles/intro-MLEs/_exr-exp-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-exp-score.qmd >}}

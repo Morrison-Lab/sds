@@ -42,6 +42,8 @@ Inference:
   a worked derivation for Bernoulli data;
 - [Maximum likelihood for a Gaussian model](gaussian-mle.qmd):
   a worked derivation for Gaussian data;
+- [Maximum likelihood for more distributions](more-distributions-mle.qmd):
+  worked score derivations for Poisson and exponential data;
 - [Properties of estimators](estimator-properties.qmd):
   consistency, relative efficiency, and the Cramér--Rao lower bound.
 - [Sufficiency and the Rao--Blackwell theorem](sufficiency.qmd):

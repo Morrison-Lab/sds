@@ -1,0 +1,6 @@
+::: {#rem-pois-exp-score-moved}
+#### Where the Poisson and exponential score derivations are
+
+The derivations of the score for a Poisson variable and for an exponential variable
+are on their own page, [Maximum likelihood for more distributions](more-distributions-mle.qmd).
+:::

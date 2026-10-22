@@ -1,6 +1,6 @@
 In all four examples
-([Bernoulli score](bernoulli-mle.qmd#thm-bernoulli-score), @thm-pois-score,
-@thm-gauss-score, and @thm-exp-score),
+([Bernoulli score](bernoulli-mle.qmd#thm-bernoulli-score), [Poisson score](more-distributions-mle.qmd#thm-pois-score),
+@thm-gauss-score, and [exponential score](more-distributions-mle.qmd#thm-exp-score)),
 the score function with respect to the mean turned out to be:
 
 $$\score = \frac{x - \E{X}}{\Var{X}}$$

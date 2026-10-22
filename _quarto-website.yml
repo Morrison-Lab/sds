@@ -59,6 +59,8 @@ website:
             href: bernoulli-mle.qmd
           - text: "Maximum Likelihood for a Gaussian Model"
             href: gaussian-mle.qmd
+          - text: "Maximum Likelihood for More Distributions"
+            href: more-distributions-mle.qmd
           - text: "Properties of Estimators"
             href: estimator-properties.qmd
           - text: "Sufficiency"
@@ -125,6 +127,8 @@ website:
             href: bernoulli-mle.qmd
           - text: "Maximum Likelihood for a Gaussian Model"
             href: gaussian-mle.qmd
+          - text: "Maximum Likelihood for More Distributions"
+            href: more-distributions-mle.qmd
           - text: "Properties of Estimators"
             href: estimator-properties.qmd
           - text: "Sufficiency"
