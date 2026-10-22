@@ -39,6 +39,9 @@ exclude = [
   # online.stat.psu.edu fails lychee's TLS certificate verification in CI
   # ("invalid peer certificate: UnknownIssuer"), although browsers accept it
   "https://online.stat.psu.edu/.*",
+  # The wmed.edu "Anatomy of a confidence interval" PDF timed out from CI runners
+  # on four consecutive runs on 2026-10-21 (sds#415)
+  "https://wmed.edu/sites/default/files/ANATOMY.*",
 ]
 
 # `sds` is a symlink to the repository root, so include paths read

@@ -1,0 +1,33 @@
+:::{#exr-bernoulli-score-contribution}
+#### Score contribution of one binary outcome
+
+In the setting of @exr-bernoulli-loglik-contribution, let:
+
+- $\precision \eqdef 1 / \Var{\Outvar_\iobs}$ be the [precision](#def-precision-rv) of $\Outvar_\iobs$.
+
+Derive the [score](#def-score) contribution $\score_\iobs(\prob) \eqdef \deriv{\prob} \llik_\iobs(\prob)$ of observation $\iobs$,
+and write it using $\precision$.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-score-contribution}
+
+$$
+\begin{aligned}
+\score_\iobs(\prob)
+&= \deriv{\prob} \llik_\iobs(\prob)
+&& \text{(definition of the score contribution)}\\
+&= \frac{\outvar_\iobs - \prob}{\prob(1 - \prob)}
+&& \text{(score of a Bernoulli variable, with $x = \outvar_\iobs$)}\\
+&= \frac{\outvar_\iobs - \prob}{\Var{\Outvar_\iobs}}
+&& \text{($\Var{\Outvar_\iobs} = \prob(1 - \prob)$)}\\
+&= \frac{1}{\Var{\Outvar_\iobs}} (\outvar_\iobs - \prob)
+&& \text{(a fraction is its numerator times the reciprocal of its denominator)}\\
+&= \precision (\outvar_\iobs - \prob)
+&& \text{(definition of $\precision$)}
+\end{aligned}
+$$
+
+:::

@@ -1,0 +1,9 @@
+:::{#def-precision-rv}
+#### Precision of a random variable
+
+The **precision** $\precision$ of a random variable $\Outvar$
+with nonzero [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\Var{\Outvar}$
+is the reciprocal of $\Var{\Outvar}$:
+
+$$\precision \eqdef \frac{1}{\Var{\Outvar}}$$
+:::
