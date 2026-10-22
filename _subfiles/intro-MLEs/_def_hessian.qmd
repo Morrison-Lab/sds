@@ -3,6 +3,8 @@
 #### Hessian
 
 The **Hessian matrix** of the log-likelihood function
+(the [Hessian](https://morrison-lab.github.io/mds/vector-calculus.html#def-hessian)
+of the log-likelihood as a function of the parameters)
 is the matrix of its second derivatives
 with respect to the parameters:
 
