@@ -1,0 +1,77 @@
+:::{#exr-bernoulli-hessian-contribution-precision}
+#### Hessian contribution of one binary outcome in terms of the precision and deviation
+
+In the setting of @exr-bernoulli-hessian-contribution,
+derive the [Hessian](#def-hessian) contribution $\hess_\iobs(\prob)$
+starting from the simplified [score](#def-score) contribution $\score_\iobs(\prob) = \precision \devn_\iobs$ in @thm-bernoulli-score-contribution,
+with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$
+and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs \eqdef \outvar_\iobs - \prob$.
+Both $\precision$ and $\devn_\iobs$ depend on $\prob$, while the observed value $\outvar_\iobs$ does not.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-hessian-contribution-precision}
+
+$$
+\begin{aligned}
+\hess_\iobs(\prob)
+&= \deriv{\prob} \score_\iobs(\prob)
+&& \text{(definition of the Hessian contribution)}\\
+&= \deriv{\prob} \paren{\precision \devn_\iobs}
+&& \text{(score contribution)}\\
+&= \paren{\deriv{\prob} \precision} \devn_\iobs + \precision \deriv{\prob} \devn_\iobs
+&& \text{(product rule)}
+\end{aligned}
+$$
+
+The derivative of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is:
+
+$$
+\begin{aligned}
+\deriv{\prob} \devn_\iobs
+&= \deriv{\prob} \paren{\outvar_\iobs - \prob}
+&& \text{(definition of $\devn_\iobs$)}\\
+&= \deriv{\prob} \outvar_\iobs - \deriv{\prob} \prob
+&& \text{(linearity of differentiation)}\\
+&= 0 - 1
+&& \text{(derivatives of a constant and of $\prob$)}\\
+&= -1
+&& \text{(subtract)}
+\end{aligned}
+$$
+
+The derivative of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) needs the chain rule:
+
+$$
+\begin{aligned}
+\deriv{\prob} \precision
+&= \deriv{\prob} \paren{\prob(1 - \prob)}^{-1}
+&& \text{(definition of $\precision$ as a negative power)}\\
+&= \deriv{\prob} \paren{\prob - \sqf{\prob}}^{-1}
+&& \text{(distribute $\prob$)}\\
+&= -\paren{\prob - \sqf{\prob}}^{-2} \deriv{\prob} \paren{\prob - \sqf{\prob}}
+&& \text{(chain rule and power rule)}\\
+&= -\paren{\prob - \sqf{\prob}}^{-2} \paren{1 - 2 \prob}
+&& \text{(linearity and power rule)}\\
+&= -\paren{\prob(1 - \prob)}^{-2} \paren{1 - 2 \prob}
+&& \text{(factor $\prob - \sqf{\prob} = \prob(1 - \prob)$)}\\
+&= -\sqf{\precision} \paren{1 - 2 \prob}
+&& \text{(definition of $\precision$)}
+\end{aligned}
+$$
+
+Substituting both derivatives back in:
+
+$$
+\begin{aligned}
+\hess_\iobs(\prob)
+&= \paren{-\sqf{\precision} \paren{1 - 2 \prob}} \devn_\iobs + \precision (-1)
+&& \text{(substitute the two derivatives)}\\
+&= -\precision - \paren{1 - 2 \prob} \sqf{\precision} \devn_\iobs
+&& \text{(multiply by $-1$ and reorder the terms)}
+\end{aligned}
+$$
+
+:::
