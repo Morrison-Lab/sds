@@ -29,8 +29,8 @@ $$
 && \text{(collect the terms in $\textstyle\sumin \outvar_\iobs$)}\\
 &= \paren{\sumin \outvar_\iobs} \logf{\frac{\prob}{1 - \prob}} + n \logf{1 - \prob}
 && \text{(log of a quotient)}\\
-&= \paren{\sumin \outvar_\iobs} \logit(\prob) + n \logf{1 - \prob}
-&& \text{(definition of $\logit$)}
+&= \paren{\sumin \outvar_\iobs} \logodds + n \logf{1 - \prob}
+&& \text{(definition of $\logodds \eqdef \logit(\prob)$)}
 \end{aligned}
 $$
 
