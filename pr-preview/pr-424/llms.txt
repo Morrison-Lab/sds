@@ -1,0 +1,31 @@
+# Statistics for Data Science
+
+> Statistics prerequisites for data science courses
+
+## Pages
+
+- [Sufficiency and the Rao--Blackwell Theorem](https://morrison-lab.github.io/sds/sufficiency.llms.md)
+- [Permutation Tests](https://morrison-lab.github.io/sds/permutation-tests.llms.md)
+- [Multiple Testing](https://morrison-lab.github.io/sds/multiple-testing.llms.md)
+- [Validating Predictions](https://morrison-lab.github.io/sds/model-validation.llms.md)
+- [Inference for Logistic Regression](https://morrison-lab.github.io/sds/logistic-inference.llms.md)
+- [Statistical Inference](https://morrison-lab.github.io/sds/inference.llms.md)
+- [Maximum Likelihood for a Gaussian Model](https://morrison-lab.github.io/sds/gaussian-mle.llms.md)
+- [Properties of Estimators](https://morrison-lab.github.io/sds/estimator-properties.llms.md)
+- [Types of Variables](https://morrison-lab.github.io/sds/data.llms.md)
+- [Classification and Diagnostic Tests](https://morrison-lab.github.io/sds/classification.llms.md)
+- [The Bootstrap](https://morrison-lab.github.io/sds/bootstrap.llms.md)
+- [Bayesian Inference](https://morrison-lab.github.io/sds/bayesian-inference.llms.md)
+- [Comparing Means](https://morrison-lab.github.io/sds/basic-statistical-methods.llms.md)
+- [Fitting Models by Bayesian Inference with JAGS](https://morrison-lab.github.io/sds/bayesian-examples.llms.md)
+- [Maximum Likelihood for a Bernoulli Model](https://morrison-lab.github.io/sds/bernoulli-mle.llms.md)
+- [Comparing Proportions](https://morrison-lab.github.io/sds/categorical-tests.llms.md)
+- [Correlation and Simple Linear Regression](https://morrison-lab.github.io/sds/correlation-regression.llms.md)
+- [Estimation](https://morrison-lab.github.io/sds/estimation.llms.md)
+- [Exploratory Data Analysis](https://morrison-lab.github.io/sds/exploratory-descriptive.llms.md)
+- [Statistics for Data Science](https://morrison-lab.github.io/sds/index.llms.md)
+- [Introduction to Maximum Likelihood Inference](https://morrison-lab.github.io/sds/intro-MLEs.llms.md)
+- [Markov Chain Monte Carlo](https://morrison-lab.github.io/sds/mcmc.llms.md)
+- [Maximum Likelihood for More Distributions](https://morrison-lab.github.io/sds/more-distributions-mle.llms.md)
+- [Nonparametric Models](https://morrison-lab.github.io/sds/nonparametric-models.llms.md)
+- [Prediction](https://morrison-lab.github.io/sds/prediction.llms.md)
