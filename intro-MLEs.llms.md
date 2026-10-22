@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 02:04:59 (PDT)
+Last modified: 2026-10-22 02:34:23 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -1554,51 +1554,11 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 ## 4 Maximum likelihood for univariate Gaussian models
 
-Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ {\operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}}\\, and let \\x_1, \ldots, x_n\\ be the observed values. The parameter vector is \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}= (\mu, \sigma^2)\\. We treat \\\sigma^2\\, rather than \\\sigma\\, as the second parameter, and differentiate with respect to \\\sigma^2\\ directly.
+> **NOTE:**
+>
+> *Remark 12* (Where the Gaussian derivation is). The step-by-step derivation for a univariate Gaussian model is on its own page, [Maximum likelihood for a Gaussian model](gaussian-mle.llms.md). It was a section of this page.
 
-By [Theorem 1](#thm-lik-iid), the likelihood is:
-
-\\ \mathcal{L}(\mu, \sigma^2) = \prod\_{i=1}^n(2\pi\sigma^2)^{-1/2} {\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}} \\
-
-and by [Theorem 4](#thm-loglik-iid), the log-likelihood is:
-
-\\ \begin{aligned} \ell(\mu, \sigma^2) &= \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\(2\pi\sigma^2)^{-1/2} {\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}}\right\\\mathclose{}} && \text{(log of each Gaussian density)}\\ &= \sum\_{i=1}^n\mathopen{}\left({\operatorname{log}\mathopen{}\left\\(2\pi\sigma^2)^{-1/2}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\{\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a product)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{1}{2}{\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\{\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a power)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{1}{2}{\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{}} - \frac{(x_i- \mu)^2}{2\sigma^2}\right)\mathclose{} && \text{(\$\operatorname{log}\$ undoes \$\operatorname{exp}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{1}{2}{\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{}}\right)\mathclose{} - \sum\_{i=1}^n\frac{(x_i- \mu)^2}{2\sigma^2} && \text{(split the sum)}\\ &= -\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{}} - \sum\_{i=1}^n\frac{(x_i- \mu)^2}{2\sigma^2} && \text{(sum of \$n\$ identical terms)}\\ &= -\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{}} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(factor the constant \$\tfrac{1}{2\sigma^2}\$ out of the sum)}\\ &= -\frac{n}{2}\mathopen{}\left({\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(log of a product)}\\ &= -\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}} - \frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(distribute \$-\tfrac{n}{2}\$)} \end{aligned} \\
-
-### 4.1 The score function
-
-The score function is the vector of the two partial derivatives:
-
-\\ \ell'(\mu, \sigma^2) = \begin{pmatrix} \frac{\partial}{\partial \mu}\ell(\mu, \sigma^2) \\ \frac{\partial}{\partial \sigma^2}\ell(\mu, \sigma^2) \end{pmatrix} \\
-
-For the first entry, only the last term of \\\ell\\ depends on \\\mu\\:
-
-\\ \begin{aligned} \frac{\partial}{\partial \mu}\ell &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}} - \frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \mu)^2\right)\mathclose{} && \text{(Gaussian log-likelihood)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \mu)^2\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= 0 + 0 + \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \mu)^2\right)\mathclose{} && \text{(derivative of a constant)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \mu)^2\right)\mathclose{} && \text{(drop the zero terms)}\\ &= -\frac{1}{2\sigma^2}\frac{\partial}{\partial \mu}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(constant multiple rule)}\\ &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n\frac{\partial}{\partial \mu}(x_i- \mu)^2 && \text{(derivative of a sum is the sum of derivatives)}\\ &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n2(x_i- \mu)\frac{\partial}{\partial \mu}(x_i- \mu) && \text{(chain rule, outer function \$u^2\$)} \end{aligned} \\
-
-The inner derivative is:
-
-\\ \begin{aligned} \frac{\partial}{\partial \mu}(x_i- \mu) &= \frac{\partial}{\partial \mu} x_i- \frac{\partial}{\partial \mu} \mu && \text{(linearity of differentiation)}\\ &= 0 - \frac{\partial}{\partial \mu} \mu && \text{(\$x_i\$ does not depend on \$\mu\$)}\\ &= 0 - 1 && \text{(derivative of \$\mu\$ with respect to itself)}\\ &= -1 && \text{(subtract)} \end{aligned} \\
-
-Substituting the inner derivative back in:
-
-\\ \begin{aligned} \frac{\partial}{\partial \mu}\ell &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n2(x_i- \mu) \cdot (-1) && \text{(inner derivative is \$-1\$)}\\ &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n-2(x_i- \mu) && \text{(multiply)}\\ &= -\frac{1}{2\sigma^2} \cdot (-2) \sum\_{i=1}^n(x_i- \mu) && \text{(factor the constant \$-2\$ out of the sum)}\\ &= \frac{1}{\sigma^2}\sum\_{i=1}^n(x_i- \mu) && \text{(multiply the constants)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i- \sum\_{i=1}^n\mu\right)\mathclose{} && \text{(split the sum)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i- n\mu\right)\mathclose{} && \text{(sum of \$n\$ copies of \$\mu\$)} \end{aligned} \\
-
-For the second entry, write the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\\sigma^2\\ as a single variable \\v\\, so that the [log-likelihood](#def-loglik) \\\ell\\ contains \\-\frac{n}{2}\log v\\ and \\-\frac{1}{2}v^{-1} S\\, where the sum of squared [deviations](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\S = {\sum\_{i=1}^n\mathopen{}\left({\mathopen{}\left(\delta\_{\mu}\mathopen{}\left(x_i\right)\mathclose{}\right)\mathclose{}}^{2}\right)\mathclose{}}\\ from the mean parameter \\\mu\\ does not depend on \\\sigma^2\\:
-
-\\ \begin{aligned} \frac{\partial}{\partial \sigma^2}\ell &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}} - \frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}S\right)\mathclose{} && \text{(Gaussian log-likelihood)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}S\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= 0 + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}S\right)\mathclose{} && \text{(derivative of a constant)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}S\right)\mathclose{} && \text{(drop the zero term)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{1}{2}S {\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}\right)\mathclose{} && \text{(reorder the factors)}\\ &= -\frac{n}{2}\frac{\partial}{\partial \sigma^2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{1}{2}S \frac{\partial}{\partial \sigma^2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} && \text{(constant multiple rule)}\\ &= -\frac{n}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} - \frac{1}{2}S \frac{\partial}{\partial \sigma^2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} && \text{(derivative of \$\log v\$)}\\ &= -\frac{n}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} - \frac{1}{2}S \mathopen{}\left(-{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-2}\right)\mathclose{} && \text{(power rule for \$v^{-1}\$)}\\ &= -\frac{n}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} + \frac{1}{2}S {\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-2} && \text{(multiply)}\\ &= -\frac{n}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} + \frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-2}S && \text{(reorder the factors)} \end{aligned} \\
-
-### 4.2 MLE of \\\mu\\
-
-Setting \\\frac{\partial}{\partial \mu}\ell= 0\\:
-
-\\ \begin{aligned} 0 &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i- n\mu\right)\mathclose{} && \text{(score for \$\mu\$)}\\ 0 &= \sum\_{i=1}^nx_i- n\mu && \text{(multiply both sides by \$\sigma^2\$)}\\ n\mu&= \sum\_{i=1}^nx_i && \text{(add \$n\mu\$ to both sides)}\\ \mu&= \frac{1}{n}\sum\_{i=1}^nx_i && \text{(divide by \$n\$)}\\ \mu&= \bar x && \text{(definition of \$\bar x\$)} \end{aligned} \\
-
-This solution does not depend on \\\sigma^2\\. The second derivative is
-
-\\ \begin{aligned} \frac{\partial^2 \ell}{\partial \mu^2} &= \frac{\partial}{\partial \mu}\mathopen{}\left(\frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i- n\mu\right)\mathclose{}\right)\mathclose{} && \text{(differentiate the score for \$\mu\$)}\\ &= \frac{1}{\sigma^2}\frac{\partial}{\partial \mu}\mathopen{}\left(\sum\_{i=1}^nx_i- n\mu\right)\mathclose{} && \text{(constant multiple rule)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(\frac{\partial}{\partial \mu}\sum\_{i=1}^nx_i- \frac{\partial}{\partial \mu}\mathopen{}\left(n\mu\right)\mathclose{}\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(0 - \frac{\partial}{\partial \mu}\mathopen{}\left(n\mu\right)\mathclose{}\right)\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^nx_i\$ does not depend on \$\mu\$)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(0 - n\frac{\partial}{\partial \mu}\mu\right)\mathclose{} && \text{(constant multiple rule)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(0 - n\right)\mathclose{} && \text{(derivative of \$\mu\$ with respect to itself)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(-n\right)\mathclose{} && \text{(subtract)}\\ &= -\frac{n}{\sigma^2} && \text{(multiply)}\\ &\< 0, && \text{(\$n \> 0\$ and \$\sigma^2\> 0\$)} \end{aligned} \\
-
-so for every fixed \\\sigma^2\\, \\\ell\\ is maximized over \\\mu\\ at \\\bar x\\, and \\\hat{\mu}\_{\text{ML}} = \bar x\\.
-
-### 4.3 MLE of \\\sigma^2\\
+### 4.1 The profile log-likelihood
 
 > **NOTE:**
 >
@@ -1608,51 +1568,9 @@ so for every fixed \\\sigma^2\\, \\\ell\\ is maximized over \\\mu\\ at \\\bar x\
 
 > **NOTE:**
 >
-> **Example 15 (Profile log-likelihood of a Gaussian variance)** In the Gaussian model, \\\hat{\mu}= \bar x\\ maximizes \\\ell\\ over \\\mu\\ for every value of \\\sigma^2\\ ([Section 4](#sec-gaussian-mle)), so the profile log-likelihood of \\\sigma^2\\ is
+> **Example 15 (Profile log-likelihood of a Gaussian variance)** In the Gaussian model, \\\hat{\mu}= \bar x\\ maximizes \\\ell\\ over \\\mu\\ for every value of \\\sigma^2\\ ([Gaussian MLEs](gaussian-mle.llms.md#sec-gaussian-mle)), so the profile log-likelihood of \\\sigma^2\\ is
 >
 > \\ \begin{aligned} \ell_p(\sigma^2) &= \ell(\bar x, \sigma^2) && \text{(definition of the profile log-likelihood)}\\ &= -\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}} - \frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \bar x)^2 && \text{(Gaussian log-likelihood at \$\mu= \bar x\$)} \end{aligned} \\
-
-Setting \\\frac{\partial}{\partial \sigma^2}\ell= 0\\:
-
-\\ \begin{aligned} 0 &= -\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(score for \$\sigma^2\$)}\\ \frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(add \$\tfrac{n}{2}(\sigma^2)^{-1}\$)}\\ n\sigma^2&= \sum\_{i=1}^n(x_i- \mu)^2 && \text{(multiply both sides by \$2(\sigma^2)^2\$)}\\ \sigma^2&= \frac{1}{n}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(divide both sides by \$n\$)} \end{aligned} \\
-
-Substituting the maximizer \\\mu= \bar x\\, which does not depend on \\\sigma^2\\, maximizes the [profile log-likelihood](#def-profile-loglik) of [Example 15](#exm-profile-loglik), and gives:
-
-\\\hat{\sigma}^2\_{\text{ML}} = \frac{1}{n}\sum\_{i=1}^n(x_i- \bar x)^2\\
-
-The profile log-likelihood, \\\ell_p(\sigma^2) = -\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}} - \frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{n\hat{\sigma}^2\_{\text{ML}}}{2\sigma^2}\\, increases for \\\sigma^2\< \hat{\sigma}^2\_{\text{ML}}\\ and decreases for \\\sigma^2\> \hat{\sigma}^2\_{\text{ML}}\\, because its derivative, \\\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\mathopen{}\left(\hat{\sigma}^2\_{\text{ML}} - \sigma^2\right)\mathclose{}\\, has the sign of \\\hat{\sigma}^2\_{\text{ML}} - \sigma^2\\. So \\(\bar x, \hat{\sigma}^2\_{\text{ML}})\\ is the global maximizer, provided the \\x_i\\ are not all equal.
-
-> **NOTE:**
->
-> *Remark 12* (Differentiating with respect to the variance or the precision). Differentiating with respect to \\\sigma^2\\ as a single variable, rather than with respect to \\\sigma\\, keeps the algebra short. Replacing \\\sigma^2\\ with the precision \\\tau\stackrel{\text{def}}{=}1/\sigma^2\\ and differentiating with respect to \\\tau\\ can be shorter still, because \\\tau\\ enters the log-likelihood as \\\frac{n}{2}\log\tau- \frac{\tau}{2}\sum\_{i=1}^n(x_i- \mu)^2\\. By the invariance of maximum likelihood estimates, \\\hat{\tau}\_{\text{ML}} = 1/\hat{\sigma}^2\_{\text{ML}}\\.
-
-> **NOTE:**
->
-> *Remark 13* (The Gaussian variance MLE is biased). This MLE divides by \\n\\, so it is a biased estimator of \\\sigma^2\\ ([bias of the divide-by-\\n\\ estimator](estimation.llms.md#exm-biased-variance-mle)).
-
-### 4.4 Second derivatives
-
-The remaining second derivatives are:
-
-\\ \begin{aligned} \frac{\partial^2 \ell}{\partial (\sigma^2)^2} &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i- \mu)^2\right)\mathclose{} && \text{(differentiate the score for \$\sigma^2\$)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(\frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i- \mu)^2\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(\frac{1}{2}\sum\_{i=1}^n(x_i- \mu)^2 \mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\right)\mathclose{} && \text{(reorder the factors)}\\ &= -\frac{n}{2}\frac{\partial}{\partial \sigma^2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\sum\_{i=1}^n(x_i- \mu)^2 \frac{\partial}{\partial \sigma^2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} && \text{(constant multiple rule)}\\ &= -\frac{n}{2}\mathopen{}\left(-\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\right)\mathclose{} + \frac{1}{2}\sum\_{i=1}^n(x_i- \mu)^2 \frac{\partial}{\partial \sigma^2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} && \text{(power rule for \$v^{-1}\$)}\\ &= -\frac{n}{2}\mathopen{}\left(-\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\right)\mathclose{} + \frac{1}{2}\sum\_{i=1}^n(x_i- \mu)^2 \mathopen{}\left(-2\mathopen{}\left(\sigma^2\right)\mathclose{}^{-3}\right)\mathclose{} && \text{(power rule for \$v^{-2}\$)}\\ &= \frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} - \sum\_{i=1}^n(x_i- \mu)^2 \mathopen{}\left(\sigma^2\right)\mathclose{}^{-3} && \text{(multiply the constants)}\\ &= \frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} - \mathopen{}\left(\sigma^2\right)\mathclose{}^{-3}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(reorder the factors)}\\ \frac{\partial^2 \ell}{\partial \mu\\ \partial \sigma^2} &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i- \mu)^2\right)\mathclose{} && \text{(differentiate the score for \$\sigma^2\$)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1}\right)\mathclose{} + \frac{\partial}{\partial \mu}\mathopen{}\left(\frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i- \mu)^2\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= 0 + \frac{\partial}{\partial \mu}\mathopen{}\left(\frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i- \mu)^2\right)\mathclose{} && \text{(derivative of a constant)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(\frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i- \mu)^2\right)\mathclose{} && \text{(drop the zero term)}\\ &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\frac{\partial}{\partial \mu}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(constant multiple rule)}\\ &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n\frac{\partial}{\partial \mu}(x_i- \mu)^2 && \text{(derivative of a sum is the sum of derivatives)}\\ &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n-2(x_i- \mu) && \text{(chain-rule result from the score for \$\mu\$)}\\ &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} \cdot (-2) \sum\_{i=1}^n(x_i- \mu) && \text{(factor the constant \$-2\$ out of the sum)}\\ &= -\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i- \mu) && \text{(multiply the constants)} \end{aligned} \\
-
-At the MLE, \\\sum\_{i=1}^n(x_i- \bar x) = 0\\ and \\\sum\_{i=1}^n(x_i- \bar x)^2 = n\hat{\sigma}^2\\ (writing \\\hat{\sigma}^2\\ for \\\hat{\sigma}^2\_{\text{ML}}\\), so:
-
-\\ \begin{aligned} \left.{\frac{\partial^2 \ell}{\partial (\sigma^2)^2}}\right\|\_{\text{MLE}} &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3}\sum\_{i=1}^n(x_i- \bar x)^2 && \text{(evaluate at \$\mu= \bar x\$, \$\sigma^2= \hat{\sigma}^2\$)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3} n\hat{\sigma}^2 && \text{(substitute \$\textstyle\sum\_{i=1}^n(x_i- \bar x)^2 = n\hat{\sigma}^2\$)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3}\hat{\sigma}^2 && \text{(reorder the factors)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} && \text{(cancel one factor of \$\hat{\sigma}^2\$)}\\ &= -\frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} && \text{(combine like terms)}\\ \left.{\frac{\partial^2 \ell}{\partial \mu\\ \partial \sigma^2}}\right\|\_{\text{MLE}} &= -\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i- \bar x) && \text{(evaluate at \$\mu= \bar x\$, \$\sigma^2= \hat{\sigma}^2\$)}\\ &= -\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} \cdot 0 && \text{(substitute \$\textstyle\sum\_{i=1}^n(x_i- \bar x) = 0\$)}\\ &= 0 && \text{(multiply by zero)} \end{aligned} \\
-
-### 4.5 Information matrix and standard errors
-
-Collecting the second derivatives at the MLE, the [observed information](#def-oinf) is
-
-\\ I(\hat{\mu}, \hat{\sigma}^2) = \begin{bmatrix} \frac{n}{\hat{\sigma}^2} & 0 \\ 0 & \frac{n}{2\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^2} \end{bmatrix} \\
-
-Its diagonal entries are positive and its off-diagonal entries are zero, so it is positive definite, consistent with the MLE being a maximum. The inverse of a diagonal matrix inverts each diagonal entry, so:
-
-\\ {\mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)\mathclose{}}^{-1} = \begin{bmatrix} \frac{\hat{\sigma}^2}{n} & 0 \\ 0 & \frac{2\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^2}{n} \end{bmatrix} \\
-
-By [Theorem 14](#thm-dist-mle), the estimated standard errors are \\{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{}} = \hat{\sigma}/\sqrt{n}\\ and \\{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}} = \hat{\sigma}^2\sqrt{2/n}\\, and the two estimates are approximately uncorrelated in large samples.
-
-See also [\[3\]](#ref-CaseBerg01), Example 7.2.12.
 
 ## 5 Example: hormone therapy study
 
@@ -1735,7 +1653,7 @@ The histogram is irregular, as histograms of 100 observations often are, with a 
 
 ### 5.2 Maximum likelihood estimates
 
-By the [Gaussian MLEs](#sec-gaussian-mle), \\\hat{\mu}\_{\text{ML}} = \bar x\\ and \\\hat{\sigma}^2\_{\text{ML}} = \frac{1}{n}\sum_i (x_i- \bar x)^2\\:
+By the [Gaussian MLEs](gaussian-mle.llms.md#sec-gaussian-mle), \\\hat{\mu}\_{\text{ML}} = \bar x\\ and \\\hat{\sigma}^2\_{\text{ML}} = \frac{1}{n}\sum_i (x_i- \bar x)^2\\:
 
 ``` downlit
 mu_hat <- mean(glucose_data)
@@ -1906,7 +1824,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 
 ### 5.5 Standard errors by sample size
 
-By [Section 4.5](#sec-covariance-matrix), the estimated standard error of \\\hat{\mu}\_{\text{ML}}\\ is
+By the [covariance matrix of the Gaussian MLEs](gaussian-mle.llms.md#sec-covariance-matrix), the estimated standard error of \\\hat{\mu}\_{\text{ML}}\\ is
 
 \\ \begin{aligned} {\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{}} &= \sqrt{\mathopen{}\left\[{\mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)\mathclose{}}^{-1}\right\]\mathclose{}\_{11}} && \text{(estimated standard error from the inverse information)}\\ &= \sqrt{\frac{\hat{\sigma}^2}{n}} && \text{(first diagonal entry of the inverse information)}\\ &= \frac{\hat{\sigma}}{\sqrt{n}} && \text{(square root of a quotient)} \end{aligned} \\
 
@@ -1996,7 +1914,7 @@ power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 
 > **NOTE:**
 >
-> *Remark 14* (Choosing the alternative, and observed power). The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat{\mu}\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed [\[25\]](#ref-hoenig2001abuse).
+> *Remark 13* (Choosing the alternative, and observed power). The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat{\mu}\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed [\[25\]](#ref-hoenig2001abuse).
 
 ### 5.7 Simulation
 
