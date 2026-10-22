@@ -2,7 +2,7 @@
 #### Hessian contribution of one binary outcome in terms of the precision and deviation
 
 If $\Outvar_\iobs \sim \Ber(\prob)$ has observed value $\outvar_\iobs \in \cb{0, 1}$
-and [precision](#def-precision-rv) $\precision = 1 / \paren{\prob(1 - \prob)}$,
+and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$,
 its [Hessian](#def-hessian) contribution is, with the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs \eqdef \outvar_\iobs - \prob$:
 
 $$\hess_\iobs(\prob) = -\precision - \paren{1 - 2 \prob} \sqf{\precision} \devn_\iobs$$

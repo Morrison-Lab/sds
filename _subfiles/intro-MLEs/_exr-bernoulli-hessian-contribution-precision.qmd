@@ -4,7 +4,7 @@
 In the setting of @exr-bernoulli-hessian-contribution,
 derive the [Hessian](#def-hessian) contribution $\hess_\iobs(\prob)$
 starting from the simplified [score](#def-score) contribution $\score_\iobs(\prob) = \precision \devn_\iobs$ in @thm-bernoulli-score-contribution,
-with the [precision](#def-precision-rv) $\precision = 1 / \paren{\prob(1 - \prob)}$
+with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$
 and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs \eqdef \outvar_\iobs - \prob$.
 Both $\precision$ and $\devn_\iobs$ depend on $\prob$, while the observed value $\outvar_\iobs$ does not.
 
@@ -42,7 +42,7 @@ $$
 \end{aligned}
 $$
 
-The derivative of the [precision](#def-precision-rv) needs the chain rule:
+The derivative of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) needs the chain rule:
 
 $$
 \begin{aligned}
