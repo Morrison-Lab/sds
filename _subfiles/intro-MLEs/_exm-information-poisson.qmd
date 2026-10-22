@@ -2,7 +2,7 @@
 #### Information for Poisson data
 
 For $\dsn{X} \siid \Pois(\rate)$,
-one observation's score is $x/\rate - 1$ ([Poisson score](more-distributions-mle.qmd#thm-pois-score)),
+one observation's [score](intro-MLEs.qmd#def-score) is $x/\rate - 1$ ([Poisson score](more-distributions-mle.qmd#thm-pois-score)),
 whose derivative with respect to $\rate$ is $-x/\rate^2$.
 Summing over the observations (@thm-deriv-llik-iid),
 the Hessian is $\hess = -\sumin \rvar_\iobs / \rate^2$, so:
