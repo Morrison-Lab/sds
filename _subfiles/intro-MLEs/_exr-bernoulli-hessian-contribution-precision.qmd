@@ -26,7 +26,7 @@ $$
 \end{aligned}
 $$
 
-The derivative of the deviation is:
+The derivative of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is:
 
 $$
 \begin{aligned}
@@ -42,7 +42,7 @@ $$
 \end{aligned}
 $$
 
-The derivative of the precision needs the chain rule:
+The derivative of the [precision](#def-precision-rv) needs the chain rule:
 
 $$
 \begin{aligned}
