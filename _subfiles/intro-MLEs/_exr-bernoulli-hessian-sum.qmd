@@ -18,10 +18,10 @@ $$
 && \text{(the derivative of a sum is the sum of the derivatives)}\\
 &= \sumin \paren{-\frac{\outvar_\iobs}{\sqf{\prob}} - \frac{1 - \outvar_\iobs}{\sqf{1 - \prob}}}
 && \text{(Hessian contribution of a binary outcome)}\\
-&= -\frac{1}{\sqf{\prob}} \sumin \outvar_\iobs - \frac{1}{\sqf{1 - \prob}} \sumin (1 - \outvar_\iobs)
+&= -\frac{1}{\sqf{\prob}} \sumof{\vy} - \frac{1}{\sqf{1 - \prob}} \sumin (1 - \outvar_\iobs)
 && \text{(split the sum; the denominators do not depend on $\iobs$)}\\
 &= -\frac{n \outbar}{\sqf{\prob}} - \frac{1}{\sqf{1 - \prob}} \paren{n - n \outbar}
-&& \text{($\textstyle\sumin \outvar_\iobs = n \outbar$ and $\textstyle\sumin 1 = n$)}\\
+&& \text{($\sumof{\vy} = n \outbar$ and $\textstyle\sumin 1 = n$)}\\
 &= -\frac{n \outbar}{\sqf{\prob}} - \frac{n (1 - \outbar)}{\sqf{1 - \prob}}
 && \text{(factor out $n$)}\\
 &= -n \paren{\frac{\outbar}{\sqf{\prob}} + \frac{1 - \outbar}{\sqf{1 - \prob}}}

@@ -6,9 +6,9 @@ each with the same event probability $\prob$:
 $\Outvar_\iobs \simind \Ber(\prob)$.
 For observed outcomes $\vy \eqdef (\dsn{y})$, with each $\outvar_\iobs \in \cb{0, 1}$,
 the likelihood $\Lik(\prob; \vy)$ of $\prob$ depends on the data only
-through the number of events $\sumin \outvar_\iobs$:
+through the number of events, the [sum of the elements](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-sum-of-elements) $\sumof{\vy} \eqdef \sumin \outvar_\iobs$ of $\vy$:
 
-$$\Lik(\prob; \vy) = \prob^{\sumin \outvar_\iobs} (1 - \prob)^{n - \sumin \outvar_\iobs}$$
+$$\Lik(\prob; \vy) = \prob^{\sumof{\vy}} (1 - \prob)^{n - \sumof{\vy}}$$
 
 :::
 
