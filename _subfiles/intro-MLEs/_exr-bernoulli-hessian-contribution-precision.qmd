@@ -5,7 +5,7 @@ In the setting of @exr-bernoulli-hessian-contribution,
 write the [Hessian](#def-hessian) contribution $\hess_\iobs(\prob)$
 using the [precision](#def-precision-rv) $\precision = 1 / \paren{\prob(1 - \prob)}$
 and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs \eqdef \outvar_\iobs - \prob$,
-the two quantities that make up the score contribution in @thm-bernoulli-score-contribution.
+the two quantities that make up the [score](#def-score) contribution in @thm-bernoulli-score-contribution.
 
 :::
 
@@ -30,7 +30,7 @@ $$
 \end{aligned}
 $$
 
-The first bracket is the precision:
+The first bracket is the [precision](#def-precision-rv):
 
 $$
 \begin{aligned}
