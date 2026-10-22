@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-22 01:42:18 (PDT)</p>
+  <p class="date">Last modified: 2026-10-22 02:04:59 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -2240,7 +2240,7 @@ rme's remark that k = 5 or 10 is typical is in @rem-choosing-k.
 <li>
 <strong>Bias.</strong> Each <a href="#/def-fitted-model">fitted model</a> in <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;49</a> is fitted to about <span class="math inline">\(n(k- 1) / k\)</span> observations. A model fitted to fewer observations usually has a larger <a href="#/def-generalization-error">generalization error</a>, so <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> tends to overstate the <a href="#/def-expected-generalization-error">expected generalization error</a> of a model fitted to all <span class="math inline">\(n\)</span>. The overstatement shrinks as <span class="math inline">\(k\)</span> grows.</li>
 <li>
-<strong>Variance.</strong> As <span class="math inline">\(k\)</span> grows, the <span class="math inline">\(k\)</span> training sets overlap more, so the <span class="math inline">\(k\)</span> <a href="#/def-fitted-model">fitted models</a> are more alike and their errors are more strongly correlated. An average of strongly correlated errors varies more from one data set to another than an average of weakly correlated ones.</li>
+<strong>Variance.</strong> As <span class="math inline">\(k\)</span> grows, the <span class="math inline">\(k\)</span> training sets overlap more, so the <span class="math inline">\(k\)</span> <a href="#/def-fitted-model">fitted models</a> are more alike and their errors may be more strongly correlated. An average of strongly correlated errors varies more from one data set to another than an average of weakly correlated ones. This is a heuristic, not a theorem <span class="citation" data-cites="hastie2009elements"><a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 7.10]</a></span>. How correlated the errors are depends on how much the fitted model changes when one observation changes, so for a stable fitting method the variance need not rise with <span class="math inline">\(k\)</span>.</li>
 <li>
 <strong>Computation.</strong> The model is fitted <span class="math inline">\(k\)</span> times.</li>
 </ul>

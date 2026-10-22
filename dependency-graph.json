@@ -628,6 +628,105 @@
    "external": false
   },
   {
+   "id": "sds/bernoulli-mle#thm-bernoulli-hessian-contribution",
+   "site": "sds",
+   "page": "bernoulli-mle",
+   "div": "thm-bernoulli-hessian-contribution",
+   "kind": "thm",
+   "title": "Hessian contribution of one binary outcome",
+   "external": false
+  },
+  {
+   "id": "sds/bernoulli-mle#thm-bernoulli-hessian-nd",
+   "site": "sds",
+   "page": "bernoulli-mle",
+   "div": "thm-bernoulli-hessian-nd",
+   "kind": "thm",
+   "title": "Negative definiteness of the Hessian of a binary sample",
+   "external": false
+  },
+  {
+   "id": "sds/bernoulli-mle#thm-bernoulli-hessian-sum",
+   "site": "sds",
+   "page": "bernoulli-mle",
+   "div": "thm-bernoulli-hessian-sum",
+   "kind": "thm",
+   "title": "Hessian of a binary sample",
+   "external": false
+  },
+  {
+   "id": "sds/bernoulli-mle#thm-bernoulli-likelihood-one-group",
+   "site": "sds",
+   "page": "bernoulli-mle",
+   "div": "thm-bernoulli-likelihood-one-group",
+   "kind": "thm",
+   "title": "Likelihood of binary outcomes with one event probability",
+   "external": false
+  },
+  {
+   "id": "sds/bernoulli-mle#thm-bernoulli-loglik-contribution",
+   "site": "sds",
+   "page": "bernoulli-mle",
+   "div": "thm-bernoulli-loglik-contribution",
+   "kind": "thm",
+   "title": "Log-likelihood contribution of one binary outcome",
+   "external": false
+  },
+  {
+   "id": "sds/bernoulli-mle#thm-bernoulli-loglik-one-group",
+   "site": "sds",
+   "page": "bernoulli-mle",
+   "div": "thm-bernoulli-loglik-one-group",
+   "kind": "thm",
+   "title": "Log-likelihood of binary outcomes with one event probability",
+   "external": false
+  },
+  {
+   "id": "sds/bernoulli-mle#thm-bernoulli-mle",
+   "site": "sds",
+   "page": "bernoulli-mle",
+   "div": "thm-bernoulli-mle",
+   "kind": "thm",
+   "title": "Maximum likelihood estimate of a binary sample",
+   "external": false
+  },
+  {
+   "id": "sds/bernoulli-mle#thm-bernoulli-score",
+   "site": "sds",
+   "page": "bernoulli-mle",
+   "div": "thm-bernoulli-score",
+   "kind": "thm",
+   "title": "Score function of a Bernoulli variable",
+   "external": false
+  },
+  {
+   "id": "sds/bernoulli-mle#thm-bernoulli-score-contribution",
+   "site": "sds",
+   "page": "bernoulli-mle",
+   "div": "thm-bernoulli-score-contribution",
+   "kind": "thm",
+   "title": "Score contribution of one binary outcome",
+   "external": false
+  },
+  {
+   "id": "sds/bernoulli-mle#thm-bernoulli-score-equation",
+   "site": "sds",
+   "page": "bernoulli-mle",
+   "div": "thm-bernoulli-score-equation",
+   "kind": "thm",
+   "title": "Solution of the score equation of a binary sample",
+   "external": false
+  },
+  {
+   "id": "sds/bernoulli-mle#thm-bernoulli-score-sum",
+   "site": "sds",
+   "page": "bernoulli-mle",
+   "div": "thm-bernoulli-score-sum",
+   "kind": "thm",
+   "title": "Score function of a binary sample",
+   "external": false
+  },
+  {
    "id": "sds/bootstrap#def-bca-acceleration",
    "site": "sds",
    "page": "bootstrap",
@@ -2473,105 +2572,6 @@
    "external": false
   },
   {
-   "id": "sds/intro-MLEs#thm-bernoulli-hessian-contribution",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "thm-bernoulli-hessian-contribution",
-   "kind": "thm",
-   "title": "Hessian contribution of one binary outcome",
-   "external": false
-  },
-  {
-   "id": "sds/intro-MLEs#thm-bernoulli-hessian-nd",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "thm-bernoulli-hessian-nd",
-   "kind": "thm",
-   "title": "Negative definiteness of the Hessian of a binary sample",
-   "external": false
-  },
-  {
-   "id": "sds/intro-MLEs#thm-bernoulli-hessian-sum",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "thm-bernoulli-hessian-sum",
-   "kind": "thm",
-   "title": "Hessian of a binary sample",
-   "external": false
-  },
-  {
-   "id": "sds/intro-MLEs#thm-bernoulli-likelihood-one-group",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "thm-bernoulli-likelihood-one-group",
-   "kind": "thm",
-   "title": "Likelihood of binary outcomes with one event probability",
-   "external": false
-  },
-  {
-   "id": "sds/intro-MLEs#thm-bernoulli-loglik-contribution",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "thm-bernoulli-loglik-contribution",
-   "kind": "thm",
-   "title": "Log-likelihood contribution of one binary outcome",
-   "external": false
-  },
-  {
-   "id": "sds/intro-MLEs#thm-bernoulli-loglik-one-group",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "thm-bernoulli-loglik-one-group",
-   "kind": "thm",
-   "title": "Log-likelihood of binary outcomes with one event probability",
-   "external": false
-  },
-  {
-   "id": "sds/intro-MLEs#thm-bernoulli-mle",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "thm-bernoulli-mle",
-   "kind": "thm",
-   "title": "Maximum likelihood estimate of a binary sample",
-   "external": false
-  },
-  {
-   "id": "sds/intro-MLEs#thm-bernoulli-score",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "thm-bernoulli-score",
-   "kind": "thm",
-   "title": "Score function of a Bernoulli variable",
-   "external": false
-  },
-  {
-   "id": "sds/intro-MLEs#thm-bernoulli-score-contribution",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "thm-bernoulli-score-contribution",
-   "kind": "thm",
-   "title": "Score contribution of one binary outcome",
-   "external": false
-  },
-  {
-   "id": "sds/intro-MLEs#thm-bernoulli-score-equation",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "thm-bernoulli-score-equation",
-   "kind": "thm",
-   "title": "Solution of the score equation of a binary sample",
-   "external": false
-  },
-  {
-   "id": "sds/intro-MLEs#thm-bernoulli-score-sum",
-   "site": "sds",
-   "page": "intro-MLEs",
-   "div": "thm-bernoulli-score-sum",
-   "kind": "thm",
-   "title": "Score function of a binary sample",
-   "external": false
-  },
-  {
    "id": "sds/intro-MLEs#thm-deriv-llik-iid",
    "site": "sds",
    "page": "intro-MLEs",
@@ -4316,6 +4316,94 @@
    "sds/bayesian-inference#def-prior"
   ],
   [
+   "sds/bernoulli-mle#thm-bernoulli-hessian-contribution",
+   "sds/intro-MLEs#def-hessian"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-hessian-nd",
+   "sds/intro-MLEs#def-hessian"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-hessian-nd",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-hessian-sum",
+   "sds/exploratory-descriptive#def-sample-mean"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-hessian-sum",
+   "sds/intro-MLEs#def-hessian"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-hessian-sum",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-loglik-contribution",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-loglik-one-group",
+   "pds/probability-basics#def-odds"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-mle",
+   "sds/exploratory-descriptive#def-sample-mean"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-mle",
+   "sds/intro-MLEs#def-mle"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-score",
+   "pds/variance-covariance#def-deviation-pop-mean"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-score",
+   "sds/intro-MLEs#def-score"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-score-contribution",
+   "pds/probability-basics#def-event"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-score-contribution",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-score-contribution",
+   "pds/variance-covariance#def-deviation-pop-mean"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-score-contribution",
+   "sds/intro-MLEs#def-precision-rv"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-score-contribution",
+   "sds/intro-MLEs#def-score"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-score-equation",
+   "sds/exploratory-descriptive#def-sample-mean"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-score-equation",
+   "sds/intro-MLEs#def-score-equation"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-score-sum",
+   "sds/exploratory-descriptive#def-sample-mean"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-score-sum",
+   "sds/intro-MLEs#def-precision-rv"
+  ],
+  [
+   "sds/bernoulli-mle#thm-bernoulli-score-sum",
+   "sds/intro-MLEs#def-score"
+  ],
+  [
    "sds/bootstrap#def-bootstrap-ci-bca",
    "sds/bootstrap#def-bca-acceleration"
   ],
@@ -5394,90 +5482,6 @@
   [
    "sds/intro-MLEs#lem-wilks-taylor",
    "sds/intro-MLEs#def-hessian"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-hessian-contribution",
-   "sds/intro-MLEs#def-hessian"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-hessian-nd",
-   "sds/intro-MLEs#def-hessian"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-hessian-nd",
-   "sds/intro-MLEs#def-loglik"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-hessian-sum",
-   "sds/exploratory-descriptive#def-sample-mean"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-hessian-sum",
-   "sds/intro-MLEs#def-hessian"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-hessian-sum",
-   "sds/intro-MLEs#def-loglik"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-loglik-contribution",
-   "sds/intro-MLEs#def-loglik"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-loglik-one-group",
-   "pds/probability-basics#def-odds"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-mle",
-   "sds/exploratory-descriptive#def-sample-mean"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-mle",
-   "sds/intro-MLEs#def-mle"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-score",
-   "sds/intro-MLEs#def-score"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-score-contribution",
-   "pds/probability-basics#def-event"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-score-contribution",
-   "pds/probability-basics#def-probability"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-score-contribution",
-   "pds/variance-covariance#def-deviation-pop-mean"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-score-contribution",
-   "sds/intro-MLEs#def-precision-rv"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-score-contribution",
-   "sds/intro-MLEs#def-score"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-score-equation",
-   "sds/exploratory-descriptive#def-sample-mean"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-score-equation",
-   "sds/intro-MLEs#def-score-equation"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-score-sum",
-   "sds/exploratory-descriptive#def-sample-mean"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-score-sum",
-   "sds/intro-MLEs#def-precision-rv"
-  ],
-  [
-   "sds/intro-MLEs#thm-bernoulli-score-sum",
-   "sds/intro-MLEs#def-score"
   ],
   [
    "sds/intro-MLEs#thm-dist-mle",

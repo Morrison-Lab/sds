@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 01:42:18 (PDT)
+Last modified: 2026-10-22 02:04:59 (PDT)
 
 ## 1 Scientific models
 
@@ -299,7 +299,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > \\ \begin{aligned} {\operatorname{pMSE}\mathopen{}\left(\bar X\right)\mathclose{}} &= {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{}} && \text{(pMSE equals bias squared plus variance)}\\ &= 0^2 + {\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{}} && \text{(zero bias)}\\ &= {\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{}} && \text{(\$0^2 = 0\$)}\\ &= {\operatorname{Var}\mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nX_i\right)\mathclose{}} && \text{(definition of \$\bar X\$)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n{\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}} && \text{(variance of a linear combination of independent variables)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\sigma^2 && \text{(\${\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}} = \sigma^2\$ for every \$i\$)}\\ &= \frac{1}{n^2} \cdot n\sigma^2 && \text{(sum of \$n\$ copies of \$\sigma^2\$)}\\ &= \frac{\sigma^2}{n} && \text{(cancel one factor of \$n\$)} \end{aligned} \\
 >
-> The step to \\\frac{1}{n^2}\sum\_{i=1}^n{\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}}\\ uses the [variance of a linear combination](https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom), whose covariance terms are all zero for independent variables.
+> The step to \\\frac{1}{n^2}\sum\_{i=1}^n{\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}}\\ uses the [variance of a linear combination](https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom), whose covariance terms are all zero for independent variables. The result \\\sigma^2/n\\ is the [variance of an IID sample mean](https://morrison-lab.github.io/pds/limit-theorems.html#cor-mean-iid-moments).
 >
 > So for any sample size \\n \> 1\\,
 >

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 01:42:18 (PDT)
+Last modified: 2026-10-22 02:04:59 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -1689,7 +1689,7 @@ Last modified: 2026-10-22 01:42:18 (PDT)
 > *Remark 28* (Choosing the number of folds). The number of folds \\k\\ trades bias against variance in the cross-validation estimate itself [\[6, Sec. 5.1.4\]](#ref-james2021islr2e):
 >
 > - **Bias.** Each [fitted model](#def-fitted-model) in [Equation 49](#eq-cv-estimate) is fitted to about \\n(k- 1) / k\\ observations. A model fitted to fewer observations usually has a larger [generalization error](#def-generalization-error), so \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ tends to overstate the [expected generalization error](#def-expected-generalization-error) of a model fitted to all \\n\\. The overstatement shrinks as \\k\\ grows.
-> - **Variance.** As \\k\\ grows, the \\k\\ training sets overlap more, so the \\k\\ [fitted models](#def-fitted-model) are more alike and their errors are more strongly correlated. An average of strongly correlated errors varies more from one data set to another than an average of weakly correlated ones.
+> - **Variance.** As \\k\\ grows, the \\k\\ training sets overlap more, so the \\k\\ [fitted models](#def-fitted-model) are more alike and their errors may be more strongly correlated. An average of strongly correlated errors varies more from one data set to another than an average of weakly correlated ones. This is a heuristic, not a theorem [\[4, Sec. 7.10\]](#ref-hastie2009elements). How correlated the errors are depends on how much the fitted model changes when one observation changes, so for a stable fitting method the variance need not rise with \\k\\.
 > - **Computation.** The model is fitted \\k\\ times.
 >
 > \\k= 5\\ or \\k= 10\\ is the usual compromise.
