@@ -2,10 +2,11 @@
 #### Hessian contribution of one binary outcome in terms of the precision and deviation
 
 In the setting of @exr-bernoulli-hessian-contribution,
-write the [Hessian](#def-hessian) contribution $\hess_\iobs(\prob)$
-using the [precision](#def-precision-rv) $\precision = 1 / \paren{\prob(1 - \prob)}$
-and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs \eqdef \outvar_\iobs - \prob$,
-the two quantities that make up the [score](#def-score) contribution in @thm-bernoulli-score-contribution.
+derive the [Hessian](#def-hessian) contribution $\hess_\iobs(\prob)$
+starting from the simplified [score](#def-score) contribution $\score_\iobs(\prob) = \precision \devn_\iobs$ in @thm-bernoulli-score-contribution,
+with the [precision](#def-precision-rv) $\precision = 1 / \paren{\prob(1 - \prob)}$
+and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs \eqdef \outvar_\iobs - \prob$.
+Both $\precision$ and $\devn_\iobs$ depend on $\prob$, while the observed value $\outvar_\iobs$ does not.
 
 :::
 
@@ -13,67 +14,64 @@ the two quantities that make up the [score](#def-score) contribution in @thm-ber
 
 :::{#sol-bernoulli-hessian-contribution-precision}
 
-Starting from @thm-bernoulli-hessian-contribution,
-substitute $\outvar_\iobs = \prob + \devn_\iobs$ and $1 - \outvar_\iobs = 1 - \prob - \devn_\iobs$:
-
 $$
 \begin{aligned}
 \hess_\iobs(\prob)
-&= -\frac{\outvar_\iobs}{\sqf{\prob}} - \frac{1 - \outvar_\iobs}{\sqf{1 - \prob}}
-&& \text{(the contribution from the theorem above)}\\
-&= -\frac{\prob + \devn_\iobs}{\sqf{\prob}} - \frac{1 - \prob - \devn_\iobs}{\sqf{1 - \prob}}
-&& \text{(substitute $\outvar_\iobs = \prob + \devn_\iobs$)}\\
-&= -\frac{\prob}{\sqf{\prob}} - \frac{\devn_\iobs}{\sqf{\prob}} - \frac{1 - \prob}{\sqf{1 - \prob}} + \frac{\devn_\iobs}{\sqf{1 - \prob}}
-&& \text{(split each numerator into two terms)}\\
-&= -\frac{1}{\prob} - \frac{\devn_\iobs}{\sqf{\prob}} - \frac{1}{1 - \prob} + \frac{\devn_\iobs}{\sqf{1 - \prob}}
-&& \text{($a / \sqf{a} = 1 / a$ for $a = \prob$ and $a = 1 - \prob$)}\\
-&= -\paren{\frac{1}{\prob} + \frac{1}{1 - \prob}} - \devn_\iobs \paren{\frac{1}{\sqf{\prob}} - \frac{1}{\sqf{1 - \prob}}}
-&& \text{(collect the terms with and without $\devn_\iobs$)}
+&= \deriv{\prob} \score_\iobs(\prob)
+&& \text{(definition of the Hessian contribution)}\\
+&= \deriv{\prob} \paren{\precision \devn_\iobs}
+&& \text{(score contribution)}\\
+&= \paren{\deriv{\prob} \precision} \devn_\iobs + \precision \deriv{\prob} \devn_\iobs
+&& \text{(product rule)}
 \end{aligned}
 $$
 
-The first bracket is the [precision](#def-precision-rv):
+The derivative of the deviation is:
 
 $$
 \begin{aligned}
-\frac{1}{\prob} + \frac{1}{1 - \prob}
-&= \frac{1 - \prob}{\prob(1 - \prob)} + \frac{\prob}{\prob(1 - \prob)}
-&& \text{(common denominator)}\\
-&= \frac{1}{\prob(1 - \prob)}
-&& \text{(add the numerators)}\\
-&= \precision
+\deriv{\prob} \devn_\iobs
+&= \deriv{\prob} \paren{\outvar_\iobs - \prob}
+&& \text{(definition of $\devn_\iobs$)}\\
+&= \deriv{\prob} \outvar_\iobs - \deriv{\prob} \prob
+&& \text{(linearity of differentiation)}\\
+&= 0 - 1
+&& \text{(derivatives of a constant and of $\prob$)}\\
+&= -1
+&& \text{(subtract)}
+\end{aligned}
+$$
+
+The derivative of the precision needs the chain rule:
+
+$$
+\begin{aligned}
+\deriv{\prob} \precision
+&= \deriv{\prob} \paren{\prob(1 - \prob)}^{-1}
+&& \text{(definition of $\precision$ as a negative power)}\\
+&= \deriv{\prob} \paren{\prob - \sqf{\prob}}^{-1}
+&& \text{(distribute $\prob$)}\\
+&= -\paren{\prob - \sqf{\prob}}^{-2} \deriv{\prob} \paren{\prob - \sqf{\prob}}
+&& \text{(chain rule and power rule)}\\
+&= -\paren{\prob - \sqf{\prob}}^{-2} \paren{1 - 2 \prob}
+&& \text{(linearity and power rule)}\\
+&= -\paren{\prob(1 - \prob)}^{-2} \paren{1 - 2 \prob}
+&& \text{(factor $\prob - \sqf{\prob} = \prob(1 - \prob)$)}\\
+&= -\sqf{\precision} \paren{1 - 2 \prob}
 && \text{(definition of $\precision$)}
 \end{aligned}
 $$
 
-The second bracket is a multiple of $\precision^2$:
+Substituting both derivatives back in:
 
 $$
 \begin{aligned}
-\frac{1}{\sqf{\prob}} - \frac{1}{\sqf{1 - \prob}}
-&= \frac{\sqf{1 - \prob}}{\sqf{\prob} \sqf{1 - \prob}} - \frac{\sqf{\prob}}{\sqf{\prob} \sqf{1 - \prob}}
-&& \text{(common denominator)}\\
-&= \frac{\sqf{1 - \prob} - \sqf{\prob}}{\sqf{\prob} \sqf{1 - \prob}}
-&& \text{(combine over the common denominator)}\\
-&= \frac{1 - 2 \prob + \sqf{\prob} - \sqf{\prob}}{\sqf{\prob} \sqf{1 - \prob}}
-&& \text{(expand $\sqf{1 - \prob}$)}\\
-&= \frac{1 - 2 \prob + 0}{\sqf{\prob} \sqf{1 - \prob}}
-&& \text{($\sqf{\prob} - \sqf{\prob} = 0$)}\\
-&= \frac{1 - 2 \prob}{\sqf{\prob} \sqf{1 - \prob}}
-&& \text{($a + 0 = a$)}\\
-&= \paren{1 - 2 \prob} \frac{1}{\sqf{\prob(1 - \prob)}}
-&& \text{($\sqf{a} \sqf{b} = \sqf{ab}$)}\\
-&= \paren{1 - 2 \prob} \sqf{\precision}
-&& \text{(definition of $\precision$)}
-\end{aligned}
-$$
-
-Substituting both brackets back in:
-
-$$
 \hess_\iobs(\prob)
-= -\precision - \paren{1 - 2 \prob} \sqf{\precision} \devn_\iobs
-\qquad \text{(substitute the two brackets)}
+&= \paren{-\sqf{\precision} \paren{1 - 2 \prob}} \devn_\iobs + \precision (-1)
+&& \text{(substitute the two derivatives)}\\
+&= -\precision - \paren{1 - 2 \prob} \sqf{\precision} \devn_\iobs
+&& \text{(multiply by $-1$ and reorder the terms)}
+\end{aligned}
 $$
 
 :::
