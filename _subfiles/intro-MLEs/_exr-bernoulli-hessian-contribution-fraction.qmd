@@ -1,9 +1,10 @@
 :::{#exr-bernoulli-hessian-contribution-fraction}
-#### Hessian contribution of one binary outcome as a single fraction
+#### Hessian contribution of one binary outcome over a common denominator
 
 In the setting of @exr-bernoulli-hessian-contribution,
 write the [Hessian](#def-hessian) contribution $\hess_\iobs(\prob)$
-as a single fraction, by finding a common denominator for its two terms.
+as one term, by finding a common denominator for its two terms
+and then writing the denominator with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$.
 
 :::
 
@@ -53,6 +54,26 @@ $$
 \hess_\iobs(\prob)
 = -\frac{\paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}}{\sqf{\prob(1 - \prob)}}
 \qquad \text{(substitute the numerator)}
+$$
+
+The denominator is the square of the reciprocal of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision):
+
+$$
+\begin{aligned}
+\frac{1}{\sqf{\prob(1 - \prob)}}
+&= \sqf{\paren{\frac{1}{\prob(1 - \prob)}}}
+&& \text{($\frac{1}{\sqf{a}} = \sqf{\paren{\frac{1}{a}}}$)}\\
+&= \sqf{\precision}
+&& \text{(definition of $\precision$)}
+\end{aligned}
+$$
+
+Substituting the denominator:
+
+$$
+\hess_\iobs(\prob)
+= -\sqf{\precision} \paren{\paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}}
+\qquad \text{(substitute $\sqf{\precision}$)}
 $$
 
 :::
