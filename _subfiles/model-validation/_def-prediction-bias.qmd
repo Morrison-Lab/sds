@@ -14,7 +14,7 @@ The expectation averages over [training sets](#def-training-set) and over the ne
 
 $$
 \bias{\predvalf{\predvar}}
-= \E{\esterr{\predvalf{\predvar}}{\newoutvar}}.
+= \E{\devof{\predvalf{\predvar}}{\newoutvar}}.
 $$ {#eq-prediction-bias}
 
 This expected error is signed, not squared.
@@ -45,7 +45,7 @@ and its mean is $\truemeanf{\predvar}$ because the [noise has mean zero](#thm-no
 $$
 \begin{aligned}
 \bias{\predvalf{\predvar}}
-&= \E{\esterr{\predvalf{\predvar}}{\newoutvar}} && \text{(definition of bias)} \\
+&= \E{\devof{\predvalf{\predvar}}{\newoutvar}} && \text{(definition of bias)} \\
 &= \Epredval - \E{\newoutvar} && \text{(linearity of expectation)} \\
 &= \Epredval - \truemeanf{\predvar} && \text{(the noise has mean zero)} .
 \end{aligned}
