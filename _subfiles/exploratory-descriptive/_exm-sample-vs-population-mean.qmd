@@ -1,0 +1,13 @@
+::: {#exm-sample-vs-population-mean}
+#### Sample mean versus population mean of cholesterol
+
+The [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of cholesterol
+is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation)
+of the population distribution (@def-population-distribution).
+It is a fixed number that we do not know.
+The sample mean (@def-sample-mean) of the `wcgs` data,
+`r round(mean(wcgs$chol, na.rm = TRUE), 1)` mg/dL,
+is computed from the observed data.
+A different [sample](#def-sample) from the same [population](#def-population) would give a different sample mean,
+while the population mean would not change.
+:::

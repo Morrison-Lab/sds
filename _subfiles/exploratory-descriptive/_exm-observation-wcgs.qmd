@@ -1,0 +1,9 @@
+::: {#exm-observation-wcgs}
+#### One observation in the WCGS
+
+Each row of the `wcgs` data frame is one [observation](#def-observation):
+the values recorded for one participant.
+The first participant's observation has
+age `r wcgs$age[1]` years and
+cholesterol `r wcgs$chol[1]` mg/dL.
+:::
