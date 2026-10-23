@@ -3,7 +3,6 @@
 
 In @exm-population-sample-wcgs, the [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of cholesterol is a [population parameter](#def-population-parameter).
 It describes all the men in the study's population (@def-population).
-We know only the mean cholesterol of the `wcgs` data,
-`r round(mean(wcgs$chol, na.rm = TRUE), 1)` mg/dL,
-which is computed from the observed data.
+We know only the mean cholesterol of the sample (@def-sample) of the `wcgs` data,
+`r round(mean(wcgs$chol, na.rm = TRUE), 1)` mg/dL.
 :::

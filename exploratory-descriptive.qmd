@@ -54,10 +54,6 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/exploratory-descriptive/_def-population-parameter.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include sds/_subfiles/exploratory-descriptive/_def-observation.qmd >}}
 
 {{< slidebreak >}}
@@ -75,6 +71,10 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/exploratory-descriptive/_exm-population-sample-wcgs.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-population-parameter.qmd >}}
 
 {{< slidebreak >}}
 

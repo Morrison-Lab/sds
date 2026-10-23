@@ -3,5 +3,6 @@
 
 A **population parameter** is a number computed from the population distribution (@def-population-distribution),
 such as its [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation).
-A population parameter is fixed, and usually unknown.
+A population parameter is fixed.
+It is usually unknown.
 :::
