@@ -1,0 +1,31 @@
+:::{#def-exponential-family}
+#### Exponential family
+
+Let $\Rvar$ be a random variable whose distribution depends on one parameter $\natparam$,
+and let $\pdf\paren{\rvar ; \natparam}$ be its
+[probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf)
+or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf).
+The distributions of $\Rvar$ form an **exponential family** if there are
+a nonnegative function $\basemeasure$ and a function $\stat$ of $\rvar$ alone,
+and a function $\logpartition$ of $\natparam$ alone, such that
+
+$$
+\pdf\paren{\rvar ; \natparam}
+= \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar} - \logpartitionf{\natparam}}
+$$ {#eq-exponential-family}
+
+for every value $\rvar$ and every allowed $\natparam$.
+:::
+
+:::{#rem-source-exponential-family}
+#### Source: Exponential family
+
+@CaseBerg01 [Section 3.4, Eq. 3.4.1] write the family as a sum of $k$ terms inside the exponential,
+each a function of the parameter times a function of $\rvar$;
+@dobson4e [Section 3.2, Eq. 3.3] write it in the form $\expf{a(y) b(\theta) + c(\theta) + d(y)}$.
+@eq-exponential-family is the case of one term.
+It is Dobson and Barnett's canonical form when $\statf{\rvar} = \rvar$,
+and the natural parameter $\natparam$ plays the role of their $b(\theta)$.
+See the [notation choices](https://morrison-lab.github.io/macros/notation-choices.html#sec-exponential-family-notation) for how the symbols line up.
+
+:::

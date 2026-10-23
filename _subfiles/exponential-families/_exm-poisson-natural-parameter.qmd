@@ -1,0 +1,18 @@
+:::{#exm-poisson-natural-parameter}
+#### The natural parameter of the Poisson distribution is the log rate
+
+In @exm-poisson-exponential-family,
+the Poisson rate $\rate$ and the [natural parameter](#def-natural-parameter) $\natparam$ are related by
+
+$$
+\natparam = \logf{\rate}
+\qquad \text{and} \qquad
+\rate = \expf{\natparam}
+$$
+
+For the cyclone data, the rate set to the sample mean is
+`r round(rate, 3)` cyclones per season,
+so the natural parameter is $\natparam = `r round(natural_parameter, 3)`$.
+The natural parameter can be any real number,
+while the rate must be positive.
+:::
