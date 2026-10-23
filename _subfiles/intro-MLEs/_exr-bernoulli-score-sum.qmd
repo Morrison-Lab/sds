@@ -1,10 +1,10 @@
 :::{#exr-bernoulli-score-sum}
 #### Score function of a binary sample
 
-In the setting of @exr-bernoulli-score-contribution,
-let $\outbar \eqdef \avgin \outvar_\iobs$ be the [sample mean](exploratory-descriptive.qmd#def-sample-mean) of the observed outcomes.
-Assemble the [score function](#def-score) $\score(\prob)$ of the whole [sample](exploratory-descriptive.qmd#def-sample)
-from the [score](#def-score) contributions.
+In the setting of @exr-bernoulli-sample-mean-deviation,
+assemble the [score function](#def-score) $\score(\prob)$ of the whole [sample](exploratory-descriptive.qmd#def-sample)
+from the [score](#def-score) contributions,
+and write it using $\smeandev$ and $\precision$.
 
 :::
 
@@ -21,18 +21,10 @@ $$
 && \text{(score contribution of a binary outcome)}\\
 &= \precision \sumin \devn_\iobs
 && \text{($\precision$ is the same for every $\iobs$)}\\
-&= \precision \sumin (\outvar_\iobs - \prob)
-&& \text{(definition of $\devn_\iobs$)}\\
-&= \precision \paren{\sumin \outvar_\iobs - \sumin \prob}
-&& \text{(split the sum)}\\
-&= \precision \paren{\sumof{\vy} - \sumin \prob}
-&& \text{(definition of $\sumof{\vy}$)}\\
-&= \precision \paren{\sumof{\vy} - n \prob}
-&& \text{($\textstyle\sumin \prob = n \prob$)}\\
-&= \precision \paren{n \outbar - n \prob}
-&& \text{($\sumof{\vy} = n \outbar$)}\\
-&= n \precision (\outbar - \prob)
-&& \text{(factor out $n$)}
+&= \precision \cdot n \smeandev
+&& \text{($\textstyle\sumin \devn_\iobs = n \smeandev$, from the definition of $\smeandev$)}\\
+&= n \precision \smeandev
+&& \text{(reorder the factors)}
 \end{aligned}
 $$
 

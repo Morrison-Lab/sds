@@ -1,0 +1,7 @@
+:::{#rem-prediction-bias-signed .remark}
+#### The bias is signed, not squared
+
+The [bias](#def-prediction-bias) is an expected [prediction error](prediction.qmd#def-prediction-error), so it is signed, not squared.
+It is not the [expected squared prediction error](#def-epe).
+
+:::

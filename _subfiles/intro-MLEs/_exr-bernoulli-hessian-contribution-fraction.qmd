@@ -1,0 +1,79 @@
+:::{#exr-bernoulli-hessian-contribution-fraction}
+#### Hessian contribution of one binary outcome over a common denominator
+
+In the setting of @exr-bernoulli-hessian-contribution,
+write the [Hessian](#def-hessian) contribution $\hess_\iobs(\prob)$
+as one term, by finding a common denominator for its two terms
+and then writing the denominator with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-hessian-contribution-fraction}
+
+Starting from @thm-bernoulli-hessian-contribution:
+
+$$
+\begin{aligned}
+\hess_\iobs(\prob)
+&= -\frac{\outvar_\iobs}{\sqf{\prob}} - \frac{1 - \outvar_\iobs}{\sqf{1 - \prob}}
+&& \text{(the contribution from the theorem above)}\\
+&= -\frac{\outvar_\iobs \sqf{1 - \prob}}{\sqf{\prob} \sqf{1 - \prob}} - \frac{\paren{1 - \outvar_\iobs} \sqf{\prob}}{\sqf{\prob} \sqf{1 - \prob}}
+&& \text{(write both terms over the common denominator $\sqf{\prob} \sqf{1 - \prob}$)}\\
+&= -\frac{\outvar_\iobs \sqf{1 - \prob} + \paren{1 - \outvar_\iobs} \sqf{\prob}}{\sqf{\prob} \sqf{1 - \prob}}
+&& \text{(combine over the common denominator)}\\
+&= -\frac{\outvar_\iobs \sqf{1 - \prob} + \paren{1 - \outvar_\iobs} \sqf{\prob}}{\sqf{\prob(1 - \prob)}}
+&& \text{($\sqf{a} \sqf{b} = \sqf{ab}$)}
+\end{aligned}
+$$
+
+The numerator simplifies in the following steps:
+
+$$
+\begin{aligned}
+\outvar_\iobs \sqf{1 - \prob} + \paren{1 - \outvar_\iobs} \sqf{\prob}
+&= \outvar_\iobs \paren{1 - 2 \prob + \sqf{\prob}} + \paren{1 - \outvar_\iobs} \sqf{\prob}
+&& \text{(expand $\sqf{1 - \prob}$)}\\
+&= \outvar_\iobs - 2 \prob \outvar_\iobs + \outvar_\iobs \sqf{\prob} + \sqf{\prob} - \outvar_\iobs \sqf{\prob}
+&& \text{(distribute $\outvar_\iobs$ and $\sqf{\prob}$)}\\
+&= \outvar_\iobs - 2 \prob \outvar_\iobs + \sqf{\prob} + \outvar_\iobs \sqf{\prob} - \outvar_\iobs \sqf{\prob}
+&& \text{(reorder the terms)}\\
+&= \outvar_\iobs - 2 \prob \outvar_\iobs + \sqf{\prob} + 0
+&& \text{($\outvar_\iobs \sqf{\prob} - \outvar_\iobs \sqf{\prob} = 0$)}\\
+&= \outvar_\iobs - 2 \prob \outvar_\iobs + \sqf{\prob}
+&& \text{($a + 0 = a$)}\\
+&= \paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}
+&& \text{(collect the terms in $\outvar_\iobs$)}
+\end{aligned}
+$$
+
+Substituting the numerator back in:
+
+$$
+\hess_\iobs(\prob)
+= -\frac{\paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}}{\sqf{\prob(1 - \prob)}}
+\qquad \text{(substitute the numerator)}
+$$
+
+The denominator is the square of the reciprocal of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision):
+
+$$
+\begin{aligned}
+\frac{1}{\sqf{\prob(1 - \prob)}}
+&= \sqf{\paren{\frac{1}{\prob(1 - \prob)}}}
+&& \text{($\frac{1}{\sqf{a}} = \sqf{\paren{\frac{1}{a}}}$)}\\
+&= \sqf{\precision}
+&& \text{(definition of $\precision$)}
+\end{aligned}
+$$
+
+Substituting the denominator:
+
+$$
+\hess_\iobs(\prob)
+= -\sqf{\precision} \paren{\paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}}
+\qquad \text{(substitute $\sqf{\precision}$)}
+$$
+
+:::

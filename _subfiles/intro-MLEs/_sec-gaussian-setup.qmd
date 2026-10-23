@@ -29,7 +29,7 @@ $$
 && \text{($\logt$ undoes $\expt$)}\\
 &= \sumin \paren{-\frac{1}{2}\logf{2\pi\varpar}}
  - \sumin \frac{(\rvar_\iobs - \mean)^2}{2\varpar}
-&& \text{(split the sum)}\\
+&& \text{(distribute the sum over the terms)}\\
 &= -\frac{n}{2}\logf{2\pi\varpar}
  - \sumin \frac{(\rvar_\iobs - \mean)^2}{2\varpar}
 && \text{(sum of $n$ identical terms)}\\

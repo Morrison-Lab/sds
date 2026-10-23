@@ -26,7 +26,7 @@ $$
 
 Take the expectation of each term in turn, using
 [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation)
-to split the sum.
+to distribute the expectation over the sum.
 
 For the noise term,
 the [variance identity](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance)
