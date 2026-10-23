@@ -137,7 +137,7 @@ $$
 && \text{(multiply the constants)}
 \\
 &= \frac{1}{\varpar}\paren{\sumin \rvar_\iobs - \sumin \mean}
-&& \text{(split the sum)}
+&& \text{(distribute the sum over the terms)}
 \\
 &= \frac{1}{\varpar}\paren{\sumin \rvar_\iobs - n\mean}
 && \text{(sum of $n$ copies of $\mean$)}
