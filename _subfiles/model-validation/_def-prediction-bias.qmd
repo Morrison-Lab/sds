@@ -6,48 +6,18 @@ and let $\trainset$ be a random [training set](#def-training-set).
 At a covariate value $\predvar$,
 the prediction $\predvalf{\predvar}$ is a random variable,
 because it depends on the random training data.
+Let $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) with $\newpredvar = \predvar$.
 The **bias** of the prediction
-is the expected [estimation error](estimation.qmd#def-estimation-error) of the prediction
-as an [estimator](estimation.qmd#def-estimator)
-of the [mean function](#def-mean-function) value $\truemeanf{\predvar}$,
-which is its estimand here, not the new outcome it predicts:
+is the expected [prediction error](prediction.qmd#def-prediction-error)
+of the prediction $\predvalf{\predvar}$ of the new outcome $\newoutvar$.
+The expectation averages over [training sets](#def-training-set) and over the new outcome:
 
 $$
 \bias{\predvalf{\predvar}}
-= \E{\erf{\predvalf{\predvar}}}.
+= \E{\prederr_{*}\paren{\fitmodf{\trainset}} \mid \newpredvar = \predvar}.
 $$ {#eq-prediction-bias}
 
-:::
-
-::: {.remark .notes}
-
-In expected prediction error decompositions [@james2021islr2e, Section 2.2.2],
-the bias reflects the approximation error that comes from approximating a real-world relationship by a model.
-
-:::
-
-{{< slidebreak >}}
-
-:::{#exm-prediction-bias}
-#### Computing the bias of a prediction
-
-Suppose $\truemeanf{\predvar} = 10$,
-and the predictions $\predvalf{\predvar}$,
-over repeated training sets,
-average $11$.
-Then
-
-$$
-\begin{aligned}
-\bias{\predval}
-&= \E{\erf{\predval}} \\
-&= \Epredval - \truemeanf{\predvar} \\
-&= 11 - 10 \\
-&= 1.
-\end{aligned}
-$$
-
-The squared bias is $1^2 = 1$,
-the value in @exr-epe-three-sources.
+This expected error is signed, not squared.
+It is not the [expected squared prediction error](#def-epe).
 
 :::

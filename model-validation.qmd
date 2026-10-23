@@ -309,6 +309,20 @@ reticulate::py_require(
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_rem-prediction-bias-integral.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_thm-prediction-bias-average-fit.qmd >}}
+
+{{< include sds/_subfiles/model-validation/_rem-prediction-bias-approximation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-prediction-bias.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-irreducible-error.qmd >}}
 
 {{< slidebreak >}}
