@@ -4,8 +4,8 @@
 <!-- prose-allow: prediction rule -->
 A **prediction rule** is a [fitted model](#def-fitted-model) $\emodmem$
 that is used to [predict](prediction.qmd#def-prediction) the outcome
-at a new covariate value $\predvar$.
-Its prediction is $\emodmem\paren{\predvar}$.
+at a new [covariate](#def-covariate) value $\predvar$.
+Its [prediction](prediction.qmd#def-prediction) is $\emodmem\paren{\predvar}$.
 
 In words,
 the prediction rule takes a new covariate value
