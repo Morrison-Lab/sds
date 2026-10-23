@@ -3,7 +3,7 @@
 
 Let $\Rvar \sim \Pois(\rate)$,
 the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) with rate $\rate > 0$.
-Its mass function is a product of a factor free of $\rate$ and a power of $\rate$ times $e^{-\rate}$.
+Its mass function has one factor free of $\rate$, and the factors $\rate^{\rvar}$ and $e^{-\rate}$.
 We rewrite it in the form of @eq-exponential-family
 by writing $\rate^{\rvar}$ as an exponential of a logarithm:
 
@@ -23,16 +23,16 @@ $$
 \end{aligned}
 $$
 
-So the Poisson distributions are an exponential family with
+So the Poisson distributions are an [exponential family](#def-exponential-family) with
 $\basemeasuref{\rvar} = 1 / \rvar!$,
 $\statf{\rvar} = \rvar$,
-natural parameter $\natparam = \logf{\rate}$,
+[natural parameter](#def-natural-parameter) $\natparam = \logf{\rate}$,
 and $\logpartitionf{\natparam} = \rate = \expf{\natparam}$.
 
 To check the algebra on data,
 we use the number of tropical cyclones in northeastern Australia in each of 13 seasons
 [@dobson4e, Section 1.6.5],
-with the rate set to the sample mean.
+with the rate set to the [sample mean](exploratory-descriptive.qmd#def-sample-mean).
 We compare the Poisson mass function with the right side of @eq-exponential-family at every observed count.
 
 ::: {.panel-tabset group="language"}

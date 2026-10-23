@@ -2,7 +2,7 @@
 #### Natural parameter
 
 In the form of @eq-exponential-family of an [exponential family](#def-exponential-family),
-the parameter $\natparam$ that multiplies the statistic $\statf{\rvar}$ inside the exponential
+the parameter $\natparam$ that multiplies the [statistic](sufficiency.qmd#def-statistic) $\statf{\rvar}$ inside the exponential
 is the **natural parameter**,
 also called the **canonical parameter** [@dobson4e, Section 3.2].
 :::

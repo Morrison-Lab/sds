@@ -10,9 +10,9 @@ $$
 \rate = \expf{\natparam}
 $$
 
-For the cyclone data, the rate set to the sample mean is
+For the cyclone data, the rate set to the [sample mean](exploratory-descriptive.qmd#def-sample-mean) is
 `r round(rate, 3)` cyclones per season,
 so the natural parameter is $\natparam = `r round(natural_parameter, 3)`$.
 The natural parameter can be any real number,
-while the rate must be positive.
+while the rate must be greater than zero.
 :::
