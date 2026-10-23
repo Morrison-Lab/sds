@@ -1,0 +1,10 @@
+:::{#exm-prediction-rule}
+#### A fitted line used to predict <!-- prose-allow: prediction rule -->
+
+Take the line from @exm-fitted-model.
+<!-- prose-allow: prediction rule -->
+Using it to predict the fuel economy of a car that is not in the `mtcars` [data set](#def-data-set) makes it a prediction rule.
+Using it only to describe the cars in the data set makes no prediction,
+so there it is a fitted model and not a prediction rule.
+
+:::
