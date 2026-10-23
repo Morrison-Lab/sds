@@ -361,7 +361,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-23 14:26:42 (PDT)</p>
+  <p class="date">Last modified: 2026-10-23 16:12:35 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -374,7 +374,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 1 (Exponential family)</strong></span> Let <span class="math inline">\(X\)</span> be a random variable whose distribution depends on one parameter <span class="math inline">\(\eta\)</span>, and let <span class="math inline">\(\operatorname{f}\mathopen{}\left(x; \eta\right)\mathclose{}\)</span> be its <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> or <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a>. The distributions of <span class="math inline">\(X\)</span> form an <strong>exponential family</strong> if there are a nonnegative <a href="https://morrison-lab.github.io/mds/functions.html#def-function">function</a> <span class="math inline">\(h\)</span> and a function <span class="math inline">\(T\)</span> of <span class="math inline">\(x\)</span> alone, and a function <span class="math inline">\(A\)</span> of <span class="math inline">\(\eta\)</span> alone, such that</p>
 <p><span id="eq-exponential-family"><span class="math display">\[
 \operatorname{f}\mathopen{}\left(x; \eta\right)\mathclose{}
-= {h\mathopen{}\left(x\right)\mathclose{}} \, {\operatorname{exp}\mathopen{}\left\{\eta\, {T\mathopen{}\left(x\right)\mathclose{}} - {A\mathopen{}\left(\eta\right)\mathclose{}}\right\}\mathclose{}}
+= {{h\mathopen{}\left(x\right)\mathclose{}}} \, {\operatorname{exp}\mathopen{}\left\{\eta\, {T\mathopen{}\left(x\right)\mathclose{}} - {A\mathopen{}\left(\eta\right)\mathclose{}}\right\}\mathclose{}}
 \tag{1}\]</span></span></p>
 <p>for every value <span class="math inline">\(x\)</span> and every allowed <span class="math inline">\(\eta\)</span>.</p>
 </div>
@@ -396,7 +396,7 @@ text-align: center;
 &amp;&amp; \text{(the product of exponentials is the exponential of the sum)}
 \end{aligned}
 \]</span></p>
-<p>So the Poisson distributions are an <a href="#/def-exponential-family">exponential family</a> with <span class="math inline">\({h\mathopen{}\left(x\right)\mathclose{}} = 1 / x!\)</span>, <span class="math inline">\({T\mathopen{}\left(x\right)\mathclose{}} = x\)</span>, <a href="#/def-natural-parameter">natural parameter</a> <span class="math inline">\(\eta= {\operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{}}\)</span>, and <span class="math inline">\({A\mathopen{}\left(\eta\right)\mathclose{}} = {\lambda}= {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}}\)</span>.</p>
+<p>So the Poisson distributions are an <a href="#/def-exponential-family">exponential family</a> with <span class="math inline">\({{h\mathopen{}\left(x\right)\mathclose{}}} = 1 / x!\)</span>, <span class="math inline">\({T\mathopen{}\left(x\right)\mathclose{}} = x\)</span>, <a href="#/def-natural-parameter">natural parameter</a> <span class="math inline">\(\eta= {\operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{}}\)</span>, and <span class="math inline">\({A\mathopen{}\left(\eta\right)\mathclose{}} = {\lambda}= {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}}\)</span>.</p>
 <p>To check the algebra on data, we use the number of tropical cyclones in northeastern Australia in each of 13 seasons <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[2, Sec. 1.6.5]</a></span>, with the rate set to the <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a>. We evaluate both sides of <a href="#/eq-exponential-family" class="quarto-xref">Equation&nbsp;1</a> at every observed count.</p>
 <div class="panel-tabset" data-group="language">
 <ul id="tabset-1" class="panel-tabset-tabby">
