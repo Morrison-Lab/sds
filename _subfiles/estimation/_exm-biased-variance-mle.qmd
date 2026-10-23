@@ -40,7 +40,7 @@ $$
 &= \E{\sumin \paren{\Rvar_\iobs^2 - 2 \Rvar_\iobs \bar X + \bar X^2}}
 && \text{(expand each square)}\\
 &= \E{\sumin \Rvar_\iobs^2 - \sumin 2 \Rvar_\iobs \bar X + \sumin \bar X^2}
-&& \text{(split the sum)}\\
+&& \text{(distribute the sum over the terms)}\\
 &= \E{\sumin \Rvar_\iobs^2 - 2\bar X \sumin \Rvar_\iobs + \sumin \bar X^2}
 && \text{(factor $2\bar X$ out of the middle sum)}\\
 &= \E{\sumin \Rvar_\iobs^2 - 2\bar X \sumin \Rvar_\iobs + n \bar X^2}

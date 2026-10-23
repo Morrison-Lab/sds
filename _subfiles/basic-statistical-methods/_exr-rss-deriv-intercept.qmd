@@ -55,7 +55,7 @@ $$
 &= -2 \sumin (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(constant factor out of the sum)}\\
 &= -2 \paren{\sumin \outvar_\iobs - \sumin \intcoef - \sumin \coef{x} \predvar_\iobs}
-&& \text{(split the sum)}\\
+&& \text{(distribute the sum over the terms)}\\
 &= -2 \paren{\sumin \outvar_\iobs - n \intcoef - \sumin \coef{x} \predvar_\iobs}
 && \text{(sum of a constant)}\\
 &= -2 \paren{\sumin \outvar_\iobs - n \intcoef - \coef{x} \sumin \predvar_\iobs}

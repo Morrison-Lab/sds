@@ -44,7 +44,7 @@ $$
 && \text{($\logt$ undoes $\expt$)}
 \\
 &= \sumin \paren{-\logf{\pmean}} - \sumin \frac{\rvar_\iobs}{\pmean}
-&& \text{(split the sum)}
+&& \text{(distribute the sum over the terms)}
 \\
 &= -n\logf{\pmean} - \sumin \frac{\rvar_\iobs}{\pmean}
 && \text{(sum of $n$ identical terms)}
