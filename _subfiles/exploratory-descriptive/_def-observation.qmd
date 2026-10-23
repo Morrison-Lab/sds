@@ -1,0 +1,9 @@
+::: {#def-observation}
+#### Observation
+
+An **observation** is the set of values recorded for the variables
+on one unit of a population (@def-population).
+Each recorded value is a
+[realization](https://morrison-lab.github.io/pds/random-variables.html#def-realization)
+of the corresponding variable.
+:::

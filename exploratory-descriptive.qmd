@@ -54,6 +54,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/exploratory-descriptive/_def-observation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exm-observation-wcgs.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/exploratory-descriptive/_def-sample.qmd >}}
 
 {{< slidebreak >}}
@@ -75,6 +83,10 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/exploratory-descriptive/_exm-sample-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exm-sample-vs-population-mean.qmd >}}
 
 {{< slidebreak >}}
 
