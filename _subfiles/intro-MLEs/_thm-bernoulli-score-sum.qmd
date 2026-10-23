@@ -13,6 +13,7 @@ $$\score(\prob) = n \precision \smeandev = n \precision (\outbar - \prob)$$
 
 ::: proof
 
-This is the solution to @exr-bernoulli-score-sum, worked in @sol-bernoulli-score-sum.
+The first equality is the solution to @exr-bernoulli-score-sum, worked in @sol-bernoulli-score-sum.
+The second is the solution to @exr-bernoulli-sample-mean-deviation, worked in @sol-bernoulli-sample-mean-deviation.
 
 :::

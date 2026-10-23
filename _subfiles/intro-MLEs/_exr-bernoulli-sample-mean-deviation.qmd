@@ -1,0 +1,37 @@
+:::{#exr-bernoulli-sample-mean-deviation}
+#### Sample mean of the deviations of a binary sample
+
+In the setting of @exr-bernoulli-score-contribution, let:
+
+- $\outbar \eqdef \avgin \outvar_\iobs$ be the [sample mean](exploratory-descriptive.qmd#def-sample-mean) of the observed outcomes;
+- $\smeandev \eqdef \avgin \devn_\iobs$ be the sample mean of the [deviations](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs$.
+
+Write $\smeandev$ using $\outbar$ and $\prob$.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-sample-mean-deviation}
+
+$$
+\begin{aligned}
+\smeandev
+&= \avgin \devn_\iobs
+&& \text{(definition of $\smeandev$)}\\
+&= \avgin (\outvar_\iobs - \prob)
+&& \text{(definition of $\devn_\iobs$)}\\
+&= \frac{1}{n} \paren{\sumin \outvar_\iobs - \sumin \prob}
+&& \text{(split the sum)}\\
+&= \frac{1}{n} \paren{\sumof{\vy} - \sumin \prob}
+&& \text{(definition of $\sumof{\vy}$)}\\
+&= \frac{1}{n} \paren{n \outbar - n \prob}
+&& \text{($\sumof{\vy} = n \outbar$ and $\textstyle\sumin \prob = n \prob$)}\\
+&= \frac{1}{n} \cdot n (\outbar - \prob)
+&& \text{(factor out $n$)}\\
+&= \outbar - \prob
+&& \text{($\frac{1}{n} \cdot n = 1$)}
+\end{aligned}
+$$
+
+:::
