@@ -1,0 +1,22 @@
+:::{#thm-fisher-kl-curvature}
+#### The expected information is the curvature of the Kullback--Leibler divergence
+
+Under the assumptions of @thm-score-mean-zero,
+let $\param_0$ be the true value of the scalar parameter $\param$,
+and let $D_{\mathrm{KL}}(\param)$ be the Kullback--Leibler divergence
+of the model with parameter $\param$ from the model with parameter $\param_0$
+(@exr-fisher-kl-curvature).
+Then $D_{\mathrm{KL}}$ has a minimum of $0$ at $\param_0$,
+with zero slope there,
+and its second derivative at $\param_0$ is the [expected information](#def-einf):
+
+$$D_{\mathrm{KL}}''(\param_0) = \einf(\param_0)$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-fisher-kl-curvature, worked in @sol-fisher-kl-curvature.
+It builds on @thm-score-mean-zero.
+
+:::

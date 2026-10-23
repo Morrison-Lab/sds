@@ -1,0 +1,87 @@
+:::{#exr-fisher-kl-curvature}
+#### Curvature of the Kullback--Leibler divergence
+
+Let $\vX$ be a continuous random vector with density $\p(\vx \mid \param)$
+for a scalar parameter $\param$, under the assumptions of @thm-score-mean-zero.
+Let $\param_0$ be the true parameter value,
+and define
+
+$$
+D_{\mathrm{KL}}(\param)
+\eqdef \Expp_{\param_0}\sb{\log \frac{\p(\vX \mid \param_0)}{\p(\vX \mid \param)}},
+$$
+
+the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
+of the model with parameter $\param$ from the model with parameter $\param_0$.
+Find $D_{\mathrm{KL}}(\param_0)$, $D_{\mathrm{KL}}'(\param_0)$ and $D_{\mathrm{KL}}''(\param_0)$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-fisher-kl-curvature}
+
+Write $\llik(\param) = \log \p(\vX \mid \param)$.
+All expectations below are taken under $\param_0$.
+
+$$
+\begin{aligned}
+D_{\mathrm{KL}}(\param_0)
+&= \E{\log \frac{\p(\vX \mid \param_0)}{\p(\vX \mid \param_0)}}
+&& \text{(substitute $\param = \param_0$)}\\
+&= \E{\log 1}
+&& \text{(a nonzero number divided by itself is 1)}\\
+&= \E{0}
+&& \text{($\log 1 = 0$)}\\
+&= 0
+&& \text{(the expectation of a constant is that constant)}
+\end{aligned}
+$$
+
+For the derivatives, first separate the two terms:
+
+$$
+\begin{aligned}
+D_{\mathrm{KL}}(\param)
+&= \E{\llik(\param_0) - \llik(\param)}
+&& \text{(log of a ratio is a difference of logs)}\\
+&= \E{\llik(\param_0)} - \E{\llik(\param)}
+&& \text{(linearity of expectation)}
+\end{aligned}
+$$
+
+The first term does not depend on $\param$,
+so its derivative is zero.
+Exchanging differentiation and expectation, as in @thm-score-mean-zero:
+
+$$
+\begin{aligned}
+D_{\mathrm{KL}}'(\param)
+&= -\deriv{\param} \E{\llik(\param)}
+&& \text{(the derivative of a constant is 0)}\\
+&= -\E{\deriv{\param} \llik(\param)}
+&& \text{(exchange derivative and expectation)}\\
+&= -\E{\score(\param)}
+&& \text{(definition of the score, evaluated at $\param$)}
+\end{aligned}
+$$
+
+At $\param = \param_0$, @thm-score-mean-zero gives $\E{\score(\param_0)} = 0$,
+so $D_{\mathrm{KL}}'(\param_0) = 0$.
+Differentiating once more:
+
+$$
+\begin{aligned}
+D_{\mathrm{KL}}''(\param)
+&= -\deriv{\param} \E{\score(\param)}
+&& \text{(differentiate $D_{\mathrm{KL}}'$)}\\
+&= -\E{\deriv{\param} \score(\param)}
+&& \text{(exchange derivative and expectation)}\\
+&= \E{-\hess(\param)}
+&& \text{(the Hessian is the derivative of the score)}
+\end{aligned}
+$$
+
+At $\param = \param_0$, this is the [expected information](#def-einf):
+$D_{\mathrm{KL}}''(\param_0) = \einf(\param_0)$.
+
+:::

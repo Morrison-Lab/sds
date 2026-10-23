@@ -1,0 +1,37 @@
+:::{#exm-fisher-kl-poisson}
+#### Curvature of the divergence for Poisson data
+
+For one observation $X \sim \Pois(\rate_0)$,
+$\log \p(x \mid \rate) = x \log \rate - \rate - \log x!$, so
+
+$$
+\ba
+D_{\mathrm{KL}}(\rate)
+&= \Expp_{\rate_0}\sb{X \log \frac{\rate_0}{\rate} - \rate_0 + \rate}\\
+&= \rate_0 \log \frac{\rate_0}{\rate} - \rate_0 + \rate.
+\ea
+$$
+
+Differentiating twice with respect to $\rate$ gives
+$D_{\mathrm{KL}}'(\rate) = 1 - \rate_0 / \rate$
+and $D_{\mathrm{KL}}''(\rate) = \rate_0 / \rate^2$,
+so $D_{\mathrm{KL}}''(\rate_0) = 1/\rate_0$,
+which is the expected information of one observation (@exm-information-poisson).
+A numerical second difference of the divergence,
+summed directly over the Poisson probabilities, agrees:
+
+```{r}
+#| code-fold: false
+rate_0 <- 3
+kl_div <- function(rate) {
+  x <- 0:200
+  sum(dpois(x, rate_0) * (dpois(x, rate_0, log = TRUE) - dpois(x, rate, log = TRUE)))
+}
+h <- 1e-3
+c(
+  second_difference = (kl_div(rate_0 + h) - 2 * kl_div(rate_0) + kl_div(rate_0 - h)) / h^2,
+  expected_information = 1 / rate_0
+)
+```
+
+:::
