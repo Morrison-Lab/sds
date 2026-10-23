@@ -27,7 +27,7 @@ $$
 &= \frac{1}{\paren{\frac{a + b}{a}}}
 && \text{(a fraction equals one over its reciprocal, since } a > 0 \text{)} \\
 &= \frac{1}{\frac{a}{a} + \frac{b}{a}}
-&& \text{(split the fraction over the sum in its numerator)} \\
+&& \text{(distribute the division over the sum in the numerator)} \\
 &= \frac{1}{1 + \frac{b}{a}}
 && \text{(} \tfrac{a}{a} = 1 \text{)} \\
 &= \frac{1}{1 + \frac{\paren{1 - \text{spec}} \cd \paren{1 - \prev}}{\text{sens} \cd \prev}}
