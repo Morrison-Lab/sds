@@ -3,9 +3,10 @@
 
 In the setting of @exr-bernoulli-score-contribution,
 let $\outbar \eqdef \avgin \outvar_\iobs$ be the [sample mean](exploratory-descriptive.qmd#def-sample-mean) of the observed outcomes,
-and let $\smeandev \eqdef \outbar - \prob$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $\outbar$ from its mean $\prob$.
+and let $\smeandev \eqdef \avgin \devn_\iobs$ be the sample mean of the [deviations](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs$.
 Assemble the [score function](#def-score) $\score(\prob)$ of the whole [sample](exploratory-descriptive.qmd#def-sample)
-from the [score](#def-score) contributions.
+from the [score](#def-score) contributions,
+and show that $\smeandev = \outbar - \prob$.
 
 :::
 
@@ -22,20 +23,32 @@ $$
 && \text{(score contribution of a binary outcome)}\\
 &= \precision \sumin \devn_\iobs
 && \text{($\precision$ is the same for every $\iobs$)}\\
-&= \precision \sumin (\outvar_\iobs - \prob)
-&& \text{(definition of $\devn_\iobs$)}\\
-&= \precision \paren{\sumin \outvar_\iobs - \sumin \prob}
-&& \text{(split the sum)}\\
-&= \precision \paren{\sumof{\vy} - \sumin \prob}
-&& \text{(definition of $\sumof{\vy}$)}\\
-&= \precision \paren{\sumof{\vy} - n \prob}
-&& \text{($\textstyle\sumin \prob = n \prob$)}\\
-&= \precision \paren{n \outbar - n \prob}
-&& \text{($\sumof{\vy} = n \outbar$)}\\
-&= n \precision (\outbar - \prob)
-&& \text{(factor out $n$)}\\
+&= \precision \cdot n \smeandev
+&& \text{($\textstyle\sumin \devn_\iobs = n \smeandev$, from the definition of $\smeandev$)}\\
 &= n \precision \smeandev
-&& \text{(definition of $\smeandev$)}
+&& \text{(reorder the factors)}
+\end{aligned}
+$$
+
+Now write $\smeandev$ in terms of $\outbar$:
+
+$$
+\begin{aligned}
+\smeandev
+&= \avgin \devn_\iobs
+&& \text{(definition of $\smeandev$)}\\
+&= \avgin (\outvar_\iobs - \prob)
+&& \text{(definition of $\devn_\iobs$)}\\
+&= \frac{1}{n} \paren{\sumin \outvar_\iobs - \sumin \prob}
+&& \text{(split the sum)}\\
+&= \frac{1}{n} \paren{\sumof{\vy} - \sumin \prob}
+&& \text{(definition of $\sumof{\vy}$)}\\
+&= \frac{1}{n} \paren{n \outbar - n \prob}
+&& \text{($\sumof{\vy} = n \outbar$ and $\textstyle\sumin \prob = n \prob$)}\\
+&= \frac{1}{n} \cdot n (\outbar - \prob)
+&& \text{(factor out $n$)}\\
+&= \outbar - \prob
+&& \text{($\frac{1}{n} \cdot n = 1$)}
 \end{aligned}
 $$
 
