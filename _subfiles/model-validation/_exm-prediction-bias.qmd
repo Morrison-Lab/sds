@@ -2,8 +2,8 @@
 #### Computing the bias of a prediction
 
 Suppose $\truemeanf{\predvar} = 10$,
-and the predictions $\predvalf{\predvar}$,
-over repeated training sets,
+and the [predictions](prediction.qmd#def-prediction) $\predvalf{\predvar}$,
+over repeated [training sets](#def-training-set),
 average $11$.
 Then
 
@@ -16,7 +16,7 @@ $$
 \end{aligned}
 $$
 
-The squared bias is $1^2 = 1$,
+The squared [bias](#def-prediction-bias) is $1^2 = 1$,
 the value in @exr-epe-three-sources.
 
 :::
