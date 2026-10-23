@@ -1,7 +1,7 @@
 :::{#exm-precision-bernoulli}
 #### Precision of a Bernoulli variable
 
-If $\Outvar$ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, $\Outvar \sim \Ber(\prob)$ with $0 < \prob < 1$,
+If $\Outvar$ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, $\Outvar \sim \Ber(\prob)$ with $\prob \in (0, 1)$,
 then $\Var{\Outvar} = \prob(1 - \prob)$,
 so the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of $\Outvar$ is $\precision = 1 / \paren{\prob(1 - \prob)}$.
 :::

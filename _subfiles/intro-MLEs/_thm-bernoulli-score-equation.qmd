@@ -1,7 +1,7 @@
 :::{#thm-bernoulli-score-equation}
 #### Solution of the score equation of a binary sample
 
-If $\Outvar_\iobs \simind \Ber(\prob)$ for $\iobs = 1, \dots, n$ and the observed [sample mean](exploratory-descriptive.qmd#def-sample-mean) satisfies $0 < \outbar < 1$,
+If $\Outvar_\iobs \simind \Ber(\prob)$ for $\iobs = 1, \dots, n$ and the observed [sample mean](exploratory-descriptive.qmd#def-sample-mean) satisfies $\outbar \in (0, 1)$,
 then the [score equation](#def-score-equation) $\score(\prob) = 0$ has exactly one solution in $(0, 1)$:
 the sample mean $\prob = \outbar$.
 
