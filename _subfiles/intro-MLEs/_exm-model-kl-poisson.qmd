@@ -1,0 +1,15 @@
+:::{#exm-model-kl-poisson}
+#### Divergence between two Poisson rates
+
+For one observation $\Rvar \sim \Pois(\rate_0)$,
+$\log \p(x \mid \rate) = x \log \rate - \rate - \log x!$, so
+
+$$
+\ba
+\kldivf{\rate_0}{\rate}
+&= \Expp_{\rate_0}\sb{\Rvar \log \frac{\rate_0}{\rate} - \rate_0 + \rate}\\
+&= \rate_0 \log \frac{\rate_0}{\rate} - \rate_0 + \rate.
+\ea
+$$
+
+:::

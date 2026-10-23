@@ -1,0 +1,18 @@
+:::{#def-model-kl-divergence}
+#### Kullback--Leibler divergence between two parameter values
+
+Let $\vX$ be a continuous random vector with density $\p(\vx \mid \param)$
+for a scalar parameter $\param$,
+and let $\param_0$ be the true parameter value.
+The
+[Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
+of the model with parameter $\param$ from the model with parameter $\param_0$
+is the expectation, under $\param_0$, of the log ratio of the two densities.
+As a function of $\param$, it is written
+
+$$
+\kldivf{\param_0}{\param}
+\eqdef \Expp_{\param_0}\sb{\log \frac{\p(\vX \mid \param_0)}{\p(\vX \mid \param)}}.
+$$
+
+:::
