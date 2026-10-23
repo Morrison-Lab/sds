@@ -27,11 +27,11 @@ It is not the [expected squared prediction error](#def-epe).
 :::{#rem-prediction-bias-integral .remark}
 #### The bias as an iterated expectation and as integrals
 
-The new observation is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of the [training set](#def-training-set).
+The [new observation](#def-new-observation) is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of the [training set](#def-training-set).
 So by the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie),
 the expectation in @eq-prediction-bias can be taken in two steps:
 first over the new outcome with the training set fixed,
-then over the training sets.
+then over the [training sets](#def-training-set).
 
 $$
 \bias{\predvalf{\predvar}}
@@ -43,7 +43,7 @@ so its density is the product of the densities of its pairs.
 When the variables are [continuous](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the two steps are integrals.
 The inner integral runs over the new outcome $\outvar$,
 and the outer integral runs over the values $\paren{\predvar_\iobs, \outvar_\iobs}$ of the training pairs,
-which determine the prediction $\predvalf{\predvar}$:
+which determine the [prediction](prediction.qmd#def-prediction) $\predvalf{\predvar}$:
 
 $$
 \bias{\predvalf{\predvar}}
