@@ -193,6 +193,26 @@
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-cdf"
   },
   {
+   "id": "pds/random-variables#def-pdf",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-pdf",
+   "kind": "def",
+   "title": "pdf",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-pdf"
+  },
+  {
+   "id": "pds/random-variables#def-pmf",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-pmf",
+   "kind": "def",
+   "title": "pmf",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-pmf"
+  },
+  {
    "id": "pds/random-variables#def-realization",
    "site": "pds",
    "page": "random-variables",
@@ -2150,6 +2170,24 @@
    "div": "thm-standardized-mean-sd",
    "kind": "thm",
    "title": "Standardized values have sample mean 0 and sample standard deviation 1",
+   "external": false
+  },
+  {
+   "id": "sds/exponential-families#def-exponential-family",
+   "site": "sds",
+   "page": "exponential-families",
+   "div": "def-exponential-family",
+   "kind": "def",
+   "title": "Exponential family",
+   "external": false
+  },
+  {
+   "id": "sds/exponential-families#def-natural-parameter",
+   "site": "sds",
+   "page": "exponential-families",
+   "div": "def-natural-parameter",
+   "kind": "def",
+   "title": "Natural parameter",
    "external": false
   },
   {
@@ -5409,6 +5447,26 @@
   [
    "sds/exploratory-descriptive#thm-standardized-mean-sd",
    "sds/exploratory-descriptive#def-standardization"
+  ],
+  [
+   "sds/exponential-families#def-exponential-family",
+   "mds/functions#def-function"
+  ],
+  [
+   "sds/exponential-families#def-exponential-family",
+   "pds/random-variables#def-pdf"
+  ],
+  [
+   "sds/exponential-families#def-exponential-family",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "sds/exponential-families#def-natural-parameter",
+   "sds/exponential-families#def-exponential-family"
+  ],
+  [
+   "sds/exponential-families#def-natural-parameter",
+   "sds/sufficiency#def-statistic"
   ],
   [
    "sds/inference#def-alternative-hypothesis",
