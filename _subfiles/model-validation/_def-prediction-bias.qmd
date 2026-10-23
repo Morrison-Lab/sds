@@ -28,6 +28,23 @@ $$
 = \Expfc{\trainset}{\Expfc{\newoutvar}{\prederr_{*}\paren{\fitmodf{\trainset}} \mid \trainset, \newpredvar = \predvar}}.
 $$ {#eq-prediction-bias-iterated}
 
+The [training set](#def-training-set) consists of $\nobs$ [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid) pairs $\paren{\Predvar_\iobs, \Outvar_\iobs}$,
+so its density is the product of the densities of its pairs.
+When the variables are continuous, the two steps are integrals.
+The inner integral runs over the new outcome $\outvar$,
+and the outer integral runs over the values $\paren{\predvar_\iobs, \outvar_\iobs}$ of the training pairs,
+which determine the prediction $\predvalf{\predvar}$:
+
+$$
+\bias{\predvalf{\predvar}}
+= \int \cdots \int
+\paren{\int \paren{\predvalf{\predvar} - \outvar} \p(\newoutvar = \outvar \mid \newpredvar = \predvar) \, d\outvar}
+\prod_{\iobs = 1}^{\nobs} \p(\Predvar_\iobs = \predvar_\iobs,\, \Outvar_\iobs = \outvar_\iobs)
+\, d\predvar_1 \, d\outvar_1 \cdots d\predvar_\nobs \, d\outvar_\nobs.
+$$ {#eq-prediction-bias-integral}
+
+For discrete variables, the integrals are sums.
+
 This expected error is signed, not squared.
 It is not the [expected squared prediction error](#def-epe).
 
