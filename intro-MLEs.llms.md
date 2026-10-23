@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 21:40:01 (PDT)
+Last modified: 2026-10-22 22:09:49 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -32,7 +32,7 @@ These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with s
 
 > **NOTE:**
 >
-> **Example 1 (Likelihood of one Bernoulli observation)** If \\X \sim \operatorname{Ber}(\pi)\\, then
+> **Example 1 (Likelihood of one Bernoulli observation)** If \\X\\ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, \\X \sim \operatorname{Ber}(\pi)\\, then
 >
 > \\ \operatorname{p}\_{\pi}(X = x) = \pi^x (1 - \pi)^{1 - x} \\
 >
@@ -304,10 +304,6 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 The score equation is one example of an **estimating equation**, an equation whose solution defines an estimator. Estimating equations in general need not come from a likelihood.
 
-> **NOTE:**
->
-> **Example 4 (Precision of a Bernoulli variable)** If \\Y\sim \operatorname{Ber}(\pi)\\ with \\0 \< \pi\< 1\\, then \\{\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}} = \pi(1 - \pi)\\, so the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of \\Y\\ is \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\.
-
 ### 1.7 Information matrices
 
 > **NOTE:**
@@ -380,7 +376,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Example 5 (Information for Poisson data)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, one observation’s score is \\x/{\lambda}- 1\\ ([Theorem 6](#thm-pois-score)), whose derivative with respect to \\{\lambda}\\ is \\-x/{\lambda}^2\\. Summing over the observations ([Theorem 5](#thm-deriv-llik-iid)), the Hessian is \\\ell''= -\sum\_{i=1}^nx_i/ {\lambda}^2\\, so:
+> **Example 4 (Information for Poisson data)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, one observation’s score is \\x/{\lambda}- 1\\ ([Theorem 6](#thm-pois-score)), whose derivative with respect to \\{\lambda}\\ is \\-x/{\lambda}^2\\. Summing over the observations ([Theorem 5](#thm-deriv-llik-iid)), the Hessian is \\\ell''= -\sum\_{i=1}^nx_i/ {\lambda}^2\\, so:
 >
 > \\ \begin{aligned} I({\lambda}) &= -\ell'' && \text{(observed information: negative Hessian)}\\ &= -\mathopen{}\left(-\frac{\sum\_{i=1}^nx_i}{{\lambda}^2}\right)\mathclose{} && \text{(substitute the Hessian)}\\ &= \frac{\sum\_{i=1}^nx_i}{{\lambda}^2} && \text{(two negatives make a positive)}\\ \mathcal{I}({\lambda}) &= {\mathbb{E}\mathopen{}\left\[\frac{\sum\_{i=1}^nX_i}{{\lambda}^2}\right\]\mathclose{}} && \text{(expected information)}\\ &= \frac{{\mathbb{E}\mathopen{}\left\[\sum\_{i=1}^nX_i\right\]\mathclose{}}}{{\lambda}^2} && \text{(factor the constant \$\tfrac{1}{{\lambda}^2}\$ out of the expectation)}\\ &= \frac{\sum\_{i=1}^n{\mathbb{E}\mathopen{}\left\[X_i\right\]\mathclose{}}}{{\lambda}^2} && \text{(linearity of expectation)}\\ &= \frac{\sum\_{i=1}^n{\lambda}}{{\lambda}^2} && \text{(\${\mathbb{E}\mathopen{}\left\[X_i\right\]\mathclose{}} = {\lambda}\$)}\\ &= \frac{n{\lambda}}{{\lambda}^2} && \text{(sum of \$n\$ copies of \${\lambda}\$)}\\ &= \frac{n}{{\lambda}} && \text{(cancel one factor of \${\lambda}\$)} \end{aligned} \\
 
@@ -474,15 +470,15 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Example 6 (Checking the information equality for Poisson data)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, the score is \\\ell'= \sum\_{i=1}^nX_i/{\lambda}- n\\ ([Example 5](#exm-information-poisson)). Then:
+> **Example 5 (Checking the information equality for Poisson data)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, the score is \\\ell'= \sum\_{i=1}^nX_i/{\lambda}- n\\ ([Example 4](#exm-information-poisson)). Then:
 >
 > \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[\ell'\right\]\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[\frac{\sum\_{i=1}^nX_i}{{\lambda}} - n\right\]\mathclose{}} && \text{(Poisson score)}\\ &= {\mathbb{E}\mathopen{}\left\[\frac{\sum\_{i=1}^nX_i}{{\lambda}}\right\]\mathclose{}} - {\mathbb{E}\mathopen{}\left\[n\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= {\mathbb{E}\mathopen{}\left\[\frac{\sum\_{i=1}^nX_i}{{\lambda}}\right\]\mathclose{}} - n && \text{(the expectation of a constant is that constant)}\\ &= \frac{{\mathbb{E}\mathopen{}\left\[\sum\_{i=1}^nX_i\right\]\mathclose{}}}{{\lambda}} - n && \text{(factor the constant \$\tfrac{1}{{\lambda}}\$ out of the expectation)}\\ &= \frac{\sum\_{i=1}^n{\mathbb{E}\mathopen{}\left\[X_i\right\]\mathclose{}}}{{\lambda}} - n && \text{(linearity of expectation)}\\ &= \frac{\sum\_{i=1}^n{\lambda}}{{\lambda}} - n && \text{(\${\mathbb{E}\mathopen{}\left\[X_i\right\]\mathclose{}} = {\lambda}\$)}\\ &= \frac{n{\lambda}}{{\lambda}} - n && \text{(sum of \$n\$ copies of \${\lambda}\$)}\\ &= n - n && \text{(cancel \${\lambda}\$)}\\ &= 0 && \text{(subtract)}\\ {\operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}} &= {\operatorname{Var}\mathopen{}\left(\frac{\sum\_{i=1}^nX_i}{{\lambda}} - n\right)\mathclose{}} && \text{(Poisson score)}\\ &= {\operatorname{Var}\mathopen{}\left(\frac{\sum\_{i=1}^nX_i}{{\lambda}}\right)\mathclose{}} && \text{(subtracting a constant does not change a variance)}\\ &= \frac{{\operatorname{Var}\mathopen{}\left(\sum\_{i=1}^nX_i\right)\mathclose{}}}{{\lambda}^2} && \text{(\${\operatorname{Var}\mathopen{}\left(aY\right)\mathclose{}} = a^2 {\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}}\$)}\\ &= \frac{\sum\_{i=1}^n{\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}}}{{\lambda}^2} && \text{(variance of a sum of independent variables)}\\ &= \frac{\sum\_{i=1}^n{\lambda}}{{\lambda}^2} && \text{(\${\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}} = {\lambda}\$)}\\ &= \frac{n{\lambda}}{{\lambda}^2} && \text{(sum of \$n\$ copies of \${\lambda}\$)}\\ &= \frac{n}{{\lambda}} && \text{(cancel one factor of \${\lambda}\$)} \end{aligned} \\
 >
-> which matches \\\mathcal{I}({\lambda}) = n/{\lambda}\\ from [Example 5](#exm-information-poisson).
+> which matches \\\mathcal{I}({\lambda}) = n/{\lambda}\\ from [Example 4](#exm-information-poisson).
 
 > **NOTE:**
 >
-> **Example 7 (When the support depends on the parameter)** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \text{Uniform}(0, \theta)\\. The likelihood is \\\mathcal{L}(\theta) = \theta^{-n}\\ for \\\theta\ge \max_i x_i\\ (and 0 otherwise), so on that range \\\ell(\theta) = -n \log \theta\\ and \\\ell'(\theta) = -n/\theta\\. The score is a nonzero constant, so \\{\mathbb{E}\mathopen{}\left\[\ell'\right\]\mathclose{}} = -n/\theta\ne 0\\: [Equation 12](#eq-score-mean-zero) fails, because the set of possible data values, \\(0, \theta)\\, depends on \\\theta\\.
+> **Example 6 (When the support depends on the parameter)** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \text{Uniform}(0, \theta)\\. The likelihood is \\\mathcal{L}(\theta) = \theta^{-n}\\ for \\\theta\ge \max_i x_i\\ (and 0 otherwise), so on that range \\\ell(\theta) = -n \log \theta\\ and \\\ell'(\theta) = -n/\theta\\. The score is a nonzero constant, so \\{\mathbb{E}\mathopen{}\left\[\ell'\right\]\mathclose{}} = -n/\theta\ne 0\\: [Equation 12](#eq-score-mean-zero) fails, because the set of possible data values, \\(0, \theta)\\, depends on \\\theta\\.
 
 These notes write the [observed information](intro-MLEs.llms.md#def-oinf) as \\I\\ and the [expected information](intro-MLEs.llms.md#def-einf) as \\\mathcal{I}\\. Sources disagree on these symbols. The [Notation Across Sources page](https://morrison-lab.github.io/macros/notation-across-sources.html#sec-notation-information) of the macros site lists them side by side.
 
@@ -500,11 +496,11 @@ These notes write the [observed information](intro-MLEs.llms.md#def-oinf) as \\I
 
 > **NOTE:**
 >
-> *Remark 4* (Consistent roots and global maximizers). These conditions guarantee a consistent root of the score equation; that root is the global maximizer of the likelihood under further conditions, for example when the log-likelihood is strictly concave, as for Poisson data, whose Hessian is negative for every \\{\lambda}\\ ([Example 5](#exm-information-poisson)).
+> *Remark 4* (Consistent roots and global maximizers). These conditions guarantee a consistent root of the score equation; that root is the global maximizer of the likelihood under further conditions, for example when the log-likelihood is strictly concave, as for Poisson data, whose Hessian is negative for every \\{\lambda}\\ ([Example 4](#exm-information-poisson)).
 
 > **NOTE:**
 >
-> **Example 8 (Approximate distribution of the Poisson MLE)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, setting the score \\\sum\_{i=1}^nX_i/{\lambda}- n\\ ([Example 6](#exm-information-equality)) to zero gives \\\hat{\lambda}\_{\text{ML}} = \bar X\\, and \\\mathcal{I}({\lambda}) = n/{\lambda}\\ ([Example 5](#exm-information-poisson)), so [Theorem 14](#thm-dist-mle) says that for large \\n\\:
+> **Example 7 (Approximate distribution of the Poisson MLE)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, setting the score \\\sum\_{i=1}^nX_i/{\lambda}- n\\ ([Example 5](#exm-information-equality)) to zero gives \\\hat{\lambda}\_{\text{ML}} = \bar X\\, and \\\mathcal{I}({\lambda}) = n/{\lambda}\\ ([Example 4](#exm-information-poisson)), so [Theorem 14](#thm-dist-mle) says that for large \\n\\:
 >
 > \\\hat{\lambda}\_{\text{ML}} \\ \dot{\sim} \\ {\operatorname{N}\mathopen{}\left({\lambda}, \frac{{\lambda}}{n}\right)\mathclose{}}\\
 >
@@ -560,7 +556,7 @@ By [Theorem 14](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/{\mathop{\wideha
 
 > **NOTE:**
 >
-> **Example 9 (Wald interval and test for a Poisson rate)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, \\\hat{\lambda}\_{\text{ML}} = \bar x\\ and \\\mathcal{I}({\lambda}) = n/{\lambda}\\ ([Example 8](#exm-dist-mle-poisson)), so \\{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\lambda}\right)\mathclose{}} = \sqrt{\bar x/n}\\. With \\n = 13\\ and \\\bar x = 72/13\\, the 95% Wald interval for \\{\lambda}\\, and the Wald test of \\H_0: {\lambda}= 4\\, are:
+> **Example 8 (Wald interval and test for a Poisson rate)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, \\\hat{\lambda}\_{\text{ML}} = \bar x\\ and \\\mathcal{I}({\lambda}) = n/{\lambda}\\ ([Example 7](#exm-dist-mle-poisson)), so \\{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\lambda}\right)\mathclose{}} = \sqrt{\bar x/n}\\. With \\n = 13\\ and \\\bar x = 72/13\\, the 95% Wald interval for \\{\lambda}\\, and the Wald test of \\H_0: {\lambda}= 4\\, are:
 >
 > ``` downlit
 > n_obs <- 13
@@ -681,7 +677,7 @@ By [Theorem 14](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/{\mathop{\wideha
 
 > **NOTE:**
 >
-> **Example 10 (Likelihood ratio test for a Poisson rate)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\ and \\H_0: {\lambda}= {\lambda}\_0\\, the log-likelihood is \\\ell({\lambda}) = n\bar x \log{\lambda}- n{\lambda}- \sum_i \log x_i!\\ and \\\hat{{\lambda}}\_{\text{ML}} = \bar x\\, so:
+> **Example 9 (Likelihood ratio test for a Poisson rate)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\ and \\H_0: {\lambda}= {\lambda}\_0\\, the log-likelihood is \\\ell({\lambda}) = n\bar x \log{\lambda}- n{\lambda}- \sum_i \log x_i!\\ and \\\hat{{\lambda}}\_{\text{ML}} = \bar x\\, so:
 >
 > \\ \begin{aligned} \Lambda &= 2\mathopen{}\left(\ell(\bar x) - \ell({\lambda}\_0)\right)\mathclose{} && \text{(definition of \$\Lambda\$)}\\ &= 2\mathopen{}\left(\mathopen{}\left(n\bar x \log \bar x - n\bar x - \sum_i \log x_i!\right)\mathclose{} - \mathopen{}\left(n\bar x \log{\lambda}\_0 - n{\lambda}\_0 - \sum_i \log x_i!\right)\mathclose{}\right)\mathclose{} && \text{(substitute \$\ell(\bar x)\$ and \$\ell({\lambda}\_0)\$)}\\ &= 2\mathopen{}\left(n\bar x \log \bar x - n\bar x - \sum_i \log x_i! - n\bar x \log{\lambda}\_0 + n{\lambda}\_0 + \sum_i \log x_i!\right)\mathclose{} && \text{(distribute the minus sign)}\\ &= 2\mathopen{}\left(n\bar x \log \bar x - n\bar x - n\bar x \log{\lambda}\_0 + n{\lambda}\_0\right)\mathclose{} && \text{(the \$\log x_i!\$ terms cancel)}\\ &= 2n\mathopen{}\left(\bar x \log \bar x - \bar x - \bar x \log{\lambda}\_0 + {\lambda}\_0\right)\mathclose{} && \text{(factor out \$n\$)}\\ &= 2n\mathopen{}\left(\bar x \log \bar x - \bar x \log{\lambda}\_0 - \bar x + {\lambda}\_0\right)\mathclose{} && \text{(reorder the terms)}\\ &= 2n\mathopen{}\left(\bar x \mathopen{}\left(\log \bar x - \log{\lambda}\_0\right)\mathclose{} - \bar x + {\lambda}\_0\right)\mathclose{} && \text{(factor \$\bar x\$ out of the two log terms)}\\ &= 2n\mathopen{}\left(\bar x \log\frac{\bar x}{{\lambda}\_0} - \bar x + {\lambda}\_0\right)\mathclose{} && \text{(log of a quotient)} \end{aligned} \\
 >
@@ -1224,7 +1220,7 @@ The expected information is sometimes simpler to compute than the observed infor
 
 > **NOTE:**
 >
-> **Example 11 (Fisher scoring for Poisson data)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, the score is \\\ell'({\lambda}) = n\bar x/{\lambda}- n\\ and the expected information is \\\mathcal{I}({\lambda}) = n/{\lambda}\\ ([Example 5](#exm-information-poisson)), so one Fisher scoring step from any \\{\widehat{\lambda}}^\*\> 0\\ gives:
+> **Example 10 (Fisher scoring for Poisson data)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, the score is \\\ell'({\lambda}) = n\bar x/{\lambda}- n\\ and the expected information is \\\mathcal{I}({\lambda}) = n/{\lambda}\\ ([Example 4](#exm-information-poisson)), so one Fisher scoring step from any \\{\widehat{\lambda}}^\*\> 0\\ gives:
 >
 > \\ \begin{aligned} {\widehat{\lambda}}^\*+ {\mathopen{}\left(\mathcal{I}({\widehat{\lambda}}^\*)\right)\mathclose{}}^{-1} \ell'({\widehat{\lambda}}^\*) &= {\widehat{\lambda}}^\*+ \frac{{\widehat{\lambda}}^\*}{n}\mathopen{}\left(\frac{n\bar x}{{\widehat{\lambda}}^\*} - n\right)\mathclose{} && \text{(substitute \$\mathcal{I}\$ and \$\ell'\$)}\\ &= {\widehat{\lambda}}^\*+ \bar x - {\widehat{\lambda}}^\* && \text{(distribute \${\widehat{\lambda}}^\*/n\$)}\\ &= \bar x && \text{(cancel \${\widehat{\lambda}}^\*\$)} \end{aligned} \\
 >
@@ -1244,7 +1240,7 @@ For \\\operatorname{iid}\\ data, \\\frac{1}{n}I_e(\theta; \mathord{\smash\[b\]{\
 
 > **NOTE:**
 >
-> **Example 12 (Finding the MLE using the Newton-Raphson algorithm)** We found the MLE \\\hat{{\lambda}}= {\bar{x}}\\ by solving the score equation \\\ell'({\lambda}) = 0\\ algebraically ([Exercise 31](#exr-solve-score-equation)). If we could not have solved it, we could instead start from an initial guess such as \\{\widehat{\lambda}}^\*= 3\\ and apply the [Newton-Raphson algorithm](#sec-newton-raphson).
+> **Example 11 (Finding the MLE using the Newton-Raphson algorithm)** We found the MLE \\\hat{{\lambda}}= {\bar{x}}\\ by solving the score equation \\\ell'({\lambda}) = 0\\ algebraically ([Exercise 31](#exr-solve-score-equation)). If we could not have solved it, we could instead start from an initial guess such as \\{\widehat{\lambda}}^\*= 3\\ and apply the [Newton-Raphson algorithm](#sec-newton-raphson).
 >
 > ``` downlit
 > cur_lambda_est <- 3
@@ -1609,6 +1605,10 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
+> **Example 12 (Precision of a Bernoulli variable)** If \\Y\\ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, \\Y\sim \operatorname{Ber}(\pi)\\ with \\0 \< \pi\< 1\\, then \\{\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}} = \pi(1 - \pi)\\, so the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of \\Y\\ is \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\.
+
+> **NOTE:**
+>
 > **Exercise 39 (Score function of a Bernoulli variable)** Let \\X \sim \operatorname{Ber}(\pi)\\ have observed value \\x \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, and let:
 >
 > - \\\delta\stackrel{\text{def}}{=}x - {\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}\\ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of \\x\\ from the mean of \\X\\;
@@ -1691,17 +1691,17 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Exercise 41 (Score function of a binary sample)** In the setting of [Exercise 40](#exr-bernoulli-score-contribution), let \\{\bar{y}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^ny_i\\ be the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of the observed outcomes. Assemble the [score function](#def-score) \\\ell'(\pi)\\ of the whole [sample](exploratory-descriptive.llms.md#def-sample) from the [score](#def-score) contributions.
+> **Exercise 41 (Score function of a binary sample)** In the setting of [Exercise 40](#exr-bernoulli-score-contribution), let \\{\bar{y}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^ny_i\\ be the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of the observed outcomes, and let \\{\bar{\delta}}\stackrel{\text{def}}{=}{\bar{y}}- \pi\\ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of \\{\bar{y}}\\ from its mean \\\pi\\. Assemble the [score function](#def-score) \\\ell'(\pi)\\ of the whole [sample](exploratory-descriptive.llms.md#def-sample) from the [score](#def-score) contributions.
 
 > **NOTE:**
 >
-> *Solution 41*. \\ \begin{aligned} \ell'(\pi) &= \sum\_{i=1}^n\ell'\_i(\pi) && \text{(score of an independent sample is the sum of the score contributions)}\\ &= \sum\_{i=1}^n\tau\delta_i && \text{(score contribution of a binary outcome)}\\ &= \tau\sum\_{i=1}^n\delta_i && \text{(\$\tau\$ is the same for every \$i\$)}\\ &= \tau\sum\_{i=1}^n(y_i- \pi) && \text{(definition of \$\delta_i\$)}\\ &= \tau\mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(split the sum)}\\ &= \tau\mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= \tau\mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - n \pi\right)\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^n\pi= n \pi\$)}\\ &= \tau\mathopen{}\left(n {\bar{y}}- n \pi\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n {\bar{y}}\$)}\\ &= n \tau({\bar{y}}- \pi) && \text{(factor out \$n\$)} \end{aligned} \\
+> *Solution 41*. \\ \begin{aligned} \ell'(\pi) &= \sum\_{i=1}^n\ell'\_i(\pi) && \text{(score of an independent sample is the sum of the score contributions)}\\ &= \sum\_{i=1}^n\tau\delta_i && \text{(score contribution of a binary outcome)}\\ &= \tau\sum\_{i=1}^n\delta_i && \text{(\$\tau\$ is the same for every \$i\$)}\\ &= \tau\sum\_{i=1}^n(y_i- \pi) && \text{(definition of \$\delta_i\$)}\\ &= \tau\mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(split the sum)}\\ &= \tau\mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= \tau\mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - n \pi\right)\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^n\pi= n \pi\$)}\\ &= \tau\mathopen{}\left(n {\bar{y}}- n \pi\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n {\bar{y}}\$)}\\ &= n \tau({\bar{y}}- \pi) && \text{(factor out \$n\$)}\\ &= n \tau{\bar{\delta}} && \text{(definition of \${\bar{\delta}}\$)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 21 (Score function of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\, with observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) \\{\bar{y}}\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, the [score function](#def-score) is:
+> **Theorem 21 (Score function of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\, with observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) \\{\bar{y}}\\, [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\{\bar{\delta}}\stackrel{\text{def}}{=}{\bar{y}}- \pi\\ of \\{\bar{y}}\\ from its mean \\\pi\\, and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, the [score function](#def-score) is:
 >
-> \\\ell'(\pi) = n \tau({\bar{y}}- \pi)\\
+> \\\ell'(\pi) = n \tau{\bar{\delta}}\\
 
 > **NOTE:**
 >
