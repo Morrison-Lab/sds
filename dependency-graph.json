@@ -3735,6 +3735,15 @@
    "external": false
   },
   {
+   "id": "sds/model-validation#thm-prediction-bias-average-fit",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "thm-prediction-bias-average-fit",
+   "kind": "thm",
+   "title": "The bias as the expected prediction minus the mean function",
+   "external": false
+  },
+  {
    "id": "sds/multiple-testing#def-adjusted-p-value",
    "site": "sds",
    "page": "multiple-testing",
@@ -5793,10 +5802,6 @@
   ],
   [
    "sds/model-validation#def-bias-variance-tradeoff",
-   "sds/estimation#def-estimator"
-  ],
-  [
-   "sds/model-validation#def-bias-variance-tradeoff",
    "sds/model-validation#def-fitting-procedure"
   ],
   [
@@ -5814,6 +5819,10 @@
   [
    "sds/model-validation#def-bias-variance-tradeoff",
    "sds/model-validation#def-training-set"
+  ],
+  [
+   "sds/model-validation#def-bias-variance-tradeoff",
+   "sds/prediction#def-prediction"
   ],
   [
    "sds/model-validation#def-bic",
@@ -6361,23 +6370,19 @@
   ],
   [
    "sds/model-validation#def-prediction-bias",
-   "sds/estimation#def-estimation-error"
-  ],
-  [
-   "sds/model-validation#def-prediction-bias",
-   "sds/estimation#def-estimator"
-  ],
-  [
-   "sds/model-validation#def-prediction-bias",
    "sds/model-validation#def-fitting-procedure"
   ],
   [
    "sds/model-validation#def-prediction-bias",
-   "sds/model-validation#def-mean-function"
+   "sds/model-validation#def-new-observation"
   ],
   [
    "sds/model-validation#def-prediction-bias",
    "sds/model-validation#def-training-set"
+  ],
+  [
+   "sds/model-validation#def-prediction-bias",
+   "sds/prediction#def-prediction-error"
   ],
   [
    "sds/model-validation#def-prediction-function-family",
@@ -6601,19 +6606,11 @@
   ],
   [
    "sds/model-validation#thm-epe-decomposition",
-   "sds/estimation#def-estimator"
-  ],
-  [
-   "sds/model-validation#thm-epe-decomposition",
    "sds/model-validation#def-covariate"
   ],
   [
    "sds/model-validation#thm-epe-decomposition",
    "sds/model-validation#def-epe"
-  ],
-  [
-   "sds/model-validation#thm-epe-decomposition",
-   "sds/model-validation#def-mean-function"
   ],
   [
    "sds/model-validation#thm-epe-decomposition",
@@ -6738,6 +6735,22 @@
   [
    "sds/model-validation#thm-noise-mean-zero",
    "sds/model-validation#def-noise"
+  ],
+  [
+   "sds/model-validation#thm-prediction-bias-average-fit",
+   "sds/model-validation#def-average-fit"
+  ],
+  [
+   "sds/model-validation#thm-prediction-bias-average-fit",
+   "sds/model-validation#def-mean-function"
+  ],
+  [
+   "sds/model-validation#thm-prediction-bias-average-fit",
+   "sds/model-validation#def-prediction-bias"
+  ],
+  [
+   "sds/model-validation#thm-prediction-bias-average-fit",
+   "sds/prediction#def-prediction"
   ],
   [
    "sds/multiple-testing#def-bh",
