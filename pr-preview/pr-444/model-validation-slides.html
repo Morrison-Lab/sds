@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-22 20:25:55 (PDT)</p>
+  <p class="date">Last modified: 2026-10-22 22:11:00 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -695,7 +695,7 @@ h\mapsto {\mathcal{J}\mathopen{}\left(h; \mathcal{D}\right)\mathclose{}}, \quad 
 <span id="cb4-17"><a aria-label="17"></a>    <span class="st">"held_out"</span>: empirical_risk(birthwt[is_held_out]),</span>
 <span id="cb4-18"><a aria-label="18"></a>}</span>
 <span id="cb4-19"><a aria-label="19"></a>empirical_risks</span>
-<span id="cb4-20"><a aria-label="20"></a><span class="co">#&gt; {'training': np.float64(488364.99564830225), 'held_out': np.float64(503648.7535191132)}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-20"><a aria-label="20"></a><span class="co">#&gt; {'training': np.float64(488364.9956483022), 'held_out': np.float64(503648.75351911323)}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1150,7 +1150,7 @@ Figure&nbsp;1: The fitted lines of 100 of the 2000 training sets (grey), their p
 <p><span class="theorem-title"><strong>Definition 36 (Bias of a prediction)</strong></span> Let <span class="math inline">\(g\)</span> be a <a href="#/def-fitting-procedure">fitting procedure</a>, and let <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> be a random <a href="#/def-training-set">training set</a>. At a covariate value <span class="math inline">\(x\)</span>, the prediction <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> is a random variable, because it depends on the random training data. Let <span class="math inline">\(\mathopen{}\left(X_{*}, Y_{*}\right)\mathclose{}\)</span> be a <a href="#/def-new-observation">new observation</a> with <span class="math inline">\(X_{*}= x\)</span>. The <strong>bias</strong> of the prediction is the expected <a href="./prediction.html#def-prediction-error">prediction error</a> of the prediction <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> of the new outcome <span class="math inline">\(Y_{*}\)</span>. The expectation averages over <a href="#/def-training-set">training sets</a> and over the new outcome:</p>
 <p><span id="eq-prediction-bias"><span class="math display">\[
 {\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}
-= {\mathbb{E}\mathopen{}\left[{\varepsilon_{Y_{*}}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right]\mathclose{}}.
+= {\mathbb{E}\mathopen{}\left[{\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}} - Y_{*}\right)\mathclose{}}\right]\mathclose{}}.
 \tag{31}\]</span></span></p>
 <p>This expected error is signed, not squared. It is not the <a href="#/def-epe">expected squared prediction error</a>.</p>
 </div>
@@ -1166,7 +1166,7 @@ Figure&nbsp;1: The fitted lines of 100 of the 2000 training sets (grey), their p
 <p><span class="math display">\[
 \begin{aligned}
 {\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}
-&amp;= {\mathbb{E}\mathopen{}\left[{\varepsilon_{Y_{*}}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right]\mathclose{}} &amp;&amp; \text{(definition of bias)} \\
+&amp;= {\mathbb{E}\mathopen{}\left[{\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}} - Y_{*}\right)\mathclose{}}\right]\mathclose{}} &amp;&amp; \text{(definition of bias)} \\
 &amp;= {{\mathbb{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}}- {\mathbb{E}\mathopen{}\left[Y_{*}\right]\mathclose{}} &amp;&amp; \text{(linearity of expectation)} \\
 &amp;= {{\mathbb{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}} &amp;&amp; \text{(the noise has mean zero)} .
 \end{aligned}
@@ -2688,10 +2688,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span id="cb35-3"><a aria-label="3"></a>  mtcars_loocv<span class="sc">$</span>degree[<span class="fu">which.min</span>(mtcars_loocv<span class="sc">$</span>formula)]</span>
 <span id="cb35-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">max_difference =</span> loocv_max_diff, <span class="at">best_degree =</span> mtcars_best_loocv)</span>
 <span id="cb35-5"><a aria-label="5"></a><span class="co">#&gt; max_difference    best_degree </span></span>
-<span id="cb35-6"><a aria-label="6"></a><span class="co">#&gt;    7.10543e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb35-6"><a aria-label="6"></a><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
 <p><span class="proof-title"><em>Remark 34</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k= n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;28</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;27</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\({\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each <a href="#/def-fitted-model">fitted model</a> is fitted to <span class="math inline">\(n- 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\({\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[6, Sec. 5.1.4]</a></span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;8</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 20:25:55 (PDT)
+Last modified: 2026-10-22 22:11:00 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -353,7 +353,7 @@ Last modified: 2026-10-22 20:25:55 (PDT)
 >     "held_out": empirical_risk(birthwt[is_held_out]),
 > }
 > empirical_risks
-> #> {'training': np.float64(488364.99564830225), 'held_out': np.float64(503648.7535191132)}
+> #> {'training': np.float64(488364.9956483022), 'held_out': np.float64(503648.75351911323)}
 > ```
 >
 > Of the 189 babies, 126 are in the [training set](#def-training-set). The [fitted model](#def-fitted-model) has an [empirical risk](#def-empirical-risk) of 488,365 squared grams on the training set and 503,649 squared grams on the [held-out set](#def-held-out-set). Its square root, 699 grams, is the typical [prediction error](prediction.llms.md#def-prediction-error) on the training set.
@@ -781,7 +781,7 @@ Last modified: 2026-10-22 20:25:55 (PDT)
 >
 > **Definition 36 (Bias of a prediction)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, the prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is a random variable, because it depends on the random training data. Let \\\mathopen{}\left(X\_{\*}, Y\_{\*}\right)\mathclose{}\\ be a [new observation](#def-new-observation) with \\X\_{\*}= x\\. The **bias** of the prediction is the expected [prediction error](prediction.llms.md#def-prediction-error) of the prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ of the new outcome \\Y\_{\*}\\. The expectation averages over [training sets](#def-training-set) and over the new outcome:
 >
-> \\ {\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} = {\mathbb{E}\mathopen{}\left\[{\varepsilon\_{Y\_{\*}}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right\]\mathclose{}}. \tag{31}\\
+> \\ {\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} = {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}} - Y\_{\*}\right)\mathclose{}}\right\]\mathclose{}}. \tag{31}\\
 >
 > This expected error is signed, not squared. It is not the [expected squared prediction error](#def-epe).
 
@@ -795,7 +795,7 @@ Last modified: 2026-10-22 20:25:55 (PDT)
 >
 > *Proof*. The new outcome is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of the [training set](#def-training-set), and its mean is \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\ because the [noise has mean zero](#thm-noise-mean-zero).
 >
-> \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[{\varepsilon\_{Y\_{\*}}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}\right\]\mathclose{}} && \text{(definition of bias)} \\ &= {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mathbb{E}\mathopen{}\left\[Y\_{\*}\right\]\mathclose{}} && \text{(linearity of expectation)} \\ &= {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}} && \text{(the noise has mean zero)} . \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}} - Y\_{\*}\right)\mathclose{}}\right\]\mathclose{}} && \text{(definition of bias)} \\ &= {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mathbb{E}\mathopen{}\left\[Y\_{\*}\right\]\mathclose{}} && \text{(linearity of expectation)} \\ &= {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}} && \text{(the noise has mean zero)} . \end{aligned} \\
 
 > **NOTE:**
 >
@@ -2100,10 +2100,10 @@ Last modified: 2026-10-22 20:25:55 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    7.10543e-15    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >

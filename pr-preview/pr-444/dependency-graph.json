@@ -5570,6 +5570,10 @@
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score-sum",
+   "pds/variance-covariance#def-deviation-pop-mean"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-sum",
    "pds/variance-covariance#def-precision"
   ],
   [
