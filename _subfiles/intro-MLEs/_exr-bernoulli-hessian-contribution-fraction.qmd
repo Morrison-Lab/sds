@@ -14,7 +14,7 @@ Hint: because $\outvar_\iobs \in \cb{0, 1}$, $\sqf{\outvar_\iobs} = \outvar_\iob
 :::{#sol-bernoulli-hessian-contribution-fraction}
 
 Starting from @cor-bernoulli-hessian-contribution-precision, factor out $\sqf{\precision}$.
-The reciprocal of the precision is $1 / \precision = \prob(1 - \prob)$, so:
+The reciprocal of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is $1 / \precision = \prob(1 - \prob)$, so:
 
 $$
 \begin{aligned}
