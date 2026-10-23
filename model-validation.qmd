@@ -309,6 +309,10 @@ reticulate::py_require(
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_rem-prediction-bias-signed.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_rem-prediction-bias-integral.qmd >}}
 
 {{< slidebreak >}}
