@@ -22,7 +22,7 @@ $$
 &= \avgin (\outvar_\iobs - \prob)
 && \text{(definition of $\devn_\iobs$)}\\
 &= \frac{1}{n} \paren{\sumin \outvar_\iobs - \sumin \prob}
-&& \text{(split the sum)}\\
+&& \text{(distribute the sum over the difference)}\\
 &= \frac{1}{n} \paren{\sumof{\vy} - \sumin \prob}
 && \text{(definition of $\sumof{\vy}$)}\\
 &= \frac{1}{n} \paren{n \outbar - n \prob}
