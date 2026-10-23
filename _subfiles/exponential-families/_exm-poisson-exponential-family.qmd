@@ -3,23 +3,21 @@
 
 Let $\Rvar \sim \Pois(\rate)$,
 the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) with rate $\rate > 0$.
-Its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) has one factor free of $\rate$, and the factors $\rate^{\rvar}$ and $e^{-\rate}$.
+Its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) has one factor free of $\rate$, and the factors $\rate^{\rvar}$ and $\expf{-\rate}$.
 We rewrite it in the form of @eq-exponential-family
 by writing $\rate^{\rvar}$ as an exponential of a logarithm:
 
 $$
 \begin{aligned}
 \pdf\paren{\rvar ; \rate}
-&= \frac{\rate^{\rvar} e^{-\rate}}{\rvar!}
+&= \frac{\rate^{\rvar} \, \expf{-\rate}}{\rvar!}
 && \text{(Poisson mass function)}\\
-&= \frac{1}{\rvar!} \, \expf{\logf{\rate^{\rvar}}} \, e^{-\rate}
-&& \text{($a = \exp\paren{\log a}$ for $a > 0$)}\\
-&= \frac{1}{\rvar!} \, \expf{\rvar \, \logf{\rate}} \, e^{-\rate}
-&& \text{($\log a^b = b \log a$)}\\
+&= \frac{1}{\rvar!} \, \expf{\logf{\rate^{\rvar}}} \, \expf{-\rate}
+&& \text{(a positive number is the exponential of its logarithm)}\\
 &= \frac{1}{\rvar!} \, \expf{\rvar \, \logf{\rate}} \, \expf{-\rate}
-&& \text{($e^{-\rate} = \exp\paren{-\rate}$)}\\
+&& \text{(the logarithm of a power is the exponent times the logarithm)}\\
 &= \frac{1}{\rvar!} \, \expf{\rvar \, \logf{\rate} - \rate}
-&& \text{($\exp\paren{a} \exp\paren{b} = \exp\paren{a + b}$)}
+&& \text{(the product of exponentials is the exponential of the sum)}
 \end{aligned}
 $$
 
