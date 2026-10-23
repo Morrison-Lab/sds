@@ -1,3 +1,5 @@
+<!-- Reads rate and natural_parameter from the R chunk in _exm-poisson-exponential-family.qmd, so include that file first. -->
+
 :::{#exm-poisson-natural-parameter}
 #### The natural parameter of the Poisson distribution is the log rate
 
