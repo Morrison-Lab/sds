@@ -17,6 +17,17 @@ $$
 = \E{\prederr_{*}\paren{\fitmodf{\trainset}} \mid \newpredvar = \predvar}.
 $$ {#eq-prediction-bias}
 
+The new observation is independent of the training set.
+So by the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie),
+the expectation can be taken in two steps:
+first over the new outcome with the training set fixed,
+then over the training sets.
+
+$$
+\bias{\predvalf{\predvar}}
+= \Expfc{\trainset}{\Expfc{\newoutvar}{\prederr_{*}\paren{\fitmodf{\trainset}} \mid \trainset, \newpredvar = \predvar}}.
+$$ {#eq-prediction-bias-iterated}
+
 This expected error is signed, not squared.
 It is not the [expected squared prediction error](#def-epe).
 
