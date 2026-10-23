@@ -45,6 +45,9 @@ jobs:
       # leave this empty: empty selects a legacy branch that renders html plus
       # only the formats requested by `preview:*` labels.
       formats: default
+      # The full render (every page in html, revealjs, pdf and docx) outgrew the
+      # reusable workflow's 45-minute default on PRs that edit many pages.
+      timeout-minutes: 120
       timezone: America/Los_Angeles
       # Rebuild when this label is added or removed (it toggles highlighting below).
       extra-preview-labels: '["no-preview-highlights"]'
