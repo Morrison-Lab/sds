@@ -173,6 +173,16 @@
    "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice"
   },
   {
+   "id": "pds/random-variables#def-bernoulli",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-bernoulli",
+   "kind": "def",
+   "title": "bernoulli",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli"
+  },
+  {
    "id": "pds/random-variables#def-cdf",
    "site": "pds",
    "page": "random-variables",
@@ -2472,6 +2482,15 @@
    "div": "def-wald-test",
    "kind": "def",
    "title": "Wald test",
+   "external": false
+  },
+  {
+   "id": "sds/intro-MLEs#lem-bernoulli-precision-deriv",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "lem-bernoulli-precision-deriv",
+   "kind": "lem",
+   "title": "Derivative of the Bernoulli precision",
    "external": false
   },
   {
@@ -5467,6 +5486,14 @@
   [
    "sds/intro-MLEs#def-wald-test",
    "sds/inference#def-test-statistic"
+  ],
+  [
+   "sds/intro-MLEs#lem-bernoulli-precision-deriv",
+   "pds/random-variables#def-bernoulli"
+  ],
+  [
+   "sds/intro-MLEs#lem-bernoulli-precision-deriv",
+   "pds/variance-covariance#def-precision"
   ],
   [
    "sds/intro-MLEs#lem-wilks-lrt-quadratic",

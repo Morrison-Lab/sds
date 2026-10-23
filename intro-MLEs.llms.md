@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-23 01:51:06 (PDT)
+Last modified: 2026-10-23 11:56:24 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -1816,6 +1816,30 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
+> **Lemma 5 (Derivative of the Bernoulli precision)** If \\Y\\ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, \\Y\sim \operatorname{Ber}(\pi)\\ with \\0 \< \pi\< 1\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, then the derivative of \\\tau\\ with respect to \\\pi\\ is
+>
+> \\\frac{\partial}{\partial \pi} \tau= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{}\\
+
+> **NOTE:**
+>
+> *Proof*. The derivative needs the chain rule:
+>
+> \\ \begin{aligned} \frac{\partial}{\partial \pi} \tau &= \frac{\partial}{\partial \pi} \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}^{-1} && \text{(definition of \$\tau\$ as a negative power)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{}^{-1} && \text{(distribute \$\pi\$)}\\ &= -\mathopen{}\left(\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{}^{-2} \frac{\partial}{\partial \pi} \mathopen{}\left(\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{} && \text{(chain rule and power rule)}\\ &= -\mathopen{}\left(\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{}^{-2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{} && \text{(linearity and power rule)}\\ &= -\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}^{-2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{} && \text{(factor \$\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2} = \pi(1 - \pi)\$)}\\ &= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{} && \text{(definition of \$\tau\$)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Example 15 (Derivative of the precision at \\\pi= 1/4\\)** At \\\pi= 1/4\\, the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is
+>
+> \\ \begin{aligned} \tau &= \frac{1}{\pi(1 - \pi)} && \text{(definition of \$\tau\$)}\\ &= \frac{1}{\frac{1}{4} \cdot \frac{3}{4}} && \text{(substitute \$\pi= 1/4\$)}\\ &= \frac{16}{3} && \text{(multiply the fractions and take the reciprocal)} \end{aligned} \\
+>
+> so by [Lemma 5](#lem-bernoulli-precision-deriv),
+>
+> \\ \begin{aligned} \frac{\partial}{\partial \pi} \tau &= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{} && \text{(@lem-bernoulli-precision-deriv)}\\ &= -{\mathopen{}\left(\mathopen{}\left(\frac{16}{3}\right)\mathclose{}\right)\mathclose{}}^{2} \mathopen{}\left(1 - \frac{1}{2}\right)\mathclose{} && \text{(substitute \$\tau= 16/3\$ and \$\pi= 1/4\$)}\\ &= -\frac{256}{9} \cdot \frac{1}{2} && \text{(square and subtract)}\\ &= -\frac{128}{9} && \text{(multiply the fractions)} \end{aligned} \\
+>
+> The precision falls as \\\pi\\ rises toward \\1/2\\, where it is smallest, which matches a derivative below zero.
+
+> **NOTE:**
+>
 > **Exercise 46 (Hessian contribution of one binary outcome in terms of the precision and deviation)** In the setting of [Exercise 44](#exr-bernoulli-hessian-contribution), derive the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ starting from the simplified [score](#def-score) contribution \\\ell'\_i(\pi) = \tau\delta_i\\ in [Theorem 20](#thm-bernoulli-score-contribution), with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\. Both \\\tau\\ and \\\delta_i\\ depend on \\\pi\\, while the observed value \\y_i\\ does not.
 
 > **NOTE:**
@@ -1826,9 +1850,9 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \pi} \delta_i &= \frac{\partial}{\partial \pi} \mathopen{}\left(y_i- \pi\right)\mathclose{} && \text{(definition of \$\delta_i\$)}\\ &= \frac{\partial}{\partial \pi} y_i- \frac{\partial}{\partial \pi} \pi && \text{(linearity of differentiation)}\\ &= 0 - 1 && \text{(derivatives of a constant and of \$\pi\$)}\\ &= -1 && \text{(subtract)} \end{aligned} \\
 >
-> The derivative of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) needs the chain rule:
+> The derivative of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is given by [Lemma 5](#lem-bernoulli-precision-deriv):
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \pi} \tau &= \frac{\partial}{\partial \pi} \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}^{-1} && \text{(definition of \$\tau\$ as a negative power)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{}^{-1} && \text{(distribute \$\pi\$)}\\ &= -\mathopen{}\left(\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{}^{-2} \frac{\partial}{\partial \pi} \mathopen{}\left(\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{} && \text{(chain rule and power rule)}\\ &= -\mathopen{}\left(\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{}^{-2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{} && \text{(linearity and power rule)}\\ &= -\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}^{-2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{} && \text{(factor \$\pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2} = \pi(1 - \pi)\$)}\\ &= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{} && \text{(definition of \$\tau\$)} \end{aligned} \\
+> \\\frac{\partial}{\partial \pi} \tau= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{}\\
 >
 > Substituting both derivatives back in:
 >
@@ -1970,7 +1994,7 @@ so for every fixed \\\sigma^2\\, \\\ell\\ is maximized over \\\mu\\ at \\\bar x\
 
 > **NOTE:**
 >
-> **Example 15 (Profile log-likelihood of a Gaussian variance)** In the Gaussian model, \\\hat{\mu}= \bar x\\ maximizes \\\ell\\ over \\\mu\\ for every value of \\\sigma^2\\ ([Gaussian MLEs](#sec-gaussian-mle)), so the profile log-likelihood of \\\sigma^2\\ is
+> **Example 16 (Profile log-likelihood of a Gaussian variance)** In the Gaussian model, \\\hat{\mu}= \bar x\\ maximizes \\\ell\\ over \\\mu\\ for every value of \\\sigma^2\\ ([Gaussian MLEs](#sec-gaussian-mle)), so the profile log-likelihood of \\\sigma^2\\ is
 >
 > \\ \begin{aligned} \ell_p(\sigma^2) &= \ell(\bar x, \sigma^2) && \text{(definition of the profile log-likelihood)}\\ &= -\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}} - \frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \bar x)^2 && \text{(Gaussian log-likelihood at \$\mu= \bar x\$)} \end{aligned} \\
 
