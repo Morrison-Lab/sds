@@ -2,9 +2,10 @@
 #### Hessian contribution of one binary outcome over a common denominator
 
 If $\Outvar_\iobs \sim \Ber(\prob)$ has observed value $\outvar_\iobs \in \cb{0, 1}$,
-its [Hessian](#def-hessian) contribution, written with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$, is:
+its [Hessian](#def-hessian) contribution, written with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$
+and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs \eqdef \outvar_\iobs - \prob$, is:
 
-$$\hess_\iobs(\prob) = -\sqf{\precision} \paren{\paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}}$$
+$$\hess_\iobs(\prob) = -\sqf{\precision} \sqf{\devn_\iobs}$$
 
 :::
 

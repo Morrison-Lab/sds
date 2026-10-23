@@ -3,8 +3,10 @@
 
 In the setting of @exr-bernoulli-hessian-contribution,
 write the [Hessian](#def-hessian) contribution $\hess_\iobs(\prob)$
-as one term, by finding a common denominator for its two terms
-and then writing the denominator with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$.
+as one term, by finding a common denominator for its two terms,
+then writing the denominator with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$,
+and finally writing the numerator as the square of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs \eqdef \outvar_\iobs - \prob$.
+Hint: because $\outvar_\iobs \in \cb{0, 1}$, $\sqf{\outvar_\iobs} = \outvar_\iobs$.
 
 :::
 
@@ -74,6 +76,31 @@ $$
 \hess_\iobs(\prob)
 = -\sqf{\precision} \paren{\paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}}
 \qquad \text{(substitute $\sqf{\precision}$)}
+$$
+
+The numerator is the square of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs = \outvar_\iobs - \prob$.
+Starting from the square:
+
+$$
+\begin{aligned}
+\sqf{\devn_\iobs}
+&= \sqf{\paren{\outvar_\iobs - \prob}}
+&& \text{(definition of $\devn_\iobs$)}\\
+&= \sqf{\outvar_\iobs} - 2 \prob \outvar_\iobs + \sqf{\prob}
+&& \text{(expand the square)}\\
+&= \outvar_\iobs - 2 \prob \outvar_\iobs + \sqf{\prob}
+&& \text{($\outvar_\iobs \in \cb{0, 1}$, so $\sqf{\outvar_\iobs} = \outvar_\iobs$)}\\
+&= \paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}
+&& \text{(collect the terms in $\outvar_\iobs$)}
+\end{aligned}
+$$
+
+Substituting the square:
+
+$$
+\hess_\iobs(\prob)
+= -\sqf{\precision} \sqf{\devn_\iobs}
+\qquad \text{(substitute $\sqf{\devn_\iobs}$)}
 $$
 
 :::
