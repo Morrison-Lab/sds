@@ -3528,6 +3528,15 @@
    "external": false
   },
   {
+   "id": "sds/model-validation#def-prediction-rule",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "def-prediction-rule",
+   "kind": "def",
+   "title": "Prediction rule <!-- prose-allow: prediction rule -->",
+   "external": false
+  },
+  {
    "id": "sds/model-validation#def-predictive-model",
    "site": "sds",
    "page": "model-validation",
@@ -6019,10 +6028,6 @@
    "sds/model-validation#def-model-family"
   ],
   [
-   "sds/model-validation#def-fitted-model",
-   "sds/prediction#def-prediction"
-  ],
-  [
    "sds/model-validation#def-fitting-procedure",
    "mds/functions#def-function"
   ],
@@ -6381,6 +6386,18 @@
   [
    "sds/model-validation#def-prediction-rmse",
    "sds/prediction#def-prediction-mse"
+  ],
+  [
+   "sds/model-validation#def-prediction-rule",
+   "sds/model-validation#def-covariate"
+  ],
+  [
+   "sds/model-validation#def-prediction-rule",
+   "sds/model-validation#def-fitted-model"
+  ],
+  [
+   "sds/model-validation#def-prediction-rule",
+   "sds/prediction#def-prediction"
   ],
   [
    "sds/model-validation#def-predictive-model",
