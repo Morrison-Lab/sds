@@ -1,0 +1,22 @@
+:::{#exm-prediction-bias}
+#### Computing the bias of a prediction
+
+Suppose $\truemeanf{\predvar} = 10$,
+and the predictions $\predvalf{\predvar}$,
+over repeated training sets,
+average $11$.
+Then
+
+$$
+\begin{aligned}
+\bias{\predval}
+&= \Epredval - \truemeanf{\predvar} && \text{(@thm-prediction-bias-average-fit)} \\
+&= 11 - 10 \\
+&= 1.
+\end{aligned}
+$$
+
+The squared bias is $1^2 = 1$,
+the value in @exr-epe-three-sources.
+
+:::
