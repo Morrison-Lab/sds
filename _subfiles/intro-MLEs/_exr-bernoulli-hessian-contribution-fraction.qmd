@@ -1,11 +1,10 @@
 :::{#exr-bernoulli-hessian-contribution-fraction}
-#### Hessian contribution of one binary outcome over a common denominator
+#### Hessian contribution of one binary outcome as a squared deviation
 
-In the setting of @exr-bernoulli-hessian-contribution,
-write the [Hessian](#def-hessian) contribution $\hess_\iobs(\prob)$
-as one term, by finding a common denominator for its two terms,
-then writing the denominator with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$,
-and finally writing the numerator as the square of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs \eqdef \outvar_\iobs - \prob$.
+In the setting of @exr-bernoulli-hessian-contribution-precision,
+starting from the [Hessian](#def-hessian) contribution $\hess_\iobs(\prob)$ in @cor-bernoulli-hessian-contribution-precision,
+write $\hess_\iobs(\prob)$ with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$
+as a multiple of $\sqf{\precision}$ times the square of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs \eqdef \outvar_\iobs - \prob$.
 Hint: because $\outvar_\iobs \in \cb{0, 1}$, $\sqf{\outvar_\iobs} = \outvar_\iobs$.
 
 :::
@@ -14,88 +13,46 @@ Hint: because $\outvar_\iobs \in \cb{0, 1}$, $\sqf{\outvar_\iobs} = \outvar_\iob
 
 :::{#sol-bernoulli-hessian-contribution-fraction}
 
-Starting from @thm-bernoulli-hessian-contribution:
+Starting from @cor-bernoulli-hessian-contribution-precision, factor out $\sqf{\precision}$.
+The reciprocal of the precision is $1 / \precision = \prob(1 - \prob)$, so:
 
 $$
 \begin{aligned}
 \hess_\iobs(\prob)
-&= -\frac{\outvar_\iobs}{\sqf{\prob}} - \frac{1 - \outvar_\iobs}{\sqf{1 - \prob}}
-&& \text{(the contribution from the theorem above)}\\
-&= -\frac{\outvar_\iobs \sqf{1 - \prob}}{\sqf{\prob} \sqf{1 - \prob}} - \frac{\paren{1 - \outvar_\iobs} \sqf{\prob}}{\sqf{\prob} \sqf{1 - \prob}}
-&& \text{(write both terms over the common denominator $\sqf{\prob} \sqf{1 - \prob}$)}\\
-&= -\frac{\outvar_\iobs \sqf{1 - \prob} + \paren{1 - \outvar_\iobs} \sqf{\prob}}{\sqf{\prob} \sqf{1 - \prob}}
-&& \text{(combine over the common denominator)}\\
-&= -\frac{\outvar_\iobs \sqf{1 - \prob} + \paren{1 - \outvar_\iobs} \sqf{\prob}}{\sqf{\prob(1 - \prob)}}
-&& \text{($\sqf{a} \sqf{b} = \sqf{ab}$)}
+&= -\precision - \paren{1 - 2 \prob} \sqf{\precision} \devn_\iobs
+&& \text{(the contribution from the corollary)}\\
+&= -\sqf{\precision} \frac{1}{\precision} - \paren{1 - 2 \prob} \sqf{\precision} \devn_\iobs
+&& \text{($\precision = \sqf{\precision} / \precision$)}\\
+&= -\sqf{\precision} \paren{\prob(1 - \prob) + \paren{1 - 2 \prob} \devn_\iobs}
+&& \text{(factor out $-\sqf{\precision}$)}
 \end{aligned}
 $$
 
-The numerator simplifies in the following steps:
+The factor in parentheses is:
 
 $$
 \begin{aligned}
-\outvar_\iobs \sqf{1 - \prob} + \paren{1 - \outvar_\iobs} \sqf{\prob}
-&= \outvar_\iobs \paren{1 - 2 \prob + \sqf{\prob}} + \paren{1 - \outvar_\iobs} \sqf{\prob}
-&& \text{(expand $\sqf{1 - \prob}$)}\\
-&= \outvar_\iobs - 2 \prob \outvar_\iobs + \outvar_\iobs \sqf{\prob} + \sqf{\prob} - \outvar_\iobs \sqf{\prob}
-&& \text{(distribute $\outvar_\iobs$ and $\sqf{\prob}$)}\\
-&= \outvar_\iobs - 2 \prob \outvar_\iobs + \sqf{\prob} + \outvar_\iobs \sqf{\prob} - \outvar_\iobs \sqf{\prob}
-&& \text{(reorder the terms)}\\
+\prob(1 - \prob) + \paren{1 - 2 \prob} \devn_\iobs
+&= \prob - \sqf{\prob} + \paren{1 - 2 \prob} \paren{\outvar_\iobs - \prob}
+&& \text{(distribute $\prob$; definition of $\devn_\iobs$)}\\
+&= \prob - \sqf{\prob} + \outvar_\iobs - \prob - 2 \prob \outvar_\iobs + 2 \sqf{\prob}
+&& \text{(distribute $1 - 2 \prob$)}\\
+&= \outvar_\iobs - 2 \prob \outvar_\iobs + \paren{2 \sqf{\prob} - \sqf{\prob}} + \paren{\prob - \prob}
+&& \text{(reorder and group the terms)}\\
 &= \outvar_\iobs - 2 \prob \outvar_\iobs + \sqf{\prob} + 0
-&& \text{($\outvar_\iobs \sqf{\prob} - \outvar_\iobs \sqf{\prob} = 0$)}\\
+&& \text{($2 a - a = a$ and $a - a = 0$)}\\
 &= \outvar_\iobs - 2 \prob \outvar_\iobs + \sqf{\prob}
 && \text{($a + 0 = a$)}\\
-&= \paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}
-&& \text{(collect the terms in $\outvar_\iobs$)}
-\end{aligned}
-$$
-
-Substituting the numerator back in:
-
-$$
-\hess_\iobs(\prob)
-= -\frac{\paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}}{\sqf{\prob(1 - \prob)}}
-\qquad \text{(substitute the numerator)}
-$$
-
-The denominator is the square of the reciprocal of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision):
-
-$$
-\begin{aligned}
-\frac{1}{\sqf{\prob(1 - \prob)}}
-&= \sqf{\paren{\frac{1}{\prob(1 - \prob)}}}
-&& \text{($\frac{1}{\sqf{a}} = \sqf{\paren{\frac{1}{a}}}$)}\\
-&= \sqf{\precision}
-&& \text{(definition of $\precision$)}
-\end{aligned}
-$$
-
-Substituting the denominator:
-
-$$
-\hess_\iobs(\prob)
-= -\sqf{\precision} \paren{\paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}}
-\qquad \text{(substitute $\sqf{\precision}$)}
-$$
-
-The numerator is the square of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs = \outvar_\iobs - \prob$.
-Starting from the square:
-
-$$
-\begin{aligned}
-\sqf{\devn_\iobs}
-&= \sqf{\paren{\outvar_\iobs - \prob}}
-&& \text{(definition of $\devn_\iobs$)}\\
 &= \sqf{\outvar_\iobs} - 2 \prob \outvar_\iobs + \sqf{\prob}
-&& \text{(expand the square)}\\
-&= \outvar_\iobs - 2 \prob \outvar_\iobs + \sqf{\prob}
-&& \text{($\outvar_\iobs \in \cb{0, 1}$, so $\sqf{\outvar_\iobs} = \outvar_\iobs$)}\\
-&= \paren{1 - 2 \prob} \outvar_\iobs + \sqf{\prob}
-&& \text{(collect the terms in $\outvar_\iobs$)}
+&& \text{($\outvar_\iobs \in \cb{0, 1}$, so $\outvar_\iobs = \sqf{\outvar_\iobs}$)}\\
+&= \sqf{\paren{\outvar_\iobs - \prob}}
+&& \text{(square of a difference)}\\
+&= \sqf{\devn_\iobs}
+&& \text{(definition of $\devn_\iobs$)}
 \end{aligned}
 $$
 
-Substituting the square:
+Substituting the factor back in:
 
 $$
 \hess_\iobs(\prob)
