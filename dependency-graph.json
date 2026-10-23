@@ -193,6 +193,16 @@
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-cdf"
   },
   {
+   "id": "pds/random-variables#def-realization",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-realization",
+   "kind": "def",
+   "title": "realization",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-realization"
+  },
+  {
    "id": "pds/variance-covariance#def-cond-variance",
    "site": "pds",
    "page": "variance-covariance",
@@ -1987,6 +1997,15 @@
    "div": "def-min-max-scaling",
    "kind": "def",
    "title": "Min-max scaling",
+   "external": false
+  },
+  {
+   "id": "sds/exploratory-descriptive#def-observation",
+   "site": "sds",
+   "page": "exploratory-descriptive",
+   "div": "def-observation",
+   "kind": "def",
+   "title": "Observation",
    "external": false
   },
   {
@@ -5326,6 +5345,14 @@
   [
    "sds/exploratory-descriptive#def-contingency-table",
    "sds/data#def-categorical-var"
+  ],
+  [
+   "sds/exploratory-descriptive#def-observation",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "sds/exploratory-descriptive#def-observation",
+   "sds/exploratory-descriptive#def-population"
   ],
   [
    "sds/exploratory-descriptive#def-population-distribution",
