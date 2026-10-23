@@ -3,7 +3,7 @@
 
 Let $\Rvar \sim \Pois(\rate)$,
 the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) with rate $\rate > 0$.
-Its mass function has one factor free of $\rate$, and the factors $\rate^{\rvar}$ and $e^{-\rate}$.
+Its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) has one factor free of $\rate$, and the factors $\rate^{\rvar}$ and $e^{-\rate}$.
 We rewrite it in the form of @eq-exponential-family
 by writing $\rate^{\rvar}$ as an exponential of a logarithm:
 
@@ -33,7 +33,7 @@ To check the algebra on data,
 we use the number of tropical cyclones in northeastern Australia in each of 13 seasons
 [@dobson4e, Section 1.6.5],
 with the rate set to the [sample mean](exploratory-descriptive.qmd#def-sample-mean).
-We compare the Poisson mass function with the right side of @eq-exponential-family at every observed count.
+We compare the [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) mass function with the right side of @eq-exponential-family at every observed count.
 
 ::: {.panel-tabset group="language"}
 

@@ -2,7 +2,7 @@
 #### The natural parameter of the Poisson distribution is the log rate
 
 In @exm-poisson-exponential-family,
-the Poisson rate $\rate$ and the [natural parameter](#def-natural-parameter) $\natparam$ are related by
+the [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) rate $\rate$ and the [natural parameter](#def-natural-parameter) $\natparam$ are related by
 
 $$
 \natparam = \logf{\rate}
