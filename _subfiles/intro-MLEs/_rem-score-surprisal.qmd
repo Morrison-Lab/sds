@@ -1,0 +1,12 @@
+::: {#rem-score-surprisal}
+#### The score is the negative slope of the surprisal
+
+For a continuous $\vX$ with density $\p(\vx \mid \param)$,
+the [surprisal](https://morrison-lab.github.io/ids/entropy.html#def-surprisal)
+of the data value $\vx$ under parameter value $\param$ is $-\log \p(\vx \mid \param)$,
+which is minus the log-likelihood $-\llik(\param)$.
+So the [score](#def-score) is the negative derivative of the surprisal with respect to $\param$,
+and, by @thm-information-equality,
+the [expected information](#def-einf) is the expected squared slope of the surprisal:
+$\einf(\param) = \E{\score^2}$.
+:::
