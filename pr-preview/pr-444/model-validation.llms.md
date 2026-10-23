@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-23 00:29:20 (PDT)
+Last modified: 2026-10-23 00:48:21 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -811,15 +811,15 @@ Last modified: 2026-10-23 00:29:20 (PDT)
 
 > **NOTE:**
 >
-> *Remark*. In expected prediction error decompositions [\[6, Sec. 2.2.2\]](#ref-james2021islr2e), the bias reflects the approximation error that comes from approximating a real-world relationship by a model.
+> *Remark*. In [expected prediction error](#def-epe) decompositions [\[6, Sec. 2.2.2\]](#ref-james2021islr2e), the [bias](#def-prediction-bias) reflects the approximation error that comes from approximating a real-world relationship by a model.
 
 > **NOTE:**
 >
-> **Example 27 (Computing the bias of a prediction)** Suppose \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 10\\, and the predictions \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, over repeated training sets, average \\11\\. Then
+> **Example 27 (Computing the bias of a prediction)** Suppose \\{\mu\mathopen{}\left(x\right)\mathclose{}} = 10\\, and the [predictions](prediction.llms.md#def-prediction) \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, over repeated [training sets](#def-training-set), average \\11\\. Then
 >
 > \\ \begin{aligned} {\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}} &= {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}} && \text{(@thm-prediction-bias-average-fit)} \\ &= 11 - 10 \\ &= 1. \end{aligned} \\
 >
-> The squared bias is \\1^2 = 1\\, the value in [Exercise 4](#exr-epe-three-sources).
+> The squared [bias](#def-prediction-bias) is \\1^2 = 1\\, the value in [Exercise 4](#exr-epe-three-sources).
 
 > **NOTE:**
 >

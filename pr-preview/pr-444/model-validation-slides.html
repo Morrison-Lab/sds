@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-23 00:29:20 (PDT)</p>
+  <p class="date">Last modified: 2026-10-23 00:48:21 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -1189,7 +1189,7 @@ Figure&nbsp;1: The fitted lines of 100 of the 2000 training sets (grey), their p
 \end{aligned}
 \]</span></p>
 </div>
-<aside class="notes proof remark"><p><span class="proof-title"><em>Remark</em>. </span>In expected prediction error decompositions <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[6, Sec. 2.2.2]</a></span>, the bias reflects the approximation error that comes from approximating a real-world relationship by a model.</p>
+<aside class="notes proof remark"><p><span class="proof-title"><em>Remark</em>. </span>In <a href="#/def-epe">expected prediction error</a> decompositions <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[6, Sec. 2.2.2]</a></span>, the <a href="#/def-prediction-bias">bias</a> reflects the approximation error that comes from approximating a real-world relationship by a model.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1201,7 +1201,7 @@ Figure&nbsp;1: The fitted lines of 100 of the 2000 training sets (grey), their p
           overflow: hidden!important;
           display:block!important;
       }</style></aside></section><section class="slide level2"><div id="exm-prediction-bias" class="theorem example">
-<p><span class="theorem-title"><strong>Example 27 (Computing the bias of a prediction)</strong></span> Suppose <span class="math inline">\({\mu\mathopen{}\left(x\right)\mathclose{}} = 10\)</span>, and the predictions <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span>, over repeated training sets, average <span class="math inline">\(11\)</span>. Then</p>
+<p><span class="theorem-title"><strong>Example 27 (Computing the bias of a prediction)</strong></span> Suppose <span class="math inline">\({\mu\mathopen{}\left(x\right)\mathclose{}} = 10\)</span>, and the <a href="./prediction.html#def-prediction">predictions</a> <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span>, over repeated <a href="#/def-training-set">training sets</a>, average <span class="math inline">\(11\)</span>. Then</p>
 <p><span class="math display">\[
 \begin{aligned}
 {\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}}
@@ -1210,7 +1210,7 @@ Figure&nbsp;1: The fitted lines of 100 of the 2000 training sets (grey), their p
 &amp;= 1.
 \end{aligned}
 \]</span></p>
-<p>The squared bias is <span class="math inline">\(1^2 = 1\)</span>, the value in <a href="#/exr-epe-three-sources" class="quarto-xref">Exercise&nbsp;4</a>.</p>
+<p>The squared <a href="#/def-prediction-bias">bias</a> is <span class="math inline">\(1^2 = 1\)</span>, the value in <a href="#/exr-epe-three-sources" class="quarto-xref">Exercise&nbsp;4</a>.</p>
 </div>
 </section><section class="slide level2"><div id="def-irreducible-error" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 37 (Irreducible error)</strong></span> Let <span class="math inline">\(\mathopen{}\left(X, Y\right)\mathclose{}\)</span> be the <a href="#/def-covariate">covariate</a> and the outcome of one observation from a <a href="./exploratory-descriptive.html#def-population">population</a>, and let <span class="math inline">\(\varepsilon\)</span> be its <a href="#/def-noise">noise</a>.</p>
