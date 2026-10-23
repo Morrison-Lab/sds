@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-22 23:10:15 (PDT)</p>
+  <p class="date">Last modified: 2026-10-23 00:10:33 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -910,7 +910,7 @@ S_{xy}\stackrel{\text{def}}{=}\sum_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}).
 \begin{aligned}
 \sum_{i=1}^n(x_i- {\bar{x}})
 &amp;= \sum_{i=1}^nx_i- \sum_{i=1}^n{\bar{x}}
-&amp;&amp; \text{(split the sum)}\\
+&amp;&amp; \text{(distribute the sum over the terms)}\\
 &amp;= \sum_{i=1}^nx_i- n {\bar{x}}
 &amp;&amp; \text{(sum of a constant)}\\
 &amp;= n {\bar{x}}- n {\bar{x}}
@@ -940,7 +940,7 @@ S_{xx}
 &amp;= \sum_{i=1}^n\mathopen{}\left(x_i^2 - 2 {\bar{x}}x_i+ {\bar{x}}^2\right)\mathclose{}
 &amp;&amp; \text{(expand the square)}\\
 &amp;= \sum_{i=1}^nx_i^2 - \sum_{i=1}^n2 {\bar{x}}x_i+ \sum_{i=1}^n{\bar{x}}^2
-&amp;&amp; \text{(split the sum)}\\
+&amp;&amp; \text{(distribute the sum over the terms)}\\
 &amp;= \sum_{i=1}^nx_i^2 - 2 {\bar{x}}\sum_{i=1}^nx_i+ \sum_{i=1}^n{\bar{x}}^2
 &amp;&amp; \text{(constant factor out of the sum)}\\
 &amp;= \sum_{i=1}^nx_i^2 - 2 {\bar{x}}\sum_{i=1}^nx_i+ n {\bar{x}}^2
@@ -1003,7 +1003,7 @@ S_{xx}
 &amp;= -2 \sum_{i=1}^n(y_i- \beta_{0}- \beta_{x} x_i)
 &amp;&amp; \text{(constant factor out of the sum)}\\
 &amp;= -2 \mathopen{}\left(\sum_{i=1}^ny_i- \sum_{i=1}^n\beta_{0}- \sum_{i=1}^n\beta_{x} x_i\right)\mathclose{}
-&amp;&amp; \text{(split the sum)}\\
+&amp;&amp; \text{(distribute the sum over the terms)}\\
 &amp;= -2 \mathopen{}\left(\sum_{i=1}^ny_i- n \beta_{0}- \sum_{i=1}^n\beta_{x} x_i\right)\mathclose{}
 &amp;&amp; \text{(sum of a constant)}\\
 &amp;= -2 \mathopen{}\left(\sum_{i=1}^ny_i- n \beta_{0}- \beta_{x} \sum_{i=1}^nx_i\right)\mathclose{}
@@ -1117,7 +1117,7 @@ S_{xx}
 &amp;= \sum_{i=1}^n\mathopen{}\left((y_i- {\bar{y}}) - \beta_{x} (x_i- {\bar{x}})\right)\mathclose{}
 &amp;&amp; \text{(definition of $d_i$)}\\
 &amp;= \sum_{i=1}^n(y_i- {\bar{y}}) - \sum_{i=1}^n\beta_{x} (x_i- {\bar{x}})
-&amp;&amp; \text{(split the sum)}\\
+&amp;&amp; \text{(distribute the sum over the terms)}\\
 &amp;= \sum_{i=1}^n(y_i- {\bar{y}}) - \beta_{x} \sum_{i=1}^n(x_i- {\bar{x}})
 &amp;&amp; \text{(constant factor out of the sum)}\\
 &amp;= 0 - \beta_{x} \cdot 0
@@ -1144,7 +1144,7 @@ S_{xx}
 &amp;= \sum_{i=1}^n\mathopen{}\left((x_i- {\bar{x}})(y_i- {\bar{y}}) - \beta_{x} (x_i- {\bar{x}})^2\right)\mathclose{}
 &amp;&amp; \text{(distribute)}\\
 &amp;= \sum_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}) - \sum_{i=1}^n\beta_{x} (x_i- {\bar{x}})^2
-&amp;&amp; \text{(split the sum)}\\
+&amp;&amp; \text{(distribute the sum over the terms)}\\
 &amp;= \sum_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}) - \beta_{x} \sum_{i=1}^n(x_i- {\bar{x}})^2
 &amp;&amp; \text{(constant factor out of the sum)}\\
 &amp;= S_{xy}- \beta_{x} \sum_{i=1}^n(x_i- {\bar{x}})^2

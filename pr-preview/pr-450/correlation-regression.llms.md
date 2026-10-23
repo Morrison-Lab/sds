@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 23:10:15 (PDT)
+Last modified: 2026-10-23 00:10:33 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -453,7 +453,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> *Solution 4*. \\ \begin{aligned} \sum\_{i=1}^n(x_i- {\bar{x}}) &= \sum\_{i=1}^nx_i- \sum\_{i=1}^n{\bar{x}} && \text{(split the sum)}\\ &= \sum\_{i=1}^nx_i- n {\bar{x}} && \text{(sum of a constant)}\\ &= n {\bar{x}}- n {\bar{x}} && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
+> *Solution 4*. \\ \begin{aligned} \sum\_{i=1}^n(x_i- {\bar{x}}) &= \sum\_{i=1}^nx_i- \sum\_{i=1}^n{\bar{x}} && \text{(distribute the sum over the terms)}\\ &= \sum\_{i=1}^nx_i- n {\bar{x}} && \text{(sum of a constant)}\\ &= n {\bar{x}}- n {\bar{x}} && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
 >
 > The same steps with \\y_i\\ in place of \\x_i\\ show that \\\sum\_{i=1}^n(y_i- {\bar{y}}) = 0\\.
 
@@ -473,7 +473,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> *Solution 5*. \\ \begin{aligned} S\_{xx} &= \sum\_{i=1}^n(x_i- {\bar{x}})^2 && \text{(definition of \$S\_{xx}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(x_i^2 - 2 {\bar{x}}x_i+ {\bar{x}}^2\right)\mathclose{} && \text{(expand the square)}\\ &= \sum\_{i=1}^nx_i^2 - \sum\_{i=1}^n2 {\bar{x}}x_i+ \sum\_{i=1}^n{\bar{x}}^2 && \text{(split the sum)}\\ &= \sum\_{i=1}^nx_i^2 - 2 {\bar{x}}\sum\_{i=1}^nx_i+ \sum\_{i=1}^n{\bar{x}}^2 && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^nx_i^2 - 2 {\bar{x}}\sum\_{i=1}^nx_i+ n {\bar{x}}^2 && \text{(sum of a constant)}\\ &= \sum\_{i=1}^nx_i^2 - 2 {\bar{x}}\cdot n {\bar{x}}+ n {\bar{x}}^2 && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$)}\\ &= \sum\_{i=1}^nx_i^2 - 2 n {\bar{x}}^2 + n {\bar{x}}^2 && \text{(multiply)}\\ &= \sum\_{i=1}^nx_i^2 - n {\bar{x}}^2 && \text{(collect the \${\bar{x}}^2\$ terms)} \end{aligned} \\
+> *Solution 5*. \\ \begin{aligned} S\_{xx} &= \sum\_{i=1}^n(x_i- {\bar{x}})^2 && \text{(definition of \$S\_{xx}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(x_i^2 - 2 {\bar{x}}x_i+ {\bar{x}}^2\right)\mathclose{} && \text{(expand the square)}\\ &= \sum\_{i=1}^nx_i^2 - \sum\_{i=1}^n2 {\bar{x}}x_i+ \sum\_{i=1}^n{\bar{x}}^2 && \text{(distribute the sum over the terms)}\\ &= \sum\_{i=1}^nx_i^2 - 2 {\bar{x}}\sum\_{i=1}^nx_i+ \sum\_{i=1}^n{\bar{x}}^2 && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^nx_i^2 - 2 {\bar{x}}\sum\_{i=1}^nx_i+ n {\bar{x}}^2 && \text{(sum of a constant)}\\ &= \sum\_{i=1}^nx_i^2 - 2 {\bar{x}}\cdot n {\bar{x}}+ n {\bar{x}}^2 && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$)}\\ &= \sum\_{i=1}^nx_i^2 - 2 n {\bar{x}}^2 + n {\bar{x}}^2 && \text{(multiply)}\\ &= \sum\_{i=1}^nx_i^2 - n {\bar{x}}^2 && \text{(collect the \${\bar{x}}^2\$ terms)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -501,7 +501,7 @@ hers |> head()
 >
 > Plugging the inner derivative back in:
 >
-> \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{0}} &= \sum\_{i=1}^n2 (y_i- \beta\_{0}- \beta\_{x} x_i) (-1) && \text{(inner derivative is \$-1\$)}\\ &= \sum\_{i=1}^n-2 (y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(multiply \$2\$ by \$-1\$)}\\ &= -2 \sum\_{i=1}^n(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(constant factor out of the sum)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\beta\_{0}- \sum\_{i=1}^n\beta\_{x} x_i\right)\mathclose{} && \text{(split the sum)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- n \beta\_{0}- \sum\_{i=1}^n\beta\_{x} x_i\right)\mathclose{} && \text{(sum of a constant)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- n \beta\_{0}- \beta\_{x} \sum\_{i=1}^nx_i\right)\mathclose{} && \text{(constant factor out of the sum)}\\ &= -2 \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} \sum\_{i=1}^nx_i\right)\mathclose{} && \text{(\$\sum\_{i=1}^ny_i= n {\bar{y}}\$)}\\ &= -2 \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{} && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{0}} &= \sum\_{i=1}^n2 (y_i- \beta\_{0}- \beta\_{x} x_i) (-1) && \text{(inner derivative is \$-1\$)}\\ &= \sum\_{i=1}^n-2 (y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(multiply \$2\$ by \$-1\$)}\\ &= -2 \sum\_{i=1}^n(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(constant factor out of the sum)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\beta\_{0}- \sum\_{i=1}^n\beta\_{x} x_i\right)\mathclose{} && \text{(distribute the sum over the terms)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- n \beta\_{0}- \sum\_{i=1}^n\beta\_{x} x_i\right)\mathclose{} && \text{(sum of a constant)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- n \beta\_{0}- \beta\_{x} \sum\_{i=1}^nx_i\right)\mathclose{} && \text{(constant factor out of the sum)}\\ &= -2 \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} \sum\_{i=1}^nx_i\right)\mathclose{} && \text{(\$\sum\_{i=1}^ny_i= n {\bar{y}}\$)}\\ &= -2 \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{} && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -557,11 +557,11 @@ hers |> head()
 >
 > To shorten the next steps, write \\d_i \stackrel{\text{def}}{=}(y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})\\, so that \\\partial \text{RSS} / \partial \beta\_{x} = -2 \sum\_{i=1}^nx_id_i\\. The \\d_i\\ sum to zero, because deviations from a sample mean sum to zero ([Exercise 4](#exr-sum-deviations-zero)):
 >
-> \\ \begin{aligned} \sum\_{i=1}^nd_i &= \sum\_{i=1}^n\mathopen{}\left((y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})\right)\mathclose{} && \text{(definition of \$d_i\$)}\\ &= \sum\_{i=1}^n(y_i- {\bar{y}}) - \sum\_{i=1}^n\beta\_{x} (x_i- {\bar{x}}) && \text{(split the sum)}\\ &= \sum\_{i=1}^n(y_i- {\bar{y}}) - \beta\_{x} \sum\_{i=1}^n(x_i- {\bar{x}}) && \text{(constant factor out of the sum)}\\ &= 0 - \beta\_{x} \cdot 0 && \text{(deviations sum to zero)}\\ &= 0 - 0 && \text{(multiply)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
+> \\ \begin{aligned} \sum\_{i=1}^nd_i &= \sum\_{i=1}^n\mathopen{}\left((y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})\right)\mathclose{} && \text{(definition of \$d_i\$)}\\ &= \sum\_{i=1}^n(y_i- {\bar{y}}) - \sum\_{i=1}^n\beta\_{x} (x_i- {\bar{x}}) && \text{(distribute the sum over the terms)}\\ &= \sum\_{i=1}^n(y_i- {\bar{y}}) - \beta\_{x} \sum\_{i=1}^n(x_i- {\bar{x}}) && \text{(constant factor out of the sum)}\\ &= 0 - \beta\_{x} \cdot 0 && \text{(deviations sum to zero)}\\ &= 0 - 0 && \text{(multiply)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
 >
 > So subtracting \\{\bar{x}}\sum\_{i=1}^nd_i\\ from \\\sum\_{i=1}^nx_id_i\\ does not change it:
 >
-> \\ \begin{aligned} \sum\_{i=1}^nx_id_i &= \sum\_{i=1}^nx_id_i - {\bar{x}}\sum\_{i=1}^nd_i && \text{(\$\sum\_{i=1}^nd_i = 0\$)}\\ &= \sum\_{i=1}^nx_id_i - \sum\_{i=1}^n{\bar{x}}d_i && \text{(constant factor into the sum)}\\ &= \sum\_{i=1}^n(x_i- {\bar{x}}) d_i && \text{(combine the sums)}\\ &= \sum\_{i=1}^n(x_i- {\bar{x}}) \mathopen{}\left((y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})\right)\mathclose{} && \text{(definition of \$d_i\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left((x_i- {\bar{x}})(y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})^2\right)\mathclose{} && \text{(distribute)}\\ &= \sum\_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}) - \sum\_{i=1}^n\beta\_{x} (x_i- {\bar{x}})^2 && \text{(split the sum)}\\ &= \sum\_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}) - \beta\_{x} \sum\_{i=1}^n(x_i- {\bar{x}})^2 && \text{(constant factor out of the sum)}\\ &= S\_{xy}- \beta\_{x} \sum\_{i=1}^n(x_i- {\bar{x}})^2 && \text{(definition of \$S\_{xy}\$)}\\ &= S\_{xy}- \beta\_{x} S\_{xx} && \text{(definition of \$S\_{xx}\$)} \end{aligned} \\
+> \\ \begin{aligned} \sum\_{i=1}^nx_id_i &= \sum\_{i=1}^nx_id_i - {\bar{x}}\sum\_{i=1}^nd_i && \text{(\$\sum\_{i=1}^nd_i = 0\$)}\\ &= \sum\_{i=1}^nx_id_i - \sum\_{i=1}^n{\bar{x}}d_i && \text{(constant factor into the sum)}\\ &= \sum\_{i=1}^n(x_i- {\bar{x}}) d_i && \text{(combine the sums)}\\ &= \sum\_{i=1}^n(x_i- {\bar{x}}) \mathopen{}\left((y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})\right)\mathclose{} && \text{(definition of \$d_i\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left((x_i- {\bar{x}})(y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})^2\right)\mathclose{} && \text{(distribute)}\\ &= \sum\_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}) - \sum\_{i=1}^n\beta\_{x} (x_i- {\bar{x}})^2 && \text{(distribute the sum over the terms)}\\ &= \sum\_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}) - \beta\_{x} \sum\_{i=1}^n(x_i- {\bar{x}})^2 && \text{(constant factor out of the sum)}\\ &= S\_{xy}- \beta\_{x} \sum\_{i=1}^n(x_i- {\bar{x}})^2 && \text{(definition of \$S\_{xy}\$)}\\ &= S\_{xy}- \beta\_{x} S\_{xx} && \text{(definition of \$S\_{xx}\$)} \end{aligned} \\
 >
 > So \\\partial \text{RSS} / \partial \beta\_{x} = -2 \mathopen{}\left(S\_{xy}- \beta\_{x} S\_{xx}\right)\mathclose{}\\. Set it to zero and isolate \\\beta\_{x}\\:
 >
