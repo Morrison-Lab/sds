@@ -42,25 +42,9 @@ $$
 \end{aligned}
 $$
 
-The derivative of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) needs the chain rule:
+The derivative of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is given by @lem-bernoulli-precision-deriv:
 
-$$
-\begin{aligned}
-\deriv{\prob} \precision
-&= \deriv{\prob} \paren{\prob(1 - \prob)}^{-1}
-&& \text{(definition of $\precision$ as a negative power)}\\
-&= \deriv{\prob} \paren{\prob - \sqf{\prob}}^{-1}
-&& \text{(distribute $\prob$)}\\
-&= -\paren{\prob - \sqf{\prob}}^{-2} \deriv{\prob} \paren{\prob - \sqf{\prob}}
-&& \text{(chain rule and power rule)}\\
-&= -\paren{\prob - \sqf{\prob}}^{-2} \paren{1 - 2 \prob}
-&& \text{(linearity and power rule)}\\
-&= -\paren{\prob(1 - \prob)}^{-2} \paren{1 - 2 \prob}
-&& \text{(factor $\prob - \sqf{\prob} = \prob(1 - \prob)$)}\\
-&= -\sqf{\precision} \paren{1 - 2 \prob}
-&& \text{(definition of $\precision$)}
-\end{aligned}
-$$
+$$\deriv{\prob} \precision = -\sqf{\precision} \paren{1 - 2 \prob}$$
 
 Substituting both derivatives back in:
 
