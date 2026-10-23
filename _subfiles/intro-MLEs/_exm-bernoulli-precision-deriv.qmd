@@ -1,7 +1,7 @@
 :::{#exm-bernoulli-precision-deriv}
 #### Derivative of the precision at $\prob = 1/4$
 
-At $\prob = 1/4$, the precision is
+At $\prob = 1/4$, the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is
 
 $$
 \begin{aligned}
@@ -31,6 +31,6 @@ $$
 \end{aligned}
 $$
 
-The precision falls as $\prob$ rises toward $1/2$, where it is smallest, which matches the negative sign.
+The precision falls as $\prob$ rises toward $1/2$, where it is smallest, which matches a derivative below zero.
 
 :::
