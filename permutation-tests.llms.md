@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 20:42:24 (PDT)
+Last modified: 2026-10-22 21:40:01 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead [\[1\]](#ref-wikipedia_resampling_statistics). If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
