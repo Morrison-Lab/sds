@@ -68,8 +68,8 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
   use `\Coef{x}` / `\Intcoef` (capital Greek) for the former and `\coef{x}` / `\intcoef` for the latter.
 - **Fitted values and errors**:
   `\fitted` ($\hat y$) for a fitted value or prediction,
-  `\resid` ($r = y - \hat y$, from the macros repo) for a residual,
-  and `\prederr` ($e = \hat y - y$) for a prediction error.
+  `\resid` ($\hat\varepsilon = y - \hat y$, from the macros repo) for a residual,
+  and `\prederr` ($\varepsilon_{\text{pred}} = \hat y - y$) for a prediction error.
 - **Inner products**: write the inner product of two vectors as a dot product,
   `\dprod{\vxi}{\vcoef}` (two vectors, each with a tilde under the letter),
   rather than as a transpose product `\tprod{\vxi}{\vcoef}` (the same two vectors, with a transpose).

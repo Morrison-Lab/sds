@@ -4,10 +4,10 @@
 The **deviance information criterion** is
 
 $$
-\operatorname{DIC} \eqdef D(\bar{\vparam}) + 2\,p_D,
+\operatorname{DIC} \eqdef \dicdevf{\bar{\vparam}} + 2\,p_D,
 $$
 
-with $D$ from @def-bayes-deviance
+with $\dicdev$ from @def-bayes-deviance
 and $p_D$ from @def-effective-parameters.
 
 Source: @wikipedia_deviance_information_criterion.

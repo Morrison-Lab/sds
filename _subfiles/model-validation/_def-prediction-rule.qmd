@@ -1,0 +1,14 @@
+:::{#def-prediction-rule}
+#### Prediction rule <!-- prose-allow: prediction rule -->
+
+<!-- prose-allow: prediction rule -->
+A **prediction rule** is a [fitted model](#def-fitted-model) $\emodmem$
+that is used to [predict](prediction.qmd#def-prediction) the outcome
+at a new [covariate](#def-covariate) value $\predvar$.
+Its [prediction](prediction.qmd#def-prediction) is $\emodmem\paren{\predvar}$.
+
+In words,
+the prediction rule takes a new covariate value
+and returns the fitted model's value there.
+
+:::
