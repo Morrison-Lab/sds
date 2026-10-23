@@ -25,7 +25,7 @@ $$
 &= \precision \sumin (\outvar_\iobs - \prob)
 && \text{(definition of $\devn_\iobs$)}\\
 &= \precision \paren{\sumin \outvar_\iobs - \sumin \prob}
-&& \text{(split the sum)}\\
+&& \text{(distribute the sum over the terms)}\\
 &= \precision \paren{\sumof{\vy} - \sumin \prob}
 && \text{(definition of $\sumof{\vy}$)}\\
 &= \precision \paren{\sumof{\vy} - n \prob}

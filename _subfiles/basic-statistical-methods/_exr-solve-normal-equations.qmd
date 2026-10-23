@@ -61,7 +61,7 @@ $$
 &= \sumin \paren{(\outvar_\iobs - \outbar) - \coef{x} (\predvar_\iobs - \predbar)}
 && \text{(definition of $d_i$)}\\
 &= \sumin (\outvar_\iobs - \outbar) - \sumin \coef{x} (\predvar_\iobs - \predbar)
-&& \text{(split the sum)}\\
+&& \text{(distribute the sum over the terms)}\\
 &= \sumin (\outvar_\iobs - \outbar) - \coef{x} \sumin (\predvar_\iobs - \predbar)
 && \text{(constant factor out of the sum)}\\
 &= 0 - \coef{x} \cdot 0
@@ -92,7 +92,7 @@ $$
 &= \sumin \paren{(\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar) - \coef{x} (\predvar_\iobs - \predbar)^2}
 && \text{(distribute)}\\
 &= \sumin (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar) - \sumin \coef{x} (\predvar_\iobs - \predbar)^2
-&& \text{(split the sum)}\\
+&& \text{(distribute the sum over the terms)}\\
 &= \sumin (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar) - \coef{x} \sumin (\predvar_\iobs - \predbar)^2
 && \text{(constant factor out of the sum)}\\
 &= \sspredout - \coef{x} \sumin (\predvar_\iobs - \predbar)^2

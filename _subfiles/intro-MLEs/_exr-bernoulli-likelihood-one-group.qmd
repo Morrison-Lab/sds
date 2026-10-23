@@ -40,7 +40,7 @@ $$
 &= \prob^{\sumin \outvar_\iobs} (1 - \prob)^{\sumin (1 - \outvar_\iobs)}
 && \text{(product of powers of a common base)}\\
 &= \prob^{\sumin \outvar_\iobs} (1 - \prob)^{\sumin 1 - \sumin \outvar_\iobs}
-&& \text{(split the sum in the exponent)}\\
+&& \text{(distribute the sum over the terms in the exponent)}\\
 &= \prob^{\sumin \outvar_\iobs} (1 - \prob)^{n - \sumin \outvar_\iobs}
 && \text{($\textstyle\sumin 1 = n$)}\\
 &= \prob^{\sumof{\vy}} (1 - \prob)^{n - \sumof{\vy}}
