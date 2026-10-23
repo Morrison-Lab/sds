@@ -8,6 +8,6 @@ It is a fixed number that we do not know.
 The sample mean (@def-sample-mean) of the `wcgs` data,
 `r round(mean(wcgs$chol, na.rm = TRUE), 1)` mg/dL,
 is computed from the observed data.
-A different sample from the same population would give a different sample mean,
+A different [sample](#def-sample) from the same population would give a different sample mean,
 while the population mean would not change.
 :::
