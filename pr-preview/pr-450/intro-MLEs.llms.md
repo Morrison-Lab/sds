@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 22:33:34 (PDT)
+Last modified: 2026-10-22 23:10:15 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -1700,7 +1700,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Solution 41*. \\ \begin{aligned} {\bar{\delta}} &= \frac{1}{n}\sum\_{i=1}^n\delta_i && \text{(definition of \${\bar{\delta}}\$)}\\ &= \frac{1}{n}\sum\_{i=1}^n(y_i- \pi) && \text{(definition of \$\delta_i\$)}\\ &= \frac{1}{n} \mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(split the sum)}\\ &= \frac{1}{n} \mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= \frac{1}{n} \mathopen{}\left(n {\bar{y}}- n \pi\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n {\bar{y}}\$ and \$\textstyle\sum\_{i=1}^n\pi= n \pi\$)}\\ &= \frac{1}{n} \cdot n ({\bar{y}}- \pi) && \text{(factor out \$n\$)}\\ &= {\bar{y}}- \pi && \text{(\$\frac{1}{n} \cdot n = 1\$)} \end{aligned} \\
+> *Solution 41*. \\ \begin{aligned} {\bar{\delta}} &= \frac{1}{n}\sum\_{i=1}^n\delta_i && \text{(definition of \${\bar{\delta}}\$)}\\ &= \frac{1}{n}\sum\_{i=1}^n(y_i- \pi) && \text{(definition of \$\delta_i\$)}\\ &= \frac{1}{n} \mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(distribute the sum over the difference)}\\ &= \frac{1}{n} \mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= \frac{1}{n} \mathopen{}\left(n {\bar{y}}- n \pi\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n {\bar{y}}\$ and \$\textstyle\sum\_{i=1}^n\pi= n \pi\$)}\\ &= \frac{1}{n} \cdot n ({\bar{y}}- \pi) && \text{(factor out \$n\$)}\\ &= {\bar{y}}- \pi && \text{(\$\frac{1}{n} \cdot n = 1\$)} \end{aligned} \\
 
 > **NOTE:**
 >
