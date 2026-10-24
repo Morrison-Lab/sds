@@ -2056,6 +2056,15 @@
    "external": false
   },
   {
+   "id": "sds/exploratory-descriptive#def-population-parameter",
+   "site": "sds",
+   "page": "exploratory-descriptive",
+   "div": "def-population-parameter",
+   "kind": "def",
+   "title": "Population parameter",
+   "external": false
+  },
+  {
    "id": "sds/exploratory-descriptive#def-qq-plot",
    "site": "sds",
    "page": "exploratory-descriptive",
@@ -5403,6 +5412,14 @@
   [
    "sds/exploratory-descriptive#def-population-distribution",
    "sds/exploratory-descriptive#def-population"
+  ],
+  [
+   "sds/exploratory-descriptive#def-population-parameter",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "sds/exploratory-descriptive#def-population-parameter",
+   "sds/exploratory-descriptive#def-population-distribution"
   ],
   [
    "sds/exploratory-descriptive#def-qq-plot",
