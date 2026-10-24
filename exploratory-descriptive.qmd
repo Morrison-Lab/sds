@@ -80,6 +80,10 @@ format:
 
 {{< include sds/_subfiles/exploratory-descriptive/_exm-population-parameter-wcgs.qmd >}}
 
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_rem-population-parameter.qmd >}}
+
 ## Summarizing a single variable
 
 ### Measures of center
