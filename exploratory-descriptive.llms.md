@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-23 16:56:15 (PDT)
+Last modified: 2026-10-23 17:28:11 (PDT)
 
 ## 1 Introduction
 
@@ -207,11 +207,15 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 6 (Population parameter)** A **population parameter** is a number computed from the population distribution ([Definition 2](#def-population-distribution)), such as its [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation). A population parameter is fixed. It is usually unknown.
+> **Definition 6 (Population parameter)** A **population parameter** is a number computed from the population distribution ([Definition 2](#def-population-distribution)), such as its [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation).
 
 > **NOTE:**
 >
 > **Example 3 (A population parameter in the WCGS)** In [Example 2](#exm-population-sample-wcgs), the [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of cholesterol is a [population parameter](#def-population-parameter). It describes all the men in the study’s population ([Definition 1](#def-population)). We know only the mean cholesterol of the sample ([Definition 4](#def-sample)) of the `wcgs` data, 226.4 mg/dL.
+
+> **NOTE:**
+>
+> *Remark 1* (Population parameters are fixed and usually unknown). A population parameter is fixed. It is usually unknown.
 
 ## 2 Summarizing a single variable
 
@@ -276,7 +280,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> *Remark 1* (Units of the standard deviation). The standard deviation has the same units as the observations, which makes it easier to interpret than the variance, whose units are squared.
+> *Remark 2* (Units of the standard deviation). The standard deviation has the same units as the observations, which makes it easier to interpret than the variance, whose units are squared.
 
 > **NOTE:**
 >
@@ -299,7 +303,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> *Remark 2* (Quartiles in software). With an odd number of observations, the sample 0.5 quantile equals the [sample median](#def-sample-median); with an even number they can differ, because the median averages the two middle order statistics. Software packages compute quartiles with different quantile definitions, so they can disagree slightly for the same data ([quantile conventions](nonparametric-models.llms.md#rem-quantile-conventions)); R’s `quantile(type = 1)` matches this definition, and R’s default, `type = 7`, interpolates.
+> *Remark 3* (Quartiles in software). With an odd number of observations, the sample 0.5 quantile equals the [sample median](#def-sample-median); with an even number they can differ, because the median averages the two middle order statistics. Software packages compute quartiles with different quantile definitions, so they can disagree slightly for the same data ([quantile conventions](nonparametric-models.llms.md#rem-quantile-conventions)); R’s `quantile(type = 1)` matches this definition, and R’s default, `type = 7`, interpolates.
 
 > **NOTE:**
 >
@@ -481,7 +485,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> *Remark 3* (Whisker rules). The \\1.5 \times \text{IQR}\\ whisker rule is the default in R’s [`boxplot()`](https://rdrr.io/r/graphics/boxplot.html) and [`ggplot2::geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html); other software and authors use other rules, such as whiskers that run to the minimum and maximum.
+> *Remark 4* (Whisker rules). The \\1.5 \times \text{IQR}\\ whisker rule is the default in R’s [`boxplot()`](https://rdrr.io/r/graphics/boxplot.html) and [`ggplot2::geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html); other software and authors use other rules, such as whiskers that run to the minimum and maximum.
 
 > **NOTE:**
 >
@@ -597,7 +601,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> *Remark 4* (The Pearson correlation coefficient estimates the population correlation). The Pearson correlation coefficient is a sample estimate of the [population correlation](correlation-regression.llms.md#def-population-correlation).
+> *Remark 5* (The Pearson correlation coefficient estimates the population correlation). The Pearson correlation coefficient is a sample estimate of the [population correlation](correlation-regression.llms.md#def-population-correlation).
 
 > **NOTE:**
 >
@@ -846,11 +850,11 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> *Remark 5* (Source: Standardization). James et al. [\[21, Sec. 4.7.6\]](#ref-james2021islr2e), p. 183. Géron [\[22, Ch. 2\]](#ref-geron2017hands) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. [\[21\]](#ref-james2021islr2e).
+> *Remark 6* (Source: Standardization). James et al. [\[21, Sec. 4.7.6\]](#ref-james2021islr2e), p. 183. Géron [\[22, Ch. 2\]](#ref-geron2017hands) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. [\[21\]](#ref-james2021islr2e).
 
 > **NOTE:**
 >
-> *Remark 6* (Standardized values have no units). In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.
+> *Remark 7* (Standardized values have no units). In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.
 
 > **NOTE:**
 >
@@ -862,7 +866,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> *Remark 7* (Source: Standardized values have sample mean 0 and sample standard deviation 1). Stated for the standardized Caravan variables in James et al. [\[21, Sec. 4.7.6\]](#ref-james2021islr2e), p. 183; the proof is the elementary calculation.
+> *Remark 8* (Source: Standardized values have sample mean 0 and sample standard deviation 1). Stated for the standardized Caravan variables in James et al. [\[21, Sec. 4.7.6\]](#ref-james2021islr2e), p. 183; the proof is the elementary calculation.
 
 > **NOTE:**
 >
@@ -888,7 +892,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> *Remark 8* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
+> *Remark 9* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
 >
 > Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less [\[22, Ch. 2\]](#ref-geron2017hands), “Feature Scaling”.
 
