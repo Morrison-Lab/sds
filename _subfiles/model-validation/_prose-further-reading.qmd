@@ -1,7 +1,9 @@
 @sanchez2020matrix4sl reviews the matrix algebra behind statistical learning,
 including the covariance and correlation matrices that cross-products produce.
 
-For cross-validation, see @james2021islr2e [chap. 5] and @hastie2009elements [sec. 7.10].
+For [cross-validation](#def-kfold),
+see @james2021islr2e [chap.\ 5]
+and @hastie2009elements [sec.\ 7.10].
 A PDF of each book can be downloaded at no cost from the authors' webpages:
 [*An Introduction to Statistical Learning*](https://www.statlearning.com/) and
 [*The Elements of Statistical Learning*](https://hastie.su.domains/ElemStatLearn/).
