@@ -1,7 +1,7 @@
 :::{#exm-model-kl-poisson}
 #### Divergence between two Poisson rates
 
-For one observation $\Rvar \sim \Pois(\rate_0)$,
+For one [observation](exploratory-descriptive.qmd#def-observation) $\Rvar \sim \Pois(\rate_0)$,
 $\log \p(x \mid \rate) = x \log \rate - \rate - \log x!$, so
 
 $$

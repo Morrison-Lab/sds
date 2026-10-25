@@ -9,7 +9,7 @@ $$
 = \Expp_{\param_0}\sb{-\hess(\param)},
 $$
 
-where $\hess(\param)$ is the [Hessian](#def-hessian) of the log-likelihood evaluated at $\param$.
+where $\hess(\param)$ is the [Hessian](#def-hessian) of the [log-likelihood](#def-loglik) evaluated at $\param$.
 :::
 
 {{< slidebreak >}}

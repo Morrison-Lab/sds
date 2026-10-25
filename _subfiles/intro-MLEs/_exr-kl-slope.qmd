@@ -7,7 +7,7 @@ show that the derivative of the divergence of @def-model-kl-divergence is
 $$\deriv{\param} \kldivf{\param_0}{\param} = -\Expp_{\param_0}\sb{\score(\param)},$$
 
 where $\score(\param)$ is the [score](#def-score) evaluated at $\param$,
-and the expectation is taken with the data generated under $\param_0$.
+and the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) is taken with the data generated under $\param_0$.
 :::
 
 {{< slidebreak >}}

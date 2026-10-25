@@ -5,9 +5,10 @@ Differentiating the divergence of @exm-model-kl-poisson twice with respect to $\
 $\deriv{\rate} \kldivf{\rate_0}{\rate} = 1 - \rate_0 / \rate$
 and $\dderiv{\rate} \kldivf{\rate_0}{\rate} = \rate_0 / \rate^2$,
 so at $\rate = \rate_0$ the second derivative is $1/\rate_0$,
-which is the expected information of one observation (@exm-information-poisson).
-A numerical second difference of the divergence,
-summed directly over the Poisson probabilities, agrees:
+which is the [expected information](#def-einf) of one [observation](exploratory-descriptive.qmd#def-observation) (@exm-information-poisson).
+A finite-difference second derivative of the divergence,
+summed directly over the [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson)
+[probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), agrees:
 
 ```{r}
 #| code-fold: false
