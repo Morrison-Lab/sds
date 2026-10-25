@@ -63,6 +63,8 @@ website:
             href: estimator-properties.qmd
           - text: "Sufficiency"
             href: sufficiency.qmd
+          - text: "Exponential Families"
+            href: exponential-families.qmd
       - text: "Methods"
         menu:
           - text: "Comparing Means"
@@ -125,6 +127,8 @@ website:
             href: estimator-properties.qmd
           - text: "Sufficiency"
             href: sufficiency.qmd
+          - text: "Exponential Families"
+            href: exponential-families.qmd
       - section: "Methods"
         contents:
           - text: "Comparing Means"
