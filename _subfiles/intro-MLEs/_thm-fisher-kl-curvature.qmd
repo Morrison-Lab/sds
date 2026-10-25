@@ -1,0 +1,21 @@
+:::{#thm-fisher-kl-curvature}
+#### The expected information is the curvature of the Kullback--Leibler divergence
+
+Under the assumptions of @thm-score-mean-zero,
+the second derivative at $\param = \param_0$
+of the divergence $\kldivf{\param_0}{\param}$ of @def-model-kl-divergence
+is the [expected information](#def-einf):
+
+$$\evalAt{\dderiv{\param} \kldivf{\param_0}{\param}}{\param = \param_0} = \einf(\param_0)$$
+
+:::
+
+::: proof
+
+By @sol-kl-curvature,
+the second derivative is $\Expp_{\param_0}\sb{-\hess(\param)}$ at every $\param$.
+Setting $\param = \param_0$ gives the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation), under the true parameter $\param_0$,
+of minus the [Hessian](#def-hessian) of the [log-likelihood](#def-loglik),
+which is $\einf(\param_0)$ by @def-einf.
+
+:::
