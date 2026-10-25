@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-24 18:13:43 (PDT)
+Last modified: 2026-10-24 20:18:33 (PDT)
 
 ## 1 Introduction
 
@@ -14,7 +14,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Definition 1 (Logistic regression)** A **logistic regression** model for binary outcomes \\y_1, \dots, y_n \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\ with predictor vectors \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_1, \dots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_n\\ says that the outcomes are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) and that
 >
-> \\ {\Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}} = \pi_i = {\sigma\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}}, \qquad {\sigma\mathopen{}\left(u\right)\mathclose{}} = \frac{1}{1 + e^{-u}}, \tag{1}\\
+> \\ {\Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}} = \pi_i = {\operatorname{expit}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}}, \qquad {\operatorname{expit}\mathopen{}\left(u\right)\mathclose{}} = \frac{1}{1 + e^{-u}}, \tag{1}\\
 >
 > where \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i= {\mathopen{}\left(1, x\_{i1}, \dots, x\_{ip}\right)\mathclose{}}^{\top}\\ and \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= {\mathopen{}\left(\beta\_{0}, \beta\_{1}, \dots, \beta\_{p}\right)\mathclose{}}^{\top}\\. The leading \\1\\ in \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\\ makes \\\beta\_{0}\\ the intercept, and \\\beta\_{j}\\ for \\j \ge 1\\ is the slope for the \\j\\th predictor.
 >
@@ -46,7 +46,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > \\ \operatorname{dev}\stackrel{\text{def}}{=}-2 \\ {\ell\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}} = -2 \sum\_{i=1}^n\mathopen{}\left\\y_i\ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} {\ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}}\right\\\mathclose{}, \tag{2}\\
 >
-> where \\\hat\pi_i = {\sigma\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}}\\ is the fitted probability.
+> where \\\hat\pi_i = {\operatorname{expit}\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}}\\ is the fitted probability.
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_deviance_statistics).
 

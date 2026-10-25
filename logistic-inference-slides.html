@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-24 18:13:43 (PDT)</p>
+  <p class="date">Last modified: 2026-10-24 20:18:33 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -365,9 +365,9 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 1 (Logistic regression)</strong></span> A <strong>logistic regression</strong> model for binary outcomes <span class="math inline">\(y_1, \dots, y_n \in {\mathopen{}\left\{0, 1\right\}\mathclose{}}\)</span> with predictor vectors <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_1, \dots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_n\)</span> says that the outcomes are <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> and that</p>
 <p><span id="eq-logistic-model"><span class="math display">\[
 {\Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i\right)\mathclose{}} = \pi_i
-= {\sigma\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i\right)\mathclose{}},
+= {\operatorname{expit}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i\right)\mathclose{}},
 \qquad
-{\sigma\mathopen{}\left(u\right)\mathclose{}} = \frac{1}{1 + e^{-u}},
+{\operatorname{expit}\mathopen{}\left(u\right)\mathclose{}} = \frac{1}{1 + e^{-u}},
 \tag{1}\]</span></span></p>
 <p>where <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i= {\mathopen{}\left(1, x_{i1}, \dots, x_{ip}\right)\mathclose{}}^{\top}\)</span> and <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}= {\mathopen{}\left(\beta_{0}, \beta_{1}, \dots, \beta_{p}\right)\mathclose{}}^{\top}\)</span>. The leading <span class="math inline">\(1\)</span> in <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i\)</span> makes <span class="math inline">\(\beta_{0}\)</span> the intercept, and <span class="math inline">\(\beta_{j}\)</span> for <span class="math inline">\(j \ge 1\)</span> is the slope for the <span class="math inline">\(j\)</span>th predictor.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_logistic_regression">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
@@ -396,7 +396,7 @@ text-align: center;
 \operatorname{dev}\stackrel{\text{def}}{=}-2 \, {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}
 = -2 \sum_{i=1}^n\mathopen{}\left\{y_i\ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} {\ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}}\right\}\mathclose{},
 \tag{2}\]</span></span></p>
-<p>where <span class="math inline">\(\hat\pi_i = {\sigma\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i\right)\mathclose{}}\)</span> is the fitted probability.</p>
+<p>where <span class="math inline">\(\hat\pi_i = {\operatorname{expit}\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i\right)\mathclose{}}\)</span> is the fitted probability.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_deviance_statistics">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>.</p>
 </div>
 <div class="callout callout-note callout-titled callout-style-simple">
