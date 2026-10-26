@@ -1,0 +1,39 @@
+::: {#sol-irls-step}
+
+Here the rows of $X$ are $(1, -1)$ for the three control patients and $(1, 1)$ for the three treated patients,
+and $\voutvar = \tp{(0, 0, 1, 0, 1, 1)}$.
+
+**1.** At $\vcoef^* = \vzero$ every fitted probability is $\sigmoidf{0} = 1/2$,
+so every weight is $w_i = (1/2)(1/2) = 1/4$.
+The working responses are $z_i = 0 + \paren{\outvar_i - 1/2} / (1/4) = 4 \outvar_i - 2$:
+
+$$
+\vecf{z} = \tp{(-2, -2, 2, -2, 2, 2)}.
+$$
+
+**2.** With $W = \tfrac{1}{4} \matr{I}_6$,
+
+$$
+\tp{X} W X
+= \tfrac{1}{4}
+\begin{bmatrix} 6 & 0 \\ 0 & 6 \end{bmatrix}
+= \begin{bmatrix} 3/2 & 0 \\ 0 & 3/2 \end{bmatrix},
+$$
+
+because the entries of the first column of $X$ sum to $6$, the squares in the second column sum to $6$,
+and the two columns multiply to a total of $-3 + 3 = 0$.
+The first entry of $\tp{X} W \vecf{z}$ is $\tfrac{1}{4}(-2 - 2 + 2 - 2 + 2 + 2) = 0$,
+and the second is $\tfrac{1}{4}\paren{(-1)(-2 - 2 + 2) + (1)(-2 + 2 + 2)} = \tfrac{1}{4}(2 + 2) = 1$,
+so $\tp{X} W \vecf{z} = \tp{(0, 1)}$.
+
+**3.** The updated coefficients are
+
+$$
+\begin{bmatrix} 2/3 & 0 \\ 0 & 2/3 \end{bmatrix}
+\begin{bmatrix} 0 \\ 1 \end{bmatrix}
+= \begin{bmatrix} 0 \\ 2/3 \end{bmatrix}.
+$$
+
+The intercept stays at $0$ and the slope moves from $0$ to $2/3$.
+
+:::

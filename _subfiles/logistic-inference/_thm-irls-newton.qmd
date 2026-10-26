@@ -1,0 +1,38 @@
+::: {#thm-irls-newton}
+
+#### An IRLS step is a Newton-Raphson step and a Fisher scoring step
+
+Suppose the outcomes follow the [logistic regression model](#def-logistic-regression).
+One step of [iteratively reweighted least squares](#def-irls) from $\vcoef^*$ equals
+
+- one step of the [Newton-Raphson algorithm](intro-MLEs.qmd#def-newton-raphson) on the log-likelihood from $\vcoef^*$, and
+- one step of [Fisher scoring](intro-MLEs.qmd#def-fisher-scoring) from $\vcoef^*$:
+
+$$
+\vcoef^* + \inv{\paren{\tp{X} W X}} \tp{X} \paren{\voutvar - \vprob^*}.
+$$ {#eq-irls-newton}
+
+:::
+
+::: proof
+
+The log-likelihood has score $\tp{X} \paren{\voutvar - \vprob}$ and Hessian $-\tp{X} W X$,
+and the Hessian does not involve the outcomes
+(proof of @thm-logistic-mle-distribution).
+So the observed information $\tp{X} W X$ equals the expected information,
+and the Newton-Raphson and Fisher scoring steps both equal @eq-irls-newton.
+
+For IRLS, the working responses satisfy $W \vecf{z} = W X \vcoef^* + \paren{\voutvar - \vprob^*}$, so
+
+$$
+\ba
+\inv{\paren{\tp{X} W X}} \tp{X} W \vecf{z}
+&= \inv{\paren{\tp{X} W X}} \tp{X} W X \vcoef^* + \inv{\paren{\tp{X} W X}} \tp{X} \paren{\voutvar - \vprob^*}
+&& \text{(substitute } W \vecf{z} \text{)}
+\\
+&= \vcoef^* + \inv{\paren{\tp{X} W X}} \tp{X} \paren{\voutvar - \vprob^*}.
+&& \text{(cancel } \tp{X} W X \text{)}
+\ea
+$$
+
+:::

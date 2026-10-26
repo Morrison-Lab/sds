@@ -1,0 +1,22 @@
+::: {#def-irls}
+
+#### Iteratively reweighted least squares (IRLS)
+
+Suppose the outcomes follow the [logistic regression model](#def-logistic-regression).
+Let $X$ be the matrix whose rows are $\tp{\vpredvar_\iobs}$.
+From a current estimate $\vcoef^*$ with fitted probabilities $\prob_i^*$, form
+
+- the weights $w_i = \prob_i^* \paren{1 - \prob_i^*}$, collected in the diagonal matrix $W$;
+- the working responses $z_i = \dprod{\vcoef^*}{\vpredvar_\iobs} + \paren{\outvar_i - \prob_i^*} / w_i$, collected in $\vecf{z}$.
+
+**Iteratively reweighted least squares** replaces $\vcoef^*$ by the weighted least squares fit of $\vecf{z}$ on $X$,
+the minimizer of $\sum_{i=1}^n w_i \paren{z_i - \dprod{\vcoef}{\vpredvar_\iobs}}^2$,
+which is
+
+$$
+\inv{\paren{\tp{X} W X}} \tp{X} W \vecf{z},
+$$
+
+and repeats until the estimate stops changing.
+
+:::

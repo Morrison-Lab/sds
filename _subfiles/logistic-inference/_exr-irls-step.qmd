@@ -1,0 +1,11 @@
+::: {#exr-irls-step}
+
+#### One IRLS step for the six-patient trial
+
+In the [six-patient trial](#exm-logistic-regression), start from $\vcoef^* = \vzero$.
+
+1.  Find the fitted probabilities, the weights and the working responses.
+2.  Compute $\tp{X} W X$ and $\tp{X} W \vecf{z}$.
+3.  Compute the updated coefficients $\inv{\paren{\tp{X} W X}} \tp{X} W \vecf{z}$.
+
+:::
