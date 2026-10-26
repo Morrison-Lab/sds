@@ -1,9 +1,9 @@
 ::: {#exm-bayes-proportion-stan}
 #### The Bernoulli model fitted with Stan
 
-The data and the uniform prior are those of [the JAGS example](#exm-bayes-proportion).
+The data and the [uniform prior](bayesian-inference.qmd#def-flat-prior) are those of [the JAGS example](#exm-bayes-proportion).
 The Stan program declares the data and the parameter with their types and ranges,
-and the `model` block states the prior and the likelihood:
+and the `model` block states the [prior](bayesian-inference.qmd#def-prior) and the [likelihood](intro-MLEs.qmd#def-lik):
 
 ```{r}
 #| label: stan-proportion
@@ -34,11 +34,11 @@ stan_draws <- as.matrix(stan_fit, pars = "p")[, "p"]
 stan_summary <- rstan::summary(stan_fit, pars = "p")$summary
 ```
 
-The table puts the two programs beside the exact $\operatorname{Beta}(56, 37)$ posterior:
+The table puts the two programs beside the $\operatorname{Beta}(56, 37)$ [posterior](bayesian-inference.qmd#def-posterior) of [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli):
 
 ```{r}
 #| label: tbl-stan-jags-proportion
-#| tbl-cap: "Posterior of the proportion from JAGS, Stan and the exact result"
+#| tbl-cap: "Posterior of the proportion from JAGS, Stan and the Beta posterior"
 #| echo: false
 summarize_draws <- function(draws) {
   c(
@@ -46,14 +46,14 @@ summarize_draws <- function(draws) {
     stats::quantile(draws, c(0.025, 0.975))
   )
 }
-exact <- c(
+beta_posterior <- c(
   mean = 56 / (56 + 37),
   stats::qbeta(c(0.025, 0.975), 56, 37)
 )
 comparison <- rbind(
   JAGS = summarize_draws(p_draws),
   Stan = summarize_draws(stan_draws),
-  Exact = exact
+  Beta = beta_posterior
 )
 knitr::kable(comparison, digits = 3, col.names = c("Mean", "2.5%", "97.5%"))
 ```
@@ -63,8 +63,8 @@ Stan's [potential scale reduction factor](mcmc.qmd#def-psrf) is
 and the sampler reports
 `r rstan::get_num_divergent(stan_fit)`
 divergent transitions.
-Both programs reproduce the exact posterior mean and interval to about two decimal places.
+Both programs reproduce the Beta posterior's mean and interval to about two decimal places.
 The difference between them is in the model code, not in the answer:
 the Stan program carries the types and ranges of its variables,
-and it is compiled before it samples.
+and it is compiled before it draws.
 :::

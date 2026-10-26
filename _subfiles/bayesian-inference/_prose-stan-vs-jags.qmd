@@ -3,20 +3,20 @@ Stan [@carpenter2017stan] is the other one most courses use,
 and the two answer the same question in different ways.
 Both take a model written in their own language,
 accept data from R,
-and return draws from the posterior.
-They differ in how they sample and in what a model may contain.
+and return draws from the [posterior](bayesian-inference.qmd#def-posterior).
+They differ in how they draw and in what a model may contain.
 
-JAGS builds a Gibbs sampler from the model's description
+JAGS builds a [Gibbs sampler](mcmc.qmd#def-gibbs-sampler) from the model's description
 [@plummer2003jags; @plummer2017jagsmanual].
-It chooses a sampling method for each full conditional,
+It chooses a sampling method for each [full conditional](mcmc.qmd#def-full-conditional),
 using slice or Metropolis--Hastings steps where the full conditional has no closed form.
 Stan uses Hamiltonian Monte Carlo,
-which proposes moves along the gradient of the log posterior,
+which proposes moves along the gradient of the logarithm of the posterior density,
 in the adaptive form called the No-U-Turn sampler (NUTS)
 [@hoffman2014nuts].
-Using the gradient is why Stan cannot sample a discrete parameter:
+Using the gradient is why Stan cannot draw a [discrete](data.qmd#def-discrete-var) parameter:
 a discrete parameter has no gradient.
-A Stan model sums a discrete quantity out of the likelihood instead
+A Stan model sums a discrete quantity out of the [likelihood](intro-MLEs.qmd#def-lik) instead
 [@stanusersguide].
 The table lists the practical differences:
 
