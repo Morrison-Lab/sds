@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 13:14:30 (PDT)
+Last modified: 2026-10-26 13:33:48 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -1682,7 +1682,7 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> **Example 14 (Precision of a Bernoulli variable)** If \\Y\\ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, \\Y\sim \operatorname{Ber}(\pi)\\ with \\0 \< \pi\< 1\\, then \\{\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}} = \pi(1 - \pi)\\, so the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of \\Y\\ is \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\.
+> **Example 14 (Precision of a Bernoulli variable)** If \\Y\\ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, \\Y\sim \operatorname{Ber}(\pi)\\ with \\\pi\in (0, 1)\\, then \\{\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}} = \pi(1 - \pi)\\, so the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of \\Y\\ is \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\.
 
 > **NOTE:**
 >
@@ -1801,7 +1801,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Exercise 45 (Solving the score equation of a binary sample)** In the setting of [Exercise 44](#exr-bernoulli-score-sum), assume \\0 \< {\bar{y}}\< 1\\: the [sample](exploratory-descriptive.llms.md#def-sample) has at least one [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) and at least one non-event. Solve the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ for \\\pi\in (0, 1)\\.
+> **Exercise 45 (Solving the score equation of a binary sample)** In the setting of [Exercise 44](#exr-bernoulli-score-sum), assume \\{\bar{y}}\in (0, 1)\\: the [sample](exploratory-descriptive.llms.md#def-sample) has at least one [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) and at least one non-event. Solve the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ for \\\pi\in (0, 1)\\.
 
 > **NOTE:**
 >
@@ -1809,11 +1809,11 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > \\ \begin{aligned} 0 &= \ell'(\pi) && \text{(score equation)}\\ 0 &= n \tau({\bar{y}}- \pi) && \text{(score function of a binary sample)}\\ 0 &= {\bar{y}}- \pi && \text{(divide both sides by \$n \tau\neq 0\$)}\\ \pi&= {\bar{y}} && \text{(add \$\pi\$ to both sides)} \end{aligned} \\
 >
-> Since \\0 \< {\bar{y}}\< 1\\, this solution lies in \\(0, 1)\\.
+> Since \\{\bar{y}}\in (0, 1)\\, this solution lies in \\(0, 1)\\.
 
 > **NOTE:**
 >
-> **Theorem 23 (Solution of the score equation of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\ and the observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) satisfies \\0 \< {\bar{y}}\< 1\\, then the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ has exactly one solution in \\(0, 1)\\: the sample mean \\\pi= {\bar{y}}\\.
+> **Theorem 23 (Solution of the score equation of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\ and the observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) satisfies \\{\bar{y}}\in (0, 1)\\, then the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ has exactly one solution in \\(0, 1)\\: the sample mean \\\pi= {\bar{y}}\\.
 
 > **NOTE:**
 >
@@ -1893,7 +1893,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Lemma 5 (Derivative of the Bernoulli precision)** If \\Y\\ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, \\Y\sim \operatorname{Ber}(\pi)\\ with \\0 \< \pi\< 1\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, then the derivative of \\\tau\\ with respect to \\\pi\\ is
+> **Lemma 5 (Derivative of the Bernoulli precision)** If \\Y\\ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, \\Y\sim \operatorname{Ber}(\pi)\\ with \\\pi\in (0, 1)\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, then the derivative of \\\tau\\ with respect to \\\pi\\ is
 >
 > \\\frac{\partial}{\partial \pi} \tau= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{}\\
 
@@ -2003,11 +2003,11 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Solution 51*. By [Theorem 26](#thm-bernoulli-hessian-nd), \\\ell\\ is strictly concave on \\(0, 1)\\. A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else. With \\0 \< {\bar{y}}\< 1\\, [Theorem 23](#thm-bernoulli-score-equation) says the only critical point of \\\ell\\ in \\(0, 1)\\ is \\{\bar{y}}\\. So \\\ell\\ is maximized at \\\pi= {\bar{y}}\\.
+> *Solution 51*. By [Theorem 26](#thm-bernoulli-hessian-nd), \\\ell\\ is strictly concave on \\(0, 1)\\. A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else. With \\{\bar{y}}\in (0, 1)\\, [Theorem 23](#thm-bernoulli-score-equation) says the only critical point of \\\ell\\ in \\(0, 1)\\ is \\{\bar{y}}\\. So \\\ell\\ is maximized at \\\pi= {\bar{y}}\\.
 
 > **NOTE:**
 >
-> **Theorem 27 (Maximum likelihood estimate of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\ and the observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) satisfies \\0 \< {\bar{y}}\< 1\\, the [maximum likelihood estimate](#def-mle) of \\\pi\\ is the sample mean:
+> **Theorem 27 (Maximum likelihood estimate of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\ and the observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) satisfies \\{\bar{y}}\in (0, 1)\\, the [maximum likelihood estimate](#def-mle) of \\\pi\\ is the sample mean:
 >
 > \\\hat{\pi}\_{\text{ML}} = {\bar{y}}\\
 
