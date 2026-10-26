@@ -128,6 +128,11 @@ format:
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-bootstrap.qmd >}}
 
 
+## Further reading {#sec-bootstrap-reading}
+
+- Chapter 24 of @lange2010numerical covers permutation tests and the bootstrap, with an emphasis on computing them.
+
+
 ## References {.unnumbered}
 
 ::: {#refs}

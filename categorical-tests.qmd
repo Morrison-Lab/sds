@@ -90,6 +90,11 @@ format:
 :::
 
 
+## Further reading {#sec-categorical-tests-reading}
+
+- Sections 4.6 to 4.8 of @lange2002genetic cover exact tests of independence, case-control association tests and the transmission/disequilibrium test, with genetic examples.
+
+
 ## References {.unnumbered}
 
 ::: {#refs}
