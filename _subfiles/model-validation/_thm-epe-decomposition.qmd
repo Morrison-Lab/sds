@@ -43,10 +43,25 @@ $$
 \ea
 $$
 
-Take the expectation of each of the three terms.
-The first term is a constant, so its expectation is itself, the squared bias $\sqf{\biassymf{\predval}}$.
-The expectation of the cross term is zero, because the factor $2 \paren{\truemeanf{\predvar} - \Epredval}$ is a constant and $\E{\Epredval - \predval} = \Epredval - \E{\predval} = 0$, since $\Epredval$ is the expectation of $\predval$.
-The expectation of the third term is the variance $\varsymf{\predval}$.
+This choice splits the error about $\Epredval$, the center of the prediction's distribution, so the pieces are the bias and the variance.
+Take the expectation of the three terms, one at a time:
+
+$$
+\ba
+\E{\sqf{\truemeanf{\predvar} - \Epredval}}
+&= \sqf{\truemeanf{\predvar} - \Epredval} = \sqf{\biassymf{\predval}}
+&& \text{(a constant is its own expectation)} \\
+\E{2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\Epredval - \predval}}
+&= 2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\Epredval - \E{\predval}}
+&& \text{(constants come out of the expectation)} \\
+&= 0
+&& \text{($\Epredval$ is the expectation of $\predval$)} \\
+\E{\sqf{\Epredval - \predval}}
+&= \varsymf{\predval}
+&& \text{(definition of the variance)}
+\ea
+$$
+
 Substituting the split of the pMSE into @eq-epe-split-noise:
 
 $$
