@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 04:14:21 (PDT)
+Last modified: 2026-10-26 09:20:55 (PDT)
 
 ## 1 Inference
 
@@ -192,7 +192,7 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > **Definition 12 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a random [closed interval](https://morrison-lab.github.io/mds/sets.html#def-closed-interval) \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ whose endpoints \\{L\mathopen{}\left(X\right)\mathclose{}} \le {U\mathopen{}\left(X\right)\mathclose{}}\\ are [statistics](sufficiency.llms.md#def-statistic) computed from the data \\X\\, such that for every possible value of \\\theta\\:
 >
-> \\\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{} \ge 1 - \alpha\\
+> \\{\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}} \ge 1 - \alpha\\
 >
 > The probability is over repeated samples from the data-generating process, with \\\theta\\ held fixed. The interval is random and \\\theta\\ is not.
 >
@@ -200,13 +200,13 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 13 (Coverage probability)** The **coverage probability** of an interval \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ for a parameter \\\theta\\ is \\\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability at least \\1 - \alpha\\ for every \\\theta\\.
+> **Definition 13 (Coverage probability)** The **coverage probability** of an interval \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ for a parameter \\\theta\\ is \\{\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}}\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability at least \\1 - \alpha\\ for every \\\theta\\.
 >
 > Source: [\[9\]](#ref-CaseBerg01), Definition 9.1.4.
 
 > **NOTE:**
 >
-> **Definition 14 (Confidence coefficient)** The **confidence coefficient** of an interval \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ for a parameter \\\theta\\ is the infimum over \\\theta\\ of its [coverage probability](#def-coverage-probability), \\\inf\_{\theta} \Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}\\.
+> **Definition 14 (Confidence coefficient)** The **confidence coefficient** of an interval \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ for a parameter \\\theta\\ is the infimum over \\\theta\\ of its [coverage probability](#def-coverage-probability), \\\inf\_{\theta} {\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}}\\.
 >
 > Source: [\[9\]](#ref-CaseBerg01), Definition 9.1.5.
 
@@ -222,7 +222,7 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > **Definition 17 (Confidence set)** A \\100(1-\alpha)\\\\ **confidence set** for a parameter \\\theta\\ is a random subset \\C(X)\\ of the [parameter space](bayesian-inference.llms.md#def-parameter-space), computed from the data \\X\\, such that for every possible value of \\\theta\\:
 >
-> \\\Pr\_{\theta}\mathopen{}\left(\theta\in C(X)\right)\mathclose{} \ge 1 - \alpha\\
+> \\{\Pr\_{\theta}\mathopen{}\left(\theta\in C(X)\right)\mathclose{}} \ge 1 - \alpha\\
 >
 > A [confidence interval](#def-confidence-interval) is a confidence set whose values are [closed intervals](https://morrison-lab.github.io/mds/sets.html#def-closed-interval).
 >

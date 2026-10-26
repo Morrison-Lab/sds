@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-26 04:14:21 (PDT)</p>
+  <p class="date">Last modified: 2026-10-26 09:20:55 (PDT)</p>
 </section><section id="inference" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Inference</h2>
 <style>
@@ -525,16 +525,16 @@ text-align: center;
 <!-- No slidebreak here: the heading shares its slide with the def-confidence-interval div. -->
 <div id="def-confidence-interval" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12 (Confidence interval)</strong></span> A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a random <a href="https://morrison-lab.github.io/mds/sets.html#def-closed-interval">closed interval</a> <span class="math inline">\({\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\)</span> whose endpoints <span class="math inline">\({L\mathopen{}\left(X\right)\mathclose{}} \le {U\mathopen{}\left(X\right)\mathclose{}}\)</span> are <a href="./sufficiency.html#def-statistic">statistics</a> computed from the data <span class="math inline">\(X\)</span>, such that for every possible value of <span class="math inline">\(\theta\)</span>:</p>
-<p><span class="math display">\[\Pr_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\right)\mathclose{} \ge 1 - \alpha\]</span></p>
+<p><span class="math display">\[{\Pr_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\right)\mathclose{}} \ge 1 - \alpha\]</span></p>
 <p>The probability is over repeated samples from the data-generating process, with <span class="math inline">\(\theta\)</span> held fixed. The interval is random and <span class="math inline">\(\theta\)</span> is not.</p>
 <p>Source: <span class="citation" data-cites="CaseBerg01"><a href="#/references" role="doc-biblioref" onclick="">[9]</a>, Definitions 9.1.1, 9.1.4 and 9.1.5</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-coverage-probability" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13 (Coverage probability)</strong></span> The <strong>coverage probability</strong> of an interval <span class="math inline">\({\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\)</span> for a parameter <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\Pr_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\right)\mathclose{}\)</span>, computed over repeated samples with <span class="math inline">\(\theta\)</span> held fixed. A <span class="math inline">\(100(1-\alpha)\%\)</span> <a href="#/def-confidence-interval">confidence interval</a> has coverage probability at least <span class="math inline">\(1 - \alpha\)</span> for every <span class="math inline">\(\theta\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 13 (Coverage probability)</strong></span> The <strong>coverage probability</strong> of an interval <span class="math inline">\({\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\)</span> for a parameter <span class="math inline">\(\theta\)</span> is <span class="math inline">\({\Pr_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\right)\mathclose{}}\)</span>, computed over repeated samples with <span class="math inline">\(\theta\)</span> held fixed. A <span class="math inline">\(100(1-\alpha)\%\)</span> <a href="#/def-confidence-interval">confidence interval</a> has coverage probability at least <span class="math inline">\(1 - \alpha\)</span> for every <span class="math inline">\(\theta\)</span>.</p>
 <p>Source: <span class="citation" data-cites="CaseBerg01"><a href="#/references" role="doc-biblioref" onclick="">[9]</a>, Definition 9.1.4</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-confidence-coefficient" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14 (Confidence coefficient)</strong></span> The <strong>confidence coefficient</strong> of an interval <span class="math inline">\({\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\)</span> for a parameter <span class="math inline">\(\theta\)</span> is the infimum over <span class="math inline">\(\theta\)</span> of its <a href="#/def-coverage-probability">coverage probability</a>, <span class="math inline">\(\inf_{\theta} \Pr_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\right)\mathclose{}\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 14 (Confidence coefficient)</strong></span> The <strong>confidence coefficient</strong> of an interval <span class="math inline">\({\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\)</span> for a parameter <span class="math inline">\(\theta\)</span> is the infimum over <span class="math inline">\(\theta\)</span> of its <a href="#/def-coverage-probability">coverage probability</a>, <span class="math inline">\(\inf_{\theta} {\Pr_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\right)\mathclose{}}\)</span>.</p>
 <p>Source: <span class="citation" data-cites="CaseBerg01"><a href="#/references" role="doc-biblioref" onclick="">[9]</a>, Definition 9.1.5</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-exact-confidence-interval" class="theorem definition">
@@ -545,7 +545,7 @@ text-align: center;
 </div>
 </section><section class="slide level2"><div id="def-confidence-set" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 17 (Confidence set)</strong></span> A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>confidence set</strong> for a parameter <span class="math inline">\(\theta\)</span> is a random subset <span class="math inline">\(C(X)\)</span> of the <a href="./bayesian-inference.html#def-parameter-space">parameter space</a>, computed from the data <span class="math inline">\(X\)</span>, such that for every possible value of <span class="math inline">\(\theta\)</span>:</p>
-<p><span class="math display">\[\Pr_{\theta}\mathopen{}\left(\theta\in C(X)\right)\mathclose{} \ge 1 - \alpha\]</span></p>
+<p><span class="math display">\[{\Pr_{\theta}\mathopen{}\left(\theta\in C(X)\right)\mathclose{}} \ge 1 - \alpha\]</span></p>
 <p>A <a href="#/def-confidence-interval">confidence interval</a> is a confidence set whose values are <a href="https://morrison-lab.github.io/mds/sets.html#def-closed-interval">closed intervals</a>.</p>
 <p>Source: <span class="citation" data-cites="CaseBerg01"><a href="#/references" role="doc-biblioref" onclick="">[9, Sec. 9.1]</a></span>.</p>
 </div>
