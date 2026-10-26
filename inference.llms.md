@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 13:33:48 (PDT)
+Last modified: 2026-10-26 16:14:21 (PDT)
 
 ## 1 Inference
 
@@ -292,9 +292,9 @@ For more on confidence intervals:
 
 - [Anatomy of a confidence interval](https://wmed.edu/sites/default/files/ANATOMY%20OF%20A%20CONFIDENCE%20INTERVAL%20%28full%29.pdf) (PDF);
 
-- # Se produjo un error.
+- # An error occurred.
 
-  No se puede ejecutar JavaScript.
+  Unable to execute JavaScript.
 
 ## 6 Interpretation of negative findings
 
