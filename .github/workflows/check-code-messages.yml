@@ -1,11 +1,11 @@
 # Thin caller of Morrison-Lab/gha's check-code-messages.
 #
 # Rendered code shows its output and nothing else (Ezra, 2026-10-26).
-# Flags a geom_smooth() or stat_smooth() call that does not name both `method` and `formula`,
+# The check flags a geom_smooth() or stat_smooth() call that does not name both `method` and `formula`,
 # and a geom_histogram() or stat_bin() call with none of `bins`, `binwidth` or `breaks`,
 # because ggplot2 prints a message under the chunk for each default.
-# It is diff-scoped: it reads only the lines a PR adds.
-# There is no `push` or `workflow_dispatch` trigger: neither has a PR base to diff against.
+# The check is diff-scoped: it reads only the lines a PR adds.
+# The workflow has no `push` or `workflow_dispatch` trigger: neither has a PR base to diff against.
 
 name: Check code messages
 
