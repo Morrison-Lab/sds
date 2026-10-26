@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-21 11:52:50 (PDT)
+Last modified: 2026-10-26 11:08:19 (PDT)
 
 ## 1 Inference
 
@@ -190,27 +190,73 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 12 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a pair of statistics \\L\\ and \\U\\, computed from the data, such that for every possible value of \\\theta\\:
+> **Definition 12 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a random [closed interval](https://morrison-lab.github.io/mds/sets.html#def-closed-interval) \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ whose endpoints \\{L\mathopen{}\left(X\right)\mathclose{}} \le {U\mathopen{}\left(X\right)\mathclose{}}\\ are [statistics](sufficiency.llms.md#def-statistic) computed from the data \\X\\, such that for every possible value of \\\theta\\:
 >
-> \\\Pr(L \le \theta\le U) = 1 - \alpha\\
+> \\{\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}} \ge 1 - \alpha\\
 >
-> The probability is over repeated samples from the data-generating process, with \\\theta\\ held fixed.
+> The probability is over repeated samples from the data-generating process, with \\\theta\\ held fixed. The interval is random and \\\theta\\ is not.
 >
-> Source: Wikipedia contributors [\[13\]](#ref-wikipedia_confidence_interval).
+> Source: [\[9\]](#ref-CaseBerg01), Definitions 9.1.1, 9.1.4 and 9.1.5.
 
 > **NOTE:**
 >
-> **Definition 13 (Coverage probability)** The **coverage probability** of an interval \\\[L, U\]\\ for a parameter \\\theta\\ is \\\Pr(L \le \theta\le U)\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability \\1 - \alpha\\.
+> **Definition 13 (Coverage probability)** The **coverage probability** of an interval \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ for a parameter \\\theta\\ is \\{\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}}\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability at least \\1 - \alpha\\ for every \\\theta\\.
 >
-> Source: Wikipedia contributors [\[14\]](#ref-wikipedia_coverage_probability).
+> Source: [\[9\]](#ref-CaseBerg01), Definition 9.1.4.
 
 > **NOTE:**
 >
-> **Definition 14 (Approximate confidence interval)** An **approximate** \\100(1-\alpha)\\\\ confidence interval is an interval whose [coverage probability](#def-coverage-probability) is approximately \\1 - \alpha\\, for example only in large samples.
+> **Definition 14 (Confidence coefficient)** The **confidence coefficient** of an interval \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ for a parameter \\\theta\\ is the infimum over \\\theta\\ of its [coverage probability](#def-coverage-probability), \\\inf\_{\theta} {\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}}\\.
+>
+> Source: [\[9\]](#ref-CaseBerg01), Definition 9.1.5.
 
 > **NOTE:**
 >
-> **Example 7 (Confidence interval for population mean cholesterol in the WCGS)** By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), the sample mean \\\bar X\\ of a large sample has approximately a Gaussian distribution with mean \\\mu\\ and [standard error](estimation.llms.md#def-SE) \\\sigma/\sqrt{n}\\, which we estimate by \\s/\sqrt{n}\\. So \\\bar x \pm z\_{0.975} \\ s/\sqrt{n}\\, where \\z\_{0.975} \approx 1.96\\ is the 0.975 quantile of the standard Gaussian distribution, is an [approximate](#def-approximate-ci) 95% confidence interval for \\\mu\\:
+> **Definition 15 (Exact confidence interval)** A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ is **exact** when its [coverage probability](#def-coverage-probability) equals \\1 - \alpha\\ for every possible value of \\\theta\\.
+
+> **NOTE:**
+>
+> **Definition 16 (Conservative confidence interval)** A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ is **conservative** when its [coverage probability](#def-coverage-probability) is at least \\1 - \alpha\\ for every possible value of \\\theta\\ and larger than \\1 - \alpha\\ for some possible value of \\\theta\\.
+
+> **NOTE:**
+>
+> **Definition 17 (Confidence set)** A \\100(1-\alpha)\\\\ **confidence set** for a parameter \\\theta\\ is a random subset \\C(X)\\ of the [parameter space](bayesian-inference.llms.md#def-parameter-space), computed from the data \\X\\, such that for every possible value of \\\theta\\:
+>
+> \\{\Pr\_{\theta}\mathopen{}\left(\theta\in C(X)\right)\mathclose{}} \ge 1 - \alpha\\
+>
+> A [confidence interval](#def-confidence-interval) is a confidence set whose values are [closed intervals](https://morrison-lab.github.io/mds/sets.html#def-closed-interval).
+>
+> Source: [\[9, Sec. 9.1\]](#ref-CaseBerg01).
+
+> **NOTE:**
+>
+> **Example 7 (A conservative interval for a binomial proportion)** Let \\X \sim \text{Bin}(n, p)\\ with \\n = 20\\, and let \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ be the Clopper-Pearson 95% interval returned by [`binom.test()`](https://rdrr.io/r/stats/binom.test.html). Its [coverage probability](#def-coverage-probability) at each \\p\\ is the sum of the binomial [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of the values \\x\\ of \\X\\ for which \\{\mathopen{}\left\[{L\mathopen{}\left(x\right)\mathclose{}}, {U\mathopen{}\left(x\right)\mathclose{}}\right\]\mathclose{}}\\ contains \\p\\:
+>
+> ``` downlit
+> n <- 20
+> cp <- t(sapply(0:n, function(x) binom.test(x, n)$conf.int))
+> coverage <- function(p) {
+>   sum(dbinom(0:n, n, p)[cp[, 1] <= p & p <= cp[, 2]])
+> }
+> p_grid <- seq(0.01, 0.99, by = 0.01)
+> cover <- sapply(p_grid, coverage)
+> range(cover)
+> #> [1] 0.958611 0.994366
+> ```
+>
+> The smallest coverage probability on this grid is 0.959, and the largest is 0.994. The grid is coarse and the coverage probability jumps at the interval endpoints, so the smallest grid value is only an [upper bound](https://morrison-lab.github.io/mds/sets.html#def-bound) for the [confidence coefficient](#def-confidence-coefficient). The Clopper-Pearson interval is built to have coverage probability at least 0.95 at every \\p\\, and here it is above 0.95 at all 99 grid values of \\p\\, so it is [conservative](#def-conservative-confidence-interval).
+
+> **NOTE:**
+>
+> *Remark 3* (Why most intervals are conservative). [Definition 12](#def-confidence-interval) requires the [coverage probability](#def-coverage-probability) to be at least \\1 - \alpha\\ at every \\\theta\\, which is the same as requiring the [confidence coefficient](#def-confidence-coefficient) to be at least \\1 - \alpha\\. The coverage probability can depend on \\\theta\\, and the confidence coefficient is its greatest [lower bound](https://morrison-lab.github.io/mds/sets.html#def-bound), which the coverage probability need not attain at any \\\theta\\. An [exact](#def-exact-confidence-interval) interval has the same coverage probability at every \\\theta\\. [Discrete](data.llms.md#def-discrete-var) data take only countably many values, so they usually allow only a [conservative](#def-conservative-confidence-interval) interval, as [Example 7](#exm-conservative-interval) shows. A [confidence set](#def-confidence-set) drops the requirement that the region be an interval.
+
+> **NOTE:**
+>
+> **Definition 18 (Approximate confidence interval)** An **approximate** \\100(1-\alpha)\\\\ confidence interval is an interval whose [coverage probability](#def-coverage-probability) is approximately \\1 - \alpha\\, for example only in large samples.
+
+> **NOTE:**
+>
+> **Example 8 (Confidence interval for population mean cholesterol in the WCGS)** By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), the sample mean \\\bar X\\ of a large sample has approximately a Gaussian distribution with mean \\\mu\\ and [standard error](estimation.llms.md#def-SE) \\\sigma/\sqrt{n}\\, which we estimate by \\s/\sqrt{n}\\. So \\\bar x \pm z\_{0.975} \\ s/\sqrt{n}\\, where \\z\_{0.975} \approx 1.96\\ is the 0.975 quantile of the standard Gaussian distribution, is an [approximate](#def-approximate-ci) 95% confidence interval for \\\mu\\:
 >
 > ``` downlit
 > chol <- wcgs$chol[!is.na(wcgs$chol)]
@@ -222,13 +268,13 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 15 (Margin of error (radius))** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
+> **Definition 19 (Margin of error (radius))** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
 >
-> Source: Wikipedia contributors [\[15\]](#ref-wikipedia_margin_of_error).
+> Source: Wikipedia contributors [\[13\]](#ref-wikipedia_margin_of_error).
 
 > **NOTE:**
 >
-> **Example 8 (Margin of error for population mean cholesterol)** In [Example 7](#exm-confidence-interval-wcgs), the margin of error is \\z\_{0.975} \times s/\sqrt{n} \approx\\ 1.52 mg/dL.
+> **Example 9 (Margin of error for population mean cholesterol)** In [Example 8](#exm-confidence-interval-wcgs), the margin of error is \\z\_{0.975} \times s/\sqrt{n} \approx\\ 1.52 mg/dL.
 
 > **NOTE:**
 >
@@ -290,11 +336,11 @@ Conversely, even statistically significant evidence of a non-null value does not
 >   ggplot2::labs(x = "Ratio estimand (log scale); null value = 1", y = NULL)
 > ```
 >
-> [![](inference_files/figure-html/unnamed-chunk-6-1.png)](inference_files/figure-html/unnamed-chunk-6-1.png "Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio (such as an odds ratio), relative to the null value 1 (dashed line). Adapted from a whiteboard sketch made in office hours.")
+> [![](inference_files/figure-html/unnamed-chunk-7-1.png)](inference_files/figure-html/unnamed-chunk-7-1.png "Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio (such as an odds ratio), relative to the null value 1 (dashed line). Adapted from a whiteboard sketch made in office hours.")
 >
 > Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio (such as an odds ratio), relative to the null value 1 (dashed line). Adapted from a whiteboard sketch made in office hours.
 
-See also [\[16, Sec. 3.7\]](#ref-vittinghoff2e).
+See also [\[14, Sec. 3.7\]](#ref-vittinghoff2e).
 
 ## References
 
@@ -348,17 +394,9 @@ Wikipedia contributors, “Student’s t-distribution — Wikipedia, the free en
 
 \[13\]
 
-Wikipedia contributors, “Confidence interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Confidence_interval>
-
-\[14\]
-
-Wikipedia contributors, “Coverage probability — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Coverage_probability>
-
-\[15\]
-
 Wikipedia contributors, “Margin of error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Margin_of_error>
 
-\[16\]
+\[14\]
 
 E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
 

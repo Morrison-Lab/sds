@@ -88,7 +88,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./categorical-tests.html" rel="next">
-<link href="./sufficiency.html" rel="prev">
+<link href="./exponential-families.html" rel="prev">
 <script src="site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -102,9 +102,9 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e2e99260caf587923434b4f4fad7f843.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-21d6635088db142e2cbd7c5b96a7a6ac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-e2e99260caf587923434b4f4fad7f843.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-33c90a2a9295b6ab69d7f48c49ac5fff.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c086fb9aa89bc5726abb3173de9057c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-33c90a2a9295b6ab69d7f48c49ac5fff.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/callouty-theorem-1.4.2/callouty-theorem.js"></script>
 <link href="site_libs/quarto-contrib/callouty-theorem-1.4.2/callouty-theorem.css" rel="stylesheet">
@@ -337,70 +337,6 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-fig.callout {
-  border-left-color: #757575;
-}
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-tbl.callout {
-  border-left-color: #757575;
-}
-div.callout-tbl.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-videos.callout {
-  border-left-color: #283593;
-}
-div.callout-videos.callout-style-default .callout-header {
-  background-color: rgba(40, 53, 147, 0.13);
-}
-div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f144' !important;
-  background-image: none;
-}
 div.callout-prp.callout {
   border-left-color: #827717;
 }
@@ -431,25 +367,35 @@ div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-exr.callout {
-  border-left-color: #FFA500;
+div.callout-solution.callout {
+  border-left-color: #4E342E;
 }
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
 }
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
+div.callout-fig.callout {
+  border-left-color: #757575;
 }
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
 }
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-reading.callout {
   border-left-color: #00695C;
@@ -465,15 +411,69 @@ div.callout-reading.callout-style-default .callout-icon::before, div.callout-rea
   content: '\f518' !important;
   background-image: none;
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
+div.callout-tbl.callout {
+  border-left-color: #757575;
 }
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
+div.callout-tbl.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
 }
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-videos.callout {
+  border-left-color: #283593;
+}
+div.callout-videos.callout-style-default .callout-header {
+  background-color: rgba(40, 53, 147, 0.13);
+}
+div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f144' !important;
+  background-image: none;
+}
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-remark.callout {
   border-left-color: #AD1457;
@@ -734,6 +734,10 @@ window.Quarto = {
     <a class="dropdown-item" href="./sufficiency.html">
  <span class="dropdown-text">Sufficiency</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./exponential-families.html">
+ <span class="dropdown-text">Exponential Families</span></a>
+  </li>  
     </ul>
 </li>
   <li class="nav-item dropdown ">
@@ -900,6 +904,12 @@ window.Quarto = {
  <span class="menu-text">Sufficiency</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exponential-families.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exponential Families</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1025,13 +1035,13 @@ window.Quarto = {
 </li>
   <li><a href="#sec-anova" id="toc-sec-anova" class="nav-link" data-scroll-target="#sec-anova"><span class="header-section-number">5</span> One-way analysis of variance</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/Morrison-Lab/sds/edit/main/basic-statistical-methods.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Morrison-Lab/sds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/Morrison-Lab/sds/blob/main/basic-statistical-methods.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="basic-statistical-methods-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="basic-statistical-methods-handout.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="basic-statistical-methods-handout.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/Morrison-Lab/sds/edit/main/basic-statistical-methods.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Morrison-Lab/sds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/Morrison-Lab/sds/blob/main/basic-statistical-methods.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="basic-statistical-methods-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="basic-statistical-methods-handout.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><!-- qwt-page-banners -->
 <div class="preview-changes-banner" style="background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 12px; margin: 16px 0;">
     <p style="margin: 0;">
-        <strong>📋 Changes in this PR:</strong> <a href="basic-statistical-methods.html">Comparing Means</a>, <a href="bayesian-examples.html">Fitting Models by Bayesian Inference with JAGS</a>, <a href="bayesian-inference.html">Bayesian Inference</a>, <a href="bootstrap.html">The Bootstrap</a>, <a href="categorical-tests.html">Comparing Proportions</a>, <a href="classification.html">Classification and Diagnostic Tests</a>, <a href="correlation-regression.html">Correlation and Simple Linear Regression</a>, <a href="data.html">Types of Variables</a>, <a href="estimation.html">Estimation</a>, <a href="estimator-properties.html">Properties of Estimators</a>, <a href="exploratory-descriptive.html">Exploratory Data Analysis</a>, <a href="index.html">Statistics for Data Science</a>, <a href="inference.html">Statistical Inference</a>, <a href="intro-MLEs.html">Introduction to Maximum Likelihood Inference</a>, <a href="logistic-inference.html">Inference for Logistic Regression</a>, <a href="mcmc.html">Markov Chain Monte Carlo</a>, <a href="model-validation.html">Validating Predictions</a>, <a href="multiple-testing.html">Multiple Testing</a>, <a href="nonparametric-models.html">Nonparametric Models</a>, <a href="permutation-tests.html">Permutation Tests</a>, <a href="prediction.html">Prediction</a>, <a href="sufficiency.html">Sufficiency and the Rao–Blackwell Theorem</a>
+        <strong>📋 Changes in this PR:</strong> <a href="basic-statistical-methods.html">Comparing Means</a>, <a href="bayesian-examples.html">Fitting Models by Bayesian Inference with JAGS</a>, <a href="bayesian-inference.html">Bayesian Inference</a>, <a href="bootstrap.html">The Bootstrap</a>, <a href="categorical-tests.html">Comparing Proportions</a>, <a href="classification.html">Classification and Diagnostic Tests</a>, <a href="correlation-regression.html">Correlation and Simple Linear Regression</a>, <a href="data.html">Types of Variables</a>, <a href="estimation.html">Estimation</a>, <a href="estimator-properties.html">Properties of Estimators</a>, <a href="exploratory-descriptive.html">Exploratory Data Analysis</a>, <a href="exponential-families.html">Exponential Families</a>, <a href="index.html">Statistics for Data Science</a>, <a href="inference.html">Statistical Inference</a>, <a href="intro-MLEs.html">Introduction to Maximum Likelihood Inference</a>, <a href="logistic-inference.html">Inference for Logistic Regression</a>, <a href="mcmc.html">Markov Chain Monte Carlo</a>, <a href="model-validation.html">Validating Predictions</a>, <a href="multiple-testing.html">Multiple Testing</a>, <a href="nonparametric-models.html">Nonparametric Models</a>, <a href="permutation-tests.html">Permutation Tests</a>, <a href="prediction.html">Prediction</a>, <a href="sufficiency.html">Sufficiency and the Rao–Blackwell Theorem</a>
         <br>
         <strong>💡 Tip:</strong> If change highlighting is glitchy, add the <code>no-preview-highlights</code> label to this PR to disable it.
     </p>
@@ -1055,7 +1065,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-21 11:52:50 (PDT)</p>
+      <p class="date">Last modified: 2026-10-26 11:08:19 (PDT)</p>
     </div>
   </div>
   
@@ -1226,23 +1236,23 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
 </figcaption><div aria-describedby="tbl-hers-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="dzvzzmnddu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dzvzzmnddu table {
+<div id="mekvtipoxa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mekvtipoxa table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dzvzzmnddu thead, #dzvzzmnddu tbody, #dzvzzmnddu tfoot, #dzvzzmnddu tr, #dzvzzmnddu td, #dzvzzmnddu th {
+#mekvtipoxa thead, #mekvtipoxa tbody, #mekvtipoxa tfoot, #mekvtipoxa tr, #mekvtipoxa td, #mekvtipoxa th {
   border-style: none;
 }
 
-#dzvzzmnddu p {
+#mekvtipoxa p {
   margin: 0;
   padding: 0;
 }
 
-#dzvzzmnddu .gt_table {
+#mekvtipoxa .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1268,12 +1278,12 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-left-color: #D3D3D3;
 }
 
-#dzvzzmnddu .gt_caption {
+#mekvtipoxa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dzvzzmnddu .gt_title {
+#mekvtipoxa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1285,7 +1295,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-width: 0;
 }
 
-#dzvzzmnddu .gt_subtitle {
+#mekvtipoxa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1297,7 +1307,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-top-width: 0;
 }
 
-#dzvzzmnddu .gt_heading {
+#mekvtipoxa .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1309,13 +1319,13 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#dzvzzmnddu .gt_bottom_border {
+#mekvtipoxa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dzvzzmnddu .gt_col_headings {
+#mekvtipoxa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1330,7 +1340,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#dzvzzmnddu .gt_col_heading {
+#mekvtipoxa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1350,7 +1360,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   overflow-x: hidden;
 }
 
-#dzvzzmnddu .gt_column_spanner_outer {
+#mekvtipoxa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1362,15 +1372,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 4px;
 }
 
-#dzvzzmnddu .gt_column_spanner_outer:first-child {
+#mekvtipoxa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dzvzzmnddu .gt_column_spanner_outer:last-child {
+#mekvtipoxa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dzvzzmnddu .gt_column_spanner {
+#mekvtipoxa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1382,11 +1392,11 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   width: 100%;
 }
 
-#dzvzzmnddu .gt_spanner_row {
+#mekvtipoxa .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dzvzzmnddu .gt_group_heading {
+#mekvtipoxa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1412,7 +1422,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   text-align: left;
 }
 
-#dzvzzmnddu .gt_empty_group_heading {
+#mekvtipoxa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1427,15 +1437,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   vertical-align: middle;
 }
 
-#dzvzzmnddu .gt_from_md > :first-child {
+#mekvtipoxa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dzvzzmnddu .gt_from_md > :last-child {
+#mekvtipoxa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dzvzzmnddu .gt_row {
+#mekvtipoxa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1454,7 +1464,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   overflow-x: hidden;
 }
 
-#dzvzzmnddu .gt_stub {
+#mekvtipoxa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1467,7 +1477,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#dzvzzmnddu .gt_stub_row_group {
+#mekvtipoxa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1481,15 +1491,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   vertical-align: top;
 }
 
-#dzvzzmnddu .gt_row_group_first td {
+#mekvtipoxa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dzvzzmnddu .gt_row_group_first th {
+#mekvtipoxa .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dzvzzmnddu .gt_summary_row {
+#mekvtipoxa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1499,16 +1509,16 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#dzvzzmnddu .gt_first_summary_row {
+#mekvtipoxa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dzvzzmnddu .gt_first_summary_row.thick {
+#mekvtipoxa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dzvzzmnddu .gt_last_summary_row {
+#mekvtipoxa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1518,7 +1528,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#dzvzzmnddu .gt_grand_summary_row {
+#mekvtipoxa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1528,7 +1538,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#dzvzzmnddu .gt_first_grand_summary_row {
+#mekvtipoxa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1538,7 +1548,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-top-color: #D3D3D3;
 }
 
-#dzvzzmnddu .gt_last_grand_summary_row_top {
+#mekvtipoxa .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1548,11 +1558,11 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#dzvzzmnddu .gt_striped {
+#mekvtipoxa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dzvzzmnddu .gt_table_body {
+#mekvtipoxa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1561,7 +1571,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#dzvzzmnddu .gt_footnotes {
+#mekvtipoxa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1575,7 +1585,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#dzvzzmnddu .gt_footnote {
+#mekvtipoxa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1584,7 +1594,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#dzvzzmnddu .gt_sourcenotes {
+#mekvtipoxa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1598,7 +1608,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#dzvzzmnddu .gt_sourcenote {
+#mekvtipoxa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1606,72 +1616,72 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#dzvzzmnddu .gt_left {
+#mekvtipoxa .gt_left {
   text-align: left;
 }
 
-#dzvzzmnddu .gt_center {
+#mekvtipoxa .gt_center {
   text-align: center;
 }
 
-#dzvzzmnddu .gt_right {
+#mekvtipoxa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dzvzzmnddu .gt_font_normal {
+#mekvtipoxa .gt_font_normal {
   font-weight: normal;
 }
 
-#dzvzzmnddu .gt_font_bold {
+#mekvtipoxa .gt_font_bold {
   font-weight: bold;
 }
 
-#dzvzzmnddu .gt_font_italic {
+#mekvtipoxa .gt_font_italic {
   font-style: italic;
 }
 
-#dzvzzmnddu .gt_super {
+#mekvtipoxa .gt_super {
   font-size: 65%;
 }
 
-#dzvzzmnddu .gt_footnote_marks {
+#mekvtipoxa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dzvzzmnddu .gt_asterisk {
+#mekvtipoxa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dzvzzmnddu .gt_indent_1 {
+#mekvtipoxa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dzvzzmnddu .gt_indent_2 {
+#mekvtipoxa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dzvzzmnddu .gt_indent_3 {
+#mekvtipoxa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dzvzzmnddu .gt_indent_4 {
+#mekvtipoxa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dzvzzmnddu .gt_indent_5 {
+#mekvtipoxa .gt_indent_5 {
   text-indent: 25px;
 }
 
-#dzvzzmnddu .katex-display {
+#mekvtipoxa .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#dzvzzmnddu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#mekvtipoxa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1823,8 +1833,8 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-one-sample-t-test" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (One-sample t-test)</strong></span> Let <span class="math inline">\(x_1, \ldots, x_n\)</span> be observations with <span class="math inline">\(n \ge 2\)</span>, sample mean <span class="math inline">\(\bar{x}\)</span>, and sample standard deviation <span class="math inline">\(s\)</span>. The <strong>one-sample t-test</strong> of <span class="math inline">\(H_0: \mu= \mu_0\)</span> against <span class="math inline">\(H_1: \mu\neq \mu_0\)</span> uses the <a href="./sufficiency.html#def-statistic">statistic</a></p>
-<p><span class="math display">\[t \stackrel{\text{def}}{=}\frac{\bar{x}- \mu_0}{s / \sqrt{n}}.\]</span></p>
+<p><span class="theorem-title"><strong>Definition 1 (One-sample t-test)</strong></span> Let <span class="math inline">\(x_1, \ldots, x_n\)</span> be observations with <span class="math inline">\(n \ge 2\)</span>, sample mean <span class="math inline">\({\bar{x}}\)</span>, and sample standard deviation <span class="math inline">\(s\)</span>. The <strong>one-sample t-test</strong> of <span class="math inline">\(H_0: \mu= \mu_0\)</span> against <span class="math inline">\(H_1: \mu\neq \mu_0\)</span> uses the <a href="./sufficiency.html#def-statistic">statistic</a></p>
+<p><span class="math display">\[t \stackrel{\text{def}}{=}\frac{{\bar{x}}- \mu_0}{s / \sqrt{n}}.\]</span></p>
 <p>Its p-value is <span class="math inline">\(\Pr(\mathopen{}\left|T\right|\mathclose{} \ge \mathopen{}\left|t\right|\mathclose{})\)</span>, where <span class="math inline">\(T\)</span> has the <span class="math inline">\(t_{n-1}\)</span> distribution (<a href="./inference.html#def-t-dist">t-distribution</a>).</p>
 <p>Source: <span class="citation" data-cites="wikipedia_students_t_test">Wikipedia contributors <a href="#ref-wikipedia_students_t_test" role="doc-biblioref">[3]</a></span>.</p>
 </div>
@@ -1988,9 +1998,9 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 <p><span class="theorem-title"><strong>Definition 3 (Welch’s two-sample t-test)</strong></span> Let two independent groups have sample sizes <span class="math inline">\(n_1, n_2 \ge 2\)</span>, sample means <span class="math inline">\(\bar{x}_1\)</span> and <span class="math inline">\(\bar{x}_2\)</span>, and sample variances <span class="math inline">\(s_1^2\)</span> and <span class="math inline">\(s_2^2\)</span>. <strong>Welch’s two-sample t-test</strong> of <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span> against <span class="math inline">\(H_1: \mu_1 \neq \mu_2\)</span> uses the <a href="./sufficiency.html#def-statistic">statistic</a></p>
 <p><span class="math display">\[t \stackrel{\text{def}}{=}\frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}}\]</span></p>
 <p>and the Welch–Satterthwaite degrees of freedom</p>
-<p><span class="math display">\[\hat{\nu}\stackrel{\text{def}}{=}\frac{\mathopen{}\left(\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}\right)\mathclose{}^2}
+<p><span class="math display">\[\hat{\operatorname{df}}\stackrel{\text{def}}{=}\frac{\mathopen{}\left(\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}\right)\mathclose{}^2}
 {\dfrac{(s_1^2 / n_1)^2}{n_1 - 1} + \dfrac{(s_2^2 / n_2)^2}{n_2 - 1}}.\]</span></p>
-<p>Its p-value is <span class="math inline">\(\Pr(\mathopen{}\left|T\right|\mathclose{} \ge \mathopen{}\left|t\right|\mathclose{})\)</span>, where <span class="math inline">\(T\)</span> has the <span class="math inline">\(t_{\hat{\nu}}\)</span> distribution (<a href="./inference.html#def-t-dist">t-distribution</a>).</p>
+<p>Its p-value is <span class="math inline">\(\Pr(\mathopen{}\left|T\right|\mathclose{} \ge \mathopen{}\left|t\right|\mathclose{})\)</span>, where <span class="math inline">\(T\)</span> has the <span class="math inline">\(t_{\hat{\operatorname{df}}}\)</span> distribution (<a href="./inference.html#def-t-dist">t-distribution</a>).</p>
 <p>Source: <span class="citation" data-cites="wikipedia_welchs_t_test">Wikipedia contributors <a href="#ref-wikipedia_welchs_t_test" role="doc-biblioref">[5]</a></span>.</p>
 </div>
 </div>
@@ -2009,7 +2019,7 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 <div id="callout-9" class="callout-9-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-welch-test-properties" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Properties of Welch’s test). </span>Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, <span class="math inline">\(t_{\hat{\nu}}\)</span> is only an approximation to the null distribution of <span class="math inline">\(t\)</span>. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under <span class="math inline">\(H_0\)</span>, as in <a href="./inference.html#exm-p-value-wcgs">the WCGS cholesterol example</a>. Welch’s test is the default in R’s <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code>.</p>
+<p><span class="proof-title"><em>Remark 2</em> (Properties of Welch’s test). </span>Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, <span class="math inline">\(t_{\hat{\operatorname{df}}}\)</span> is only an approximation to the null distribution of <span class="math inline">\(t\)</span>. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under <span class="math inline">\(H_0\)</span>, as in <a href="./inference.html#exm-p-value-wcgs">the WCGS cholesterol example</a>. Welch’s test is the default in R’s <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code>.</p>
 </div>
 </div>
 </div>
@@ -2297,9 +2307,9 @@ s_p^2
 <div class="callout-body-container callout-body">
 <div id="def-ci-diff-means" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (Welch confidence interval for a difference in means)</strong></span> With the notation of <a href="#def-two-sample-t-test" class="quarto-xref">Definition&nbsp;3</a>, the <strong>Welch <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for <span class="math inline">\(\mu_1 - \mu_2\)</span> is</p>
-<p><span class="math display">\[(\bar{x}_1 - \bar{x}_2) \pm t_{\hat{\nu},\, 1 - \alpha/2}
+<p><span class="math display">\[(\bar{x}_1 - \bar{x}_2) \pm t_{\hat{\operatorname{df}},\, 1 - \alpha/2}
 \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},\]</span></p>
-<p>where <span class="math inline">\(t_{\hat{\nu},\, 1 - \alpha/2}\)</span> is the <span class="math inline">\(1 - \alpha/2\)</span> quantile of the <span class="math inline">\(t_{\hat{\nu}}\)</span> distribution. It is an approximate <a href="./inference.html#def-confidence-interval">confidence interval</a>.</p>
+<p>where <span class="math inline">\(t_{\hat{\operatorname{df}},\, 1 - \alpha/2}\)</span> is the <span class="math inline">\(1 - \alpha/2\)</span> quantile of the <span class="math inline">\(t_{\hat{\operatorname{df}}}\)</span> distribution. It is an approximate <a href="./inference.html#def-confidence-interval">confidence interval</a>.</p>
 </div>
 </div>
 </div>
@@ -2363,8 +2373,8 @@ s_p^2
 <div id="callout-22" class="callout-22-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-ss-between" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Between-group sum of squares)</strong></span> Let <span class="math inline">\(y_{j1}, \ldots, y_{jn_j}\)</span> be the <span class="math inline">\(n_j\)</span> observations in group <span class="math inline">\(j\)</span>, for <span class="math inline">\(k \ge 2\)</span> groups with <span class="math inline">\(n \stackrel{\text{def}}{=}\sum_{j=1}^{k} n_j\)</span> observations in all, let <span class="math inline">\(\bar{y}_j\)</span> be the sample mean of group <span class="math inline">\(j\)</span>, and let <span class="math inline">\(\bar{y}\)</span> be the sample mean of all <span class="math inline">\(n\)</span> observations. The <strong>between-group sum of squares</strong> is</p>
-<p><span class="math display">\[\text{SS}_\text{between} \stackrel{\text{def}}{=}\sum_{j=1}^{k} n_j (\bar{y}_j - \bar{y})^2.\]</span></p>
+<p><span class="theorem-title"><strong>Definition 7 (Between-group sum of squares)</strong></span> Let <span class="math inline">\(y_{j1}, \ldots, y_{jn_j}\)</span> be the <span class="math inline">\(n_j\)</span> observations in group <span class="math inline">\(j\)</span>, for <span class="math inline">\(k \ge 2\)</span> groups with <span class="math inline">\(n \stackrel{\text{def}}{=}\sum_{j=1}^{k} n_j\)</span> observations in all, let <span class="math inline">\({\bar{y}}_j\)</span> be the sample mean of group <span class="math inline">\(j\)</span>, and let <span class="math inline">\({\bar{y}}\)</span> be the sample mean of all <span class="math inline">\(n\)</span> observations. The <strong>between-group sum of squares</strong> is</p>
+<p><span class="math display">\[\text{SS}_\text{between} \stackrel{\text{def}}{=}\sum_{j=1}^{k} n_j ({\bar{y}}_j - {\bar{y}})^2.\]</span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_partition_of_sums_of_squares">Wikipedia contributors <a href="#ref-wikipedia_partition_of_sums_of_squares" role="doc-biblioref">[8]</a></span>.</p>
 </div>
 </div>
@@ -2413,7 +2423,7 @@ s_p^2
 <div class="callout-body-container callout-body">
 <div id="def-ss-within" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Within-group sum of squares)</strong></span> With the notation of <a href="#def-ss-between" class="quarto-xref">Definition&nbsp;7</a>, the <strong>within-group sum of squares</strong> is</p>
-<p><span class="math display">\[\text{SS}_\text{within} \stackrel{\text{def}}{=}\sum_{j=1}^{k} \sum_{i=1}^{n_j} (y_{ji} - \bar{y}_j)^2.\]</span></p>
+<p><span class="math display">\[\text{SS}_\text{within} \stackrel{\text{def}}{=}\sum_{j=1}^{k} \sum_{i=1}^{n_j} (y_{ji} - {\bar{y}}_j)^2.\]</span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_partition_of_sums_of_squares">Wikipedia contributors <a href="#ref-wikipedia_partition_of_sums_of_squares" role="doc-biblioref">[8]</a></span>.</p>
 </div>
 </div>
@@ -2629,7 +2639,7 @@ s_p^2
 </div>
 </div>
 </div>
-<p><span class="math inline">\(\text{SS}_\text{between}\)</span> is summed here over observations rather than groups: each observation in group <span class="math inline">\(j\)</span> contributes <span class="math inline">\((\bar{y}_j - \bar{y})^2\)</span>, which gives the <span class="math inline">\(n_j\)</span> weights of <a href="#def-one-way-anova" class="quarto-xref">Definition&nbsp;10</a>. <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code> reports the same sums of squares, F statistic, and p-value:</p>
+<p><span class="math inline">\(\text{SS}_\text{between}\)</span> is summed here over observations rather than groups: each observation in group <span class="math inline">\(j\)</span> contributes <span class="math inline">\(({\bar{y}}_j - {\bar{y}})^2\)</span>, which gives the <span class="math inline">\(n_j\)</span> weights of <a href="#def-one-way-anova" class="quarto-xref">Definition&nbsp;10</a>. <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code> reports the same sums of squares, F statistic, and p-value:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">glucose</span> <span class="op">~</span> <span class="va">raceth</span>, data <span class="op">=</span> <span class="va">hers</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">parameters</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/parameters/reference/model_parameters.html">parameters</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -3710,8 +3720,8 @@ document.querySelectorAll("main table").forEach(function (t) {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./sufficiency.html" class="pagination-link" aria-label="Sufficiency">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sufficiency</span>
+      <a href="./exponential-families.html" class="pagination-link" aria-label="Exponential Families">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exponential Families</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -3726,175 +3736,173 @@ document.querySelectorAll("main table").forEach(function (t) {
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">  revealjs:</span></span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: basic-statistical-methods-slides.html</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: basic-statistical-methods-handout.pdf</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">  docx:</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: basic-statistical-methods-handout.docx</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">  docx:</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: basic-statistical-methods-handout.docx</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/shared-config.qmd &gt;}}</span>
 <span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/shared-config.qmd &gt;}}</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_prose-intro.qmd &gt;}}</span>
 <span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_prose-intro.qmd &gt;}}</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>This page is adapted from @vittinghoff2e, Chapter 3.</span>
 <span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>This page is adapted from @vittinghoff2e, Chapter 3.</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## The HERS data {#sec-hers-intro}</span></span>
 <span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## The HERS data {#sec-hers-intro}</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/shared/_sec_hers_intro.qmd &gt;}}</span>
 <span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/shared/_sec_hers_intro.qmd &gt;}}</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_load-hers.qmd &gt;}}</span>
 <span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_load-hers.qmd &gt;}}</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Descriptive statistics {#sec-descriptive-stats}</span></span>
 <span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Descriptive statistics {#sec-descriptive-stats}</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_prose-descriptive.qmd &gt;}}</span>
 <span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_prose-descriptive.qmd &gt;}}</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-summary.qmd &gt;}}</span>
 <span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-summary.qmd &gt;}}</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparing two groups: continuous outcomes {#sec-two-group-continuous}</span></span>
 <span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparing two groups: continuous outcomes {#sec-two-group-continuous}</span></span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### Hypotheses {#sec-hypotheses}</span></span>
 <span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Hypotheses {#sec-hypotheses}</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_prose-hypotheses.qmd &gt;}}</span>
 <span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_prose-hypotheses.qmd &gt;}}</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### One-sample t-test {#sec-one-sample-t-test}</span></span>
 <span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### One-sample t-test {#sec-one-sample-t-test}</span></span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-one-sample-t-test div. --&gt;</span></span>
 <span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-one-sample-t-test div. --&gt;</span></span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-one-sample-t-test.qmd &gt;}}</span>
 <span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-one-sample-t-test.qmd &gt;}}</span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_thm-one-sample-t-null.qmd &gt;}}</span>
 <span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_thm-one-sample-t-null.qmd &gt;}}</span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### Paired t-test {#sec-paired-t-test}</span></span>
 <span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### Paired t-test {#sec-paired-t-test}</span></span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-paired-t-test div. --&gt;</span></span>
 <span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-paired-t-test div. --&gt;</span></span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-paired-t-test.qmd &gt;}}</span>
 <span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-paired-t-test.qmd &gt;}}</span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-paired.qmd &gt;}}</span>
 <span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-paired.qmd &gt;}}</span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a><span class="fu">### Two-sample t-tests {#sec-two-sample-t-test}</span></span>
 <span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a><span class="fu">### Two-sample t-tests {#sec-two-sample-t-test}</span></span>
+<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-two-sample-t-test div. --&gt;</span></span>
 <span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-two-sample-t-test div. --&gt;</span></span>
+<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-two-sample-t-test.qmd &gt;}}</span>
 <span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-two-sample-t-test.qmd &gt;}}</span>
+<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-ttest.qmd &gt;}}</span>
 <span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-ttest.qmd &gt;}}</span>
+<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-pooled-variance.qmd &gt;}}</span>
 <span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-pooled-variance.qmd &gt;}}</span>
+<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-pooled-variance.qmd &gt;}}</span>
 <span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-pooled-variance.qmd &gt;}}</span>
+<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_rem-pooled-variance-estimates.qmd &gt;}}</span>
 <span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_rem-pooled-variance-estimates.qmd &gt;}}</span>
+<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-pooled-t-test.qmd &gt;}}</span>
 <span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-pooled-t-test.qmd &gt;}}</span>
+<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_thm-pooled-t-null.qmd &gt;}}</span>
 <span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_thm-pooled-t-null.qmd &gt;}}</span>
+<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-pooled-ttest.qmd &gt;}}</span>
 <span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-pooled-ttest.qmd &gt;}}</span>
-<span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a>::: {.reading}</span>
-<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@hoggtanis2015 <span class="co">[</span><span class="ot">Sec. 8.2, pp. 369--377</span><span class="co">]</span> covers tests of the equality of two means.</span>
-<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@rice2007mathematical <span class="co">[</span><span class="ot">Sec. 11.2.1, pp. 421--432</span><span class="co">]</span> covers normal-theory methods for two independent samples.</span>
-<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@rice2007mathematical <span class="co">[</span><span class="ot">Sec. 11.3.1, pp. 446--447</span><span class="co">]</span> covers normal-theory methods for paired samples.</span>
-<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a>::: {.reading}</span>
+<span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@hoggtanis2015 <span class="co">[</span><span class="ot">Sec. 8.2, pp. 369--377</span><span class="co">]</span> covers tests of the equality of two means.</span>
+<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@rice2007mathematical <span class="co">[</span><span class="ot">Sec. 11.2.1, pp. 421--432</span><span class="co">]</span> covers normal-theory methods for two independent samples.</span>
+<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@rice2007mathematical <span class="co">[</span><span class="ot">Sec. 11.3.1, pp. 446--447</span><span class="co">]</span> covers normal-theory methods for paired samples.</span>
+<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confidence intervals for the difference in means {#sec-CI-diff-means}</span></span>
 <span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confidence intervals for the difference in means {#sec-CI-diff-means}</span></span>
+<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-ci-diff-means div. --&gt;</span></span>
 <span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-ci-diff-means div. --&gt;</span></span>
+<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-ci-diff-means.qmd &gt;}}</span>
 <span id="cb18-112"><a href="#cb18-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-ci-diff-means.qmd &gt;}}</span>
+<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-diff-means-ci.qmd &gt;}}</span>
 <span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-diff-means-ci.qmd &gt;}}</span>
-<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a>::: {.reading}</span>
-<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a>@hoggtanis2015 <span class="co">[</span><span class="ot">Sec. 7.2, pp. 314--322</span><span class="co">]</span> covers confidence intervals for the difference of two means.</span>
-<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a>::: {.reading}</span>
+<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a>@hoggtanis2015 <span class="co">[</span><span class="ot">Sec. 7.2, pp. 314--322</span><span class="co">]</span> covers confidence intervals for the difference of two means.</span>
+<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## One-way analysis of variance {#sec-anova}</span></span>
 <span id="cb18-122"><a href="#cb18-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a><span class="fu">## One-way analysis of variance {#sec-anova}</span></span>
+<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-ss-between div. --&gt;</span></span>
 <span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-ss-between div. --&gt;</span></span>
+<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-ss-between.qmd &gt;}}</span>
 <span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-ss-between.qmd &gt;}}</span>
+<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-ss-between.qmd &gt;}}</span>
 <span id="cb18-130"><a href="#cb18-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-ss-between.qmd &gt;}}</span>
+<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-132"><a href="#cb18-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-ss-within.qmd &gt;}}</span>
 <span id="cb18-134"><a href="#cb18-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-ss-within.qmd &gt;}}</span>
+<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-136"><a href="#cb18-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-ss-within.qmd &gt;}}</span>
 <span id="cb18-138"><a href="#cb18-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-139"><a href="#cb18-139" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-ss-within.qmd &gt;}}</span>
+<span id="cb18-139"><a href="#cb18-139" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-140"><a href="#cb18-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-141"><a href="#cb18-141" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-141"><a href="#cb18-141" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-mean-squares.qmd &gt;}}</span>
 <span id="cb18-142"><a href="#cb18-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-143"><a href="#cb18-143" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-mean-squares.qmd &gt;}}</span>
+<span id="cb18-143"><a href="#cb18-143" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-144"><a href="#cb18-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-145"><a href="#cb18-145" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-145"><a href="#cb18-145" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-mean-squares.qmd &gt;}}</span>
 <span id="cb18-146"><a href="#cb18-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-147"><a href="#cb18-147" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-mean-squares.qmd &gt;}}</span>
+<span id="cb18-147"><a href="#cb18-147" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-148"><a href="#cb18-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-149"><a href="#cb18-149" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-149"><a href="#cb18-149" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-one-way-anova.qmd &gt;}}</span>
 <span id="cb18-150"><a href="#cb18-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-151"><a href="#cb18-151" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-one-way-anova.qmd &gt;}}</span>
+<span id="cb18-151"><a href="#cb18-151" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-152"><a href="#cb18-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-153"><a href="#cb18-153" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-153"><a href="#cb18-153" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_thm-anova-null.qmd &gt;}}</span>
 <span id="cb18-154"><a href="#cb18-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-155"><a href="#cb18-155" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_thm-anova-null.qmd &gt;}}</span>
+<span id="cb18-155"><a href="#cb18-155" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-156"><a href="#cb18-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-157"><a href="#cb18-157" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-157"><a href="#cb18-157" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-anova.qmd &gt;}}</span>
 <span id="cb18-158"><a href="#cb18-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-159"><a href="#cb18-159" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-anova.qmd &gt;}}</span>
+<span id="cb18-159"><a href="#cb18-159" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-160"><a href="#cb18-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-161"><a href="#cb18-161" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-161"><a href="#cb18-161" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_note-anova-regression.qmd &gt;}}</span>
 <span id="cb18-162"><a href="#cb18-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-163"><a href="#cb18-163" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_note-anova-regression.qmd &gt;}}</span>
-<span id="cb18-164"><a href="#cb18-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-165"><a href="#cb18-165" aria-hidden="true" tabindex="-1"></a>::: {.reading}</span>
-<span id="cb18-166"><a href="#cb18-166" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@hoggtanis2015 <span class="co">[</span><span class="ot">Sec. 9.3, pp. 446--455</span><span class="co">]</span> covers one-factor analysis of variance.</span>
-<span id="cb18-167"><a href="#cb18-167" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@CaseBerg01 <span class="co">[</span><span class="ot">Sec. 11.2, pp. 522--538</span><span class="co">]</span> covers oneway analysis of variance.</span>
-<span id="cb18-168"><a href="#cb18-168" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@rice2007mathematical <span class="co">[</span><span class="ot">Sec. 12.2, pp. 477--488</span><span class="co">]</span> covers the one-way layout.</span>
-<span id="cb18-169"><a href="#cb18-169" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb18-170"><a href="#cb18-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-163"><a href="#cb18-163" aria-hidden="true" tabindex="-1"></a>::: {.reading}</span>
+<span id="cb18-164"><a href="#cb18-164" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@hoggtanis2015 <span class="co">[</span><span class="ot">Sec. 9.3, pp. 446--455</span><span class="co">]</span> covers one-factor analysis of variance.</span>
+<span id="cb18-165"><a href="#cb18-165" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@CaseBerg01 <span class="co">[</span><span class="ot">Sec. 11.2, pp. 522--538</span><span class="co">]</span> covers oneway analysis of variance.</span>
+<span id="cb18-166"><a href="#cb18-166" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@rice2007mathematical <span class="co">[</span><span class="ot">Sec. 12.2, pp. 477--488</span><span class="co">]</span> covers the one-way layout.</span>
+<span id="cb18-167"><a href="#cb18-167" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-168"><a href="#cb18-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-169"><a href="#cb18-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-170"><a href="#cb18-170" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
 <span id="cb18-171"><a href="#cb18-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-172"><a href="#cb18-172" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
-<span id="cb18-173"><a href="#cb18-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-174"><a href="#cb18-174" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb18-175"><a href="#cb18-175" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb18-172"><a href="#cb18-172" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb18-173"><a href="#cb18-173" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">

@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-21 11:52:50 (PDT)</p>
+  <p class="date">Last modified: 2026-10-26 11:08:19 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -514,21 +514,21 @@ Y_i\mid X_i= x_i&amp;\ \sim_{\perp\!\!\!\perp}\ {\operatorname{N}\mathopen{}\lef
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-slr-deviation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Deviation from the conditional mean)</strong></span> In a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>), the <strong>deviation</strong> <span class="math inline">\(\nu_i\)</span> of outcome <span class="math inline">\(Y_i\)</span> is its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation from its population mean</a>, taking the mean conditional on <span class="math inline">\(X_i= x_i\)</span>:</p>
-<p><span class="math display">\[\nu_i\stackrel{\text{def}}{=}Y_i- \mu(x_i).\]</span></p>
+<p><span class="theorem-title"><strong>Definition 5 (Deviation from the conditional mean)</strong></span> In a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>), the <strong>deviation</strong> <span class="math inline">\(\delta_i\)</span> of outcome <span class="math inline">\(Y_i\)</span> is its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation from its population mean</a>, taking the mean conditional on <span class="math inline">\(X_i= x_i\)</span>:</p>
+<p><span class="math display">\[\delta_i\stackrel{\text{def}}{=}Y_i- \mu(x_i).\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exr-slr-additive" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1 (Decomposing an outcome)</strong></span> Express each outcome <span class="math inline">\(Y_i\)</span> in a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>) in terms of its conditional mean <span class="math inline">\(\mu_i\)</span> and its deviation <span class="math inline">\(\nu_i\)</span> (<a href="#/def-slr-deviation" class="quarto-xref">Definition&nbsp;5</a>).</p>
+<p><span class="theorem-title"><strong>Exercise 1 (Decomposing an outcome)</strong></span> Express each outcome <span class="math inline">\(Y_i\)</span> in a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>) in terms of its conditional mean <span class="math inline">\(\mu_i\)</span> and its deviation <span class="math inline">\(\delta_i\)</span> (<a href="#/def-slr-deviation" class="quarto-xref">Definition&nbsp;5</a>).</p>
 </div>
 </section><section class="slide level2"><div id="sol-slr-additive" class="proof solution">
-<p><span class="proof-title"><em>Solution 1</em>. </span>Check that <span class="math inline">\(Y_i= \mu_i+ \nu_i\)</span>, starting from the right-hand side:</p>
+<p><span class="proof-title"><em>Solution 1</em>. </span>Check that <span class="math inline">\(Y_i= \mu_i+ \delta_i\)</span>, starting from the right-hand side:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mu_i+ \nu_i
-&amp;= \mu(x_i) + \nu_i
+\mu_i+ \delta_i
+&amp;= \mu(x_i) + \delta_i
 &amp;&amp; \text{(definition of $\mu_i$)}\\
 &amp;= \mu(x_i) + \mathopen{}\left(Y_i- \mu(x_i)\right)\mathclose{}
-&amp;&amp; \text{(definition of $\nu_i$)}\\
+&amp;&amp; \text{(definition of $\delta_i$)}\\
 &amp;= \mu(x_i) + Y_i- \mu(x_i)
 &amp;&amp; \text{(remove the parentheses)}\\
 &amp;= Y_i+ \mu(x_i) - \mu(x_i)
@@ -541,44 +541,44 @@ Y_i\mid X_i= x_i&amp;\ \sim_{\perp\!\!\!\perp}\ {\operatorname{N}\mathopen{}\lef
 &amp;&amp; \text{($a + 0 = a$)}
 \end{aligned}
 \]</span></p>
-<p>So <span class="math inline">\(Y_i= \mu_i+ \nu_i\)</span>.</p>
+<p>So <span class="math inline">\(Y_i= \mu_i+ \delta_i\)</span>.</p>
 <hr>
-<p>Alternatively, solve the definition of <span class="math inline">\(\nu_i\)</span> for <span class="math inline">\(Y_i\)</span>:</p>
+<p>Alternatively, solve the definition of <span class="math inline">\(\delta_i\)</span> for <span class="math inline">\(Y_i\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\nu_i
+\delta_i
 &amp;= Y_i- \mu(x_i)
-&amp;&amp; \text{(definition of $\nu_i$)}\\
-\nu_i+ \mu(x_i)
+&amp;&amp; \text{(definition of $\delta_i$)}\\
+\delta_i+ \mu(x_i)
 &amp;= Y_i- \mu(x_i) + \mu(x_i)
 &amp;&amp; \text{(add $\mu(x_i)$ to both sides)}\\
-\nu_i+ \mu(x_i)
+\delta_i+ \mu(x_i)
 &amp;= Y_i+ \mathopen{}\left(-\mu(x_i)\right)\mathclose{} + \mu(x_i)
 &amp;&amp; \text{(subtracting is adding the negative)}\\
-\nu_i+ \mu(x_i)
+\delta_i+ \mu(x_i)
 &amp;= Y_i+ \mathopen{}\left(-\mu(x_i) + \mu(x_i)\right)\mathclose{}
 &amp;&amp; \text{(group the last two terms)}\\
-\nu_i+ \mu(x_i)
+\delta_i+ \mu(x_i)
 &amp;= Y_i+ 0
 &amp;&amp; \text{($-a + a = 0$)}\\
-\nu_i+ \mu(x_i)
+\delta_i+ \mu(x_i)
 &amp;= Y_i
 &amp;&amp; \text{($a + 0 = a$)}\\
 Y_i
-&amp;= \nu_i+ \mu(x_i)
+&amp;= \delta_i+ \mu(x_i)
 &amp;&amp; \text{(swap the two sides)}\\
 Y_i
-&amp;= \mu(x_i) + \nu_i
+&amp;= \mu(x_i) + \delta_i
 &amp;&amp; \text{(reorder the terms)}\\
 Y_i
-&amp;= \mu_i+ \nu_i
+&amp;= \mu_i+ \delta_i
 &amp;&amp; \text{(definition of $\mu_i$)}
 \end{aligned}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="thm-slr-additive" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2 (Additive form of the conditional Gaussian model)</strong></span> In a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>), each outcome is its conditional mean plus its deviation (<a href="#/def-slr-deviation" class="quarto-xref">Definition&nbsp;5</a>):</p>
-<p><span class="math display">\[Y_i= \mu_i+ \nu_i.\]</span></p>
+<p><span class="math display">\[Y_i= \mu_i+ \delta_i.\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-slr-additive" class="quarto-xref">Exercise&nbsp;1</a>.</p>
@@ -587,15 +587,15 @@ Y_i
 <p><span class="theorem-title"><strong>Exercise 2 (Distribution of the deviations)</strong></span> Find the joint distribution of the deviations (<a href="#/def-slr-deviation" class="quarto-xref">Definition&nbsp;5</a>) in a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>), given the covariate values.</p>
 </div>
 </section><section class="slide level2"><div id="sol-slr-deviation-dist" class="proof solution">
-<p><span class="proof-title"><em>Solution 2</em>. </span>Every probability, CDF and density in this solution is <a href="https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf">conditional</a> on <span class="math inline">\(X_i= x_i\)</span>; the condition is left out of the notation to keep the lines short. Write <span class="math inline">\(F_{\nu}\)</span> and <span class="math inline">\(f_{\nu}\)</span> for the CDF and density of <span class="math inline">\(\nu_i\)</span>, and <span class="math inline">\(F_Y\)</span> and <span class="math inline">\(f_Y\)</span> for those of <span class="math inline">\(Y_i\)</span>.</p>
-<p>First, the CDF of <span class="math inline">\(\nu_i\)</span>:</p>
+<p><span class="proof-title"><em>Solution 2</em>. </span>Every probability, CDF and density in this solution is <a href="https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf">conditional</a> on <span class="math inline">\(X_i= x_i\)</span>; the condition is left out of the notation to keep the lines short. Write <span class="math inline">\(F_{\delta}\)</span> and <span class="math inline">\(f_{\delta}\)</span> for the CDF and density of <span class="math inline">\(\delta_i\)</span>, and <span class="math inline">\(F_Y\)</span> and <span class="math inline">\(f_Y\)</span> for those of <span class="math inline">\(Y_i\)</span>.</p>
+<p>First, the CDF of <span class="math inline">\(\delta_i\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-F_{\nu}(t)
-&amp;= {\Pr\mathopen{}\left(\nu_i\le t\right)\mathclose{}}
+F_{\delta}(t)
+&amp;= {\Pr\mathopen{}\left(\delta_i\le t\right)\mathclose{}}
 &amp;&amp; \text{(definition of a CDF)}\\
 &amp;= {\Pr\mathopen{}\left(Y_i- \mu(x_i) \le t\right)\mathclose{}}
-&amp;&amp; \text{(definition of $\nu_i$)}\\
+&amp;&amp; \text{(definition of $\delta_i$)}\\
 &amp;= {\Pr\mathopen{}\left(Y_i- \mu_i\le t\right)\mathclose{}}
 &amp;&amp; \text{(definition of $\mu_i$)}\\
 &amp;= {\Pr\mathopen{}\left(Y_i\le t + \mu_i\right)\mathclose{}}
@@ -608,11 +608,11 @@ F_{\nu}(t)
 <p>Differentiating gives the density:</p>
 <p><span class="math display">\[
 \begin{aligned}
-f_{\nu}(t)
-&amp;= \frac{\partial}{\partial t} F_{\nu}(t)
+f_{\delta}(t)
+&amp;= \frac{\partial}{\partial t} F_{\delta}(t)
 &amp;&amp; \text{(a density is the derivative of its CDF)}\\
 &amp;= \frac{\partial}{\partial t} F_Y(t + \mu_i)
-&amp;&amp; \text{(CDF of $\nu_i$)}\\
+&amp;&amp; \text{(CDF of $\delta_i$)}\\
 &amp;= f_Y(t + \mu_i) \frac{\partial}{\partial t} (t + \mu_i)
 &amp;&amp; \text{(chain rule)}
 \end{aligned}
@@ -633,7 +633,7 @@ f_{\nu}(t)
 <p>Plugging the inner derivative back in, and using the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-normal">Gaussian density</a> of <span class="math inline">\(Y_i\)</span>, which has mean <span class="math inline">\(\mu_i= \mu(x_i)\)</span> and variance <span class="math inline">\(\sigma^2_i\)</span> (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>):</p>
 <p><span class="math display">\[
 \begin{aligned}
-f_{\nu}(t)
+f_{\delta}(t)
 &amp;= f_Y(t + \mu_i) \cdot 1
 &amp;&amp; \text{(inner derivative is 1)}\\
 &amp;= f_Y(t + \mu_i)
@@ -646,25 +646,25 @@ f_{\nu}(t)
 &amp;&amp; \text{(subtract)}
 \end{aligned}
 \]</span></p>
-<p>The last line is the density of <span class="math inline">\({\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\)</span>, so <span class="math inline">\(\nu_i\mid X_i= x_i\sim {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\)</span>.</p>
+<p>The last line is the density of <span class="math inline">\({\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\)</span>, so <span class="math inline">\(\delta_i\mid X_i= x_i\sim {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\)</span>.</p>
 <hr>
-<p>For independence, factor the joint CDF of <span class="math inline">\(\nu_1, \ldots, \nu_n\)</span>, using the same CDF step as above for each <span class="math inline">\(i\)</span> and the independence of the <span class="math inline">\(Y_i\)</span> given the covariates (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>):</p>
+<p>For independence, factor the joint CDF of <span class="math inline">\(\delta_1, \ldots, \delta_n\)</span>, using the same CDF step as above for each <span class="math inline">\(i\)</span> and the independence of the <span class="math inline">\(Y_i\)</span> given the covariates (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>):</p>
 <p><span class="math display">\[
 \begin{aligned}
-{\Pr\mathopen{}\left(\nu_1 \le t_1, \ldots, \nu_n \le t_n\right)\mathclose{}}
+{\Pr\mathopen{}\left(\delta_1 \le t_1, \ldots, \delta_n \le t_n\right)\mathclose{}}
 &amp;= {\Pr\mathopen{}\left(Y_1 \le t_1 + \mu_1, \ldots, Y_n \le t_n + \mu_n\right)\mathclose{}}
 &amp;&amp; \text{(add $\mu_i$ to both sides of each inequality)}\\
 &amp;= \prod_{i=1}^n{\Pr\mathopen{}\left(Y_i\le t_i + \mu_i\right)\mathclose{}}
 &amp;&amp; \text{(the $Y_i$ are independent)}\\
-&amp;= \prod_{i=1}^n{\Pr\mathopen{}\left(\nu_i\le t_i\right)\mathclose{}}
+&amp;= \prod_{i=1}^n{\Pr\mathopen{}\left(\delta_i\le t_i\right)\mathclose{}}
 &amp;&amp; \text{(subtract $\mu_i$ from both sides of each inequality)}
 \end{aligned}
 \]</span></p>
-<p>The joint CDF is the product of the marginal CDFs, so <span class="math inline">\(\nu_1, \ldots, \nu_n\)</span> are independent. Given the covariate values, the deviations are therefore independent, with <span class="math inline">\(\nu_i\mid X_i= x_i\ \sim_{\perp\!\!\!\perp}\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\)</span>.</p>
+<p>The joint CDF is the product of the marginal CDFs, so <span class="math inline">\(\delta_1, \ldots, \delta_n\)</span> are independent. Given the covariate values, the deviations are therefore independent, with <span class="math inline">\(\delta_i\mid X_i= x_i\ \sim_{\perp\!\!\!\perp}\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="thm-slr-deviation-dist" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3 (Distribution of the deviations)</strong></span> In a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>), given the covariates, the deviations (<a href="#/def-slr-deviation" class="quarto-xref">Definition&nbsp;5</a>) are independent and Gaussian with mean 0 and variance <span class="math inline">\(\sigma^2_i\)</span>:</p>
-<p><span class="math display">\[\nu_i\mid X_i= x_i\ \sim_{\perp\!\!\!\perp}\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}.\]</span></p>
+<p><span class="math display">\[\delta_i\mid X_i= x_i\ \sim_{\perp\!\!\!\perp}\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-slr-deviation-dist" class="quarto-xref">Exercise&nbsp;2</a>.</p>
@@ -676,10 +676,10 @@ f_{\nu}(t)
 </div>
 </section><section class="slide level2"><div id="cor-homoskedastic-deviations" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 1 (Deviations in a homoskedastic model)</strong></span> In a homoskedastic model (<a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a>), the deviations (<a href="#/def-slr-deviation" class="quarto-xref">Definition&nbsp;5</a>) all have the same variance <span class="math inline">\(\sigma^2\)</span>:</p>
-<p><span class="math display">\[\nu_i\mid X_i= x_i\ \sim_{\perp\!\!\!\perp}\ {\operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}}.\]</span></p>
+<p><span class="math display">\[\delta_i\mid X_i= x_i\ \sim_{\perp\!\!\!\perp}\ {\operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/thm-slr-deviation-dist" class="quarto-xref">Theorem&nbsp;3</a>, <span class="math inline">\(\nu_i\mid X_i= x_i\ \sim_{\perp\!\!\!\perp}\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\)</span>, and <a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a> sets <span class="math inline">\(\sigma^2_i= \sigma^2\)</span> for all <span class="math inline">\(i\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/thm-slr-deviation-dist" class="quarto-xref">Theorem&nbsp;3</a>, <span class="math inline">\(\delta_i\mid X_i= x_i\ \sim_{\perp\!\!\!\perp}\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\)</span>, and <a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a> sets <span class="math inline">\(\sigma^2_i= \sigma^2\)</span> for all <span class="math inline">\(i\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-linear-regression" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Linear regression model)</strong></span> A <strong>linear regression model</strong> is a homoskedastic (<a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a>) conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>) whose mean function is linear in <span class="math inline">\(p\)</span> covariates, where observation <span class="math inline">\(i\)</span> has covariate values <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i= (x_{i1}, \ldots, x_{ip})\)</span>:</p>
@@ -704,9 +704,9 @@ f_{\nu}(t)
 <span class="header-section-number">3.2</span> Ordinary least squares estimation</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-rss div. -->
 <div id="def-rss" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 11 (Residual sum of squares)</strong></span> For a regression model whose conditional mean <span class="math inline">\(\mu(x; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\)</span> depends on a parameter vector <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>, the <strong>residual sum of squares</strong> at <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> is the sum of the squared residuals <span class="math inline">\(r_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}y_i- \mu(x_i; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\)</span> that the model has when its parameters equal <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>:</p>
-<p><span class="math display">\[\text{RSS}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}\sum_{i=1}^nr_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})^2.\]</span></p>
-<p>At the estimate <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span>, <span class="math inline">\(r_i(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})\)</span> is the <a href="./prediction.html#def-residual">residual</a> <span class="math inline">\(r_i\)</span> of the fitted model.</p>
+<p><span class="theorem-title"><strong>Definition 11 (Residual sum of squares)</strong></span> For a regression model whose conditional mean <span class="math inline">\(\mu(x; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\)</span> depends on a parameter vector <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>, the <strong>residual sum of squares</strong> at <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> is the sum of the squared residuals <span class="math inline">\(\hat{\varepsilon}_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}y_i- \mu(x_i; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\)</span> that the model has when its parameters equal <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>:</p>
+<p><span class="math display">\[\text{RSS}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}\sum_{i=1}^n\hat{\varepsilon}_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})^2.\]</span></p>
+<p>At the estimate <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span>, <span class="math inline">\(\hat{\varepsilon}_i(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})\)</span> is the <a href="./prediction.html#def-residual">residual</a> <span class="math inline">\(\hat{\varepsilon}_i\)</span> of the fitted model.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_residual_sum_of_squares">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-rss-slr" class="theorem example">
@@ -714,10 +714,10 @@ f_{\nu}(t)
 <p><span class="math display">\[
 \begin{aligned}
 \text{RSS}(\beta_{0}, \beta_{x})
-&amp;= \sum_{i=1}^nr_i(\beta_{0}, \beta_{x})^2
+&amp;= \sum_{i=1}^n\hat{\varepsilon}_i(\beta_{0}, \beta_{x})^2
 &amp;&amp; \text{(definition of RSS)}\\
 &amp;= \sum_{i=1}^n\mathopen{}\left(y_i- \mu(x_i; \beta_{0}, \beta_{x})\right)\mathclose{}^2
-&amp;&amp; \text{(definition of $r_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})$)}\\
+&amp;&amp; \text{(definition of $\hat{\varepsilon}_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})$)}\\
 &amp;= \sum_{i=1}^n\mathopen{}\left(y_i- (\beta_{0}+ \beta_{x} x_i)\right)\mathclose{}^2
 &amp;&amp; \text{(definition of $\mu(x)$)}\\
 &amp;= \sum_{i=1}^n(y_i- \beta_{0}- \beta_{x} x_i)^2
@@ -769,16 +769,16 @@ Figure&nbsp;2: The three points, the line with intercept 1 and slope 0.5, and th
 <p><span class="proof-title"><em>Solution 3</em>. </span>First, each squared <a href="./prediction.html#def-prediction-error">prediction error</a> equals the squared residual at <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\varepsilon_i^2
+{\varepsilon_{\text{pred}}}_i^2
 &amp;= (\hat y_i- y_i)^2
 &amp;&amp; \text{(definition of prediction error)}\\
 &amp;= \mathopen{}\left(\mu(x_i; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) - y_i\right)\mathclose{}^2
 &amp;&amp; \text{(definition of $\hat y_i$)}\\
 &amp;= \mathopen{}\left(-\mathopen{}\left(y_i- \mu(x_i; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\right)\mathclose{}\right)\mathclose{}^2
 &amp;&amp; \text{(factor out $-1$)}\\
-&amp;= \mathopen{}\left(-r_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\right)\mathclose{}^2
-&amp;&amp; \text{(definition of $r_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})$)}\\
-&amp;= r_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})^2
+&amp;= \mathopen{}\left(-\hat{\varepsilon}_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\right)\mathclose{}^2
+&amp;&amp; \text{(definition of $\hat{\varepsilon}_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})$)}\\
+&amp;= \hat{\varepsilon}_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})^2
 &amp;&amp; \text{($(-a)^2 = a^2$)}
 \end{aligned}
 \]</span></p>
@@ -787,10 +787,10 @@ Figure&nbsp;2: The three points, the line with intercept 1 and slope 0.5, and th
 <p><span class="math display">\[
 \begin{aligned}
 {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}
-&amp;= \frac{1}{n}\sum_{i=1}^n\varepsilon_i^2
+&amp;= \frac{1}{n}\sum_{i=1}^n{\varepsilon_{\text{pred}}}_i^2
 &amp;&amp; \text{(definition of sMSE)}\\
-&amp;= \frac{1}{n}\sum_{i=1}^nr_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})^2
-&amp;&amp; \text{($\varepsilon_i^2 = r_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})^2$)}\\
+&amp;= \frac{1}{n}\sum_{i=1}^n\hat{\varepsilon}_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})^2
+&amp;&amp; \text{(${\varepsilon_{\text{pred}}}_i^2 = \hat{\varepsilon}_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})^2$)}\\
 &amp;= \frac{1}{n} \text{RSS}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})
 &amp;&amp; \text{(definition of RSS)}
 \end{aligned}
@@ -851,8 +851,8 @@ n \, {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}
 <span id="cb7-20"><a aria-label="20"></a>  ) <span class="sc">+</span></span>
 <span id="cb7-21"><a aria-label="21"></a>  ggplot2<span class="sc">::</span><span class="fu">annotate</span>(<span class="st">"point"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="fl">0.5</span>, <span class="at">shape =</span> <span class="dv">4</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb7-22"><a aria-label="22"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
-<span id="cb7-23"><a aria-label="23"></a>    <span class="at">x =</span> <span class="fu">expression</span>(beta[<span class="dv">0</span>]),</span>
-<span id="cb7-24"><a aria-label="24"></a>    <span class="at">y =</span> <span class="fu">expression</span>(beta[x]),</span>
+<span id="cb7-23"><a aria-label="23"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="st">"Intercept, "</span> <span class="sc">*</span> beta[<span class="dv">0</span>]),</span>
+<span id="cb7-24"><a aria-label="24"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="st">"Slope, "</span> <span class="sc">*</span> beta[x]),</span>
 <span id="cb7-25"><a aria-label="25"></a>    <span class="at">color =</span> <span class="st">"RSS"</span></span>
 <span id="cb7-26"><a aria-label="26"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a></span>
@@ -891,35 +891,35 @@ Figure&nbsp;3: Contours of <span class="math inline">\(\text{RSS}(\beta_{0}, \be
 <p><span class="theorem-title"><strong>Definition 14 (Centered sums of squares)</strong></span> For data <span class="math inline">\((x_1, y_1), \ldots, (x_n, y_n)\)</span>, the <strong>centered sums of squares</strong> of the <span class="math inline">\(x_i\)</span> and of the <span class="math inline">\(y_i\)</span> are</p>
 <p><span class="math display">\[
 \begin{aligned}
-S_{xx}&amp;\stackrel{\text{def}}{=}\sum_{i=1}^n(x_i- \bar{x})^2, &amp;
-S_{yy}&amp;\stackrel{\text{def}}{=}\sum_{i=1}^n(y_i- \bar{y})^2.
+S_{xx}&amp;\stackrel{\text{def}}{=}\sum_{i=1}^n(x_i- {\bar{x}})^2, &amp;
+S_{yy}&amp;\stackrel{\text{def}}{=}\sum_{i=1}^n(y_i- {\bar{y}})^2.
 \end{aligned}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-centered-cross-product" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 15 (Centered sum of cross-products)</strong></span> For the data of <a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>, the <strong>centered sum of cross-products</strong> is</p>
 <p><span class="math display">\[
-S_{xy}\stackrel{\text{def}}{=}\sum_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}).
+S_{xy}\stackrel{\text{def}}{=}\sum_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}).
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="exr-sum-deviations-zero" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4 (Summing the deviations from the sample mean)</strong></span> Find <span class="math inline">\(\sum_{i=1}^n(x_i- \bar{x})\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 4 (Summing the deviations from the sample mean)</strong></span> Find <span class="math inline">\(\sum_{i=1}^n(x_i- {\bar{x}})\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-sum-deviations-zero" class="proof solution">
 <p><span class="proof-title"><em>Solution 4</em>. </span><span class="math display">\[
 \begin{aligned}
-\sum_{i=1}^n(x_i- \bar{x})
-&amp;= \sum_{i=1}^nx_i- \sum_{i=1}^n\bar{x}
-&amp;&amp; \text{(split the sum)}\\
-&amp;= \sum_{i=1}^nx_i- n \bar{x}
+\sum_{i=1}^n(x_i- {\bar{x}})
+&amp;= \sum_{i=1}^nx_i- \sum_{i=1}^n{\bar{x}}
+&amp;&amp; \text{(distribute the sum over the terms)}\\
+&amp;= \sum_{i=1}^nx_i- n {\bar{x}}
 &amp;&amp; \text{(sum of a constant)}\\
-&amp;= n \bar{x}- n \bar{x}
-&amp;&amp; \text{($\sum_{i=1}^nx_i= n \bar{x}$)}\\
+&amp;= n {\bar{x}}- n {\bar{x}}
+&amp;&amp; \text{($\sum_{i=1}^nx_i= n {\bar{x}}$)}\\
 &amp;= 0
 &amp;&amp; \text{(subtract)}
 \end{aligned}
 \]</span></p>
-<p>The same steps with <span class="math inline">\(y_i\)</span> in place of <span class="math inline">\(x_i\)</span> show that <span class="math inline">\(\sum_{i=1}^n(y_i- \bar{y}) = 0\)</span>.</p>
+<p>The same steps with <span class="math inline">\(y_i\)</span> in place of <span class="math inline">\(x_i\)</span> show that <span class="math inline">\(\sum_{i=1}^n(y_i- {\bar{y}}) = 0\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="lem-sum-deviations-zero" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 1 (Deviations from the sample mean sum to zero)</strong></span> For any data <span class="math inline">\(z_1, \ldots, z_n\)</span> with sample mean <span class="math inline">\(\bar{z}\)</span> (for example, the <span class="math inline">\(x_i\)</span> or the <span class="math inline">\(y_i\)</span>), the deviations from the sample mean sum to zero:</p>
@@ -929,40 +929,40 @@ S_{xy}\stackrel{\text{def}}{=}\sum_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}).
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-sum-deviations-zero" class="quarto-xref">Exercise&nbsp;4</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-sxx-expand" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5 (Expanding the centered sum of squares)</strong></span> Expand the centered sum of squares <span class="math inline">\(S_{xx}\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>) into an expression in terms of <span class="math inline">\(n\)</span>, <span class="math inline">\(\sum_{i=1}^nx_i^2\)</span> and <span class="math inline">\(\bar{x}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 5 (Expanding the centered sum of squares)</strong></span> Expand the centered sum of squares <span class="math inline">\(S_{xx}\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>) into an expression in terms of <span class="math inline">\(n\)</span>, <span class="math inline">\(\sum_{i=1}^nx_i^2\)</span> and <span class="math inline">\({\bar{x}}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-sxx-expand" class="proof solution">
 <p><span class="proof-title"><em>Solution 5</em>. </span><span class="math display">\[
 \begin{aligned}
 S_{xx}
-&amp;= \sum_{i=1}^n(x_i- \bar{x})^2
+&amp;= \sum_{i=1}^n(x_i- {\bar{x}})^2
 &amp;&amp; \text{(definition of $S_{xx}$)}\\
-&amp;= \sum_{i=1}^n\mathopen{}\left(x_i^2 - 2 \bar{x}x_i+ \bar{x}^2\right)\mathclose{}
+&amp;= \sum_{i=1}^n\mathopen{}\left(x_i^2 - 2 {\bar{x}}x_i+ {\bar{x}}^2\right)\mathclose{}
 &amp;&amp; \text{(expand the square)}\\
-&amp;= \sum_{i=1}^nx_i^2 - \sum_{i=1}^n2 \bar{x}x_i+ \sum_{i=1}^n\bar{x}^2
-&amp;&amp; \text{(split the sum)}\\
-&amp;= \sum_{i=1}^nx_i^2 - 2 \bar{x}\sum_{i=1}^nx_i+ \sum_{i=1}^n\bar{x}^2
+&amp;= \sum_{i=1}^nx_i^2 - \sum_{i=1}^n2 {\bar{x}}x_i+ \sum_{i=1}^n{\bar{x}}^2
+&amp;&amp; \text{(distribute the sum over the terms)}\\
+&amp;= \sum_{i=1}^nx_i^2 - 2 {\bar{x}}\sum_{i=1}^nx_i+ \sum_{i=1}^n{\bar{x}}^2
 &amp;&amp; \text{(constant factor out of the sum)}\\
-&amp;= \sum_{i=1}^nx_i^2 - 2 \bar{x}\sum_{i=1}^nx_i+ n \bar{x}^2
+&amp;= \sum_{i=1}^nx_i^2 - 2 {\bar{x}}\sum_{i=1}^nx_i+ n {\bar{x}}^2
 &amp;&amp; \text{(sum of a constant)}\\
-&amp;= \sum_{i=1}^nx_i^2 - 2 \bar{x}\cdot n \bar{x}+ n \bar{x}^2
-&amp;&amp; \text{($\sum_{i=1}^nx_i= n \bar{x}$)}\\
-&amp;= \sum_{i=1}^nx_i^2 - 2 n \bar{x}^2 + n \bar{x}^2
+&amp;= \sum_{i=1}^nx_i^2 - 2 {\bar{x}}\cdot n {\bar{x}}+ n {\bar{x}}^2
+&amp;&amp; \text{($\sum_{i=1}^nx_i= n {\bar{x}}$)}\\
+&amp;= \sum_{i=1}^nx_i^2 - 2 n {\bar{x}}^2 + n {\bar{x}}^2
 &amp;&amp; \text{(multiply)}\\
-&amp;= \sum_{i=1}^nx_i^2 - n \bar{x}^2
-&amp;&amp; \text{(collect the $\bar{x}^2$ terms)}
+&amp;= \sum_{i=1}^nx_i^2 - n {\bar{x}}^2
+&amp;&amp; \text{(collect the ${\bar{x}}^2$ terms)}
 \end{aligned}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="lem-sxx-expand" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 2 (Expanded centered sum of squares)</strong></span> The centered sum of squares <span class="math inline">\(S_{xx}\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>) equals</p>
-<p><span class="math display">\[S_{xx}= \sum_{i=1}^nx_i^2 - n \bar{x}^2.\]</span></p>
+<p><span class="math display">\[S_{xx}= \sum_{i=1}^nx_i^2 - n {\bar{x}}^2.\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-sxx-expand" class="quarto-xref">Exercise&nbsp;5</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-rss-deriv-intercept" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6 (Derivative of RSS with respect to the intercept)</strong></span> Find the partial derivative of the simple linear regression residual sum of squares <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>) with respect to the intercept, <span class="math inline">\(\partial \text{RSS} / \partial \beta_{0}\)</span>, and write it in terms of <span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(\bar{y}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 6 (Derivative of RSS with respect to the intercept)</strong></span> Find the partial derivative of the simple linear regression residual sum of squares <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>) with respect to the intercept, <span class="math inline">\(\partial \text{RSS} / \partial \beta_{0}\)</span>, and write it in terms of <span class="math inline">\({\bar{x}}\)</span> and <span class="math inline">\({\bar{y}}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-rss-deriv-intercept" class="proof solution">
 <p><span class="proof-title"><em>Solution 6</em>. </span>Differentiate one operation at a time, starting from the definition (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>):</p>
@@ -1003,15 +1003,15 @@ S_{xx}
 &amp;= -2 \sum_{i=1}^n(y_i- \beta_{0}- \beta_{x} x_i)
 &amp;&amp; \text{(constant factor out of the sum)}\\
 &amp;= -2 \mathopen{}\left(\sum_{i=1}^ny_i- \sum_{i=1}^n\beta_{0}- \sum_{i=1}^n\beta_{x} x_i\right)\mathclose{}
-&amp;&amp; \text{(split the sum)}\\
+&amp;&amp; \text{(distribute the sum over the terms)}\\
 &amp;= -2 \mathopen{}\left(\sum_{i=1}^ny_i- n \beta_{0}- \sum_{i=1}^n\beta_{x} x_i\right)\mathclose{}
 &amp;&amp; \text{(sum of a constant)}\\
 &amp;= -2 \mathopen{}\left(\sum_{i=1}^ny_i- n \beta_{0}- \beta_{x} \sum_{i=1}^nx_i\right)\mathclose{}
 &amp;&amp; \text{(constant factor out of the sum)}\\
-&amp;= -2 \mathopen{}\left(n \bar{y}- n \beta_{0}- \beta_{x} \sum_{i=1}^nx_i\right)\mathclose{}
-&amp;&amp; \text{($\sum_{i=1}^ny_i= n \bar{y}$)}\\
-&amp;= -2 \mathopen{}\left(n \bar{y}- n \beta_{0}- \beta_{x} n \bar{x}\right)\mathclose{}
-&amp;&amp; \text{($\sum_{i=1}^nx_i= n \bar{x}$)}
+&amp;= -2 \mathopen{}\left(n {\bar{y}}- n \beta_{0}- \beta_{x} \sum_{i=1}^nx_i\right)\mathclose{}
+&amp;&amp; \text{($\sum_{i=1}^ny_i= n {\bar{y}}$)}\\
+&amp;= -2 \mathopen{}\left(n {\bar{y}}- n \beta_{0}- \beta_{x} n {\bar{x}}\right)\mathclose{}
+&amp;&amp; \text{($\sum_{i=1}^nx_i= n {\bar{x}}$)}
 \end{aligned}
 \]</span></p>
 </div>
@@ -1019,7 +1019,7 @@ S_{xx}
 <p><span class="theorem-title"><strong>Lemma 3 (Derivative of RSS with respect to the intercept)</strong></span> The partial derivative of the simple linear regression residual sum of squares <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>) with respect to the intercept is</p>
 <p><span class="math display">\[\frac{\partial \text{RSS}}{\partial \beta_{0}}
 = -2 \sum_{i=1}^n(y_i- \beta_{0}- \beta_{x} x_i)
-= -2 \mathopen{}\left(n \bar{y}- n \beta_{0}- \beta_{x} n \bar{x}\right)\mathclose{}.\]</span></p>
+= -2 \mathopen{}\left(n {\bar{y}}- n \beta_{0}- \beta_{x} n {\bar{x}}\right)\mathclose{}.\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-rss-deriv-intercept" class="quarto-xref">Exercise&nbsp;6</a>.</p>
@@ -1083,13 +1083,13 @@ S_{xx}
 <p><span class="proof-title"><em>Solution 8</em>. </span><strong>First normal equation.</strong> Set the derivative from <a href="#/exr-rss-deriv-intercept" class="quarto-xref">Exercise&nbsp;6</a> to zero, then isolate <span class="math inline">\(\beta_{0}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-0 &amp;= -2 \mathopen{}\left(n \bar{y}- n \beta_{0}- \beta_{x} n \bar{x}\right)\mathclose{}
+0 &amp;= -2 \mathopen{}\left(n {\bar{y}}- n \beta_{0}- \beta_{x} n {\bar{x}}\right)\mathclose{}
 &amp;&amp; \text{(first normal equation)}\\
-0 &amp;= n \bar{y}- n \beta_{0}- \beta_{x} n \bar{x}
+0 &amp;= n {\bar{y}}- n \beta_{0}- \beta_{x} n {\bar{x}}
 &amp;&amp; \text{(divide both sides by $-2$)}\\
-0 &amp;= \bar{y}- \beta_{0}- \beta_{x} \bar{x}
+0 &amp;= {\bar{y}}- \beta_{0}- \beta_{x} {\bar{x}}
 &amp;&amp; \text{(divide both sides by $n$)}\\
-\beta_{0}&amp;= \bar{y}- \beta_{x} \bar{x}
+\beta_{0}&amp;= {\bar{y}}- \beta_{x} {\bar{x}}
 &amp;&amp; \text{(add $\beta_{0}$ to both sides)}
 \end{aligned}
 \]</span></p>
@@ -1100,25 +1100,25 @@ S_{xx}
 \frac{\partial \text{RSS}}{\partial \beta_{x}}
 &amp;= -2 \sum_{i=1}^nx_i(y_i- \beta_{0}- \beta_{x} x_i)
 &amp;&amp; \text{(derivative with respect to $\beta_{x}$)}\\
-&amp;= -2 \sum_{i=1}^nx_i\mathopen{}\left(y_i- (\bar{y}- \beta_{x} \bar{x}) - \beta_{x} x_i\right)\mathclose{}
+&amp;= -2 \sum_{i=1}^nx_i\mathopen{}\left(y_i- ({\bar{y}}- \beta_{x} {\bar{x}}) - \beta_{x} x_i\right)\mathclose{}
 &amp;&amp; \text{(substitute $\beta_{0}$)}\\
-&amp;= -2 \sum_{i=1}^nx_i\mathopen{}\left(y_i- \bar{y}+ \beta_{x} \bar{x}- \beta_{x} x_i\right)\mathclose{}
+&amp;= -2 \sum_{i=1}^nx_i\mathopen{}\left(y_i- {\bar{y}}+ \beta_{x} {\bar{x}}- \beta_{x} x_i\right)\mathclose{}
 &amp;&amp; \text{(remove the inner parentheses)}\\
-&amp;= -2 \sum_{i=1}^nx_i\mathopen{}\left((y_i- \bar{y}) - (\beta_{x} x_i- \beta_{x} \bar{x})\right)\mathclose{}
+&amp;= -2 \sum_{i=1}^nx_i\mathopen{}\left((y_i- {\bar{y}}) - (\beta_{x} x_i- \beta_{x} {\bar{x}})\right)\mathclose{}
 &amp;&amp; \text{(group terms)}\\
-&amp;= -2 \sum_{i=1}^nx_i\mathopen{}\left((y_i- \bar{y}) - \beta_{x} (x_i- \bar{x})\right)\mathclose{}
+&amp;= -2 \sum_{i=1}^nx_i\mathopen{}\left((y_i- {\bar{y}}) - \beta_{x} (x_i- {\bar{x}})\right)\mathclose{}
 &amp;&amp; \text{(factor out $\beta_{x}$)}
 \end{aligned}
 \]</span></p>
-<p>To shorten the next steps, write <span class="math inline">\(d_i \stackrel{\text{def}}{=}(y_i- \bar{y}) - \beta_{x} (x_i- \bar{x})\)</span>, so that <span class="math inline">\(\partial \text{RSS} / \partial \beta_{x} = -2 \sum_{i=1}^nx_id_i\)</span>. The <span class="math inline">\(d_i\)</span> sum to zero, because deviations from a sample mean sum to zero (<a href="#/exr-sum-deviations-zero" class="quarto-xref">Exercise&nbsp;4</a>):</p>
+<p>To shorten the next steps, write <span class="math inline">\(d_i \stackrel{\text{def}}{=}(y_i- {\bar{y}}) - \beta_{x} (x_i- {\bar{x}})\)</span>, so that <span class="math inline">\(\partial \text{RSS} / \partial \beta_{x} = -2 \sum_{i=1}^nx_id_i\)</span>. The <span class="math inline">\(d_i\)</span> sum to zero, because deviations from a sample mean sum to zero (<a href="#/exr-sum-deviations-zero" class="quarto-xref">Exercise&nbsp;4</a>):</p>
 <p><span class="math display">\[
 \begin{aligned}
 \sum_{i=1}^nd_i
-&amp;= \sum_{i=1}^n\mathopen{}\left((y_i- \bar{y}) - \beta_{x} (x_i- \bar{x})\right)\mathclose{}
+&amp;= \sum_{i=1}^n\mathopen{}\left((y_i- {\bar{y}}) - \beta_{x} (x_i- {\bar{x}})\right)\mathclose{}
 &amp;&amp; \text{(definition of $d_i$)}\\
-&amp;= \sum_{i=1}^n(y_i- \bar{y}) - \sum_{i=1}^n\beta_{x} (x_i- \bar{x})
-&amp;&amp; \text{(split the sum)}\\
-&amp;= \sum_{i=1}^n(y_i- \bar{y}) - \beta_{x} \sum_{i=1}^n(x_i- \bar{x})
+&amp;= \sum_{i=1}^n(y_i- {\bar{y}}) - \sum_{i=1}^n\beta_{x} (x_i- {\bar{x}})
+&amp;&amp; \text{(distribute the sum over the terms)}\\
+&amp;= \sum_{i=1}^n(y_i- {\bar{y}}) - \beta_{x} \sum_{i=1}^n(x_i- {\bar{x}})
 &amp;&amp; \text{(constant factor out of the sum)}\\
 &amp;= 0 - \beta_{x} \cdot 0
 &amp;&amp; \text{(deviations sum to zero)}\\
@@ -1129,25 +1129,25 @@ S_{xx}
 \end{aligned}
 \]</span></p>
 <hr>
-<p>So subtracting <span class="math inline">\(\bar{x}\sum_{i=1}^nd_i\)</span> from <span class="math inline">\(\sum_{i=1}^nx_id_i\)</span> does not change it:</p>
+<p>So subtracting <span class="math inline">\({\bar{x}}\sum_{i=1}^nd_i\)</span> from <span class="math inline">\(\sum_{i=1}^nx_id_i\)</span> does not change it:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \sum_{i=1}^nx_id_i
-&amp;= \sum_{i=1}^nx_id_i - \bar{x}\sum_{i=1}^nd_i
+&amp;= \sum_{i=1}^nx_id_i - {\bar{x}}\sum_{i=1}^nd_i
 &amp;&amp; \text{($\sum_{i=1}^nd_i = 0$)}\\
-&amp;= \sum_{i=1}^nx_id_i - \sum_{i=1}^n\bar{x}d_i
+&amp;= \sum_{i=1}^nx_id_i - \sum_{i=1}^n{\bar{x}}d_i
 &amp;&amp; \text{(constant factor into the sum)}\\
-&amp;= \sum_{i=1}^n(x_i- \bar{x}) d_i
+&amp;= \sum_{i=1}^n(x_i- {\bar{x}}) d_i
 &amp;&amp; \text{(combine the sums)}\\
-&amp;= \sum_{i=1}^n(x_i- \bar{x}) \mathopen{}\left((y_i- \bar{y}) - \beta_{x} (x_i- \bar{x})\right)\mathclose{}
+&amp;= \sum_{i=1}^n(x_i- {\bar{x}}) \mathopen{}\left((y_i- {\bar{y}}) - \beta_{x} (x_i- {\bar{x}})\right)\mathclose{}
 &amp;&amp; \text{(definition of $d_i$)}\\
-&amp;= \sum_{i=1}^n\mathopen{}\left((x_i- \bar{x})(y_i- \bar{y}) - \beta_{x} (x_i- \bar{x})^2\right)\mathclose{}
+&amp;= \sum_{i=1}^n\mathopen{}\left((x_i- {\bar{x}})(y_i- {\bar{y}}) - \beta_{x} (x_i- {\bar{x}})^2\right)\mathclose{}
 &amp;&amp; \text{(distribute)}\\
-&amp;= \sum_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) - \sum_{i=1}^n\beta_{x} (x_i- \bar{x})^2
-&amp;&amp; \text{(split the sum)}\\
-&amp;= \sum_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) - \beta_{x} \sum_{i=1}^n(x_i- \bar{x})^2
+&amp;= \sum_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}) - \sum_{i=1}^n\beta_{x} (x_i- {\bar{x}})^2
+&amp;&amp; \text{(distribute the sum over the terms)}\\
+&amp;= \sum_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}) - \beta_{x} \sum_{i=1}^n(x_i- {\bar{x}})^2
 &amp;&amp; \text{(constant factor out of the sum)}\\
-&amp;= S_{xy}- \beta_{x} \sum_{i=1}^n(x_i- \bar{x})^2
+&amp;= S_{xy}- \beta_{x} \sum_{i=1}^n(x_i- {\bar{x}})^2
 &amp;&amp; \text{(definition of $S_{xy}$)}\\
 &amp;= S_{xy}- \beta_{x} S_{xx}
 &amp;&amp; \text{(definition of $S_{xx}$)}
@@ -1166,12 +1166,12 @@ S_{xx}
 &amp;&amp; \text{(divide both sides by $S_{xx}&gt; 0$)}
 \end{aligned}
 \]</span></p>
-<p>So the normal equations have exactly one solution: <span class="math inline">\(\beta_{x} = S_{xy}/ S_{xx}\)</span> and <span class="math inline">\(\beta_{0}= \bar{y}- \beta_{x} \bar{x}\)</span>.</p>
+<p>So the normal equations have exactly one solution: <span class="math inline">\(\beta_{x} = S_{xy}/ S_{xx}\)</span> and <span class="math inline">\(\beta_{0}= {\bar{y}}- \beta_{x} {\bar{x}}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="lem-solve-normal-equations" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 5 (Solution of the normal equations)</strong></span> If <span class="math inline">\(S_{xx}&gt; 0\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>), the normal equations of <a href="#/exm-normal-equations-slr" class="quarto-xref">Example&nbsp;6</a> have exactly one solution:</p>
 <p><span class="math display">\[\beta_{x} = \frac{S_{xy}}{S_{xx}},
-\qquad \beta_{0}= \bar{y}- \beta_{x} \bar{x}.\]</span></p>
+\qquad \beta_{0}= {\bar{y}}- \beta_{x} {\bar{x}}.\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-solve-normal-equations" class="quarto-xref">Exercise&nbsp;8</a>.</p>
@@ -1182,17 +1182,17 @@ S_{xx}
 </section><section class="slide level2"><div id="sol-rss-hessian" class="proof solution">
 <p><span class="proof-title"><em>Solution 9</em>. </span>Differentiate each first derivative again.</p>
 <p><strong>Derivatives of <span class="math inline">\(\partial \text{RSS} / \partial \beta_{0}\)</span>.</strong> By <a href="#/exr-rss-deriv-intercept" class="quarto-xref">Exercise&nbsp;6</a>, <span class="math inline">\(\partial \text{RSS} / \partial \beta_{0}
-= -2 \mathopen{}\left(n \bar{y}- n \beta_{0}- \beta_{x} n \bar{x}\right)\mathclose{}\)</span>. Differentiating with respect to <span class="math inline">\(\beta_{0}\)</span>:</p>
+= -2 \mathopen{}\left(n {\bar{y}}- n \beta_{0}- \beta_{x} n {\bar{x}}\right)\mathclose{}\)</span>. Differentiating with respect to <span class="math inline">\(\beta_{0}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \frac{\partial^2 \text{RSS}}{\partial \beta_{0}^2}
 &amp;= -2 \frac{\partial}{\partial \beta_{0}}
-  \mathopen{}\left(n \bar{y}- n \beta_{0}- \beta_{x} n \bar{x}\right)\mathclose{}
+  \mathopen{}\left(n {\bar{y}}- n \beta_{0}- \beta_{x} n {\bar{x}}\right)\mathclose{}
 &amp;&amp; \text{(constant factor)}\\
 &amp;= -2 \mathopen{}\left(
-  \frac{\partial (n \bar{y})}{\partial \beta_{0}}
+  \frac{\partial (n {\bar{y}})}{\partial \beta_{0}}
   - \frac{\partial (n \beta_{0})}{\partial \beta_{0}}
-  - \frac{\partial (\beta_{x} n \bar{x})}{\partial \beta_{0}}\right)\mathclose{}
+  - \frac{\partial (\beta_{x} n {\bar{x}})}{\partial \beta_{0}}\right)\mathclose{}
 &amp;&amp; \text{(derivative of a sum)}\\
 &amp;= -2 (0 - n - 0)
 &amp;&amp; \text{(differentiate each term)}\\
@@ -1207,18 +1207,18 @@ S_{xx}
 \begin{aligned}
 \frac{\partial^2 \text{RSS}}{\partial \beta_{x} \, \partial \beta_{0}}
 &amp;= -2 \frac{\partial}{\partial \beta_{x}}
-  \mathopen{}\left(n \bar{y}- n \beta_{0}- \beta_{x} n \bar{x}\right)\mathclose{}
+  \mathopen{}\left(n {\bar{y}}- n \beta_{0}- \beta_{x} n {\bar{x}}\right)\mathclose{}
 &amp;&amp; \text{(constant factor)}\\
 &amp;= -2 \mathopen{}\left(
-  \frac{\partial (n \bar{y})}{\partial \beta_{x}}
+  \frac{\partial (n {\bar{y}})}{\partial \beta_{x}}
   - \frac{\partial (n \beta_{0})}{\partial \beta_{x}}
-  - \frac{\partial (\beta_{x} n \bar{x})}{\partial \beta_{x}}\right)\mathclose{}
+  - \frac{\partial (\beta_{x} n {\bar{x}})}{\partial \beta_{x}}\right)\mathclose{}
 &amp;&amp; \text{(derivative of a sum)}\\
-&amp;= -2 (0 - 0 - n \bar{x})
+&amp;= -2 (0 - 0 - n {\bar{x}})
 &amp;&amp; \text{(differentiate each term)}\\
-&amp;= -2 (-n \bar{x})
+&amp;= -2 (-n {\bar{x}})
 &amp;&amp; \text{(drop the zeros)}\\
-&amp;= 2 n \bar{x}
+&amp;= 2 n {\bar{x}}
 &amp;&amp; \text{(multiply)}
 \end{aligned}
 \]</span></p>
@@ -1242,8 +1242,8 @@ S_{xx}
 &amp;&amp; \text{(constant factor out of the sum)}\\
 &amp;= 2 \sum_{i=1}^nx_i
 &amp;&amp; \text{(multiply)}\\
-&amp;= 2 n \bar{x}
-&amp;&amp; \text{($\sum_{i=1}^nx_i= n \bar{x}$)}
+&amp;= 2 n {\bar{x}}
+&amp;&amp; \text{($\sum_{i=1}^nx_i= n {\bar{x}}$)}
 \end{aligned}
 \]</span></p>
 <p>Differentiating with respect to <span class="math inline">\(\beta_{x}\)</span>, and reusing the inner derivative <span class="math inline">\(-x_i\)</span> from <a href="#/exr-rss-deriv-slope" class="quarto-xref">Exercise&nbsp;7</a>:</p>
@@ -1269,17 +1269,17 @@ S_{xx}
 <hr>
 <p><strong>The matrix.</strong> Collecting the four second derivatives, the matrix of second derivatives is</p>
 <p><span class="math display">\[
-\begin{pmatrix} 2n &amp; 2 n \bar{x}\\ 2 n \bar{x}&amp; 2 \sum_{i=1}^nx_i^2 \end{pmatrix}.
+\begin{pmatrix} 2n &amp; 2 n {\bar{x}}\\ 2 n {\bar{x}}&amp; 2 \sum_{i=1}^nx_i^2 \end{pmatrix}.
 \]</span></p>
 <p>Its top-left entry, <span class="math inline">\(2n\)</span>, is positive. Its determinant, using the expanded form of <span class="math inline">\(S_{xx}\)</span> from <a href="#/exr-sxx-expand" class="quarto-xref">Exercise&nbsp;5</a>, is</p>
 <p><span class="math display">\[
 \begin{aligned}
-\det \begin{pmatrix} 2n &amp; 2 n \bar{x}\\ 2 n \bar{x}&amp; 2 \sum_{i=1}^nx_i^2 \end{pmatrix}
-&amp;= (2n) \mathopen{}\left(2 \sum_{i=1}^nx_i^2\right)\mathclose{} - (2 n \bar{x}) (2 n \bar{x})
+\det \begin{pmatrix} 2n &amp; 2 n {\bar{x}}\\ 2 n {\bar{x}}&amp; 2 \sum_{i=1}^nx_i^2 \end{pmatrix}
+&amp;= (2n) \mathopen{}\left(2 \sum_{i=1}^nx_i^2\right)\mathclose{} - (2 n {\bar{x}}) (2 n {\bar{x}})
 &amp;&amp; \text{($2 \times 2$ determinant)}\\
-&amp;= 4 n \sum_{i=1}^nx_i^2 - 4 n^2 \bar{x}^2
+&amp;= 4 n \sum_{i=1}^nx_i^2 - 4 n^2 {\bar{x}}^2
 &amp;&amp; \text{(multiply)}\\
-&amp;= 4 n \mathopen{}\left(\sum_{i=1}^nx_i^2 - n \bar{x}^2\right)\mathclose{}
+&amp;= 4 n \mathopen{}\left(\sum_{i=1}^nx_i^2 - n {\bar{x}}^2\right)\mathclose{}
 &amp;&amp; \text{(factor out $4n$)}\\
 &amp;= 4 n S_{xx}
 &amp;&amp; \text{(expanded form of $S_{xx}$)}
@@ -1289,7 +1289,7 @@ S_{xx}
 </div>
 </section><section class="slide level2"><div id="lem-rss-hessian" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 6 (Second derivatives of RSS)</strong></span> The matrix of second derivatives of <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>) with respect to <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{x}\)</span> is positive definite at every <span class="math inline">\((\beta_{0}, \beta_{x})\)</span> when <span class="math inline">\(S_{xx}&gt; 0\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>), and equals</p>
-<p><span class="math display">\[\begin{pmatrix} 2n &amp; 2 n \bar{x}\\ 2 n \bar{x}&amp; 2 \sum_{i=1}^nx_i^2 \end{pmatrix}.\]</span></p>
+<p><span class="math display">\[\begin{pmatrix} 2n &amp; 2 n {\bar{x}}\\ 2 n {\bar{x}}&amp; 2 \sum_{i=1}^nx_i^2 \end{pmatrix}.\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-rss-hessian" class="quarto-xref">Exercise&nbsp;9</a>.</p>
@@ -1297,10 +1297,10 @@ S_{xx}
 </section><section class="slide level2"><div id="thm-ols-slr" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 5 (Closed-form OLS estimates)</strong></span> Suppose <span class="math inline">\(S_{xx}&gt; 0\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>), that is, not all <span class="math inline">\(x_i\)</span> are equal. Then the OLS estimates (<a href="#/exm-ols-slr" class="quarto-xref">Example&nbsp;5</a>) are unique, and</p>
 <p><span class="math display">\[\hat{\beta}_{x} = \frac{S_{xy}}{S_{xx}},
-\qquad \hat{\beta}_{0}= \bar{y}- \hat{\beta}_{x} \bar{x}.\]</span></p>
+\qquad \hat{\beta}_{0}= {\bar{y}}- \hat{\beta}_{x} {\bar{x}}.\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><span class="math inline">\(\text{RSS}\)</span> is differentiable, so any point that minimizes it solves the <a href="#/def-normal-equations">normal equations</a>. By <a href="#/lem-solve-normal-equations" class="quarto-xref">Lemma&nbsp;5</a>, the normal equations have exactly one solution, <span class="math inline">\(\beta_{x} = S_{xy}/ S_{xx}\)</span> and <span class="math inline">\(\beta_{0}= \bar{y}- \beta_{x} \bar{x}\)</span>. By <a href="#/lem-rss-hessian" class="quarto-xref">Lemma&nbsp;6</a>, the matrix of second derivatives of <span class="math inline">\(\text{RSS}\)</span> is positive definite at every point, so <span class="math inline">\(\text{RSS}\)</span> is strictly convex and its only stationary point is its unique global minimum. So the OLS estimates exist, are unique, and equal that solution.</p>
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math inline">\(\text{RSS}\)</span> is differentiable, so any point that minimizes it solves the <a href="#/def-normal-equations">normal equations</a>. By <a href="#/lem-solve-normal-equations" class="quarto-xref">Lemma&nbsp;5</a>, the normal equations have exactly one solution, <span class="math inline">\(\beta_{x} = S_{xy}/ S_{xx}\)</span> and <span class="math inline">\(\beta_{0}= {\bar{y}}- \beta_{x} {\bar{x}}\)</span>. By <a href="#/lem-rss-hessian" class="quarto-xref">Lemma&nbsp;6</a>, the matrix of second derivatives of <span class="math inline">\(\text{RSS}\)</span> is positive definite at every point, so <span class="math inline">\(\text{RSS}\)</span> is strictly convex and its only stationary point is its unique global minimum. So the OLS estimates exist, are unique, and equal that solution.</p>
 </div>
 </section><section class="slide level2"><p>The same estimates follow from a derivation in vector notation, which treats <span class="math inline">\((\beta_{0}, \beta_{x})\)</span> as a single vector instead of differentiating with respect to each component separately.</p>
 <div id="def-slr-covariate-vector" class="theorem definition">
@@ -1508,8 +1508,8 @@ A
 &amp;&amp; \text{(matrices add entrywise)}\\
 &amp;= \begin{pmatrix} n &amp; \sum_{i=1}^nx_i\\ \sum_{i=1}^nx_i&amp; \sum_{i=1}^nx_i^2 \end{pmatrix}
 &amp;&amp; \text{(sum of a constant)}\\
-&amp;= \begin{pmatrix} n &amp; n\bar{x}\\ n\bar{x}&amp; \sum_{i=1}^nx_i^2 \end{pmatrix}
-&amp;&amp; \text{($\sum_{i=1}^nx_i= n \bar{x}$)}
+&amp;= \begin{pmatrix} n &amp; n{\bar{x}}\\ n{\bar{x}}&amp; \sum_{i=1}^nx_i^2 \end{pmatrix}
+&amp;&amp; \text{($\sum_{i=1}^nx_i= n {\bar{x}}$)}
 \end{aligned}
 \]</span></p>
 <p><span class="math display">\[
@@ -1521,158 +1521,158 @@ A
 &amp;&amp; \text{(scalar times a vector)}\\
 &amp;= \begin{pmatrix} \sum_{i=1}^ny_i\\ \sum_{i=1}^nx_iy_i\end{pmatrix}
 &amp;&amp; \text{(vectors add entrywise)}\\
-&amp;= \begin{pmatrix} n\bar{y}\\ \sum_{i=1}^nx_iy_i\end{pmatrix}
-&amp;&amp; \text{($\sum_{i=1}^ny_i= n \bar{y}$)}
+&amp;= \begin{pmatrix} n{\bar{y}}\\ \sum_{i=1}^nx_iy_i\end{pmatrix}
+&amp;&amp; \text{($\sum_{i=1}^ny_i= n {\bar{y}}$)}
 \end{aligned}
 \]</span></p>
 <p>The determinant of <span class="math inline">\(A\)</span> is</p>
 <p><span class="math display">\[
 \begin{aligned}
 \det A
-&amp;= n \sum_{i=1}^nx_i^2 - \mathopen{}\left(n\bar{x}\right)\mathclose{} \mathopen{}\left(n\bar{x}\right)\mathclose{}
+&amp;= n \sum_{i=1}^nx_i^2 - \mathopen{}\left(n{\bar{x}}\right)\mathclose{} \mathopen{}\left(n{\bar{x}}\right)\mathclose{}
 &amp;&amp; \text{(determinant of a $2 \times 2$ matrix)}\\
-&amp;= n \sum_{i=1}^nx_i^2 - n^2 \bar{x}^2
+&amp;= n \sum_{i=1}^nx_i^2 - n^2 {\bar{x}}^2
 &amp;&amp; \text{(multiply)}\\
-&amp;= n \mathopen{}\left(\sum_{i=1}^nx_i^2 - n \bar{x}^2\right)\mathclose{}
+&amp;= n \mathopen{}\left(\sum_{i=1}^nx_i^2 - n {\bar{x}}^2\right)\mathclose{}
 &amp;&amp; \text{(factor out $n$)}\\
 &amp;= n S_{xx}
 &amp;&amp; \text{(expansion of $S_{xx}$)}
 \end{aligned}
 \]</span></p>
 <p>where the last step uses <a href="#/exr-sxx-expand" class="quarto-xref">Exercise&nbsp;5</a>. Since <span class="math inline">\(n &gt; 0\)</span> and <span class="math inline">\(S_{xx}&gt; 0\)</span>, <span class="math inline">\(\det A &gt; 0\)</span>, so <span class="math inline">\(A\)</span> is invertible, and <span class="math inline">\(A \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}\)</span> has exactly one solution, <span class="math inline">\(A^{-1} \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}\)</span>.</p>
-<p>To simplify <span class="math inline">\(A^{-1} \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}\)</span>, we need two expansions of uncentered sums. Adding <span class="math inline">\(n \bar{x}^2\)</span> to both sides of <a href="#/exr-sxx-expand" class="quarto-xref">Exercise&nbsp;5</a> gives <span class="math inline">\(\sum_{i=1}^nx_i^2 = S_{xx}+ n \bar{x}^2\)</span>. The cross-product sum expands the same way:</p>
+<p>To simplify <span class="math inline">\(A^{-1} \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}\)</span>, we need two expansions of uncentered sums. Adding <span class="math inline">\(n {\bar{x}}^2\)</span> to both sides of <a href="#/exr-sxx-expand" class="quarto-xref">Exercise&nbsp;5</a> gives <span class="math inline">\(\sum_{i=1}^nx_i^2 = S_{xx}+ n {\bar{x}}^2\)</span>. The cross-product sum expands the same way:</p>
 <p><span class="math display">\[
 \begin{aligned}
 S_{xy}
-&amp;= \sum_{i=1}^n(x_i- \bar{x})(y_i- \bar{y})
+&amp;= \sum_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}})
 &amp;&amp; \text{(definition of $S_{xy}$)}\\
-&amp;= \sum_{i=1}^n\mathopen{}\left(x_iy_i- x_i\bar{y}- \bar{x}y_i+ \bar{x}\bar{y}\right)\mathclose{}
+&amp;= \sum_{i=1}^n\mathopen{}\left(x_iy_i- x_i{\bar{y}}- {\bar{x}}y_i+ {\bar{x}}{\bar{y}}\right)\mathclose{}
 &amp;&amp; \text{(expand the product)}\\
-&amp;= \sum_{i=1}^nx_iy_i- \sum_{i=1}^nx_i\bar{y}- \sum_{i=1}^n\bar{x}y_i+ \sum_{i=1}^n\bar{x}\bar{y}
+&amp;= \sum_{i=1}^nx_iy_i- \sum_{i=1}^nx_i{\bar{y}}- \sum_{i=1}^n{\bar{x}}y_i+ \sum_{i=1}^n{\bar{x}}{\bar{y}}
 &amp;&amp; \text{(sum of a sum)}\\
-&amp;= \sum_{i=1}^nx_iy_i- \bar{y}\sum_{i=1}^nx_i- \sum_{i=1}^n\bar{x}y_i+ \sum_{i=1}^n\bar{x}\bar{y}
+&amp;= \sum_{i=1}^nx_iy_i- {\bar{y}}\sum_{i=1}^nx_i- \sum_{i=1}^n{\bar{x}}y_i+ \sum_{i=1}^n{\bar{x}}{\bar{y}}
 &amp;&amp; \text{(constant factor out of the sum)}\\
-&amp;= \sum_{i=1}^nx_iy_i- \bar{y}\sum_{i=1}^nx_i- \bar{x}\sum_{i=1}^ny_i+ \sum_{i=1}^n\bar{x}\bar{y}
+&amp;= \sum_{i=1}^nx_iy_i- {\bar{y}}\sum_{i=1}^nx_i- {\bar{x}}\sum_{i=1}^ny_i+ \sum_{i=1}^n{\bar{x}}{\bar{y}}
 &amp;&amp; \text{(constant factor out of the sum)}\\
-&amp;= \sum_{i=1}^nx_iy_i- \bar{y}\sum_{i=1}^nx_i- \bar{x}\sum_{i=1}^ny_i+ n \bar{x}\bar{y}
+&amp;= \sum_{i=1}^nx_iy_i- {\bar{y}}\sum_{i=1}^nx_i- {\bar{x}}\sum_{i=1}^ny_i+ n {\bar{x}}{\bar{y}}
 &amp;&amp; \text{(sum of a constant)}\\
-&amp;= \sum_{i=1}^nx_iy_i- \bar{y}\mathopen{}\left(n \bar{x}\right)\mathclose{} - \bar{x}\sum_{i=1}^ny_i+ n \bar{x}\bar{y}
-&amp;&amp; \text{($\sum_{i=1}^nx_i= n \bar{x}$)}\\
-&amp;= \sum_{i=1}^nx_iy_i- \bar{y}\mathopen{}\left(n \bar{x}\right)\mathclose{} - \bar{x}\mathopen{}\left(n \bar{y}\right)\mathclose{} + n \bar{x}\bar{y}
-&amp;&amp; \text{($\sum_{i=1}^ny_i= n \bar{y}$)}\\
-&amp;= \sum_{i=1}^nx_iy_i- n \bar{x}\bar{y}- n \bar{x}\bar{y}+ n \bar{x}\bar{y}
+&amp;= \sum_{i=1}^nx_iy_i- {\bar{y}}\mathopen{}\left(n {\bar{x}}\right)\mathclose{} - {\bar{x}}\sum_{i=1}^ny_i+ n {\bar{x}}{\bar{y}}
+&amp;&amp; \text{($\sum_{i=1}^nx_i= n {\bar{x}}$)}\\
+&amp;= \sum_{i=1}^nx_iy_i- {\bar{y}}\mathopen{}\left(n {\bar{x}}\right)\mathclose{} - {\bar{x}}\mathopen{}\left(n {\bar{y}}\right)\mathclose{} + n {\bar{x}}{\bar{y}}
+&amp;&amp; \text{($\sum_{i=1}^ny_i= n {\bar{y}}$)}\\
+&amp;= \sum_{i=1}^nx_iy_i- n {\bar{x}}{\bar{y}}- n {\bar{x}}{\bar{y}}+ n {\bar{x}}{\bar{y}}
 &amp;&amp; \text{(reorder the factors)}\\
-&amp;= \sum_{i=1}^nx_iy_i- n \bar{x}\bar{y}
+&amp;= \sum_{i=1}^nx_iy_i- n {\bar{x}}{\bar{y}}
 &amp;&amp; \text{(combine like terms)}
 \end{aligned}
 \]</span></p>
-<p>Adding <span class="math inline">\(n \bar{x}\bar{y}\)</span> to both sides gives <span class="math inline">\(\sum_{i=1}^nx_iy_i= S_{xy}+ n \bar{x}\bar{y}\)</span>. Now compute the solution:</p>
+<p>Adding <span class="math inline">\(n {\bar{x}}{\bar{y}}\)</span> to both sides gives <span class="math inline">\(\sum_{i=1}^nx_iy_i= S_{xy}+ n {\bar{x}}{\bar{y}}\)</span>. Now compute the solution:</p>
 <p><span class="math display">\[
 \begin{aligned}
 A^{-1} \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}
 &amp;= \frac{1}{\det A}
-  \begin{pmatrix} \sum_{i=1}^nx_i^2 &amp; -n\bar{x}\\ -n\bar{x}&amp; n \end{pmatrix}
+  \begin{pmatrix} \sum_{i=1}^nx_i^2 &amp; -n{\bar{x}}\\ -n{\bar{x}}&amp; n \end{pmatrix}
   \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}
 &amp;&amp; \text{(inverse of a $2 \times 2$ matrix)}\\
 &amp;= \frac{1}{n S_{xx}}
-  \begin{pmatrix} \sum_{i=1}^nx_i^2 &amp; -n\bar{x}\\ -n\bar{x}&amp; n \end{pmatrix}
+  \begin{pmatrix} \sum_{i=1}^nx_i^2 &amp; -n{\bar{x}}\\ -n{\bar{x}}&amp; n \end{pmatrix}
   \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}
 &amp;&amp; \text{($\det A = n S_{xx}$)}\\
 &amp;= \frac{1}{n S_{xx}}
-  \begin{pmatrix} \sum_{i=1}^nx_i^2 &amp; -n\bar{x}\\ -n\bar{x}&amp; n \end{pmatrix}
-  \begin{pmatrix} n\bar{y}\\ \sum_{i=1}^nx_iy_i\end{pmatrix}
+  \begin{pmatrix} \sum_{i=1}^nx_i^2 &amp; -n{\bar{x}}\\ -n{\bar{x}}&amp; n \end{pmatrix}
+  \begin{pmatrix} n{\bar{y}}\\ \sum_{i=1}^nx_iy_i\end{pmatrix}
 &amp;&amp; \text{(substitute $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}$)}\\
 &amp;= \frac{1}{n S_{xx}}
   \begin{pmatrix}
-  \sum_{i=1}^nx_i^2 \cdot n\bar{y}+ \mathopen{}\left(-n\bar{x}\right)\mathclose{} \sum_{i=1}^nx_iy_i\\
-  \mathopen{}\left(-n\bar{x}\right)\mathclose{} \cdot n\bar{y}+ n \sum_{i=1}^nx_iy_i
+  \sum_{i=1}^nx_i^2 \cdot n{\bar{y}}+ \mathopen{}\left(-n{\bar{x}}\right)\mathclose{} \sum_{i=1}^nx_iy_i\\
+  \mathopen{}\left(-n{\bar{x}}\right)\mathclose{} \cdot n{\bar{y}}+ n \sum_{i=1}^nx_iy_i
   \end{pmatrix}
 &amp;&amp; \text{(matrix times a vector)}\\
 &amp;= \frac{1}{n S_{xx}}
   \begin{pmatrix}
-  n \bar{y}\sum_{i=1}^nx_i^2 - n \bar{x}\sum_{i=1}^nx_iy_i\\
-  -n^2 \bar{x}\bar{y}+ n \sum_{i=1}^nx_iy_i
+  n {\bar{y}}\sum_{i=1}^nx_i^2 - n {\bar{x}}\sum_{i=1}^nx_iy_i\\
+  -n^2 {\bar{x}}{\bar{y}}+ n \sum_{i=1}^nx_iy_i
   \end{pmatrix}
 &amp;&amp; \text{(multiply out the products)}\\
 &amp;= \frac{1}{n S_{xx}} \, n
   \begin{pmatrix}
-  \bar{y}\sum_{i=1}^nx_i^2 - \bar{x}\sum_{i=1}^nx_iy_i\\
-  -n \bar{x}\bar{y}+ \sum_{i=1}^nx_iy_i
+  {\bar{y}}\sum_{i=1}^nx_i^2 - {\bar{x}}\sum_{i=1}^nx_iy_i\\
+  -n {\bar{x}}{\bar{y}}+ \sum_{i=1}^nx_iy_i
   \end{pmatrix}
 &amp;&amp; \text{(factor $n$ out of the vector)}\\
 &amp;= \frac{1}{S_{xx}}
   \begin{pmatrix}
-  \bar{y}\sum_{i=1}^nx_i^2 - \bar{x}\sum_{i=1}^nx_iy_i\\
-  -n \bar{x}\bar{y}+ \sum_{i=1}^nx_iy_i
+  {\bar{y}}\sum_{i=1}^nx_i^2 - {\bar{x}}\sum_{i=1}^nx_iy_i\\
+  -n {\bar{x}}{\bar{y}}+ \sum_{i=1}^nx_iy_i
   \end{pmatrix}
 &amp;&amp; \text{(cancel $n$)}\\
 &amp;= \frac{1}{S_{xx}}
   \begin{pmatrix}
-  \bar{y}\sum_{i=1}^nx_i^2 - \bar{x}\sum_{i=1}^nx_iy_i\\
-  \sum_{i=1}^nx_iy_i- n \bar{x}\bar{y}
+  {\bar{y}}\sum_{i=1}^nx_i^2 - {\bar{x}}\sum_{i=1}^nx_iy_i\\
+  \sum_{i=1}^nx_iy_i- n {\bar{x}}{\bar{y}}
   \end{pmatrix}
 &amp;&amp; \text{(reorder the terms of the second entry)}\\
 &amp;= \frac{1}{S_{xx}}
   \begin{pmatrix}
-  \bar{y}\mathopen{}\left(S_{xx}+ n\bar{x}^2\right)\mathclose{} - \bar{x}\sum_{i=1}^nx_iy_i\\
-  \sum_{i=1}^nx_iy_i- n \bar{x}\bar{y}
+  {\bar{y}}\mathopen{}\left(S_{xx}+ n{\bar{x}}^2\right)\mathclose{} - {\bar{x}}\sum_{i=1}^nx_iy_i\\
+  \sum_{i=1}^nx_iy_i- n {\bar{x}}{\bar{y}}
   \end{pmatrix}
-&amp;&amp; \text{($\sum_{i=1}^nx_i^2 = S_{xx}+ n\bar{x}^2$)}\\
+&amp;&amp; \text{($\sum_{i=1}^nx_i^2 = S_{xx}+ n{\bar{x}}^2$)}\\
 &amp;= \frac{1}{S_{xx}}
   \begin{pmatrix}
-  \bar{y}\mathopen{}\left(S_{xx}+ n\bar{x}^2\right)\mathclose{} - \bar{x}\mathopen{}\left(S_{xy}+ n\bar{x}\bar{y}\right)\mathclose{} \\
-  \mathopen{}\left(S_{xy}+ n\bar{x}\bar{y}\right)\mathclose{} - n \bar{x}\bar{y}
+  {\bar{y}}\mathopen{}\left(S_{xx}+ n{\bar{x}}^2\right)\mathclose{} - {\bar{x}}\mathopen{}\left(S_{xy}+ n{\bar{x}}{\bar{y}}\right)\mathclose{} \\
+  \mathopen{}\left(S_{xy}+ n{\bar{x}}{\bar{y}}\right)\mathclose{} - n {\bar{x}}{\bar{y}}
   \end{pmatrix}
-&amp;&amp; \text{($\sum_{i=1}^nx_iy_i= S_{xy}+ n\bar{x}\bar{y}$)}\\
+&amp;&amp; \text{($\sum_{i=1}^nx_iy_i= S_{xy}+ n{\bar{x}}{\bar{y}}$)}\\
 &amp;= \frac{1}{S_{xx}}
   \begin{pmatrix}
-  \bar{y}S_{xx}+ \bar{y}n\bar{x}^2 - \bar{x}S_{xy}- \bar{x}n\bar{x}\bar{y}\\
-  S_{xy}+ n\bar{x}\bar{y}- n \bar{x}\bar{y}
+  {\bar{y}}S_{xx}+ {\bar{y}}n{\bar{x}}^2 - {\bar{x}}S_{xy}- {\bar{x}}n{\bar{x}}{\bar{y}}\\
+  S_{xy}+ n{\bar{x}}{\bar{y}}- n {\bar{x}}{\bar{y}}
   \end{pmatrix}
 &amp;&amp; \text{(distribute)}\\
 &amp;= \frac{1}{S_{xx}}
   \begin{pmatrix}
-  \bar{y}S_{xx}+ n\bar{x}^2\bar{y}- \bar{x}S_{xy}- n\bar{x}\bar{x}\bar{y}\\
-  S_{xy}+ n\bar{x}\bar{y}- n \bar{x}\bar{y}
+  {\bar{y}}S_{xx}+ n{\bar{x}}^2{\bar{y}}- {\bar{x}}S_{xy}- n{\bar{x}}{\bar{x}}{\bar{y}}\\
+  S_{xy}+ n{\bar{x}}{\bar{y}}- n {\bar{x}}{\bar{y}}
   \end{pmatrix}
 &amp;&amp; \text{(reorder the factors)}\\
 &amp;= \frac{1}{S_{xx}}
   \begin{pmatrix}
-  \bar{y}S_{xx}+ n\bar{x}^2\bar{y}- \bar{x}S_{xy}- n\bar{x}^2\bar{y}\\
-  S_{xy}+ n\bar{x}\bar{y}- n \bar{x}\bar{y}
+  {\bar{y}}S_{xx}+ n{\bar{x}}^2{\bar{y}}- {\bar{x}}S_{xy}- n{\bar{x}}^2{\bar{y}}\\
+  S_{xy}+ n{\bar{x}}{\bar{y}}- n {\bar{x}}{\bar{y}}
   \end{pmatrix}
-&amp;&amp; \text{($\bar{x}\bar{x}= \bar{x}^2$)}\\
+&amp;&amp; \text{(${\bar{x}}{\bar{x}}= {\bar{x}}^2$)}\\
 &amp;= \frac{1}{S_{xx}}
   \begin{pmatrix}
-  \bar{y}S_{xx}- \bar{x}S_{xy}\\
-  S_{xy}+ n\bar{x}\bar{y}- n \bar{x}\bar{y}
+  {\bar{y}}S_{xx}- {\bar{x}}S_{xy}\\
+  S_{xy}+ n{\bar{x}}{\bar{y}}- n {\bar{x}}{\bar{y}}
   \end{pmatrix}
-&amp;&amp; \text{(first entry: cancel $\pm n\bar{x}^2\bar{y}$)}\\
+&amp;&amp; \text{(first entry: cancel $\pm n{\bar{x}}^2{\bar{y}}$)}\\
 &amp;= \frac{1}{S_{xx}}
   \begin{pmatrix}
-  \bar{y}S_{xx}- \bar{x}S_{xy}\\
+  {\bar{y}}S_{xx}- {\bar{x}}S_{xy}\\
   S_{xy}
   \end{pmatrix}
-&amp;&amp; \text{(second entry: cancel $\pm n\bar{x}\bar{y}$)}\\
+&amp;&amp; \text{(second entry: cancel $\pm n{\bar{x}}{\bar{y}}$)}\\
 &amp;= \begin{pmatrix}
-  \bar{y}S_{xx}/ S_{xx}- \bar{x}\, S_{xy}/ S_{xx}\\
+  {\bar{y}}S_{xx}/ S_{xx}- {\bar{x}}\, S_{xy}/ S_{xx}\\
   S_{xy}/ S_{xx}
   \end{pmatrix}
 &amp;&amp; \text{(multiply each entry by $1 / S_{xx}$)}\\
 &amp;= \begin{pmatrix}
-  \bar{y}- \bar{x}\, S_{xy}/ S_{xx}\\
+  {\bar{y}}- {\bar{x}}\, S_{xy}/ S_{xx}\\
   S_{xy}/ S_{xx}
   \end{pmatrix}
 &amp;&amp; \text{(cancel $S_{xx}$)}
 \end{aligned}
 \]</span></p>
-<p>Its entries are <span class="math inline">\(\beta_{0}= \bar{y}- \beta_{x} \bar{x}\)</span> and <span class="math inline">\(\beta_{x} = S_{xy}/ S_{xx}\)</span>, the same solution as <a href="#/exr-solve-normal-equations" class="quarto-xref">Exercise&nbsp;8</a>.</p>
+<p>Its entries are <span class="math inline">\(\beta_{0}= {\bar{y}}- \beta_{x} {\bar{x}}\)</span> and <span class="math inline">\(\beta_{x} = S_{xy}/ S_{xx}\)</span>, the same solution as <a href="#/exr-solve-normal-equations" class="quarto-xref">Exercise&nbsp;8</a>.</p>
 </div>
 </section><section class="slide level2"><div id="lem-solve-normal-equations-vector" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 10 (Solution of the normal equations in vector notation)</strong></span> If <span class="math inline">\(S_{xx}&gt; 0\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>), the matrix <span class="math inline">\(A = \sum_{i=1}^n\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i {\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i}^{\top}\)</span> is invertible, and the normal equations <span class="math inline">\(A \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}\)</span> with <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}} = \sum_{i=1}^n\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_iy_i\)</span> (<a href="#/lem-normal-equations-vector" class="quarto-xref">Lemma&nbsp;9</a>) have exactly one solution,</p>
 <p><span class="math display">\[
 \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}= A^{-1} \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}
-= \begin{pmatrix} \bar{y}- \beta_{x} \bar{x}\\ S_{xy}/ S_{xx}\end{pmatrix}
+= \begin{pmatrix} {\bar{y}}- \beta_{x} {\bar{x}}\\ S_{xy}/ S_{xx}\end{pmatrix}
 \quad \text{with} \quad \beta_{x} = \frac{S_{xy}}{S_{xx}},
 \]</span></p>
 <p>the same solution as <a href="#/lem-solve-normal-equations" class="quarto-xref">Lemma&nbsp;5</a>.</p>
@@ -1943,7 +1943,7 @@ Figure&nbsp;4: Fasting glucose against BMI in HERS, with the OLS line
 <!-- No slidebreak here: the heading shares its slide with the def-tss div. -->
 <div id="def-tss" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 17 (Total sum of squares)</strong></span> The <strong>total sum of squares</strong> of <span class="math inline">\(y_1, \ldots, y_n\)</span> is</p>
-<p><span class="math display">\[\text{TSS} \stackrel{\text{def}}{=}\sum_{i=1}^n(y_i- \bar{y})^2.\]</span></p>
+<p><span class="math display">\[\text{TSS} \stackrel{\text{def}}{=}\sum_{i=1}^n(y_i- {\bar{y}})^2.\]</span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_total_sum_of_squares">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[13]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-tss" class="theorem example">
@@ -1969,49 +1969,49 @@ Figure&nbsp;4: Fasting glucose against BMI in HERS, with the OLS line
 <p><span class="proof-title"><em>Remark 6</em> (Interpreting the coefficient of determination). </span><span class="math inline">\(R^2\)</span> is often described as the proportion of the variation in <span class="math inline">\(Y\)</span> explained by the regression on <span class="math inline">\(X\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-rss-ols-fit" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 16 (Residual sum of squares of the OLS fit)</strong></span> Assuming <span class="math inline">\(S_{xx}&gt; 0\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>), write the <a href="#/def-rss">residual sum of squares</a> at the OLS estimates (<a href="#/thm-ols-slr" class="quarto-xref">Theorem&nbsp;5</a>), <span class="math inline">\(\text{RSS}(\hat{\beta}_{0}, \hat{\beta}_{x}) = \sum_{i=1}^nr_i^2\)</span>, in terms of <span class="math inline">\(S_{xx}\)</span>, <span class="math inline">\(S_{yy}\)</span> and <span class="math inline">\(S_{xy}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 16 (Residual sum of squares of the OLS fit)</strong></span> Assuming <span class="math inline">\(S_{xx}&gt; 0\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>), write the <a href="#/def-rss">residual sum of squares</a> at the OLS estimates (<a href="#/thm-ols-slr" class="quarto-xref">Theorem&nbsp;5</a>), <span class="math inline">\(\text{RSS}(\hat{\beta}_{0}, \hat{\beta}_{x}) = \sum_{i=1}^n\hat{\varepsilon}_i^2\)</span>, in terms of <span class="math inline">\(S_{xx}\)</span>, <span class="math inline">\(S_{yy}\)</span> and <span class="math inline">\(S_{xy}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-rss-ols-fit" class="proof solution">
 <p><span class="proof-title"><em>Solution 16</em>. </span>The <a href="./prediction.html#def-fitted-value">fitted values</a> of the OLS fit are <span class="math inline">\(\hat y_i= \hat{\beta}_{0}+ \hat{\beta}_{x} x_i\)</span>, so each <a href="./prediction.html#def-residual">residual</a> is</p>
 <p><span class="math display">\[
 \begin{aligned}
-r_i
+\hat{\varepsilon}_i
 &amp;= y_i- \hat y_i
 &amp;&amp; \text{(definition of a residual)}\\
 &amp;= y_i- \mathopen{}\left(\hat{\beta}_{0}+ \hat{\beta}_{x} x_i\right)\mathclose{}
 &amp;&amp; \text{(substitute $\hat y_i$)}\\
-&amp;= y_i- \mathopen{}\left(\bar{y}- \hat{\beta}_{x} \bar{x}+ \hat{\beta}_{x} x_i\right)\mathclose{}
+&amp;= y_i- \mathopen{}\left({\bar{y}}- \hat{\beta}_{x} {\bar{x}}+ \hat{\beta}_{x} x_i\right)\mathclose{}
 &amp;&amp; \text{(substitute $\hat{\beta}_{0}$)}\\
-&amp;= y_i- \bar{y}+ \hat{\beta}_{x} \bar{x}- \hat{\beta}_{x} x_i
+&amp;= y_i- {\bar{y}}+ \hat{\beta}_{x} {\bar{x}}- \hat{\beta}_{x} x_i
 &amp;&amp; \text{(distribute the minus sign)}\\
-&amp;= (y_i- \bar{y}) - \mathopen{}\left(\hat{\beta}_{x} x_i- \hat{\beta}_{x} \bar{x}\right)\mathclose{}
+&amp;= (y_i- {\bar{y}}) - \mathopen{}\left(\hat{\beta}_{x} x_i- \hat{\beta}_{x} {\bar{x}}\right)\mathclose{}
 &amp;&amp; \text{(group terms)}\\
-&amp;= (y_i- \bar{y}) - \hat{\beta}_{x} (x_i- \bar{x})
+&amp;= (y_i- {\bar{y}}) - \hat{\beta}_{x} (x_i- {\bar{x}})
 &amp;&amp; \text{(factor out $\hat{\beta}_{x}$)}
 \end{aligned}
 \]</span></p>
 <p>Squaring and summing:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\sum_{i=1}^nr_i^2
-&amp;= \sum_{i=1}^n\mathopen{}\left((y_i- \bar{y}) - \hat{\beta}_{x} (x_i- \bar{x})\right)\mathclose{}^2
-&amp;&amp; \text{(substitute $r_i$)}\\
-&amp;= \sum_{i=1}^n\mathopen{}\left((y_i- \bar{y})^2 - 2 \hat{\beta}_{x} (x_i- \bar{x})(y_i- \bar{y})
-  + \hat{\beta}_{x}^2 (x_i- \bar{x})^2\right)\mathclose{}
+\sum_{i=1}^n\hat{\varepsilon}_i^2
+&amp;= \sum_{i=1}^n\mathopen{}\left((y_i- {\bar{y}}) - \hat{\beta}_{x} (x_i- {\bar{x}})\right)\mathclose{}^2
+&amp;&amp; \text{(substitute $\hat{\varepsilon}_i$)}\\
+&amp;= \sum_{i=1}^n\mathopen{}\left((y_i- {\bar{y}})^2 - 2 \hat{\beta}_{x} (x_i- {\bar{x}})(y_i- {\bar{y}})
+  + \hat{\beta}_{x}^2 (x_i- {\bar{x}})^2\right)\mathclose{}
 &amp;&amp; \text{(expand the square)}\\
-&amp;= \sum_{i=1}^n(y_i- \bar{y})^2 - \sum_{i=1}^n2 \hat{\beta}_{x} (x_i- \bar{x})(y_i- \bar{y})
-  + \sum_{i=1}^n\hat{\beta}_{x}^2 (x_i- \bar{x})^2
+&amp;= \sum_{i=1}^n(y_i- {\bar{y}})^2 - \sum_{i=1}^n2 \hat{\beta}_{x} (x_i- {\bar{x}})(y_i- {\bar{y}})
+  + \sum_{i=1}^n\hat{\beta}_{x}^2 (x_i- {\bar{x}})^2
 &amp;&amp; \text{(sum of a sum)}\\
-&amp;= \sum_{i=1}^n(y_i- \bar{y})^2 - 2 \hat{\beta}_{x} \sum_{i=1}^n(x_i- \bar{x})(y_i- \bar{y})
-  + \sum_{i=1}^n\hat{\beta}_{x}^2 (x_i- \bar{x})^2
+&amp;= \sum_{i=1}^n(y_i- {\bar{y}})^2 - 2 \hat{\beta}_{x} \sum_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}})
+  + \sum_{i=1}^n\hat{\beta}_{x}^2 (x_i- {\bar{x}})^2
 &amp;&amp; \text{(constant factor out of the sum)}\\
-&amp;= \sum_{i=1}^n(y_i- \bar{y})^2 - 2 \hat{\beta}_{x} \sum_{i=1}^n(x_i- \bar{x})(y_i- \bar{y})
-  + \hat{\beta}_{x}^2 \sum_{i=1}^n(x_i- \bar{x})^2
+&amp;= \sum_{i=1}^n(y_i- {\bar{y}})^2 - 2 \hat{\beta}_{x} \sum_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}})
+  + \hat{\beta}_{x}^2 \sum_{i=1}^n(x_i- {\bar{x}})^2
 &amp;&amp; \text{(constant factor out of the sum)}\\
-&amp;= S_{yy}- 2 \hat{\beta}_{x} \sum_{i=1}^n(x_i- \bar{x})(y_i- \bar{y})
-  + \hat{\beta}_{x}^2 \sum_{i=1}^n(x_i- \bar{x})^2
+&amp;= S_{yy}- 2 \hat{\beta}_{x} \sum_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}})
+  + \hat{\beta}_{x}^2 \sum_{i=1}^n(x_i- {\bar{x}})^2
 &amp;&amp; \text{(definition of $S_{yy}$)}\\
-&amp;= S_{yy}- 2 \hat{\beta}_{x} S_{xy}+ \hat{\beta}_{x}^2 \sum_{i=1}^n(x_i- \bar{x})^2
+&amp;= S_{yy}- 2 \hat{\beta}_{x} S_{xy}+ \hat{\beta}_{x}^2 \sum_{i=1}^n(x_i- {\bar{x}})^2
 &amp;&amp; \text{(definition of $S_{xy}$)}\\
 &amp;= S_{yy}- 2 \hat{\beta}_{x} S_{xy}+ \hat{\beta}_{x}^2 S_{xx}
 &amp;&amp; \text{(definition of $S_{xx}$)}\\
@@ -2030,7 +2030,7 @@ r_i
 </div>
 </section><section class="slide level2"><div id="lem-rss-ols-fit" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 12 (Residual sum of squares of the OLS fit)</strong></span> If <span class="math inline">\(S_{xx}&gt; 0\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>), the <a href="#/def-rss">residual sum of squares</a> at the OLS estimates (<a href="#/thm-ols-slr" class="quarto-xref">Theorem&nbsp;5</a>) is</p>
-<p><span class="math display">\[\text{RSS}(\hat{\beta}_{0}, \hat{\beta}_{x}) = \sum_{i=1}^nr_i^2 = S_{yy}- \frac{S_{xy}^2}{S_{xx}}.\]</span></p>
+<p><span class="math display">\[\text{RSS}(\hat{\beta}_{0}, \hat{\beta}_{x}) = \sum_{i=1}^n\hat{\varepsilon}_i^2 = S_{yy}- \frac{S_{xy}^2}{S_{xx}}.\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-rss-ols-fit" class="quarto-xref">Exercise&nbsp;16</a>.</p>
@@ -2052,7 +2052,7 @@ R^2
 &amp;= 1 - \frac{S_{yy}- S_{xy}^2 / S_{xx}}{S_{yy}}
 &amp;&amp; \text{(residual sum of squares of the OLS fit)}\\
 &amp;= 1 - \mathopen{}\left(\frac{S_{yy}}{S_{yy}} - \frac{S_{xy}^2 / S_{xx}}{S_{yy}}\right)\mathclose{}
-&amp;&amp; \text{(split the fraction)}\\
+&amp;&amp; \text{(distribute the division over the difference)}\\
 &amp;= 1 - \mathopen{}\left(1 - \frac{S_{xy}^2 / S_{xx}}{S_{yy}}\right)\mathclose{}
 &amp;&amp; \text{($S_{yy}/ S_{yy}= 1$)}\\
 &amp;= 1 - 1 + \frac{S_{xy}^2 / S_{xx}}{S_{yy}}

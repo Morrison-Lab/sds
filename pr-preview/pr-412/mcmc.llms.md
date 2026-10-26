@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-21 11:52:50 (PDT)
+Last modified: 2026-10-26 11:08:19 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models [\[1, Ch. 13\]](#ref-dobson4e). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -20,7 +20,7 @@ When the posterior has a known closed form, as in [the Beta-Bernoulli example](b
 
 > **NOTE:**
 >
-> **Example 1 (A sequence that converges to the standard Gaussian)** Let \\\theta^{(t+1)} = 0.5\\\theta^{(t)} + u_t\\, with \\u_t \\ \sim\_{\operatorname{iid}}\\ {\operatorname{N}\mathopen{}\left(0, 0.75\right)\mathclose{}}\\ independent of the past. Each draw depends on the previous one. If \\\theta^{(t)}\\ has mean \\m_t\\ and variance \\v_t\\, then \\m\_{t+1} = 0.5\\ m_t\\ and \\v\_{t+1} = 0.25\\ v_t + 0.75\\, so from any starting value \\m_t \to 0\\ and \\v_t \to 1\\: the draws’ distribution converges to \\{\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}\\. This sequence is an MCMC method for sampling the standard Gaussian distribution; its draws are correlated, unlike independent draws.
+> **Example 1 (A sequence that converges to the standard Gaussian)** Let \\\theta^{(t+1)} = 0.5\\\theta^{(t)} + \varepsilon_t\\, with \\\varepsilon_t \\ \sim\_{\operatorname{iid}}\\ {\operatorname{N}\mathopen{}\left(0, 0.75\right)\mathclose{}}\\ independent of the past. Each draw depends on the previous one. If \\\theta^{(t)}\\ has mean \\m_t\\ and variance \\v_t\\, then \\m\_{t+1} = 0.5\\ m_t\\ and \\v\_{t+1} = 0.25\\ v_t + 0.75\\, so from any starting value \\m_t \to 0\\ and \\v_t \to 1\\: the draws’ distribution converges to \\{\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}\\. This sequence is an MCMC method for sampling the standard Gaussian distribution; its draws are correlated, unlike independent draws.
 
 ### 1.1 Why the normalizing constant is hard to compute
 
@@ -34,7 +34,7 @@ an integral over every dimension of \\\mathord{\smash\[b\]{\underset{\raise.3ex\
 
 > **NOTE:**
 >
-> **Definition 2 (Monte Carlo estimate)** Given draws \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}, \ldots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(M)} \\ \sim\_{\operatorname{iid}}\\ \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ and a function \\g\\, the **Monte Carlo estimate** of the [posterior](#def-posterior) expectation \\{\operatorname{E}\mathopen{}\left\[g(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ is
+> **Definition 2 (Monte Carlo estimate)** Given draws \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}, \ldots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(M)} \\ \sim\_{\operatorname{iid}}\\ \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ and a function \\g\\, the **Monte Carlo estimate** of the [posterior](#def-posterior) expectation \\{\mathbb{E}\mathopen{}\left\[g(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ is
 >
 > \\ \frac{1}{M} \sum\_{m=1}^{M} g\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(m)}\right)\mathclose{}. \\
 >
@@ -123,7 +123,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 >
 > *Solution 1*. Suppose \\\theta^{(t)} \sim {\operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}}\\. By [Example 4](#exm-ar1-chain), \\\varepsilon^{(t+1)}\\ is independent of \\\theta^{(t)}\\, so \\\theta^{(t+1)} = \rho\\ \theta^{(t)} + \varepsilon^{(t+1)}\\, a linear combination of independent Gaussian random variables, is Gaussian [\[6\]](#ref-CaseBerg01), Corollary 4.6.10. By [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation), its mean is
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[\theta^{(t+1)}\right\]\mathclose{}} &= {\operatorname{E}\mathopen{}\left\[\rho\\ \theta^{(t)} + \varepsilon^{(t+1)}\right\]\mathclose{}} && \text{(definition of the chain)}\\ &= \rho\\ {\operatorname{E}\mathopen{}\left\[\theta^{(t)}\right\]\mathclose{}} + {\operatorname{E}\mathopen{}\left\[\varepsilon^{(t+1)}\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= \rho\cdot 0 + 0 && \text{(substituting the two means)}\\ &= 0 && \text{(arithmetic)}. \end{aligned} \tag{2}\\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[\theta^{(t+1)}\right\]\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[\rho\\ \theta^{(t)} + \varepsilon^{(t+1)}\right\]\mathclose{}} && \text{(definition of the chain)}\\ &= \rho\\ {\mathbb{E}\mathopen{}\left\[\theta^{(t)}\right\]\mathclose{}} + {\mathbb{E}\mathopen{}\left\[\varepsilon^{(t+1)}\right\]\mathclose{}} && \text{(linearity of expectation)}\\ &= \rho\cdot 0 + 0 && \text{(substituting the two means)}\\ &= 0 && \text{(arithmetic)}. \end{aligned} \tag{2}\\
 >
 > Independent random variables are [uncorrelated](https://morrison-lab.github.io/pds/variance-covariance.html#thm-indpt-uncorrelated), so \\{\operatorname{Cov}\mathopen{}\left(\theta^{(t)}, \varepsilon^{(t+1)}\right)\mathclose{}} = 0\\, and by the [variance of a sum of two random variables](https://morrison-lab.github.io/pds/variance-covariance.html#cor-var-lincom2), the variance is
 >
@@ -292,7 +292,10 @@ A chain started far from where the posterior puts its probability takes some ite
 > > ggplot2::ggplot(traces) +
 > >   ggplot2::aes(x = iteration, y = pi, colour = start) +
 > >   ggplot2::geom_line() +
-> >   ggplot2::labs(y = expression(pi), colour = "starting value")
+> >   ggplot2::labs(
+> >     y = expression("Success probability, " * pi),
+> >     colour = "starting value"
+> >   )
 > > ```
 > >
 > > [![Two trace plots of pi against iteration. One chain starts at 0.05, the other at 0.95; both move to about 0.6 within a few dozen iterations and then fluctuate together between about 0.5 and 0.7.](mcmc_files/figure-html/unnamed-chunk-1-1.png)](mcmc_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Trace plots of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at \pi= 0.05 and \pi= 0.95.")
@@ -436,7 +439,7 @@ To compare models fit to the same data by Bayesian inference, we need a measure 
 >
 > **Definition 14 (Deviance of a parameter value)** In the deviance information criterion, the **deviance** of a parameter value \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\ is
 >
-> \\ D(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}). \\
+> \\ {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\right)\mathclose{}} \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}). \\
 
 > **NOTE:**
 >
@@ -444,29 +447,35 @@ To compare models fit to the same data by Bayesian inference, we need a measure 
 
 > **NOTE:**
 >
-> **Definition 15 (Effective number of parameters)** Let \\\overline{D} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[D(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the posterior mean of the [deviance](#def-bayes-deviance), and let \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the posterior mean of the parameters. The **effective number of parameters** is
+> **Definition 15 (Posterior mean deviance)** The **posterior mean deviance** \\\overline{\operatorname{dev}\_{\mathrm{DIC}}}\\ is the [posterior](#def-posterior) mean of the [deviance](#def-bayes-deviance) of a parameter value:
 >
-> \\ p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}). \\
+> \\ \overline{\operatorname{dev}\_{\mathrm{DIC}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[{\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\right)\mathclose{}} \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}. \\
 
 > **NOTE:**
 >
-> **Definition 16 (Deviance information criterion)** The **deviance information criterion** is
+> **Definition 16 (Effective number of parameters)** Let \\\overline{\operatorname{dev}\_{\mathrm{DIC}}}\\ be the [posterior mean deviance](#def-mean-bayes-deviance), and let \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}}\\ be the [posterior](#def-posterior) mean of the parameters. The **effective number of parameters** is
 >
-> \\ \operatorname{DIC} \stackrel{\text{def}}{=}D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) + 2\\p_D, \\
+> \\ p_D \stackrel{\text{def}}{=}\overline{\operatorname{dev}\_{\mathrm{DIC}}} - {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}. \\
+
+> **NOTE:**
 >
-> with \\D\\ from [Definition 14](#def-bayes-deviance) and \\p_D\\ from [Definition 15](#def-effective-parameters).
+> **Definition 17 (Deviance information criterion)** The **deviance information criterion** is
+>
+> \\ \operatorname{DIC} \stackrel{\text{def}}{=}{\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2\\p_D, \\
+>
+> with \\\operatorname{dev}\_{\mathrm{DIC}}\\ from [Definition 14](#def-bayes-deviance) and \\p_D\\ from [Definition 16](#def-effective-parameters).
 >
 > Source: Wikipedia contributors [\[11\]](#ref-wikipedia_deviance_information_criterion).
 
-Substituting [Definition 15](#def-effective-parameters) gives an equivalent form:
+Substituting [Definition 16](#def-effective-parameters) gives an equivalent form:
 
-\\ \begin{aligned} \operatorname{DIC} &= D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) + 2\mathopen{}\left(\overline{D} - D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})\right)\mathclose{} && \text{(definition of \$p_D\$)}\\ &= 2\overline{D} - D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) && \text{(collecting terms)}\\ &= \overline{D} + \mathopen{}\left(\overline{D} - D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})\right)\mathclose{} && \text{(splitting \$2\overline{D}\$)}\\ &= \overline{D} + p_D && \text{(definition of \$p_D\$)}. \end{aligned} \\
+\\ \begin{aligned} \operatorname{DIC} &= {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2\mathopen{}\left(\overline{\operatorname{dev}\_{\mathrm{DIC}}} - {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\right)\mathclose{} && \text{(definition of \$p_D\$)}\\ &= 2\overline{\operatorname{dev}\_{\mathrm{DIC}}} - {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} && \text{(collecting terms)}\\ &= \overline{\operatorname{dev}\_{\mathrm{DIC}}} + \mathopen{}\left(\overline{\operatorname{dev}\_{\mathrm{DIC}}} - {\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\right)\mathclose{} && \text{(splitting \$2\overline{\operatorname{dev}\_{\mathrm{DIC}}}\$)}\\ &= \overline{\operatorname{dev}\_{\mathrm{DIC}}} + p_D && \text{(definition of \$p_D\$)}. \end{aligned} \\
 
-The term \\D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})\\ rewards fit, while \\p_D\\ penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful [\[1, Ch. 13\]](#ref-dobson4e), p. 306. Both \\\overline{D}\\ and \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\ are [Monte Carlo estimates](#def-monte-carlo-estimate) from the posterior draws, so DIC is a by-product of an MCMC run.
+The term \\{\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\\ rewards fit, while \\p_D\\ penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful [\[1, Ch. 13\]](#ref-dobson4e), p. 306. Both \\\overline{\operatorname{dev}\_{\mathrm{DIC}}}\\ and \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\ are [Monte Carlo estimates](#def-monte-carlo-estimate) from the posterior draws, so DIC is a by-product of an MCMC run.
 
 > **NOTE:**
 >
-> **Example 12 (DIC for the Bernoulli model)** For \\r = 55\\ successes in \\n = 91\\ trials, \\D(\pi) = -2\mathopen{}\left(r \log \pi+ (n - r) \log(1 - \pi)\right)\mathclose{}\\. We estimate \\\overline{D}\\ and \\\bar\pi\\ from 5,000 draws from the \\\operatorname{Beta}(56, 37)\\ posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli):
+> **Example 12 (DIC for the Bernoulli model)** For \\r = 55\\ successes in \\n = 91\\ trials, \\{\operatorname{dev}\_{\mathrm{DIC}}\mathopen{}\left(\pi\right)\mathclose{}} = -2\mathopen{}\left(r \log \pi+ (n - r) \log(1 - \pi)\right)\mathclose{}\\. We [estimate](estimation.llms.md#def-estimate) \\\overline{\operatorname{dev}\_{\mathrm{DIC}}}\\ and \\\bar\pi\\ from 5,000 draws from the \\\operatorname{Beta}(56, 37)\\ posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli):
 >
 > ``` downlit
 > deviance_bernoulli <- function(pi, r = 55, n = 91) {

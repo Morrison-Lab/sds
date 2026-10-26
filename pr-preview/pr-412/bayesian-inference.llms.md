@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-21 11:52:50 (PDT)
+Last modified: 2026-10-26 11:08:19 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models [\[1, Ch. 12\]](#ref-dobson4e). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -122,7 +122,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > One head moves the posterior density toward large values of \\\theta\\. The posterior mean is
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[\theta\mid y = 1\right\]\mathclose{}} &= \int_0^1 \theta\cdot \operatorname{p}(\theta\mid y = 1)\\ d\theta && \text{(expectation under the posterior density)}\\ &= \int_0^1 \theta\cdot 2\theta\\ d\theta && \text{(substituting the posterior density)}\\ &= \int_0^1 2\theta^2\\ d\theta && \text{(\$\theta\cdot \theta= \theta^2\$)}\\ &= \mathopen{}\left\[\frac{2\theta^3}{3}\right\]\mathclose{}\_0^1 && \text{(antiderivative of \$2\theta^2\$)}\\ &= \frac{2 \cdot 1^3}{3} - \frac{2 \cdot 0^3}{3} && \text{(evaluating at the limits)}\\ &= \frac{2}{3} && \text{(arithmetic)}, \end{aligned} \tag{4}\\
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[\theta\mid y = 1\right\]\mathclose{}} &= \int_0^1 \theta\cdot \operatorname{p}(\theta\mid y = 1)\\ d\theta && \text{(expectation under the posterior density)}\\ &= \int_0^1 \theta\cdot 2\theta\\ d\theta && \text{(substituting the posterior density)}\\ &= \int_0^1 2\theta^2\\ d\theta && \text{(\$\theta\cdot \theta= \theta^2\$)}\\ &= \mathopen{}\left\[\frac{2\theta^3}{3}\right\]\mathclose{}\_0^1 && \text{(antiderivative of \$2\theta^2\$)}\\ &= \frac{2 \cdot 1^3}{3} - \frac{2 \cdot 0^3}{3} && \text{(evaluating at the limits)}\\ &= \frac{2}{3} && \text{(arithmetic)}, \end{aligned} \tag{4}\\
 >
 > up from the prior mean of \\1/2\\.
 
@@ -154,9 +154,9 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > The last line is, up to a constant, the density of a Gaussian distribution with mean \\m\\ and variance \\1/(n+1)\\, so the posterior is
 >
-> \\ \mu\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\\sim\\ {\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x},\\ \frac{1}{n+1}\right)\mathclose{}}. \tag{8}\\
+> \\ \mu\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\\sim\\ {\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}},\\ \frac{1}{n+1}\right)\mathclose{}}. \tag{8}\\
 >
-> The posterior mean \\\frac{n}{n+1}\bar{x}\\ is the sample mean shrunk toward the prior mean \\0\\, and the shrinkage factor \\\frac{n}{n+1}\\ approaches \\1\\ as \\n \to \infty\\.
+> The posterior mean \\\frac{n}{n+1}{\bar{x}}\\ is the sample mean shrunk toward the prior mean \\0\\, and the shrinkage factor \\\frac{n}{n+1}\\ approaches \\1\\ as \\n \to \infty\\.
 
 ### 2.2 The posterior mode
 
@@ -212,15 +212,15 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Example 8 (The MAP estimate of a Gaussian mean)** In [Example 6](#exm-normal-normal), the posterior is \\{\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x}, \frac{1}{n+1}\right)\mathclose{}}\\. A Gaussian density is largest at its mean, so
+> **Example 8 (The MAP estimate of a Gaussian mean)** In [Example 6](#exm-normal-normal), the posterior is \\{\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}}, \frac{1}{n+1}\right)\mathclose{}}\\. A Gaussian density is largest at its mean, so
 >
-> \\\hat{\theta}\_{\text{MAP}} = \frac{n}{n+1}\bar{x}.\\
+> \\\hat{\theta}\_{\text{MAP}} = \frac{n}{n+1}{\bar{x}}.\\
 >
 > [Corollary 2](#cor-map-penalized) gives the same answer from the penalized form. Up to terms that do not involve \\\mu\\, the negative log-likelihood is \\\frac{1}{2}\sum\_{i=1}^n(x_i- \mu)^2\\ and the penalty is \\\frac{1}{2}\mu^2\\. Setting the derivative of their sum to zero gives
 >
-> \\ \begin{aligned} 0 &= -\sum\_{i=1}^n(x_i- \mu) + \mu && \text{(derivative of the sum with respect to \$\mu\$)}\\ &= -n\bar{x}+ n\mu+ \mu && \text{(\$\sum_i x_i= n\bar{x}\$)}\\ &= (n+1)\mu- n\bar{x}, && \text{(collecting the terms in \$\mu\$)} \end{aligned} \\
+> \\ \begin{aligned} 0 &= -\sum\_{i=1}^n(x_i- \mu) + \mu && \text{(derivative of the sum with respect to \$\mu\$)}\\ &= -n{\bar{x}}+ n\mu+ \mu && \text{(\$\sum_i x_i= n{\bar{x}}\$)}\\ &= (n+1)\mu- n{\bar{x}}, && \text{(collecting the terms in \$\mu\$)} \end{aligned} \\
 >
-> so \\\mu= \frac{n}{n+1}\bar{x}\\. The penalty \\\frac{1}{2}\mu^2\\ pulls the estimate toward the prior mean \\0\\, and its pull weakens relative to the data as \\n\\ grows.
+> so \\\mu= \frac{n}{n+1}{\bar{x}}\\. The penalty \\\frac{1}{2}\mu^2\\ pulls the estimate toward the prior mean \\0\\, and its pull weakens relative to the data as \\n\\ grows.
 >
 > [Figure 1](#fig-map-penalized) shows the penalized form for simulated data (\\n = 20\\, true mean \\2\\). The penalty is a parabola centered at the prior mean \\0\\. Adding it to the negative log-likelihood moves the minimizer from the sample mean toward \\0\\.
 >
@@ -248,7 +248,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 > >   ggplot2::aes(x = mu, y = value, colour = curve) +
 > >   ggplot2::geom_line() +
 > >   ggplot2::geom_vline(xintercept = c(xbar, map_est), linetype = "dashed") +
-> >   ggplot2::labs(x = expression(mu), y = NULL, colour = NULL)
+> >   ggplot2::labs(x = expression("Mean, " * mu), y = NULL, colour = NULL)
 > > ```
 > >
 > > [![Three curves over the mean mu. The negative log-likelihood is a parabola with its minimum at the sample mean, near 2.2. The penalty is a parabola with its minimum at 0. Their sum is a parabola with its minimum between the two, slightly left of the sample mean. Vertical lines mark the sample mean and the MAP estimate.](bayesian-inference_files/figure-html/unnamed-chunk-1-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Negative log-likelihood, penalty, and their sum, up to constants. The dashed lines mark the sample mean (right) and the MAP estimate (left).")
@@ -279,7 +279,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 
 > **NOTE:**
 >
-> **Example 10 (Credible and confidence intervals for a Gaussian mean)** We simulate \\n = 20\\ observations from the model of [Example 6](#exm-normal-normal), with true mean \\\mu= 2\\, and compute both a 95% confidence interval, \\\bar x \pm 1.96 / \sqrt{n}\\ (the variance is known to be 1), and the equal-tailed 95% credible interval from the \\{\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x},\\ \frac{1}{n+1}\right)\mathclose{}}\\ posterior:
+> **Example 10 (Credible and confidence intervals for a Gaussian mean)** We simulate \\n = 20\\ observations from the model of [Example 6](#exm-normal-normal), with true mean \\\mu= 2\\, and compute both a 95% confidence interval, \\\bar x \pm 1.96 / \sqrt{n}\\ (the variance is known to be 1), and the equal-tailed 95% credible interval from the \\{\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}},\\ \frac{1}{n+1}\right)\mathclose{}}\\ posterior:
 >
 > ``` downlit
 > set.seed(1)
@@ -321,7 +321,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 > > ggplot2::ggplot(curves) +
 > >   ggplot2::aes(x = mu, y = density, colour = curve) +
 > >   ggplot2::geom_line() +
-> >   ggplot2::labs(x = expression(mu), y = "density", colour = NULL)
+> >   ggplot2::labs(x = expression("Mean, " * mu), y = "density", colour = NULL)
 > > ```
 > >
 > > [![Three bell-shaped curves over the mean mu: a wide prior centered at 0, a narrow likelihood centered near 2.2, and a posterior just as narrow, centered slightly closer to 0 than the likelihood.](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png "Figure 2: The {\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}} prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \mu, for the data of Example 10.")
@@ -915,7 +915,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > With the posterior \\\operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of [Example 15](#exm-prior-posterior-figure),
 >
-> \\ \begin{aligned} {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right)\mathclose{}} &= \int_0^1 {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{}}\\ \operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\pi && \text{(definition of the posterior predictive distribution)}\\ &= \int_0^1 \pi\\ \operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\pi && \text{(Bernoulli model)}\\ &= {\operatorname{E}\mathopen{}\left\[\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}} && \text{(definition of the posterior mean)}. \end{aligned} \\
+> \\ \begin{aligned} {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right)\mathclose{}} &= \int_0^1 {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{}}\\ \operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\pi && \text{(definition of the posterior predictive distribution)}\\ &= \int_0^1 \pi\\ \operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\pi && \text{(Bernoulli model)}\\ &= {\mathbb{E}\mathopen{}\left\[\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}} && \text{(definition of the posterior mean)}. \end{aligned} \\
 >
 > So the posterior predictive probability that the next mother smoked is the posterior mean of \\\pi\\, 0.393. The code below checks this by simulation: draw \\\pi\\ from its posterior, then draw \\Y^{\mathrm{new}}\\ given that \\\pi\\.
 >
@@ -963,7 +963,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 > **Example 22 (Two test quantities for the smoking data)** The `birthwt` data also record each mother’s race, coded as white, Black, or other. The Beta-Bernoulli model gives every mother the same probability \\\pi\\ of smoking, whatever her race. Two test quantities for these data are:
 >
 > - the number of mothers who smoked, \\T_1(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \sum\_{i=1}^ny_i\\;
-> - the spread of the smoking proportions across the three race groups, \\T_2(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \max_g \bar{y}\_g - \min_g \bar{y}\_g\\, where \\\bar{y}\_g\\ is the proportion of mothers in group \\g\\ who smoked.
+> - the spread of the smoking proportions across the three race groups, \\T_2(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \max_g {\bar{y}}\_g - \min_g {\bar{y}}\_g\\, where \\{\bar{y}}\_g\\ is the proportion of mothers in group \\g\\ who smoked.
 >
 > The model can match \\T_1\\ by choosing \\\pi\\, but it predicts that \\T_2\\ is small, because it gives every group the same \\\pi\\. Their observed values are:
 >

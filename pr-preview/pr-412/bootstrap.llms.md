@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-21 11:52:50 (PDT)
+Last modified: 2026-10-26 11:08:19 (PDT)
 
 This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Section 3.6.
 
@@ -95,7 +95,7 @@ The bootstrap [\[2\]](#ref-efron1979bootstrap), [\[3\]](#ref-efron1993introducti
 > #>      103.80000        3.47992        3.61417        3.42870
 > ```
 >
-> The bootstrap standard error ([Definition 3](#def-bootstrap-se)) is close to the usual estimate \\s / \sqrt{n}\\. Each bootstrap draw has variance \\\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n(x_i- \bar{x})^2\\ around \\\bar{x}\\, and the \\n\\ draws are independent, so as \\B\\ grows the bootstrap standard error of the sample mean approaches \\\hat{\sigma}/ \sqrt{n}\\ (`divide_by_n_se`), which is smaller than \\s / \sqrt{n}\\ by the factor \\\sqrt{(n-1)/n}\\. [Figure 1](#fig-boot-dist-toy) shows the bootstrap distribution.
+> The bootstrap standard error ([Definition 3](#def-bootstrap-se)) is close to the usual estimate \\s / \sqrt{n}\\. Each bootstrap draw has variance \\\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n(x_i- {\bar{x}})^2\\ around \\{\bar{x}}\\, and the \\n\\ draws are independent, so as \\B\\ grows the bootstrap standard error of the sample mean approaches \\\hat{\sigma}/ \sqrt{n}\\ (`divide_by_n_se`), which is smaller than \\s / \sqrt{n}\\ by the factor \\\sqrt{(n-1)/n}\\. [Figure 1](#fig-boot-dist-toy) shows the bootstrap distribution.
 >
 > > **NOTE:**
 > >
@@ -298,6 +298,10 @@ The `boot` package [\[11\]](#ref-davison1997bootstrap), a recommended package di
 >
 > All three intervals are similar here. When the bootstrap distribution is skewed, the intervals differ more, and the BCa interval, which corrects for skewness, is the better choice [\[3, Ch. 14\]](#ref-efron1993introduction).
 
+## 3 Further reading
+
+- Chapter 24 of Lange’s textbook [\[12\]](#ref-lange2010numerical) covers permutation tests and the bootstrap, with an emphasis on computation.
+
 ## References
 
 \[1\]
@@ -343,5 +347,9 @@ Wikipedia contributors, “Confidence interval — Wikipedia, the free encyclope
 \[11\]
 
 A. C. Davison and D. V. Hinkley, *Bootstrap methods and their application*. in Cambridge series in statistical and probabilistic mathematics, no. 1. Cambridge: Cambridge University Press, 1997. doi: [10.1017/CBO9780511802843](https://doi.org/10.1017/CBO9780511802843).
+
+\[12\]
+
+K. Lange, *Numerical analysis for statisticians*, 2nd ed. in Statistics and computing. Springer, 2010. doi: [10.1007/978-1-4419-5945-4](https://doi.org/10.1007/978-1-4419-5945-4).
 
 Back to top

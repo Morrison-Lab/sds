@@ -23,6 +23,26 @@
    "url": "https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm"
   },
   {
+   "id": "mds/sets#def-closed-interval",
+   "site": "mds",
+   "page": "sets",
+   "div": "def-closed-interval",
+   "kind": "def",
+   "title": "closed interval",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/sets.html#def-closed-interval"
+  },
+  {
+   "id": "mds/vector-calculus#def-hessian",
+   "site": "mds",
+   "page": "vector-calculus",
+   "div": "def-hessian",
+   "kind": "def",
+   "title": "hessian",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/vector-calculus.html#def-hessian"
+  },
+  {
    "id": "pds/expectation#def-cond-pdf",
    "site": "pds",
    "page": "expectation",
@@ -41,6 +61,16 @@
    "title": "expectation",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/expectation.html#def-expectation"
+  },
+  {
+   "id": "pds/expectation#def-kl-divergence",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-kl-divergence",
+   "kind": "def",
+   "title": "kl divergence",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence"
   },
   {
    "id": "pds/expectation#def-loss-function",
@@ -163,6 +193,16 @@
    "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice"
   },
   {
+   "id": "pds/random-variables#def-bernoulli",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-bernoulli",
+   "kind": "def",
+   "title": "bernoulli",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli"
+  },
+  {
    "id": "pds/random-variables#def-cdf",
    "site": "pds",
    "page": "random-variables",
@@ -171,6 +211,46 @@
    "title": "cdf",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-cdf"
+  },
+  {
+   "id": "pds/random-variables#def-continuous-rv",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-continuous-rv",
+   "kind": "def",
+   "title": "continuous rv",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv"
+  },
+  {
+   "id": "pds/random-variables#def-pdf",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-pdf",
+   "kind": "def",
+   "title": "pdf",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-pdf"
+  },
+  {
+   "id": "pds/random-variables#def-pmf",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-pmf",
+   "kind": "def",
+   "title": "pmf",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-pmf"
+  },
+  {
+   "id": "pds/random-variables#def-realization",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-realization",
+   "kind": "def",
+   "title": "realization",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-realization"
   },
   {
    "id": "pds/variance-covariance#def-cond-variance",
@@ -201,6 +281,16 @@
    "title": "deviation pop mean",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean"
+  },
+  {
+   "id": "pds/variance-covariance#def-precision",
+   "site": "pds",
+   "page": "variance-covariance",
+   "div": "def-precision",
+   "kind": "def",
+   "title": "precision",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/variance-covariance.html#def-precision"
   },
   {
    "id": "pds/variance-covariance#def-sd",
@@ -1960,6 +2050,15 @@
    "external": false
   },
   {
+   "id": "sds/exploratory-descriptive#def-observation",
+   "site": "sds",
+   "page": "exploratory-descriptive",
+   "div": "def-observation",
+   "kind": "def",
+   "title": "Observation",
+   "external": false
+  },
+  {
    "id": "sds/exploratory-descriptive#def-pearson-r",
    "site": "sds",
    "page": "exploratory-descriptive",
@@ -1984,6 +2083,15 @@
    "div": "def-population-distribution",
    "kind": "def",
    "title": "Population distribution",
+   "external": false
+  },
+  {
+   "id": "sds/exploratory-descriptive#def-population-parameter",
+   "site": "sds",
+   "page": "exploratory-descriptive",
+   "div": "def-population-parameter",
+   "kind": "def",
+   "title": "Population parameter",
    "external": false
   },
   {
@@ -2104,6 +2212,24 @@
    "external": false
   },
   {
+   "id": "sds/exponential-families#def-exponential-family",
+   "site": "sds",
+   "page": "exponential-families",
+   "div": "def-exponential-family",
+   "kind": "def",
+   "title": "Exponential family",
+   "external": false
+  },
+  {
+   "id": "sds/exponential-families#def-natural-parameter",
+   "site": "sds",
+   "page": "exponential-families",
+   "div": "def-natural-parameter",
+   "kind": "def",
+   "title": "Natural parameter",
+   "external": false
+  },
+  {
    "id": "sds/inference#def-alternative-hypothesis",
    "site": "sds",
    "page": "inference",
@@ -2131,6 +2257,15 @@
    "external": false
   },
   {
+   "id": "sds/inference#def-confidence-coefficient",
+   "site": "sds",
+   "page": "inference",
+   "div": "def-confidence-coefficient",
+   "kind": "def",
+   "title": "Confidence coefficient",
+   "external": false
+  },
+  {
    "id": "sds/inference#def-confidence-interval",
    "site": "sds",
    "page": "inference",
@@ -2140,12 +2275,39 @@
    "external": false
   },
   {
+   "id": "sds/inference#def-confidence-set",
+   "site": "sds",
+   "page": "inference",
+   "div": "def-confidence-set",
+   "kind": "def",
+   "title": "Confidence set",
+   "external": false
+  },
+  {
+   "id": "sds/inference#def-conservative-confidence-interval",
+   "site": "sds",
+   "page": "inference",
+   "div": "def-conservative-confidence-interval",
+   "kind": "def",
+   "title": "Conservative confidence interval",
+   "external": false
+  },
+  {
    "id": "sds/inference#def-coverage-probability",
    "site": "sds",
    "page": "inference",
    "div": "def-coverage-probability",
    "kind": "def",
    "title": "Coverage probability",
+   "external": false
+  },
+  {
+   "id": "sds/inference#def-exact-confidence-interval",
+   "site": "sds",
+   "page": "inference",
+   "div": "def-exact-confidence-interval",
+   "kind": "def",
+   "title": "Exact confidence interval",
    "external": false
   },
   {
@@ -2236,6 +2398,33 @@
    "div": "def-two-sided-alternative",
    "kind": "def",
    "title": "Two-sided alternative",
+   "external": false
+  },
+  {
+   "id": "sds/intro-MLEs#cor-bernoulli-hessian-contribution-fraction",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "cor-bernoulli-hessian-contribution-fraction",
+   "kind": "cor",
+   "title": "Hessian contribution of one binary outcome over a common denominator",
+   "external": false
+  },
+  {
+   "id": "sds/intro-MLEs#cor-bernoulli-hessian-contribution-precision",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "cor-bernoulli-hessian-contribution-precision",
+   "kind": "cor",
+   "title": "Hessian contribution of one binary outcome in terms of the precision and deviation",
+   "external": false
+  },
+  {
+   "id": "sds/intro-MLEs#cor-bernoulli-loglik-contribution-logodds",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "cor-bernoulli-loglik-contribution-logodds",
+   "kind": "cor",
+   "title": "Log-likelihood contribution of one binary outcome in terms of the log-odds",
    "external": false
   },
   {
@@ -2338,6 +2527,15 @@
    "external": false
   },
   {
+   "id": "sds/intro-MLEs#def-model-kl-divergence",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "def-model-kl-divergence",
+   "kind": "def",
+   "title": "Kullback--Leibler divergence between two parameter values",
+   "external": false
+  },
+  {
    "id": "sds/intro-MLEs#def-newton-raphson",
    "site": "sds",
    "page": "intro-MLEs",
@@ -2428,6 +2626,15 @@
    "external": false
   },
   {
+   "id": "sds/intro-MLEs#lem-bernoulli-precision-deriv",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "lem-bernoulli-precision-deriv",
+   "kind": "lem",
+   "title": "Derivative of the Bernoulli precision",
+   "external": false
+  },
+  {
    "id": "sds/intro-MLEs#lem-deriv-log-density",
    "site": "sds",
    "page": "intro-MLEs",
@@ -2464,12 +2671,48 @@
    "external": false
   },
   {
+   "id": "sds/intro-MLEs#thm-bernoulli-hessian-contribution",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "thm-bernoulli-hessian-contribution",
+   "kind": "thm",
+   "title": "Hessian contribution of one binary outcome",
+   "external": false
+  },
+  {
+   "id": "sds/intro-MLEs#thm-bernoulli-hessian-nd",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "thm-bernoulli-hessian-nd",
+   "kind": "thm",
+   "title": "Negative definiteness of the Hessian of a binary sample",
+   "external": false
+  },
+  {
+   "id": "sds/intro-MLEs#thm-bernoulli-hessian-sum",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "thm-bernoulli-hessian-sum",
+   "kind": "thm",
+   "title": "Hessian of a binary sample",
+   "external": false
+  },
+  {
    "id": "sds/intro-MLEs#thm-bernoulli-likelihood-one-group",
    "site": "sds",
    "page": "intro-MLEs",
    "div": "thm-bernoulli-likelihood-one-group",
    "kind": "thm",
    "title": "Likelihood of binary outcomes with one event probability",
+   "external": false
+  },
+  {
+   "id": "sds/intro-MLEs#thm-bernoulli-loglik-contribution",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "thm-bernoulli-loglik-contribution",
+   "kind": "thm",
+   "title": "Log-likelihood contribution of one binary outcome",
    "external": false
   },
   {
@@ -2482,12 +2725,48 @@
    "external": false
   },
   {
+   "id": "sds/intro-MLEs#thm-bernoulli-mle",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "thm-bernoulli-mle",
+   "kind": "thm",
+   "title": "Maximum likelihood estimate of a binary sample",
+   "external": false
+  },
+  {
    "id": "sds/intro-MLEs#thm-bernoulli-score",
    "site": "sds",
    "page": "intro-MLEs",
    "div": "thm-bernoulli-score",
    "kind": "thm",
    "title": "Score function of a Bernoulli variable",
+   "external": false
+  },
+  {
+   "id": "sds/intro-MLEs#thm-bernoulli-score-contribution",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "thm-bernoulli-score-contribution",
+   "kind": "thm",
+   "title": "Score contribution of one binary outcome",
+   "external": false
+  },
+  {
+   "id": "sds/intro-MLEs#thm-bernoulli-score-equation",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "thm-bernoulli-score-equation",
+   "kind": "thm",
+   "title": "Solution of the score equation of a binary sample",
+   "external": false
+  },
+  {
+   "id": "sds/intro-MLEs#thm-bernoulli-score-sum",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "thm-bernoulli-score-sum",
+   "kind": "thm",
+   "title": "Score function of a binary sample",
    "external": false
   },
   {
@@ -2524,6 +2803,15 @@
    "div": "thm-exp-score",
    "kind": "thm",
    "title": "Score function of an exponential variable",
+   "external": false
+  },
+  {
+   "id": "sds/intro-MLEs#thm-fisher-kl-curvature",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "thm-fisher-kl-curvature",
+   "kind": "thm",
+   "title": "The expected information is the curvature of the Kullback--Leibler divergence",
    "external": false
   },
   {
@@ -2680,6 +2968,15 @@
    "external": false
   },
   {
+   "id": "sds/logistic-inference#def-irls",
+   "site": "sds",
+   "page": "logistic-inference",
+   "div": "def-irls",
+   "kind": "def",
+   "title": "Iteratively reweighted least squares (IRLS)",
+   "external": false
+  },
+  {
    "id": "sds/logistic-inference#def-logistic-regression",
    "site": "sds",
    "page": "logistic-inference",
@@ -2740,6 +3037,15 @@
    "div": "thm-deviance-drop",
    "kind": "thm",
    "title": "The drop in deviance is the likelihood ratio statistic",
+   "external": false
+  },
+  {
+   "id": "sds/logistic-inference#thm-irls-newton",
+   "site": "sds",
+   "page": "logistic-inference",
+   "div": "thm-irls-newton",
+   "kind": "thm",
+   "title": "An IRLS step is a Newton-Raphson step and a Fisher scoring step",
    "external": false
   },
   {
@@ -2848,6 +3154,15 @@
    "div": "def-mcmc",
    "kind": "def",
    "title": "Markov chain Monte Carlo",
+   "external": false
+  },
+  {
+   "id": "sds/mcmc#def-mean-bayes-deviance",
+   "site": "sds",
+   "page": "mcmc",
+   "div": "def-mean-bayes-deviance",
+   "kind": "def",
+   "title": "Posterior mean deviance",
    "external": false
   },
   {
@@ -3400,6 +3715,15 @@
    "external": false
   },
   {
+   "id": "sds/model-validation#def-prediction-rule",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "def-prediction-rule",
+   "kind": "def",
+   "title": "Prediction rule <!-- prose-allow: prediction rule -->",
+   "external": false
+  },
+  {
    "id": "sds/model-validation#def-predictive-model",
    "site": "sds",
    "page": "model-validation",
@@ -3595,6 +3919,15 @@
    "div": "thm-noise-mean-zero",
    "kind": "thm",
    "title": "The noise has population mean zero",
+   "external": false
+  },
+  {
+   "id": "sds/model-validation#thm-prediction-bias-average-fit",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "thm-prediction-bias-average-fit",
+   "kind": "thm",
+   "title": "The bias as the expected prediction minus the mean function",
    "external": false
   },
   {
@@ -5163,6 +5496,14 @@
    "sds/data#def-categorical-var"
   ],
   [
+   "sds/exploratory-descriptive#def-observation",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "sds/exploratory-descriptive#def-observation",
+   "sds/exploratory-descriptive#def-population"
+  ],
+  [
    "sds/exploratory-descriptive#def-population-distribution",
    "pds/probability-basics#def-probability"
   ],
@@ -5173,6 +5514,14 @@
   [
    "sds/exploratory-descriptive#def-population-distribution",
    "sds/exploratory-descriptive#def-population"
+  ],
+  [
+   "sds/exploratory-descriptive#def-population-parameter",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "sds/exploratory-descriptive#def-population-parameter",
+   "sds/exploratory-descriptive#def-population-distribution"
   ],
   [
    "sds/exploratory-descriptive#def-qq-plot",
@@ -5219,6 +5568,26 @@
    "sds/exploratory-descriptive#def-standardization"
   ],
   [
+   "sds/exponential-families#def-exponential-family",
+   "mds/functions#def-function"
+  ],
+  [
+   "sds/exponential-families#def-exponential-family",
+   "pds/random-variables#def-pdf"
+  ],
+  [
+   "sds/exponential-families#def-exponential-family",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "sds/exponential-families#def-natural-parameter",
+   "sds/exponential-families#def-exponential-family"
+  ],
+  [
+   "sds/exponential-families#def-natural-parameter",
+   "sds/sufficiency#def-statistic"
+  ],
+  [
    "sds/inference#def-alternative-hypothesis",
    "sds/inference#def-null-hypothesis"
   ],
@@ -5227,8 +5596,48 @@
    "sds/inference#def-coverage-probability"
   ],
   [
+   "sds/inference#def-confidence-coefficient",
+   "sds/inference#def-coverage-probability"
+  ],
+  [
+   "sds/inference#def-confidence-interval",
+   "mds/sets#def-closed-interval"
+  ],
+  [
+   "sds/inference#def-confidence-interval",
+   "sds/sufficiency#def-statistic"
+  ],
+  [
+   "sds/inference#def-confidence-set",
+   "mds/sets#def-closed-interval"
+  ],
+  [
+   "sds/inference#def-confidence-set",
+   "sds/bayesian-inference#def-parameter-space"
+  ],
+  [
+   "sds/inference#def-confidence-set",
+   "sds/inference#def-confidence-interval"
+  ],
+  [
+   "sds/inference#def-conservative-confidence-interval",
+   "sds/inference#def-confidence-interval"
+  ],
+  [
+   "sds/inference#def-conservative-confidence-interval",
+   "sds/inference#def-coverage-probability"
+  ],
+  [
    "sds/inference#def-coverage-probability",
    "sds/inference#def-confidence-interval"
+  ],
+  [
+   "sds/inference#def-exact-confidence-interval",
+   "sds/inference#def-confidence-interval"
+  ],
+  [
+   "sds/inference#def-exact-confidence-interval",
+   "sds/inference#def-coverage-probability"
   ],
   [
    "sds/inference#def-margin-error",
@@ -5263,6 +5672,34 @@
    "sds/inference#def-null-hypothesis"
   ],
   [
+   "sds/intro-MLEs#cor-bernoulli-hessian-contribution-fraction",
+   "pds/variance-covariance#def-precision"
+  ],
+  [
+   "sds/intro-MLEs#cor-bernoulli-hessian-contribution-fraction",
+   "sds/intro-MLEs#def-hessian"
+  ],
+  [
+   "sds/intro-MLEs#cor-bernoulli-hessian-contribution-precision",
+   "pds/variance-covariance#def-deviation-pop-mean"
+  ],
+  [
+   "sds/intro-MLEs#cor-bernoulli-hessian-contribution-precision",
+   "pds/variance-covariance#def-precision"
+  ],
+  [
+   "sds/intro-MLEs#cor-bernoulli-hessian-contribution-precision",
+   "sds/intro-MLEs#def-hessian"
+  ],
+  [
+   "sds/intro-MLEs#cor-bernoulli-loglik-contribution-logodds",
+   "pds/probability-basics#def-odds"
+  ],
+  [
+   "sds/intro-MLEs#cor-bernoulli-loglik-contribution-logodds",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
    "sds/intro-MLEs#def-einf",
    "sds/intro-MLEs#def-hessian"
   ],
@@ -5275,8 +5712,32 @@
    "sds/intro-MLEs#def-newton-raphson"
   ],
   [
+   "sds/intro-MLEs#def-hessian",
+   "mds/vector-calculus#def-hessian"
+  ],
+  [
    "sds/intro-MLEs#def-mle",
    "sds/intro-MLEs#def-lik"
+  ],
+  [
+   "sds/intro-MLEs#def-model-kl-divergence",
+   "mds/functions#def-function"
+  ],
+  [
+   "sds/intro-MLEs#def-model-kl-divergence",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "sds/intro-MLEs#def-model-kl-divergence",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "sds/intro-MLEs#def-model-kl-divergence",
+   "pds/random-variables#def-continuous-rv"
+  ],
+  [
+   "sds/intro-MLEs#def-model-kl-divergence",
+   "pds/random-variables#def-pdf"
   ],
   [
    "sds/intro-MLEs#def-oinf",
@@ -5289,6 +5750,14 @@
   [
    "sds/intro-MLEs#def-wald-test",
    "sds/inference#def-test-statistic"
+  ],
+  [
+   "sds/intro-MLEs#lem-bernoulli-precision-deriv",
+   "pds/random-variables#def-bernoulli"
+  ],
+  [
+   "sds/intro-MLEs#lem-bernoulli-precision-deriv",
+   "pds/variance-covariance#def-precision"
   ],
   [
    "sds/intro-MLEs#lem-wilks-lrt-quadratic",
@@ -5311,7 +5780,99 @@
    "sds/intro-MLEs#def-hessian"
   ],
   [
+   "sds/intro-MLEs#thm-bernoulli-hessian-contribution",
+   "sds/intro-MLEs#def-hessian"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-hessian-nd",
+   "sds/intro-MLEs#def-hessian"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-hessian-nd",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-hessian-sum",
+   "sds/exploratory-descriptive#def-sample-mean"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-hessian-sum",
+   "sds/intro-MLEs#def-hessian"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-hessian-sum",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-loglik-contribution",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-loglik-one-group",
+   "pds/probability-basics#def-odds"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-mle",
+   "sds/exploratory-descriptive#def-sample-mean"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-mle",
+   "sds/intro-MLEs#def-mle"
+  ],
+  [
    "sds/intro-MLEs#thm-bernoulli-score",
+   "pds/variance-covariance#def-deviation-pop-mean"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score",
+   "pds/variance-covariance#def-precision"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score",
+   "sds/intro-MLEs#def-score"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-contribution",
+   "pds/probability-basics#def-event"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-contribution",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-contribution",
+   "pds/variance-covariance#def-deviation-pop-mean"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-contribution",
+   "pds/variance-covariance#def-precision"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-contribution",
+   "sds/intro-MLEs#def-score"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-equation",
+   "sds/exploratory-descriptive#def-sample-mean"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-equation",
+   "sds/intro-MLEs#def-score-equation"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-sum",
+   "pds/variance-covariance#def-deviation-pop-mean"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-sum",
+   "pds/variance-covariance#def-precision"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-sum",
+   "sds/exploratory-descriptive#def-sample-mean"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score-sum",
    "sds/intro-MLEs#def-score"
   ],
   [
@@ -5329,6 +5890,18 @@
   [
    "sds/intro-MLEs#thm-exp-score",
    "sds/intro-MLEs#def-score"
+  ],
+  [
+   "sds/intro-MLEs#thm-fisher-kl-curvature",
+   "sds/intro-MLEs#def-einf"
+  ],
+  [
+   "sds/intro-MLEs#thm-fisher-kl-curvature",
+   "sds/intro-MLEs#def-model-kl-divergence"
+  ],
+  [
+   "sds/intro-MLEs#thm-fisher-kl-curvature",
+   "sds/intro-MLEs#thm-score-mean-zero"
   ],
   [
    "sds/intro-MLEs#thm-gauss-score",
@@ -5387,6 +5960,18 @@
    "sds/intro-MLEs#def-wald-ci"
   ],
   [
+   "sds/logistic-inference#def-irls",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/logistic-inference#def-irls",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/logistic-inference#def-irls",
+   "sds/logistic-inference#def-logistic-regression"
+  ],
+  [
    "sds/logistic-inference#def-logistic-regression",
    "pds/independence#def-indpt"
   ],
@@ -5427,6 +6012,26 @@
    "sds/logistic-inference#def-null-deviance"
   ],
   [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-fisher-scoring"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-newton-raphson"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/logistic-inference#def-irls"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/logistic-inference#def-logistic-regression"
+  ],
+  [
    "sds/logistic-inference#thm-logistic-mle-distribution",
    "sds/logistic-inference#def-logistic-regression"
   ],
@@ -5452,11 +6057,15 @@
   ],
   [
    "sds/mcmc#def-effective-parameters",
-   "sds/mcmc#def-bayes-deviance"
+   "sds/mcmc#def-mean-bayes-deviance"
   ],
   [
    "sds/mcmc#def-gibbs-sampler",
    "sds/mcmc#def-full-conditional"
+  ],
+  [
+   "sds/mcmc#def-mean-bayes-deviance",
+   "sds/mcmc#def-bayes-deviance"
   ],
   [
    "sds/mcmc#def-mh",
@@ -5528,10 +6137,6 @@
   ],
   [
    "sds/model-validation#def-bias-variance-tradeoff",
-   "sds/estimation#def-estimator"
-  ],
-  [
-   "sds/model-validation#def-bias-variance-tradeoff",
    "sds/model-validation#def-fitting-procedure"
   ],
   [
@@ -5549,6 +6154,10 @@
   [
    "sds/model-validation#def-bias-variance-tradeoff",
    "sds/model-validation#def-training-set"
+  ],
+  [
+   "sds/model-validation#def-bias-variance-tradeoff",
+   "sds/prediction#def-prediction"
   ],
   [
    "sds/model-validation#def-bic",
@@ -5765,10 +6374,6 @@
   [
    "sds/model-validation#def-fitted-model",
    "sds/model-validation#def-model-family"
-  ],
-  [
-   "sds/model-validation#def-fitted-model",
-   "sds/prediction#def-prediction"
   ],
   [
    "sds/model-validation#def-fitting-procedure",
@@ -6100,23 +6705,19 @@
   ],
   [
    "sds/model-validation#def-prediction-bias",
-   "sds/estimation#def-estimation-error"
-  ],
-  [
-   "sds/model-validation#def-prediction-bias",
-   "sds/estimation#def-estimator"
-  ],
-  [
-   "sds/model-validation#def-prediction-bias",
    "sds/model-validation#def-fitting-procedure"
   ],
   [
    "sds/model-validation#def-prediction-bias",
-   "sds/model-validation#def-mean-function"
+   "sds/model-validation#def-new-observation"
   ],
   [
    "sds/model-validation#def-prediction-bias",
    "sds/model-validation#def-training-set"
+  ],
+  [
+   "sds/model-validation#def-prediction-bias",
+   "sds/prediction#def-prediction-error"
   ],
   [
    "sds/model-validation#def-prediction-function-family",
@@ -6129,6 +6730,18 @@
   [
    "sds/model-validation#def-prediction-rmse",
    "sds/prediction#def-prediction-mse"
+  ],
+  [
+   "sds/model-validation#def-prediction-rule",
+   "sds/model-validation#def-covariate"
+  ],
+  [
+   "sds/model-validation#def-prediction-rule",
+   "sds/model-validation#def-fitted-model"
+  ],
+  [
+   "sds/model-validation#def-prediction-rule",
+   "sds/prediction#def-prediction"
   ],
   [
    "sds/model-validation#def-predictive-model",
@@ -6328,19 +6941,11 @@
   ],
   [
    "sds/model-validation#thm-epe-decomposition",
-   "sds/estimation#def-estimator"
-  ],
-  [
-   "sds/model-validation#thm-epe-decomposition",
    "sds/model-validation#def-covariate"
   ],
   [
    "sds/model-validation#thm-epe-decomposition",
    "sds/model-validation#def-epe"
-  ],
-  [
-   "sds/model-validation#thm-epe-decomposition",
-   "sds/model-validation#def-mean-function"
   ],
   [
    "sds/model-validation#thm-epe-decomposition",
@@ -6465,6 +7070,22 @@
   [
    "sds/model-validation#thm-noise-mean-zero",
    "sds/model-validation#def-noise"
+  ],
+  [
+   "sds/model-validation#thm-prediction-bias-average-fit",
+   "sds/model-validation#def-average-fit"
+  ],
+  [
+   "sds/model-validation#thm-prediction-bias-average-fit",
+   "sds/model-validation#def-mean-function"
+  ],
+  [
+   "sds/model-validation#thm-prediction-bias-average-fit",
+   "sds/model-validation#def-prediction-bias"
+  ],
+  [
+   "sds/model-validation#thm-prediction-bias-average-fit",
+   "sds/prediction#def-prediction"
   ],
   [
    "sds/multiple-testing#def-bh",
