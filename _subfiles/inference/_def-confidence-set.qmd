@@ -1,0 +1,15 @@
+::: {#def-confidence-set}
+#### Confidence set
+
+A $100(1-\siglevel)\%$ **confidence set** for a parameter $\param$
+is a random subset $C(X)$ of the parameter space,
+computed from the data $X$,
+such that for every possible value of $\param$:
+
+$$\Pr_{\param}\paren{\param \in C(X)} \ge 1 - \siglevel$$
+
+A [confidence interval](#def-confidence-interval) is a confidence set
+whose values are closed intervals.
+
+Source: [@CaseBerg01, Section 9.1].
+:::

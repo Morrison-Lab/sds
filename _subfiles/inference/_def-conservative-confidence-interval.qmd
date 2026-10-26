@@ -1,0 +1,7 @@
+::: {#def-conservative-confidence-interval}
+#### Conservative confidence interval
+
+A $100(1-\siglevel)\%$ [confidence interval](#def-confidence-interval) $\cintf{X}$ is **conservative**
+when its [coverage probability](#def-coverage-probability) is larger than $1 - \siglevel$
+for some possible value of $\param$.
+:::

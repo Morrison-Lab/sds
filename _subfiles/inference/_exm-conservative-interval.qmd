@@ -2,7 +2,7 @@
 #### A conservative interval for a binomial proportion
 
 Let $X \sim \text{Bin}(n, p)$ with $n = 20$,
-and let $[L(X), U(X)]$ be the Clopper-Pearson 95% interval
+and let $\cintf{X}$ be the Clopper-Pearson 95% interval
 returned by `binom.test()`.
 Its [coverage probability](#def-coverage-probability) at each $p$ is the sum of the binomial
 [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)
@@ -24,7 +24,7 @@ The smallest coverage probability on this grid, which is close to the
 [confidence coefficient](#def-confidence-coefficient),
 is `r sprintf("%.3f", min(cover))`,
 and the largest is `r sprintf("%.3f", max(cover))`.
-The interval is conservative:
+The interval is [conservative](#def-conservative-confidence-interval):
 its coverage probability is above 0.95 at `r sum(cover > 0.95)`
 of the `r length(p_grid)` grid values of $p$.
 :::
