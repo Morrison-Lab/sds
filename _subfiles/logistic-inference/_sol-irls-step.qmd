@@ -4,8 +4,8 @@ Here the rows of $X$ are $(1, -1)$ for the three patients in the group coded $-1
 and $\voutvar = \tp{(0, 0, 1, 0, 1, 1)}$.
 
 **1.** At $\vcoef^* = \vzero$ every fitted [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $\sigmoidf{0} = 1/2$,
-so every weight is $w_i = (1/2)(1/2) = 1/4$.
-The working responses are $z_i = 0 + \paren{\outvar_i - 1/2} / (1/4) = 4 \outvar_i - 2$:
+so every weight is $w_{\iobs} = (1/2)(1/2) = 1/4$.
+The working responses are $z_{\iobs} = 0 + \paren{\outvar_{\iobs} - 1/2} / (1/4) = 4 \outvar_{\iobs} - 2$:
 
 $$
 \vecf{z} = \tp{(-2, -2, 2, -2, 2, 2)}.
