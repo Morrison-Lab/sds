@@ -33,7 +33,7 @@ ggplot2::ggplot() +
     ggplot2::aes(x = x, y = y), data = ecdf_closed, shape = 19, color = "blue"
   ) +
   ggplot2::coord_cartesian(xlim = c(x_min, x_max), ylim = c(0, 1.05)) +
-  ggplot2::labs(x = "Value, t", y = expression(hat(plain("F"))(t))) +
+  ggplot2::labs(x = "Value, t", y = expression("Empirical CDF, " * hat(plain("F"))(t))) +
   ggplot2::theme_minimal()
 ```
 
@@ -66,7 +66,7 @@ ggplot2::ggplot(eqf_pieces) +
     xlim = c(0, 1),
     ylim = c(min(x_ord) - eqf_y_padding, max(x_ord) + eqf_y_padding)
   ) +
-  ggplot2::labs(x = "Probability, p", y = expression(hat(Q)(p))) +
+  ggplot2::labs(x = "Probability, p", y = expression("Sample quantile, " * hat(Q)(p))) +
   ggplot2::theme_minimal()
 ```
 

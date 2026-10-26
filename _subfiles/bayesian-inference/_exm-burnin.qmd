@@ -25,7 +25,7 @@ traces <- tibble::tibble(
 ggplot2::ggplot(traces) +
   ggplot2::aes(x = iteration, y = pi, colour = start) +
   ggplot2::geom_line() +
-  ggplot2::labs(y = expression(pi), colour = "starting value")
+  ggplot2::labs(y = expression("Success probability, " * pi), colour = "starting value")
 ```
 
 [Trace plots](#def-trace-plot) of the first 200 iterations
