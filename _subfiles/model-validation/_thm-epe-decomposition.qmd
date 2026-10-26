@@ -49,8 +49,10 @@ Take the expectation of the three terms, one at a time:
 $$
 \ba
 \E{\sqf{\truemeanf{\predvar} - \Epredval}}
-&= \sqf{\truemeanf{\predvar} - \Epredval} = \sqf{\biassymf{\predval}}
+&= \sqf{\truemeanf{\predvar} - \Epredval}
 && \text{(a constant is its own expectation)} \\
+&= \sqf{\Epredval - \truemeanf{\predvar}} = \sqf{\biassymf{\predval}}
+&& \text{(squaring ignores the sign; the bias is $\Epredval - \truemeanf{\predvar}$)} \\
 \E{2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\Epredval - \predval}}
 &= 2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\Epredval - \E{\predval}}
 && \text{(constants come out of the expectation)} \\
