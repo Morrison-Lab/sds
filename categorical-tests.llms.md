@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 03:19:48 (PDT)
+Last modified: 2026-10-26 09:42:48 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -415,7 +415,11 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
-> *Proof*. By [Solution 3](#sol-odds-from-joint-probs), the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ in the group \\X = 1\\ are \\{\mathbb{P}\mathopen{}\left(X = 1, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = 1, Y = 0\right)\mathclose{}}\\. By the same solution, the odds of \\Y = 1\\ in the group \\X = 0\\ are \\{\mathbb{P}\mathopen{}\left(X = 0, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = 0, Y = 0\right)\mathclose{}}\\. The [odds ratio](#def-odds-ratio) is the first odds divided by the second. Dividing by a fraction is multiplying by its reciprocal, which gives the stated product of the four joint probabilities.
+> *Proof*. In the group \\X = x\\, the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ are \\{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(Y = 0 \mid X = x\right)\mathclose{}}\\, because the two [conditional probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) sum to 1. Writing each [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) as a joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) over \\{\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}\\, which is nonzero, gives
+>
+> \\ \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 0 \mid X = x\right)\mathclose{}}} = \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}} = \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}}, \\
+>
+> where the last step multiplies the numerator and denominator by the same nonzero factor \\{\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}\\. So the odds of \\Y = 1\\ in the group \\X = 1\\ are \\{\mathbb{P}\mathopen{}\left(X = 1, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = 1, Y = 0\right)\mathclose{}}\\, and in the group \\X = 0\\ the odds are \\{\mathbb{P}\mathopen{}\left(X = 0, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = 0, Y = 0\right)\mathclose{}}\\. The [odds ratio](#def-odds-ratio) is the first odds divided by the second. Dividing by a fraction is multiplying by its reciprocal, which gives the stated product of the four joint probabilities.
 
 > **NOTE:**
 >
@@ -563,6 +567,10 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > Rice [\[5, Sec. 13.6\]](#ref-rice2007mathematical), pp. 526–529 covers odds ratios.
 
+## 3 Further reading
+
+- Sections 4.6 to 4.8 of Lange’s *Mathematical and Statistical Methods for Genetic Analysis* [\[11\]](#ref-lange2002genetic) cover exact tests of independence, case-control association tests, and the transmission/disequilibrium test, with genetic examples.
+
 ## References
 
 \[1\]
@@ -604,5 +612,9 @@ Wikipedia contributors, “Absolute risk reduction — Wikipedia, the free encyc
 \[10\]
 
 Wikipedia contributors, “Odds ratio — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Odds_ratio>
+
+\[11\]
+
+K. Lange, *Mathematical and statistical methods for genetic analysis*, 2nd ed. in Statistics for biology and health. Springer, 2002. doi: [10.1007/978-0-387-21750-5](https://doi.org/10.1007/978-0-387-21750-5).
 
 Back to top
