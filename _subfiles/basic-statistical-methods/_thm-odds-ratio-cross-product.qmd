@@ -25,7 +25,7 @@ $$
 = \frac{\Pf{X = x, Y = 1}}{\Pf{X = x, Y = 0}},
 $$
 
-where the last step divides the numerator and denominator by the same nonzero factor $\Pf{X = x}$.
+where the last step multiplies the numerator and denominator by the same nonzero factor $\Pf{X = x}$.
 So the odds of $Y = 1$ in the group $X = 1$ are $\Pf{X = 1, Y = 1} / \Pf{X = 1, Y = 0}$, and in the group $X = 0$ they are $\Pf{X = 0, Y = 1} / \Pf{X = 0, Y = 0}$.
 The [odds ratio](#def-odds-ratio) is the first odds divided by the second.
 Dividing by a fraction is multiplying by its reciprocal, which gives the stated product of the four joint probabilities.
