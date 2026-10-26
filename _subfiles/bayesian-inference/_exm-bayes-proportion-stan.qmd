@@ -38,7 +38,7 @@ The table puts the two programs beside the exact $\operatorname{Beta}(56, 37)$ p
 
 ```{r}
 #| label: tbl-stan-jags-proportion
-#| tbl-cap: "Posterior of the proportion: JAGS, Stan and the exact Beta(56, 37) posterior"
+#| tbl-cap: "Posterior of the proportion from JAGS, Stan and the exact result"
 #| echo: false
 summarize_draws <- function(draws) {
   c(
