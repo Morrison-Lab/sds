@@ -63,7 +63,7 @@ ggplot2::ggplot() +
   ggplot2::xlim(c(2, 200)) +
   ggplot2::ylim(0, 1) +
   ggplot2::ylab("Power") +
-  ggplot2::xlab("n")
+  ggplot2::xlab("Sample size, n")
 ```
 
 Power of the test of $H_0: \mean = 95$ against $\mean_1 = 100$ mg/dL,
