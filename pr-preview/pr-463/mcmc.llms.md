@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-23 13:45:12 (PDT)
+Last modified: 2026-10-26 12:25:12 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models [\[1, Ch. 13\]](#ref-dobson4e). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -292,7 +292,10 @@ A chain started far from where the posterior puts its probability takes some ite
 > > ggplot2::ggplot(traces) +
 > >   ggplot2::aes(x = iteration, y = pi, colour = start) +
 > >   ggplot2::geom_line() +
-> >   ggplot2::labs(y = expression(pi), colour = "starting value")
+> >   ggplot2::labs(
+> >     y = expression("Success probability, " * pi),
+> >     colour = "starting value"
+> >   )
 > > ```
 > >
 > > [![Two trace plots of pi against iteration. One chain starts at 0.05, the other at 0.95; both move to about 0.6 within a few dozen iterations and then fluctuate together between about 0.5 and 0.7.](mcmc_files/figure-html/unnamed-chunk-1-1.png)](mcmc_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Trace plots of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at \pi= 0.05 and \pi= 0.95.")

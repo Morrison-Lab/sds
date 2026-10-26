@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-23 13:45:12 (PDT)
+Last modified: 2026-10-26 12:25:12 (PDT)
 
 ## 1 Empirical distribution
 
@@ -167,7 +167,10 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 >     ggplot2::aes(x = x, y = y), data = ecdf_closed, shape = 19, color = "blue"
 >   ) +
 >   ggplot2::coord_cartesian(xlim = c(x_min, x_max), ylim = c(0, 1.05)) +
->   ggplot2::labs(x = "t", y = expression(hat(plain("F"))(t))) +
+>   ggplot2::labs(
+>     x = "Value, t",
+>     y = expression("Empirical CDF, " * hat(plain("F"))(t))
+>   ) +
 >   ggplot2::theme_minimal()
 > ```
 >
@@ -196,7 +199,10 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 >     xlim = c(0, 1),
 >     ylim = c(min(x_ord) - eqf_y_padding, max(x_ord) + eqf_y_padding)
 >   ) +
->   ggplot2::labs(x = "p", y = expression(hat(Q)(p))) +
+>   ggplot2::labs(
+>     x = "Probability, p",
+>     y = expression("Sample quantile, " * hat(Q)(p))
+>   ) +
 >   ggplot2::theme_minimal()
 > ```
 >

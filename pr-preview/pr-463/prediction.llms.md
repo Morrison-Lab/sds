@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-23 13:45:12 (PDT)
+Last modified: 2026-10-26 12:25:12 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -198,7 +198,7 @@ Last modified: 2026-10-23 13:45:12 (PDT)
 > >     x = 1.1, y = 1.75, hjust = 0,
 > >     label = "r[2] == 0.5", parse = TRUE
 > >   ) +
-> >   ggplot2::labs(y = "y")
+> >   ggplot2::labs(y = "Response, y")
 > > ```
 > >
 > > [![](prediction_files/figure-html/unnamed-chunk-1-1.png)](prediction_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Observed outcomes (filled), fitted values on the line (open), and the residual of the second point (dashed), which points up from its fitted value to its observed outcome")

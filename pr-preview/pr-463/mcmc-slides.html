@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-23 13:45:12 (PDT)</p>
+  <p class="date">Last modified: 2026-10-26 12:25:12 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -677,7 +677,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 <span id="cb5-10"><a aria-label="10"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(traces) <span class="sc">+</span></span>
 <span id="cb5-11"><a aria-label="11"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> iteration, <span class="at">y =</span> pi, <span class="at">colour =</span> start) <span class="sc">+</span></span>
 <span id="cb5-12"><a aria-label="12"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb5-13"><a aria-label="13"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">expression</span>(pi), <span class="at">colour =</span> <span class="st">"starting value"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-13"><a aria-label="13"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
+<span id="cb5-14"><a aria-label="14"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="st">"Success probability, "</span> <span class="sc">*</span> pi),</span>
+<span id="cb5-15"><a aria-label="15"></a>    <span class="at">colour =</span> <span class="st">"starting value"</span></span>
+<span id="cb5-16"><a aria-label="16"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-mh-burnin" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-mh-burnin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: <a href="#/def-trace-plot">Trace plots</a> of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at <span class="math inline">\(\pi= 0.05\)</span> and <span class="math inline">\(\pi= 0.95\)</span>.

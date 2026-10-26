@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-23 13:45:12 (PDT)
+Last modified: 2026-10-26 12:25:12 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -1041,7 +1041,15 @@ Last modified: 2026-10-23 13:45:12 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. Every expectation below is conditional on \\X\_{\*}= x\\, as in the exercises. By [Solution 7](#sol-epe-split-noise), the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\. By [Solution 8](#sol-epe-split-bias), that pMSE is the squared bias plus the variance. Substituting [Equation 38](#eq-epe-after-bias) into [Equation 36](#eq-epe-after-noise):
+> *Proof*. Every [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) below is taken given \\X\_{\*}= x\\. By [Theorem 4](#thm-epe-split-noise), the [expected squared prediction error](#def-epe) is the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of the [noise](#def-noise) plus the [pMSE](estimation.llms.md#def-mse) of the [prediction](prediction.llms.md#def-prediction), used as an [estimator](estimation.llms.md#def-estimator) of \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\. That pMSE is the squared [bias](#def-prediction-bias) plus the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance). To see this, add and subtract the [expected prediction](#def-average-fit) \\{{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\\ inside the square and expand it:
+>
+> \\ \begin{aligned} {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2} &= {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2} + 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{} + {\mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{}}^{2}. \end{aligned} \\
+>
+> This choice splits the error about \\{{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\\, the center of the prediction’s distribution, so the pieces are the bias and the variance. Take the expectation of the three terms, one at a time:
+>
+> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2}\right\]\mathclose{}} &= {\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{}}^{2} && \text{(a constant is its own expectation)} \\ &= {\mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2} = {\mathopen{}\left({\mathbb{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^{2} && \text{(squaring ignores the sign; the bias is \${{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mu\mathopen{}\left(x\right)\mathclose{}}\$)} \\ {\mathbb{E}\mathopen{}\left\[2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{}\right\]\mathclose{}} &= 2 \mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\right)\mathclose{} \mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- {\mathbb{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} && \text{(constants come out of the expectation)} \\ &= 0 && \text{(\${{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}\$ is the expectation of \$\hat{y}\$)} \\ {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({{\mathbb{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}}- \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}} &= {\mathbb{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}} && \text{(definition of the variance)} \end{aligned} \\
+>
+> Substituting the split of the pMSE into [Equation 37](#eq-epe-split-noise):
 >
 > \\ \begin{aligned} {\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}} &= \sigma^2+ {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2}\right\]\mathclose{}} && \text{(separating the noise)} \\ &= \sigma^2+ {\mathopen{}\left({\mathbb{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^{2} + {\mathbb{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}} && \text{(separating the bias)} \\ &= {\mathopen{}\left({\mathbb{B}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^{2} + {\mathbb{V}\mathopen{}\left\[\hat{y}\right\]\mathclose{}} + \sigma^2 && \text{(reorder the terms)} \end{aligned} \\
 
@@ -2521,6 +2529,8 @@ Last modified: 2026-10-23 13:45:12 (PDT)
 ## 11 Further reading
 
 Sanchez [\[14\]](#ref-sanchez2020matrix4sl) reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.
+
+For [cross-validation](#def-kfold), see James et al. [\[6, Ch. 5\]](#ref-james2021islr2e) and Hastie et al. [\[4, Sec. 7.10\]](#ref-hastie2009elements). A PDF of each book can be downloaded at no cost from the authors’ webpages: [*An Introduction to Statistical Learning*](https://www.statlearning.com/) and [*The Elements of Statistical Learning*](https://hastie.su.domains/ElemStatLearn/).
 
 ## References
 
