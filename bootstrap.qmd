@@ -130,7 +130,9 @@ format:
 
 ## Further reading {#sec-bootstrap-reading}
 
-- Chapter 24 of @lange2010numerical covers permutation tests and the bootstrap, with an emphasis on computing them.
+- Chapter 24 of Lange's *Numerical Analysis for Statisticians* [@lange2010numerical]
+  covers permutation tests and the bootstrap,
+  with an emphasis on computation.
 
 
 ## References {.unnumbered}
