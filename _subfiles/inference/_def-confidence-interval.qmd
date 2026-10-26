@@ -5,7 +5,7 @@ A $100(1-\siglevel)\%$ **confidence interval** for a parameter $\param$
 is a random [closed interval](https://morrison-lab.github.io/mds/sets.html#def-closed-interval)
 $\cintf{X}$
 whose endpoints $\cilof{X} \le \ciupf{X}$
-are statistics computed from the data $X$,
+are [statistics](sufficiency.qmd#def-statistic) computed from the data $X$,
 such that for every possible value of $\param$:
 
 $$\Pr_{\param}\paren{\param \in \cintf{X}} \ge 1 - \siglevel$$

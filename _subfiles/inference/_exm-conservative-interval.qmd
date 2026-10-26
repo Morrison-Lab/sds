@@ -4,7 +4,8 @@
 Let $X \sim \text{Bin}(n, p)$ with $n = 20$,
 and let $[L(X), U(X)]$ be the Clopper-Pearson 95% interval
 returned by `binom.test()`.
-Its coverage probability at each $p$ is the sum of the binomial probabilities
+Its [coverage probability](#def-coverage-probability) at each $p$ is the sum of the binomial
+[probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)
 of the values of $X$ whose interval contains $p$:
 
 ```{r}
@@ -19,7 +20,7 @@ cover <- sapply(p_grid, coverage)
 range(cover)
 ```
 
-The smallest coverage probability on this grid, which approximates the
+The smallest coverage probability on this grid, which is close to the
 [confidence coefficient](#def-confidence-coefficient),
 is `r sprintf("%.3f", min(cover))`,
 and the largest is `r sprintf("%.3f", max(cover))`.

@@ -3,13 +3,13 @@
 
 @def-confidence-interval requires the [confidence coefficient](#def-confidence-coefficient)
 to be at least $1 - \siglevel$.
-The coverage probability can depend on $\param$,
+The [coverage probability](#def-coverage-probability) can depend on $\param$,
 and the confidence coefficient is its smallest value.
 An interval is exact when its coverage probability equals $1 - \siglevel$
 for every $\param$,
 and conservative when its coverage probability is larger than $1 - \siglevel$
 for some $\param$.
-Discrete data usually allow only a conservative interval.
+[Discrete](data.qmd#def-discrete-var) data usually allow only a conservative interval.
 A region that need not be an interval is a confidence set
 [@CaseBerg01, Section 9.1].
 :::
