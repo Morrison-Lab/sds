@@ -2275,12 +2275,39 @@
    "external": false
   },
   {
+   "id": "sds/inference#def-confidence-set",
+   "site": "sds",
+   "page": "inference",
+   "div": "def-confidence-set",
+   "kind": "def",
+   "title": "Confidence set",
+   "external": false
+  },
+  {
+   "id": "sds/inference#def-conservative-confidence-interval",
+   "site": "sds",
+   "page": "inference",
+   "div": "def-conservative-confidence-interval",
+   "kind": "def",
+   "title": "Conservative confidence interval",
+   "external": false
+  },
+  {
    "id": "sds/inference#def-coverage-probability",
    "site": "sds",
    "page": "inference",
    "div": "def-coverage-probability",
    "kind": "def",
    "title": "Coverage probability",
+   "external": false
+  },
+  {
+   "id": "sds/inference#def-exact-confidence-interval",
+   "site": "sds",
+   "page": "inference",
+   "div": "def-exact-confidence-interval",
+   "kind": "def",
+   "title": "Exact confidence interval",
    "external": false
   },
   {
@@ -2941,6 +2968,15 @@
    "external": false
   },
   {
+   "id": "sds/logistic-inference#def-irls",
+   "site": "sds",
+   "page": "logistic-inference",
+   "div": "def-irls",
+   "kind": "def",
+   "title": "Iteratively reweighted least squares (IRLS)",
+   "external": false
+  },
+  {
    "id": "sds/logistic-inference#def-logistic-regression",
    "site": "sds",
    "page": "logistic-inference",
@@ -3001,6 +3037,15 @@
    "div": "thm-deviance-drop",
    "kind": "thm",
    "title": "The drop in deviance is the likelihood ratio statistic",
+   "external": false
+  },
+  {
+   "id": "sds/logistic-inference#thm-irls-newton",
+   "site": "sds",
+   "page": "logistic-inference",
+   "div": "thm-irls-newton",
+   "kind": "thm",
+   "title": "An IRLS step is a Newton-Raphson step and a Fisher scoring step",
    "external": false
   },
   {
@@ -5563,8 +5608,36 @@
    "sds/sufficiency#def-statistic"
   ],
   [
+   "sds/inference#def-confidence-set",
+   "mds/sets#def-closed-interval"
+  ],
+  [
+   "sds/inference#def-confidence-set",
+   "sds/bayesian-inference#def-parameter-space"
+  ],
+  [
+   "sds/inference#def-confidence-set",
+   "sds/inference#def-confidence-interval"
+  ],
+  [
+   "sds/inference#def-conservative-confidence-interval",
+   "sds/inference#def-confidence-interval"
+  ],
+  [
+   "sds/inference#def-conservative-confidence-interval",
+   "sds/inference#def-coverage-probability"
+  ],
+  [
    "sds/inference#def-coverage-probability",
    "sds/inference#def-confidence-interval"
+  ],
+  [
+   "sds/inference#def-exact-confidence-interval",
+   "sds/inference#def-confidence-interval"
+  ],
+  [
+   "sds/inference#def-exact-confidence-interval",
+   "sds/inference#def-coverage-probability"
   ],
   [
    "sds/inference#def-margin-error",
@@ -5887,6 +5960,18 @@
    "sds/intro-MLEs#def-wald-ci"
   ],
   [
+   "sds/logistic-inference#def-irls",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/logistic-inference#def-irls",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/logistic-inference#def-irls",
+   "sds/logistic-inference#def-logistic-regression"
+  ],
+  [
    "sds/logistic-inference#def-logistic-regression",
    "pds/independence#def-indpt"
   ],
@@ -5925,6 +6010,26 @@
   [
    "sds/logistic-inference#thm-deviance-drop",
    "sds/logistic-inference#def-null-deviance"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-fisher-scoring"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-newton-raphson"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/logistic-inference#def-irls"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/logistic-inference#def-logistic-regression"
   ],
   [
    "sds/logistic-inference#thm-logistic-mle-distribution",

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 03:06:28 (PDT)
+Last modified: 2026-10-26 04:14:21 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 

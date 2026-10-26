@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 03:06:28 (PDT)
+Last modified: 2026-10-26 04:14:21 (PDT)
 
 ## 1 Inference
 
@@ -190,9 +190,9 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 12 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a random [closed interval](https://morrison-lab.github.io/mds/sets.html#def-closed-interval) \\\cintf{X}\\ whose endpoints \\\cilof{X} \le \ciupf{X}\\ are [statistics](sufficiency.llms.md#def-statistic) computed from the data \\X\\, such that for every possible value of \\\theta\\:
+> **Definition 12 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a random [closed interval](https://morrison-lab.github.io/mds/sets.html#def-closed-interval) \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ whose endpoints \\{L\mathopen{}\left(X\right)\mathclose{}} \le {U\mathopen{}\left(X\right)\mathclose{}}\\ are [statistics](sufficiency.llms.md#def-statistic) computed from the data \\X\\, such that for every possible value of \\\theta\\:
 >
-> \\\Pr\_{\theta}\mathopen{}\left(\theta\in \cintf{X}\right)\mathclose{} \ge 1 - \alpha\\
+> \\\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{} \ge 1 - \alpha\\
 >
 > The probability is over repeated samples from the data-generating process, with \\\theta\\ held fixed. The interval is random and \\\theta\\ is not.
 >
@@ -200,23 +200,37 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 13 (Coverage probability)** The **coverage probability** of an interval \\\cintf{X}\\ for a parameter \\\theta\\ is \\\Pr\_{\theta}\mathopen{}\left(\theta\in \cintf{X}\right)\mathclose{}\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability at least \\1 - \alpha\\ for every \\\theta\\.
+> **Definition 13 (Coverage probability)** The **coverage probability** of an interval \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ for a parameter \\\theta\\ is \\\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability at least \\1 - \alpha\\ for every \\\theta\\.
 >
 > Source: [\[9\]](#ref-CaseBerg01), Definition 9.1.4.
 
 > **NOTE:**
 >
-> **Definition 14 (Confidence coefficient)** The **confidence coefficient** of an interval \\\cintf{X}\\ for a parameter \\\theta\\ is the infimum over \\\theta\\ of its [coverage probability](#def-coverage-probability), \\\inf\_{\theta} \Pr\_{\theta}\mathopen{}\left(\theta\in \cintf{X}\right)\mathclose{}\\.
+> **Definition 14 (Confidence coefficient)** The **confidence coefficient** of an interval \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ for a parameter \\\theta\\ is the infimum over \\\theta\\ of its [coverage probability](#def-coverage-probability), \\\inf\_{\theta} \Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}\\.
 >
 > Source: [\[9\]](#ref-CaseBerg01), Definition 9.1.5.
 
 > **NOTE:**
 >
-> *Remark 3* (Exact and conservative intervals). [Definition 12](#def-confidence-interval) requires the [confidence coefficient](#def-confidence-coefficient) to be at least \\1 - \alpha\\. The [coverage probability](#def-coverage-probability) can depend on \\\theta\\, and the confidence coefficient is its smallest value. An interval is exact when its coverage probability equals \\1 - \alpha\\ for every \\\theta\\, and conservative when its coverage probability is larger than \\1 - \alpha\\ for some \\\theta\\. [Discrete](data.llms.md#def-discrete-var) data usually allow only a conservative interval. A region that need not be an interval is a confidence set [\[9, Sec. 9.1\]](#ref-CaseBerg01).
+> **Definition 15 (Exact confidence interval)** A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ is **exact** when its [coverage probability](#def-coverage-probability) equals \\1 - \alpha\\ for every possible value of \\\theta\\.
 
 > **NOTE:**
 >
-> **Example 7 (A conservative interval for a binomial proportion)** Let \\X \sim \text{Bin}(n, p)\\ with \\n = 20\\, and let \\\[L(X), U(X)\]\\ be the Clopper-Pearson 95% interval returned by [`binom.test()`](https://rdrr.io/r/stats/binom.test.html). Its [coverage probability](#def-coverage-probability) at each \\p\\ is the sum of the binomial [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of the values of \\X\\ whose interval contains \\p\\:
+> **Definition 16 (Conservative confidence interval)** A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ is **conservative** when its [coverage probability](#def-coverage-probability) is at least \\1 - \alpha\\ for every possible value of \\\theta\\ and larger than \\1 - \alpha\\ for some possible value of \\\theta\\.
+
+> **NOTE:**
+>
+> **Definition 17 (Confidence set)** A \\100(1-\alpha)\\\\ **confidence set** for a parameter \\\theta\\ is a random subset \\C(X)\\ of the [parameter space](bayesian-inference.llms.md#def-parameter-space), computed from the data \\X\\, such that for every possible value of \\\theta\\:
+>
+> \\\Pr\_{\theta}\mathopen{}\left(\theta\in C(X)\right)\mathclose{} \ge 1 - \alpha\\
+>
+> A [confidence interval](#def-confidence-interval) is a confidence set whose values are [closed intervals](https://morrison-lab.github.io/mds/sets.html#def-closed-interval).
+>
+> Source: [\[9, Sec. 9.1\]](#ref-CaseBerg01).
+
+> **NOTE:**
+>
+> **Example 7 (A conservative interval for a binomial proportion)** Let \\X \sim \text{Bin}(n, p)\\ with \\n = 20\\, and let \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ be the Clopper-Pearson 95% interval returned by [`binom.test()`](https://rdrr.io/r/stats/binom.test.html). Its [coverage probability](#def-coverage-probability) at each \\p\\ is the sum of the binomial [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of the values \\x\\ of \\X\\ for which \\{\mathopen{}\left\[{L\mathopen{}\left(x\right)\mathclose{}}, {U\mathopen{}\left(x\right)\mathclose{}}\right\]\mathclose{}}\\ contains \\p\\:
 >
 > ``` downlit
 > n <- 20
@@ -230,11 +244,15 @@ The tests on this page compare a test statistic with one of three families of di
 > #> [1] 0.958611 0.994366
 > ```
 >
-> The smallest coverage probability on this grid, which is close to the [confidence coefficient](#def-confidence-coefficient), is 0.959, and the largest is 0.994. The interval is conservative: its coverage probability is above 0.95 at 99 of the 99 grid values of \\p\\.
+> The smallest coverage probability on this grid is 0.959, and the largest is 0.994. The grid is coarse and the coverage probability jumps at the interval endpoints, so the smallest grid value is only an [upper bound](https://morrison-lab.github.io/mds/sets.html#def-bound) for the [confidence coefficient](#def-confidence-coefficient). The Clopper-Pearson interval is built to have coverage probability at least 0.95 at every \\p\\, and here it is above 0.95 at all 99 grid values of \\p\\, so it is [conservative](#def-conservative-confidence-interval).
 
 > **NOTE:**
 >
-> **Definition 15 (Approximate confidence interval)** An **approximate** \\100(1-\alpha)\\\\ confidence interval is an interval whose [coverage probability](#def-coverage-probability) is approximately \\1 - \alpha\\, for example only in large samples.
+> *Remark 3* (Why most intervals are conservative). [Definition 12](#def-confidence-interval) requires the [coverage probability](#def-coverage-probability) to be at least \\1 - \alpha\\ at every \\\theta\\, which is the same as requiring the [confidence coefficient](#def-confidence-coefficient) to be at least \\1 - \alpha\\. The coverage probability can depend on \\\theta\\, and the confidence coefficient is its greatest [lower bound](https://morrison-lab.github.io/mds/sets.html#def-bound), which the coverage probability need not attain at any \\\theta\\. An [exact](#def-exact-confidence-interval) interval has the same coverage probability at every \\\theta\\. [Discrete](data.llms.md#def-discrete-var) data take only countably many values, so they usually allow only a [conservative](#def-conservative-confidence-interval) interval, as [Example 7](#exm-conservative-interval) shows. A [confidence set](#def-confidence-set) drops the requirement that the region be an interval.
+
+> **NOTE:**
+>
+> **Definition 18 (Approximate confidence interval)** An **approximate** \\100(1-\alpha)\\\\ confidence interval is an interval whose [coverage probability](#def-coverage-probability) is approximately \\1 - \alpha\\, for example only in large samples.
 
 > **NOTE:**
 >
@@ -250,7 +268,7 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 16 (Margin of error (radius))** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
+> **Definition 19 (Margin of error (radius))** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
 >
 > Source: Wikipedia contributors [\[13\]](#ref-wikipedia_margin_of_error).
 
