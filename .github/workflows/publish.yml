@@ -36,4 +36,10 @@ jobs:
       formats: ''
       timezone: America/Los_Angeles
       freeze-cache: true
+      # A render that times out still saves the pages it executed, so a re-run
+      # resumes from them instead of starting over.
+      freeze-cache-save-on-failure: true
+      # The default 45 minutes is a hang ceiling. A full render of this site
+      # takes 12 to 47 minutes, depending on the freeze cache and the runner.
+      timeout-minutes: 90
       checkout-submodules: true
