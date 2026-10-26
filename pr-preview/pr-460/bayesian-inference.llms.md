@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-23 13:39:11 (PDT)
+Last modified: 2026-10-26 12:25:15 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models [\[1, Ch. 12\]](#ref-dobson4e). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -248,7 +248,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 > >   ggplot2::aes(x = mu, y = value, colour = curve) +
 > >   ggplot2::geom_line() +
 > >   ggplot2::geom_vline(xintercept = c(xbar, map_est), linetype = "dashed") +
-> >   ggplot2::labs(x = expression(mu), y = NULL, colour = NULL)
+> >   ggplot2::labs(x = expression("Mean, " * mu), y = NULL, colour = NULL)
 > > ```
 > >
 > > [![Three curves over the mean mu. The negative log-likelihood is a parabola with its minimum at the sample mean, near 2.2. The penalty is a parabola with its minimum at 0. Their sum is a parabola with its minimum between the two, slightly left of the sample mean. Vertical lines mark the sample mean and the MAP estimate.](bayesian-inference_files/figure-html/unnamed-chunk-1-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Negative log-likelihood, penalty, and their sum, up to constants. The dashed lines mark the sample mean (right) and the MAP estimate (left).")
@@ -321,7 +321,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 > > ggplot2::ggplot(curves) +
 > >   ggplot2::aes(x = mu, y = density, colour = curve) +
 > >   ggplot2::geom_line() +
-> >   ggplot2::labs(x = expression(mu), y = "density", colour = NULL)
+> >   ggplot2::labs(x = expression("Mean, " * mu), y = "density", colour = NULL)
 > > ```
 > >
 > > [![Three bell-shaped curves over the mean mu: a wide prior centered at 0, a narrow likelihood centered near 2.2, and a posterior just as narrow, centered slightly closer to 0 than the likelihood.](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png "Figure 2: The {\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}} prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \mu, for the data of Example 10.")

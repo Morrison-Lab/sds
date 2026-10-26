@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-23 13:39:11 (PDT)</p>
+  <p class="date">Last modified: 2026-10-26 12:25:15 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -851,8 +851,8 @@ n \, {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}
 <span id="cb7-20"><a aria-label="20"></a>  ) <span class="sc">+</span></span>
 <span id="cb7-21"><a aria-label="21"></a>  ggplot2<span class="sc">::</span><span class="fu">annotate</span>(<span class="st">"point"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="fl">0.5</span>, <span class="at">shape =</span> <span class="dv">4</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb7-22"><a aria-label="22"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
-<span id="cb7-23"><a aria-label="23"></a>    <span class="at">x =</span> <span class="fu">expression</span>(beta[<span class="dv">0</span>]),</span>
-<span id="cb7-24"><a aria-label="24"></a>    <span class="at">y =</span> <span class="fu">expression</span>(beta[x]),</span>
+<span id="cb7-23"><a aria-label="23"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="st">"Intercept, "</span> <span class="sc">*</span> beta[<span class="dv">0</span>]),</span>
+<span id="cb7-24"><a aria-label="24"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="st">"Slope, "</span> <span class="sc">*</span> beta[x]),</span>
 <span id="cb7-25"><a aria-label="25"></a>    <span class="at">color =</span> <span class="st">"RSS"</span></span>
 <span id="cb7-26"><a aria-label="26"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a></span>

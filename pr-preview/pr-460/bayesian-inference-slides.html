@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-23 13:39:11 (PDT)</p>
+  <p class="date">Last modified: 2026-10-26 12:25:15 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -695,7 +695,7 @@ text-align: center;
 <span id="cb2-17"><a aria-label="17"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> mu, <span class="at">y =</span> value, <span class="at">colour =</span> curve) <span class="sc">+</span></span>
 <span id="cb2-18"><a aria-label="18"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb2-19"><a aria-label="19"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(xbar, map_est), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb2-20"><a aria-label="20"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(mu), <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">colour =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-20"><a aria-label="20"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="st">"Mean, "</span> <span class="sc">*</span> mu), <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">colour =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-map-penalized" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-map-penalized-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Negative log-likelihood, penalty, and their sum, up to constants. The dashed lines mark the sample mean (right) and the MAP estimate (left).
@@ -763,7 +763,7 @@ Figure&nbsp;1: Negative log-likelihood, penalty, and their sum, up to constants.
 <span id="cb4-11"><a aria-label="11"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(curves) <span class="sc">+</span></span>
 <span id="cb4-12"><a aria-label="12"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> mu, <span class="at">y =</span> density, <span class="at">colour =</span> curve) <span class="sc">+</span></span>
 <span id="cb4-13"><a aria-label="13"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb4-14"><a aria-label="14"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(mu), <span class="at">y =</span> <span class="st">"density"</span>, <span class="at">colour =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-14"><a aria-label="14"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="st">"Mean, "</span> <span class="sc">*</span> mu), <span class="at">y =</span> <span class="st">"density"</span>, <span class="at">colour =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-normal-prior-lik-post" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-normal-prior-lik-post-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: The <span class="math inline">\({\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}\)</span> prior, the likelihood (scaled to integrate to 1), and the posterior for the mean <span class="math inline">\(\mu\)</span>, for the data of <a href="#/exm-normal-credible-vs-confidence" class="quarto-xref">Example&nbsp;10</a>.

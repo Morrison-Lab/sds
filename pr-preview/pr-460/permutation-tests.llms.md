@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-23 13:39:11 (PDT)
+Last modified: 2026-10-26 12:25:15 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead [\[1\]](#ref-wikipedia_resampling_statistics). If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
@@ -406,6 +406,7 @@ table(tumor_class = khan_pair$tumor_class)
 - Good [\[3\]](#ref-good2005permutation) gives a book-length treatment of permutation tests.
 - Phipson and Smyth [\[9\]](#ref-phipson2010permutation) explain why [Monte Carlo permutation p-values](#def-monte-carlo-p-value) need the added 1.
 - Chapter 12 of the [*Computational and Inferential Thinking*](https://www.inferentialthinking.com/) textbook for UC Berkeley’s Data 8 introduces permutation tests through plain-language A/B testing examples.
+- Section 24.2 of Lange’s textbook [\[10\]](#ref-lange2010numerical) covers permutation tests, with an emphasis on computation.
 - Chapter 13 of James et al. [\[2\]](#ref-james2021islr2e) applies permutation and other resampling methods to multiple testing.
 
 ## References
@@ -445,5 +446,9 @@ J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Ce
 \[9\]
 
 B. Phipson and G. K. Smyth, “Permutation p-values should never be zero: Calculating exact p-values when permutations are randomly drawn,” *Statistical Applications in Genetics and Molecular Biology*, vol. 9, no. 1, 2010, doi: [10.2202/1544-6115.1585](https://doi.org/10.2202/1544-6115.1585).
+
+\[10\]
+
+K. Lange, *Numerical analysis for statisticians*, 2nd ed. in Statistics and computing. Springer, 2010. doi: [10.1007/978-1-4419-5945-4](https://doi.org/10.1007/978-1-4419-5945-4).
 
 Back to top
