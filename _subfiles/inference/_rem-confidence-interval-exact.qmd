@@ -5,7 +5,7 @@
 to be at least $1 - \siglevel$.
 The [coverage probability](#def-coverage-probability) can depend on $\param$,
 and the confidence coefficient is its smallest value.
-[Discrete](data.qmd#def-discrete-var) data take only finitely many values in a given sample size,
+[Discrete](data.qmd#def-discrete-var) data take only countably many values,
 so they usually allow only a [conservative](#def-conservative-confidence-interval) interval,
 as @exm-conservative-interval shows.
 :::
