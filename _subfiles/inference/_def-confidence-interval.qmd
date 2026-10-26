@@ -8,7 +8,7 @@ whose endpoints $\cilof{X} \le \ciupf{X}$
 are [statistics](sufficiency.qmd#def-statistic) computed from the data $X$,
 such that for every possible value of $\param$:
 
-$$\Pr_{\param}\paren{\param \in \cintf{X}} \ge 1 - \siglevel$$
+$$\Prunder{\param}{\param \in \cintf{X}} \ge 1 - \siglevel$$
 
 The probability is over repeated samples from the data-generating process,
 with $\param$ held fixed.

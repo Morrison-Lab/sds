@@ -6,7 +6,7 @@ is a random subset $C(X)$ of the [parameter space](bayesian-inference.qmd#def-pa
 computed from the data $X$,
 such that for every possible value of $\param$:
 
-$$\Pr_{\param}\paren{\param \in C(X)} \ge 1 - \siglevel$$
+$$\Prunder{\param}{\param \in C(X)} \ge 1 - \siglevel$$
 
 A [confidence interval](#def-confidence-interval) is a confidence set
 whose values are [closed intervals](https://morrison-lab.github.io/mds/sets.html#def-closed-interval).

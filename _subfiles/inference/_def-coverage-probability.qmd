@@ -2,7 +2,7 @@
 #### Coverage probability
 
 The **coverage probability** of an interval $\cintf{X}$ for a parameter $\param$
-is $\Pr_{\param}\paren{\param \in \cintf{X}}$,
+is $\Prunder{\param}{\param \in \cintf{X}}$,
 computed over repeated samples with $\param$ held fixed.
 A $100(1-\siglevel)\%$ [confidence interval](#def-confidence-interval)
 has coverage probability at least $1 - \siglevel$
