@@ -29,7 +29,7 @@ $$ {#eq-epe-decomposition}
 
 ::: proof
 
-Every expectation below is conditional on $\newpredvar = \predvar$, as in the exercises.
+Every expectation below is conditional on $\newpredvar = \predvar$.
 By @thm-epe-split-noise, the [expected squared prediction error](#def-epe) is the [noise](#def-noise) variance plus the [pMSE](#def-mse) of the [prediction](prediction.qmd#def-prediction), used as an [estimator](estimation.qmd#def-estimator) of $\truemeanf{\predvar}$.
 That pMSE is the squared [bias](#def-prediction-bias) plus the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
 To see this, add and subtract the [expected prediction](#def-average-fit) $\Epredval$ inside the square and expand it:
