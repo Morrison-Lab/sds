@@ -144,11 +144,11 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/inference/_rem-confidence-interval-exact.qmd >}}
+{{< include sds/_subfiles/inference/_exm-conservative-interval.qmd >}}
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/inference/_exm-conservative-interval.qmd >}}
+{{< include sds/_subfiles/inference/_rem-confidence-interval-exact.qmd >}}
 
 {{< slidebreak >}}
 

@@ -1,9 +1,11 @@
 ::: {#rem-confidence-interval-exact}
 #### Why most intervals are conservative
 
-@def-confidence-interval requires the [confidence coefficient](#def-confidence-coefficient)
+@def-confidence-interval requires the [coverage probability](#def-coverage-probability)
+to be at least $1 - \siglevel$ at every $\param$,
+which is the same as requiring the [confidence coefficient](#def-confidence-coefficient)
 to be at least $1 - \siglevel$.
-The [coverage probability](#def-coverage-probability) can depend on $\param$,
+The coverage probability can depend on $\param$,
 and the confidence coefficient is its greatest [lower bound](https://morrison-lab.github.io/mds/sets.html#def-bound),
 which the coverage probability need not attain at any $\param$.
 An [exact](#def-exact-confidence-interval) interval has the same coverage probability

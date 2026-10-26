@@ -27,7 +27,8 @@ so the smallest grid value is only an [upper bound](https://morrison-lab.github.
 [confidence coefficient](#def-confidence-coefficient).
 The Clopper-Pearson interval is built to have coverage probability at least 0.95
 at every $p$,
-and here it is above 0.95 at `r sum(cover > 0.95)`
-of the `r length(p_grid)` grid values of $p$,
+and here it is above 0.95 at
+`r if (all(cover > 0.95)) "all" else paste(sum(cover > 0.95), "of the")`
+`r length(p_grid)` grid values of $p$,
 so it is [conservative](#def-conservative-confidence-interval).
 :::
