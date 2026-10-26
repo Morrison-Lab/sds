@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-22 15:07:28 (PDT)
+Last modified: 2026-10-26 12:25:07 (PDT)
 
 ## 1 Introduction
 
@@ -138,9 +138,9 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 1 (One-sample t-test)** Let \\x_1, \ldots, x_n\\ be observations with \\n \ge 2\\, sample mean \\\bar{x}\\, and sample standard deviation \\s\\. The **one-sample t-test** of \\H_0: \mu= \mu_0\\ against \\H_1: \mu\neq \mu_0\\ uses the [statistic](sufficiency.llms.md#def-statistic)
+> **Definition 1 (One-sample t-test)** Let \\x_1, \ldots, x_n\\ be observations with \\n \ge 2\\, sample mean \\{\bar{x}}\\, and sample standard deviation \\s\\. The **one-sample t-test** of \\H_0: \mu= \mu_0\\ against \\H_1: \mu\neq \mu_0\\ uses the [statistic](sufficiency.llms.md#def-statistic)
 >
-> \\t \stackrel{\text{def}}{=}\frac{\bar{x}- \mu_0}{s / \sqrt{n}}.\\
+> \\t \stackrel{\text{def}}{=}\frac{{\bar{x}}- \mu_0}{s / \sqrt{n}}.\\
 >
 > Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{n-1}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
 >
@@ -218,15 +218,15 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > and the Welch–Satterthwaite degrees of freedom
 >
-> \\\hat{\nu}\stackrel{\text{def}}{=}\frac{\mathopen{}\left(\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}\right)\mathclose{}^2} {\dfrac{(s_1^2 / n_1)^2}{n_1 - 1} + \dfrac{(s_2^2 / n_2)^2}{n_2 - 1}}.\\
+> \\\hat{\operatorname{df}}\stackrel{\text{def}}{=}\frac{\mathopen{}\left(\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}\right)\mathclose{}^2} {\dfrac{(s_1^2 / n_1)^2}{n_1 - 1} + \dfrac{(s_2^2 / n_2)^2}{n_2 - 1}}.\\
 >
-> Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{\hat{\nu}}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
+> Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{\hat{\operatorname{df}}}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
 >
 > Source: Wikipedia contributors [\[5\]](#ref-wikipedia_welchs_t_test).
 
 > **NOTE:**
 >
-> *Remark 2* (Properties of Welch’s test). Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, \\t\_{\hat{\nu}}\\ is only an approximation to the null distribution of \\t\\. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under \\H_0\\, as in [the WCGS cholesterol example](inference.llms.md#exm-p-value-wcgs). Welch’s test is the default in R’s [`t.test()`](https://rdrr.io/r/stats/t.test.html).
+> *Remark 2* (Properties of Welch’s test). Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, \\t\_{\hat{\operatorname{df}}}\\ is only an approximation to the null distribution of \\t\\. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under \\H_0\\, as in [the WCGS cholesterol example](inference.llms.md#exm-p-value-wcgs). Welch’s test is the default in R’s [`t.test()`](https://rdrr.io/r/stats/t.test.html).
 
 > **NOTE:**
 >
@@ -359,9 +359,9 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > **Definition 6 (Welch confidence interval for a difference in means)** With the notation of [Definition 3](#def-two-sample-t-test), the **Welch \\100(1-\alpha)\\\\ confidence interval** for \\\mu_1 - \mu_2\\ is
 >
-> \\(\bar{x}\_1 - \bar{x}\_2) \pm t\_{\hat{\nu},\\ 1 - \alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},\\
+> \\(\bar{x}\_1 - \bar{x}\_2) \pm t\_{\hat{\operatorname{df}},\\ 1 - \alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},\\
 >
-> where \\t\_{\hat{\nu},\\ 1 - \alpha/2}\\ is the \\1 - \alpha/2\\ quantile of the \\t\_{\hat{\nu}}\\ distribution. It is an approximate [confidence interval](inference.llms.md#def-confidence-interval).
+> where \\t\_{\hat{\operatorname{df}},\\ 1 - \alpha/2}\\ is the \\1 - \alpha/2\\ quantile of the \\t\_{\hat{\operatorname{df}}}\\ distribution. It is an approximate [confidence interval](inference.llms.md#def-confidence-interval).
 
 > **NOTE:**
 >
@@ -384,9 +384,9 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 7 (Between-group sum of squares)** Let \\y\_{j1}, \ldots, y\_{jn_j}\\ be the \\n_j\\ observations in group \\j\\, for \\k \ge 2\\ groups with \\n \stackrel{\text{def}}{=}\sum\_{j=1}^{k} n_j\\ observations in all, let \\\bar{y}\_j\\ be the sample mean of group \\j\\, and let \\\bar{y}\\ be the sample mean of all \\n\\ observations. The **between-group sum of squares** is
+> **Definition 7 (Between-group sum of squares)** Let \\y\_{j1}, \ldots, y\_{jn_j}\\ be the \\n_j\\ observations in group \\j\\, for \\k \ge 2\\ groups with \\n \stackrel{\text{def}}{=}\sum\_{j=1}^{k} n_j\\ observations in all, let \\{\bar{y}}\_j\\ be the sample mean of group \\j\\, and let \\{\bar{y}}\\ be the sample mean of all \\n\\ observations. The **between-group sum of squares** is
 >
-> \\\text{SS}\_\text{between} \stackrel{\text{def}}{=}\sum\_{j=1}^{k} n_j (\bar{y}\_j - \bar{y})^2.\\
+> \\\text{SS}\_\text{between} \stackrel{\text{def}}{=}\sum\_{j=1}^{k} n_j ({\bar{y}}\_j - {\bar{y}})^2.\\
 >
 > Source: Wikipedia contributors [\[8\]](#ref-wikipedia_partition_of_sums_of_squares).
 
@@ -400,7 +400,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > **Definition 8 (Within-group sum of squares)** With the notation of [Definition 7](#def-ss-between), the **within-group sum of squares** is
 >
-> \\\text{SS}\_\text{within} \stackrel{\text{def}}{=}\sum\_{j=1}^{k} \sum\_{i=1}^{n_j} (y\_{ji} - \bar{y}\_j)^2.\\
+> \\\text{SS}\_\text{within} \stackrel{\text{def}}{=}\sum\_{j=1}^{k} \sum\_{i=1}^{n_j} (y\_{ji} - {\bar{y}}\_j)^2.\\
 >
 > Source: Wikipedia contributors [\[8\]](#ref-wikipedia_partition_of_sums_of_squares).
 
@@ -485,7 +485,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > anova_parts
 > ```
 >
-> \\\text{SS}\_\text{between}\\ is summed here over observations rather than groups: each observation in group \\j\\ contributes \\(\bar{y}\_j - \bar{y})^2\\, which gives the \\n_j\\ weights of [Definition 10](#def-one-way-anova). [`aov()`](https://rdrr.io/r/stats/aov.html) reports the same sums of squares, F statistic, and p-value:
+> \\\text{SS}\_\text{between}\\ is summed here over observations rather than groups: each observation in group \\j\\ contributes \\({\bar{y}}\_j - {\bar{y}})^2\\, which gives the \\n_j\\ weights of [Definition 10](#def-one-way-anova). [`aov()`](https://rdrr.io/r/stats/aov.html) reports the same sums of squares, F statistic, and p-value:
 >
 > ``` downlit
 > aov(glucose ~ raceth, data = hers) |>

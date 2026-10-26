@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-22 15:07:28 (PDT)</p>
+  <p class="date">Last modified: 2026-10-26 12:25:07 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -371,7 +371,7 @@ text-align: center;
 <p>Source: <span class="citation" data-cites="wikipedia_markov_chain_monte_carlo">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-mcmc" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (A sequence that converges to the standard Gaussian)</strong></span> Let <span class="math inline">\(\theta^{(t+1)} = 0.5\,\theta^{(t)} + u_t\)</span>, with <span class="math inline">\(u_t \ \sim_{\operatorname{iid}}\ {\operatorname{N}\mathopen{}\left(0, 0.75\right)\mathclose{}}\)</span> independent of the past. Each draw depends on the previous one. If <span class="math inline">\(\theta^{(t)}\)</span> has mean <span class="math inline">\(m_t\)</span> and variance <span class="math inline">\(v_t\)</span>, then <span class="math inline">\(m_{t+1} = 0.5\, m_t\)</span> and <span class="math inline">\(v_{t+1} = 0.25\, v_t + 0.75\)</span>, so from any starting value <span class="math inline">\(m_t \to 0\)</span> and <span class="math inline">\(v_t \to 1\)</span>: the draws’ distribution converges to <span class="math inline">\({\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}\)</span>. This sequence is an MCMC method for sampling the standard Gaussian distribution; its draws are correlated, unlike independent draws.</p>
+<p><span class="theorem-title"><strong>Example 1 (A sequence that converges to the standard Gaussian)</strong></span> Let <span class="math inline">\(\theta^{(t+1)} = 0.5\,\theta^{(t)} + \varepsilon_t\)</span>, with <span class="math inline">\(\varepsilon_t \ \sim_{\operatorname{iid}}\ {\operatorname{N}\mathopen{}\left(0, 0.75\right)\mathclose{}}\)</span> independent of the past. Each draw depends on the previous one. If <span class="math inline">\(\theta^{(t)}\)</span> has mean <span class="math inline">\(m_t\)</span> and variance <span class="math inline">\(v_t\)</span>, then <span class="math inline">\(m_{t+1} = 0.5\, m_t\)</span> and <span class="math inline">\(v_{t+1} = 0.25\, v_t + 0.75\)</span>, so from any starting value <span class="math inline">\(m_t \to 0\)</span> and <span class="math inline">\(v_t \to 1\)</span>: the draws’ distribution converges to <span class="math inline">\({\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}\)</span>. This sequence is an MCMC method for sampling the standard Gaussian distribution; its draws are correlated, unlike independent draws.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="1.1" id="why-the-normalizing-constant-is-hard-to-compute">
 <span class="header-section-number">1.1</span> Why the normalizing constant is hard to compute</h3>
@@ -382,7 +382,7 @@ text-align: center;
 <span class="header-section-number">1.2</span> Monte Carlo integration</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-monte-carlo-estimate div. -->
 <div id="def-monte-carlo-estimate" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Monte Carlo estimate)</strong></span> Given draws <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(1)}, \ldots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(M)} \ \sim_{\operatorname{iid}}\ \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\)</span> and a function <span class="math inline">\(g\)</span>, the <strong>Monte Carlo estimate</strong> of the <a href="#/def-posterior">posterior</a> expectation <span class="math inline">\({\operatorname{E}\mathopen{}\left[g(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}\)</span> is</p>
+<p><span class="theorem-title"><strong>Definition 2 (Monte Carlo estimate)</strong></span> Given draws <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(1)}, \ldots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(M)} \ \sim_{\operatorname{iid}}\ \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\)</span> and a function <span class="math inline">\(g\)</span>, the <strong>Monte Carlo estimate</strong> of the <a href="#/def-posterior">posterior</a> expectation <span class="math inline">\({\mathbb{E}\mathopen{}\left[g(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}\)</span> is</p>
 <p><span class="math display">\[
 \frac{1}{M} \sum_{m=1}^{M} g\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(m)}\right)\mathclose{}.
 \]</span></p>
@@ -468,10 +468,10 @@ text-align: center;
 <p><span class="proof-title"><em>Solution 1</em>. </span>Suppose <span class="math inline">\(\theta^{(t)} \sim {\operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}}\)</span>. By <a href="#/exm-ar1-chain" class="quarto-xref">Example&nbsp;4</a>, <span class="math inline">\(\varepsilon^{(t+1)}\)</span> is independent of <span class="math inline">\(\theta^{(t)}\)</span>, so <span class="math inline">\(\theta^{(t+1)} = \rho\, \theta^{(t)} + \varepsilon^{(t+1)}\)</span>, a linear combination of independent Gaussian random variables, is Gaussian <span class="citation" data-cites="CaseBerg01"><a href="#/references" role="doc-biblioref" onclick="">[6]</a>, Corollary 4.6.10</span>. By <a href="https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation">linearity of expectation</a>, its mean is</p>
 <p><span id="eq-ar1-stationary-exr"><span class="math display">\[
 \begin{aligned}
-{\operatorname{E}\mathopen{}\left[\theta^{(t+1)}\right]\mathclose{}}
-&amp;= {\operatorname{E}\mathopen{}\left[\rho\, \theta^{(t)} + \varepsilon^{(t+1)}\right]\mathclose{}}
+{\mathbb{E}\mathopen{}\left[\theta^{(t+1)}\right]\mathclose{}}
+&amp;= {\mathbb{E}\mathopen{}\left[\rho\, \theta^{(t)} + \varepsilon^{(t+1)}\right]\mathclose{}}
 &amp;&amp; \text{(definition of the chain)}\\
-&amp;= \rho\, {\operatorname{E}\mathopen{}\left[\theta^{(t)}\right]\mathclose{}} + {\operatorname{E}\mathopen{}\left[\varepsilon^{(t+1)}\right]\mathclose{}}
+&amp;= \rho\, {\mathbb{E}\mathopen{}\left[\theta^{(t)}\right]\mathclose{}} + {\mathbb{E}\mathopen{}\left[\varepsilon^{(t+1)}\right]\mathclose{}}
 &amp;&amp; \text{(linearity of expectation)}\\
 &amp;= \rho\cdot 0 + 0
 &amp;&amp; \text{(substituting the two means)}\\
@@ -677,7 +677,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 <span id="cb5-10"><a aria-label="10"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(traces) <span class="sc">+</span></span>
 <span id="cb5-11"><a aria-label="11"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> iteration, <span class="at">y =</span> pi, <span class="at">colour =</span> start) <span class="sc">+</span></span>
 <span id="cb5-12"><a aria-label="12"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb5-13"><a aria-label="13"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">expression</span>(pi), <span class="at">colour =</span> <span class="st">"starting value"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-13"><a aria-label="13"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
+<span id="cb5-14"><a aria-label="14"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="st">"Success probability, "</span> <span class="sc">*</span> pi),</span>
+<span id="cb5-15"><a aria-label="15"></a>    <span class="at">colour =</span> <span class="st">"starting value"</span></span>
+<span id="cb5-16"><a aria-label="16"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-mh-burnin" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-mh-burnin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: <a href="#/def-trace-plot">Trace plots</a> of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at <span class="math inline">\(\pi= 0.05\)</span> and <span class="math inline">\(\pi= 0.95\)</span>.
@@ -825,43 +828,49 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^{m} \mathopen{}\left(\
 </section><section class="slide level2"><div id="def-bayes-deviance" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 14 (Deviance of a parameter value)</strong></span> In the deviance information criterion, the <strong>deviance</strong> of a parameter value <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> is</p>
 <p><span class="math display">\[
-D(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}).
+{\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\right)\mathclose{}} \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}).
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-bayes-deviance-constant" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Bayesian deviance and the generalized linear model deviance). </span>This deviance is minus twice the log-likelihood. A generalized linear model’s deviance subtracts the same quantity for the saturated model, which does not depend on <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>, so the two differ by a constant that cancels in comparisons between models of the same data.</p>
 </div>
-</section><section class="slide level2"><div id="def-effective-parameters" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 15 (Effective number of parameters)</strong></span> Let <span class="math inline">\(\overline{D} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left[D(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}\)</span> be the posterior mean of the <a href="#/def-bayes-deviance">deviance</a>, and let <span class="math inline">\(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left[\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}\)</span> be the posterior mean of the parameters. The <strong>effective number of parameters</strong> is</p>
+</section><section class="slide level2"><div id="def-mean-bayes-deviance" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 15 (Posterior mean deviance)</strong></span> The <strong>posterior mean deviance</strong> <span class="math inline">\(\overline{\operatorname{dev}_{\mathrm{DIC}}}\)</span> is the <a href="#/def-posterior">posterior</a> mean of the <a href="#/def-bayes-deviance">deviance</a> of a parameter value:</p>
 <p><span class="math display">\[
-p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}).
+\overline{\operatorname{dev}_{\mathrm{DIC}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[{\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\right)\mathclose{}} \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}.
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="def-effective-parameters" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16 (Effective number of parameters)</strong></span> Let <span class="math inline">\(\overline{\operatorname{dev}_{\mathrm{DIC}}}\)</span> be the <a href="#/def-mean-bayes-deviance">posterior mean deviance</a>, and let <span class="math inline">\(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}\)</span> be the <a href="#/def-posterior">posterior</a> mean of the parameters. The <strong>effective number of parameters</strong> is</p>
+<p><span class="math display">\[
+p_D \stackrel{\text{def}}{=}\overline{\operatorname{dev}_{\mathrm{DIC}}} - {\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}.
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-dic" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 16 (Deviance information criterion)</strong></span> The <strong>deviance information criterion</strong> is</p>
+<p><span class="theorem-title"><strong>Definition 17 (Deviance information criterion)</strong></span> The <strong>deviance information criterion</strong> is</p>
 <p><span class="math display">\[
-\operatorname{DIC} \stackrel{\text{def}}{=}D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}) + 2\,p_D,
+\operatorname{DIC} \stackrel{\text{def}}{=}{\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2\,p_D,
 \]</span></p>
-<p>with <span class="math inline">\(D\)</span> from <a href="#/def-bayes-deviance" class="quarto-xref">Definition&nbsp;14</a> and <span class="math inline">\(p_D\)</span> from <a href="#/def-effective-parameters" class="quarto-xref">Definition&nbsp;15</a>.</p>
+<p>with <span class="math inline">\(\operatorname{dev}_{\mathrm{DIC}}\)</span> from <a href="#/def-bayes-deviance" class="quarto-xref">Definition&nbsp;14</a> and <span class="math inline">\(p_D\)</span> from <a href="#/def-effective-parameters" class="quarto-xref">Definition&nbsp;16</a>.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_deviance_information_criterion">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[11]</a></span>.</p>
 </div>
-</section><section class="slide level2"><p>Substituting <a href="#/def-effective-parameters" class="quarto-xref">Definition&nbsp;15</a> gives an equivalent form:</p>
+</section><section class="slide level2"><p>Substituting <a href="#/def-effective-parameters" class="quarto-xref">Definition&nbsp;16</a> gives an equivalent form:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{DIC}
-&amp;= D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}) + 2\mathopen{}\left(\overline{D} - D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})\right)\mathclose{}
+&amp;= {\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}} + 2\mathopen{}\left(\overline{\operatorname{dev}_{\mathrm{DIC}}} - {\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\right)\mathclose{}
 &amp;&amp; \text{(definition of $p_D$)}\\
-&amp;= 2\overline{D} - D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})
+&amp;= 2\overline{\operatorname{dev}_{\mathrm{DIC}}} - {\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}
 &amp;&amp; \text{(collecting terms)}\\
-&amp;= \overline{D} + \mathopen{}\left(\overline{D} - D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})\right)\mathclose{}
-&amp;&amp; \text{(splitting $2\overline{D}$)}\\
-&amp;= \overline{D} + p_D
+&amp;= \overline{\operatorname{dev}_{\mathrm{DIC}}} + \mathopen{}\left(\overline{\operatorname{dev}_{\mathrm{DIC}}} - {\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\right)\mathclose{}
+&amp;&amp; \text{(splitting $2\overline{\operatorname{dev}_{\mathrm{DIC}}}$)}\\
+&amp;= \overline{\operatorname{dev}_{\mathrm{DIC}}} + p_D
 &amp;&amp; \text{(definition of $p_D$)}.
 \end{aligned}
 \]</span></p>
-<p>The term <span class="math inline">\(D(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})\)</span> rewards fit, while <span class="math inline">\(p_D\)</span> penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[1, Ch. 13]</a>, p.&nbsp;306</span>. Both <span class="math inline">\(\overline{D}\)</span> and <span class="math inline">\(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span> are <a href="#/def-monte-carlo-estimate">Monte Carlo estimates</a> from the posterior draws, so DIC is a by-product of an MCMC run.</p>
+<p>The term <span class="math inline">\({\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\)</span> rewards fit, while <span class="math inline">\(p_D\)</span> penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[1, Ch. 13]</a>, p.&nbsp;306</span>. Both <span class="math inline">\(\overline{\operatorname{dev}_{\mathrm{DIC}}}\)</span> and <span class="math inline">\(\bar{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span> are <a href="#/def-monte-carlo-estimate">Monte Carlo estimates</a> from the posterior draws, so DIC is a by-product of an MCMC run.</p>
 </section><section class="slide level2"><div id="exm-dic-bernoulli" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12 (DIC for the Bernoulli model)</strong></span> For <span class="math inline">\(r = 55\)</span> successes in <span class="math inline">\(n = 91\)</span> trials, <span class="math inline">\(D(\pi) = -2\mathopen{}\left(r \log \pi+ (n - r) \log(1 - \pi)\right)\mathclose{}\)</span>. We estimate <span class="math inline">\(\overline{D}\)</span> and <span class="math inline">\(\bar\pi\)</span> from 5,000 draws from the <span class="math inline">\(\operatorname{Beta}(56, 37)\)</span> posterior of <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a>:</p>
+<p><span class="theorem-title"><strong>Example 12 (DIC for the Bernoulli model)</strong></span> For <span class="math inline">\(r = 55\)</span> successes in <span class="math inline">\(n = 91\)</span> trials, <span class="math inline">\({\operatorname{dev}_{\mathrm{DIC}}\mathopen{}\left(\pi\right)\mathclose{}} = -2\mathopen{}\left(r \log \pi+ (n - r) \log(1 - \pi)\right)\mathclose{}\)</span>. We <a href="./estimation.html#def-estimate">estimate</a> <span class="math inline">\(\overline{\operatorname{dev}_{\mathrm{DIC}}}\)</span> and <span class="math inline">\(\bar\pi\)</span> from 5,000 draws from the <span class="math inline">\(\operatorname{Beta}(56, 37)\)</span> posterior of <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>deviance_bernoulli <span class="ot">&lt;-</span> <span class="cf">function</span>(pi, <span class="at">r =</span> <span class="dv">55</span>, <span class="at">n =</span> <span class="dv">91</span>) {</span>
 <span id="cb9-2"><a aria-label="2"></a>  <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> (r <span class="sc">*</span> <span class="fu">log</span>(pi) <span class="sc">+</span> (n <span class="sc">-</span> r) <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> pi))</span>

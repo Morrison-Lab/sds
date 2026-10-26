@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-22 15:07:28 (PDT)</p>
+  <p class="date">Last modified: 2026-10-26 12:25:07 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -496,7 +496,7 @@ text-align: center;
 <p>One head moves the posterior density toward large values of <span class="math inline">\(\theta\)</span>. The posterior mean is</p>
 <p><span id="eq-marginal-likelihood-uniform-exm-3"><span class="math display">\[
 \begin{aligned}
-{\operatorname{E}\mathopen{}\left[\theta\mid y = 1\right]\mathclose{}}
+{\mathbb{E}\mathopen{}\left[\theta\mid y = 1\right]\mathclose{}}
 &amp;= \int_0^1 \theta\cdot \operatorname{p}(\theta\mid y = 1)\, d\theta
 &amp;&amp; \text{(expectation under the posterior density)}\\
 &amp;= \int_0^1 \theta\cdot 2\theta\, d\theta
@@ -590,9 +590,9 @@ text-align: center;
 \tag{7}\]</span></span></p>
 <p>The last line is, up to a constant, the density of a Gaussian distribution with mean <span class="math inline">\(m\)</span> and variance <span class="math inline">\(1/(n+1)\)</span>, so the posterior is</p>
 <p><span id="eq-normal-normal-exm-3"><span class="math display">\[
-\mu\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\;\sim\; {\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x},\; \frac{1}{n+1}\right)\mathclose{}}.
+\mu\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\;\sim\; {\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}},\; \frac{1}{n+1}\right)\mathclose{}}.
 \tag{8}\]</span></span></p>
-<p>The posterior mean <span class="math inline">\(\frac{n}{n+1}\bar{x}\)</span> is the sample mean shrunk toward the prior mean <span class="math inline">\(0\)</span>, and the shrinkage factor <span class="math inline">\(\frac{n}{n+1}\)</span> approaches <span class="math inline">\(1\)</span> as <span class="math inline">\(n \to \infty\)</span>.</p>
+<p>The posterior mean <span class="math inline">\(\frac{n}{n+1}{\bar{x}}\)</span> is the sample mean shrunk toward the prior mean <span class="math inline">\(0\)</span>, and the shrinkage factor <span class="math inline">\(\frac{n}{n+1}\)</span> approaches <span class="math inline">\(1\)</span> as <span class="math inline">\(n \to \infty\)</span>.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="2.2" id="sec-bayes-map">
 <span class="header-section-number">2.2</span> The posterior mode</h3>
@@ -660,21 +660,21 @@ text-align: center;
 <p>Maximizing a function is the same as minimizing its negative.</p>
 </div>
 </section><section class="slide level2"><div id="exm-map-normal-normal" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8 (The MAP estimate of a Gaussian mean)</strong></span> In <a href="#/exm-normal-normal" class="quarto-xref">Example&nbsp;6</a>, the posterior is <span class="math inline">\({\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x}, \frac{1}{n+1}\right)\mathclose{}}\)</span>. A Gaussian density is largest at its mean, so</p>
-<p><span class="math display">\[\hat{\theta}_{\text{MAP}} = \frac{n}{n+1}\bar{x}.\]</span></p>
+<p><span class="theorem-title"><strong>Example 8 (The MAP estimate of a Gaussian mean)</strong></span> In <a href="#/exm-normal-normal" class="quarto-xref">Example&nbsp;6</a>, the posterior is <span class="math inline">\({\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}}, \frac{1}{n+1}\right)\mathclose{}}\)</span>. A Gaussian density is largest at its mean, so</p>
+<p><span class="math display">\[\hat{\theta}_{\text{MAP}} = \frac{n}{n+1}{\bar{x}}.\]</span></p>
 <p><a href="#/cor-map-penalized" class="quarto-xref">Corollary&nbsp;2</a> gives the same answer from the penalized form. Up to terms that do not involve <span class="math inline">\(\mu\)</span>, the negative log-likelihood is <span class="math inline">\(\frac{1}{2}\sum_{i=1}^n(x_i- \mu)^2\)</span> and the penalty is <span class="math inline">\(\frac{1}{2}\mu^2\)</span>. Setting the derivative of their sum to zero gives</p>
 <p><span class="math display">\[
 \begin{aligned}
 0
 &amp;= -\sum_{i=1}^n(x_i- \mu) + \mu
 &amp;&amp; \text{(derivative of the sum with respect to $\mu$)}\\
-&amp;= -n\bar{x}+ n\mu+ \mu
-&amp;&amp; \text{($\sum_i x_i= n\bar{x}$)}\\
-&amp;= (n+1)\mu- n\bar{x},
+&amp;= -n{\bar{x}}+ n\mu+ \mu
+&amp;&amp; \text{($\sum_i x_i= n{\bar{x}}$)}\\
+&amp;= (n+1)\mu- n{\bar{x}},
 &amp;&amp; \text{(collecting the terms in $\mu$)}
 \end{aligned}
 \]</span></p>
-<p>so <span class="math inline">\(\mu= \frac{n}{n+1}\bar{x}\)</span>. The penalty <span class="math inline">\(\frac{1}{2}\mu^2\)</span> pulls the estimate toward the prior mean <span class="math inline">\(0\)</span>, and its pull weakens relative to the data as <span class="math inline">\(n\)</span> grows.</p>
+<p>so <span class="math inline">\(\mu= \frac{n}{n+1}{\bar{x}}\)</span>. The penalty <span class="math inline">\(\frac{1}{2}\mu^2\)</span> pulls the estimate toward the prior mean <span class="math inline">\(0\)</span>, and its pull weakens relative to the data as <span class="math inline">\(n\)</span> grows.</p>
 <p><a href="#/fig-map-penalized" class="quarto-xref">Figure&nbsp;1</a> shows the penalized form for simulated data (<span class="math inline">\(n = 20\)</span>, true mean <span class="math inline">\(2\)</span>). The penalty is a parabola centered at the prior mean <span class="math inline">\(0\)</span>. Adding it to the negative log-likelihood moves the minimizer from the sample mean toward <span class="math inline">\(0\)</span>.</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb2-2"><a aria-label="2"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
@@ -695,7 +695,7 @@ text-align: center;
 <span id="cb2-17"><a aria-label="17"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> mu, <span class="at">y =</span> value, <span class="at">colour =</span> curve) <span class="sc">+</span></span>
 <span id="cb2-18"><a aria-label="18"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb2-19"><a aria-label="19"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(xbar, map_est), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb2-20"><a aria-label="20"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(mu), <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">colour =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-20"><a aria-label="20"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="st">"Mean, "</span> <span class="sc">*</span> mu), <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">colour =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-map-penalized" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-map-penalized-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Negative log-likelihood, penalty, and their sum, up to constants. The dashed lines mark the sample mean (right) and the MAP estimate (left).
@@ -730,7 +730,7 @@ Figure&nbsp;1: Negative log-likelihood, penalty, and their sum, up to constants.
 <p><span class="theorem-title"><strong>Example 9 (Equal-tailed interval for a Gaussian posterior)</strong></span> In <a href="#/exm-normal-normal" class="quarto-xref">Example&nbsp;6</a>, the posterior of <span class="math inline">\(\mu\)</span> is Gaussian with mean <span class="math inline">\(\frac{n}{n+1}\bar x\)</span> and standard deviation <span class="math inline">\(1/\sqrt{n+1}\)</span>, so the 95% equal-tailed credible interval is <span class="math inline">\(\frac{n}{n+1}\bar x \pm 1.96/\sqrt{n+1}\)</span>. With <span class="math inline">\(n = 20\)</span>, the interval’s half-width is <span class="math inline">\(1.96/\sqrt{21} \approx 0.43\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-normal-credible-vs-confidence" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10 (Credible and confidence intervals for a Gaussian mean)</strong></span> We simulate <span class="math inline">\(n = 20\)</span> observations from the model of <a href="#/exm-normal-normal" class="quarto-xref">Example&nbsp;6</a>, with true mean <span class="math inline">\(\mu= 2\)</span>, and compute both a 95% confidence interval, <span class="math inline">\(\bar x \pm 1.96 / \sqrt{n}\)</span> (the variance is known to be 1), and the equal-tailed 95% credible interval from the <span class="math inline">\({\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x},\, \frac{1}{n+1}\right)\mathclose{}}\)</span> posterior:</p>
+<p><span class="theorem-title"><strong>Example 10 (Credible and confidence intervals for a Gaussian mean)</strong></span> We simulate <span class="math inline">\(n = 20\)</span> observations from the model of <a href="#/exm-normal-normal" class="quarto-xref">Example&nbsp;6</a>, with true mean <span class="math inline">\(\mu= 2\)</span>, and compute both a 95% confidence interval, <span class="math inline">\(\bar x \pm 1.96 / \sqrt{n}\)</span> (the variance is known to be 1), and the equal-tailed 95% credible interval from the <span class="math inline">\({\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}},\, \frac{1}{n+1}\right)\mathclose{}}\)</span> posterior:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb3-2"><a aria-label="2"></a>mu_true <span class="ot">&lt;-</span> <span class="dv">2</span></span>
@@ -763,7 +763,7 @@ Figure&nbsp;1: Negative log-likelihood, penalty, and their sum, up to constants.
 <span id="cb4-11"><a aria-label="11"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(curves) <span class="sc">+</span></span>
 <span id="cb4-12"><a aria-label="12"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> mu, <span class="at">y =</span> density, <span class="at">colour =</span> curve) <span class="sc">+</span></span>
 <span id="cb4-13"><a aria-label="13"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb4-14"><a aria-label="14"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(mu), <span class="at">y =</span> <span class="st">"density"</span>, <span class="at">colour =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-14"><a aria-label="14"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="st">"Mean, "</span> <span class="sc">*</span> mu), <span class="at">y =</span> <span class="st">"density"</span>, <span class="at">colour =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-normal-prior-lik-post" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-normal-prior-lik-post-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: The <span class="math inline">\({\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}\)</span> prior, the likelihood (scaled to integrate to 1), and the posterior for the mean <span class="math inline">\(\mu\)</span>, for the data of <a href="#/exm-normal-credible-vs-confidence" class="quarto-xref">Example&nbsp;10</a>.
@@ -1586,7 +1586,7 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 &amp;&amp; \text{(definition of the posterior predictive distribution)}\\
 &amp;= \int_0^1 \pi\, \operatorname{p}(\pi\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\, d\pi
 &amp;&amp; \text{(Bernoulli model)}\\
-&amp;= {\operatorname{E}\mathopen{}\left[\pi\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}
+&amp;= {\mathbb{E}\mathopen{}\left[\pi\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}
 &amp;&amp; \text{(definition of the posterior mean)}.
 \end{aligned}
 \]</span></p>
@@ -1640,7 +1640,7 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 <p><span class="theorem-title"><strong>Example 22 (Two test quantities for the smoking data)</strong></span> The <code>birthwt</code> data also record each mother’s race, coded as white, Black, or other. The Beta-Bernoulli model gives every mother the same probability <span class="math inline">\(\pi\)</span> of smoking, whatever her race. Two test quantities for these data are:</p>
 <ul>
 <li>the number of mothers who smoked, <span class="math inline">\(T_1(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \sum_{i=1}^ny_i\)</span>;</li>
-<li>the spread of the smoking proportions across the three race groups, <span class="math inline">\(T_2(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \max_g \bar{y}_g - \min_g \bar{y}_g\)</span>, where <span class="math inline">\(\bar{y}_g\)</span> is the proportion of mothers in group <span class="math inline">\(g\)</span> who smoked.</li>
+<li>the spread of the smoking proportions across the three race groups, <span class="math inline">\(T_2(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \max_g {\bar{y}}_g - \min_g {\bar{y}}_g\)</span>, where <span class="math inline">\({\bar{y}}_g\)</span> is the proportion of mothers in group <span class="math inline">\(g\)</span> who smoked.</li>
 </ul>
 <p>The model can match <span class="math inline">\(T_1\)</span> by choosing <span class="math inline">\(\pi\)</span>, but it predicts that <span class="math inline">\(T_2\)</span> is small, because it gives every group the same <span class="math inline">\(\pi\)</span>. Their observed values are:</p>
 <div class="panel-tabset" data-group="language">

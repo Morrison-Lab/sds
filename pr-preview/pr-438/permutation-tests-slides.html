@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-22 15:07:28 (PDT)</p>
+  <p class="date">Last modified: 2026-10-26 12:25:07 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -606,13 +606,13 @@ N_\iota(y_\sigma)
 &amp;&amp; \text{(for each $\sigma$, $Y_\sigma$ has the distribution of $Y$, by exchangeability)}\\
 &amp;= \Pr_{H_0}\mathopen{}\left(N_\sigma(Y) \le k\right)\mathclose{}
 &amp;&amp; \text{(relabeling identity)}\\
-&amp;= {\operatorname{E}\mathopen{}\left[\mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}}
+&amp;= {\mathbb{E}\mathopen{}\left[\mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}}
 &amp;&amp; \text{(probability of an event is the expected value of its indicator)}\\
-&amp;= \frac{1}{n!} \sum_{\sigma \in S_n} {\operatorname{E}\mathopen{}\left[\mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}}
+&amp;= \frac{1}{n!} \sum_{\sigma \in S_n} {\mathbb{E}\mathopen{}\left[\mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}}
 &amp;&amp; \text{(the average of $n!$ equal terms)}\\
-&amp;= \frac{1}{n!} {\operatorname{E}\mathopen{}\left[\sum_{\sigma \in S_n} \mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}}
+&amp;= \frac{1}{n!} {\mathbb{E}\mathopen{}\left[\sum_{\sigma \in S_n} \mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}}
 &amp;&amp; \text{(expectation of a sum is the sum of expectations)}\\
-&amp;\le \frac{1}{n!} {\operatorname{E}\mathopen{}\left[k\right]\mathclose{}}
+&amp;\le \frac{1}{n!} {\mathbb{E}\mathopen{}\left[k\right]\mathclose{}}
 &amp;&amp; \text{(counting bound, with $N = n!$ and $t_\sigma = T(Y_\sigma)$)}\\
 &amp;= \frac{k}{n!}
 &amp;&amp; \text{(the expected value of a constant is the constant)}
@@ -808,6 +808,7 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 <li>Good <span class="citation" data-cites="good2005permutation"><a href="#/references" role="doc-biblioref" onclick="">[3]</a></span> gives a book-length treatment of permutation tests.</li>
 <li>Phipson and Smyth <span class="citation" data-cites="phipson2010permutation"><a href="#/references" role="doc-biblioref" onclick="">[9]</a></span> explain why <a href="#/def-monte-carlo-p-value">Monte Carlo permutation p-values</a> need the added 1.</li>
 <li>Chapter 12 of the <a href="https://www.inferentialthinking.com/"><em>Computational and Inferential Thinking</em></a> textbook for UC Berkeley’s Data 8 introduces permutation tests through plain-language A/B testing examples.</li>
+<li>Section 24.2 of Lange’s textbook <span class="citation" data-cites="lange2010numerical"><a href="#/references" role="doc-biblioref" onclick="">[10]</a></span> covers permutation tests, with an emphasis on computation.</li>
 <li>Chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> applies permutation and other resampling methods to multiple testing.</li>
 </ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
@@ -849,6 +850,10 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 <div id="ref-phipson2010permutation" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[9] </div>
 <div class="csl-right-inline">B. Phipson and G. K. Smyth, <span>“Permutation p-values should never be zero: Calculating exact p-values when permutations are randomly drawn,”</span> <em>Statistical Applications in Genetics and Molecular Biology</em>, vol. 9, no. 1, 2010, doi: <a href="https://doi.org/10.2202/1544-6115.1585">10.2202/1544-6115.1585</a>.</div>
+</div>
+<div id="ref-lange2010numerical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div>
+<div class="csl-right-inline">K. Lange, <em>Numerical analysis for statisticians</em>, 2nd ed. in Statistics and computing. Springer, 2010. doi: <a href="https://doi.org/10.1007/978-1-4419-5945-4">10.1007/978-1-4419-5945-4</a>.</div>
 </div>
 </div>
 
