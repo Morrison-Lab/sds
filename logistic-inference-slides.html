@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-26 09:42:48 (PDT)</p>
+  <p class="date">Last modified: 2026-10-26 09:58:58 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -520,7 +520,7 @@ text-align: center;
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="co"># the maximum likelihood fit from glm()</span></span>
 <span id="cb4-2"><a aria-label="2"></a><span class="fu">coef</span>(<span class="fu">glm</span>(irls_y <span class="sc">~</span> irls_x[, <span class="dv">2</span>], <span class="at">family =</span> binomial))</span>
 <span id="cb4-3"><a aria-label="3"></a><span class="co">#&gt;  (Intercept)  irls_x[, 2] </span></span>
-<span id="cb4-4"><a aria-label="4"></a><span class="co">#&gt; -2.25619e-16  6.93147e-01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-4"><a aria-label="4"></a><span class="co">#&gt; -3.45716e-18  6.93147e-01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The first step moves the <a href="./correlation-regression.html#def-slr-slope">slope</a> to <span class="math inline">\(0.6667\)</span>, which is <span class="math inline">\(2/3\)</span> (<a href="#/exr-irls-step">the hand computation</a>). After six steps the slope is <span class="math inline">\(0.693147\)</span>, and <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> reports <span class="math inline">\(0.693147\)</span>. The slope settles at <span class="math inline">\(\ln 2 = 0.693147\)</span>, half the natural logarithm of the <a href="./basic-statistical-methods.html#def-odds-ratio">odds ratio</a> between the treatment group (recovery <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-odds">odds</a> <span class="math inline">\(2\)</span>) and the other group (recovery odds <span class="math inline">\(1/2\)</span>), since the groups are coded <span class="math inline">\(\pm 1\)</span>.</p>
 </div>

@@ -23,6 +23,16 @@
    "url": "https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm"
   },
   {
+   "id": "mds/sets#def-closed-interval",
+   "site": "mds",
+   "page": "sets",
+   "div": "def-closed-interval",
+   "kind": "def",
+   "title": "closed interval",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/sets.html#def-closed-interval"
+  },
+  {
    "id": "mds/vector-calculus#def-hessian",
    "site": "mds",
    "page": "vector-calculus",
@@ -2247,6 +2257,15 @@
    "external": false
   },
   {
+   "id": "sds/inference#def-confidence-coefficient",
+   "site": "sds",
+   "page": "inference",
+   "div": "def-confidence-coefficient",
+   "kind": "def",
+   "title": "Confidence coefficient",
+   "external": false
+  },
+  {
    "id": "sds/inference#def-confidence-interval",
    "site": "sds",
    "page": "inference",
@@ -2256,12 +2275,39 @@
    "external": false
   },
   {
+   "id": "sds/inference#def-confidence-set",
+   "site": "sds",
+   "page": "inference",
+   "div": "def-confidence-set",
+   "kind": "def",
+   "title": "Confidence set",
+   "external": false
+  },
+  {
+   "id": "sds/inference#def-conservative-confidence-interval",
+   "site": "sds",
+   "page": "inference",
+   "div": "def-conservative-confidence-interval",
+   "kind": "def",
+   "title": "Conservative confidence interval",
+   "external": false
+  },
+  {
    "id": "sds/inference#def-coverage-probability",
    "site": "sds",
    "page": "inference",
    "div": "def-coverage-probability",
    "kind": "def",
    "title": "Coverage probability",
+   "external": false
+  },
+  {
+   "id": "sds/inference#def-exact-confidence-interval",
+   "site": "sds",
+   "page": "inference",
+   "div": "def-exact-confidence-interval",
+   "kind": "def",
+   "title": "Exact confidence interval",
    "external": false
   },
   {
@@ -5550,8 +5596,48 @@
    "sds/inference#def-coverage-probability"
   ],
   [
+   "sds/inference#def-confidence-coefficient",
+   "sds/inference#def-coverage-probability"
+  ],
+  [
+   "sds/inference#def-confidence-interval",
+   "mds/sets#def-closed-interval"
+  ],
+  [
+   "sds/inference#def-confidence-interval",
+   "sds/sufficiency#def-statistic"
+  ],
+  [
+   "sds/inference#def-confidence-set",
+   "mds/sets#def-closed-interval"
+  ],
+  [
+   "sds/inference#def-confidence-set",
+   "sds/bayesian-inference#def-parameter-space"
+  ],
+  [
+   "sds/inference#def-confidence-set",
+   "sds/inference#def-confidence-interval"
+  ],
+  [
+   "sds/inference#def-conservative-confidence-interval",
+   "sds/inference#def-confidence-interval"
+  ],
+  [
+   "sds/inference#def-conservative-confidence-interval",
+   "sds/inference#def-coverage-probability"
+  ],
+  [
    "sds/inference#def-coverage-probability",
    "sds/inference#def-confidence-interval"
+  ],
+  [
+   "sds/inference#def-exact-confidence-interval",
+   "sds/inference#def-confidence-interval"
+  ],
+  [
+   "sds/inference#def-exact-confidence-interval",
+   "sds/inference#def-coverage-probability"
   ],
   [
    "sds/inference#def-margin-error",

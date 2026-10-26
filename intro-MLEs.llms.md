@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 09:42:48 (PDT)
+Last modified: 2026-10-26 09:58:58 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -2264,7 +2264,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 >     args = list(sigma = sigma_hat, x = glucose_data)
 >   ) +
 >   ggplot2::xlim(mu_hat + c(-1, 1) * sigma_hat) +
->   ggplot2::xlab("mu") +
+>   ggplot2::xlab("Mean, μ") +
 >   ggplot2::ylab("likelihood") +
 >   ggplot2::geom_vline(xintercept = mu_hat, col = "red")
 > ```
@@ -2282,7 +2282,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 >     args = list(sigma = sigma_hat, x = glucose_data)
 >   ) +
 >   ggplot2::xlim(mu_hat + c(-1, 1) * sigma_hat) +
->   ggplot2::xlab("mu") +
+>   ggplot2::xlab("Mean, μ") +
 >   ggplot2::ylab("log-likelihood") +
 >   ggplot2::geom_vline(xintercept = mu_hat, col = "red")
 > ```
@@ -2360,7 +2360,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 > ) |>
 >   plotly::layout(
 >     scene = list(
->       xaxis = list(title = "mu"),
+>       xaxis = list(title = "Mean, μ"),
 >       yaxis = list(title = "sigma"),
 >       zaxis = list(title = "log-likelihood")
 >     )
@@ -2452,7 +2452,7 @@ power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 >   ggplot2::xlim(c(2, 200)) +
 >   ggplot2::ylim(0, 1) +
 >   ggplot2::ylab("Power") +
->   ggplot2::xlab("n")
+>   ggplot2::xlab("Sample size, n")
 > ```
 >
 > [![](intro-MLEs_files/figure-html/unnamed-chunk-36-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-36-1.png "Figure 20: Power of the test of H_0: \mu= 95 against \mu_1 = 100 mg/dL, by sample size")
