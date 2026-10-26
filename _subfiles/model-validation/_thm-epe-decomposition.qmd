@@ -32,10 +32,21 @@ $$ {#eq-epe-decomposition}
 Every expectation below is conditional on $\newpredvar = \predvar$, as in the exercises.
 By @thm-epe-split-noise, the [expected squared prediction error](#def-epe) is the [noise](#def-noise) variance plus the [pMSE](#def-mse) of the [prediction](prediction.qmd#def-prediction), used as an [estimator](estimation.qmd#def-estimator) of $\truemeanf{\predvar}$.
 That pMSE is the squared [bias](#def-prediction-bias) plus the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
-To see this, add and subtract the [expected prediction](#def-average-fit) $\Epredval$ and expand the square.
-The first term is a constant, so its expectation is the squared bias $\sqf{\biassymf{\predval}}$.
-The cross term is zero, because a constant factor leaves $\E{\Epredval - \predval} = 0$.
-The third term is the variance $\varsymf{\predval}$.
+To see this, add and subtract the [expected prediction](#def-average-fit) $\Epredval$ inside the square and expand it:
+
+$$
+\ba
+\sqf{\truemeanf{\predvar} - \predval}
+&= \sqf{\truemeanf{\predvar} - \Epredval}
++ 2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\Epredval - \predval}
++ \sqf{\Epredval - \predval}.
+\ea
+$$
+
+Take the expectation of each of the three terms.
+The first term is a constant, so its expectation is itself, the squared bias $\sqf{\biassymf{\predval}}$.
+The expectation of the cross term is zero, because the factor $2 \paren{\truemeanf{\predvar} - \Epredval}$ is a constant and $\E{\Epredval - \predval} = 0$.
+The expectation of the third term is the variance $\varsymf{\predval}$.
 Substituting the split of the pMSE into @eq-epe-split-noise:
 
 $$
