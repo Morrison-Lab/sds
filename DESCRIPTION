@@ -34,6 +34,7 @@ Imports:
     purrr,
     reticulate,
     rjags,
+    rstan,
     rmb,
     scales,
     SyncRNG,

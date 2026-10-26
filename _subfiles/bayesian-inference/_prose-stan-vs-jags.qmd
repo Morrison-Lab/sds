@@ -1,0 +1,36 @@
+JAGS is not the only program that turns a model description into an MCMC sampler.
+Stan [@carpenter2017stan] is the other one most courses use,
+and the two answer the same question in different ways.
+Both take a model written in their own language,
+accept data from R,
+and return draws from the posterior.
+They differ in how they sample and in what a model may contain.
+
+JAGS builds a Gibbs sampler from the model's description
+[@plummer2003jags; @plummer2017jagsmanual].
+It chooses a sampling method for each full conditional,
+using slice or Metropolis--Hastings steps where the full conditional has no closed form.
+Stan uses Hamiltonian Monte Carlo,
+which proposes moves along the gradient of the log posterior,
+in the adaptive form called the No-U-Turn sampler (NUTS)
+[@hoffman2014nuts].
+Using the gradient is why Stan cannot sample a discrete parameter:
+a discrete parameter has no gradient.
+A Stan model sums a discrete quantity out of the likelihood instead
+[@stanusersguide].
+The table lists the practical differences:
+
+```{r}
+#| label: tbl-stan-vs-jags
+#| tbl-cap: "JAGS and Stan compared"
+#| echo: false
+knitr::kable(
+  read.csv("data/bayes-software.csv"),
+  col.names = c("Feature", "JAGS", "Stan"),
+  format = "pipe"
+)
+```
+
+The table's rows are in [`data/bayes-software.csv`](data/bayes-software.csv).
+The next example fits the model of [the first example](#exm-bayes-proportion) in Stan,
+so the two programs can be compared on one problem.
