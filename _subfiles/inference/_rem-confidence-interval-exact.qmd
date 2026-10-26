@@ -4,8 +4,12 @@
 @def-confidence-interval requires the [confidence coefficient](#def-confidence-coefficient)
 to be at least $1 - \siglevel$.
 The [coverage probability](#def-coverage-probability) can depend on $\param$,
-and the confidence coefficient is its smallest value.
+and the confidence coefficient is its greatest [lower bound](https://morrison-lab.github.io/mds/sets.html#def-bound),
+which the coverage probability need not attain at any $\param$.
+An [exact](#def-exact-confidence-interval) interval has the same coverage probability
+at every $\param$.
 [Discrete](data.qmd#def-discrete-var) data take only countably many values,
 so they usually allow only a [conservative](#def-conservative-confidence-interval) interval,
 as @exm-conservative-interval shows.
+A [confidence set](#def-confidence-set) drops the requirement that the region be an interval.
 :::

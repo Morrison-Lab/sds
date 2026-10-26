@@ -6,7 +6,7 @@ and let $\cintf{X}$ be the Clopper-Pearson 95% interval
 returned by `binom.test()`.
 Its [coverage probability](#def-coverage-probability) at each $p$ is the sum of the binomial
 [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)
-of the values of $X$ whose interval contains $p$:
+of the values $x$ of $X$ for which $\cintf{x}$ contains $p$:
 
 ```{r}
 #| code-fold: false
@@ -20,11 +20,14 @@ cover <- sapply(p_grid, coverage)
 range(cover)
 ```
 
-The smallest coverage probability on this grid, which is close to the
-[confidence coefficient](#def-confidence-coefficient),
-is `r sprintf("%.3f", min(cover))`,
+The smallest coverage probability on this grid is `r sprintf("%.3f", min(cover))`,
 and the largest is `r sprintf("%.3f", max(cover))`.
-The interval is [conservative](#def-conservative-confidence-interval):
-its coverage probability is above 0.95 at `r sum(cover > 0.95)`
-of the `r length(p_grid)` grid values of $p$.
+The grid is coarse and the coverage probability jumps at the interval endpoints,
+so the smallest grid value is only an [upper bound](https://morrison-lab.github.io/mds/sets.html#def-bound) for the
+[confidence coefficient](#def-confidence-coefficient).
+The Clopper-Pearson interval is built to have coverage probability at least 0.95
+at every $p$,
+and here it is above 0.95 at `r sum(cover > 0.95)`
+of the `r length(p_grid)` grid values of $p$,
+so it is [conservative](#def-conservative-confidence-interval).
 :::
