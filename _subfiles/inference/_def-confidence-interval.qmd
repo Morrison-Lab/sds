@@ -2,13 +2,17 @@
 #### Confidence interval
 
 A $100(1-\siglevel)\%$ **confidence interval** for a parameter $\param$
-is a pair of statistics $L$ and $U$, computed from the data,
+is a random [closed interval](https://morrison-lab.github.io/mds/sets.html#def-closed-interval)
+$\cintf{X}$
+whose endpoints $\cilof{X} \le \ciupf{X}$
+are statistics computed from the data $X$,
 such that for every possible value of $\param$:
 
-$$\Pr(L \le \param \le U) = 1 - \siglevel$$
+$$\Pr_{\param}\paren{\param \in \cintf{X}} \ge 1 - \siglevel$$
 
 The probability is over repeated samples from the data-generating process,
 with $\param$ held fixed.
+The interval is random and $\param$ is not.
 
-Source: @wikipedia_confidence_interval.
+Source: [@CaseBerg01, Definitions 9.1.1, 9.1.4 and 9.1.5].
 :::
