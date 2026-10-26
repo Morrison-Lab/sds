@@ -20,5 +20,5 @@ $$
 :::
 
 ::: proof
-This is @sol-held-out-unbiased.
+This is @sol-held-out-unbiased. <!-- check-solution-citations: allow -->
 :::

@@ -1,0 +1,6 @@
+::: {#rem-population-parameter .remark .notes}
+#### Population parameters are fixed and usually unknown
+
+A population parameter is fixed.
+It is usually unknown.
+:::

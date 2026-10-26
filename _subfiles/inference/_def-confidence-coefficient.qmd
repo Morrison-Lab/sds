@@ -1,0 +1,10 @@
+::: {#def-confidence-coefficient}
+#### Confidence coefficient
+
+The **confidence coefficient** of an interval $\cintf{X}$ for a parameter $\param$
+is the infimum over $\param$ of its
+[coverage probability](#def-coverage-probability),
+$\inf_{\param} \Prunder{\param}{\param \in \cintf{X}}$.
+
+Source: [@CaseBerg01, Definition 9.1.5].
+:::

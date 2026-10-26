@@ -36,7 +36,7 @@ ggplot2::ggplot(fre_points, ggplot2::aes(x = x)) +
     x = 1.1, y = 1.75, hjust = 0,
     label = "r[2] == 0.5", parse = TRUE
   ) +
-  ggplot2::labs(y = "y")
+  ggplot2::labs(y = "Response, y")
 ```
 
 Observed outcomes (filled), fitted values on the line (open),
