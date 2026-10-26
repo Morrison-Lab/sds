@@ -12,7 +12,7 @@ use @thm-bernoulli-hessian-nd to find the [maximum likelihood estimate](#def-mle
 
 By @thm-bernoulli-hessian-nd, $\llik$ is strictly concave on $(0, 1)$.
 A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else.
-With $0 < \outbar < 1$, @thm-bernoulli-score-equation says the only critical point of $\llik$ in $(0, 1)$ is $\outbar$.
+With $\outbar \in (0, 1)$, @thm-bernoulli-score-equation says the only critical point of $\llik$ in $(0, 1)$ is $\outbar$.
 So $\llik$ is maximized at $\prob = \outbar$.
 
 :::
