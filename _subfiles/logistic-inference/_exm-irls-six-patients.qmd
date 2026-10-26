@@ -7,7 +7,7 @@ and compares the result with the coefficients from `glm()`.
 
 ```{r}
 #| code-fold: false
-# design matrix: intercept and group (-1 control, +1 treatment); y = 1 means recovered
+# design matrix: intercept, group (-1 control, +1 treatment); y = 1: recovered
 irls_x <- cbind(1, rep(c(-1, 1), each = 3))
 irls_y <- c(0, 0, 1, 0, 1, 1)
 # start from zero coefficients and take six IRLS steps
@@ -26,10 +26,10 @@ irls_path
 coef(glm(irls_y ~ irls_x[, 2], family = binomial))
 ```
 
-The first step moves the slope to $`r round(irls_path$slope[2], 4)`$, which is $2/3$ ([the hand computation](#exr-irls-step)).
+The first step moves the [slope](correlation-regression.qmd#def-slr-slope) to $`r round(irls_path$slope[2], 4)`$, which is $2/3$ ([the hand computation](#exr-irls-step)).
 After six steps the slope is $`r round(irls_path$slope[7], 6)`$,
 and it differs from the `glm()` slope by `r format(abs(irls_path$slope[7] - coef(glm(irls_y ~ irls_x[, 2], family = binomial))[[2]]), digits = 2)`.
-The slope settles at $\log 2 = `r round(log(2), 6)`$,
-the log odds ratio between the treatment group (recovery odds $2$) and the control group (recovery odds $1/2$) divided by $2$, since the groups are coded $\pm 1$.
+The slope settles at $\ln 2 = `r round(log(2), 6)`$,
+half the natural logarithm of the [odds ratio](basic-statistical-methods.qmd#def-odds-ratio) between the treatment group (recovery [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) $2$) and the other group (recovery odds $1/2$), since the groups are coded $\pm 1$.
 
 :::
