@@ -1,0 +1,34 @@
+::: {#exm-conservative-interval}
+#### A conservative interval for a binomial proportion
+
+Let $X \sim \text{Bin}(n, p)$ with $n = 20$,
+and let $\cintf{X}$ be the Clopper-Pearson 95% interval
+returned by `binom.test()`.
+Its [coverage probability](#def-coverage-probability) at each $p$ is the sum of the binomial
+[probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)
+of the values $x$ of $X$ for which $\cintf{x}$ contains $p$:
+
+```{r}
+#| code-fold: false
+n <- 20
+cp <- t(sapply(0:n, function(x) binom.test(x, n)$conf.int))
+coverage <- function(p) {
+  sum(dbinom(0:n, n, p)[cp[, 1] <= p & p <= cp[, 2]])
+}
+p_grid <- seq(0.01, 0.99, by = 0.01)
+cover <- sapply(p_grid, coverage)
+range(cover)
+```
+
+The smallest coverage probability on this grid is `r sprintf("%.3f", min(cover))`,
+and the largest is `r sprintf("%.3f", max(cover))`.
+The grid is coarse and the coverage probability jumps at the interval endpoints,
+so the smallest grid value is only an [upper bound](https://morrison-lab.github.io/mds/sets.html#def-bound) for the
+[confidence coefficient](#def-confidence-coefficient).
+The Clopper-Pearson interval is built to have coverage probability at least 0.95
+at every $p$,
+and here it is above 0.95 at
+`r if (all(cover > 0.95)) "all" else paste(sum(cover > 0.95), "of the")`
+`r length(p_grid)` grid values of $p$,
+so it is [conservative](#def-conservative-confidence-interval).
+:::

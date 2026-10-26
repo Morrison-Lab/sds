@@ -251,6 +251,34 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_rem-score-surprisal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_def-model-kl-divergence.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-model-kl-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-kl-slope.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-kl-curvature.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-fisher-kl-curvature.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-fisher-kl-poisson.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_prose-info-mat-symbols.qmd >}}
 
 {{< slidebreak >}}

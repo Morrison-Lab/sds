@@ -35,8 +35,8 @@ ggplot2::ggplot(rss_grid, ggplot2::aes(x = b0, y = bx, z = rss)) +
   ) +
   ggplot2::annotate("point", x = 1, y = 0.5, shape = 4, size = 3) +
   ggplot2::labs(
-    x = expression(beta[0]),
-    y = expression(beta[x]),
+    x = expression("Intercept, " * beta[0]),
+    y = expression("Slope, " * beta[x]),
     color = "RSS"
   )
 

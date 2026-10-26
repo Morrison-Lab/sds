@@ -24,6 +24,30 @@ format:
 
 {{< include sds/_subfiles/logistic-inference/_exm-logistic-regression.qmd >}}
 
+## Fitting by iteratively reweighted least squares
+
+<!-- No slidebreak here: the heading shares its slide with the source note. -->
+
+{{< include sds/_subfiles/logistic-inference/_rem-source-irls.qmd >}}
+
+{{< include sds/_subfiles/logistic-inference/_def-irls.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exr-irls-step.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_sol-irls-step.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_thm-irls-newton.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-irls-six-patients.qmd >}}
+
 ## Deviance
 
 <!-- No slidebreak here: the heading shares its slide with the def-deviance div. -->
@@ -138,6 +162,12 @@ format:
 
 {{< include sds/_subfiles/logistic-inference/_exm-logistic-odds-interval.qmd >}}
 
+
+## Further reading {#sec-logistic-inference-reading}
+
+- [Hua Zhou](https://hua-zhou.github.io/)'s [course page for "UCLA Biostat 257 - Statistical Computing" (2025 Spring)](https://ucla-biostat-257.github.io/2025spring/)
+  has lectures on fitting generalized linear models and on quasi-Newton optimization.
+  Its source is [on GitHub](https://github.com/ucla-biostat-257/2025spring) under the MIT License.
 
 ## References {.unnumbered}
 
