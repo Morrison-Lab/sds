@@ -2,7 +2,7 @@
 #### A conservative interval for a binomial proportion
 
 Let $X \sim \text{Bin}(n, p)$ with $n = 20$,
-and let $[L(X), U(X)]$ be the Clopper–Pearson 95% interval
+and let $[L(X), U(X)]$ be the Clopper-Pearson 95% interval
 returned by `binom.test()`.
 Its coverage probability at each $p$ is the sum of the binomial probabilities
 of the values of $X$ whose interval contains $p$:
