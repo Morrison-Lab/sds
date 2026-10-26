@@ -1,0 +1,9 @@
+:::{#exm-score-bernoulli}
+#### Score of one Bernoulli observation
+
+For a Bernoulli variable with [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\prob$ and observed value $x \in \cb{0, 1}$,
+the [score](#def-score) in @thm-bernoulli-score
+is $1 / \prob$ when $x = 1$ and $-1 / (1 - \prob)$ when $x = 0$.
+When the event occurs, the [log-likelihood](#def-loglik) increases as $\prob$ increases.
+When the event does not occur, the log-likelihood decreases as $\prob$ increases.
+:::

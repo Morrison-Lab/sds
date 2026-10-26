@@ -1,0 +1,16 @@
+:::{#cor-bernoulli-loglik-contribution-logodds}
+#### Log-likelihood contribution of one binary outcome in terms of the log-odds
+
+If $\Outvar_\iobs \sim \Ber(\prob)$ has observed value $\outvar_\iobs \in \cb{0, 1}$,
+its [log-likelihood](#def-loglik) contribution is, with the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) $\logodds \eqdef \logit(\prob)$:
+
+$$\llik_\iobs(\prob) = \outvar_\iobs \logodds + \logf{1 - \prob}$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-bernoulli-loglik-contribution-logodds, worked in @sol-bernoulli-loglik-contribution-logodds.
+It follows from @thm-bernoulli-loglik-contribution.
+
+:::

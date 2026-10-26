@@ -1,0 +1,35 @@
+::: {#exm-irls-six-patients}
+
+#### IRLS on the six-patient trial
+
+The code runs [IRLS](#def-irls) from $\vcoef^* = \vzero$ on the data of the [six-patient trial](#exm-logistic-regression)
+and compares the result with the coefficients from `glm()`.
+
+```{r}
+#| code-fold: false
+# design matrix: intercept, group (-1 control, +1 treatment); y = 1: recovered
+irls_x <- cbind(1, rep(c(-1, 1), each = 3))
+irls_y <- c(0, 0, 1, 0, 1, 1)
+# start from zero coefficients and take six IRLS steps
+irls_coef <- c(0, 0)
+irls_path <- data.frame(step = 0, intercept = 0, slope = 0)
+for (step in 1:6) {
+  prob <- plogis(drop(irls_x %*% irls_coef))
+  weight <- prob * (1 - prob)
+  work_resp <- drop(irls_x %*% irls_coef) + (irls_y - prob) / weight
+  irls_coef <- drop(solve(crossprod(irls_x, weight * irls_x),
+                          crossprod(irls_x, weight * work_resp)))
+  irls_path[step + 1, ] <- c(step, irls_coef)
+}
+irls_path
+# the maximum likelihood fit from glm()
+coef(glm(irls_y ~ irls_x[, 2], family = binomial))
+```
+
+The first step moves the [slope](correlation-regression.qmd#def-slr-slope) to $`r round(irls_path$slope[2], 4)`$, which is $2/3$ ([the hand computation](#exr-irls-step)).
+After six steps the slope is $`r round(irls_path$slope[7], 6)`$,
+and `glm()` reports $`r round(coef(glm(irls_y ~ irls_x[, 2], family = binomial))[[2]], 6)`$.
+The slope settles at $\ln 2 = `r round(log(2), 6)`$,
+half the natural logarithm of the [odds ratio](basic-statistical-methods.qmd#def-odds-ratio) between the treatment group (recovery [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) $2$) and the other group (recovery odds $1/2$), since the groups are coded $\pm 1$.
+
+:::

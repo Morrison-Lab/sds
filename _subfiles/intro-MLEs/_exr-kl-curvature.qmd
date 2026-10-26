@@ -1,0 +1,33 @@
+:::{#exr-kl-curvature}
+#### Second derivative of the divergence
+
+Under the assumptions of @exr-kl-slope,
+show that the second derivative of the divergence of @def-model-kl-divergence is
+
+$$
+\dderiv{\param} \kldivf{\param_0}{\param}
+= \Expp_{\param_0}\sb{-\hess(\param)},
+$$
+
+where $\hess(\param)$ is the [Hessian](#def-hessian) of the [log-likelihood](#def-loglik) evaluated at $\param$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-kl-curvature}
+
+$$
+\begin{aligned}
+\dderiv{\param} \kldivf{\param_0}{\param}
+&= \deriv{\param} \paren{-\Expp_{\param_0}\sb{\score(\param)}}
+&& \text{(@sol-kl-slope)}\\
+&= -\Expp_{\param_0}\sb{\deriv{\param} \score(\param)}
+&& \text{(exchange derivative and expectation)}\\
+&= -\Expp_{\param_0}\sb{\hess(\param)}
+&& \text{(the Hessian is the derivative of the score)}\\
+&= \Expp_{\param_0}\sb{-\hess(\param)}
+&& \text{(move the sign inside the expectation)}
+\end{aligned}
+$$
+
+:::

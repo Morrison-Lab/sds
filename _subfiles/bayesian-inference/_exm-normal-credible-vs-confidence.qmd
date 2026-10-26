@@ -57,7 +57,7 @@ curves <- tibble::tibble(
 ggplot2::ggplot(curves) +
   ggplot2::aes(x = mu, y = density, colour = curve) +
   ggplot2::geom_line() +
-  ggplot2::labs(x = expression(mu), y = "density", colour = NULL)
+  ggplot2::labs(x = expression("Mean, " * mu), y = "density", colour = NULL)
 ```
 
 The $\ndist{0, 1}$ prior, the likelihood (scaled to integrate to 1),

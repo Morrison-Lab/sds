@@ -1,0 +1,16 @@
+:::{#thm-bernoulli-mle}
+#### Maximum likelihood estimate of a binary sample
+
+If $\Outvar_\iobs \simind \Ber(\prob)$ for $\iobs = 1, \dots, n$ and the observed [sample mean](exploratory-descriptive.qmd#def-sample-mean) satisfies $0 < \outbar < 1$,
+the [maximum likelihood estimate](#def-mle) of $\prob$ is the sample mean:
+
+$$\hprob_{\text{ML}} = \outbar$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-bernoulli-mle, worked in @sol-bernoulli-mle.
+It builds on @thm-bernoulli-score-equation and @thm-bernoulli-hessian-nd.
+
+:::

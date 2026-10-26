@@ -12,7 +12,7 @@ $$
 \begin{aligned}
 \sumin (\predvar_\iobs - \predbar)
 &= \sumin \predvar_\iobs - \sumin \predbar
-&& \text{(split the sum)}\\
+&& \text{(distribute the sum over the terms)}\\
 &= \sumin \predvar_\iobs - n \predbar
 && \text{(sum of a constant)}\\
 &= n \predbar - n \predbar

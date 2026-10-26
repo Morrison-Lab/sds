@@ -22,7 +22,7 @@ $$
 &= \sumin \paren{\rvar_\iobs \logf{\rate} - \rate - \logf{\rvar_\iobs!}}
 && \text{(log of a power; $\log e^{a} = a$)}\\
 &= \paren{\sumin \rvar_\iobs} \logf{\rate} - n\rate - \sumin \logf{\rvar_\iobs!}
-&& \text{(split the sum)}
+&& \text{(distribute the sum over the terms)}
 \end{aligned}
 $$
 

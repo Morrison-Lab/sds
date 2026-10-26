@@ -1,0 +1,36 @@
+:::{#exr-kl-slope}
+#### Derivative of the divergence
+
+Under the assumptions of @thm-score-mean-zero,
+show that the derivative of the divergence of @def-model-kl-divergence is
+
+$$\deriv{\param} \kldivf{\param_0}{\param} = -\Expp_{\param_0}\sb{\score(\param)},$$
+
+where $\score(\param)$ is the [score](#def-score) evaluated at $\param$,
+and the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) is taken with the data generated under $\param_0$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-kl-slope}
+
+Write $\llik(\param) = \log \p(\vX \mid \param)$.
+
+$$
+\begin{aligned}
+\kldivf{\param_0}{\param}
+&= \Expp_{\param_0}\sb{\llik(\param_0) - \llik(\param)}
+&& \text{(log of a ratio is a difference of logs)}\\
+&= \Expp_{\param_0}\sb{\llik(\param_0)} - \Expp_{\param_0}\sb{\llik(\param)}
+&& \text{(linearity of expectation)}\\
+\deriv{\param} \kldivf{\param_0}{\param}
+&= -\deriv{\param} \Expp_{\param_0}\sb{\llik(\param)}
+&& \text{(the first term does not depend on $\param$)}\\
+&= -\Expp_{\param_0}\sb{\deriv{\param} \llik(\param)}
+&& \text{(exchange derivative and expectation)}\\
+&= -\Expp_{\param_0}\sb{\score(\param)}
+&& \text{(definition of the score)}
+\end{aligned}
+$$
+
+:::

@@ -22,7 +22,7 @@ $$
 \end{bmatrix}
 $$
 
-By @thm-dist-mle,
+By [the asymptotic distribution of the MLE](#thm-dist-mle),
 the estimated standard errors are
 $\HSE{\hmean} = \hsdpar/\sqrt{n}$ and
 $\HSE{\hvarpar} = \hvarpar \sqrt{2/n}$,

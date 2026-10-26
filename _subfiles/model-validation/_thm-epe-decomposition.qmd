@@ -16,7 +16,7 @@ Assume:
 
 Then the [expected prediction error at $\predvar$](#def-epe)
 is the squared [bias](#def-prediction-bias)
-of the prediction $\predval$, used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\truemeanf{\predvar}$,
+of the prediction $\predval$,
 plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),
 plus $\varpar$:
 
@@ -29,10 +29,42 @@ $$ {#eq-epe-decomposition}
 
 ::: proof
 
-Every expectation below is conditional on $\newpredvar = \predvar$, as in the exercises.
-By @sol-epe-split-noise, the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\truemeanf{\predvar}$.
-By @sol-epe-split-bias, that pMSE is the squared bias plus the variance.
-Substituting @eq-epe-after-bias into @eq-epe-after-noise:
+Every [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) below is taken given $\newpredvar = \predvar$.
+By @thm-epe-split-noise, the [expected squared prediction error](#def-epe) is the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of the [noise](#def-noise) plus the [pMSE](estimation.qmd#def-mse) of the [prediction](prediction.qmd#def-prediction), used as an [estimator](estimation.qmd#def-estimator) of $\truemeanf{\predvar}$.
+That pMSE is the squared [bias](#def-prediction-bias) plus the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
+To see this, add and subtract the [expected prediction](#def-average-fit) $\Epredval$ inside the square and expand it:
+
+$$
+\ba
+\sqf{\truemeanf{\predvar} - \predval}
+&= \sqf{\truemeanf{\predvar} - \Epredval}
++ 2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\Epredval - \predval}
++ \sqf{\Epredval - \predval}.
+\ea
+$$
+
+This choice splits the error about $\Epredval$, the center of the prediction's distribution, so the pieces are the bias and the variance.
+Take the expectation of the three terms, one at a time:
+
+$$
+\ba
+\E{\sqf{\truemeanf{\predvar} - \Epredval}}
+&= \sqf{\truemeanf{\predvar} - \Epredval}
+&& \text{(a constant is its own expectation)} \\
+&= \sqf{\Epredval - \truemeanf{\predvar}} = \sqf{\biassymf{\predval}}
+&& \text{(squaring ignores the sign; the bias is $\Epredval - \truemeanf{\predvar}$)} \\
+\E{2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\Epredval - \predval}}
+&= 2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\Epredval - \E{\predval}}
+&& \text{(constants come out of the expectation)} \\
+&= 0
+&& \text{($\Epredval$ is the expectation of $\predval$)} \\
+\E{\sqf{\Epredval - \predval}}
+&= \varsymf{\predval}
+&& \text{(definition of the variance)}
+\ea
+$$
+
+Substituting the split of the pMSE into @eq-epe-split-noise:
 
 $$
 \ba

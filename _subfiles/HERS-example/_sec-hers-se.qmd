@@ -1,4 +1,4 @@
-By @sec-covariance-matrix,
+By the [covariance matrix of the Gaussian MLEs](#sec-covariance-matrix),
 the estimated standard error of $\hmean_{\text{ML}}$ is
 
 $$

@@ -105,6 +105,14 @@ reticulate::py_require(
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-prediction-rule.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-prediction-rule.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-fitting-procedure.qmd >}}
 
 {{< slidebreak >}}
@@ -298,6 +306,24 @@ reticulate::py_require(
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-prediction-bias.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-prediction-bias-signed.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-prediction-bias-integral.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_thm-prediction-bias-average-fit.qmd >}}
+
+{{< include sds/_subfiles/model-validation/_rem-prediction-bias-approximation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-prediction-bias.qmd >}}
 
 {{< slidebreak >}}
 

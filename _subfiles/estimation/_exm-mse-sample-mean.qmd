@@ -44,6 +44,8 @@ $$
 The step to $\frac{1}{n^2}\sumin \Var{\Rvar_\iobs}$ uses
 the [variance of a linear combination](https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom),
 whose covariance terms are all zero for independent variables.
+The result $\varpar/n$ is the
+[variance of an IID sample mean](https://morrison-lab.github.io/pds/limit-theorems.html#cor-mean-iid-moments).
 
 So for any sample size $n > 1$,
 

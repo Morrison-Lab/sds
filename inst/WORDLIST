@@ -388,3 +388,7 @@ inputdim
 llikf
 nparams
 vparam
+IRLS
+Levenberg
+Marquardt
+minimizer

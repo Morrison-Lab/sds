@@ -35,7 +35,8 @@ jobs:
       # which the Bayesian inference page's MCMC examples run.
       apt-packages: 'jags'
       setup-chrome: false
-      # PDF handouts are part of the default render below, so TinyTeX is always needed.
+      # A PR labelled `preview:pdf` renders the PDF handouts (tools/skip-pdf-in-previews.py
+      # removes them otherwise), and the publish build always does, so install TinyTeX.
       tinytex: true
       # `_quarto.yml` already selects the `website` profile by default.
       render-profile: ''
@@ -44,6 +45,9 @@ jobs:
       # leave this empty: empty selects a legacy branch that renders html plus
       # only the formats requested by `preview:*` labels.
       formats: default
+      # The full render (every page in html, revealjs, pdf and docx) outgrew the
+      # reusable workflow's 45-minute default on PRs that edit many pages.
+      timeout-minutes: 120
       timezone: America/Los_Angeles
       # Rebuild when this label is added or removed (it toggles highlighting below).
       extra-preview-labels: '["no-preview-highlights"]'

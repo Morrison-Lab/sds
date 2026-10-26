@@ -1,7 +1,7 @@
 :::{#exm-lik-obs}
 #### Likelihood of one Bernoulli observation
 
-If $X \sim \Ber(\prob)$, then
+If $X$ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, $X \sim \Ber(\prob)$, then
 
 $$
 \p_{\prob}(X = x) = \prob^x (1 - \prob)^{1 - x}

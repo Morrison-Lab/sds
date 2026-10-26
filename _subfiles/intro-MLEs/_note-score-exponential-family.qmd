@@ -1,5 +1,5 @@
 In all four examples
-(@thm-bernoulli-score, @thm-pois-score,
+([Bernoulli score](#thm-bernoulli-score), @thm-pois-score,
 @thm-gauss-score, and @thm-exp-score),
 the score function with respect to the mean turned out to be:
 

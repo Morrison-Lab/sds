@@ -40,7 +40,7 @@ $$
 && \text{($\logt$ undoes $\expt$)}
 \\
 &= \sumin \rvar_\iobs \logf{\rate} - \sumin \rate - \sumin \logf{\rvar_\iobs!}
-&& \text{(split the sum)}
+&& \text{(distribute the sum over the terms)}
 \\
 &= \paren{\sumin \rvar_\iobs}\logf{\rate} - \sumin \rate - \sumin \logf{\rvar_\iobs!}
 && \text{(factor $\logf{\rate}$ out of the first sum)}

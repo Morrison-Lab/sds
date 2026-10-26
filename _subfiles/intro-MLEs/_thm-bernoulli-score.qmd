@@ -4,16 +4,16 @@
 Let $X \sim \Ber(\prob)$, with event probability $\prob$ and observed value $x \in \cb{0, 1}$.
 The [score](#def-score) $\score$ of the single observation $x$
 is the derivative of its log-likelihood $\loglik$ with respect to $\prob$.
-It equals the deviation of $x$ from the mean $\E{X}$,
-divided by the variance $\Var{X}$:
+It equals the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \Var{X}$ of $X$
+times the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn \eqdef x - \E{X}$ of $x$ from the mean $\E{X}$:
 
-$$\score = \frac{x - \E{X}}{\Var{X}} = \frac{x - \prob}{\prob(1 - \prob)}$$
+$$\score = \precision \devn = \frac{\devn}{\Var{X}} = \frac{x - \prob}{\prob(1 - \prob)}$$
 
 :::
 
 ::: proof
 
 This is the solution to @exr-derive-bernoulli-score, worked in @sol-derive-bernoulli-score.
-It builds on @thm-bernoulli-loglik-one-group, with $n = 1$.
+It builds on @cor-bernoulli-loglik-contribution-logodds.
 
 :::

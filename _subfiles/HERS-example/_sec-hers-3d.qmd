@@ -20,7 +20,7 @@ plotly::plot_ly(
 ) |>
   plotly::layout(
     scene = list(
-      xaxis = list(title = "mu"),
+      xaxis = list(title = "Mean, μ"),
       yaxis = list(title = "sigma"),
       zaxis = list(title = "log-likelihood")
     )

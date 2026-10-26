@@ -57,14 +57,6 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-likelihood-one-group.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-likelihood-one-group.qmd >}}
-
-{{< slidebreak >}}
-
 ### The maximum likelihood estimate
 
 <!-- No slidebreak here: the heading shares its slide with the def-mle div. -->
@@ -141,14 +133,6 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-one-group.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-loglik-one-group.qmd >}}
-
-{{< slidebreak >}}
-
 ### The score function
 
 <!-- No slidebreak here: the heading shares its slide with the def-score div. -->
@@ -156,14 +140,6 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 {{< include sds/_subfiles/intro-MLEs/_def_score.qmd >}}
 
 {{< include sds/_subfiles/intro-MLEs/_note-score-notation.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score.qmd >}}
 
 {{< slidebreak >}}
 
@@ -191,15 +167,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_note-score-exponential-family.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include sds/_subfiles/intro-MLEs/_def-score-equation.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/intro-MLEs/_exm-score-equation.qmd >}}
 
 {{< slidebreak >}}
 
@@ -231,11 +199,11 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_rem-einf-vs-oinf.qmd >}}
+{{< include sds/_subfiles/intro-MLEs/_def_oinf.qmd >}}
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_def_oinf.qmd >}}
+{{< include sds/_subfiles/intro-MLEs/_rem-einf-vs-oinf.qmd >}}
 
 {{< slidebreak >}}
 
@@ -283,7 +251,35 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_tbl-info-mat-symbols.qmd >}}
+{{< include sds/_subfiles/intro-MLEs/_rem-score-surprisal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_def-model-kl-divergence.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-model-kl-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-kl-slope.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-kl-curvature.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-fisher-kl-curvature.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-fisher-kl-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_prose-info-mat-symbols.qmd >}}
 
 {{< slidebreak >}}
 
@@ -420,6 +416,168 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< include sds/_subfiles/dobson-cyclone-example.qmd >}}
 
+## Maximum likelihood for a Bernoulli model without covariates {#sec-bernoulli-mle}
+
+### The likelihood
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-likelihood-one-group.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-likelihood-one-group.qmd >}}
+
+{{< slidebreak >}}
+
+### Log-likelihood contributions
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-loglik-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-contribution-logodds.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_cor-bernoulli-loglik-contribution-logodds.qmd >}}
+
+{{< slidebreak >}}
+
+### The log-likelihood of the sample
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-one-group.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-loglik-one-group.qmd >}}
+
+{{< slidebreak >}}
+
+### Score contributions
+
+{{< include sds/_subfiles/intro-MLEs/_exm-precision-bernoulli.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-score-bernoulli.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_note-score-exponential-family.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+### The score function of the sample
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-sample-mean-deviation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score-sum.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score-sum.qmd >}}
+
+{{< slidebreak >}}
+
+### Solving the score equation
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+### Hessian contributions
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-hessian-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-contribution-fraction.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_cor-bernoulli-hessian-contribution-fraction.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_lem-bernoulli-precision-deriv.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-bernoulli-precision-deriv.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-contribution-precision.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_cor-bernoulli-hessian-contribution-precision.qmd >}}
+
+{{< slidebreak >}}
+
+### The Hessian of the sample
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-sum.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-hessian-sum.qmd >}}
+
+{{< slidebreak >}}
+
+### Checking that the Hessian is negative definite
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-nd.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-hessian-nd.qmd >}}
+
+{{< slidebreak >}}
+
+### The maximum likelihood estimate
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-mle.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-mle.qmd >}}
+
+{{< slidebreak >}}
+
 ## Maximum likelihood for univariate Gaussian models {#sec-gaussian-mle}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-setup.qmd >}}
@@ -438,7 +596,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### MLE of $\varpar$ {#sec-gaussian-mle-sigma}
+### The profile log-likelihood
 
 {{< include sds/_subfiles/intro-MLEs/_def-profile-loglik.qmd >}}
 
@@ -446,7 +604,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< include sds/_subfiles/intro-MLEs/_exm-profile-loglik.qmd >}}
 
-{{< slidebreak >}}
+### MLE of $\varpar$ {#sec-gaussian-mle-sigma}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-sigma.qmd >}}
 

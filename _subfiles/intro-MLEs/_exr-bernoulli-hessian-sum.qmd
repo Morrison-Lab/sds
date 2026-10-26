@@ -1,0 +1,34 @@
+:::{#exr-bernoulli-hessian-sum}
+#### Hessian of a binary sample
+
+In the setting of @exr-bernoulli-score-sum,
+assemble the [Hessian](#def-hessian) $\hess(\prob)$ of the whole [sample](exploratory-descriptive.qmd#def-sample)
+from the Hessian contributions.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-hessian-sum}
+
+$$
+\begin{aligned}
+\hess(\prob)
+&= \sumin \hess_\iobs(\prob)
+&& \text{(the derivative of a sum is the sum of the derivatives)}\\
+&= \sumin \paren{-\frac{\outvar_\iobs}{\sqf{\prob}} - \frac{1 - \outvar_\iobs}{\sqf{1 - \prob}}}
+&& \text{(Hessian contribution of a binary outcome)}\\
+&= -\frac{1}{\sqf{\prob}} \sumin \outvar_\iobs - \frac{1}{\sqf{1 - \prob}} \sumin (1 - \outvar_\iobs)
+&& \text{(distribute the sum over the terms; the denominators do not depend on $\iobs$)}\\
+&= -\frac{1}{\sqf{\prob}} \sumof{\vy} - \frac{1}{\sqf{1 - \prob}} \sumin (1 - \outvar_\iobs)
+&& \text{(definition of $\sumof{\vy}$)}\\
+&= -\frac{n \outbar}{\sqf{\prob}} - \frac{1}{\sqf{1 - \prob}} \paren{n - n \outbar}
+&& \text{($\sumof{\vy} = n \outbar$ and $\textstyle\sumin 1 = n$)}\\
+&= -\frac{n \outbar}{\sqf{\prob}} - \frac{n (1 - \outbar)}{\sqf{1 - \prob}}
+&& \text{(factor out $n$)}\\
+&= -n \paren{\frac{\outbar}{\sqf{\prob}} + \frac{1 - \outbar}{\sqf{1 - \prob}}}
+&& \text{(factor out $-n$)}
+\end{aligned}
+$$
+
+:::
