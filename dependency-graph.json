@@ -2922,6 +2922,15 @@
    "external": false
   },
   {
+   "id": "sds/logistic-inference#def-irls",
+   "site": "sds",
+   "page": "logistic-inference",
+   "div": "def-irls",
+   "kind": "def",
+   "title": "Iteratively reweighted least squares (IRLS)",
+   "external": false
+  },
+  {
    "id": "sds/logistic-inference#def-logistic-regression",
    "site": "sds",
    "page": "logistic-inference",
@@ -2982,6 +2991,15 @@
    "div": "thm-deviance-drop",
    "kind": "thm",
    "title": "The drop in deviance is the likelihood ratio statistic",
+   "external": false
+  },
+  {
+   "id": "sds/logistic-inference#thm-irls-newton",
+   "site": "sds",
+   "page": "logistic-inference",
+   "div": "thm-irls-newton",
+   "kind": "thm",
+   "title": "An IRLS step is a Newton-Raphson step and a Fisher scoring step",
    "external": false
   },
   {
@@ -5856,6 +5874,18 @@
    "sds/intro-MLEs#def-wald-ci"
   ],
   [
+   "sds/logistic-inference#def-irls",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/logistic-inference#def-irls",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/logistic-inference#def-irls",
+   "sds/logistic-inference#def-logistic-regression"
+  ],
+  [
    "sds/logistic-inference#def-logistic-regression",
    "pds/independence#def-indpt"
   ],
@@ -5894,6 +5924,26 @@
   [
    "sds/logistic-inference#thm-deviance-drop",
    "sds/logistic-inference#def-null-deviance"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-fisher-scoring"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-newton-raphson"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/logistic-inference#def-irls"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/logistic-inference#def-logistic-regression"
   ],
   [
    "sds/logistic-inference#thm-logistic-mle-distribution",

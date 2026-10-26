@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-26 01:50:35 (PDT)</p>
+  <p class="date">Last modified: 2026-10-26 03:19:48 (PDT)</p>
 </section><section id="empirical-distribution" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Empirical distribution</h2>
 <style>
@@ -531,8 +531,11 @@ Figure&nbsp;1: The empirical CDF and the sample quantile function for the data 4
 <span id="cb2-26"><a aria-label="26"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">data =</span> ecdf_closed, <span class="at">shape =</span> <span class="dv">19</span>, <span class="at">color =</span> <span class="st">"blue"</span></span>
 <span id="cb2-27"><a aria-label="27"></a>  ) <span class="sc">+</span></span>
 <span id="cb2-28"><a aria-label="28"></a>  ggplot2<span class="sc">::</span><span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(x_min, x_max), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">1.05</span>)) <span class="sc">+</span></span>
-<span id="cb2-29"><a aria-label="29"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"t"</span>, <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(<span class="fu">plain</span>(<span class="st">"F"</span>))(t))) <span class="sc">+</span></span>
-<span id="cb2-30"><a aria-label="30"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-29"><a aria-label="29"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
+<span id="cb2-30"><a aria-label="30"></a>    <span class="at">x =</span> <span class="st">"Value, t"</span>,</span>
+<span id="cb2-31"><a aria-label="31"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="st">"Empirical CDF, "</span> <span class="sc">*</span> <span class="fu">hat</span>(<span class="fu">plain</span>(<span class="st">"F"</span>))(t))</span>
+<span id="cb2-32"><a aria-label="32"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-33"><a aria-label="33"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-ecdf-example" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-subfloat-fig"><figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-fig" id="fig-ecdf-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Empirical CDF, horizontal pieces only. Closed circles mark included endpoints; open circles mark excluded endpoints.
@@ -568,8 +571,11 @@ Figure&nbsp;1: The empirical CDF and the sample quantile function for the data 4
 <span id="cb3-16"><a aria-label="16"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
 <span id="cb3-17"><a aria-label="17"></a>    <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fu">min</span>(x_ord) <span class="sc">-</span> eqf_y_padding, <span class="fu">max</span>(x_ord) <span class="sc">+</span> eqf_y_padding)</span>
 <span id="cb3-18"><a aria-label="18"></a>  ) <span class="sc">+</span></span>
-<span id="cb3-19"><a aria-label="19"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"p"</span>, <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Q)(p))) <span class="sc">+</span></span>
-<span id="cb3-20"><a aria-label="20"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-19"><a aria-label="19"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
+<span id="cb3-20"><a aria-label="20"></a>    <span class="at">x =</span> <span class="st">"Probability, p"</span>,</span>
+<span id="cb3-21"><a aria-label="21"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="st">"Sample quantile, "</span> <span class="sc">*</span> <span class="fu">hat</span>(Q)(p))</span>
+<span id="cb3-22"><a aria-label="22"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-23"><a aria-label="23"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-eqf-example" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-subfloat-fig"><figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-fig" id="fig-eqf-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Sample quantile function, horizontal pieces only. Open circles mark excluded left endpoints; closed circles mark included right endpoints.
