@@ -27,5 +27,5 @@ $$ {#eq-epe-split-noise}
 :::
 
 ::: proof
-This is @sol-epe-split-noise.
+This is @sol-epe-split-noise. <!-- check-solution-citations: allow -->
 :::

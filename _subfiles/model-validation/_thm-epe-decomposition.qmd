@@ -30,9 +30,13 @@ $$ {#eq-epe-decomposition}
 ::: proof
 
 Every expectation below is conditional on $\newpredvar = \predvar$, as in the exercises.
-By @sol-epe-split-noise, the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\truemeanf{\predvar}$.
-By @sol-epe-split-bias, that pMSE is the squared bias plus the variance.
-Substituting @eq-epe-after-bias into @eq-epe-after-noise:
+By @thm-epe-split-noise, the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\truemeanf{\predvar}$.
+That pMSE is the squared bias plus the variance.
+To see this, add and subtract the expected prediction $\Epredval$ and expand the square.
+The first term is a constant, so its expectation is the squared bias $\sqf{\biassymf{\predval}}$.
+The cross term is zero, because a constant factor leaves $\E{\Epredval - \predval} = 0$.
+The third term is the variance $\varsymf{\predval}$.
+Substituting the split of the pMSE into @eq-epe-split-noise:
 
 $$
 \ba

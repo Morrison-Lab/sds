@@ -14,5 +14,5 @@ $$\risk_2 - \risk_1 = -\RD.$$
 :::
 
 ::: proof
-This is the result of @sol-risk-difference-switch-ref.
+This is the result of @sol-risk-difference-switch-ref. <!-- check-solution-citations: allow -->
 :::
