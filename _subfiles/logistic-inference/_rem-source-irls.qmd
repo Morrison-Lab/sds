@@ -33,6 +33,6 @@ The source writes the logistic [score](intro-MLEs.qmd#def-score) and information
 Here the step is stated as a theorem and proved, with the step length fixed at $1$.
 The example, using the six-patient trial, is new.
 The source's treatment of general generalized linear models, Gauss-Newton and Levenberg-Marquardt is not part of this section.
-The general optimization methods behind it are on the [Optimization](https://morrison-lab.github.io/mds/optimization.html) page of the math notes.
+The general optimization methods behind [IRLS](#def-irls) are on the [Optimization](https://morrison-lab.github.io/mds/optimization.html) page of the math notes.
 
 :::

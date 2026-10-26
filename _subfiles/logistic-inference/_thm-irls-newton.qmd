@@ -16,7 +16,7 @@ $$ {#eq-irls-newton}
 
 ::: proof
 
-The [log-likelihood](intro-MLEs.qmd#def-loglik) has [score](intro-MLEs.qmd#def-score) $\tp{X} \paren{\voutvar - \vprob}$ and [Hessian](intro-MLEs.qmd#def-hessian) $-\tp{X} W X$,
+The [log-likelihood](intro-MLEs.qmd#def-loglik) has [score](intro-MLEs.qmd#def-score) $\tp{X} \paren{\voutvar - \vprob}$ and [Hessian](intro-MLEs.qmd#def-hessian) $-\tp{X} W X$ at every $\vcoef$ (with $\vprob$ and $W$ computed from $\vcoef$),
 and the Hessian does not involve the outcomes
 (proof of @thm-logistic-mle-distribution).
 So the [observed information](intro-MLEs.qmd#def-oinf) $\tp{X} W X$ equals the [expected information](intro-MLEs.qmd#def-einf),

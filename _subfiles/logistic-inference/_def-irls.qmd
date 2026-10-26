@@ -4,7 +4,7 @@
 
 Suppose the outcomes follow the [logistic regression model](#def-logistic-regression).
 Let $X$ be the matrix whose rows are $\tp{\vpredvar_\iobs}$.
-From a current [estimate](estimation.qmd#def-estimate) $\vcoef^*$ with fitted [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\prob_i^*$, form
+From a current [estimate](estimation.qmd#def-estimate) $\vcoef^*$ with fitted [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\prob_i^*$ (collected in $\vprob^*$), form
 
 - the weights $w_i = \prob_i^* \paren{1 - \prob_i^*}$, collected in the diagonal matrix $W$;
 - the working responses $z_i = \dprod{\vcoef^*}{\vpredvar_\iobs} + \paren{\outvar_i - \prob_i^*} / w_i$, collected in $\vecf{z}$.
