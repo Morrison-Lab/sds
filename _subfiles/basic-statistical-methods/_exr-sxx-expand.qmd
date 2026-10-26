@@ -17,7 +17,7 @@ $$
 &= \sumin \paren{\predvar_\iobs^2 - 2 \predbar \predvar_\iobs + \predbar^2}
 && \text{(expand the square)}\\
 &= \sumin \predvar_\iobs^2 - \sumin 2 \predbar \predvar_\iobs + \sumin \predbar^2
-&& \text{(split the sum)}\\
+&& \text{(distribute the sum over the terms)}\\
 &= \sumin \predvar_\iobs^2 - 2 \predbar \sumin \predvar_\iobs + \sumin \predbar^2
 && \text{(constant factor out of the sum)}\\
 &= \sumin \predvar_\iobs^2 - 2 \predbar \sumin \predvar_\iobs + n \predbar^2

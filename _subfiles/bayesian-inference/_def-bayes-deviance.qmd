@@ -5,6 +5,6 @@ In the deviance information criterion,
 the **deviance** of a parameter value $\vparam$ is
 
 $$
-D(\vparam) \eqdef -2 \log \p(\vy \mid \vparam).
+\dicdevf{\vparam} \eqdef -2 \log \p(\vy \mid \vparam).
 $$
 :::

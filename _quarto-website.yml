@@ -2,7 +2,11 @@ project:
   type: website
   output-dir: _site
   # Writes dependency-graph.json: the prerequisite graph of the definitions and results.
-  pre-render: python3 tools/build_dependency_graph.py --pages . --site sds --out dependency-graph.json
+  pre-render:
+    - python3 tools/build_dependency_graph.py --pages . --site sds --out dependency-graph.json
+    # Runs last: on a pull request's build it removes the pdf format from the working copy
+    # unless the PR carries the `preview:pdf` label.
+    - python3 tools/skip-pdf-in-previews.py
   resources:
     - dependency-graph.js
     - dependency-graph.json
@@ -59,6 +63,8 @@ website:
             href: estimator-properties.qmd
           - text: "Sufficiency"
             href: sufficiency.qmd
+          - text: "Exponential Families"
+            href: exponential-families.qmd
       - text: "Methods"
         menu:
           - text: "Comparing Means"
@@ -121,6 +127,8 @@ website:
             href: estimator-properties.qmd
           - text: "Sufficiency"
             href: sufficiency.qmd
+          - text: "Exponential Families"
+            href: exponential-families.qmd
       - section: "Methods"
         contents:
           - text: "Comparing Means"

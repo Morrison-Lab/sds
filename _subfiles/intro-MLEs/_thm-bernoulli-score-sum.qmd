@@ -2,15 +2,18 @@
 #### Score function of a binary sample
 
 If $\Outvar_\iobs \simind \Ber(\prob)$ for $\iobs = 1, \dots, n$,
-with observed [sample mean](exploratory-descriptive.qmd#def-sample-mean) $\outbar$ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$,
+with observed [sample mean](exploratory-descriptive.qmd#def-sample-mean) $\outbar$,
+[precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$,
+and sample mean $\smeandev \eqdef \avgin \devn_\iobs$ of the [deviations](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) $\devn_\iobs = \outvar_\iobs - \prob$,
 the [score function](#def-score) is:
 
-$$\score(\prob) = n \precision (\outbar - \prob)$$
+$$\score(\prob) = n \precision \smeandev = n \precision (\outbar - \prob)$$
 
 :::
 
 ::: proof
 
-This is the solution to @exr-bernoulli-score-sum, worked in @sol-bernoulli-score-sum.
+The first equality is the solution to @exr-bernoulli-score-sum, worked in @sol-bernoulli-score-sum.
+The second is the solution to @exr-bernoulli-sample-mean-deviation, worked in @sol-bernoulli-sample-mean-deviation.
 
 :::

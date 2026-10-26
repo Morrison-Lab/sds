@@ -37,7 +37,7 @@ $$
 &= \sqf{\Epredval - \truemeanf{\predvar}}
 && \text{(a number and its negative have the same square)} \\
 &= \sqf{\bias{\predval}}
-&& \text{(definition of bias)}
+&& \text{(} \bias{\predval} = \Epredval - \truemeanf{\predvar} \text{, @thm-prediction-bias-average-fit)}
 \ea
 $$
 

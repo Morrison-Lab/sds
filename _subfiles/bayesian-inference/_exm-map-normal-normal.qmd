@@ -65,7 +65,7 @@ ggplot2::ggplot(curves) +
   ggplot2::aes(x = mu, y = value, colour = curve) +
   ggplot2::geom_line() +
   ggplot2::geom_vline(xintercept = c(xbar, map_est), linetype = "dashed") +
-  ggplot2::labs(x = expression(mu), y = NULL, colour = NULL)
+  ggplot2::labs(x = expression("Mean, " * mu), y = NULL, colour = NULL)
 ```
 
 Negative log-likelihood, penalty, and their sum, up to constants.

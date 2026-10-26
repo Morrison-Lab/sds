@@ -171,10 +171,6 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_exm-precision-bernoulli.qmd >}}
-
-{{< slidebreak >}}
-
 ### Information matrices
 
 <!-- No slidebreak here: the heading shares its slide with the def-hessian div. -->
@@ -252,6 +248,34 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_exm-information-equality-fails.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_rem-score-surprisal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_def-model-kl-divergence.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-model-kl-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-kl-slope.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-kl-curvature.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-fisher-kl-curvature.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-fisher-kl-poisson.qmd >}}
 
 {{< slidebreak >}}
 
@@ -434,6 +458,10 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 ### Score contributions
 
+{{< include sds/_subfiles/intro-MLEs/_exm-precision-bernoulli.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score.qmd >}}
 
 {{< slidebreak >}}
@@ -459,6 +487,10 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 {{< slidebreak >}}
 
 ### The score function of the sample
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-sample-mean-deviation.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score-sum.qmd >}}
 
@@ -489,6 +521,30 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-hessian-contribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-contribution-fraction.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_cor-bernoulli-hessian-contribution-fraction.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_lem-bernoulli-precision-deriv.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-bernoulli-precision-deriv.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-contribution-precision.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_cor-bernoulli-hessian-contribution-precision.qmd >}}
 
 {{< slidebreak >}}
 

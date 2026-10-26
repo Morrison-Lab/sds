@@ -91,6 +91,9 @@ resources:
 - Good [@good2005permutation] gives a book-length treatment of permutation tests.
 - Phipson and Smyth [@phipson2010permutation] explain why [Monte Carlo permutation p-values](#def-monte-carlo-p-value) need the added 1.
 - Chapter 12 of the [*Computational and Inferential Thinking*](https://www.inferentialthinking.com/) textbook for UC Berkeley's Data 8 introduces permutation tests through plain-language A/B testing examples.
+- Section 24.2 of Lange's textbook [@lange2010numerical]
+  covers permutation tests,
+  with an emphasis on computation.
 - Chapter 13 of @james2021islr2e applies permutation and other resampling methods to multiple testing.
 
 

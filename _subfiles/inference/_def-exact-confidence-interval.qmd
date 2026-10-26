@@ -1,0 +1,7 @@
+::: {#def-exact-confidence-interval}
+#### Exact confidence interval
+
+A $100(1-\siglevel)\%$ [confidence interval](#def-confidence-interval) $\cintf{X}$ is **exact**
+when its [coverage probability](#def-coverage-probability) equals $1 - \siglevel$
+for every possible value of $\param$.
+:::

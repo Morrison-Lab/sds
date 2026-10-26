@@ -15,5 +15,5 @@ $$ {#eq-expected-error-epe}
 :::
 
 ::: proof
-This is @sol-expected-error-epe.
+This is @sol-expected-error-epe. <!-- check-solution-citations: allow -->
 :::

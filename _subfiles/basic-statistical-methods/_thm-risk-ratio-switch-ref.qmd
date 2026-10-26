@@ -15,5 +15,5 @@ $$\frac{\risk_2}{\risk_1} = \frac{1}{\riskratio}.$$
 :::
 
 ::: proof
-This is the result of @sol-risk-ratio-switch-ref.
+This is the result of @sol-risk-ratio-switch-ref. <!-- check-solution-citations: allow -->
 :::

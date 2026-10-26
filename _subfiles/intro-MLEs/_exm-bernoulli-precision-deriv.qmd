@@ -1,0 +1,36 @@
+:::{#exm-bernoulli-precision-deriv}
+#### Derivative of the precision at $\prob = 1/4$
+
+At $\prob = 1/4$, the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is
+
+$$
+\begin{aligned}
+\precision
+&= \frac{1}{\prob(1 - \prob)}
+&& \text{(definition of $\precision$)}\\
+&= \frac{1}{\frac{1}{4} \cdot \frac{3}{4}}
+&& \text{(substitute $\prob = 1/4$)}\\
+&= \frac{16}{3}
+&& \text{(multiply the fractions and take the reciprocal)}
+\end{aligned}
+$$
+
+so by @lem-bernoulli-precision-deriv,
+
+$$
+\begin{aligned}
+\deriv{\prob} \precision
+&= -\sqf{\precision} \paren{1 - 2 \prob}
+&& \text{(@lem-bernoulli-precision-deriv)}\\
+&= -\sqf{\paren{\frac{16}{3}}} \paren{1 - \frac{1}{2}}
+&& \text{(substitute $\precision = 16/3$ and $\prob = 1/4$)}\\
+&= -\frac{256}{9} \cdot \frac{1}{2}
+&& \text{(square and subtract)}\\
+&= -\frac{128}{9}
+&& \text{(multiply the fractions)}
+\end{aligned}
+$$
+
+The precision falls as $\prob$ rises toward $1/2$, where it is smallest, which matches a derivative below zero.
+
+:::

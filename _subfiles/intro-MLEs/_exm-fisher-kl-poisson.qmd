@@ -1,0 +1,33 @@
+:::{#exm-fisher-kl-poisson}
+#### Curvature of the divergence for Poisson data
+
+Differentiating the divergence of @exm-model-kl-poisson twice with respect to $\rate$ gives
+$\deriv{\rate} \kldivf{\rate_0}{\rate} = 1 - \rate_0 / \rate$
+and $\dderiv{\rate} \kldivf{\rate_0}{\rate} = \rate_0 / \rate^2$,
+so at $\rate = \rate_0$ the second derivative is $1/\rate_0$,
+which is the [expected information](#def-einf) of one [observation](exploratory-descriptive.qmd#def-observation) (@exm-information-poisson).
+A finite-difference second derivative of the divergence,
+summed directly over the [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson)
+[probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), agrees:
+
+```{r}
+#| code-fold: false
+rate_true <- 3
+kl_div <- function(rate) {
+  x <- 0:200
+  log_ratio <- dpois(x, rate_true, log = TRUE) - dpois(x, rate, log = TRUE)
+  sum(dpois(x, rate_true) * log_ratio)
+}
+h <- 1e-3
+kl_values <- c(
+  kl_div(rate_true - h),
+  kl_div(rate_true),
+  kl_div(rate_true + h)
+)
+c(
+  second_difference = sum(kl_values * c(1, -2, 1)) / h^2,
+  expected_information = 1 / rate_true
+)
+```
+
+:::

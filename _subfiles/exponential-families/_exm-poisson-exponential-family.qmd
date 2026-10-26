@@ -1,0 +1,94 @@
+:::{#exm-poisson-exponential-family}
+#### The Poisson distribution is an exponential family
+
+Let $\Rvar \sim \Pois(\rate)$,
+the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) with rate $\rate > 0$.
+Its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) has one factor free of $\rate$, and the factors $\rate^{\rvar}$ and $\expf{-\rate}$.
+We rewrite it in the form of @eq-exponential-family
+by writing $\rate^{\rvar}$ as an exponential of a logarithm:
+
+$$
+\begin{aligned}
+\pdf\paren{\rvar ; \rate}
+&= \frac{\rate^{\rvar} \, \expf{-\rate}}{\rvar!}
+&& \text{(Poisson mass function)}\\
+&= \frac{1}{\rvar!} \, \expf{\logf{\rate^{\rvar}}} \, \expf{-\rate}
+&& \text{(a positive number is the exponential of its logarithm)}\\
+&= \frac{1}{\rvar!} \, \expf{\rvar \, \logf{\rate}} \, \expf{-\rate}
+&& \text{(the logarithm of a power is the exponent times the logarithm)}\\
+&= \frac{1}{\rvar!} \, \expf{\rvar \, \logf{\rate} - \rate}
+&& \text{(the product of exponentials is the exponential of the sum)}
+\end{aligned}
+$$
+
+So the Poisson distributions are an [exponential family](#def-exponential-family) with
+$\basemeasuref{\rvar} = 1 / \rvar!$,
+$\statf{\rvar} = \rvar$,
+[natural parameter](#def-natural-parameter) $\natparam = \logf{\rate}$,
+and $\logpartitionf{\natparam} = \rate = \expf{\natparam}$.
+
+To check the algebra on data,
+we use the number of tropical cyclones in northeastern Australia in each of 13 seasons
+[@dobson4e, Section 1.6.5],
+with the rate set to the [sample mean](exploratory-descriptive.qmd#def-sample-mean).
+We evaluate both sides of @eq-exponential-family at every observed count.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: poisson-exponential-family-r
+#| code-fold: false
+cyclones <- c(6, 5, 4, 6, 6, 3, 12, 7, 4, 2, 6, 7, 4)
+rate <- mean(cyclones)
+
+base_measure <- function(x) 1 / factorial(x)
+natural_parameter <- log(rate)
+log_partition <- function(eta) exp(eta)
+
+exponential_form <- base_measure(cyclones) *
+  exp(natural_parameter * cyclones - log_partition(natural_parameter))
+
+data.frame(
+  count = cyclones,
+  poisson = dpois(cyclones, rate),
+  exponential_form = exponential_form
+)
+max(abs(dpois(cyclones, rate) - exponential_form))
+```
+
+##### Python
+
+```{python}
+#| label: poisson-exponential-family-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+from scipy.special import factorial
+from scipy.stats import poisson
+
+cyclones = np.array([6, 5, 4, 6, 6, 3, 12, 7, 4, 2, 6, 7, 4])
+rate = cyclones.mean()
+
+natural_parameter = np.log(rate)
+exponential_form = (1 / factorial(cyclones)) * np.exp(
+    natural_parameter * cyclones - np.exp(natural_parameter)
+)
+
+table = pd.DataFrame(
+    {
+        "count": cyclones,
+        "poisson": poisson.pmf(cyclones, rate),
+        "exponential_form": exponential_form,
+    }
+)
+print(table)
+print(np.max(np.abs(poisson.pmf(cyclones, rate) - exponential_form)))
+```
+
+:::
+
+The two columns agree to within rounding error:
+the largest difference is `r format(max(abs(dpois(cyclones, rate) - exponential_form)), digits = 2)`.
+:::

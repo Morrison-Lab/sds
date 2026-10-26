@@ -1,0 +1,34 @@
+:::{#lem-bernoulli-precision-deriv}
+#### Derivative of the Bernoulli precision
+
+If $\Outvar$ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, $\Outvar \sim \Ber(\prob)$ with $0 < \prob < 1$
+and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$,
+then the derivative of $\precision$ with respect to $\prob$ is
+
+$$\deriv{\prob} \precision = -\sqf{\precision} \paren{1 - 2 \prob}$$
+
+:::
+
+::: proof
+
+The derivative needs the chain rule:
+
+$$
+\begin{aligned}
+\deriv{\prob} \precision
+&= \deriv{\prob} \paren{\prob(1 - \prob)}^{-1}
+&& \text{(definition of $\precision$ as a negative power)}\\
+&= \deriv{\prob} \paren{\prob - \sqf{\prob}}^{-1}
+&& \text{(distribute $\prob$)}\\
+&= -\paren{\prob - \sqf{\prob}}^{-2} \deriv{\prob} \paren{\prob - \sqf{\prob}}
+&& \text{(chain rule and power rule)}\\
+&= -\paren{\prob - \sqf{\prob}}^{-2} \paren{1 - 2 \prob}
+&& \text{(linearity and power rule)}\\
+&= -\paren{\prob(1 - \prob)}^{-2} \paren{1 - 2 \prob}
+&& \text{(factor $\prob - \sqf{\prob} = \prob(1 - \prob)$)}\\
+&= -\sqf{\precision} \paren{1 - 2 \prob}
+&& \text{(definition of $\precision$)}
+\end{aligned}
+$$
+
+:::

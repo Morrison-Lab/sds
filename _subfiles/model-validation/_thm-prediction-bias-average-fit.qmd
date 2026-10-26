@@ -1,0 +1,29 @@
+:::{#thm-prediction-bias-average-fit}
+#### The bias as the expected prediction minus the mean function
+
+The [bias](#def-prediction-bias) of the [prediction](prediction.qmd#def-prediction) at $\predvar$
+is the [expected prediction](#def-average-fit) minus the [mean function](#def-mean-function) value:
+
+$$
+\bias{\predvalf{\predvar}}
+= \Epredval - \truemeanf{\predvar}.
+$$ {#eq-prediction-bias-average-fit}
+
+:::
+
+::: proof
+
+The new outcome is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of the [training set](#def-training-set),
+and its mean is $\truemeanf{\predvar}$ because the [noise has mean zero](#thm-noise-mean-zero).
+
+$$
+\begin{aligned}
+\bias{\predvalf{\predvar}}
+&= \E{\prederr_{*}\paren{\fitmodf{\trainset}} \mid \newpredvar = \predvar} && \text{(definition of bias)} \\
+&= \E{\devof{\predvalf{\predvar}}{\newoutvar}} && \text{(definition of prediction error)} \\
+&= \Epredval - \E{\newoutvar} && \text{(linearity of expectation)} \\
+&= \Epredval - \truemeanf{\predvar} && \text{(the noise has mean zero)} .
+\end{aligned}
+$$
+
+:::

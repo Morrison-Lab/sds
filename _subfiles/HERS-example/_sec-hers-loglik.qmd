@@ -35,7 +35,7 @@ ggplot2::ggplot() +
     args = list(sigma = sigma_hat, x = glucose_data)
   ) +
   ggplot2::xlim(mu_hat + c(-1, 1) * sigma_hat) +
-  ggplot2::xlab("mu") +
+  ggplot2::xlab("Mean, μ") +
   ggplot2::ylab("likelihood") +
   ggplot2::geom_vline(xintercept = mu_hat, col = "red")
 ```
@@ -53,7 +53,7 @@ ggplot2::ggplot() +
     args = list(sigma = sigma_hat, x = glucose_data)
   ) +
   ggplot2::xlim(mu_hat + c(-1, 1) * sigma_hat) +
-  ggplot2::xlab("mu") +
+  ggplot2::xlab("Mean, μ") +
   ggplot2::ylab("log-likelihood") +
   ggplot2::geom_vline(xintercept = mu_hat, col = "red")
 ```

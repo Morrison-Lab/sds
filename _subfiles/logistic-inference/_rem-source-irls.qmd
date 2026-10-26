@@ -1,0 +1,38 @@
+::: {#rem-source-irls .callout-note appearance="simple" collapse=true}
+
+## Source and license: iteratively reweighted least squares
+
+This section is adapted from the generalized linear model part of the Newton's method lecture of @zhou2025newton,
+used under the MIT License.
+The license text is:
+
+```text
+Copyright (c) 2025 ucla-biostat-257
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+The source writes the logistic [score](intro-MLEs.qmd#def-score) and information, notes that Newton's method and [Fisher scoring](intro-MLEs.qmd#def-fisher-scoring) coincide, and rewrites the step as a weighted least squares fit.
+Here the step is stated as a theorem and proved, with the step length fixed at $1$.
+The example, using the six-patient trial, is new.
+The source's treatment of general generalized linear models, Gauss-Newton and Levenberg-Marquardt is not part of this section.
+The general optimization methods behind [IRLS](#def-irls) are on the [Optimization](https://morrison-lab.github.io/mds/optimization.html) page of the math notes.
+
+:::
