@@ -1,0 +1,29 @@
+::: {#exm-conservative-interval}
+#### A conservative interval for a binomial proportion
+
+Let $X \sim \text{Bin}(n, p)$ with $n = 20$,
+and let $[L(X), U(X)]$ be the Clopper–Pearson 95% interval
+returned by `binom.test()`.
+Its coverage probability at each $p$ is the sum of the binomial probabilities
+of the values of $X$ whose interval contains $p$:
+
+```{r}
+#| code-fold: false
+n <- 20
+cp <- t(sapply(0:n, function(x) binom.test(x, n)$conf.int))
+coverage <- function(p) {
+  sum(dbinom(0:n, n, p)[cp[, 1] <= p & p <= cp[, 2]])
+}
+p_grid <- seq(0.01, 0.99, by = 0.01)
+cover <- sapply(p_grid, coverage)
+range(cover)
+```
+
+The smallest coverage probability on this grid, which approximates the
+[confidence coefficient](#def-confidence-coefficient),
+is `r sprintf("%.3f", min(cover))`,
+and the largest is `r sprintf("%.3f", max(cover))`.
+The interval is conservative:
+its coverage probability is above 0.95 at `r sum(cover > 0.95)`
+of the `r length(p_grid)` grid values of $p$.
+:::

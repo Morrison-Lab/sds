@@ -1,17 +1,15 @@
 ::: {#rem-confidence-interval-exact}
-#### Exact intervals and confidence sets
+#### Exact and conservative intervals
 
-The probability in @def-confidence-interval
-is the [coverage probability](#def-coverage-probability) of $\cintf{X}$,
-which can depend on $\param$.
-The infimum of the coverage probability over $\param$
-is the interval's **confidence coefficient**,
-and the definition requires it to be at least $1 - \siglevel$.
-An interval is **exact** when the coverage probability equals $1 - \siglevel$
-for every $\param$;
-discrete data usually allow only a conservative interval,
-whose coverage probability is larger than $1 - \siglevel$
+@def-confidence-interval requires the [confidence coefficient](#def-confidence-coefficient)
+to be at least $1 - \siglevel$.
+The coverage probability can depend on $\param$,
+and the confidence coefficient is its smallest value.
+An interval is exact when its coverage probability equals $1 - \siglevel$
+for every $\param$,
+and conservative when its coverage probability is larger than $1 - \siglevel$
 for some $\param$.
-A region that need not be an interval is a **confidence set**
+Discrete data usually allow only a conservative interval.
+A region that need not be an interval is a confidence set
 [@CaseBerg01, Section 9.1].
 :::
