@@ -1,0 +1,17 @@
+:::{#sol-derive-bernoulli-score-deviation}
+
+Write the result using $\devn$ and $\precision$:
+
+$$
+\begin{aligned}
+\score
+&= \precision (x - \prob)
+&& \text{(previous solution)}\\
+&= \precision \paren{x - \E{X}}
+&& \text{($\E{X} = \prob$)}\\
+&= \precision \devn
+&& \text{(definition of $\devn$)}
+\end{aligned}
+$$
+
+:::

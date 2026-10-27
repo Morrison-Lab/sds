@@ -1,0 +1,18 @@
+:::{#sol-prac-exp-mle-mle}
+
+Setting $\score(\pmean; \vx) = 0$:
+
+$$
+\ba
+0 &= \frac{n}{\pmean^2}\paren{\rvarbar - \pmean}
+&& \text{(score from the score exercise)}
+\\
+0 &= \rvarbar - \pmean
+&& \text{(multiply both sides by $\tfrac{\pmean^2}{n}$)}
+\\
+\hat\pmean_{ML} &= \rvarbar
+&& \text{(add $\pmean$ to both sides)}
+\ea
+$$
+
+:::

@@ -1,0 +1,16 @@
+:::{#sol-bernoulli-score-contribution-deviation}
+
+Using @thm-bernoulli-score,
+
+$$
+\begin{aligned}
+\deriv{\prob} \llik_\iobs(\prob)
+&= \precision \devn_\iobs
+&& \text{(score of a Bernoulli variable, with $x = \outvar_\iobs$)}
+\end{aligned}
+$$
+
+The last step is @thm-bernoulli-score for the observed value $\outvar_\iobs$ of $\Outvar_\iobs$,
+whose [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is $\precision$ and whose [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is $\devn_\iobs$.
+
+:::

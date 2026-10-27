@@ -1,0 +1,18 @@
+:::{#sol-prac-exp-mle-ci}
+
+An [approximate](inference.qmd#def-approximate-ci) 95% CI for $\pmean$ is:
+
+$$
+\hat\pmean_{ML} \pm 1.96 \times \frac{\rvarbar}{\sqrt{n}}
+= \rvarbar \pm \frac{1.96\rvarbar}{\sqrt{n}}
+$$
+
+Note: the exponential distribution has $\Varf{X} = \pmean^2$,
+so $\SE{\hat\pmean_{ML}} = \pmean/\sqrt{n}$,
+which is estimated by $\rvarbar/\sqrt{n}$.
+More generally,
+the standard error of a sample mean is $\SD{X}/\sqrt{n}$;
+here that reduces to $\pmean/\sqrt{n}$
+because $\SD{X} = \pmean$ for the exponential distribution.
+
+:::

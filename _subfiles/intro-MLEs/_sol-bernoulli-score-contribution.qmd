@@ -1,0 +1,10 @@
+:::{#sol-bernoulli-score-contribution}
+
+By definition,
+
+$$
+\score_\iobs(\prob)
+= \deriv{\prob} \llik_\iobs(\prob)
+$$
+
+:::

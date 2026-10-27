@@ -1,0 +1,21 @@
+:::{#sol-prac-exp-mle-oinf-at-mle}
+
+Evaluated at $\hat\pmean_{ML} = \rvarbar$:
+
+$$
+\ba
+\oinf(\hat\pmean_{ML}; \vx)
+&= \frac{2n\rvarbar}{\rvarbar^3} - \frac{n}{\rvarbar^2}
+&& \text{(observed information at $\pmean = \rvarbar$)}
+\\
+&= \frac{2n}{\rvarbar^2} - \frac{n}{\rvarbar^2}
+&& \text{(cancel one factor of $\rvarbar$)}
+\\
+&= \frac{n}{\rvarbar^2}
+&& \text{(combine like terms)}
+\ea
+$$
+
+So $\SE{\hat\pmean_{ML}} \approx \sqrt{\oinf(\hat\pmean_{ML}; \vx)^{-1}} = \frac{\rvarbar}{\sqrt{n}}$.
+
+:::

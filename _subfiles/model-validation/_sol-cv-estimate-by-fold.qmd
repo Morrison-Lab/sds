@@ -1,6 +1,6 @@
 :::{#sol-cv-estimate-by-fold}
 
-**1.** The [folds](#def-folds) $\fold{1}, \ldots, \fold{\nfolds}$ partition $\obsidx$ (@def-folds),
+The [folds](#def-folds) $\fold{1}, \ldots, \fold{\nfolds}$ partition $\obsidx$ (@def-folds),
 so summing over the observations of each fold and then over the folds
 adds each term of @eq-cv-estimate exactly once:
 
@@ -14,24 +14,5 @@ $$
 && \text{(group by fold)}
 \ea
 $$
-
-**2.** For $\iobs \in \fold{\ifold}$, @eq-fold-assignment also puts $\iobs$ in $\fold{\foldof{\iobs}}$,
-and the folds are disjoint,
-so $\foldof{\iobs} = \ifold$.
-Then
-
-$$
-\ba
-\cvest{\nfolds}
-&= \frac{1}{\nobs} \sumto{\ifold}{\nfolds} \sum_{\iobs \in \fold{\ifold}} \sqf{\fittedwo{\foldof{\iobs}}{\predvar_{\iobs}} - \outvar_{\iobs}}
-&& \text{(group by fold)}
-\\
-&= \frac{1}{\nobs} \sumto{\ifold}{\nfolds} \sum_{\iobs \in \fold{\ifold}} \sqf{\fittedwo{\ifold}{\predvar_{\iobs}} - \outvar_{\iobs}}
-&& (\foldof{\iobs} = \ifold \text{ for } \iobs \in \fold{\ifold})
-\ea
-$$
-
-In the last line, the [fitted model](#def-fitted-model) $\fittedwo{\ifold}{\cdot}$ depends only on the outer index,
-so each inner sum uses a single fitted model.
 
 :::

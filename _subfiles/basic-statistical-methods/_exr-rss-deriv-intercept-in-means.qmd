@@ -1,0 +1,6 @@
+:::{#exr-rss-deriv-intercept-in-means}
+#### Derivative of RSS in terms of the means
+
+In the setting of @exr-rss-deriv-intercept, write the partial derivative in terms of $\predbar$ and $\outbar$.
+
+:::

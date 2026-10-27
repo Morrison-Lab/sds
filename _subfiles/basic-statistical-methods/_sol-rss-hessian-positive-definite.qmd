@@ -1,0 +1,25 @@
+:::{#sol-rss-hessian-positive-definite}
+
+The top-left entry of the matrix of second derivatives, $2n$, is positive.
+Its determinant,
+using the expanded form of $\sspred$ from @exr-sxx-expand, is
+
+$$
+\begin{aligned}
+\det \begin{pmatrix} 2n & 2 n \predbar \\ 2 n \predbar & 2 \sumin \predvar_\iobs^2 \end{pmatrix}
+&= (2n) \paren{2 \sumin \predvar_\iobs^2} - (2 n \predbar) (2 n \predbar)
+&& \text{($2 \times 2$ determinant)}\\
+&= 4 n \sumin \predvar_\iobs^2 - 4 n^2 \predbar^2
+&& \text{(multiply)}\\
+&= 4 n \paren{\sumin \predvar_\iobs^2 - n \predbar^2}
+&& \text{(factor out $4n$)}\\
+&= 4 n \sspred
+&& \text{(expanded form of $\sspred$)}
+\end{aligned}
+$$
+
+which is positive when $\sspred > 0$.
+A symmetric $2 \times 2$ matrix with a positive top-left entry
+and a positive determinant is positive definite.
+
+:::
