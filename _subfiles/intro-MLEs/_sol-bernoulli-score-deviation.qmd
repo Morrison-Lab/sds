@@ -7,7 +7,7 @@ $$
 \begin{aligned}
 \score
 &= \precision (x - \prob)
-&& \text{(the score derived in the exercise above)}\\
+&& \text{(score of a Bernoulli variable)}\\
 &= \precision \paren{x - \E{X}}
 && \text{($\E{X} = \prob$)}\\
 &= \precision \devn
