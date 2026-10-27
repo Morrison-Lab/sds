@@ -1,6 +1,6 @@
 :::{#sol-bernoulli-score-contribution}
 
-The score contribution is the score of the single observation $\outvar_\iobs$,
+The [score](#def-score) contribution is the score of the single [observation](exploratory-descriptive.qmd#def-observation) $\outvar_\iobs$,
 so @thm-bernoulli-score with $x = \outvar_\iobs$ gives
 
 $$
