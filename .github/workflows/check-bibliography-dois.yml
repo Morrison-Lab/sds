@@ -32,7 +32,7 @@ jobs:
       # Rice (2007), a Cengage textbook with no DOI,
       # and Rothman et al. (2021), Modern Epidemiology, a Wolters Kluwer
       # textbook with no DOI (only an ISBN),
-      # and Hoffman and Gelman (2014), a JMLR article, which assigns no DOIs.
+      # and Hoffman and Gelman (2014), an article in JMLR, which assigns no DOIs.
       # Move a key out of this list when a DOI is found and verified
       # against CrossRef.
       exclude-keys: >-

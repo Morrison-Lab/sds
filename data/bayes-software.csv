@@ -1,8 +1,8 @@
 feature,jags,stan
-Sampling algorithm,"Updates one node at a time, as in Gibbs sampling, with conjugate samplers where it recognizes them and slice sampling otherwise","Hamiltonian Monte Carlo, in its No-U-Turn form (NUTS)"
+Sampling algorithm,"Updates one node at a time, as in Gibbs sampling, with conjugate samplers where it recognizes them and slice or Metropolis steps otherwise","Hamiltonian Monte Carlo, in its No-U-Turn form (NUTS)"
 Model language,"A BUGS-style description of a graphical model; the order of the statements does not matter","A typed program in blocks (`data`, `parameters`, `model`); the statements run in order and accumulate the log density"
 Normal distribution,"`dnorm(mean, precision)`","`normal(mean, sd)`"
-Discrete parameters,"Allowed; JAGS samples them","Not allowed; they are summed out of the likelihood"
+Discrete parameters,"Allowed; JAGS samples them","Not allowed; they are summed out of the joint density"
 Execution,"Interpreted by the JAGS library","Translated to C++ and compiled before sampling"
 Convergence checks,"`Rhat` and effective sample size, computed from the draws with the `coda` package","`Rhat` and effective sample size, plus sampler checks such as divergent transitions and tree depth"
 R interfaces,"`rjags`, `runjags`","`rstan`, `cmdstanr`"

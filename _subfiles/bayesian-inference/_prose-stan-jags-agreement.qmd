@@ -31,7 +31,7 @@ and the sampler reports
 `r rstan::get_num_divergent(stan_fit)`
 divergent transitions.
 As @tbl-stan-jags-proportion shows,
-the mean and interval from each program differ from the Beta [posterior](bayesian-inference.qmd#def-posterior)'s
+the mean and the interval endpoints from each program differ from those of the Beta [posterior](bayesian-inference.qmd#def-posterior)
 by at most `r round(max(abs(comparison[c("JAGS", "Stan"), ] - rep(comparison["Beta", ], each = 2))), 3)`.
 The programs differ in the model code:
 the Stan program carries the types and ranges of its variables,

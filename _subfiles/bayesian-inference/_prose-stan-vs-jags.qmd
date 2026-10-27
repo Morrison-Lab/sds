@@ -10,14 +10,14 @@ in the manner of a [Gibbs sampler](mcmc.qmd#def-gibbs-sampler)
 [@plummer2003jags; @plummer2017jagsmanual].
 For each [full conditional](mcmc.qmd#def-full-conditional),
 it uses a [conjugate](bayesian-inference.qmd#def-conjugate-prior) sampler where it recognizes one,
-and slice sampling otherwise.
+and slice or Metropolis steps otherwise.
 Stan uses Hamiltonian Monte Carlo,
 which proposes moves along the gradient of the logarithm of the [posterior](bayesian-inference.qmd#def-posterior),
 in the adaptive form called the No-U-Turn sampler (NUTS)
 [@hoffman2014nuts].
 Using the gradient is why Stan cannot draw a [discrete](data.qmd#def-discrete-var) parameter:
 a discrete parameter has no gradient.
-A Stan model sums a discrete quantity out of the [likelihood](intro-MLEs.qmd#def-lik) instead
+A Stan model sums a discrete quantity out of the joint [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) of the data and the parameters instead
 [@stanusersguide, chapter "Latent Discrete Parameters"].
 @tbl-stan-vs-jags lists the practical differences,
 taken from the JAGS manual [@plummer2017jagsmanual] and the Stan User's Guide [@stanusersguide]:
@@ -33,6 +33,5 @@ knitr::kable(
 )
 ```
 
-The table's rows are in [`data/bayes-software.csv`](data/bayes-software.csv).
 The next example fits the model of [the first example](#exm-bayes-proportion) in Stan,
 so the two programs can be compared on one problem.
