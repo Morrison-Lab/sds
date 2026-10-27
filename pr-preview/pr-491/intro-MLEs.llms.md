@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-27 03:08:59 (PDT)
+Last modified: 2026-10-27 03:45:16 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -1733,7 +1733,7 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 41](#exr-derive-bernoulli-score), worked in [Solution 41](#sol-derive-bernoulli-score). It builds on [Corollary 1](#cor-bernoulli-loglik-contribution-logodds).
+> *Proof*. This is the solution to [Exercise 41](#exr-derive-bernoulli-score), worked in [Solution 41](#sol-derive-bernoulli-score). The second equality is the solution to [Exercise 42](#exr-derive-bernoulli-score-deviation), worked in [Solution 42](#sol-derive-bernoulli-score-deviation). It builds on [Corollary 1](#cor-bernoulli-loglik-contribution-logodds).
 
 > **NOTE:**
 >
@@ -1784,7 +1784,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 43](#exr-bernoulli-score-contribution), worked in [Solution 43](#sol-bernoulli-score-contribution).
+> *Proof*. This is the solution to [Exercise 43](#exr-bernoulli-score-contribution), worked in [Solution 43](#sol-bernoulli-score-contribution). The form in terms of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is the solution to [Exercise 44](#exr-bernoulli-score-contribution-deviation), worked in [Solution 44](#sol-bernoulli-score-contribution-deviation).
 
 ### 3.5 The score function of the sample
 

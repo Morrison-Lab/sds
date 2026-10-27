@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-27 03:08:59 (PDT)
+Last modified: 2026-10-27 03:45:16 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -521,7 +521,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 6](#exr-rss-deriv-intercept).
+> *Proof*. This is the solution to [Exercise 6](#exr-rss-deriv-intercept). The form in terms of means is the solution to [Exercise 7](#exr-rss-deriv-intercept-in-means).
 
 > **NOTE:**
 >
@@ -637,7 +637,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 10](#exr-rss-hessian).
+> *Proof*. This is the solution to [Exercise 10](#exr-rss-hessian). The positive definiteness is the solution to [Exercise 11](#exr-rss-hessian-positive-definite).
 
 > **NOTE:**
 >
@@ -829,7 +829,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 16](#exr-rss-hessian-vector).
+> *Proof*. This is the solution to [Exercise 16](#exr-rss-hessian-vector). The positive definiteness is the solution to [Exercise 17](#exr-rss-hessian-vector-positive-definite).
 
 > **NOTE:**
 >

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-27 03:08:59 (PDT)
+Last modified: 2026-10-27 03:45:16 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -353,7 +353,7 @@ Last modified: 2026-10-27 03:08:59 (PDT)
 >     "held_out": empirical_risk(birthwt[is_held_out]),
 > }
 > empirical_risks
-> #> {'training': np.float64(488364.9956483022), 'held_out': np.float64(503648.75351911323)}
+> #> {'training': np.float64(488364.99564830225), 'held_out': np.float64(503648.7535191132)}
 > ```
 >
 > Of the 189 babies, 126 are in the [training set](#def-training-set). The [fitted model](#def-fitted-model) has an [empirical risk](#def-empirical-risk) of 488,365 squared grams on the training set and 503,649 squared grams on the [held-out set](#def-held-out-set). Its square root, 699 grams, is the typical [prediction error](prediction.llms.md#def-prediction-error) on the training set.
@@ -1724,7 +1724,7 @@ Last modified: 2026-10-27 03:08:59 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. This is [Solution 12](#sol-cv-estimate-by-fold).
+> *Proof*. This combines [Solution 12](#sol-cv-estimate-by-fold) and [Solution 13](#sol-cv-estimate-by-fold-simplify).
 
 > **NOTE:**
 >
@@ -2132,10 +2132,10 @@ Last modified: 2026-10-27 03:08:59 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    8.88178e-15    2.00000e+00
+> #>    7.10543e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
