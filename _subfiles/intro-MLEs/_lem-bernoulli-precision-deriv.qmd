@@ -1,7 +1,7 @@
 :::{#lem-bernoulli-precision-deriv}
 #### Derivative of the Bernoulli precision
 
-If $\Outvar$ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, $\Outvar \sim \Ber(\prob)$ with $0 < \prob < 1$
+If $\Outvar$ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, $\Outvar \sim \Ber(\prob)$ with $\prob \in (0, 1)$
 and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) $\precision = 1 / \paren{\prob(1 - \prob)}$,
 then the derivative of $\precision$ with respect to $\prob$ is
 

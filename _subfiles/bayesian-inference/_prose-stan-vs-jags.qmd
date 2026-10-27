@@ -1,0 +1,37 @@
+JAGS is not the only program that turns a model description into an MCMC sampler.
+Stan [@carpenter2017stan] is a widely used alternative.
+Both take a model written in their own language,
+accept data from R,
+and return draws from the [posterior](bayesian-inference.qmd#def-posterior).
+They differ in how they draw and in what a model may contain.
+
+JAGS updates one node of the model at a time,
+in the manner of a [Gibbs sampler](mcmc.qmd#def-gibbs-sampler)
+[@plummer2003jags; @plummer2017jagsmanual].
+For each [full conditional](mcmc.qmd#def-full-conditional),
+it uses a [conjugate](bayesian-inference.qmd#def-conjugate-prior) sampler where it recognizes one,
+and slice or Metropolis steps otherwise.
+Stan uses Hamiltonian Monte Carlo,
+which proposes moves along the gradient of the logarithm of the [posterior](bayesian-inference.qmd#def-posterior),
+in the adaptive form called the No-U-Turn sampler (NUTS)
+[@hoffman2014nuts].
+Using the gradient is why Stan cannot draw a [discrete](data.qmd#def-discrete-var) parameter:
+a discrete parameter has no gradient.
+A Stan model sums a discrete quantity out of the joint [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) of the data and the parameters instead
+[@stanusersguide, chapter "Latent Discrete Parameters"].
+@tbl-stan-vs-jags lists the practical differences,
+taken from the JAGS manual [@plummer2017jagsmanual] and the Stan User's Guide [@stanusersguide]:
+
+```{r}
+#| label: tbl-stan-vs-jags
+#| tbl-cap: "JAGS and Stan compared"
+#| echo: false
+knitr::kable(
+  read.csv("data/bayes-software.csv"),
+  col.names = c("Feature", "JAGS", "Stan"),
+  format = "pipe"
+)
+```
+
+The next example fits the model of [the first example](#exm-bayes-proportion) in Stan,
+so the two programs can be compared on one problem.
