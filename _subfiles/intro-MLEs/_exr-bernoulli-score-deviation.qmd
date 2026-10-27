@@ -1,6 +1,8 @@
 :::{#exr-derive-bernoulli-score-deviation}
 #### Score of a Bernoulli variable in terms of deviation and precision
 
-In the setting of @exr-derive-bernoulli-score, write the [score](#def-score) using $\devn$ and $\precision$.
+In the setting of @exr-derive-bernoulli-score,
+let $\devn \eqdef x - \E{X}$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $x$ from the mean of $X$.
+Write the [score](#def-score) using $\devn$ and $\precision$.
 
 :::

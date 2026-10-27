@@ -5,8 +5,12 @@ Starting from @sol-derive-bernoulli-score:
 $$
 \begin{aligned}
 \score
+&= \frac{x - \prob}{\prob(1 - \prob)}
+&& \text{(score, with $\precision$ written out)}\\
+&= \frac{x - \prob}{\Var{X}}
+&& \text{($\Var{X} = \prob(1 - \prob)$)}\\
 &= \precision (x - \prob)
-&& \text{(score)}\\
+&& \text{(definition of $\precision$)}\\
 &= \precision \paren{x - \E{X}}
 && \text{($\E{X} = \prob$)}\\
 &= \precision \devn
