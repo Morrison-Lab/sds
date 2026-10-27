@@ -11,6 +11,7 @@ $$
 $$
 
 The last step is @thm-bernoulli-score for the observed value $\outvar_\iobs$ of $\Outvar_\iobs$,
-whose [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is $\precision$ and whose [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is $\devn_\iobs$.
+whose [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is $\precision$
+and whose [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is $\devn_\iobs$.
 
 :::
