@@ -1,6 +1,6 @@
 :::{#exr-bernoulli-score-contribution-deviation}
 #### Score contribution in terms of deviation and precision
 
-In the setting of @exr-bernoulli-score-contribution, write the score contribution using $\devn_\iobs$ and $\precision$.
+In the setting of @exr-bernoulli-score-contribution, write the [score](#def-score) contribution using $\devn_\iobs$ and $\precision$.
 
 :::

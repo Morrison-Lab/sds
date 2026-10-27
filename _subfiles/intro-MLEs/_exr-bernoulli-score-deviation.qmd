@@ -1,6 +1,6 @@
 :::{#exr-derive-bernoulli-score-deviation}
 #### Score of a Bernoulli variable in terms of deviation and precision
 
-In the setting of @exr-derive-bernoulli-score, write the score using $\devn$ and $\precision$.
+In the setting of @exr-derive-bernoulli-score, write the [score](#def-score) using $\devn$ and $\precision$.
 
 :::

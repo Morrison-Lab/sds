@@ -1,6 +1,6 @@
 :::{#sol-rss-hessian-vector-positive-definite}
 
-To show the Hessian is positive definite,
+To show the [Hessian](intro-MLEs.qmd#def-hessian) is positive definite,
 take any vector $\v{v} = \tp{(v_0, v_x)} \neq \vzero$:
 
 $$

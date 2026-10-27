@@ -1,6 +1,6 @@
 :::{#exr-rss-hessian-vector-positive-definite}
 #### Positive definiteness of the Hessian of RSS
 
-In the setting of @exr-rss-hessian-vector, show that the Hessian is positive definite when $\sspred > 0$ (@def-centered-sums).
+In the setting of @exr-rss-hessian-vector, show that the [Hessian](intro-MLEs.qmd#def-hessian) is positive definite when $\sspred > 0$ (@def-centered-sums).
 
 :::
