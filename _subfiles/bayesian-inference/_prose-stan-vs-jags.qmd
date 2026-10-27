@@ -18,7 +18,8 @@ Using the gradient is why Stan cannot draw a [discrete](data.qmd#def-discrete-va
 a discrete parameter has no gradient.
 A Stan model sums a discrete quantity out of the [likelihood](intro-MLEs.qmd#def-lik) instead
 [@stanusersguide].
-The table lists the practical differences:
+@tbl-stan-vs-jags lists the practical differences,
+taken from the JAGS manual [@plummer2017jagsmanual] and the Stan User's Guide [@stanusersguide]:
 
 ```{r}
 #| label: tbl-stan-vs-jags

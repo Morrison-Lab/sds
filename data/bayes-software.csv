@@ -4,6 +4,6 @@ Model language,"A BUGS-style description of a graphical model; the order of the 
 Normal distribution,"`dnorm(mean, precision)`","`normal(mean, sd)`"
 Discrete parameters,"Allowed; JAGS samples them","Not allowed; they are summed out of the likelihood"
 Execution,"Interpreted by the JAGS library","Translated to C++ and compiled before sampling"
-Convergence checks,"Computed from the draws, for example with the `coda` package","`Rhat` and effective sample size, plus divergent transitions and tree depth from the sampler"
+Convergence checks,"`Rhat` and effective sample size, computed from the draws with the `coda` package","`Rhat` and effective sample size, plus sampler checks such as divergent transitions and tree depth"
 R interfaces,"`rjags`, `runjags`","`rstan`, `cmdstanr`"
 Official site,"[mcmc-jags.sourceforge.io](https://mcmc-jags.sourceforge.io/)","[mc-stan.org](https://mc-stan.org/)"

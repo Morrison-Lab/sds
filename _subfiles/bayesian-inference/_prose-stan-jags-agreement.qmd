@@ -1,0 +1,36 @@
+@tbl-stan-jags-proportion puts the two programs beside the [posterior](bayesian-inference.qmd#def-posterior) of [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli),
+whose Beta parameters come from the number of successes and failures:
+
+```{r}
+#| label: tbl-stan-jags-proportion
+#| tbl-cap: "Posterior of the proportion from JAGS, Stan and the Beta posterior"
+#| echo: false
+summarize_draws <- function(draws) {
+  c(
+    mean = mean(draws),
+    stats::quantile(draws, c(0.025, 0.975))
+  )
+}
+shape1 <- 1 + sum(y)
+shape2 <- 1 + length(y) - sum(y)
+beta_posterior <- c(
+  mean = shape1 / (shape1 + shape2),
+  stats::qbeta(c(0.025, 0.975), shape1, shape2)
+)
+comparison <- rbind(
+  JAGS = summarize_draws(p_draws),
+  Stan = summarize_draws(stan_draws),
+  Beta = beta_posterior
+)
+knitr::kable(comparison, digits = 3, col.names = c("Mean", "2.5%", "97.5%"))
+```
+
+Stan's [potential scale reduction factor](mcmc.qmd#def-psrf) is
+`r round(stan_summary[1, "Rhat"], 3)`,
+and the sampler reports
+`r rstan::get_num_divergent(stan_fit)`
+divergent transitions.
+As @tbl-stan-jags-proportion shows, both programs reproduce the Beta posterior's mean and interval to about two decimal places.
+The difference between them is in the model code, not in the answer:
+the Stan program carries the types and ranges of its variables,
+and it is compiled before it draws.
