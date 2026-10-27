@@ -12,7 +12,7 @@ so $\SE{\hat\pmean_{ML}} = \pmean/\sqrt{n}$,
 which is estimated by $\rvarbar/\sqrt{n}$.
 More generally,
 the standard error of a sample mean is $\SD{X}/\sqrt{n}$;
-here that reduces to $\pmean/\sqrt{n}$
+here the standard error reduces to $\pmean/\sqrt{n}$
 because $\SD{X} = \pmean$ for the exponential distribution.
 
 :::

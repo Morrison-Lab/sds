@@ -4,7 +4,7 @@ $$
 \ba
 \score(\pmean; \vx)
 &= \deriv{\pmean}\paren{-n\logf{\pmean} - \frac{n\rvarbar}{\pmean}}
-&& \text{(log-likelihood from the log-likelihood exercise)}
+&& \text{(log-likelihood)}
 \\
 &= \deriv{\pmean}\paren{-n\logf{\pmean} - n\rvarbar\pmean^{-1}}
 && \text{(write $\tfrac{n\rvarbar}{\pmean}$ as $n\rvarbar\pmean^{-1}$)}

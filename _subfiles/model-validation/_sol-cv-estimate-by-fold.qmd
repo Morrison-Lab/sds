@@ -1,6 +1,6 @@
 :::{#sol-cv-estimate-by-fold}
 
-The [folds](#def-folds) $\fold{1}, \ldots, \fold{\nfolds}$ partition $\obsidx$ (@def-folds),
+The [folds](#def-folds) $\fold{1}, \ldots, \fold{\nfolds}$ partition $\obsidx$,
 so summing over the observations of each fold and then over the folds
 adds each term of @eq-cv-estimate exactly once:
 

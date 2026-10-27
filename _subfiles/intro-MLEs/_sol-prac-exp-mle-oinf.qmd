@@ -9,7 +9,7 @@ $$
 && \text{(observed information is the negative Hessian)}
 \\
 &= -\paren{\frac{n}{\pmean^2} - \frac{2n\rvarbar}{\pmean^3}}
-&& \text{(second derivative from the second-derivative exercise)}
+&& \text{(second derivative)}
 \\
 &= -\frac{n}{\pmean^2} + \frac{2n\rvarbar}{\pmean^3}
 && \text{(distribute the minus sign)}
