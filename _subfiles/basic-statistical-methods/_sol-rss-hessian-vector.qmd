@@ -8,7 +8,7 @@ Each entry of $A \vcoef$ is the dot product of a row of $A$ with $\vcoef$,
 so by the gradient of a linear function
 (@exr-rss-gradient-vector),
 the derivative of $A \vcoef$ with respect to $\tp{\vcoef}$ is $A$.
-The Hessian is then:
+The [Hessian](intro-MLEs.qmd#def-hessian) is then:
 
 $$
 \begin{aligned}
