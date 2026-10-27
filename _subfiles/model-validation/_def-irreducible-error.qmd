@@ -1,15 +1,22 @@
 :::{#def-irreducible-error}
-#### Irreducible error
+#### Residual variance
 
 Let $\paren{\Predvar, \Outvar}$ be the [covariate](#def-covariate) and the outcome of one observation from a [population](exploratory-descriptive.qmd#def-population),
 and let $\noise$ be its [noise](#def-noise).
 
-The **irreducible error** at the covariate value $\predvar$
+The **residual variance** (or **irreducible error**) at the covariate value $\predvar$
 is the [conditional population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) of the noise given $\Predvar = \predvar$:
 
 $$
 \varpar \eqdef \Var{\noise \mid \Predvar = \predvar}.
 $$ {#eq-irreducible-error}
+
+It is a variance, a component of the expected squared prediction error, and not an error.
+It is irreducible only given the covariates the prediction uses:
+a further covariate that predicts the outcome moves part of the spread out of the noise and into the [mean function](#def-mean-function),
+so the residual variance depends on which covariates are measured.
+Averaged over new covariate values, it is $\E{\Var{\Outvar \mid \Predvar}}$.
+It is a population quantity, not the estimate computed from a fitted model's residuals.
 
 Source: @wikipedia_bias_variance_tradeoff;
 @james2021islr2e [Section 2.2.2].

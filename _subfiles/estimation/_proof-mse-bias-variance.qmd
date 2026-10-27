@@ -19,7 +19,7 @@ The squared-error split has two forms, and they differ in what the estimate is c
   The model validation notes prove that
   [expected squared prediction error](model-validation.qmd#thm-epe-decomposition)
   equals squared bias plus variance plus the noise variance,
-  the [irreducible error](model-validation.qmd#def-irreducible-error)
+  the [residual variance](model-validation.qmd#def-irreducible-error)
   of that outcome.
   No choice of prediction can remove the extra term.
 
