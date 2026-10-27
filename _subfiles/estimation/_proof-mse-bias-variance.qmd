@@ -21,6 +21,6 @@ The squared-error split has two forms, and they differ in what the estimate is c
   equals squared bias plus variance plus the noise variance,
   the [residual variance](model-validation.qmd#def-irreducible-error)
   of that outcome.
-  No choice of prediction can remove the extra term.
+  No choice of prediction using the same [covariates](model-validation.qmd#def-covariate) can remove the extra term.
 
 :::

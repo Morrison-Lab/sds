@@ -20,7 +20,7 @@ but they aim at different targets:
   is an average over observations.
 - **What cannot be removed.**
   The estimation error of a consistent estimator shrinks toward zero as the sample grows.
-  A prediction's expected squared error cannot fall below the [residual variance](model-validation.qmd#def-irreducible-error),
+  A prediction's expected squared error, given the same [covariates](model-validation.qmd#def-covariate), cannot fall below the [residual variance](model-validation.qmd#def-irreducible-error),
   the variance of the outcome around its conditional mean.
 
 [Validating Predictions](model-validation.qmd) estimates the prediction error on new observations.
