@@ -13,7 +13,7 @@ $$\score = \precision \devn = \frac{\devn}{\Var{X}} = \frac{x - \prob}{\prob(1 -
 
 ::: proof
 
-The score as $\precision (x - \prob)$ is the solution to @exr-derive-bernoulli-score, worked in @sol-derive-bernoulli-score.
+The [score](#def-score) as $\precision (x - \prob)$ is the solution to @exr-derive-bernoulli-score, worked in @sol-derive-bernoulli-score.
 Writing it as $\precision \devn$ is the solution to @exr-derive-bernoulli-score-deviation,
 worked in @sol-derive-bernoulli-score-deviation.
 The remaining equalities restate $\precision = 1 / \Var{X}$ and $\Var{X} = \prob(1 - \prob)$.
