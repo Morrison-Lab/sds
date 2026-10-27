@@ -1,5 +1,5 @@
 feature,jags,stan
-Sampling algorithm,"Gibbs sampling, with slice or Metropolis--Hastings steps for a full conditional that has no closed form","Hamiltonian Monte Carlo, in its No-U-Turn form (NUTS)"
+Sampling algorithm,"Updates one node at a time, as in Gibbs sampling, with conjugate samplers where it recognizes them and slice sampling otherwise","Hamiltonian Monte Carlo, in its No-U-Turn form (NUTS)"
 Model language,"A BUGS-style description of a graphical model; the order of the statements does not matter","A typed program in blocks (`data`, `parameters`, `model`); the statements run in order and accumulate the log density"
 Normal distribution,"`dnorm(mean, precision)`","`normal(mean, sd)`"
 Discrete parameters,"Allowed; JAGS samples them","Not allowed; they are summed out of the likelihood"

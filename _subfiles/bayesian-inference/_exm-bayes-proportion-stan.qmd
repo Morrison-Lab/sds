@@ -32,5 +32,6 @@ stan_fit <- rstan::stan(
 )
 stan_draws <- as.matrix(stan_fit, pars = "p")[, "p"]
 stan_summary <- rstan::summary(stan_fit, pars = "p")$summary
+round(stan_summary[, c("mean", "2.5%", "97.5%", "Rhat")], 3)
 ```
 :::

@@ -25,12 +25,14 @@ comparison <- rbind(
 knitr::kable(comparison, digits = 3, col.names = c("Mean", "2.5%", "97.5%"))
 ```
 
-Stan's [potential scale reduction factor](mcmc.qmd#def-psrf) is
+Stan's split [potential scale reduction factor](mcmc.qmd#def-psrf) is
 `r round(stan_summary[1, "Rhat"], 3)`,
 and the sampler reports
 `r rstan::get_num_divergent(stan_fit)`
 divergent transitions.
-As @tbl-stan-jags-proportion shows, both programs reproduce the Beta posterior's mean and interval to about two decimal places.
-The difference between them is in the model code, not in the answer:
+As @tbl-stan-jags-proportion shows,
+the mean and interval from each program differ from the Beta posterior's
+by at most `r round(max(abs(comparison[c("JAGS", "Stan"), ] - rep(comparison["Beta", ], each = 2))), 3)`.
+The programs differ in the model code:
 the Stan program carries the types and ranges of its variables,
 and it is compiled before it draws.
