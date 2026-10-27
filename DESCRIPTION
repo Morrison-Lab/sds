@@ -35,6 +35,7 @@ Imports:
     reticulate,
     rjags,
     rmb,
+    rstan,
     scales,
     SyncRNG,
     tibble

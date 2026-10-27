@@ -22,6 +22,16 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-proportion.qmd >}}
 
+## Comparing Stan and JAGS {#sec-bayes-examples-stan-jags}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-stan-vs-jags.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-bayes-proportion-stan.qmd >}}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-stan-jags-agreement.qmd >}}
+
 ## Binary outcomes: logistic regression {#sec-bayes-examples-logistic}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-logistic.qmd >}}
