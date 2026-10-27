@@ -2406,7 +2406,7 @@
    "page": "intro-MLEs",
    "div": "cor-bernoulli-hessian-contribution-fraction",
    "kind": "cor",
-   "title": "Hessian contribution of one binary outcome over a common denominator",
+   "title": "Hessian contribution of one binary outcome as a squared deviation",
    "external": false
   },
   {
@@ -5670,6 +5670,10 @@
   [
    "sds/inference#def-test-statistic",
    "sds/inference#def-null-hypothesis"
+  ],
+  [
+   "sds/intro-MLEs#cor-bernoulli-hessian-contribution-fraction",
+   "pds/variance-covariance#def-deviation-pop-mean"
   ],
   [
    "sds/intro-MLEs#cor-bernoulli-hessian-contribution-fraction",

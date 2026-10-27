@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 11:17:58 (PDT)
+Last modified: 2026-10-26 23:15:41 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -1682,7 +1682,7 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> **Example 14 (Precision of a Bernoulli variable)** If \\Y\\ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, \\Y\sim \operatorname{Ber}(\pi)\\ with \\0 \< \pi\< 1\\, then \\{\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}} = \pi(1 - \pi)\\, so the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of \\Y\\ is \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\.
+> **Example 14 (Precision of a Bernoulli variable)** If \\Y\\ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, \\Y\sim \operatorname{Ber}(\pi)\\ with \\\pi\in (0, 1)\\, then \\{\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}} = \pi(1 - \pi)\\, so the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of \\Y\\ is \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\.
 
 > **NOTE:**
 >
@@ -1801,7 +1801,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Exercise 45 (Solving the score equation of a binary sample)** In the setting of [Exercise 44](#exr-bernoulli-score-sum), assume \\0 \< {\bar{y}}\< 1\\: the [sample](exploratory-descriptive.llms.md#def-sample) has at least one [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) and at least one non-event. Solve the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ for \\\pi\in (0, 1)\\.
+> **Exercise 45 (Solving the score equation of a binary sample)** In the setting of [Exercise 44](#exr-bernoulli-score-sum), assume \\{\bar{y}}\in (0, 1)\\: the [sample](exploratory-descriptive.llms.md#def-sample) has at least one [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) and at least one non-event. Solve the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ for \\\pi\in (0, 1)\\.
 
 > **NOTE:**
 >
@@ -1809,11 +1809,11 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > \\ \begin{aligned} 0 &= \ell'(\pi) && \text{(score equation)}\\ 0 &= n \tau({\bar{y}}- \pi) && \text{(score function of a binary sample)}\\ 0 &= {\bar{y}}- \pi && \text{(divide both sides by \$n \tau\neq 0\$)}\\ \pi&= {\bar{y}} && \text{(add \$\pi\$ to both sides)} \end{aligned} \\
 >
-> Since \\0 \< {\bar{y}}\< 1\\, this solution lies in \\(0, 1)\\.
+> Since \\{\bar{y}}\in (0, 1)\\, this solution lies in \\(0, 1)\\.
 
 > **NOTE:**
 >
-> **Theorem 23 (Solution of the score equation of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\ and the observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) satisfies \\0 \< {\bar{y}}\< 1\\, then the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ has exactly one solution in \\(0, 1)\\: the sample mean \\\pi= {\bar{y}}\\.
+> **Theorem 23 (Solution of the score equation of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\ and the observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) satisfies \\{\bar{y}}\in (0, 1)\\, then the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ has exactly one solution in \\(0, 1)\\: the sample mean \\\pi= {\bar{y}}\\.
 
 > **NOTE:**
 >
@@ -1857,43 +1857,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Exercise 47 (Hessian contribution of one binary outcome over a common denominator)** In the setting of [Exercise 46](#exr-bernoulli-hessian-contribution), write the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ as one term, by finding a common denominator for its two terms and then writing the denominator with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\.
-
-> **NOTE:**
->
-> *Solution 47*. Starting from [Theorem 24](#thm-bernoulli-hessian-contribution):
->
-> \\ \begin{aligned} \ell''\_i(\pi) &= -\frac{y_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1 - y_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(the contribution from the theorem above)}\\ &= -\frac{y_i{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} - \frac{\mathopen{}\left(1 - y_i\right)\mathclose{} {\mathopen{}\left(\pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(write both terms over the common denominator \${\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}\$)}\\ &= -\frac{y_i{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2} + \mathopen{}\left(1 - y_i\right)\mathclose{} {\mathopen{}\left(\pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2} {\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(combine over the common denominator)}\\ &= -\frac{y_i{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2} + \mathopen{}\left(1 - y_i\right)\mathclose{} {\mathopen{}\left(\pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}}^{2}} && \text{(\${\mathopen{}\left(a\right)\mathclose{}}^{2} {\mathopen{}\left(b\right)\mathclose{}}^{2} = {\mathopen{}\left(ab\right)\mathclose{}}^{2}\$)} \end{aligned} \\
->
-> The numerator simplifies in the following steps:
->
-> \\ \begin{aligned} y_i{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2} + \mathopen{}\left(1 - y_i\right)\mathclose{} {\mathopen{}\left(\pi\right)\mathclose{}}^{2} &= y_i\mathopen{}\left(1 - 2 \pi+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{} + \mathopen{}\left(1 - y_i\right)\mathclose{} {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(expand \${\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}\$)}\\ &= y_i- 2 \pi y_i+ y_i{\mathopen{}\left(\pi\right)\mathclose{}}^{2} + {\mathopen{}\left(\pi\right)\mathclose{}}^{2} - y_i{\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(distribute \$y_i\$ and \${\mathopen{}\left(\pi\right)\mathclose{}}^{2}\$)}\\ &= y_i- 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + y_i{\mathopen{}\left(\pi\right)\mathclose{}}^{2} - y_i{\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(reorder the terms)}\\ &= y_i- 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + 0 && \text{(\$y_i{\mathopen{}\left(\pi\right)\mathclose{}}^{2} - y_i{\mathopen{}\left(\pi\right)\mathclose{}}^{2} = 0\$)}\\ &= y_i- 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(\$a + 0 = a\$)}\\ &= \mathopen{}\left(1 - 2 \pi\right)\mathclose{} y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(collect the terms in \$y_i\$)} \end{aligned} \\
->
-> Substituting the numerator back in:
->
-> \\ \ell''\_i(\pi) = -\frac{\mathopen{}\left(1 - 2 \pi\right)\mathclose{} y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2}}{{\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}}^{2}} \qquad \text{(substitute the numerator)} \\
->
-> The denominator is the square of the reciprocal of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision):
->
-> \\ \begin{aligned} \frac{1}{{\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}}^{2}} &= {\mathopen{}\left(\mathopen{}\left(\frac{1}{\pi(1 - \pi)}\right)\mathclose{}\right)\mathclose{}}^{2} && \text{(\$\frac{1}{{\mathopen{}\left(a\right)\mathclose{}}^{2}} = {\mathopen{}\left(\mathopen{}\left(\frac{1}{a}\right)\mathclose{}\right)\mathclose{}}^{2}\$)}\\ &= {\mathopen{}\left(\tau\right)\mathclose{}}^{2} && \text{(definition of \$\tau\$)} \end{aligned} \\
->
-> Substituting the denominator:
->
-> \\ \ell''\_i(\pi) = -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(\mathopen{}\left(1 - 2 \pi\right)\mathclose{} y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{} \qquad \text{(substitute \${\mathopen{}\left(\tau\right)\mathclose{}}^{2}\$)} \\
-
-> **NOTE:**
->
-> **Corollary 2 (Hessian contribution of one binary outcome over a common denominator)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, its [Hessian](#def-hessian) contribution, written with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, is:
->
-> \\\ell''\_i(\pi) = -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(\mathopen{}\left(1 - 2 \pi\right)\mathclose{} y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{}\\
-
-> **NOTE:**
->
-> *Proof*. This is the solution to [Exercise 47](#exr-bernoulli-hessian-contribution-fraction), worked in [Solution 47](#sol-bernoulli-hessian-contribution-fraction). It follows from [Theorem 24](#thm-bernoulli-hessian-contribution).
-
-> **NOTE:**
->
-> **Lemma 5 (Derivative of the Bernoulli precision)** If \\Y\\ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, \\Y\sim \operatorname{Ber}(\pi)\\ with \\0 \< \pi\< 1\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, then the derivative of \\\tau\\ with respect to \\\pi\\ is
+> **Lemma 5 (Derivative of the Bernoulli precision)** If \\Y\\ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, \\Y\sim \operatorname{Ber}(\pi)\\ with \\\pi\in (0, 1)\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, then the derivative of \\\tau\\ with respect to \\\pi\\ is
 >
 > \\\frac{\partial}{\partial \pi} \tau= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{}\\
 
@@ -1917,11 +1881,11 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Exercise 48 (Hessian contribution of one binary outcome in terms of the precision and deviation)** In the setting of [Exercise 46](#exr-bernoulli-hessian-contribution), derive the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ starting from the simplified [score](#def-score) contribution \\\ell'\_i(\pi) = \tau\delta_i\\ in [Theorem 21](#thm-bernoulli-score-contribution), with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\. Both \\\tau\\ and \\\delta_i\\ depend on \\\pi\\, while the observed value \\y_i\\ does not.
+> **Exercise 47 (Hessian contribution of one binary outcome in terms of the precision and deviation)** In the setting of [Exercise 46](#exr-bernoulli-hessian-contribution), derive the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ starting from the simplified [score](#def-score) contribution \\\ell'\_i(\pi) = \tau\delta_i\\ in [Theorem 21](#thm-bernoulli-score-contribution), with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\. Both \\\tau\\ and \\\delta_i\\ depend on \\\pi\\, while the observed value \\y_i\\ does not.
 
 > **NOTE:**
 >
-> *Solution 48*. \\ \begin{aligned} \ell''\_i(\pi) &= \frac{\partial}{\partial \pi} \ell'\_i(\pi) && \text{(definition of the Hessian contribution)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(\tau\delta_i\right)\mathclose{} && \text{(score contribution)}\\ &= \mathopen{}\left(\frac{\partial}{\partial \pi} \tau\right)\mathclose{} \delta_i+ \tau\frac{\partial}{\partial \pi} \delta_i && \text{(product rule)} \end{aligned} \\
+> *Solution 47*. \\ \begin{aligned} \ell''\_i(\pi) &= \frac{\partial}{\partial \pi} \ell'\_i(\pi) && \text{(definition of the Hessian contribution)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(\tau\delta_i\right)\mathclose{} && \text{(score contribution)}\\ &= \mathopen{}\left(\frac{\partial}{\partial \pi} \tau\right)\mathclose{} \delta_i+ \tau\frac{\partial}{\partial \pi} \delta_i && \text{(product rule)} \end{aligned} \\
 >
 > The derivative of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is:
 >
@@ -1937,13 +1901,41 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Corollary 3 (Hessian contribution of one binary outcome in terms of the precision and deviation)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, its [Hessian](#def-hessian) contribution is, with the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\:
+> **Corollary 2 (Hessian contribution of one binary outcome in terms of the precision and deviation)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, its [Hessian](#def-hessian) contribution is, with the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\:
 >
 > \\\ell''\_i(\pi) = -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \delta_i\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 48](#exr-bernoulli-hessian-contribution-precision), worked in [Solution 48](#sol-bernoulli-hessian-contribution-precision). It follows from [Theorem 24](#thm-bernoulli-hessian-contribution).
+> *Proof*. This is the solution to [Exercise 47](#exr-bernoulli-hessian-contribution-precision), worked in [Solution 47](#sol-bernoulli-hessian-contribution-precision). It follows from [Theorem 24](#thm-bernoulli-hessian-contribution).
+
+> **NOTE:**
+>
+> **Exercise 48 (Hessian contribution of one binary outcome as a squared deviation)** In the setting of [Exercise 47](#exr-bernoulli-hessian-contribution-precision), starting from the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ in [Corollary 2](#cor-bernoulli-hessian-contribution-precision), write \\\ell''\_i(\pi)\\ with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ as a multiple of \\{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\\ times the square of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\. Hint: because \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, \\{\mathopen{}\left(y_i\right)\mathclose{}}^{2} = y_i\\.
+
+> **NOTE:**
+>
+> *Solution 48*. Starting from [Corollary 2](#cor-bernoulli-hessian-contribution-precision), factor out \\{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\\. The reciprocal of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is \\1 / \tau= \pi(1 - \pi)\\, so:
+>
+> \\ \begin{aligned} \ell''\_i(\pi) &= -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \delta_i && \text{(the contribution from the corollary)}\\ &= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \frac{1}{\tau} - \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \delta_i && \text{(\$\tau= {\mathopen{}\left(\tau\right)\mathclose{}}^{2} / \tau\$)}\\ &= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(\pi(1 - \pi) + \mathopen{}\left(1 - 2 \pi\right)\mathclose{} \delta_i\right)\mathclose{} && \text{(factor out \$-{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\$)} \end{aligned} \\
+>
+> The factor in parentheses is:
+>
+> \\ \begin{aligned} \pi(1 - \pi) + \mathopen{}\left(1 - 2 \pi\right)\mathclose{} \delta_i &= \pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + \mathopen{}\left(1 - 2 \pi\right)\mathclose{} \mathopen{}\left(y_i- \pi\right)\mathclose{} && \text{(distribute \$\pi\$; definition of \$\delta_i\$)}\\ &= \pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + y_i- \pi- 2 \pi y_i+ 2 {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(distribute \$1 - 2 \pi\$)}\\ &= y_i- 2 \pi y_i+ \mathopen{}\left(2 {\mathopen{}\left(\pi\right)\mathclose{}}^{2} - {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{} + \mathopen{}\left(\pi- \pi\right)\mathclose{} && \text{(reorder and group the terms)}\\ &= y_i- 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + 0 && \text{(\$2 a - a = a\$ and \$a - a = 0\$)}\\ &= y_i- 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(\$a + 0 = a\$)}\\ &= {\mathopen{}\left(y_i\right)\mathclose{}}^{2} - 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(\$y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\$, so \$y_i= {\mathopen{}\left(y_i\right)\mathclose{}}^{2}\$)}\\ &= {\mathopen{}\left(\mathopen{}\left(y_i- \pi\right)\mathclose{}\right)\mathclose{}}^{2} && \text{(square of a difference)}\\ &= {\mathopen{}\left(\delta_i\right)\mathclose{}}^{2} && \text{(definition of \$\delta_i\$)} \end{aligned} \\
+>
+> Substituting the factor back in:
+>
+> \\ \ell''\_i(\pi) = -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} {\mathopen{}\left(\delta_i\right)\mathclose{}}^{2} \qquad \text{(substitute \${\mathopen{}\left(\delta_i\right)\mathclose{}}^{2}\$)} \\
+
+> **NOTE:**
+>
+> **Corollary 3 (Hessian contribution of one binary outcome as a squared deviation)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, its [Hessian](#def-hessian) contribution, written with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\, is:
+>
+> \\\ell''\_i(\pi) = -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} {\mathopen{}\left(\delta_i\right)\mathclose{}}^{2}\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 48](#exr-bernoulli-hessian-contribution-fraction), worked in [Solution 48](#sol-bernoulli-hessian-contribution-fraction). It follows from [Corollary 2](#cor-bernoulli-hessian-contribution-precision).
 
 ### 3.8 The Hessian of the sample
 
@@ -2003,11 +1995,11 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Solution 51*. By [Theorem 26](#thm-bernoulli-hessian-nd), \\\ell\\ is strictly concave on \\(0, 1)\\. A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else. With \\0 \< {\bar{y}}\< 1\\, [Theorem 23](#thm-bernoulli-score-equation) says the only critical point of \\\ell\\ in \\(0, 1)\\ is \\{\bar{y}}\\. So \\\ell\\ is maximized at \\\pi= {\bar{y}}\\.
+> *Solution 51*. By [Theorem 26](#thm-bernoulli-hessian-nd), \\\ell\\ is strictly concave on \\(0, 1)\\. A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else. With \\{\bar{y}}\in (0, 1)\\, [Theorem 23](#thm-bernoulli-score-equation) says the only critical point of \\\ell\\ in \\(0, 1)\\ is \\{\bar{y}}\\. So \\\ell\\ is maximized at \\\pi= {\bar{y}}\\.
 
 > **NOTE:**
 >
-> **Theorem 27 (Maximum likelihood estimate of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\ and the observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) satisfies \\0 \< {\bar{y}}\< 1\\, the [maximum likelihood estimate](#def-mle) of \\\pi\\ is the sample mean:
+> **Theorem 27 (Maximum likelihood estimate of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\ and the observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) satisfies \\{\bar{y}}\in (0, 1)\\, the [maximum likelihood estimate](#def-mle) of \\\pi\\ is the sample mean:
 >
 > \\\hat{\pi}\_{\text{ML}} = {\bar{y}}\\
 

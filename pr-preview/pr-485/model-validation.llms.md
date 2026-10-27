@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 11:17:58 (PDT)
+Last modified: 2026-10-26 23:15:41 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -302,7 +302,7 @@ Last modified: 2026-10-26 11:17:58 (PDT)
 >
 > **Definition 23 (Empirical risk)** The **empirical risk** of a [fitted model](#def-fitted-model) \\\hat y\\ on a set of \\n\\ observations is the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of its [loss](#def-observation-loss) on those observations, the counterpart computed from data of the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk), which is the expected loss:
 >
-> \\ \hat{R}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i=1}^n\ell\_{i}\mathopen{}\left(\hat y\right)\mathclose{}. \tag{16}\\
+> \\ {\hat{R}\mathopen{}\left(\hat y\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i=1}^n\ell\_{i}\mathopen{}\left(\hat y\right)\mathclose{}. \tag{16}\\
 >
 > A subscript names the set the empirical risk is evaluated on, as in \\\hat{R}\_{\mathcal{D}\_{\text{train}}}\\ for a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\.
 

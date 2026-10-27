@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-10-26 11:17:58 (PDT)
+Last modified: 2026-10-26 23:15:41 (PDT)
 
-This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models [\[1, Ch. 14\]](#ref-dobson4e). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
+This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models [\[1, Ch. 14\]](#ref-dobson4e). After the first example, the page compares JAGS with Stan on the same model. It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
 ## 1 A first example: a single proportion
 
@@ -57,13 +57,84 @@ From here on, the models are fit by Bayesian inference with JAGS (“Just Anothe
 >
 > The posterior mean and equal-tailed 95% credible interval agree with the exact \\\operatorname{Beta}(56, 37)\\ values of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli) to about two decimal places, and the [potential scale reduction factor](mcmc.llms.md#def-psrf) is 1.
 
-## 2 Binary outcomes: logistic regression
+## 2 Comparing Stan and JAGS
+
+JAGS is not the only program that turns a model description into an MCMC sampler. Stan [\[2\]](#ref-carpenter2017stan) is a widely used alternative. Both take a model written in their own language, accept data from R, and return draws from the [posterior](bayesian-inference.llms.md#def-posterior). They differ in how they draw and in what a model may contain.
+
+JAGS updates one node of the model at a time, in the manner of a [Gibbs sampler](mcmc.llms.md#def-gibbs-sampler) [\[3\]](#ref-plummer2003jags), [\[4\]](#ref-plummer2017jagsmanual). For each [full conditional](mcmc.llms.md#def-full-conditional), it uses a [conjugate](bayesian-inference.llms.md#def-conjugate-prior) sampler where it recognizes one, and slice or Metropolis steps otherwise. Stan uses Hamiltonian Monte Carlo, which proposes moves along the gradient of the logarithm of the [posterior](bayesian-inference.llms.md#def-posterior), in the adaptive form called the No-U-Turn sampler (NUTS) [\[5\]](#ref-hoffman2014nuts). Using the gradient is why Stan cannot draw a [discrete](data.llms.md#def-discrete-var) parameter: a discrete parameter has no gradient. A Stan model sums a discrete quantity out of the joint [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) of the data and the parameters instead [\[6\]](#ref-stanusersguide), chapter “Latent Discrete Parameters”. [Table 1](#tbl-stan-vs-jags) lists the practical differences, taken from the JAGS manual [\[4\]](#ref-plummer2017jagsmanual) and the Stan User’s Guide [\[6\]](#ref-stanusersguide):
+
+> **NOTE:**
+>
+> | Feature | JAGS | Stan |
+> |:---|:---|:---|
+> | Sampling algorithm | Updates one node at a time, as in Gibbs sampling, with conjugate samplers where it recognizes them and slice or Metropolis steps otherwise | Hamiltonian Monte Carlo, in its No-U-Turn form (NUTS) |
+> | Model language | A BUGS-style description of a graphical model; the order of the statements does not matter | A typed program in blocks (`data`, `parameters`, `model`); the statements run in order and accumulate the log density |
+> | Normal distribution | `dnorm(mean, precision)` | `normal(mean, sd)` |
+> | Discrete parameters | Allowed; JAGS samples them | Not allowed; they are summed out of the joint density |
+> | Execution | Interpreted by the JAGS library | Translated to C++ and compiled before sampling |
+> | Convergence checks | `Rhat` and effective sample size, computed from the draws with the `coda` package | `Rhat` and effective sample size, plus sampler checks such as divergent transitions and tree depth |
+> | R interfaces | `rjags`, `runjags` | `rstan`, `cmdstanr` |
+> | Official site | [mcmc-jags.sourceforge.io](https://mcmc-jags.sourceforge.io/) | [mc-stan.org](https://mc-stan.org/) |
+>
+> Table 1: JAGS and Stan compared
+
+The next example fits the model of [the first example](#exm-bayes-proportion) in Stan, so the two programs can be compared on one problem.
+
+> **NOTE:**
+>
+> **Example 2 (The Bernoulli model fitted with Stan)** The data and the [uniform prior](bayesian-inference.llms.md#def-flat-prior) are those of [the JAGS example](#exm-bayes-proportion). The Stan program declares the data and the parameter with their types and ranges, and the `model` block states the [prior](bayesian-inference.llms.md#def-prior) and the [likelihood](intro-MLEs.llms.md#def-lik):
+>
+> ``` downlit
+> bernoulli_stan <- "
+> data {
+>   int<lower=0> N;
+>   array[N] int<lower=0, upper=1> y;
+> }
+> parameters {
+>   real<lower=0, upper=1> p;
+> }
+> model {
+>   p ~ beta(1, 1);
+>   y ~ bernoulli(p);
+> }
+> "
+> stan_fit <- rstan::stan(
+>   model_code = bernoulli_stan,
+>   data = list(N = length(y), y = y),
+>   chains = 2,
+>   warmup = 1000,
+>   iter = 5000,
+>   seed = 1,
+>   refresh = 0
+> )
+> stan_draws <- as.matrix(stan_fit, pars = "p")[, "p"]
+> stan_summary <- rstan::summary(stan_fit, pars = "p")$summary
+> round(stan_summary[, c("mean", "2.5%", "97.5%", "Rhat")], 3)
+> #>  mean  2.5% 97.5%  Rhat 
+> #> 0.602 0.501 0.698 1.000
+> ```
+
+[Table 2](#tbl-stan-jags-proportion) puts the two programs beside the [posterior](bayesian-inference.llms.md#def-posterior) of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), whose Beta parameters come from the number of successes and failures:
+
+> **NOTE:**
+>
+> |      |  Mean |  2.5% | 97.5% |
+> |:-----|------:|------:|------:|
+> | JAGS | 0.601 | 0.499 | 0.698 |
+> | Stan | 0.602 | 0.501 | 0.698 |
+> | Beta | 0.602 | 0.501 | 0.699 |
+>
+> Table 2: Posterior of the proportion from JAGS, Stan and the Beta posterior
+
+Stan’s split [potential scale reduction factor](mcmc.llms.md#def-psrf) is 1, and the sampler reports 0 divergent transitions. As [Table 2](#tbl-stan-jags-proportion) shows, the mean and the interval endpoints from each program differ from those of the Beta [posterior](bayesian-inference.llms.md#def-posterior) by at most 0.002. The programs differ in the model code: the Stan program carries the types and ranges of its variables, and it is compiled before it draws.
+
+## 3 Binary outcomes: logistic regression
 
 For a binary outcome \\Y_i\sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operatorname{logit}(\pi_i) = \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model, a Bayesian analysis places a prior on the coefficient vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ and samples the posterior \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ by MCMC [\[1, Ch. 14\]](#ref-dobson4e), p. 318. Each \\\beta\_{x_j}\\ is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio \\e^{\beta\_{x_j}}\\, or of any other function of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, is obtained by transforming the draws. For a video introduction, see Richard McElreath’s lecture [*Modeling Events*](https://www.youtube.com/watch?v=RuBUVQELw-c) (Statistical Rethinking 2026, Lecture A09).
 
 > **NOTE:**
 >
-> **Example 2 (Logistic regression fitted by Bayesian inference)** We simulate \\N = 200\\ observations from a logistic model with one continuous predictor, intercept \\\beta\_{0}= -0.5\\ and slope \\\beta\_{x} = 1.2\\, and place a diffuse \\{\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}}\\ prior on each coefficient (precision \\0.01\\ in JAGS). The JAGS program also monitors the odds ratio \\e^{\beta\_{x}}\\ for a one-unit increase in \\x\\. In the code, `beta0` and `beta1` are \\\beta\_{0}\\ and \\\beta\_{x}\\.
+> **Example 3 (Logistic regression fitted by Bayesian inference)** We simulate \\N = 200\\ observations from a logistic model with one continuous predictor, intercept \\\beta\_{0}= -0.5\\ and slope \\\beta\_{x} = 1.2\\, and place a diffuse \\{\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}}\\ prior on each coefficient (precision \\0.01\\ in JAGS). The JAGS program also monitors the odds ratio \\e^{\beta\_{x}}\\ for a one-unit increase in \\x\\. In the code, `beta0` and `beta1` are \\\beta\_{0}\\ and \\\beta\_{x}\\.
 >
 > ``` downlit
 > set.seed(2024)
@@ -123,7 +194,7 @@ For a binary outcome \\Y_i\sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operato
 > #>      -0.647       1.183
 > ```
 
-## 3 Survival analysis
+## 4 Survival analysis
 
 Parametric survival models, such as those with exponential or Weibull event times, can be fit by Bayesian inference: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC [\[1, Ch. 14\]](#ref-dobson4e), p. 327. Censoring enters through the likelihood, exactly as in maximum likelihood estimation with the [likelihood with censoring](https://morrison-lab.github.io/rme/chapters/intro-to-survival-analysis.html#sec-likelihood-with-censoring): an observed event at time \\t\\ contributes its density \\{\lambda}(t)\\\operatorname{S}(t)\\, and an observation right-censored at time \\t\\ contributes its survival probability \\\operatorname{S}(t)\\, where \\{\lambda}\\ is the hazard and \\\operatorname{S}\\ the survival function.
 
@@ -135,7 +206,7 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 
 > **NOTE:**
 >
-> **Example 3 (Exponential survival regression fitted by Bayesian inference)** We simulate \\N = 200\\ right-censored exponential survival times, with a binary covariate \\x_i\\ (say, treatment) and hazard \\{\lambda}\_i= {\operatorname{exp}\mathopen{}\left\\\beta\_{0}+ \beta\_{x} x_i\right\\\mathclose{}}\\, where the log baseline hazard is \\\beta\_{0}= \log 0.05\\ and the log hazard ratio is \\\beta\_{x} = -0.7\\. With event indicator \\\delta_i\\ (1 for an event, 0 for a censored time) and follow-up time \\t_i\\, the exponential density is \\{\lambda}\_ie^{-{\lambda}\_it}\\ and its survival function is \\e^{-{\lambda}\_it}\\, so observation \\i\\ contributes the log-likelihood
+> **Example 4 (Exponential survival regression fitted by Bayesian inference)** We simulate \\N = 200\\ right-censored exponential survival times, with a binary covariate \\x_i\\ (say, treatment) and hazard \\{\lambda}\_i= {\operatorname{exp}\mathopen{}\left\\\beta\_{0}+ \beta\_{x} x_i\right\\\mathclose{}}\\, where the log baseline hazard is \\\beta\_{0}= \log 0.05\\ and the log hazard ratio is \\\beta\_{x} = -0.7\\. With event indicator \\\delta_i\\ (1 for an event, 0 for a censored time) and follow-up time \\t_i\\, the exponential density is \\{\lambda}\_ie^{-{\lambda}\_it}\\ and its survival function is \\e^{-{\lambda}\_it}\\, so observation \\i\\ contributes the log-likelihood
 >
 > \\ \ell_i\stackrel{\text{def}}{=}\delta_i\log {\lambda}\_i- {\lambda}\_it_i. \\
 >
@@ -213,13 +284,13 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 >
 > The monitored \\e^{\beta\_{x}}\\ gives the hazard ratio and its credible interval directly.
 
-## 4 Random effects
+## 5 Random effects
 
-The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.llms.md#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters \\\theta_j \sim {\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}}\\ drawn from a common distribution [\[2\]](#ref-wikipedia_bayesian_hierarchical_modeling). What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters \\\mu\\ and \\\tau\\ and samples their joint posterior together with the group-level parameters [\[1, Ch. 14\]](#ref-dobson4e), p. 329. The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\\tau\\, and the posterior for \\\tau\\ carries the uncertainty about the between-group spread into every group-level summary.
+The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.llms.md#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters \\\theta_j \sim {\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}}\\ drawn from a common distribution [\[7\]](#ref-wikipedia_bayesian_hierarchical_modeling). What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters \\\mu\\ and \\\tau\\ and samples their joint posterior together with the group-level parameters [\[1, Ch. 14\]](#ref-dobson4e), p. 329. The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\\tau\\, and the posterior for \\\tau\\ carries the uncertainty about the between-group spread into every group-level summary.
 
 > **NOTE:**
 >
-> **Example 4 (A random-intercept model fitted by Bayesian inference)** We simulate \\J = 8\\ groups of 12 observations each, with group means drawn from \\{\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}}\\ (\\\mu= 5\\, \\\tau= 1.5\\) and within-group standard deviation \\\sigma= 2\\. The priors are a diffuse \\{\operatorname{N}\mathopen{}\left(0, 100^2\right)\mathclose{}}\\ for \\\mu\\ and [flat priors](bayesian-inference.llms.md#def-flat-prior) on \\(0, 100)\\ for the standard deviations \\\tau\\ and \\\sigma\\. Being flat on the standard-deviation scale is a choice: as [a flat prior on the log-odds](bayesian-inference.llms.md#exm-flat-prior-reparam) shows for a probability, it is not flat on another scale, such as the variance.
+> **Example 5 (A random-intercept model fitted by Bayesian inference)** We simulate \\J = 8\\ groups of 12 observations each, with group means drawn from \\{\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}}\\ (\\\mu= 5\\, \\\tau= 1.5\\) and within-group standard deviation \\\sigma= 2\\. The priors are a diffuse \\{\operatorname{N}\mathopen{}\left(0, 100^2\right)\mathclose{}}\\ for \\\mu\\ and [flat priors](bayesian-inference.llms.md#def-flat-prior) on \\(0, 100)\\ for the standard deviations \\\tau\\ and \\\sigma\\. Being flat on the standard-deviation scale is a choice: as [a flat prior on the log-odds](bayesian-inference.llms.md#exm-flat-prior-reparam) shows for a probability, it is not flat on another scale, such as the variance.
 >
 > ``` downlit
 > set.seed(2025)
@@ -292,7 +363,7 @@ The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [
 >
 > This is the borrowing of strength described in [distributions and hierarchies](bayesian-inference.llms.md#sec-bayes-hierarchies): group 4, with the largest sample mean, is pulled furthest toward the overall mean.
 
-## 5 Bayesian model averaging
+## 6 Bayesian model averaging
 
 When several candidate models are plausible, committing to a single “best” one ignores the uncertainty about which model is right. Bayesian model averaging instead averages over the models, weighting each by its posterior probability [\[1, Ch. 14\]](#ref-dobson4e), p. 339. This approach carries *model* uncertainty, not just parameter uncertainty, into the final inference. It is an alternative to choosing a single model by [predictor selection](https://morrison-lab.github.io/rme/chapters/predictor-selection.html).
 
@@ -304,7 +375,7 @@ When several candidate models are plausible, committing to a single “best” o
 
 > **NOTE:**
 >
-> **Example 5 (Posterior probabilities of two models)** Two models with equal prior probabilities
+> **Example 6 (Posterior probabilities of two models)** Two models with equal prior probabilities
 >
 > \\ \begin{aligned} \operatorname{p}(M_1) &= \operatorname{p}(M_2) \\ &= 0.5 \end{aligned} \\
 >
@@ -326,7 +397,7 @@ When several candidate models are plausible, committing to a single “best” o
 
 > **NOTE:**
 >
-> **Example 6 (A BIC approximation to Bayesian model averaging)** Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the [Bayesian information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic) gives a large-sample approximation to the posterior model probabilities [\[3\]](#ref-schwarz1978estimating) [\[4\]](#ref-wikipedia_bayesian_information_criterion):
+> **Example 7 (A BIC approximation to Bayesian model averaging)** Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the [Bayesian information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic) gives a large-sample approximation to the posterior model probabilities [\[8\]](#ref-schwarz1978estimating) [\[9\]](#ref-wikipedia_bayesian_information_criterion):
 >
 > \\ \operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \approx \frac{{\operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_k\right\\\mathclose{}}}{\sum\_{l=1}^{K} {\operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_l\right\\\mathclose{}}}. \\
 >
@@ -401,13 +472,33 @@ A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 
 
 \[2\]
 
-Wikipedia contributors, “Bayesian hierarchical modeling — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayesian_hierarchical_modeling>
+B. Carpenter *et al.*, “Stan: A probabilistic programming language,” *Journal of Statistical Software*, vol. 76, no. 1, pp. 1–32, 2017, doi: [10.18637/jss.v076.i01](https://doi.org/10.18637/jss.v076.i01).
 
 \[3\]
 
-G. Schwarz, “Estimating the dimension of a model,” *The Annals of Statistics*, vol. 6, no. 2, pp. 461–464, 1978, doi: [10.1214/aos/1176344136](https://doi.org/10.1214/aos/1176344136).
+M. Plummer, “JAGS: A program for analysis of Bayesian graphical models using Gibbs sampling,” in *Proceedings of the 3rd international workshop on distributed statistical computing*, 2003. Available: <https://www.r-project.org/conferences/DSC-2003/Proceedings/Plummer.pdf>
 
 \[4\]
+
+M. Plummer, *JAGS version 4.3.0 user manual*. 2017. Available: <https://sourceforge.net/projects/mcmc-jags/files/Manuals/4.x/>
+
+\[5\]
+
+M. D. Hoffman and A. Gelman, “The No-U-Turn sampler: Adaptively setting path lengths in Hamiltonian Monte Carlo,” *Journal of Machine Learning Research*, vol. 15, no. 47, pp. 1593–1623, 2014, Available: <https://jmlr.org/papers/v15/hoffman14a.html>
+
+\[6\]
+
+Stan Development Team, *Stan user’s guide*. 2026. Available: <https://mc-stan.org/docs/stan-users-guide/>
+
+\[7\]
+
+Wikipedia contributors, “Bayesian hierarchical modeling — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayesian_hierarchical_modeling>
+
+\[8\]
+
+G. Schwarz, “Estimating the dimension of a model,” *The Annals of Statistics*, vol. 6, no. 2, pp. 461–464, 1978, doi: [10.1214/aos/1176344136](https://doi.org/10.1214/aos/1176344136).
+
+\[9\]
 
 Wikipedia contributors, “Bayesian information criterion — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayesian_information_criterion>
 
