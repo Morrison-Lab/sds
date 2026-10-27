@@ -2,7 +2,7 @@
 
 By @exr-rss-hessian-vector,
 the [Hessian](intro-MLEs.qmd#def-hessian) is $2A$ with $A = \sumin \soprod{\vxi}$.
-To show it is positive definite,
+To show that this Hessian is positive definite,
 take any vector $\v{v} = \tp{(v_0, v_x)} \neq \vzero$:
 
 $$

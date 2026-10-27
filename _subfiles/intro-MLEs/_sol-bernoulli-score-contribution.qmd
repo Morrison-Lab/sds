@@ -1,10 +1,16 @@
 :::{#sol-bernoulli-score-contribution}
 
-By definition,
+The score contribution is the score of the single observation $\outvar_\iobs$,
+so @thm-bernoulli-score with $x = \outvar_\iobs$ gives
 
 $$
+\begin{aligned}
 \score_\iobs(\prob)
-= \deriv{\prob} \llik_\iobs(\prob)
+&= \deriv{\prob} \llik_\iobs(\prob)
+&& \text{(definition of the score contribution)}\\
+&= \frac{\outvar_\iobs - \prob}{\prob(1 - \prob)}
+&& \text{(score of a Bernoulli variable)}
+\end{aligned}
 $$
 
 :::

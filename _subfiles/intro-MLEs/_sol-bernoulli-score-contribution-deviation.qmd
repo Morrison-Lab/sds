@@ -1,17 +1,17 @@
 :::{#sol-bernoulli-score-contribution-deviation}
 
-Using @thm-bernoulli-score,
+Starting from @sol-bernoulli-score-contribution:
 
 $$
 \begin{aligned}
-\deriv{\prob} \llik_\iobs(\prob)
+\score_\iobs(\prob)
+&= \frac{\outvar_\iobs - \prob}{\prob(1 - \prob)}
+&& \text{(score contribution)}\\
+&= \frac{\devn_\iobs}{\Var{\Outvar_\iobs}}
+&& \text{(definition of $\devn_\iobs$; $\Var{\Outvar_\iobs} = \prob(1 - \prob)$)}\\
 &= \precision \devn_\iobs
-&& \text{(score of a Bernoulli variable, with $x = \outvar_\iobs$)}
+&& \text{(definition of $\precision$)}
 \end{aligned}
 $$
-
-The last step is @thm-bernoulli-score for the observed value $\outvar_\iobs$ of $\Outvar_\iobs$,
-whose [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is $\precision$
-and whose [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is $\devn_\iobs$.
 
 :::
