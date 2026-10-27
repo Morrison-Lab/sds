@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 23:56:39 (PDT)
+Last modified: 2026-10-27 10:45:41 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -1688,10 +1688,10 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 >
 > **Exercise 41 (Score function of a Bernoulli variable)** Let \\X \sim \operatorname{Ber}(\pi)\\ have observed value \\x \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, and let:
 >
-> - \\\delta\stackrel{\text{def}}{=}x - {\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}\\ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of \\x\\ from the mean of \\X\\;
+> - \\\mathbb{d}\stackrel{\text{def}}{=}x - {\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}\\ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of \\x\\ from the mean of \\X\\;
 > - \\\tau\stackrel{\text{def}}{=}1 / {\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\\ be the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of \\X\\.
 >
-> Derive the [score](#def-score) of \\x\\. In other words, differentiate the [log-likelihood](#def-loglik) of \\x\\ with respect to the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) parameter \\\pi\\, starting from the log-likelihood in terms of the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) \\\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\\ in [Corollary 1](#cor-bernoulli-loglik-contribution-logodds). Write the result using \\\delta\\ and \\\tau\\.
+> Derive the [score](#def-score) of \\x\\. In other words, differentiate the [log-likelihood](#def-loglik) of \\x\\ with respect to the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) parameter \\\pi\\, starting from the log-likelihood in terms of the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) \\\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\\ in [Corollary 1](#cor-bernoulli-loglik-contribution-logodds). Write the result using \\\mathbb{d}\\ and \\\tau\\.
 
 > **NOTE:**
 >
@@ -1713,13 +1713,13 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 >
 > Substituting both derivatives back in:
 >
-> \\ \begin{aligned} \ell' &= x \tau- \frac{1}{1 - \pi} && \text{(substitute the two derivatives)}\\ &= x \tau- \frac{\pi}{\pi(1 - \pi)} && \text{(multiply the numerator and denominator by \$\pi\$)}\\ &= x \tau- \pi\tau && \text{(definition of \$\tau\$)}\\ &= \tau(x - \pi) && \text{(factor out \$\tau\$)}\\ &= \tau\mathopen{}\left(x - {\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}\right)\mathclose{} && \text{(\${\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}} = \pi\$)}\\ &= \tau\delta && \text{(definition of \$\delta\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell' &= x \tau- \frac{1}{1 - \pi} && \text{(substitute the two derivatives)}\\ &= x \tau- \frac{\pi}{\pi(1 - \pi)} && \text{(multiply the numerator and denominator by \$\pi\$)}\\ &= x \tau- \pi\tau && \text{(definition of \$\tau\$)}\\ &= \tau(x - \pi) && \text{(factor out \$\tau\$)}\\ &= \tau\mathopen{}\left(x - {\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}\right)\mathclose{} && \text{(\${\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}} = \pi\$)}\\ &= \tau\mathbb{d} && \text{(definition of \$\mathbb{d}\$)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 20 (Score function of a Bernoulli variable)** Let \\X \sim \operatorname{Ber}(\pi)\\, with event probability \\\pi\\ and observed value \\x \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. The [score](#def-score) \\\ell'\\ of the single observation \\x\\ is the derivative of its log-likelihood \\\ell\\ with respect to \\\pi\\. It equals the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / {\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\\ of \\X\\ times the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta\stackrel{\text{def}}{=}x - {\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}\\ of \\x\\ from the mean \\{\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}\\:
+> **Theorem 20 (Score function of a Bernoulli variable)** Let \\X \sim \operatorname{Ber}(\pi)\\, with event probability \\\pi\\ and observed value \\x \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. The [score](#def-score) \\\ell'\\ of the single observation \\x\\ is the derivative of its log-likelihood \\\ell\\ with respect to \\\pi\\. It equals the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / {\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\\ of \\X\\ times the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\stackrel{\text{def}}{=}x - {\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}\\ of \\x\\ from the mean \\{\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}\\:
 >
-> \\\ell'= \tau\delta= \frac{\delta}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}} = \frac{x - \pi}{\pi(1 - \pi)}\\
+> \\\ell'= \tau\mathbb{d}= \frac{\mathbb{d}}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}} = \frac{x - \pi}{\pi(1 - \pi)}\\
 
 > **NOTE:**
 >
@@ -1741,22 +1741,22 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > **Exercise 42 (Score contribution of one binary outcome)** In the setting of [Exercise 38](#exr-bernoulli-loglik-contribution), let:
 >
-> - \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of \\y_i\\ from its mean \\\pi\\;
+> - \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of \\y_i\\ from its mean \\\pi\\;
 > - \\\tau\stackrel{\text{def}}{=}1 / {\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}\\ be the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of \\Y_i\\.
 >
-> Derive the [score](#def-score) contribution \\\ell'\_i(\pi) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell_i(\pi)\\ of observation \\i\\, and write it using \\\delta_i\\ and \\\tau\\.
+> Derive the [score](#def-score) contribution \\\ell'\_i(\pi) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell_i(\pi)\\ of observation \\i\\, and write it using \\\mathbb{d}\_i\\ and \\\tau\\.
 
 > **NOTE:**
 >
-> *Solution 42*. \\ \begin{aligned} \ell'\_i(\pi) &= \frac{\partial}{\partial \pi} \ell_i(\pi) && \text{(definition of the score contribution)}\\ &= \tau\delta_i && \text{(score of a Bernoulli variable, with \$x = y_i\$)} \end{aligned} \\
+> *Solution 42*. \\ \begin{aligned} \ell'\_i(\pi) &= \frac{\partial}{\partial \pi} \ell_i(\pi) && \text{(definition of the score contribution)}\\ &= \tau\mathbb{d}\_i && \text{(score of a Bernoulli variable, with \$x = y_i\$)} \end{aligned} \\
 >
-> The last step is [Theorem 20](#thm-bernoulli-score) for the observed value \\y_i\\ of \\Y_i\\, whose [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is \\\tau\\ and whose [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is \\\delta_i\\.
+> The last step is [Theorem 20](#thm-bernoulli-score) for the observed value \\y_i\\ of \\Y_i\\, whose [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is \\\tau\\ and whose [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is \\\mathbb{d}\_i\\.
 
 > **NOTE:**
 >
-> **Theorem 21 (Score contribution of one binary outcome)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / {\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}} = 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, its [score](#def-score) contribution is the precision times the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\ of \\y_i\\ from its mean \\\pi\\:
+> **Theorem 21 (Score contribution of one binary outcome)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / {\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}} = 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, its [score](#def-score) contribution is the precision times the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\ of \\y_i\\ from its mean \\\pi\\:
 >
-> \\\ell'\_i(\pi) = \tau\delta_i\\
+> \\\ell'\_i(\pi) = \tau\mathbb{d}\_i\\
 >
 > The precision \\\tau\\ is the same for every \\i\\, because all \\Y_i\\ share the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) \\\pi\\.
 
@@ -1771,27 +1771,27 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 > **Exercise 43 (Sample mean of the deviations of a binary sample)** In the setting of [Exercise 42](#exr-bernoulli-score-contribution), let:
 >
 > - \\{\bar{y}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^ny_i\\ be the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of the observed outcomes;
-> - \\{\bar{\delta}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\delta_i\\ be the sample mean of the [deviations](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\\.
+> - \\{\bar{\mathbb{d}}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\mathbb{d}\_i\\ be the sample mean of the [deviations](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\_i\\.
 >
-> Write \\{\bar{\delta}}\\ using \\{\bar{y}}\\ and \\\pi\\.
+> Write \\{\bar{\mathbb{d}}}\\ using \\{\bar{y}}\\ and \\\pi\\.
 
 > **NOTE:**
 >
-> *Solution 43*. \\ \begin{aligned} {\bar{\delta}} &= \frac{1}{n}\sum\_{i=1}^n\delta_i && \text{(definition of \${\bar{\delta}}\$)}\\ &= \frac{1}{n}\sum\_{i=1}^n(y_i- \pi) && \text{(definition of \$\delta_i\$)}\\ &= \frac{1}{n} \mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(distribute the sum over the difference)}\\ &= \frac{1}{n} \mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= \frac{1}{n} \mathopen{}\left(n {\bar{y}}- n \pi\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n {\bar{y}}\$ and \$\textstyle\sum\_{i=1}^n\pi= n \pi\$)}\\ &= \frac{1}{n} \cdot n ({\bar{y}}- \pi) && \text{(factor out \$n\$)}\\ &= {\bar{y}}- \pi && \text{(\$\frac{1}{n} \cdot n = 1\$)} \end{aligned} \\
+> *Solution 43*. \\ \begin{aligned} {\bar{\mathbb{d}}} &= \frac{1}{n}\sum\_{i=1}^n\mathbb{d}\_i && \text{(definition of \${\bar{\mathbb{d}}}\$)}\\ &= \frac{1}{n}\sum\_{i=1}^n(y_i- \pi) && \text{(definition of \$\mathbb{d}\_i\$)}\\ &= \frac{1}{n} \mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(distribute the sum over the difference)}\\ &= \frac{1}{n} \mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= \frac{1}{n} \mathopen{}\left(n {\bar{y}}- n \pi\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n {\bar{y}}\$ and \$\textstyle\sum\_{i=1}^n\pi= n \pi\$)}\\ &= \frac{1}{n} \cdot n ({\bar{y}}- \pi) && \text{(factor out \$n\$)}\\ &= {\bar{y}}- \pi && \text{(\$\frac{1}{n} \cdot n = 1\$)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Exercise 44 (Score function of a binary sample)** In the setting of [Exercise 43](#exr-bernoulli-sample-mean-deviation), assemble the [score function](#def-score) \\\ell'(\pi)\\ of the whole [sample](exploratory-descriptive.llms.md#def-sample) from the [score](#def-score) contributions, and write it using \\{\bar{\delta}}\\ and \\\tau\\.
+> **Exercise 44 (Score function of a binary sample)** In the setting of [Exercise 43](#exr-bernoulli-sample-mean-deviation), assemble the [score function](#def-score) \\\ell'(\pi)\\ of the whole [sample](exploratory-descriptive.llms.md#def-sample) from the [score](#def-score) contributions, and write it using \\{\bar{\mathbb{d}}}\\ and \\\tau\\.
 
 > **NOTE:**
 >
-> *Solution 44*. \\ \begin{aligned} \ell'(\pi) &= \sum\_{i=1}^n\ell'\_i(\pi) && \text{(score of an independent sample is the sum of the score contributions)}\\ &= \sum\_{i=1}^n\tau\delta_i && \text{(score contribution of a binary outcome)}\\ &= \tau\sum\_{i=1}^n\delta_i && \text{(\$\tau\$ is the same for every \$i\$)}\\ &= \tau\cdot n {\bar{\delta}} && \text{(\$\textstyle\sum\_{i=1}^n\delta_i= n {\bar{\delta}}\$, from the definition of \${\bar{\delta}}\$)}\\ &= n \tau{\bar{\delta}} && \text{(reorder the factors)} \end{aligned} \\
+> *Solution 44*. \\ \begin{aligned} \ell'(\pi) &= \sum\_{i=1}^n\ell'\_i(\pi) && \text{(score of an independent sample is the sum of the score contributions)}\\ &= \sum\_{i=1}^n\tau\mathbb{d}\_i && \text{(score contribution of a binary outcome)}\\ &= \tau\sum\_{i=1}^n\mathbb{d}\_i && \text{(\$\tau\$ is the same for every \$i\$)}\\ &= \tau\cdot n {\bar{\mathbb{d}}} && \text{(\$\textstyle\sum\_{i=1}^n\mathbb{d}\_i= n {\bar{\mathbb{d}}}\$, from the definition of \${\bar{\mathbb{d}}}\$)}\\ &= n \tau{\bar{\mathbb{d}}} && \text{(reorder the factors)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 22 (Score function of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\, with observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) \\{\bar{y}}\\, [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, and sample mean \\{\bar{\delta}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\delta_i\\ of the [deviations](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i= y_i- \pi\\, the [score function](#def-score) is:
+> **Theorem 22 (Score function of a binary sample)** If \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i= 1, \dots, n\\, with observed [sample mean](exploratory-descriptive.llms.md#def-sample-mean) \\{\bar{y}}\\, [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, and sample mean \\{\bar{\mathbb{d}}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\mathbb{d}\_i\\ of the [deviations](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\_i= y_i- \pi\\, the [score function](#def-score) is:
 >
-> \\\ell'(\pi) = n \tau{\bar{\delta}}= n \tau({\bar{y}}- \pi)\\
+> \\\ell'(\pi) = n \tau{\bar{\mathbb{d}}}= n \tau({\bar{y}}- \pi)\\
 
 > **NOTE:**
 >
@@ -1881,15 +1881,15 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Exercise 47 (Hessian contribution of one binary outcome in terms of the precision and deviation)** In the setting of [Exercise 46](#exr-bernoulli-hessian-contribution), derive the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ starting from the simplified [score](#def-score) contribution \\\ell'\_i(\pi) = \tau\delta_i\\ in [Theorem 21](#thm-bernoulli-score-contribution), with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\. Both \\\tau\\ and \\\delta_i\\ depend on \\\pi\\, while the observed value \\y_i\\ does not.
+> **Exercise 47 (Hessian contribution of one binary outcome in terms of the precision and deviation)** In the setting of [Exercise 46](#exr-bernoulli-hessian-contribution), derive the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ starting from the simplified [score](#def-score) contribution \\\ell'\_i(\pi) = \tau\mathbb{d}\_i\\ in [Theorem 21](#thm-bernoulli-score-contribution), with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\. Both \\\tau\\ and \\\mathbb{d}\_i\\ depend on \\\pi\\, while the observed value \\y_i\\ does not.
 
 > **NOTE:**
 >
-> *Solution 47*. \\ \begin{aligned} \ell''\_i(\pi) &= \frac{\partial}{\partial \pi} \ell'\_i(\pi) && \text{(definition of the Hessian contribution)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(\tau\delta_i\right)\mathclose{} && \text{(score contribution)}\\ &= \mathopen{}\left(\frac{\partial}{\partial \pi} \tau\right)\mathclose{} \delta_i+ \tau\frac{\partial}{\partial \pi} \delta_i && \text{(product rule)} \end{aligned} \\
+> *Solution 47*. \\ \begin{aligned} \ell''\_i(\pi) &= \frac{\partial}{\partial \pi} \ell'\_i(\pi) && \text{(definition of the Hessian contribution)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(\tau\mathbb{d}\_i\right)\mathclose{} && \text{(score contribution)}\\ &= \mathopen{}\left(\frac{\partial}{\partial \pi} \tau\right)\mathclose{} \mathbb{d}\_i+ \tau\frac{\partial}{\partial \pi} \mathbb{d}\_i && \text{(product rule)} \end{aligned} \\
 >
 > The derivative of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is:
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \pi} \delta_i &= \frac{\partial}{\partial \pi} \mathopen{}\left(y_i- \pi\right)\mathclose{} && \text{(definition of \$\delta_i\$)}\\ &= \frac{\partial}{\partial \pi} y_i- \frac{\partial}{\partial \pi} \pi && \text{(linearity of differentiation)}\\ &= 0 - 1 && \text{(derivatives of a constant and of \$\pi\$)}\\ &= -1 && \text{(subtract)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \pi} \mathbb{d}\_i &= \frac{\partial}{\partial \pi} \mathopen{}\left(y_i- \pi\right)\mathclose{} && \text{(definition of \$\mathbb{d}\_i\$)}\\ &= \frac{\partial}{\partial \pi} y_i- \frac{\partial}{\partial \pi} \pi && \text{(linearity of differentiation)}\\ &= 0 - 1 && \text{(derivatives of a constant and of \$\pi\$)}\\ &= -1 && \text{(subtract)} \end{aligned} \\
 >
 > The derivative of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is given by [Lemma 5](#lem-bernoulli-precision-deriv):
 >
@@ -1897,13 +1897,13 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > Substituting both derivatives back in:
 >
-> \\ \begin{aligned} \ell''\_i(\pi) &= \mathopen{}\left(-{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{}\right)\mathclose{} \delta_i+ \tau(-1) && \text{(substitute the two derivatives)}\\ &= -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \delta_i && \text{(multiply by \$-1\$ and reorder the terms)} \end{aligned} \\
+> \\ \begin{aligned} \ell''\_i(\pi) &= \mathopen{}\left(-{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(1 - 2 \pi\right)\mathclose{}\right)\mathclose{} \mathbb{d}\_i+ \tau(-1) && \text{(substitute the two derivatives)}\\ &= -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathbb{d}\_i && \text{(multiply by \$-1\$ and reorder the terms)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Corollary 2 (Hessian contribution of one binary outcome in terms of the precision and deviation)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, its [Hessian](#def-hessian) contribution is, with the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\:
+> **Corollary 2 (Hessian contribution of one binary outcome in terms of the precision and deviation)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ and [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\, its [Hessian](#def-hessian) contribution is, with the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\:
 >
-> \\\ell''\_i(\pi) = -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \delta_i\\
+> \\\ell''\_i(\pi) = -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathbb{d}\_i\\
 
 > **NOTE:**
 >
@@ -1911,27 +1911,27 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Exercise 48 (Hessian contribution of one binary outcome as a squared deviation)** In the setting of [Exercise 47](#exr-bernoulli-hessian-contribution-precision), starting from the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ in [Corollary 2](#cor-bernoulli-hessian-contribution-precision), write \\\ell''\_i(\pi)\\ with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ as a multiple of \\{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\\ times the square of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\. Hint: because \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, \\{\mathopen{}\left(y_i\right)\mathclose{}}^{2} = y_i\\.
+> **Exercise 48 (Hessian contribution of one binary outcome as a squared deviation)** In the setting of [Exercise 47](#exr-bernoulli-hessian-contribution-precision), starting from the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ in [Corollary 2](#cor-bernoulli-hessian-contribution-precision), write \\\ell''\_i(\pi)\\ with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ as a multiple of \\{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\\ times the square of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\. Hint: because \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, \\{\mathopen{}\left(y_i\right)\mathclose{}}^{2} = y_i\\.
 
 > **NOTE:**
 >
 > *Solution 48*. Starting from [Corollary 2](#cor-bernoulli-hessian-contribution-precision), factor out \\{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\\. The reciprocal of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is \\1 / \tau= \pi(1 - \pi)\\, so:
 >
-> \\ \begin{aligned} \ell''\_i(\pi) &= -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \delta_i && \text{(the contribution from the corollary)}\\ &= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \frac{1}{\tau} - \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \delta_i && \text{(\$\tau= {\mathopen{}\left(\tau\right)\mathclose{}}^{2} / \tau\$)}\\ &= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(\pi(1 - \pi) + \mathopen{}\left(1 - 2 \pi\right)\mathclose{} \delta_i\right)\mathclose{} && \text{(factor out \$-{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell''\_i(\pi) &= -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathbb{d}\_i && \text{(the contribution from the corollary)}\\ &= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \frac{1}{\tau} - \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathbb{d}\_i && \text{(\$\tau= {\mathopen{}\left(\tau\right)\mathclose{}}^{2} / \tau\$)}\\ &= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(\pi(1 - \pi) + \mathopen{}\left(1 - 2 \pi\right)\mathclose{} \mathbb{d}\_i\right)\mathclose{} && \text{(factor out \$-{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\$)} \end{aligned} \\
 >
 > The factor in parentheses is:
 >
-> \\ \begin{aligned} \pi(1 - \pi) + \mathopen{}\left(1 - 2 \pi\right)\mathclose{} \delta_i &= \pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + \mathopen{}\left(1 - 2 \pi\right)\mathclose{} \mathopen{}\left(y_i- \pi\right)\mathclose{} && \text{(distribute \$\pi\$; definition of \$\delta_i\$)}\\ &= \pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + y_i- \pi- 2 \pi y_i+ 2 {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(distribute \$1 - 2 \pi\$)}\\ &= y_i- 2 \pi y_i+ \mathopen{}\left(2 {\mathopen{}\left(\pi\right)\mathclose{}}^{2} - {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{} + \mathopen{}\left(\pi- \pi\right)\mathclose{} && \text{(reorder and group the terms)}\\ &= y_i- 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + 0 && \text{(\$2 a - a = a\$ and \$a - a = 0\$)}\\ &= y_i- 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(\$a + 0 = a\$)}\\ &= {\mathopen{}\left(y_i\right)\mathclose{}}^{2} - 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(\$y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\$, so \$y_i= {\mathopen{}\left(y_i\right)\mathclose{}}^{2}\$)}\\ &= {\mathopen{}\left(\mathopen{}\left(y_i- \pi\right)\mathclose{}\right)\mathclose{}}^{2} && \text{(square of a difference)}\\ &= {\mathopen{}\left(\delta_i\right)\mathclose{}}^{2} && \text{(definition of \$\delta_i\$)} \end{aligned} \\
+> \\ \begin{aligned} \pi(1 - \pi) + \mathopen{}\left(1 - 2 \pi\right)\mathclose{} \mathbb{d}\_i &= \pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + \mathopen{}\left(1 - 2 \pi\right)\mathclose{} \mathopen{}\left(y_i- \pi\right)\mathclose{} && \text{(distribute \$\pi\$; definition of \$\mathbb{d}\_i\$)}\\ &= \pi- {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + y_i- \pi- 2 \pi y_i+ 2 {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(distribute \$1 - 2 \pi\$)}\\ &= y_i- 2 \pi y_i+ \mathopen{}\left(2 {\mathopen{}\left(\pi\right)\mathclose{}}^{2} - {\mathopen{}\left(\pi\right)\mathclose{}}^{2}\right)\mathclose{} + \mathopen{}\left(\pi- \pi\right)\mathclose{} && \text{(reorder and group the terms)}\\ &= y_i- 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} + 0 && \text{(\$2 a - a = a\$ and \$a - a = 0\$)}\\ &= y_i- 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(\$a + 0 = a\$)}\\ &= {\mathopen{}\left(y_i\right)\mathclose{}}^{2} - 2 \pi y_i+ {\mathopen{}\left(\pi\right)\mathclose{}}^{2} && \text{(\$y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\$, so \$y_i= {\mathopen{}\left(y_i\right)\mathclose{}}^{2}\$)}\\ &= {\mathopen{}\left(\mathopen{}\left(y_i- \pi\right)\mathclose{}\right)\mathclose{}}^{2} && \text{(square of a difference)}\\ &= {\mathopen{}\left(\mathbb{d}\_i\right)\mathclose{}}^{2} && \text{(definition of \$\mathbb{d}\_i\$)} \end{aligned} \\
 >
 > Substituting the factor back in:
 >
-> \\ \ell''\_i(\pi) = -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} {\mathopen{}\left(\delta_i\right)\mathclose{}}^{2} \qquad \text{(substitute \${\mathopen{}\left(\delta_i\right)\mathclose{}}^{2}\$)} \\
+> \\ \ell''\_i(\pi) = -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} {\mathopen{}\left(\mathbb{d}\_i\right)\mathclose{}}^{2} \qquad \text{(substitute \${\mathopen{}\left(\mathbb{d}\_i\right)\mathclose{}}^{2}\$)} \\
 
 > **NOTE:**
 >
-> **Corollary 3 (Hessian contribution of one binary outcome as a squared deviation)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, its [Hessian](#def-hessian) contribution, written with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\delta_i\stackrel{\text{def}}{=}y_i- \pi\\, is:
+> **Corollary 3 (Hessian contribution of one binary outcome as a squared deviation)** If \\Y_i\sim \operatorname{Ber}(\pi)\\ has observed value \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, its [Hessian](#def-hessian) contribution, written with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\, is:
 >
-> \\\ell''\_i(\pi) = -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} {\mathopen{}\left(\delta_i\right)\mathclose{}}^{2}\\
+> \\\ell''\_i(\pi) = -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} {\mathopen{}\left(\mathbb{d}\_i\right)\mathclose{}}^{2}\\
 
 > **NOTE:**
 >
@@ -2037,7 +2037,7 @@ Substituting the inner derivative back in:
 
 \\ \begin{aligned} \frac{\partial}{\partial \mu}\ell &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n2(x_i- \mu) \cdot (-1) && \text{(inner derivative is \$-1\$)}\\ &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n-2(x_i- \mu) && \text{(multiply)}\\ &= -\frac{1}{2\sigma^2} \cdot (-2) \sum\_{i=1}^n(x_i- \mu) && \text{(factor the constant \$-2\$ out of the sum)}\\ &= \frac{1}{\sigma^2}\sum\_{i=1}^n(x_i- \mu) && \text{(multiply the constants)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i- \sum\_{i=1}^n\mu\right)\mathclose{} && \text{(distribute the sum over the terms)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i- n\mu\right)\mathclose{} && \text{(sum of \$n\$ copies of \$\mu\$)} \end{aligned} \\
 
-For the second entry, write the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\\sigma^2\\ as a single variable \\v\\, so that the [log-likelihood](#def-loglik) \\\ell\\ contains \\-\frac{n}{2}\log v\\ and \\-\frac{1}{2}v^{-1} S\\, where the sum of squared [deviations](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\S = {\sum\_{i=1}^n\mathopen{}\left({\mathopen{}\left(\delta\_{\mu}\mathopen{}\left(x_i\right)\mathclose{}\right)\mathclose{}}^{2}\right)\mathclose{}}\\ from the mean parameter \\\mu\\ does not depend on \\\sigma^2\\:
+For the second entry, write the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) \\\sigma^2\\ as a single variable \\v\\, so that the [log-likelihood](#def-loglik) \\\ell\\ contains \\-\frac{n}{2}\log v\\ and \\-\frac{1}{2}v^{-1} S\\, where the sum of squared [deviations](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\S = {\sum\_{i=1}^n\mathopen{}\left({\mathopen{}\left(\mathbb{D}\_{\mu}\mathopen{}\left(x_i\right)\mathclose{}\right)\mathclose{}}^{2}\right)\mathclose{}}\\ from the mean parameter \\\mu\\ does not depend on \\\sigma^2\\:
 
 \\ \begin{aligned} \frac{\partial}{\partial \sigma^2}\ell &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}} - \frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}S\right)\mathclose{} && \text{(Gaussian log-likelihood)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}S\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= 0 + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}S\right)\mathclose{} && \text{(derivative of a constant)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}S\right)\mathclose{} && \text{(drop the zero term)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{1}{2}S {\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}\right)\mathclose{} && \text{(reorder the factors)}\\ &= -\frac{n}{2}\frac{\partial}{\partial \sigma^2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{1}{2}S \frac{\partial}{\partial \sigma^2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} && \text{(constant multiple rule)}\\ &= -\frac{n}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} - \frac{1}{2}S \frac{\partial}{\partial \sigma^2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} && \text{(derivative of \$\log v\$)}\\ &= -\frac{n}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} - \frac{1}{2}S \mathopen{}\left(-{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-2}\right)\mathclose{} && \text{(power rule for \$v^{-1}\$)}\\ &= -\frac{n}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} + \frac{1}{2}S {\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-2} && \text{(multiply)}\\ &= -\frac{n}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} + \frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-2}S && \text{(reorder the factors)} \end{aligned} \\
 

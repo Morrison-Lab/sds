@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 23:56:39 (PDT)
+Last modified: 2026-10-27 10:45:41 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -162,31 +162,31 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Definition 5 (Deviation from the conditional mean)** In a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), the **deviation** \\\delta_i\\ of outcome \\Y_i\\ is its [deviation from its population mean](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean), taking the mean conditional on \\X_i= x_i\\:
+> **Definition 5 (Deviation from the conditional mean)** In a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), the **deviation** \\\mathbb{d}\_i\\ of outcome \\Y_i\\ is its [deviation from its population mean](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean), taking the mean conditional on \\X_i= x_i\\:
 >
-> \\\delta_i\stackrel{\text{def}}{=}Y_i- \mu(x_i).\\
+> \\\mathbb{d}\_i\stackrel{\text{def}}{=}Y_i- \mu(x_i).\\
 
 > **NOTE:**
 >
-> **Exercise 1 (Decomposing an outcome)** Express each outcome \\Y_i\\ in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)) in terms of its conditional mean \\\mu_i\\ and its deviation \\\delta_i\\ ([Definition 5](#def-slr-deviation)).
+> **Exercise 1 (Decomposing an outcome)** Express each outcome \\Y_i\\ in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)) in terms of its conditional mean \\\mu_i\\ and its deviation \\\mathbb{d}\_i\\ ([Definition 5](#def-slr-deviation)).
 
 > **NOTE:**
 >
-> *Solution 1*. Check that \\Y_i= \mu_i+ \delta_i\\, starting from the right-hand side:
+> *Solution 1*. Check that \\Y_i= \mu_i+ \mathbb{d}\_i\\, starting from the right-hand side:
 >
-> \\ \begin{aligned} \mu_i+ \delta_i &= \mu(x_i) + \delta_i && \text{(definition of \$\mu_i\$)}\\ &= \mu(x_i) + \mathopen{}\left(Y_i- \mu(x_i)\right)\mathclose{} && \text{(definition of \$\delta_i\$)}\\ &= \mu(x_i) + Y_i- \mu(x_i) && \text{(remove the parentheses)}\\ &= Y_i+ \mu(x_i) - \mu(x_i) && \text{(reorder the terms)}\\ &= Y_i+ \mathopen{}\left(\mu(x_i) - \mu(x_i)\right)\mathclose{} && \text{(group the last two terms)}\\ &= Y_i+ 0 && \text{(\$a - a = 0\$)}\\ &= Y_i && \text{(\$a + 0 = a\$)} \end{aligned} \\
+> \\ \begin{aligned} \mu_i+ \mathbb{d}\_i &= \mu(x_i) + \mathbb{d}\_i && \text{(definition of \$\mu_i\$)}\\ &= \mu(x_i) + \mathopen{}\left(Y_i- \mu(x_i)\right)\mathclose{} && \text{(definition of \$\mathbb{d}\_i\$)}\\ &= \mu(x_i) + Y_i- \mu(x_i) && \text{(remove the parentheses)}\\ &= Y_i+ \mu(x_i) - \mu(x_i) && \text{(reorder the terms)}\\ &= Y_i+ \mathopen{}\left(\mu(x_i) - \mu(x_i)\right)\mathclose{} && \text{(group the last two terms)}\\ &= Y_i+ 0 && \text{(\$a - a = 0\$)}\\ &= Y_i && \text{(\$a + 0 = a\$)} \end{aligned} \\
 >
-> So \\Y_i= \mu_i+ \delta_i\\.
+> So \\Y_i= \mu_i+ \mathbb{d}\_i\\.
 >
-> Alternatively, solve the definition of \\\delta_i\\ for \\Y_i\\:
+> Alternatively, solve the definition of \\\mathbb{d}\_i\\ for \\Y_i\\:
 >
-> \\ \begin{aligned} \delta_i &= Y_i- \mu(x_i) && \text{(definition of \$\delta_i\$)}\\ \delta_i+ \mu(x_i) &= Y_i- \mu(x_i) + \mu(x_i) && \text{(add \$\mu(x_i)\$ to both sides)}\\ \delta_i+ \mu(x_i) &= Y_i+ \mathopen{}\left(-\mu(x_i)\right)\mathclose{} + \mu(x_i) && \text{(subtracting is adding the negative)}\\ \delta_i+ \mu(x_i) &= Y_i+ \mathopen{}\left(-\mu(x_i) + \mu(x_i)\right)\mathclose{} && \text{(group the last two terms)}\\ \delta_i+ \mu(x_i) &= Y_i+ 0 && \text{(\$-a + a = 0\$)}\\ \delta_i+ \mu(x_i) &= Y_i && \text{(\$a + 0 = a\$)}\\ Y_i &= \delta_i+ \mu(x_i) && \text{(swap the two sides)}\\ Y_i &= \mu(x_i) + \delta_i && \text{(reorder the terms)}\\ Y_i &= \mu_i+ \delta_i && \text{(definition of \$\mu_i\$)} \end{aligned} \\
+> \\ \begin{aligned} \mathbb{d}\_i &= Y_i- \mu(x_i) && \text{(definition of \$\mathbb{d}\_i\$)}\\ \mathbb{d}\_i+ \mu(x_i) &= Y_i- \mu(x_i) + \mu(x_i) && \text{(add \$\mu(x_i)\$ to both sides)}\\ \mathbb{d}\_i+ \mu(x_i) &= Y_i+ \mathopen{}\left(-\mu(x_i)\right)\mathclose{} + \mu(x_i) && \text{(subtracting is adding the negative)}\\ \mathbb{d}\_i+ \mu(x_i) &= Y_i+ \mathopen{}\left(-\mu(x_i) + \mu(x_i)\right)\mathclose{} && \text{(group the last two terms)}\\ \mathbb{d}\_i+ \mu(x_i) &= Y_i+ 0 && \text{(\$-a + a = 0\$)}\\ \mathbb{d}\_i+ \mu(x_i) &= Y_i && \text{(\$a + 0 = a\$)}\\ Y_i &= \mathbb{d}\_i+ \mu(x_i) && \text{(swap the two sides)}\\ Y_i &= \mu(x_i) + \mathbb{d}\_i && \text{(reorder the terms)}\\ Y_i &= \mu_i+ \mathbb{d}\_i && \text{(definition of \$\mu_i\$)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 2 (Additive form of the conditional Gaussian model)** In a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), each outcome is its conditional mean plus its deviation ([Definition 5](#def-slr-deviation)):
 >
-> \\Y_i= \mu_i+ \delta_i.\\
+> \\Y_i= \mu_i+ \mathbb{d}\_i.\\
 
 > **NOTE:**
 >
@@ -198,15 +198,15 @@ hers |> head()
 
 > **NOTE:**
 >
-> *Solution 2*. Every probability, CDF and density in this solution is [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf) on \\X_i= x_i\\; the condition is left out of the notation to keep the lines short. Write \\F\_{\delta}\\ and \\f\_{\delta}\\ for the CDF and density of \\\delta_i\\, and \\F_Y\\ and \\f_Y\\ for those of \\Y_i\\.
+> *Solution 2*. Every probability, CDF and density in this solution is [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf) on \\X_i= x_i\\; the condition is left out of the notation to keep the lines short. Write \\F\_{\mathbb{d}}\\ and \\f\_{\mathbb{d}}\\ for the CDF and density of \\\mathbb{d}\_i\\, and \\F_Y\\ and \\f_Y\\ for those of \\Y_i\\.
 >
-> First, the CDF of \\\delta_i\\:
+> First, the CDF of \\\mathbb{d}\_i\\:
 >
-> \\ \begin{aligned} F\_{\delta}(t) &= {\Pr\mathopen{}\left(\delta_i\le t\right)\mathclose{}} && \text{(definition of a CDF)}\\ &= {\Pr\mathopen{}\left(Y_i- \mu(x_i) \le t\right)\mathclose{}} && \text{(definition of \$\delta_i\$)}\\ &= {\Pr\mathopen{}\left(Y_i- \mu_i\le t\right)\mathclose{}} && \text{(definition of \$\mu_i\$)}\\ &= {\Pr\mathopen{}\left(Y_i\le t + \mu_i\right)\mathclose{}} && \text{(add \$\mu_i\$ to both sides of the inequality)}\\ &= F_Y(t + \mu_i) && \text{(definition of a CDF)} \end{aligned} \\
+> \\ \begin{aligned} F\_{\mathbb{d}}(t) &= {\Pr\mathopen{}\left(\mathbb{d}\_i\le t\right)\mathclose{}} && \text{(definition of a CDF)}\\ &= {\Pr\mathopen{}\left(Y_i- \mu(x_i) \le t\right)\mathclose{}} && \text{(definition of \$\mathbb{d}\_i\$)}\\ &= {\Pr\mathopen{}\left(Y_i- \mu_i\le t\right)\mathclose{}} && \text{(definition of \$\mu_i\$)}\\ &= {\Pr\mathopen{}\left(Y_i\le t + \mu_i\right)\mathclose{}} && \text{(add \$\mu_i\$ to both sides of the inequality)}\\ &= F_Y(t + \mu_i) && \text{(definition of a CDF)} \end{aligned} \\
 >
 > Differentiating gives the density:
 >
-> \\ \begin{aligned} f\_{\delta}(t) &= \frac{\partial}{\partial t} F\_{\delta}(t) && \text{(a density is the derivative of its CDF)}\\ &= \frac{\partial}{\partial t} F_Y(t + \mu_i) && \text{(CDF of \$\delta_i\$)}\\ &= f_Y(t + \mu_i) \frac{\partial}{\partial t} (t + \mu_i) && \text{(chain rule)} \end{aligned} \\
+> \\ \begin{aligned} f\_{\mathbb{d}}(t) &= \frac{\partial}{\partial t} F\_{\mathbb{d}}(t) && \text{(a density is the derivative of its CDF)}\\ &= \frac{\partial}{\partial t} F_Y(t + \mu_i) && \text{(CDF of \$\mathbb{d}\_i\$)}\\ &= f_Y(t + \mu_i) \frac{\partial}{\partial t} (t + \mu_i) && \text{(chain rule)} \end{aligned} \\
 >
 > The inner derivative:
 >
@@ -214,21 +214,21 @@ hers |> head()
 >
 > Plugging the inner derivative back in, and using the [Gaussian density](https://morrison-lab.github.io/pds/random-variables.html#def-normal) of \\Y_i\\, which has mean \\\mu_i= \mu(x_i)\\ and variance \\\sigma^2_i\\ ([Definition 4](#def-cond-gaussian)):
 >
-> \\ \begin{aligned} f\_{\delta}(t) &= f_Y(t + \mu_i) \cdot 1 && \text{(inner derivative is 1)}\\ &= f_Y(t + \mu_i) && \text{(multiply by 1)}\\ &= \frac{1}{\sigma_i\sqrt{2 \pi}} \text{e}^{-\frac{\mathopen{}\left((t + \mu_i) - \mu_i\right)\mathclose{}^2}{2 \sigma^2_i}} && \text{(Gaussian density with mean \$\mu_i\$)}\\ &= \frac{1}{\sigma_i\sqrt{2 \pi}} \text{e}^{-\frac{t^2}{2 \sigma^2_i}} && \text{(subtract)} \end{aligned} \\
+> \\ \begin{aligned} f\_{\mathbb{d}}(t) &= f_Y(t + \mu_i) \cdot 1 && \text{(inner derivative is 1)}\\ &= f_Y(t + \mu_i) && \text{(multiply by 1)}\\ &= \frac{1}{\sigma_i\sqrt{2 \pi}} \text{e}^{-\frac{\mathopen{}\left((t + \mu_i) - \mu_i\right)\mathclose{}^2}{2 \sigma^2_i}} && \text{(Gaussian density with mean \$\mu_i\$)}\\ &= \frac{1}{\sigma_i\sqrt{2 \pi}} \text{e}^{-\frac{t^2}{2 \sigma^2_i}} && \text{(subtract)} \end{aligned} \\
 >
-> The last line is the density of \\{\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\, so \\\delta_i\mid X_i= x_i\sim {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\.
+> The last line is the density of \\{\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\, so \\\mathbb{d}\_i\mid X_i= x_i\sim {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\.
 >
-> For independence, factor the joint CDF of \\\delta_1, \ldots, \delta_n\\, using the same CDF step as above for each \\i\\ and the independence of the \\Y_i\\ given the covariates ([Definition 4](#def-cond-gaussian)):
+> For independence, factor the joint CDF of \\\mathbb{d}\_1, \ldots, \mathbb{d}\_n\\, using the same CDF step as above for each \\i\\ and the independence of the \\Y_i\\ given the covariates ([Definition 4](#def-cond-gaussian)):
 >
-> \\ \begin{aligned} {\Pr\mathopen{}\left(\delta_1 \le t_1, \ldots, \delta_n \le t_n\right)\mathclose{}} &= {\Pr\mathopen{}\left(Y_1 \le t_1 + \mu_1, \ldots, Y_n \le t_n + \mu_n\right)\mathclose{}} && \text{(add \$\mu_i\$ to both sides of each inequality)}\\ &= \prod\_{i=1}^n{\Pr\mathopen{}\left(Y_i\le t_i + \mu_i\right)\mathclose{}} && \text{(the \$Y_i\$ are independent)}\\ &= \prod\_{i=1}^n{\Pr\mathopen{}\left(\delta_i\le t_i\right)\mathclose{}} && \text{(subtract \$\mu_i\$ from both sides of each inequality)} \end{aligned} \\
+> \\ \begin{aligned} {\Pr\mathopen{}\left(\mathbb{d}\_1 \le t_1, \ldots, \mathbb{d}\_n \le t_n\right)\mathclose{}} &= {\Pr\mathopen{}\left(Y_1 \le t_1 + \mu_1, \ldots, Y_n \le t_n + \mu_n\right)\mathclose{}} && \text{(add \$\mu_i\$ to both sides of each inequality)}\\ &= \prod\_{i=1}^n{\Pr\mathopen{}\left(Y_i\le t_i + \mu_i\right)\mathclose{}} && \text{(the \$Y_i\$ are independent)}\\ &= \prod\_{i=1}^n{\Pr\mathopen{}\left(\mathbb{d}\_i\le t_i\right)\mathclose{}} && \text{(subtract \$\mu_i\$ from both sides of each inequality)} \end{aligned} \\
 >
-> The joint CDF is the product of the marginal CDFs, so \\\delta_1, \ldots, \delta_n\\ are independent. Given the covariate values, the deviations are therefore independent, with \\\delta_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\.
+> The joint CDF is the product of the marginal CDFs, so \\\mathbb{d}\_1, \ldots, \mathbb{d}\_n\\ are independent. Given the covariate values, the deviations are therefore independent, with \\\mathbb{d}\_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\.
 
 > **NOTE:**
 >
 > **Theorem 3 (Distribution of the deviations)** In a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), given the covariates, the deviations ([Definition 5](#def-slr-deviation)) are independent and Gaussian with mean 0 and variance \\\sigma^2_i\\:
 >
-> \\\delta_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}.\\
+> \\\mathbb{d}\_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}.\\
 
 > **NOTE:**
 >
@@ -246,11 +246,11 @@ hers |> head()
 >
 > **Corollary 1 (Deviations in a homoskedastic model)** In a homoskedastic model ([Definition 6](#def-homoskedastic)), the deviations ([Definition 5](#def-slr-deviation)) all have the same variance \\\sigma^2\\:
 >
-> \\\delta_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}}.\\
+> \\\mathbb{d}\_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}}.\\
 
 > **NOTE:**
 >
-> *Proof*. By [Theorem 3](#thm-slr-deviation-dist), \\\delta_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\, and [Definition 6](#def-homoskedastic) sets \\\sigma^2_i= \sigma^2\\ for all \\i\\.
+> *Proof*. By [Theorem 3](#thm-slr-deviation-dist), \\\mathbb{d}\_i\mid X_i= x_i\\ \sim\_{\perp\\\\\\\perp}\\ {\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}}\\, and [Definition 6](#def-homoskedastic) sets \\\sigma^2_i= \sigma^2\\ for all \\i\\.
 
 > **NOTE:**
 >
