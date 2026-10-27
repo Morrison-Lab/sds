@@ -107,8 +107,7 @@ $$
 {{< slidebreak >}}
 
 **The matrix.**
-Collecting the four second derivatives,
-the matrix of second derivatives is
+Collecting the four second derivatives gives the matrix of second derivatives:
 
 $$
 \begin{pmatrix} 2n & 2 n \predbar \\ 2 n \predbar & 2 \sumin \predvar_\iobs^2 \end{pmatrix}.

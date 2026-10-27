@@ -12,7 +12,7 @@ $$\begin{pmatrix} 2n & 2 n \predbar \\ 2 n \predbar & 2 \sumin \predvar_\iobs^2 
 
 ::: proof
 
-This is the solution to @exr-rss-hessian.
+The matrix of second derivatives is the solution to @exr-rss-hessian.
 The positive definiteness is the solution to @exr-rss-hessian-positive-definite.
 
 :::

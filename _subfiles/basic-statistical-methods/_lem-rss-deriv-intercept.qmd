@@ -12,7 +12,7 @@ $$\frac{\partial \text{RSS}}{\partial \intcoef}
 
 ::: proof
 
-This is the solution to @exr-rss-deriv-intercept.
+The derivative in sum form is the solution to @exr-rss-deriv-intercept.
 The form in terms of means is the solution to @exr-rss-deriv-intercept-in-means.
 
 :::
