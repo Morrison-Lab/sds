@@ -177,6 +177,18 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_sol-rss-deriv-intercept.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-deriv-intercept-in-means.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_sol-rss-deriv-intercept-in-means.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_lem-rss-deriv-intercept.qmd >}}
 
 {{< slidebreak >}}
@@ -198,6 +210,18 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exr-rss-hessian.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_sol-rss-hessian.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-hessian-positive-definite.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_sol-rss-hessian-positive-definite.qmd >}}
 
 {{< slidebreak >}}
 
@@ -254,6 +278,18 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exr-rss-hessian-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_sol-rss-hessian-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-hessian-vector-positive-definite.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_sol-rss-hessian-vector-positive-definite.qmd >}}
 
 {{< slidebreak >}}
 

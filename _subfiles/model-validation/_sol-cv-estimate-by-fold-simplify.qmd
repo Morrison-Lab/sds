@@ -1,0 +1,22 @@
+:::{#sol-cv-estimate-by-fold-simplify}
+
+For $\iobs \in \fold{\ifold}$, @eq-fold-assignment also puts $\iobs$ in $\fold{\foldof{\iobs}}$,
+and the folds are disjoint,
+so $\foldof{\iobs} = \ifold$.
+Starting from the grouped sum of @sol-cv-estimate-by-fold:
+
+$$
+\ba
+\cvest{\nfolds}
+&= \frac{1}{\nobs} \sumto{\ifold}{\nfolds} \sum_{\iobs \in \fold{\ifold}} \sqf{\fittedwo{\foldof{\iobs}}{\predvar_{\iobs}} - \outvar_{\iobs}}
+&& \text{(grouped by fold)}
+\\
+&= \frac{1}{\nobs} \sumto{\ifold}{\nfolds} \sum_{\iobs \in \fold{\ifold}} \sqf{\fittedwo{\ifold}{\predvar_{\iobs}} - \outvar_{\iobs}}
+&& (\foldof{\iobs} = \ifold \text{ for } \iobs \in \fold{\ifold})
+\ea
+$$
+
+In the last line, the [fitted model](#def-fitted-model) $\fittedwo{\ifold}{\cdot}$ depends only on the outer index,
+so each inner sum uses a single fitted model.
+
+:::

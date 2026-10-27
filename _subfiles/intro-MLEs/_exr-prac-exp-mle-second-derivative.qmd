@@ -1,0 +1,6 @@
+:::{#exr-prac-exp-mle-second-derivative}
+#### Second derivative of the exponential log-likelihood
+
+In the setting of @exr-prac-exp-mle, compute the second derivative $\hess(\pmean; \vx)$ of the [log-likelihood](#def-loglik).
+
+:::

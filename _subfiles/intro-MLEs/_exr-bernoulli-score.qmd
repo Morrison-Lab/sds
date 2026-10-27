@@ -1,111 +1,11 @@
 :::{#exr-derive-bernoulli-score}
 #### Score function of a Bernoulli variable
 
-Let $X \sim \Ber(\prob)$ have observed value $x \in \cb{0, 1}$, and let:
-
-- $\devn \eqdef x - \E{X}$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $x$ from the mean of $X$;
-- $\precision \eqdef 1 / \Var{X}$ be the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of $X$.
+Let $X \sim \Ber(\prob)$ have observed value $x \in \cb{0, 1}$.
 
 Derive the [score](#def-score) of $x$.
 In other words, differentiate the [log-likelihood](#def-loglik) of $x$
 with respect to the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) parameter $\prob$,
 starting from the log-likelihood in terms of the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) $\logodds \eqdef \logit(\prob)$ in @cor-bernoulli-loglik-contribution-logodds.
-Write the result using $\devn$ and $\precision$.
-
-:::
-
-{{< slidebreak >}}
-
-:::{#sol-derive-bernoulli-score}
-
-With $\outvar_\iobs = x$, @cor-bernoulli-loglik-contribution-logodds gives $\loglik = x \logodds + \logf{1 - \prob}$, so:
-
-$$
-\begin{aligned}
-\score
-&\eqdef \deriv{\prob} \loglik
-&& \text{(definition of the score)}\\
-&= \deriv{\prob} \paren{x \logodds + \logf{1 - \prob}}
-&& \text{(log-likelihood in terms of the log-odds)}\\
-&= \deriv{\prob} \paren{x \logodds} + \deriv{\prob} \logf{1 - \prob}
-&& \text{(linearity of differentiation)}\\
-&= x \deriv{\prob} \logodds + \deriv{\prob} \logf{1 - \prob}
-&& \text{(constant multiple rule)}
-\end{aligned}
-$$
-
-The inner derivative in the second term is:
-
-$$
-\begin{aligned}
-\deriv{\prob}(1 - \prob)
-&= \deriv{\prob} 1 - \deriv{\prob} \prob
-&& \text{(linearity of differentiation)}\\
-&= 0 - 1
-&& \text{(derivatives of a constant and of $\prob$)}\\
-&= -1
-&& \text{(subtract)}
-\end{aligned}
-$$
-
-The second term is then:
-
-$$
-\begin{aligned}
-\deriv{\prob} \logf{1 - \prob}
-&= \frac{1}{1 - \prob} \deriv{\prob}(1 - \prob)
-&& \text{(chain rule and derivative of $\log$)}\\
-&= \frac{1}{1 - \prob} (-1)
-&& \text{(inner derivative is $-1$)}\\
-&= -\frac{1}{1 - \prob}
-&& \text{(multiply by $-1$)}
-\end{aligned}
-$$
-
-The derivative of the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) is:
-
-$$
-\begin{aligned}
-\deriv{\prob} \logodds
-&= \deriv{\prob} \logf{\frac{\prob}{1 - \prob}}
-&& \text{(definition of $\logodds$)}\\
-&= \deriv{\prob} \paren{\logf{\prob} - \logf{1 - \prob}}
-&& \text{(log of a quotient)}\\
-&= \deriv{\prob} \logf{\prob} - \deriv{\prob} \logf{1 - \prob}
-&& \text{(linearity of differentiation)}\\
-&= \frac{1}{\prob} - \paren{-\frac{1}{1 - \prob}}
-&& \text{(derivative of $\log$, and the second term above)}\\
-&= \frac{1}{\prob} + \frac{1}{1 - \prob}
-&& \text{(subtracting a negative)}\\
-&= \frac{1 - \prob}{\prob(1 - \prob)} + \frac{\prob}{\prob(1 - \prob)}
-&& \text{(write both terms over the common denominator)}\\
-&= \frac{1}{\prob(1 - \prob)}
-&& \text{(add the numerators)}\\
-&= \frac{1}{\Var{X}}
-&& \text{($\Var{X} = \prob(1 - \prob)$)}\\
-&= \precision
-&& \text{(definition of $\precision$)}
-\end{aligned}
-$$
-
-Substituting both derivatives back in:
-
-$$
-\begin{aligned}
-\score
-&= x \precision - \frac{1}{1 - \prob}
-&& \text{(substitute the two derivatives)}\\
-&= x \precision - \frac{\prob}{\prob(1 - \prob)}
-&& \text{(multiply the numerator and denominator by $\prob$)}\\
-&= x \precision - \prob \precision
-&& \text{(definition of $\precision$)}\\
-&= \precision (x - \prob)
-&& \text{(factor out $\precision$)}\\
-&= \precision \paren{x - \E{X}}
-&& \text{($\E{X} = \prob$)}\\
-&= \precision \devn
-&& \text{(definition of $\devn$)}
-\end{aligned}
-$$
 
 :::

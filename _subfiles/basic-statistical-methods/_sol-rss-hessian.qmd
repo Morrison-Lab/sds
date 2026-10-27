@@ -1,0 +1,118 @@
+:::{#sol-rss-hessian}
+
+Differentiate each first derivative again.
+
+**Derivatives of $\partial \text{RSS} / \partial \intcoef$.**
+By @exr-rss-deriv-intercept,
+$\partial \text{RSS} / \partial \intcoef
+= -2 \paren{n \outbar - n \intcoef - \coef{x} n \predbar}$.
+Differentiating with respect to $\intcoef$:
+
+$$
+\begin{aligned}
+\frac{\partial^2 \text{RSS}}{\partial \intcoef^2}
+&= -2 \deriv{\intcoef}
+  \paren{n \outbar - n \intcoef - \coef{x} n \predbar}
+&& \text{(constant factor)}\\
+&= -2 \paren{
+  \frac{\partial (n \outbar)}{\partial \intcoef}
+  - \frac{\partial (n \intcoef)}{\partial \intcoef}
+  - \frac{\partial (\coef{x} n \predbar)}{\partial \intcoef}}
+&& \text{(derivative of a sum)}\\
+&= -2 (0 - n - 0)
+&& \text{(differentiate each term)}\\
+&= -2 (-n)
+&& \text{(drop the zeros)}\\
+&= 2n
+&& \text{(multiply)}
+\end{aligned}
+$$
+
+Differentiating with respect to $\coef{x}$:
+
+$$
+\begin{aligned}
+\frac{\partial^2 \text{RSS}}{\partial \coef{x} \, \partial \intcoef}
+&= -2 \deriv{\coef{x}}
+  \paren{n \outbar - n \intcoef - \coef{x} n \predbar}
+&& \text{(constant factor)}\\
+&= -2 \paren{
+  \frac{\partial (n \outbar)}{\partial \coef{x}}
+  - \frac{\partial (n \intcoef)}{\partial \coef{x}}
+  - \frac{\partial (\coef{x} n \predbar)}{\partial \coef{x}}}
+&& \text{(derivative of a sum)}\\
+&= -2 (0 - 0 - n \predbar)
+&& \text{(differentiate each term)}\\
+&= -2 (-n \predbar)
+&& \text{(drop the zeros)}\\
+&= 2 n \predbar
+&& \text{(multiply)}
+\end{aligned}
+$$
+
+{{< slidebreak >}}
+
+**Derivatives of $\partial \text{RSS} / \partial \coef{x}$.**
+By @exr-rss-deriv-slope,
+$\partial \text{RSS} / \partial \coef{x}
+= -2 \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)$.
+Differentiating with respect to $\intcoef$,
+and reusing the inner derivative $-1$ from @exr-rss-deriv-intercept:
+
+$$
+\begin{aligned}
+\frac{\partial^2 \text{RSS}}{\partial \intcoef \, \partial \coef{x}}
+&= -2 \deriv{\intcoef} \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
+&& \text{(constant factor)}\\
+&= -2 \sumin \deriv{\intcoef} \paren{\predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)}
+&& \text{(derivative of a sum)}\\
+&= -2 \sumin \predvar_\iobs \deriv{\intcoef} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
+&& \text{($\predvar_\iobs$ does not depend on $\intcoef$)}\\
+&= -2 \sumin \predvar_\iobs (-1)
+&& \text{(inner derivative is $-1$)}\\
+&= -2 \sumin (-\predvar_\iobs)
+&& \text{(multiply)}\\
+&= -2 \paren{-\sumin \predvar_\iobs}
+&& \text{(constant factor out of the sum)}\\
+&= 2 \sumin \predvar_\iobs
+&& \text{(multiply)}\\
+&= 2 n \predbar
+&& \text{($\sumin \predvar_\iobs = n \predbar$)}
+\end{aligned}
+$$
+
+Differentiating with respect to $\coef{x}$,
+and reusing the inner derivative $-\predvar_\iobs$ from @exr-rss-deriv-slope:
+
+$$
+\begin{aligned}
+\frac{\partial^2 \text{RSS}}{\partial \coef{x}^2}
+&= -2 \deriv{\coef{x}} \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
+&& \text{(constant factor)}\\
+&= -2 \sumin \deriv{\coef{x}} \paren{\predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)}
+&& \text{(derivative of a sum)}\\
+&= -2 \sumin \predvar_\iobs \deriv{\coef{x}} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
+&& \text{($\predvar_\iobs$ does not depend on $\coef{x}$)}\\
+&= -2 \sumin \predvar_\iobs (-\predvar_\iobs)
+&& \text{(inner derivative is $-\predvar_\iobs$)}\\
+&= -2 \sumin \paren{-\predvar_\iobs^2}
+&& \text{(multiply)}\\
+&= -2 \paren{-\sumin \predvar_\iobs^2}
+&& \text{(constant factor out of the sum)}\\
+&= 2 \sumin \predvar_\iobs^2
+&& \text{(multiply)}
+\end{aligned}
+$$
+
+{{< slidebreak >}}
+
+**The matrix.**
+Collecting the four second derivatives gives the matrix of second derivatives:
+
+$$
+\begin{pmatrix} 2n & 2 n \predbar \\ 2 n \predbar & 2 \sumin \predvar_\iobs^2 \end{pmatrix}.
+$$
+
+{{< slidebreak >}}
+
+:::

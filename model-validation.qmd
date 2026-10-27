@@ -543,6 +543,14 @@ reticulate::py_require(
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_exr-cv-estimate-by-fold-simplify.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-cv-estimate-by-fold-simplify.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_thm-cv-estimate-by-fold.qmd >}}
 
 {{< slidebreak >}}

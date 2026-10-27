@@ -1,0 +1,34 @@
+:::{#sol-prac-exp-mle-second-derivative}
+
+The second derivative is:
+
+$$
+\ba
+\hess(\pmean; \vx)
+&= \deriv{\pmean}\paren{-\frac{n}{\pmean} + \frac{n\rvarbar}{\pmean^2}}
+&& \text{(score, before factoring)}
+\\
+&= \deriv{\pmean}\paren{-n\pmean^{-1} + n\rvarbar\pmean^{-2}}
+&& \text{(write the fractions as negative powers)}
+\\
+&= \deriv{\pmean}\paren{-n\pmean^{-1}} + \deriv{\pmean}\paren{n\rvarbar\pmean^{-2}}
+&& \text{(linearity of differentiation)}
+\\
+&= -n\deriv{\pmean}\pmean^{-1} + n\rvarbar\deriv{\pmean}\pmean^{-2}
+&& \text{(constant multiple rule)}
+\\
+&= -n\paren{-\pmean^{-2}} + n\rvarbar\deriv{\pmean}\pmean^{-2}
+&& \text{(power rule for $\pmean^{-1}$)}
+\\
+&= -n\paren{-\pmean^{-2}} + n\rvarbar\paren{-2\pmean^{-3}}
+&& \text{(power rule for $\pmean^{-2}$)}
+\\
+&= n\pmean^{-2} - 2n\rvarbar\pmean^{-3}
+&& \text{(multiply)}
+\\
+&= \frac{n}{\pmean^2} - \frac{2n\rvarbar}{\pmean^3}
+&& \text{(write the negative powers as fractions)}
+\ea
+$$
+
+:::

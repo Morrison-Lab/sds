@@ -1,0 +1,22 @@
+:::{#sol-prac-exp-mle-oinf}
+
+The observed information is:
+
+$$
+\ba
+\oinf(\pmean; \vx)
+&= -\hess(\pmean; \vx)
+&& \text{(observed information is the negative Hessian)}
+\\
+&= -\paren{\frac{n}{\pmean^2} - \frac{2n\rvarbar}{\pmean^3}}
+&& \text{(second derivative)}
+\\
+&= -\frac{n}{\pmean^2} + \frac{2n\rvarbar}{\pmean^3}
+&& \text{(distribute the minus sign)}
+\\
+&= \frac{2n\rvarbar}{\pmean^3} - \frac{n}{\pmean^2}
+&& \text{(reorder the terms)}
+\ea
+$$
+
+:::

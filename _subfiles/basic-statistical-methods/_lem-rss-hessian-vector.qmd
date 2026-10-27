@@ -13,6 +13,7 @@ and it is positive definite at every $\vcoef$ when $\sspred > 0$ (@def-centered-
 
 ::: proof
 
-This is the solution to @exr-rss-hessian-vector.
+The [Hessian](intro-MLEs.qmd#def-hessian) is the solution to @exr-rss-hessian-vector.
+The positive definiteness is the solution to @exr-rss-hessian-vector-positive-definite.
 
 :::

@@ -1,0 +1,22 @@
+:::{#sol-prac-exp-mle-maximum}
+
+Evaluated at $\hat\pmean_{ML} = \rvarbar$:
+
+$$
+\ba
+\hess(\rvarbar; \vx)
+&= \frac{n}{\rvarbar^2} - \frac{2n\rvarbar}{\rvarbar^3}
+&& \text{(second derivative at $\pmean = \rvarbar$)}
+\\
+&= \frac{n}{\rvarbar^2} - \frac{2n}{\rvarbar^2}
+&& \text{(cancel one factor of $\rvarbar$)}
+\\
+&= -\frac{n}{\rvarbar^2}
+&& \text{(combine like terms)}
+\ea
+$$
+
+Since $n > 0$ and $\rvarbar^2 > 0$, the second derivative is negative,
+so $\hat\pmean_{ML} = \rvarbar$ is a maximum.
+
+:::

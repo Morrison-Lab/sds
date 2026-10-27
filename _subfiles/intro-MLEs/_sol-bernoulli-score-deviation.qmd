@@ -1,0 +1,21 @@
+:::{#sol-derive-bernoulli-score-deviation}
+
+Starting from @sol-derive-bernoulli-score:
+
+$$
+\begin{aligned}
+\score
+&= \frac{x - \prob}{\prob(1 - \prob)}
+&& \text{(score)}\\
+&= \frac{x - \prob}{\Var{X}}
+&& \text{($\Var{X} = \prob(1 - \prob)$)}\\
+&= \frac{x - \E{X}}{\Var{X}}
+&& \text{($\E{X} = \prob$)}\\
+&= \frac{\devn}{\Var{X}}
+&& \text{(definition of $\devn$)}\\
+&= \precision \devn
+&& \text{(definition of $\precision$)}
+\end{aligned}
+$$
+
+:::

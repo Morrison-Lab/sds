@@ -5,6 +5,5 @@ Rewrite the [cross-validation estimate](#def-cv-estimate) @eq-cv-estimate
 as $1/\nobs$ times a double sum:
 an outer sum over the fold numbers $\ifold = 1, \ldots, \nfolds$
 and an inner sum over the observations $\iobs$ in [fold](#def-folds) $\fold{\ifold}$.
-Then simplify the summand, so that it no longer uses the fold assignment $\foldof{\iobs}$.
 
 :::

@@ -1,0 +1,35 @@
+:::{#sol-prac-exp-mle}
+
+$$
+\ba
+\llik(\pmean; \vx)
+&= \logf{\prodin \frac{1}{\pmean} e^{-\rvar_\iobs/\pmean}}
+&& \text{(log of the likelihood of an $\iid$ sample)}
+\\
+&= \sumin \logf{\frac{1}{\pmean} e^{-\rvar_\iobs/\pmean}}
+&& \text{(log of a product)}
+\\
+&= \sumin \paren{\logf{\frac{1}{\pmean}} + \logf{e^{-\rvar_\iobs/\pmean}}}
+&& \text{(log of a product)}
+\\
+&= \sumin \paren{-\logf{\pmean} + \logf{e^{-\rvar_\iobs/\pmean}}}
+&& \text{(log of a reciprocal)}
+\\
+&= \sumin \paren{-\logf{\pmean} - \frac{\rvar_\iobs}{\pmean}}
+&& \text{($\logt$ undoes $\expt$)}
+\\
+&= \sumin \paren{-\logf{\pmean}} - \sumin \frac{\rvar_\iobs}{\pmean}
+&& \text{(distribute the sum over the terms)}
+\\
+&= -n\logf{\pmean} - \sumin \frac{\rvar_\iobs}{\pmean}
+&& \text{(sum of $n$ identical terms)}
+\\
+&= -n\logf{\pmean} - \frac{1}{\pmean}\sumin \rvar_\iobs
+&& \text{(factor the constant $\tfrac{1}{\pmean}$ out of the sum)}
+\\
+&= -n\logf{\pmean} - \frac{n\rvarbar}{\pmean}
+&& \text{($\textstyle\sumin \rvar_\iobs = n\rvarbar$)}
+\ea
+$$
+
+:::

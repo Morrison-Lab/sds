@@ -1,0 +1,44 @@
+:::{#sol-prac-exp-mle-score}
+
+$$
+\ba
+\score(\pmean; \vx)
+&= \deriv{\pmean}\paren{-n\logf{\pmean} - \frac{n\rvarbar}{\pmean}}
+&& \text{(log-likelihood)}
+\\
+&= \deriv{\pmean}\paren{-n\logf{\pmean} - n\rvarbar\pmean^{-1}}
+&& \text{(write $\tfrac{n\rvarbar}{\pmean}$ as $n\rvarbar\pmean^{-1}$)}
+\\
+&= \deriv{\pmean}\paren{-n\logf{\pmean}} - \deriv{\pmean}\paren{n\rvarbar\pmean^{-1}}
+&& \text{(linearity of differentiation)}
+\\
+&= -n\deriv{\pmean}\logf{\pmean} - n\rvarbar\deriv{\pmean}\pmean^{-1}
+&& \text{(constant multiple rule)}
+\\
+&= -n\pmean^{-1} - n\rvarbar\deriv{\pmean}\pmean^{-1}
+&& \text{(derivative of $\log$)}
+\\
+&= -n\pmean^{-1} - n\rvarbar\paren{-\pmean^{-2}}
+&& \text{(power rule)}
+\\
+&= -n\pmean^{-1} + n\rvarbar\pmean^{-2}
+&& \text{(multiply)}
+\\
+&= -\frac{n}{\pmean} + \frac{n\rvarbar}{\pmean^2}
+&& \text{(write the negative powers as fractions)}
+\\
+&= -\frac{n\pmean}{\pmean^2} + \frac{n\rvarbar}{\pmean^2}
+&& \text{(write both terms over the common denominator)}
+\\
+&= \frac{-n\pmean + n\rvarbar}{\pmean^2}
+&& \text{(combine the fractions)}
+\\
+&= \frac{n\rvarbar - n\pmean}{\pmean^2}
+&& \text{(reorder the numerator)}
+\\
+&= \frac{n}{\pmean^2}\paren{\rvarbar - \pmean}
+&& \text{(factor out $\tfrac{n}{\pmean^2}$)}
+\ea
+$$
+
+:::

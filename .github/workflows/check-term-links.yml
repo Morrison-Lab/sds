@@ -18,6 +18,8 @@ jobs:
     with:
       # `**`, not `*`: gha's matcher stops a single `*` at a `/`.
       paths-ignore: '_extensions/**'
+      # Ordinary English words that the corpus also defines as terms.
+      allow-file: .github/term-links-allow.txt
       # A manual run has no PR to diff against, and would otherwise skip
       # having examined nothing; make it report the whole tree instead.
       whole-tree: ${{ github.event_name == 'workflow_dispatch' }}

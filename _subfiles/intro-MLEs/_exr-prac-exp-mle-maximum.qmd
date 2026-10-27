@@ -1,0 +1,7 @@
+:::{#exr-prac-exp-mle-maximum}
+#### Check the critical point is a maximum
+
+In the setting of @exr-prac-exp-mle,
+use the second derivative from @exr-prac-exp-mle-second-derivative to verify that the [critical point](#def-critical-point) $\hat\pmean_{ML}$ from @exr-prac-exp-mle-mle is a maximum.
+
+:::

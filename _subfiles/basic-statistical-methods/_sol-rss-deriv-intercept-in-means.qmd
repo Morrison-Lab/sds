@@ -1,0 +1,24 @@
+:::{#sol-rss-deriv-intercept-in-means}
+
+Write the derivative from @exr-rss-deriv-intercept
+in terms of $\predbar$ and $\outbar$:
+
+$$
+\begin{aligned}
+\frac{\partial \text{RSS}}{\partial \intcoef}
+&= -2 \sumin (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
+&& \text{(derivative of the RSS)}\\
+&= -2 \paren{\sumin \outvar_\iobs - \sumin \intcoef - \sumin \coef{x} \predvar_\iobs}
+&& \text{(distribute the sum over the terms)}\\
+&= -2 \paren{\sumin \outvar_\iobs - n \intcoef - \sumin \coef{x} \predvar_\iobs}
+&& \text{(sum of a constant)}\\
+&= -2 \paren{\sumin \outvar_\iobs - n \intcoef - \coef{x} \sumin \predvar_\iobs}
+&& \text{(constant factor out of the sum)}\\
+&= -2 \paren{n \outbar - n \intcoef - \coef{x} \sumin \predvar_\iobs}
+&& \text{($\sumin \outvar_\iobs = n \outbar$)}\\
+&= -2 \paren{n \outbar - n \intcoef - \coef{x} n \predbar}
+&& \text{($\sumin \predvar_\iobs = n \predbar$)}
+\end{aligned}
+$$
+
+:::
