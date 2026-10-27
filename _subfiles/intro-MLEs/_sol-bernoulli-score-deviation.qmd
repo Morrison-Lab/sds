@@ -9,12 +9,12 @@ $$
 && \text{(score)}\\
 &= \frac{x - \prob}{\Var{X}}
 && \text{($\Var{X} = \prob(1 - \prob)$)}\\
-&= \precision (x - \prob)
-&& \text{(definition of $\precision$)}\\
-&= \precision \paren{x - \E{X}}
+&= \frac{x - \E{X}}{\Var{X}}
 && \text{($\E{X} = \prob$)}\\
+&= \frac{\devn}{\Var{X}}
+&& \text{(definition of $\devn$)}\\
 &= \precision \devn
-&& \text{(definition of $\devn$)}
+&& \text{(definition of $\precision$)}
 \end{aligned}
 $$
 

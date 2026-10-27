@@ -14,10 +14,8 @@ $$\score = \precision \devn = \frac{\devn}{\Var{X}} = \frac{x - \prob}{\prob(1 -
 ::: proof
 
 The [score](#def-score) as $(x - \prob) / \paren{\prob(1 - \prob)}$ is the solution to @exr-derive-bernoulli-score, worked in @sol-derive-bernoulli-score.
-Writing the score as $\precision \devn$ is the solution to @exr-derive-bernoulli-score-deviation,
+Writing the score as $\devn / \Var{X}$ and then as $\precision \devn$ is the solution to @exr-derive-bernoulli-score-deviation,
 worked in @sol-derive-bernoulli-score-deviation.
-@sol-derive-bernoulli-score-deviation also gives the two equalities in between,
-which use $\Var{X} = \prob(1 - \prob)$ and the definition of $\precision$.
 The proof builds on @cor-bernoulli-loglik-contribution-logodds.
 
 :::
