@@ -1,0 +1,37 @@
+::: {#exm-bayes-proportion-stan}
+#### The Bernoulli model fitted with Stan
+
+The data and the [uniform prior](bayesian-inference.qmd#def-flat-prior) are those of [the JAGS example](#exm-bayes-proportion).
+The Stan program declares the data and the parameter with their types and ranges,
+and the `model` block states the [prior](bayesian-inference.qmd#def-prior) and the [likelihood](intro-MLEs.qmd#def-lik):
+
+```{r}
+#| label: stan-proportion
+#| code-fold: false
+bernoulli_stan <- "
+data {
+  int<lower=0> N;
+  array[N] int<lower=0, upper=1> y;
+}
+parameters {
+  real<lower=0, upper=1> p;
+}
+model {
+  p ~ beta(1, 1);
+  y ~ bernoulli(p);
+}
+"
+stan_fit <- rstan::stan(
+  model_code = bernoulli_stan,
+  data = list(N = length(y), y = y),
+  chains = 2,
+  warmup = 1000,
+  iter = 5000,
+  seed = 1,
+  refresh = 0
+)
+stan_draws <- as.matrix(stan_fit, pars = "p")[, "p"]
+stan_summary <- rstan::summary(stan_fit, pars = "p")$summary
+round(stan_summary[, c("mean", "2.5%", "97.5%", "Rhat")], 3)
+```
+:::
