@@ -6,7 +6,7 @@ $$
 \ba
 \hess(\pmean; \vx)
 &= \deriv{\pmean}\paren{-\frac{n}{\pmean} + \frac{n\rvarbar}{\pmean^2}}
-&& \text{(score)}
+&& \text{(score, before factoring)}
 \\
 &= \deriv{\pmean}\paren{-n\pmean^{-1} + n\rvarbar\pmean^{-2}}
 && \text{(write the fractions as negative powers)}
