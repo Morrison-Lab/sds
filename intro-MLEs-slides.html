@@ -359,7 +359,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-27 11:13:53 (PDT)</p>
+  <p class="date">Last modified: 2026-10-27 16:11:29 (PDT)</p>
 </section><section id="sec-intro-MLEs" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Overview of maximum likelihood estimation</h2>
 <style>
@@ -2719,14 +2719,8 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p><span class="theorem-title"><strong>Example 14 (Precision of a Bernoulli variable)</strong></span> If <span class="math inline">\(Y\)</span> is a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli">Bernoulli</a> variable, <span class="math inline">\(Y\sim \operatorname{Ber}(\pi)\)</span> with <span class="math inline">\(\pi\in (0, 1)\)</span>, then <span class="math inline">\({\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}} = \pi(1 - \pi)\)</span>, so the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> of <span class="math inline">\(Y\)</span> is <span class="math inline">\(\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-derive-bernoulli-score" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 41 (Score function of a Bernoulli variable)</strong></span> Let <span class="math inline">\(X \sim \operatorname{Ber}(\pi)\)</span> have observed value <span class="math inline">\(x \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>, and let:</p>
-<ul>
-<li>
-<span class="math inline">\(\mathbb{d}\stackrel{\text{def}}{=}x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}}\)</span> be the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> of <span class="math inline">\(x\)</span> from the mean of <span class="math inline">\(X\)</span>;</li>
-<li>
-<span class="math inline">\(\tau\stackrel{\text{def}}{=}1 / {\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\)</span> be the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> of <span class="math inline">\(X\)</span>.</li>
-</ul>
-<p>Derive the <a href="#/def-score">score</a> of <span class="math inline">\(x\)</span>. In other words, differentiate the <a href="#/def-loglik">log-likelihood</a> of <span class="math inline">\(x\)</span> with respect to the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-event">event</a> <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> parameter <span class="math inline">\(\pi\)</span>, starting from the log-likelihood in terms of the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-odds">log-odds</a> <span class="math inline">\(\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\)</span> in <a href="#/cor-bernoulli-loglik-contribution-logodds" class="quarto-xref">Corollary&nbsp;1</a>. Write the result using <span class="math inline">\(\mathbb{d}\)</span> and <span class="math inline">\(\tau\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 41 (Score function of a Bernoulli variable)</strong></span> Let <span class="math inline">\(X \sim \operatorname{Ber}(\pi)\)</span> have observed value <span class="math inline">\(x \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>.</p>
+<p>Derive the <a href="#/def-score">score</a> of <span class="math inline">\(x\)</span>. In other words, differentiate the <a href="#/def-loglik">log-likelihood</a> of <span class="math inline">\(x\)</span> with respect to the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-event">event</a> <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> parameter <span class="math inline">\(\pi\)</span>, starting from the log-likelihood in terms of the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-odds">log-odds</a> <span class="math inline">\(\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\)</span> in <a href="#/cor-bernoulli-loglik-contribution-logodds" class="quarto-xref">Corollary&nbsp;1</a>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-derive-bernoulli-score" class="proof solution">
 <p><span class="proof-title"><em>Solution 41</em>. </span>With <span class="math inline">\(y_i= x\)</span>, <a href="#/cor-bernoulli-loglik-contribution-logodds" class="quarto-xref">Corollary&nbsp;1</a> gives <span class="math inline">\(\ell= x \eta+ {\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}}\)</span>, so:</p>
@@ -2784,29 +2778,44 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 &amp;= \frac{1 - \pi}{\pi(1 - \pi)} + \frac{\pi}{\pi(1 - \pi)}
 &amp;&amp; \text{(write both terms over the common denominator)}\\
 &amp;= \frac{1}{\pi(1 - \pi)}
-&amp;&amp; \text{(add the numerators)}\\
-&amp;= \frac{1}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}}
-&amp;&amp; \text{(${\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \pi(1 - \pi)$)}\\
-&amp;= \tau
-&amp;&amp; \text{(definition of $\tau$)}
+&amp;&amp; \text{(add the numerators)}
 \end{aligned}
 \]</span></p>
 <p>Substituting both derivatives back in:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \ell'
-&amp;= x \tau- \frac{1}{1 - \pi}
+&amp;= x \mathopen{}\left(\frac{1}{\pi(1 - \pi)}\right)\mathclose{} + \mathopen{}\left(-\frac{1}{1 - \pi}\right)\mathclose{}
 &amp;&amp; \text{(substitute the two derivatives)}\\
-&amp;= x \tau- \frac{\pi}{\pi(1 - \pi)}
-&amp;&amp; \text{(multiply the numerator and denominator by $\pi$)}\\
-&amp;= x \tau- \pi\tau
-&amp;&amp; \text{(definition of $\tau$)}\\
-&amp;= \tau(x - \pi)
-&amp;&amp; \text{(factor out $\tau$)}\\
-&amp;= \tau\mathopen{}\left(x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}}\right)\mathclose{}
+&amp;= \frac{x}{\pi(1 - \pi)} + \mathopen{}\left(-\frac{1}{1 - \pi}\right)\mathclose{}
+&amp;&amp; \text{(multiply $x$ into the numerator)}\\
+&amp;= \frac{x}{\pi(1 - \pi)} - \frac{1}{1 - \pi}
+&amp;&amp; \text{(adding a negative is subtracting)}\\
+&amp;= \frac{x}{\pi(1 - \pi)} - \frac{\pi}{\pi(1 - \pi)}
+&amp;&amp; \text{(multiply the numerator and denominator of the second term by $\pi$)}\\
+&amp;= \frac{x - \pi}{\pi(1 - \pi)}
+&amp;&amp; \text{(combine the fractions)}
+\end{aligned}
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="exr-derive-bernoulli-score-deviation" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 42 (Score of a Bernoulli variable in terms of deviation and precision)</strong></span> In the setting of <a href="#/exr-derive-bernoulli-score" class="quarto-xref">Exercise&nbsp;41</a>, let <span class="math inline">\(\mathbb{d}\stackrel{\text{def}}{=}x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}}\)</span> be the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> of <span class="math inline">\(x\)</span> from the mean of <span class="math inline">\(X\)</span>, and let <span class="math inline">\(\tau\stackrel{\text{def}}{=}1 / {\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\)</span> be the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> of <span class="math inline">\(X\)</span>. Write the <a href="#/def-score">score</a> using <span class="math inline">\(\mathbb{d}\)</span> and <span class="math inline">\(\tau\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-derive-bernoulli-score-deviation" class="proof solution">
+<p><span class="proof-title"><em>Solution 42</em>. </span>Starting from <a href="#/sol-derive-bernoulli-score" class="quarto-xref">Solution&nbsp;41</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\ell'
+&amp;= \frac{x - \pi}{\pi(1 - \pi)}
+&amp;&amp; \text{(score)}\\
+&amp;= \frac{x - \pi}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}}
+&amp;&amp; \text{(${\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \pi(1 - \pi)$)}\\
+&amp;= \frac{x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}}}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}}
 &amp;&amp; \text{(${\mathbb{E}\mathopen{}\left[X\right]\mathclose{}} = \pi$)}\\
+&amp;= \frac{\mathbb{d}}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}}
+&amp;&amp; \text{(definition of $\mathbb{d}$)}\\
 &amp;= \tau\mathbb{d}
-&amp;&amp; \text{(definition of $\mathbb{d}$)}
+&amp;&amp; \text{(definition of $\tau$)}
 \end{aligned}
 \]</span></p>
 </div>
@@ -2815,7 +2824,7 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p><span class="math display">\[\ell'= \tau\mathbb{d}= \frac{\mathbb{d}}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}} = \frac{x - \pi}{\pi(1 - \pi)}\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-derive-bernoulli-score" class="quarto-xref">Exercise&nbsp;41</a>, worked in <a href="#/sol-derive-bernoulli-score" class="quarto-xref">Solution&nbsp;41</a>. It builds on <a href="#/cor-bernoulli-loglik-contribution-logodds" class="quarto-xref">Corollary&nbsp;1</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The <a href="#/def-score">score</a> as <span class="math inline">\((x - \pi) / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span> is the solution to <a href="#/exr-derive-bernoulli-score" class="quarto-xref">Exercise&nbsp;41</a>, worked in <a href="#/sol-derive-bernoulli-score" class="quarto-xref">Solution&nbsp;41</a>. Writing the score as <span class="math inline">\(\mathbb{d}/ {\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\)</span> and then as <span class="math inline">\(\tau\mathbb{d}\)</span> is the solution to <a href="#/exr-derive-bernoulli-score-deviation" class="quarto-xref">Exercise&nbsp;42</a>, worked in <a href="#/sol-derive-bernoulli-score-deviation" class="quarto-xref">Solution&nbsp;42</a>. The proof builds on <a href="#/cor-bernoulli-loglik-contribution-logodds" class="quarto-xref">Corollary&nbsp;1</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-score-bernoulli" class="theorem example">
 <p><span class="theorem-title"><strong>Example 15 (Score of one Bernoulli observation)</strong></span> For a Bernoulli variable with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-event">event</a> <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\pi\)</span> and observed value <span class="math inline">\(x \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>, the <a href="#/def-score">score</a> in <a href="#/thm-bernoulli-score" class="quarto-xref">Theorem&nbsp;20</a> is <span class="math inline">\(1 / \pi\)</span> when <span class="math inline">\(x = 1\)</span> and <span class="math inline">\(-1 / (1 - \pi)\)</span> when <span class="math inline">\(x = 0\)</span>. When the event occurs, the <a href="#/def-loglik">log-likelihood</a> increases as <span class="math inline">\(\pi\)</span> increases. When the event does not occur, the log-likelihood decreases as <span class="math inline">\(\pi\)</span> increases.</p>
@@ -2826,26 +2835,47 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p><span class="proof-title"><em>Remark 11</em> (The score function in natural exponential families). </span>This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter <em>natural</em> (or linear) exponential family, whose log-density is linear in <span class="math inline">\(x\)</span>; for every such family, the score with respect to the mean is <span class="math inline">\((x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}})/{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\)</span>. Other members of the broader <a href="https://en.wikipedia.org/wiki/Exponential_family">exponential family</a>, such as the Weibull distribution with known shape <span class="math inline">\(k \ne 1\)</span>, do not have this form. Exponential-family distributions share many special properties <span class="citation" data-cites="hoggtanis2015 dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[1, Ch. 3]</a>, <a href="#/references" role="doc-biblioref" onclick="">[7, Sec. 6.7]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-bernoulli-score-contribution" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 42 (Score contribution of one binary outcome)</strong></span> In the setting of <a href="#/exr-bernoulli-loglik-contribution" class="quarto-xref">Exercise&nbsp;38</a>, let:</p>
+<p><span class="theorem-title"><strong>Exercise 43 (Score contribution of one binary outcome)</strong></span> In the setting of <a href="#/exr-bernoulli-loglik-contribution" class="quarto-xref">Exercise&nbsp;38</a>, derive the <a href="#/def-score">score</a> contribution <span class="math inline">\(\ell'_i(\pi) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell_i(\pi)\)</span> of <a href="./exploratory-descriptive.html#def-observation">observation</a> <span class="math inline">\(i\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-bernoulli-score-contribution" class="proof solution">
+<p><span class="proof-title"><em>Solution 43</em>. </span>The <a href="#/def-score">score</a> contribution is the score of the single <a href="./exploratory-descriptive.html#def-observation">observation</a> <span class="math inline">\(y_i\)</span>, so <a href="#/thm-bernoulli-score" class="quarto-xref">Theorem&nbsp;20</a> with <span class="math inline">\(x = y_i\)</span> gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\ell'_i(\pi)
+&amp;= \frac{\partial}{\partial \pi} \ell_i(\pi)
+&amp;&amp; \text{(definition of the score contribution)}\\
+&amp;= \frac{y_i- \pi}{\pi(1 - \pi)}
+&amp;&amp; \text{(score of a Bernoulli variable)}
+\end{aligned}
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="exr-bernoulli-score-contribution-deviation" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 44 (Score contribution in terms of deviation and precision)</strong></span> In the setting of <a href="#/exr-bernoulli-score-contribution" class="quarto-xref">Exercise&nbsp;43</a>, let:</p>
 <ul>
 <li>
 <span class="math inline">\(\mathbb{d}_i\stackrel{\text{def}}{=}y_i- \pi\)</span> be the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> of <span class="math inline">\(y_i\)</span> from its mean <span class="math inline">\(\pi\)</span>;</li>
 <li>
 <span class="math inline">\(\tau\stackrel{\text{def}}{=}1 / {\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}\)</span> be the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> of <span class="math inline">\(Y_i\)</span>.</li>
 </ul>
-<p>Derive the <a href="#/def-score">score</a> contribution <span class="math inline">\(\ell'_i(\pi) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell_i(\pi)\)</span> of observation <span class="math inline">\(i\)</span>, and write it using <span class="math inline">\(\mathbb{d}_i\)</span> and <span class="math inline">\(\tau\)</span>.</p>
+<p>Write the <a href="#/def-score">score</a> contribution using <span class="math inline">\(\mathbb{d}_i\)</span> and <span class="math inline">\(\tau\)</span>.</p>
 </div>
-</section><section class="slide level2"><div id="sol-bernoulli-score-contribution" class="proof solution">
-<p><span class="proof-title"><em>Solution 42</em>. </span><span class="math display">\[
+</section><section class="slide level2"><div id="sol-bernoulli-score-contribution-deviation" class="proof solution">
+<p><span class="proof-title"><em>Solution 44</em>. </span>Starting from <a href="#/sol-bernoulli-score-contribution" class="quarto-xref">Solution&nbsp;43</a>:</p>
+<p><span class="math display">\[
 \begin{aligned}
 \ell'_i(\pi)
-&amp;= \frac{\partial}{\partial \pi} \ell_i(\pi)
-&amp;&amp; \text{(definition of the score contribution)}\\
+&amp;= \frac{y_i- \pi}{\pi(1 - \pi)}
+&amp;&amp; \text{(score contribution)}\\
+&amp;= \frac{y_i- \pi}{{\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}}
+&amp;&amp; \text{(${\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}} = \pi(1 - \pi)$)}\\
+&amp;= \frac{y_i- {\mathbb{E}\mathopen{}\left[Y_i\right]\mathclose{}}}{{\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}}
+&amp;&amp; \text{(${\mathbb{E}\mathopen{}\left[Y_i\right]\mathclose{}} = \pi$)}\\
+&amp;= \frac{\mathbb{d}_i}{{\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}}
+&amp;&amp; \text{(definition of $\mathbb{d}_i$)}\\
 &amp;= \tau\mathbb{d}_i
-&amp;&amp; \text{(score of a Bernoulli variable, with $x = y_i$)}
+&amp;&amp; \text{(definition of $\tau$)}
 \end{aligned}
 \]</span></p>
-<p>The last step is <a href="#/thm-bernoulli-score" class="quarto-xref">Theorem&nbsp;20</a> for the observed value <span class="math inline">\(y_i\)</span> of <span class="math inline">\(Y_i\)</span>, whose <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> is <span class="math inline">\(\tau\)</span> and whose <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> is <span class="math inline">\(\mathbb{d}_i\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="thm-bernoulli-score-contribution" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 21 (Score contribution of one binary outcome)</strong></span> If <span class="math inline">\(Y_i\sim \operatorname{Ber}(\pi)\)</span> has observed value <span class="math inline">\(y_i\in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> and <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> <span class="math inline">\(\tau= 1 / {\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}} = 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span>, its <a href="#/def-score">score</a> contribution is the precision times the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> <span class="math inline">\(\mathbb{d}_i\stackrel{\text{def}}{=}y_i- \pi\)</span> of <span class="math inline">\(y_i\)</span> from its mean <span class="math inline">\(\pi\)</span>:</p>
@@ -2853,12 +2883,12 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p>The precision <span class="math inline">\(\tau\)</span> is the same for every <span class="math inline">\(i\)</span>, because all <span class="math inline">\(Y_i\)</span> share the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-event">event</a> <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\pi\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-score-contribution" class="quarto-xref">Exercise&nbsp;42</a>, worked in <a href="#/sol-bernoulli-score-contribution" class="quarto-xref">Solution&nbsp;42</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The <a href="#/def-score">score</a> contribution as <span class="math inline">\((y_i- \pi) / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span> is the solution to <a href="#/exr-bernoulli-score-contribution" class="quarto-xref">Exercise&nbsp;43</a>, worked in <a href="#/sol-bernoulli-score-contribution" class="quarto-xref">Solution&nbsp;43</a>. The form in terms of the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> is the solution to <a href="#/exr-bernoulli-score-contribution-deviation" class="quarto-xref">Exercise&nbsp;44</a>, worked in <a href="#/sol-bernoulli-score-contribution-deviation" class="quarto-xref">Solution&nbsp;44</a>.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.5" id="the-score-function-of-the-sample">
 <span class="header-section-number">3.5</span> The score function of the sample</h3>
 <div id="exr-bernoulli-sample-mean-deviation" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 43 (Sample mean of the deviations of a binary sample)</strong></span> In the setting of <a href="#/exr-bernoulli-score-contribution" class="quarto-xref">Exercise&nbsp;42</a>, let:</p>
+<p><span class="theorem-title"><strong>Exercise 45 (Sample mean of the deviations of a binary sample)</strong></span> In the setting of <a href="#/exr-bernoulli-score-contribution" class="quarto-xref">Exercise&nbsp;43</a>, let:</p>
 <ul>
 <li>
 <span class="math inline">\({\bar{y}}\stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^ny_i\)</span> be the <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> of the observed outcomes;</li>
@@ -2868,7 +2898,7 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p>Write <span class="math inline">\({\bar{\mathbb{d}}}\)</span> using <span class="math inline">\({\bar{y}}\)</span> and <span class="math inline">\(\pi\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-bernoulli-sample-mean-deviation" class="proof solution">
-<p><span class="proof-title"><em>Solution 43</em>. </span><span class="math display">\[
+<p><span class="proof-title"><em>Solution 45</em>. </span><span class="math display">\[
 \begin{aligned}
 {\bar{\mathbb{d}}}
 &amp;= \frac{1}{n}\sum_{i=1}^n\mathbb{d}_i
@@ -2889,10 +2919,10 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="exr-bernoulli-score-sum" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 44 (Score function of a binary sample)</strong></span> In the setting of <a href="#/exr-bernoulli-sample-mean-deviation" class="quarto-xref">Exercise&nbsp;43</a>, assemble the <a href="#/def-score">score function</a> <span class="math inline">\(\ell'(\pi)\)</span> of the whole <a href="./exploratory-descriptive.html#def-sample">sample</a> from the <a href="#/def-score">score</a> contributions, and write it using <span class="math inline">\({\bar{\mathbb{d}}}\)</span> and <span class="math inline">\(\tau\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 46 (Score function of a binary sample)</strong></span> In the setting of <a href="#/exr-bernoulli-sample-mean-deviation" class="quarto-xref">Exercise&nbsp;45</a>, assemble the <a href="#/def-score">score function</a> <span class="math inline">\(\ell'(\pi)\)</span> of the whole <a href="./exploratory-descriptive.html#def-sample">sample</a> from the <a href="#/def-score">score</a> contributions, and write it using <span class="math inline">\({\bar{\mathbb{d}}}\)</span> and <span class="math inline">\(\tau\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-bernoulli-score-sum" class="proof solution">
-<p><span class="proof-title"><em>Solution 44</em>. </span><span class="math display">\[
+<p><span class="proof-title"><em>Solution 46</em>. </span><span class="math display">\[
 \begin{aligned}
 \ell'(\pi)
 &amp;= \sum_{i=1}^n\ell'_i(\pi)
@@ -2913,15 +2943,15 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p><span class="math display">\[\ell'(\pi) = n \tau{\bar{\mathbb{d}}}= n \tau({\bar{y}}- \pi)\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The first equality is the solution to <a href="#/exr-bernoulli-score-sum" class="quarto-xref">Exercise&nbsp;44</a>, worked in <a href="#/sol-bernoulli-score-sum" class="quarto-xref">Solution&nbsp;44</a>. The second is the solution to <a href="#/exr-bernoulli-sample-mean-deviation" class="quarto-xref">Exercise&nbsp;43</a>, worked in <a href="#/sol-bernoulli-sample-mean-deviation" class="quarto-xref">Solution&nbsp;43</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The first equality is the solution to <a href="#/exr-bernoulli-score-sum" class="quarto-xref">Exercise&nbsp;46</a>, worked in <a href="#/sol-bernoulli-score-sum" class="quarto-xref">Solution&nbsp;46</a>. The second is the solution to <a href="#/exr-bernoulli-sample-mean-deviation" class="quarto-xref">Exercise&nbsp;45</a>, worked in <a href="#/sol-bernoulli-sample-mean-deviation" class="quarto-xref">Solution&nbsp;45</a>.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.6" id="solving-the-score-equation-1">
 <span class="header-section-number">3.6</span> Solving the score equation</h3>
 <div id="exr-bernoulli-score-equation" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 45 (Solving the score equation of a binary sample)</strong></span> In the setting of <a href="#/exr-bernoulli-score-sum" class="quarto-xref">Exercise&nbsp;44</a>, assume <span class="math inline">\({\bar{y}}\in (0, 1)\)</span>: the <a href="./exploratory-descriptive.html#def-sample">sample</a> has at least one <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-event">event</a> and at least one non-event. Solve the <a href="#/def-score-equation">score equation</a> <span class="math inline">\(\ell'(\pi) = 0\)</span> for <span class="math inline">\(\pi\in (0, 1)\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 47 (Solving the score equation of a binary sample)</strong></span> In the setting of <a href="#/exr-bernoulli-score-sum" class="quarto-xref">Exercise&nbsp;46</a>, assume <span class="math inline">\({\bar{y}}\in (0, 1)\)</span>: the <a href="./exploratory-descriptive.html#def-sample">sample</a> has at least one <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-event">event</a> and at least one non-event. Solve the <a href="#/def-score-equation">score equation</a> <span class="math inline">\(\ell'(\pi) = 0\)</span> for <span class="math inline">\(\pi\in (0, 1)\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-bernoulli-score-equation" class="proof solution">
-<p><span class="proof-title"><em>Solution 45</em>. </span>For <span class="math inline">\(\pi\in (0, 1)\)</span>, <span class="math inline">\(\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span> is finite and positive, <!-- check-term-links: allow --> and <span class="math inline">\(n &gt; 0\)</span>, so <span class="math inline">\(n \tau\neq 0\)</span>.</p>
+<p><span class="proof-title"><em>Solution 47</em>. </span>For <span class="math inline">\(\pi\in (0, 1)\)</span>, <span class="math inline">\(\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span> is finite and positive, <!-- check-term-links: allow --> and <span class="math inline">\(n &gt; 0\)</span>, so <span class="math inline">\(n \tau\neq 0\)</span>.</p>
 <p><span class="math display">\[
 \begin{aligned}
 0 &amp;= \ell'(\pi)
@@ -2940,7 +2970,7 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p><span class="theorem-title"><strong>Theorem 23 (Solution of the score equation of a binary sample)</strong></span> If <span class="math inline">\(Y_i\ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span> for <span class="math inline">\(i= 1, \dots, n\)</span> and the observed <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> satisfies <span class="math inline">\({\bar{y}}\in (0, 1)\)</span>, then the <a href="#/def-score-equation">score equation</a> <span class="math inline">\(\ell'(\pi) = 0\)</span> has exactly one solution in <span class="math inline">\((0, 1)\)</span>: the sample mean <span class="math inline">\(\pi= {\bar{y}}\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-score-equation" class="quarto-xref">Exercise&nbsp;45</a>, worked in <a href="#/sol-bernoulli-score-equation" class="quarto-xref">Solution&nbsp;45</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-score-equation" class="quarto-xref">Exercise&nbsp;47</a>, worked in <a href="#/sol-bernoulli-score-equation" class="quarto-xref">Solution&nbsp;47</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-score-equation" class="theorem example">
 <p><span class="theorem-title"><strong>Example 16 (Score equation of a Bernoulli sample)</strong></span> For <span class="math inline">\(n\)</span> independent Bernoulli observations with <span class="math inline">\(r = \sum_i y_i\)</span> successes, the score is <span class="math inline">\(\sum_{i=1}^n(y_i- \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}\)</span> (summing <a href="#/thm-bernoulli-score">Bernoulli score</a> over the observations), so for <span class="math inline">\(0 &lt; r &lt; n\)</span> the score equation <span class="math inline">\((r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0\)</span> has the single solution <span class="math inline">\(\pi= r/n\)</span>.</p>
@@ -2948,10 +2978,10 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 </section><section class="slide level2"><h3 data-number="3.7" id="hessian-contributions">
 <span class="header-section-number">3.7</span> Hessian contributions</h3>
 <div id="exr-bernoulli-hessian-contribution" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 46 (Hessian contribution of one binary outcome)</strong></span> In the setting of <a href="#/exr-bernoulli-score-contribution" class="quarto-xref">Exercise&nbsp;42</a>, derive the <a href="#/def-hessian">Hessian</a> contribution <span class="math inline">\(\ell''_i(\pi) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell'_i(\pi)\)</span> of observation <span class="math inline">\(i\)</span>. Start from the <a href="#/def-score">score</a> contribution written as a difference of two fractions, <span class="math inline">\(\ell'_i(\pi) = y_i/ \pi- (1 - y_i) / (1 - \pi)\)</span>, the form in <a href="#/sol-derive-bernoulli-score" class="quarto-xref">Solution&nbsp;41</a> before its fractions are combined.</p>
+<p><span class="theorem-title"><strong>Exercise 48 (Hessian contribution of one binary outcome)</strong></span> In the setting of <a href="#/exr-bernoulli-score-contribution" class="quarto-xref">Exercise&nbsp;43</a>, derive the <a href="#/def-hessian">Hessian</a> contribution <span class="math inline">\(\ell''_i(\pi) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell'_i(\pi)\)</span> of observation <span class="math inline">\(i\)</span>. Start from the <a href="#/def-score">score</a> contribution written as a difference of two fractions, <span class="math inline">\(\ell'_i(\pi) = y_i/ \pi- (1 - y_i) / (1 - \pi)\)</span>, the form in <a href="#/sol-derive-bernoulli-score" class="quarto-xref">Solution&nbsp;41</a> before its fractions are combined.</p>
 </div>
 </section><section class="slide level2"><div id="sol-bernoulli-hessian-contribution" class="proof solution">
-<p><span class="proof-title"><em>Solution 46</em>. </span><span class="math display">\[
+<p><span class="proof-title"><em>Solution 48</em>. </span><span class="math display">\[
 \begin{aligned}
 \ell''_i(\pi)
 &amp;= \frac{\partial}{\partial \pi} \ell'_i(\pi)
@@ -2998,7 +3028,7 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p><span class="math display">\[\ell''_i(\pi) = -\frac{y_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1 - y_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-hessian-contribution" class="quarto-xref">Exercise&nbsp;46</a>, worked in <a href="#/sol-bernoulli-hessian-contribution" class="quarto-xref">Solution&nbsp;46</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-hessian-contribution" class="quarto-xref">Exercise&nbsp;48</a>, worked in <a href="#/sol-bernoulli-hessian-contribution" class="quarto-xref">Solution&nbsp;48</a>.</p>
 </div>
 </section><section class="slide level2"><div id="lem-bernoulli-precision-deriv" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 5 (Derivative of the Bernoulli precision)</strong></span> If <span class="math inline">\(Y\)</span> is a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli">Bernoulli</a> variable, <span class="math inline">\(Y\sim \operatorname{Ber}(\pi)\)</span> with <span class="math inline">\(\pi\in (0, 1)\)</span> and <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> <span class="math inline">\(\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span>, then the derivative of <span class="math inline">\(\tau\)</span> with respect to <span class="math inline">\(\pi\)</span> is</p>
@@ -3054,10 +3084,10 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p>The precision falls as <span class="math inline">\(\pi\)</span> rises toward <span class="math inline">\(1/2\)</span>, where it is smallest, which matches a derivative below zero.</p>
 </div>
 </section><section class="slide level2"><div id="exr-bernoulli-hessian-contribution-precision" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 47 (Hessian contribution of one binary outcome in terms of the precision and deviation)</strong></span> In the setting of <a href="#/exr-bernoulli-hessian-contribution" class="quarto-xref">Exercise&nbsp;46</a>, derive the <a href="#/def-hessian">Hessian</a> contribution <span class="math inline">\(\ell''_i(\pi)\)</span> starting from the simplified <a href="#/def-score">score</a> contribution <span class="math inline">\(\ell'_i(\pi) = \tau\mathbb{d}_i\)</span> in <a href="#/thm-bernoulli-score-contribution" class="quarto-xref">Theorem&nbsp;21</a>, with the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> <span class="math inline">\(\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span> and the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> <span class="math inline">\(\mathbb{d}_i\stackrel{\text{def}}{=}y_i- \pi\)</span>. Both <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\mathbb{d}_i\)</span> depend on <span class="math inline">\(\pi\)</span>, while the observed value <span class="math inline">\(y_i\)</span> does not.</p>
+<p><span class="theorem-title"><strong>Exercise 49 (Hessian contribution of one binary outcome in terms of the precision and deviation)</strong></span> In the setting of <a href="#/exr-bernoulli-hessian-contribution" class="quarto-xref">Exercise&nbsp;48</a>, derive the <a href="#/def-hessian">Hessian</a> contribution <span class="math inline">\(\ell''_i(\pi)\)</span> starting from the simplified <a href="#/def-score">score</a> contribution <span class="math inline">\(\ell'_i(\pi) = \tau\mathbb{d}_i\)</span> in <a href="#/thm-bernoulli-score-contribution" class="quarto-xref">Theorem&nbsp;21</a>, with the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> <span class="math inline">\(\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span> and the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> <span class="math inline">\(\mathbb{d}_i\stackrel{\text{def}}{=}y_i- \pi\)</span>. Both <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\mathbb{d}_i\)</span> depend on <span class="math inline">\(\pi\)</span>, while the observed value <span class="math inline">\(y_i\)</span> does not.</p>
 </div>
 </section><section class="slide level2"><div id="sol-bernoulli-hessian-contribution-precision" class="proof solution">
-<p><span class="proof-title"><em>Solution 47</em>. </span><span class="math display">\[
+<p><span class="proof-title"><em>Solution 49</em>. </span><span class="math display">\[
 \begin{aligned}
 \ell''_i(\pi)
 &amp;= \frac{\partial}{\partial \pi} \ell'_i(\pi)
@@ -3100,13 +3130,13 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p><span class="math display">\[\ell''_i(\pi) = -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathbb{d}_i\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-hessian-contribution-precision" class="quarto-xref">Exercise&nbsp;47</a>, worked in <a href="#/sol-bernoulli-hessian-contribution-precision" class="quarto-xref">Solution&nbsp;47</a>. It follows from <a href="#/thm-bernoulli-hessian-contribution" class="quarto-xref">Theorem&nbsp;24</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-hessian-contribution-precision" class="quarto-xref">Exercise&nbsp;49</a>, worked in <a href="#/sol-bernoulli-hessian-contribution-precision" class="quarto-xref">Solution&nbsp;49</a>. It follows from <a href="#/thm-bernoulli-hessian-contribution" class="quarto-xref">Theorem&nbsp;24</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-bernoulli-hessian-contribution-fraction" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 48 (Hessian contribution of one binary outcome as a squared deviation)</strong></span> In the setting of <a href="#/exr-bernoulli-hessian-contribution-precision" class="quarto-xref">Exercise&nbsp;47</a>, starting from the <a href="#/def-hessian">Hessian</a> contribution <span class="math inline">\(\ell''_i(\pi)\)</span> in <a href="#/cor-bernoulli-hessian-contribution-precision" class="quarto-xref">Corollary&nbsp;2</a>, write <span class="math inline">\(\ell''_i(\pi)\)</span> with the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> <span class="math inline">\(\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span> as a multiple of <span class="math inline">\({\mathopen{}\left(\tau\right)\mathclose{}}^{2}\)</span> times the square of the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> <span class="math inline">\(\mathbb{d}_i\stackrel{\text{def}}{=}y_i- \pi\)</span>. Hint: because <span class="math inline">\(y_i\in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>, <span class="math inline">\({\mathopen{}\left(y_i\right)\mathclose{}}^{2} = y_i\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 50 (Hessian contribution of one binary outcome as a squared deviation)</strong></span> In the setting of <a href="#/exr-bernoulli-hessian-contribution-precision" class="quarto-xref">Exercise&nbsp;49</a>, starting from the <a href="#/def-hessian">Hessian</a> contribution <span class="math inline">\(\ell''_i(\pi)\)</span> in <a href="#/cor-bernoulli-hessian-contribution-precision" class="quarto-xref">Corollary&nbsp;2</a>, write <span class="math inline">\(\ell''_i(\pi)\)</span> with the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> <span class="math inline">\(\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\)</span> as a multiple of <span class="math inline">\({\mathopen{}\left(\tau\right)\mathclose{}}^{2}\)</span> times the square of the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation</a> <span class="math inline">\(\mathbb{d}_i\stackrel{\text{def}}{=}y_i- \pi\)</span>. Hint: because <span class="math inline">\(y_i\in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>, <span class="math inline">\({\mathopen{}\left(y_i\right)\mathclose{}}^{2} = y_i\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-bernoulli-hessian-contribution-fraction" class="proof solution">
-<p><span class="proof-title"><em>Solution 48</em>. </span>Starting from <a href="#/cor-bernoulli-hessian-contribution-precision" class="quarto-xref">Corollary&nbsp;2</a>, factor out <span class="math inline">\({\mathopen{}\left(\tau\right)\mathclose{}}^{2}\)</span>. The reciprocal of the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> is <span class="math inline">\(1 / \tau= \pi(1 - \pi)\)</span>, so:</p>
+<p><span class="proof-title"><em>Solution 50</em>. </span>Starting from <a href="#/cor-bernoulli-hessian-contribution-precision" class="quarto-xref">Corollary&nbsp;2</a>, factor out <span class="math inline">\({\mathopen{}\left(\tau\right)\mathclose{}}^{2}\)</span>. The reciprocal of the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-precision">precision</a> is <span class="math inline">\(1 / \tau= \pi(1 - \pi)\)</span>, so:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \ell''_i(\pi)
@@ -3152,15 +3182,15 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p><span class="math display">\[\ell''_i(\pi) = -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} {\mathopen{}\left(\mathbb{d}_i\right)\mathclose{}}^{2}\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-hessian-contribution-fraction" class="quarto-xref">Exercise&nbsp;48</a>, worked in <a href="#/sol-bernoulli-hessian-contribution-fraction" class="quarto-xref">Solution&nbsp;48</a>. It follows from <a href="#/cor-bernoulli-hessian-contribution-precision" class="quarto-xref">Corollary&nbsp;2</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-hessian-contribution-fraction" class="quarto-xref">Exercise&nbsp;50</a>, worked in <a href="#/sol-bernoulli-hessian-contribution-fraction" class="quarto-xref">Solution&nbsp;50</a>. It follows from <a href="#/cor-bernoulli-hessian-contribution-precision" class="quarto-xref">Corollary&nbsp;2</a>.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.8" id="the-hessian-of-the-sample">
 <span class="header-section-number">3.8</span> The Hessian of the sample</h3>
 <div id="exr-bernoulli-hessian-sum" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 49 (Hessian of a binary sample)</strong></span> In the setting of <a href="#/exr-bernoulli-score-sum" class="quarto-xref">Exercise&nbsp;44</a>, assemble the <a href="#/def-hessian">Hessian</a> <span class="math inline">\(\ell''(\pi)\)</span> of the whole <a href="./exploratory-descriptive.html#def-sample">sample</a> from the Hessian contributions.</p>
+<p><span class="theorem-title"><strong>Exercise 51 (Hessian of a binary sample)</strong></span> In the setting of <a href="#/exr-bernoulli-score-sum" class="quarto-xref">Exercise&nbsp;46</a>, assemble the <a href="#/def-hessian">Hessian</a> <span class="math inline">\(\ell''(\pi)\)</span> of the whole <a href="./exploratory-descriptive.html#def-sample">sample</a> from the Hessian contributions.</p>
 </div>
 </section><section class="slide level2"><div id="sol-bernoulli-hessian-sum" class="proof solution">
-<p><span class="proof-title"><em>Solution 49</em>. </span><span class="math display">\[
+<p><span class="proof-title"><em>Solution 51</em>. </span><span class="math display">\[
 \begin{aligned}
 \ell''(\pi)
 &amp;= \sum_{i=1}^n\ell''_i(\pi)
@@ -3185,15 +3215,15 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p><span class="math display">\[\ell''(\pi) = -n \mathopen{}\left(\frac{{\bar{y}}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} + \frac{1 - {\bar{y}}}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{}\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-hessian-sum" class="quarto-xref">Exercise&nbsp;49</a>, worked in <a href="#/sol-bernoulli-hessian-sum" class="quarto-xref">Solution&nbsp;49</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-hessian-sum" class="quarto-xref">Exercise&nbsp;51</a>, worked in <a href="#/sol-bernoulli-hessian-sum" class="quarto-xref">Solution&nbsp;51</a>.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.9" id="checking-that-the-hessian-is-negative-definite">
 <span class="header-section-number">3.9</span> Checking that the Hessian is negative definite</h3>
 <div id="exr-bernoulli-hessian-nd" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 50 (Negative definiteness of the Hessian of a binary sample)</strong></span> In the setting of <a href="#/exr-bernoulli-hessian-sum" class="quarto-xref">Exercise&nbsp;49</a>, show that the <a href="#/def-hessian">Hessian</a> <span class="math inline">\(\ell''(\pi)\)</span> is negative definite for every <span class="math inline">\(\pi\in (0, 1)\)</span>. <!-- check-term-links: allow --></p>
+<p><span class="theorem-title"><strong>Exercise 52 (Negative definiteness of the Hessian of a binary sample)</strong></span> In the setting of <a href="#/exr-bernoulli-hessian-sum" class="quarto-xref">Exercise&nbsp;51</a>, show that the <a href="#/def-hessian">Hessian</a> <span class="math inline">\(\ell''(\pi)\)</span> is negative definite for every <span class="math inline">\(\pi\in (0, 1)\)</span>. <!-- check-term-links: allow --></p>
 </div>
 </section><section class="slide level2"><div id="sol-bernoulli-hessian-nd" class="proof solution">
-<p><span class="proof-title"><em>Solution 50</em>. </span>A <span class="math inline">\(1 \times 1\)</span> matrix is negative definite exactly when its only entry is negative, <!-- check-term-links: allow --> so it is enough to show <span class="math inline">\(\ell''(\pi) &lt; 0\)</span>.</p>
+<p><span class="proof-title"><em>Solution 52</em>. </span>A <span class="math inline">\(1 \times 1\)</span> matrix is negative definite exactly when its only entry is negative, <!-- check-term-links: allow --> so it is enough to show <span class="math inline">\(\ell''(\pi) &lt; 0\)</span>.</p>
 <p>Fix <span class="math inline">\(\pi\in (0, 1)\)</span>. Then:</p>
 <ul>
 <li>
@@ -3213,22 +3243,22 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 <p><span class="theorem-title"><strong>Theorem 26 (Negative definiteness of the Hessian of a binary sample)</strong></span> If <span class="math inline">\(Y_i\ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span> for <span class="math inline">\(i= 1, \dots, n\)</span>, the <a href="#/def-hessian">Hessian</a> <span class="math inline">\(\ell''(\pi)\)</span> of the <a href="#/def-loglik">log-likelihood</a> is negative definite for every <span class="math inline">\(\pi\in (0, 1)\)</span>, <!-- check-term-links: allow --> whatever the observed outcomes. Hence the log-likelihood is strictly concave on <span class="math inline">\((0, 1)\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-hessian-nd" class="quarto-xref">Exercise&nbsp;50</a>, worked in <a href="#/sol-bernoulli-hessian-nd" class="quarto-xref">Solution&nbsp;50</a>. It builds on <a href="#/thm-bernoulli-hessian-sum" class="quarto-xref">Theorem&nbsp;25</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-hessian-nd" class="quarto-xref">Exercise&nbsp;52</a>, worked in <a href="#/sol-bernoulli-hessian-nd" class="quarto-xref">Solution&nbsp;52</a>. It builds on <a href="#/thm-bernoulli-hessian-sum" class="quarto-xref">Theorem&nbsp;25</a>.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.10" id="the-maximum-likelihood-estimate-1">
 <span class="header-section-number">3.10</span> The maximum likelihood estimate</h3>
 <div id="exr-bernoulli-mle" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 51 (Maximum likelihood estimate of a binary sample)</strong></span> In the setting of <a href="#/exr-bernoulli-score-equation" class="quarto-xref">Exercise&nbsp;45</a>, use <a href="#/thm-bernoulli-hessian-nd" class="quarto-xref">Theorem&nbsp;26</a> to find the <a href="#/def-mle">maximum likelihood estimate</a> <span class="math inline">\(\hat{\pi}_{\text{ML}}\)</span> of <span class="math inline">\(\pi\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 53 (Maximum likelihood estimate of a binary sample)</strong></span> In the setting of <a href="#/exr-bernoulli-score-equation" class="quarto-xref">Exercise&nbsp;47</a>, use <a href="#/thm-bernoulli-hessian-nd" class="quarto-xref">Theorem&nbsp;26</a> to find the <a href="#/def-mle">maximum likelihood estimate</a> <span class="math inline">\(\hat{\pi}_{\text{ML}}\)</span> of <span class="math inline">\(\pi\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-bernoulli-mle" class="proof solution">
-<p><span class="proof-title"><em>Solution 51</em>. </span>By <a href="#/thm-bernoulli-hessian-nd" class="quarto-xref">Theorem&nbsp;26</a>, <span class="math inline">\(\ell\)</span> is strictly concave on <span class="math inline">\((0, 1)\)</span>. A strictly concave <a href="https://morrison-lab.github.io/mds/functions.html#def-function">function</a> that has a <a href="#/def-critical-point">critical point</a> is maximized there, and nowhere else. With <span class="math inline">\({\bar{y}}\in (0, 1)\)</span>, <a href="#/thm-bernoulli-score-equation" class="quarto-xref">Theorem&nbsp;23</a> says the only critical point of <span class="math inline">\(\ell\)</span> in <span class="math inline">\((0, 1)\)</span> is <span class="math inline">\({\bar{y}}\)</span>. So <span class="math inline">\(\ell\)</span> is maximized at <span class="math inline">\(\pi= {\bar{y}}\)</span>.</p>
+<p><span class="proof-title"><em>Solution 53</em>. </span>By <a href="#/thm-bernoulli-hessian-nd" class="quarto-xref">Theorem&nbsp;26</a>, <span class="math inline">\(\ell\)</span> is strictly concave on <span class="math inline">\((0, 1)\)</span>. A strictly concave <a href="https://morrison-lab.github.io/mds/functions.html#def-function">function</a> that has a <a href="#/def-critical-point">critical point</a> is maximized there, and nowhere else. With <span class="math inline">\({\bar{y}}\in (0, 1)\)</span>, <a href="#/thm-bernoulli-score-equation" class="quarto-xref">Theorem&nbsp;23</a> says the only critical point of <span class="math inline">\(\ell\)</span> in <span class="math inline">\((0, 1)\)</span> is <span class="math inline">\({\bar{y}}\)</span>. So <span class="math inline">\(\ell\)</span> is maximized at <span class="math inline">\(\pi= {\bar{y}}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="thm-bernoulli-mle" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 27 (Maximum likelihood estimate of a binary sample)</strong></span> If <span class="math inline">\(Y_i\ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span> for <span class="math inline">\(i= 1, \dots, n\)</span> and the observed <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> satisfies <span class="math inline">\({\bar{y}}\in (0, 1)\)</span>, the <a href="#/def-mle">maximum likelihood estimate</a> of <span class="math inline">\(\pi\)</span> is the sample mean:</p>
 <p><span class="math display">\[\hat{\pi}_{\text{ML}} = {\bar{y}}\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-mle" class="quarto-xref">Exercise&nbsp;51</a>, worked in <a href="#/sol-bernoulli-mle" class="quarto-xref">Solution&nbsp;51</a>. It builds on <a href="#/thm-bernoulli-score-equation" class="quarto-xref">Theorem&nbsp;23</a> and <a href="#/thm-bernoulli-hessian-nd" class="quarto-xref">Theorem&nbsp;26</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-mle" class="quarto-xref">Exercise&nbsp;53</a>, worked in <a href="#/sol-bernoulli-mle" class="quarto-xref">Solution&nbsp;53</a>. It builds on <a href="#/thm-bernoulli-score-equation" class="quarto-xref">Theorem&nbsp;23</a> and <a href="#/thm-bernoulli-hessian-nd" class="quarto-xref">Theorem&nbsp;26</a>.</p>
 </div>
 </section><section id="sec-gaussian-mle" class="slide level2" data-number="4"><h2>
 <span class="header-section-number">4</span> Maximum likelihood for univariate Gaussian models</h2>
@@ -3848,8 +3878,8 @@ Figure&nbsp;18: Log-likelihood of the HERS glucose data as a function of <span c
 </figcaption><div aria-describedby="fig-3d-llik-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-48e299c8bce5e4eb4195" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-48e299c8bce5e4eb4195">{"x":{"visdat":{"39535f96ca83":["function () ","plotlyVisDat"]},"cur_data":"39535f96ca83","attrs":{"39535f96ca83":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"surface"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"Mean, μ"},"yaxis":{"title":"sigma"},"zaxis":{"title":"log-likelihood"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"t(lliks)","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.041666666666667","rgba(70,19,97,1)"],["0.0833333333333339","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333334","rgba(64,70,135,1)"],["0.249999999999999","rgba(60,82,138,1)"],["0.291666666666666","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333334","rgba(79,191,110,1)"],["0.750000000000001","rgba(98,199,98,1)"],["0.791666666666666","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666666","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"x":[94,94.416666666666671,94.833333333333329,95.25,95.666666666666671,96.083333333333329,96.5,96.916666666666671,97.333333333333329,97.75,98.166666666666671,98.583333333333329,99,99.416666666666671,99.833333333333329,100.25,100.66666666666667,101.08333333333333,101.5,101.91666666666667,102.33333333333333,102.75,103.16666666666667,103.58333333333333,104],"y":[7,7.333333333333333,7.666666666666667,8,8.3333333333333339,8.6666666666666661,9,9.3333333333333321,9.6666666666666661,10,10.333333333333332,10.666666666666666,11,11.333333333333332,11.666666666666666,12,12.333333333333332,12.666666666666666,13,13.333333333333332,13.666666666666666,14,14.333333333333332,14.666666666666666,15],"z":[[-415.52568455252924,-411.74025371352673,-408.30913126454709,-405.23231720559045,-402.50981153665555,-400.14161425774478,-398.12772536885575,-396.46814486998971,-395.16287276114656,-394.21190904232515,-393.61525371352673,-393.37290677475119,-393.48486822599864,-393.95113806726783,-394.7717162985611,-395.94660291987617,-397.47579793121417,-399.35930133257511,-401.5971131239578,-404.18923330536347,-407.13566187679203,-410.43639883824352,-414.091444189718,-418.10079793121298,-422.46446006273334],[-408.71331607047961,-405.26419416965291,-402.13790284733886,-399.33444210353747,-396.85381193824765,-394.6960123514715,-392.86104334320692,-391.34890491345493,-390.15959706221565,-389.29311978948789,-388.74947309527278,-388.52865697957031,-388.63067144238045,-389.05551648370215,-389.80319210353758,-390.87369830188459,-392.26703507874424,-393.98320243411649,-396.02220036800031,-398.38402888039673,-401.06868797130585,-404.07617764072756,-407.40649788866193,-411.05964871510673,-415.0356301200664],[-403.15671523371685,-400.00099689723271,-397.14064718078657,-394.57566608437844,-392.3060536080074,-390.33180975167534,-388.65293451538037,-387.2694278991234,-386.18128990290444,-385.38852052672252,-384.8911197705786,-384.6890876344728,-384.78242411840495,-385.17112922237413,-385.85520294638235,-386.8346452904276,-388.10945625451092,-389.67963583863224,-391.54518404279054,-393.70610086698696,-396.16238631122133,-398.91404037549376,-401.96106305980425,-405.30345436415075,-408.94121428853725],[-398.6348824884509,-395.73666200233959,-393.10970887733959,-390.7540231134509,-388.66960471067262,-386.85645366900656,-385.3145699884509,-384.04395366900656,-383.04460471067353,-382.3165231134509,-381.85970887733959,-381.67416200233959,-381.7598824884509,-382.11687033567262,-382.74512554400656,-383.6446481134509,-384.81543804400656,-386.25749533567353,-387.9708199884509,-389.95541200233959,-392.21127137733959,-394.7383981134509,-397.53679221067353,-400.60645366900565,-403.9473824884509],[-394.97140694047636,-392.30040694047614,-389.87940694047614,-387.70840694047638,-385.78740694047588,-384.11640694047645,-382.69540694047635,-381.52440694047641,-380.6034069404767,-379.93240694047637,-379.51140694047615,-379.34040694047616,-379.41940694047634,-379.74840694047589,-380.32740694047646,-381.15640694047636,-382.23540694047642,-383.56440694047672,-385.14340694047632,-386.97240694047616,-389.05140694047617,-391.38040694047635,-393.9594069404767,-396.78840694047562,-399.86740694047637],[-392.02423091852643,-389.55474127355581,-387.31639068183983,-385.30917914337846,-383.53310665817094,-381.98817322621881,-380.67437884752047,-379.59172352207679,-378.7402072498877,-378.11983003095247,-377.73059186527178,-377.57249275284573,-377.64553269367434,-377.94971168775675,-378.48502973509454,-379.25148683568614,-380.24908298953244,-381.47781819663328,-382.93769245698797,-384.62870577059721,-386.55085813746115,-388.70414955757968,-391.08858003095281,-393.70414955757894,-396.55085813746132],[-389.67803944915096,-387.38808746012472,-385.31247017617409,-383.45118759729911,-381.80423972349899,-380.37162655477516,-379.1533480911263,-378.14940433255299,-377.35979527905528,-376.78452093063243,-376.42358128728523,-376.27697634901364,-376.34470611581764,-376.62677058769651,-377.12316976465172,-377.83390364668185,-378.75897223378752,-379.89837552596885,-381.25211352322503,-382.82018622555682,-384.60259363296427,-386.59933574544726,-388.81041256300591,-391.23582408563868,-393.87557031334848],[-387.83853465485021,-385.7092298079113,-383.77922343036028,-382.04851552219714,-380.51710608342125,-379.18499511403394,-378.05218261403388,-377.11866858342171,-376.38445302219742,-375.84953593036039,-375.5139173079113,-375.37759715485004,-375.44057547117671,-375.70285225689065,-376.16442751199315,-376.82530123648286,-377.6854734303605,-378.74494409362603,-380.00371322627876,-381.46178082831943,-383.11914689974799,-384.97581144056448,-387.03177445076886,-389.28703593035982,-391.74159587934003],[-386.42808141187567,-384.44309330248194,-382.64389591841535,-381.0304892596759,-379.60287332626297,-378.36104811817773,-377.30501363541907,-376.43476987798749,-375.75031684588305,-375.25165453910512,-374.93878295765433,-374.81170210153067,-374.87041197073415,-375.11491256526415,-375.54520388512185,-376.16128593030606,-376.96315870081747,-377.95082219665596,-379.12427641782097,-380.48352136431311,-382.02855703613233,-383.75938343327874,-385.67600055575224,-387.77840840355168,-390.06660697667945],[-385.38236261987186,-383.52750150876062,-381.84625150876059,-380.33861261987181,-379.00458484209372,-377.84416817542746,-376.85736261987182,-376.04416817542744,-375.40458484209432,-374.93861261987183,-374.6462515087606,-374.52750150876062,-374.58236261987184,-374.81083484209375,-375.21291817542749,-375.78861261987186,-376.53791817542748,-377.4608348420943,-378.55736261987181,-379.82750150876058,-381.2712515087606,-382.88861261987182,-384.6795848420943,-386.6441681754269,-388.78236261987183],[-384.64778610924691,-382.91066332048513,-381.33613158271197,-379.9241908959275,-378.67484126013113,-377.58808267532402,-376.66391514150502,-375.90233865867469,-375.303353226833,-374.86695884597952,-374.59315551611468,-374.48194323723851,-374.53332200935097,-374.74729183245165,-375.12385270654147,-375.66300463161946,-376.36474760768613,-377.22908163474148,-378.25600671278494,-379.44552284181702,-380.79763002183785,-382.31232825284735,-383.98961753484554,-385.82949786783126,-387.83196925180675],[-384.17945692112897,-382.54920789769136,-381.07154676487886,-379.74647352269147,-378.57398817112869,-377.55409071019153,-376.68678113987897,-375.97205946019153,-375.4099256711292,-375.00037977269147,-374.74342176487886,-374.63905164769136,-374.68726942112897,-374.88807508519119,-375.24146863987903,-375.74745008519147,-376.40601942112903,-377.2171766476917,-378.18092176487897,-379.29725477269136,-380.56617567112886,-381.98768446019147,-383.5617811398792,-385.28846571019102,-387.16773817112897],[-383.9395789474118,-382.40663588037773,-381.01717307046033,-379.77119051765976,-378.66868822197534,-377.70966618340816,-376.89412440195724,-376.22206287762305,-375.69348161040557,-375.30838060030436,-375.06675984731987,-374.96861935145211,-375.01395911270106,-375.20277913106628,-375.53507940654868,-376.01085993914734,-376.63012072886272,-377.39286177569483,-378.2990830796432,-379.34878464070829,-380.5419664588901,-381.87862853418864,-383.35877086660395,-384.98239345613496,-386.74949630278371],[-383.89618556579148,-382.45208954503016,-381.14315788413046,-379.96939058309249,-378.9307876419158,-378.02734906060124,-377.2590748391479,-376.62596497755624,-376.12801947582631,-375.76523833395754,-375.53762155195056,-375.44516912980521,-375.48788106752158,-375.66575736509918,-375.97879802253897,-376.42700303983992,-377.0103724170026,-377.72890615402696,-378.5826042509126,-379.57146670765991,-380.6954935242689,-381.95468470073956,-383.34904023707196,-384.87856013326513,-386.54324438932088],[-384.0221244801487,-382.65936937810778,-381.42416529647511,-380.31651223525074,-379.33641019443417,-378.48385917402629,-377.75885917402621,-377.16141019443444,-376.69151223525091,-376.34916529647523,-376.13436937810775,-376.04712448014857,-376.08743060259769,-376.25528774545455,-376.55069590872017,-376.97365509239359,-377.52416529647525,-378.20222652096521,-379.00783876586297,-379.94100203116898,-381.00171631688329,-382.18998162300585,-383.5057979495366,-384.9491652964748,-386.52008366382216],[-384.29424052148954,-383.00614252766229,-381.83860780544006,-380.79163635482286,-379.86522817581027,-379.05938326840317,-378.37410163260063,-377.80938326840317,-377.36522817581067,-377.04163635482286,-376.83860780544006,-376.75614252766229,-376.79424052148954,-376.95290178692142,-377.23212632395871,-377.63191413260063,-378.15226521284762,-378.79317956469959,-379.55465718815617,-380.43669808321783,-381.43930224988452,-382.56246968815617,-383.8062003980329,-385.17049437951385,-386.65535163260063],[-384.69271374583627,-383.47330176628907,-382.36802419141685,-381.37688102121973,-380.49987225569726,-379.73699789485016,-379.08825793867771,-378.55365238718031,-378.13318124035794,-377.82684449821022,-377.63464216073754,-377.5565742279399,-377.59264069981725,-377.74284157636924,-378.00717685759668,-378.38564654349875,-378.87825063407587,-379.48498912932803,-380.20586202925477,-381.04086933385662,-381.99001104313345,-383.05328715708532,-384.23069767571224,-385.5222425990134,-386.92792192699039],[-385.20052020468819,-384.04444333488203,-382.99657283626709,-382.05690870884331,-381.22545095261046,-380.50219956756911,-379.88715455371869,-379.38031591105943,-378.98168363959144,-378.69125773931421,-378.50903821022831,-378.43502505233357,-378.46921826563005,-378.61161785011734,-378.86222380579625,-379.22103613266603,-379.68805483072703,-380.26327989997924,-380.94671134042227,-381.73834915205657,-382.63819333488203,-383.64624388889871,-384.76250081410666,-385.98696411050503,-387.31963377809541],[-385.80299025005286,-384.70543929673261,-383.71061681152548,-382.81852279443154,-382.02915724545045,-381.34252016458282,-380.75861155182804,-380.27743140718638,-379.89897973065786,-379.62325652224223,-379.45026178193973,-379.37999550975036,-379.41245770567417,-379.54764836971077,-379.78556750186095,-380.12621510212387,-380.56959117049996,-381.11569570698924,-381.76452871159131,-382.51609018430656,-383.37038012513494,-384.32739853407656,-385.38714541113126,-386.54962075629845,-387.81482456957951],[-386.48744486504995,-385.44408549004987,-384.49838236504985,-383.65033549004994,-382.89994486504975,-382.24721049004995,-381.69213236504993,-381.23471049004996,-380.87494486505005,-380.61283549004992,-380.44838236504984,-380.38158549004987,-380.41244486504991,-380.54096049004971,-380.76713236504997,-381.09096049004989,-381.51244486504993,-382.03158549005008,-382.64838236504994,-383.36283549004986,-384.17494486504984,-385.08471049004993,-386.09213236505008,-387.19721049004966,-388.39994486504992],[-387.2428947766748,-386.24981030314706,-385.34967645424757,-384.5424932299764,-383.82826063033315,-383.20697865531849,-382.67864730493176,-382.24326657917334,-381.90083647804317,-381.65135700154093,-381.494828149667,-381.43124992242127,-381.46062231980386,-381.58294534181442,-381.79821898845353,-382.10644325972061,-382.50761815561594,-383.00174367613954,-383.58881982129105,-384.26884659107088,-385.04182398547903,-385.90775200451537,-386.86663064817998,-387.91845991647222,-389.06323980939339],[-388.05979036362578,-387.11343265387512,-386.25565204163024,-385.48644852689108,-384.80582210965736,-384.21377278992969,-383.71030056770741,-383.2954054429909,-382.96908741578011,-382.73134648607476,-382.58218265387512,-382.52159591918127,-382.54958628199313,-382.66615374231043,-382.87129830013373,-383.16501995546253,-383.54731870829704,-384.01819455863728,-384.57764750648295,-385.22567755183434,-385.96228469469145,-386.78746893505433,-387.70123027292294,-388.7035687082967,-389.7944842411768],[-388.9298128753652,-388.02695998190922,-387.20861222636569,-386.47476960873462,-385.82543212901567,-385.26059978720946,-384.78027258331542,-384.38445051733385,-384.07313358926473,-383.84632179910778,-383.70401514686324,-383.64621363253116,-383.67291725611153,-383.78412601760408,-383.97983991700937,-384.26005895432678,-384.6247831295567,-385.07401244269903,-385.60774689375353,-386.22598648272049,-386.92873120959985,-387.71598107439172,-388.587736077096,-389.54399621771216,-390.58476149624136],[-389.84569941573039,-388.98341894052368,-388.20184610994517,-387.50098092399486,-386.88082338267236,-386.34137348597835,-385.88263123391221,-385.50459662647421,-385.20726966366436,-384.99065034548244,-384.85473867192866,-384.79953464300303,-384.8250382587056,-384.93124951903599,-385.11816842399486,-385.3857949735816,-385.73412916779654,-386.16317100663957,-386.67292049011053,-387.26337761820963,-387.93454239093694,-388.68641480829234,-389.51899487027595,-390.43228257688713,-391.42627792812709],[-390.80109565291048,-389.97671293686102,-389.22949071463881,-388.5594289862438,-387.96652775167576,-387.45078701093519,-387.01220676402158,-386.65078701093518,-386.36652775167602,-386.15942898624382,-386.02949071463883,-385.97671293686102,-386.00109565291046,-386.10263886278688,-386.28134256649076,-386.53720676402156,-386.87023145537967,-387.28041664056491,-387.76776231957712,-388.33226849241657,-388.97393515908328,-389.69276231957713,-390.48874997389822,-391.36189812204606,-392.3122067640216]],"type":"surface","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-03192c280f110ec1d35d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-03192c280f110ec1d35d">{"x":{"visdat":{"33d05d31ab9b":["function () ","plotlyVisDat"]},"cur_data":"33d05d31ab9b","attrs":{"33d05d31ab9b":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"surface"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"Mean, μ"},"yaxis":{"title":"sigma"},"zaxis":{"title":"log-likelihood"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"t(lliks)","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.041666666666667","rgba(70,19,97,1)"],["0.0833333333333339","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333334","rgba(64,70,135,1)"],["0.249999999999999","rgba(60,82,138,1)"],["0.291666666666666","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333334","rgba(79,191,110,1)"],["0.750000000000001","rgba(98,199,98,1)"],["0.791666666666666","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666666","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"x":[94,94.416666666666671,94.833333333333329,95.25,95.666666666666671,96.083333333333329,96.5,96.916666666666671,97.333333333333329,97.75,98.166666666666671,98.583333333333329,99,99.416666666666671,99.833333333333329,100.25,100.66666666666667,101.08333333333333,101.5,101.91666666666667,102.33333333333333,102.75,103.16666666666667,103.58333333333333,104],"y":[7,7.333333333333333,7.666666666666667,8,8.3333333333333339,8.6666666666666661,9,9.3333333333333321,9.6666666666666661,10,10.333333333333332,10.666666666666666,11,11.333333333333332,11.666666666666666,12,12.333333333333332,12.666666666666666,13,13.333333333333332,13.666666666666666,14,14.333333333333332,14.666666666666666,15],"z":[[-415.52568455252924,-411.74025371352673,-408.30913126454709,-405.23231720559045,-402.50981153665555,-400.14161425774478,-398.12772536885575,-396.46814486998971,-395.16287276114656,-394.21190904232515,-393.61525371352673,-393.37290677475119,-393.48486822599864,-393.95113806726783,-394.7717162985611,-395.94660291987617,-397.47579793121417,-399.35930133257511,-401.5971131239578,-404.18923330536347,-407.13566187679203,-410.43639883824352,-414.091444189718,-418.10079793121298,-422.46446006273334],[-408.71331607047961,-405.26419416965291,-402.13790284733886,-399.33444210353747,-396.85381193824765,-394.6960123514715,-392.86104334320692,-391.34890491345493,-390.15959706221565,-389.29311978948789,-388.74947309527278,-388.52865697957031,-388.63067144238045,-389.05551648370215,-389.80319210353758,-390.87369830188459,-392.26703507874424,-393.98320243411649,-396.02220036800031,-398.38402888039673,-401.06868797130585,-404.07617764072756,-407.40649788866193,-411.05964871510673,-415.0356301200664],[-403.15671523371685,-400.00099689723271,-397.14064718078657,-394.57566608437844,-392.3060536080074,-390.33180975167534,-388.65293451538037,-387.2694278991234,-386.18128990290444,-385.38852052672252,-384.8911197705786,-384.6890876344728,-384.78242411840495,-385.17112922237413,-385.85520294638235,-386.8346452904276,-388.10945625451092,-389.67963583863224,-391.54518404279054,-393.70610086698696,-396.16238631122133,-398.91404037549376,-401.96106305980425,-405.30345436415075,-408.94121428853725],[-398.6348824884509,-395.73666200233959,-393.10970887733959,-390.7540231134509,-388.66960471067262,-386.85645366900656,-385.3145699884509,-384.04395366900656,-383.04460471067353,-382.3165231134509,-381.85970887733959,-381.67416200233959,-381.7598824884509,-382.11687033567262,-382.74512554400656,-383.6446481134509,-384.81543804400656,-386.25749533567353,-387.9708199884509,-389.95541200233959,-392.21127137733959,-394.7383981134509,-397.53679221067353,-400.60645366900565,-403.9473824884509],[-394.97140694047636,-392.30040694047614,-389.87940694047614,-387.70840694047638,-385.78740694047588,-384.11640694047645,-382.69540694047635,-381.52440694047641,-380.6034069404767,-379.93240694047637,-379.51140694047615,-379.34040694047616,-379.41940694047634,-379.74840694047589,-380.32740694047646,-381.15640694047636,-382.23540694047642,-383.56440694047672,-385.14340694047632,-386.97240694047616,-389.05140694047617,-391.38040694047635,-393.9594069404767,-396.78840694047562,-399.86740694047637],[-392.02423091852643,-389.55474127355581,-387.31639068183983,-385.30917914337846,-383.53310665817094,-381.98817322621881,-380.67437884752047,-379.59172352207679,-378.7402072498877,-378.11983003095247,-377.73059186527178,-377.57249275284573,-377.64553269367434,-377.94971168775675,-378.48502973509454,-379.25148683568614,-380.24908298953244,-381.47781819663328,-382.93769245698797,-384.62870577059721,-386.55085813746115,-388.70414955757968,-391.08858003095281,-393.70414955757894,-396.55085813746132],[-389.67803944915096,-387.38808746012472,-385.31247017617409,-383.45118759729911,-381.80423972349899,-380.37162655477516,-379.1533480911263,-378.14940433255299,-377.35979527905528,-376.78452093063243,-376.42358128728523,-376.27697634901364,-376.34470611581764,-376.62677058769651,-377.12316976465172,-377.83390364668185,-378.75897223378752,-379.89837552596885,-381.25211352322503,-382.82018622555682,-384.60259363296427,-386.59933574544726,-388.81041256300591,-391.23582408563868,-393.87557031334848],[-387.83853465485021,-385.7092298079113,-383.77922343036028,-382.04851552219714,-380.51710608342125,-379.18499511403394,-378.05218261403388,-377.11866858342171,-376.38445302219742,-375.84953593036039,-375.5139173079113,-375.37759715485004,-375.44057547117671,-375.70285225689065,-376.16442751199315,-376.82530123648286,-377.6854734303605,-378.74494409362603,-380.00371322627876,-381.46178082831943,-383.11914689974799,-384.97581144056448,-387.03177445076886,-389.28703593035982,-391.74159587934003],[-386.42808141187567,-384.44309330248194,-382.64389591841535,-381.0304892596759,-379.60287332626297,-378.36104811817773,-377.30501363541907,-376.43476987798749,-375.75031684588305,-375.25165453910512,-374.93878295765433,-374.81170210153067,-374.87041197073415,-375.11491256526415,-375.54520388512185,-376.16128593030606,-376.96315870081747,-377.95082219665596,-379.12427641782097,-380.48352136431311,-382.02855703613233,-383.75938343327874,-385.67600055575224,-387.77840840355168,-390.06660697667945],[-385.38236261987186,-383.52750150876062,-381.84625150876059,-380.33861261987181,-379.00458484209372,-377.84416817542746,-376.85736261987182,-376.04416817542744,-375.40458484209432,-374.93861261987183,-374.6462515087606,-374.52750150876062,-374.58236261987184,-374.81083484209375,-375.21291817542749,-375.78861261987186,-376.53791817542748,-377.4608348420943,-378.55736261987181,-379.82750150876058,-381.2712515087606,-382.88861261987182,-384.6795848420943,-386.6441681754269,-388.78236261987183],[-384.64778610924691,-382.91066332048513,-381.33613158271197,-379.9241908959275,-378.67484126013113,-377.58808267532402,-376.66391514150502,-375.90233865867469,-375.303353226833,-374.86695884597952,-374.59315551611468,-374.48194323723851,-374.53332200935097,-374.74729183245165,-375.12385270654147,-375.66300463161946,-376.36474760768613,-377.22908163474148,-378.25600671278494,-379.44552284181702,-380.79763002183785,-382.31232825284735,-383.98961753484554,-385.82949786783126,-387.83196925180675],[-384.17945692112897,-382.54920789769136,-381.07154676487886,-379.74647352269147,-378.57398817112869,-377.55409071019153,-376.68678113987897,-375.97205946019153,-375.4099256711292,-375.00037977269147,-374.74342176487886,-374.63905164769136,-374.68726942112897,-374.88807508519119,-375.24146863987903,-375.74745008519147,-376.40601942112903,-377.2171766476917,-378.18092176487897,-379.29725477269136,-380.56617567112886,-381.98768446019147,-383.5617811398792,-385.28846571019102,-387.16773817112897],[-383.9395789474118,-382.40663588037773,-381.01717307046033,-379.77119051765976,-378.66868822197534,-377.70966618340816,-376.89412440195724,-376.22206287762305,-375.69348161040557,-375.30838060030436,-375.06675984731987,-374.96861935145211,-375.01395911270106,-375.20277913106628,-375.53507940654868,-376.01085993914734,-376.63012072886272,-377.39286177569483,-378.2990830796432,-379.34878464070829,-380.5419664588901,-381.87862853418864,-383.35877086660395,-384.98239345613496,-386.74949630278371],[-383.89618556579148,-382.45208954503016,-381.14315788413046,-379.96939058309249,-378.9307876419158,-378.02734906060124,-377.2590748391479,-376.62596497755624,-376.12801947582631,-375.76523833395754,-375.53762155195056,-375.44516912980521,-375.48788106752158,-375.66575736509918,-375.97879802253897,-376.42700303983992,-377.0103724170026,-377.72890615402696,-378.5826042509126,-379.57146670765991,-380.6954935242689,-381.95468470073956,-383.34904023707196,-384.87856013326513,-386.54324438932088],[-384.0221244801487,-382.65936937810778,-381.42416529647511,-380.31651223525074,-379.33641019443417,-378.48385917402629,-377.75885917402621,-377.16141019443444,-376.69151223525091,-376.34916529647523,-376.13436937810775,-376.04712448014857,-376.08743060259769,-376.25528774545455,-376.55069590872017,-376.97365509239359,-377.52416529647525,-378.20222652096521,-379.00783876586297,-379.94100203116898,-381.00171631688329,-382.18998162300585,-383.5057979495366,-384.9491652964748,-386.52008366382216],[-384.29424052148954,-383.00614252766229,-381.83860780544006,-380.79163635482286,-379.86522817581027,-379.05938326840317,-378.37410163260063,-377.80938326840317,-377.36522817581067,-377.04163635482286,-376.83860780544006,-376.75614252766229,-376.79424052148954,-376.95290178692142,-377.23212632395871,-377.63191413260063,-378.15226521284762,-378.79317956469959,-379.55465718815617,-380.43669808321783,-381.43930224988452,-382.56246968815617,-383.8062003980329,-385.17049437951385,-386.65535163260063],[-384.69271374583627,-383.47330176628907,-382.36802419141685,-381.37688102121973,-380.49987225569726,-379.73699789485016,-379.08825793867771,-378.55365238718031,-378.13318124035794,-377.82684449821022,-377.63464216073754,-377.5565742279399,-377.59264069981725,-377.74284157636924,-378.00717685759668,-378.38564654349875,-378.87825063407587,-379.48498912932803,-380.20586202925477,-381.04086933385662,-381.99001104313345,-383.05328715708532,-384.23069767571224,-385.5222425990134,-386.92792192699039],[-385.20052020468819,-384.04444333488203,-382.99657283626709,-382.05690870884331,-381.22545095261046,-380.50219956756911,-379.88715455371869,-379.38031591105943,-378.98168363959144,-378.69125773931421,-378.50903821022831,-378.43502505233357,-378.46921826563005,-378.61161785011734,-378.86222380579625,-379.22103613266603,-379.68805483072703,-380.26327989997924,-380.94671134042227,-381.73834915205657,-382.63819333488203,-383.64624388889871,-384.76250081410666,-385.98696411050503,-387.31963377809541],[-385.80299025005286,-384.70543929673261,-383.71061681152548,-382.81852279443154,-382.02915724545045,-381.34252016458282,-380.75861155182804,-380.27743140718638,-379.89897973065786,-379.62325652224223,-379.45026178193973,-379.37999550975036,-379.41245770567417,-379.54764836971077,-379.78556750186095,-380.12621510212387,-380.56959117049996,-381.11569570698924,-381.76452871159131,-382.51609018430656,-383.37038012513494,-384.32739853407656,-385.38714541113126,-386.54962075629845,-387.81482456957951],[-386.48744486504995,-385.44408549004987,-384.49838236504985,-383.65033549004994,-382.89994486504975,-382.24721049004995,-381.69213236504993,-381.23471049004996,-380.87494486505005,-380.61283549004992,-380.44838236504984,-380.38158549004987,-380.41244486504991,-380.54096049004971,-380.76713236504997,-381.09096049004989,-381.51244486504993,-382.03158549005008,-382.64838236504994,-383.36283549004986,-384.17494486504984,-385.08471049004993,-386.09213236505008,-387.19721049004966,-388.39994486504992],[-387.2428947766748,-386.24981030314706,-385.34967645424757,-384.5424932299764,-383.82826063033315,-383.20697865531849,-382.67864730493176,-382.24326657917334,-381.90083647804317,-381.65135700154093,-381.494828149667,-381.43124992242127,-381.46062231980386,-381.58294534181442,-381.79821898845353,-382.10644325972061,-382.50761815561594,-383.00174367613954,-383.58881982129105,-384.26884659107088,-385.04182398547903,-385.90775200451537,-386.86663064817998,-387.91845991647222,-389.06323980939339],[-388.05979036362578,-387.11343265387512,-386.25565204163024,-385.48644852689108,-384.80582210965736,-384.21377278992969,-383.71030056770741,-383.2954054429909,-382.96908741578011,-382.73134648607476,-382.58218265387512,-382.52159591918127,-382.54958628199313,-382.66615374231043,-382.87129830013373,-383.16501995546253,-383.54731870829704,-384.01819455863728,-384.57764750648295,-385.22567755183434,-385.96228469469145,-386.78746893505433,-387.70123027292294,-388.7035687082967,-389.7944842411768],[-388.9298128753652,-388.02695998190922,-387.20861222636569,-386.47476960873462,-385.82543212901567,-385.26059978720946,-384.78027258331542,-384.38445051733385,-384.07313358926473,-383.84632179910778,-383.70401514686324,-383.64621363253116,-383.67291725611153,-383.78412601760408,-383.97983991700937,-384.26005895432678,-384.6247831295567,-385.07401244269903,-385.60774689375353,-386.22598648272049,-386.92873120959985,-387.71598107439172,-388.587736077096,-389.54399621771216,-390.58476149624136],[-389.84569941573039,-388.98341894052368,-388.20184610994517,-387.50098092399486,-386.88082338267236,-386.34137348597835,-385.88263123391221,-385.50459662647421,-385.20726966366436,-384.99065034548244,-384.85473867192866,-384.79953464300303,-384.8250382587056,-384.93124951903599,-385.11816842399486,-385.3857949735816,-385.73412916779654,-386.16317100663957,-386.67292049011053,-387.26337761820963,-387.93454239093694,-388.68641480829234,-389.51899487027595,-390.43228257688713,-391.42627792812709],[-390.80109565291048,-389.97671293686102,-389.22949071463881,-388.5594289862438,-387.96652775167576,-387.45078701093519,-387.01220676402158,-386.65078701093518,-386.36652775167602,-386.15942898624382,-386.02949071463883,-385.97671293686102,-386.00109565291046,-386.10263886278688,-386.28134256649076,-386.53720676402156,-386.87023145537967,-387.28041664056491,-387.76776231957712,-388.33226849241657,-388.97393515908328,-389.69276231957713,-390.48874997389822,-391.36189812204606,-392.3122067640216]],"type":"surface","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -4095,7 +4125,7 @@ Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu= 95\)<
 </section><section id="sec-mle-practice" class="slide level2" data-number="6"><h2>
 <span class="header-section-number">6</span> Practice exercises</h2>
 <div id="exr-prac-binom-lik" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 52 (Binomial likelihood (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 3))</strong></span> Let <span class="math inline">\(Y \sim \text{Binomial}(n, \pi)\)</span>, so that</p>
+<p><span class="theorem-title"><strong>Exercise 54 (Binomial likelihood (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 3))</strong></span> Let <span class="math inline">\(Y \sim \text{Binomial}(n, \pi)\)</span>, so that</p>
 <p><span class="math display">\[
 \operatorname{p}(Y = y \mid \pi) = \binom{n}{y} \pi^y (1-\pi)^{n-y},
 \quad y \in \{0, 1, \ldots, n\}.
@@ -4107,7 +4137,7 @@ Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu= 95\)<
 <p><strong>(d)</strong> Compute the second derivative <span class="math inline">\(\ell''(\pi; y)\)</span> and verify that it is negative, confirming a maximum.</p>
 </div>
 <div id="sol-prac-binom-lik" class="proof solution">
-<p><span class="proof-title"><em>Solution 52</em>. </span><strong>(a)</strong></p>
+<p><span class="proof-title"><em>Solution 54</em>. </span><strong>(a)</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
 \ell(\pi; y)
@@ -4243,13 +4273,13 @@ y &amp;= n\pi
 <p>Since <span class="math inline">\(y \geq 0\)</span>, <span class="math inline">\(n - y \geq 0\)</span>, and <span class="math inline">\(y\)</span> and <span class="math inline">\(n - y\)</span> are not both zero, <span class="math inline">\(\ell''(\pi; y) &lt; 0\)</span> for every <span class="math inline">\(\pi\in (0,1)\)</span>. So <span class="math inline">\(\ell\)</span> is strictly concave, and its critical point <span class="math inline">\(\hat{\pi}_{ML} = y/n\)</span> is its global maximum.</p>
 </div>
 </section><section class="slide level2"><div id="exr-prac-gauss-iid-lik" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 53 (Gaussian log-likelihood (adapted from <span class="citation" data-cites="kleinbaum2014applied">Kleinbaum et al. <a href="#/references" role="doc-biblioref" onclick="">[24]</a></span>, Chapter 5))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}(\mu, \sigma^2)\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 55 (Gaussian log-likelihood (adapted from <span class="citation" data-cites="kleinbaum2014applied">Kleinbaum et al. <a href="#/references" role="doc-biblioref" onclick="">[24]</a></span>, Chapter 5))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}(\mu, \sigma^2)\)</span>.</p>
 <p><strong>(a)</strong> Write the likelihood <span class="math inline">\(\mathcal{L}(\mu, \sigma^2; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span> for the observed data <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\)</span>.</p>
 <p><strong>(b)</strong> Write the log-likelihood <span class="math inline">\(\ell(\mu, \sigma^2; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span> in simplified form, as the sum of a term that depends on the data only through <span class="math inline">\(n\)</span> and a term that depends on the data only through <span class="math inline">\(\sum_{i=1}^n(x_i- \mu)^2\)</span>.</p>
 <p><strong>(c)</strong> Derive the MLE <span class="math inline">\(\hat{\mu}_{ML}\)</span> and <span class="math inline">\(\hat{\sigma}^2_{ML}\)</span>.</p>
 </div>
 <div id="sol-prac-gauss-iid-lik" class="proof solution">
-<p><span class="proof-title"><em>Solution 53</em>. </span><strong>(a)</strong></p>
+<p><span class="proof-title"><em>Solution 55</em>. </span><strong>(a)</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathcal{L}(\mu, \sigma^2; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})
@@ -4461,14 +4491,14 @@ n\sigma^2
 <p>Note: this maximum likelihood estimator is a biased estimator of <span class="math inline">\(\sigma^2\)</span>; the unbiased sample variance divides by <span class="math inline">\(n-1\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-prac-score-zero" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 54 (Score at the MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 3))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 56 (Score at the MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 3))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>.</p>
 <p><strong>(a)</strong> Write the log-likelihood <span class="math inline">\(\ell({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
 <p><strong>(b)</strong> Derive the score function <span class="math inline">\(\ell'({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
 <p><strong>(c)</strong> Find the MLE <span class="math inline">\(\hat{\lambda}_{ML}\)</span>, and evaluate the score at the MLE.</p>
 <p><strong>(d)</strong> Provide an intuitive interpretation of the value of the score at <span class="math inline">\(\hat{\lambda}_{ML}\)</span>.</p>
 </div>
 <div id="sol-prac-score-zero" class="proof solution">
-<p><span class="proof-title"><em>Solution 54</em>. </span><strong>(a)</strong></p>
+<p><span class="proof-title"><em>Solution 56</em>. </span><strong>(a)</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
 \ell({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})
@@ -4569,15 +4599,15 @@ n{\bar{x}}&amp;= n{\lambda}
 <p>The score measures the rate of change of the log-likelihood. When it equals zero, increasing or decreasing <span class="math inline">\({\lambda}\)</span> slightly would not improve the fit; we are at a “flat” point. Intuitively, <span class="math inline">\(\hat{\lambda}_{ML} = {\bar{x}}\)</span> is the value of <span class="math inline">\({\lambda}\)</span> that makes the expected count per observation (<span class="math inline">\({\lambda}\)</span>) exactly equal to the observed sample average count (<span class="math inline">\({\bar{x}}\)</span>).</p>
 </div>
 </section><section class="slide level2"><div id="exr-prac-mle-se" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 55 (Standard error of an MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 5))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 57 (Standard error of an MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 5))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>.</p>
 <p><strong>(a)</strong> Derive the Hessian <span class="math inline">\(\ell''({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = \frac{\partial}{\partial [}2]{{\lambda}}\ell({\lambda};\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
 <p><strong>(b)</strong> Derive the observed information <span class="math inline">\(I({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = -\ell''({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
 <p><strong>(c)</strong> Evaluate <span class="math inline">\(I(\hat{\lambda}_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
 <p><strong>(d)</strong> Give an approximate 95% confidence interval for <span class="math inline">\({\lambda}\)</span> using the asymptotic normal distribution of the MLE.</p>
 </div>
 <div id="sol-prac-mle-se" class="proof solution">
-<p><span class="proof-title"><em>Solution 55</em>. </span><strong>(a)</strong></p>
-<p>From <a href="#/exr-prac-score-zero" class="quarto-xref">Exercise&nbsp;54</a>, <span class="math inline">\(\ell'({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = \frac{n{\bar{x}}}{{\lambda}} - n\)</span>.</p>
+<p><span class="proof-title"><em>Solution 57</em>. </span><strong>(a)</strong></p>
+<p>From <a href="#/exr-prac-score-zero" class="quarto-xref">Exercise&nbsp;56</a>, <span class="math inline">\(\ell'({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = \frac{n{\bar{x}}}{{\lambda}} - n\)</span>.</p>
 <p><span class="math display">\[
 \begin{aligned}
 \ell''({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})
@@ -4653,18 +4683,14 @@ I(\hat{\lambda}_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="exr-prac-exp-mle" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 56 (Exponential MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 3))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \text{Exponential}(\mu)\)</span>, so that <span class="math display">\[
+<p><span class="theorem-title"><strong>Exercise 58 (Exponential MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 3))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \text{Exponential}(\mu)\)</span>, so that <span class="math display">\[
 \operatorname{p}(X = x \mid \mu) = \frac{1}{\mu} e^{-x/\mu},
 \quad x &gt; 0, \quad \mu&gt; 0.
 \]</span></p>
-<p><strong>(a)</strong> Write the log-likelihood <span class="math inline">\(\ell(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span> for the observed data <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\)</span>.</p>
-<p><strong>(b)</strong> Derive the score function <span class="math inline">\(\ell'(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = \frac{\partial}{\partial \mu}\ell(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
-<p><strong>(c)</strong> Set the score equal to zero and show that <span class="math inline">\(\hat\mu_{ML} = {\bar{x}}\)</span>. Compute the second derivative and verify this critical point is a maximum.</p>
-<p><strong>(d)</strong> Derive the observed information <span class="math inline">\(I(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = -\ell''(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>, evaluate it at <span class="math inline">\(\hat\mu_{ML}\)</span>, and give an approximate 95% confidence interval for <span class="math inline">\(\mu\)</span>.</p>
+<p>Write the <a href="#/def-loglik">log-likelihood</a> <span class="math inline">\(\ell(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span> for the observed data <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\)</span>.</p>
 </div>
-<div id="sol-prac-exp-mle" class="proof solution">
-<p><span class="proof-title"><em>Solution 56</em>. </span><strong>(a)</strong></p>
-<p><span class="math display">\[
+</section><section class="slide level2"><div id="sol-prac-exp-mle" class="proof solution">
+<p><span class="proof-title"><em>Solution 58</em>. </span><span class="math display">\[
 \begin{aligned}
 \ell(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})
 &amp;= {\operatorname{log}\mathopen{}\left\{\prod_{i=1}^n\frac{1}{\mu} e^{-x_i/\mu}\right\}\mathclose{}}
@@ -4695,12 +4721,16 @@ I(\hat{\lambda}_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle
 &amp;&amp; \text{($\textstyle\sum_{i=1}^nx_i= n{\bar{x}}$)}
 \end{aligned}
 \]</span></p>
-<p><strong>(b)</strong></p>
-<p><span class="math display">\[
+</div>
+</section><section class="slide level2"><div id="exr-prac-exp-mle-score" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 59 (Score function of the exponential)</strong></span> In the setting of <a href="#/exr-prac-exp-mle" class="quarto-xref">Exercise&nbsp;58</a>, derive the <a href="#/def-score">score function</a> <span class="math inline">\(\ell'(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = \frac{\partial}{\partial \mu}\ell(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-prac-exp-mle-score" class="proof solution">
+<p><span class="proof-title"><em>Solution 59</em>. </span><span class="math display">\[
 \begin{aligned}
 \ell'(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})
 &amp;= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\{\mu\right\}\mathclose{}} - \frac{n{\bar{x}}}{\mu}\right)\mathclose{}
-&amp;&amp; \text{(log-likelihood from (a))}
+&amp;&amp; \text{(log-likelihood)}
 \\
 &amp;= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\{\mu\right\}\mathclose{}} - n{\bar{x}}\mu^{-1}\right)\mathclose{}
 &amp;&amp; \text{(write $\tfrac{n{\bar{x}}}{\mu}$ as $n{\bar{x}}\mu^{-1}$)}
@@ -4736,12 +4766,16 @@ I(\hat{\lambda}_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle
 &amp;&amp; \text{(factor out $\tfrac{n}{\mu^2}$)}
 \end{aligned}
 \]</span></p>
-<p><strong>(c)</strong></p>
-<p>Setting <span class="math inline">\(\ell'(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = 0\)</span>:</p>
+</div>
+</section><section class="slide level2"><div id="exr-prac-exp-mle-mle" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 60 (Maximum likelihood estimate of the exponential mean)</strong></span> In the setting of <a href="#/exr-prac-exp-mle" class="quarto-xref">Exercise&nbsp;58</a>, solve the <a href="#/def-score-equation">score equation</a> <span class="math inline">\(\ell'(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = 0\)</span> with the <a href="#/def-score">score</a> from <a href="#/exr-prac-exp-mle-score" class="quarto-xref">Exercise&nbsp;59</a>, to show that <span class="math inline">\(\hat\mu_{ML} = {\bar{x}}\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-prac-exp-mle-mle" class="proof solution">
+<p><span class="proof-title"><em>Solution 60</em>. </span>Setting <span class="math inline">\(\ell'(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = 0\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 0 &amp;= \frac{n}{\mu^2}\mathopen{}\left({\bar{x}}- \mu\right)\mathclose{}
-&amp;&amp; \text{(score from (b))}
+&amp;&amp; \text{(score)}
 \\
 0 &amp;= {\bar{x}}- \mu
 &amp;&amp; \text{(multiply both sides by $\tfrac{\mu^2}{n}$)}
@@ -4750,12 +4784,17 @@ I(\hat{\lambda}_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle
 &amp;&amp; \text{(add $\mu$ to both sides)}
 \end{aligned}
 \]</span></p>
-<p>The second derivative is:</p>
+</div>
+</section><section class="slide level2"><div id="exr-prac-exp-mle-second-derivative" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 61 (Second derivative of the exponential log-likelihood)</strong></span> In the setting of <a href="#/exr-prac-exp-mle" class="quarto-xref">Exercise&nbsp;58</a>, compute the second derivative <span class="math inline">\(\ell''(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span> of the <a href="#/def-loglik">log-likelihood</a>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-prac-exp-mle-second-derivative" class="proof solution">
+<p><span class="proof-title"><em>Solution 61</em>. </span>The second derivative is:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \ell''(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})
 &amp;= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{\mu} + \frac{n{\bar{x}}}{\mu^2}\right)\mathclose{}
-&amp;&amp; \text{(score from (b))}
+&amp;&amp; \text{(score, before factoring)}
 \\
 &amp;= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\mu^{-1} + n{\bar{x}}\mu^{-2}\right)\mathclose{}
 &amp;&amp; \text{(write the fractions as negative powers)}
@@ -4779,7 +4818,12 @@ I(\hat{\lambda}_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle
 &amp;&amp; \text{(write the negative powers as fractions)}
 \end{aligned}
 \]</span></p>
-<p>Evaluated at <span class="math inline">\(\hat\mu_{ML} = {\bar{x}}\)</span>:</p>
+</div>
+</section><section class="slide level2"><div id="exr-prac-exp-mle-maximum" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 62 (Check the critical point is a maximum)</strong></span> In the setting of <a href="#/exr-prac-exp-mle" class="quarto-xref">Exercise&nbsp;58</a>, use the second derivative from <a href="#/exr-prac-exp-mle-second-derivative" class="quarto-xref">Exercise&nbsp;61</a> to verify that the <a href="#/def-critical-point">critical point</a> <span class="math inline">\(\hat\mu_{ML}\)</span> from <a href="#/exr-prac-exp-mle-mle" class="quarto-xref">Exercise&nbsp;60</a> is a maximum.</p>
+</div>
+</section><section class="slide level2"><div id="sol-prac-exp-mle-maximum" class="proof solution">
+<p><span class="proof-title"><em>Solution 62</em>. </span>Evaluated at <span class="math inline">\(\hat\mu_{ML} = {\bar{x}}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \ell''({\bar{x}}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})
@@ -4794,8 +4838,12 @@ I(\hat{\lambda}_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle
 \end{aligned}
 \]</span></p>
 <p>Since <span class="math inline">\(n &gt; 0\)</span> and <span class="math inline">\({\bar{x}}^2 &gt; 0\)</span>, the second derivative is negative, so <span class="math inline">\(\hat\mu_{ML} = {\bar{x}}\)</span> is a maximum.</p>
-<p><strong>(d)</strong></p>
-<p>The observed information is:</p>
+</div>
+</section><section class="slide level2"><div id="exr-prac-exp-mle-oinf" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 63 (Observed information for the exponential mean)</strong></span> In the setting of <a href="#/exr-prac-exp-mle" class="quarto-xref">Exercise&nbsp;58</a>, use the second derivative from <a href="#/exr-prac-exp-mle-second-derivative" class="quarto-xref">Exercise&nbsp;61</a> to derive the <a href="#/def-oinf">observed information</a> <span class="math inline">\(I(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = -\ell''(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-prac-exp-mle-oinf" class="proof solution">
+<p><span class="proof-title"><em>Solution 63</em>. </span>The observed information is:</p>
 <p><span class="math display">\[
 \begin{aligned}
 I(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})
@@ -4803,7 +4851,7 @@ I(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vph
 &amp;&amp; \text{(observed information is the negative Hessian)}
 \\
 &amp;= -\mathopen{}\left(\frac{n}{\mu^2} - \frac{2n{\bar{x}}}{\mu^3}\right)\mathclose{}
-&amp;&amp; \text{(second derivative from (c))}
+&amp;&amp; \text{(second derivative)}
 \\
 &amp;= -\frac{n}{\mu^2} + \frac{2n{\bar{x}}}{\mu^3}
 &amp;&amp; \text{(distribute the minus sign)}
@@ -4812,7 +4860,12 @@ I(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vph
 &amp;&amp; \text{(reorder the terms)}
 \end{aligned}
 \]</span></p>
-<p>Evaluated at <span class="math inline">\(\hat\mu_{ML} = {\bar{x}}\)</span>:</p>
+</div>
+</section><section class="slide level2"><div id="exr-prac-exp-mle-oinf-at-mle" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 64 (Observed information at the MLE)</strong></span> In the setting of <a href="#/exr-prac-exp-mle" class="quarto-xref">Exercise&nbsp;58</a>, evaluate the <a href="#/def-oinf">observed information</a> from <a href="#/exr-prac-exp-mle-oinf" class="quarto-xref">Exercise&nbsp;63</a> at <span class="math inline">\(\hat\mu_{ML}\)</span> from <a href="#/exr-prac-exp-mle-mle" class="quarto-xref">Exercise&nbsp;60</a>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-prac-exp-mle-oinf-at-mle" class="proof solution">
+<p><span class="proof-title"><em>Solution 64</em>. </span>Evaluated at <span class="math inline">\(\hat\mu_{ML} = {\bar{x}}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 I(\hat\mu_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})
@@ -4827,12 +4880,17 @@ I(\hat\mu_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}
 \end{aligned}
 \]</span></p>
 <p>So <span class="math inline">\({\operatorname{SE}\mathopen{}\left(\hat\mu_{ML}\right)\mathclose{}} \approx \sqrt{I(\hat\mu_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})^{-1}} = \frac{{\bar{x}}}{\sqrt{n}}\)</span>.</p>
-<p>An approximate 95% CI for <span class="math inline">\(\mu\)</span> is:</p>
+</div>
+</section><section class="slide level2"><div id="exr-prac-exp-mle-ci" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 65 (Approximate confidence interval for the exponential mean)</strong></span> In the setting of <a href="#/exr-prac-exp-mle" class="quarto-xref">Exercise&nbsp;58</a>, use the <a href="#/def-oinf">observed information</a> at the MLE from <a href="#/exr-prac-exp-mle-oinf-at-mle" class="quarto-xref">Exercise&nbsp;64</a> to give an <a href="./inference.html#def-approximate-ci">approximate 95% confidence interval</a> for <span class="math inline">\(\mu\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-prac-exp-mle-ci" class="proof solution">
+<p><span class="proof-title"><em>Solution 65</em>. </span>An <a href="./inference.html#def-approximate-ci">approximate</a> 95% CI for <span class="math inline">\(\mu\)</span> is:</p>
 <p><span class="math display">\[
 \hat\mu_{ML} \pm 1.96 \times \frac{{\bar{x}}}{\sqrt{n}}
 = {\bar{x}}\pm \frac{1.96{\bar{x}}}{\sqrt{n}}
 \]</span></p>
-<p>Note: the exponential distribution has <span class="math inline">\({\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \mu^2\)</span>, so <span class="math inline">\({\operatorname{SE}\mathopen{}\left(\hat\mu_{ML}\right)\mathclose{}} = \mu/\sqrt{n}\)</span>, which is estimated by <span class="math inline">\({\bar{x}}/\sqrt{n}\)</span>. More generally, the standard error of a sample mean is <span class="math inline">\({\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}}/\sqrt{n}\)</span>; here that reduces to <span class="math inline">\(\mu/\sqrt{n}\)</span> because <span class="math inline">\({\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}} = \mu\)</span> for the exponential distribution.</p>
+<p>Note: the exponential distribution has <span class="math inline">\({\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \mu^2\)</span>, so <span class="math inline">\({\operatorname{SE}\mathopen{}\left(\hat\mu_{ML}\right)\mathclose{}} = \mu/\sqrt{n}\)</span>, which is estimated by <span class="math inline">\({\bar{x}}/\sqrt{n}\)</span>. More generally, the standard error of a sample mean is <span class="math inline">\({\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}}/\sqrt{n}\)</span>; here the standard error reduces to <span class="math inline">\(\mu/\sqrt{n}\)</span> because <span class="math inline">\({\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}} = \mu\)</span> for the exponential distribution.</p>
 </div>
 </section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-27 11:13:53 (PDT)
+Last modified: 2026-10-27 16:11:29 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -1686,12 +1686,9 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> **Exercise 41 (Score function of a Bernoulli variable)** Let \\X \sim \operatorname{Ber}(\pi)\\ have observed value \\x \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, and let:
+> **Exercise 41 (Score function of a Bernoulli variable)** Let \\X \sim \operatorname{Ber}(\pi)\\ have observed value \\x \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\.
 >
-> - \\\mathbb{d}\stackrel{\text{def}}{=}x - {\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}\\ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of \\x\\ from the mean of \\X\\;
-> - \\\tau\stackrel{\text{def}}{=}1 / {\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\\ be the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of \\X\\.
->
-> Derive the [score](#def-score) of \\x\\. In other words, differentiate the [log-likelihood](#def-loglik) of \\x\\ with respect to the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) parameter \\\pi\\, starting from the log-likelihood in terms of the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) \\\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\\ in [Corollary 1](#cor-bernoulli-loglik-contribution-logodds). Write the result using \\\mathbb{d}\\ and \\\tau\\.
+> Derive the [score](#def-score) of \\x\\. In other words, differentiate the [log-likelihood](#def-loglik) of \\x\\ with respect to the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) parameter \\\pi\\, starting from the log-likelihood in terms of the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) \\\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\\ in [Corollary 1](#cor-bernoulli-loglik-contribution-logodds).
 
 > **NOTE:**
 >
@@ -1709,11 +1706,21 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 >
 > The derivative of the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) is:
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \pi} \eta &= \frac{\partial}{\partial \pi} {\operatorname{log}\mathopen{}\left\\\frac{\pi}{1 - \pi}\right\\\mathclose{}} && \text{(definition of \$\eta\$)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left({\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} - {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a quotient)}\\ &= \frac{\partial}{\partial \pi} {\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} - \frac{\partial}{\partial \pi} {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(linearity of differentiation)}\\ &= \frac{1}{\pi} - \mathopen{}\left(-\frac{1}{1 - \pi}\right)\mathclose{} && \text{(derivative of \$\log\$, and the second term above)}\\ &= \frac{1}{\pi} + \frac{1}{1 - \pi} && \text{(subtracting a negative)}\\ &= \frac{1 - \pi}{\pi(1 - \pi)} + \frac{\pi}{\pi(1 - \pi)} && \text{(write both terms over the common denominator)}\\ &= \frac{1}{\pi(1 - \pi)} && \text{(add the numerators)}\\ &= \frac{1}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}} && \text{(\${\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \pi(1 - \pi)\$)}\\ &= \tau && \text{(definition of \$\tau\$)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \pi} \eta &= \frac{\partial}{\partial \pi} {\operatorname{log}\mathopen{}\left\\\frac{\pi}{1 - \pi}\right\\\mathclose{}} && \text{(definition of \$\eta\$)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left({\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} - {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a quotient)}\\ &= \frac{\partial}{\partial \pi} {\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} - \frac{\partial}{\partial \pi} {\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}} && \text{(linearity of differentiation)}\\ &= \frac{1}{\pi} - \mathopen{}\left(-\frac{1}{1 - \pi}\right)\mathclose{} && \text{(derivative of \$\log\$, and the second term above)}\\ &= \frac{1}{\pi} + \frac{1}{1 - \pi} && \text{(subtracting a negative)}\\ &= \frac{1 - \pi}{\pi(1 - \pi)} + \frac{\pi}{\pi(1 - \pi)} && \text{(write both terms over the common denominator)}\\ &= \frac{1}{\pi(1 - \pi)} && \text{(add the numerators)} \end{aligned} \\
 >
 > Substituting both derivatives back in:
 >
-> \\ \begin{aligned} \ell' &= x \tau- \frac{1}{1 - \pi} && \text{(substitute the two derivatives)}\\ &= x \tau- \frac{\pi}{\pi(1 - \pi)} && \text{(multiply the numerator and denominator by \$\pi\$)}\\ &= x \tau- \pi\tau && \text{(definition of \$\tau\$)}\\ &= \tau(x - \pi) && \text{(factor out \$\tau\$)}\\ &= \tau\mathopen{}\left(x - {\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}\right)\mathclose{} && \text{(\${\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}} = \pi\$)}\\ &= \tau\mathbb{d} && \text{(definition of \$\mathbb{d}\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell' &= x \mathopen{}\left(\frac{1}{\pi(1 - \pi)}\right)\mathclose{} + \mathopen{}\left(-\frac{1}{1 - \pi}\right)\mathclose{} && \text{(substitute the two derivatives)}\\ &= \frac{x}{\pi(1 - \pi)} + \mathopen{}\left(-\frac{1}{1 - \pi}\right)\mathclose{} && \text{(multiply \$x\$ into the numerator)}\\ &= \frac{x}{\pi(1 - \pi)} - \frac{1}{1 - \pi} && \text{(adding a negative is subtracting)}\\ &= \frac{x}{\pi(1 - \pi)} - \frac{\pi}{\pi(1 - \pi)} && \text{(multiply the numerator and denominator of the second term by \$\pi\$)}\\ &= \frac{x - \pi}{\pi(1 - \pi)} && \text{(combine the fractions)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Exercise 42 (Score of a Bernoulli variable in terms of deviation and precision)** In the setting of [Exercise 41](#exr-derive-bernoulli-score), let \\\mathbb{d}\stackrel{\text{def}}{=}x - {\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}\\ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of \\x\\ from the mean of \\X\\, and let \\\tau\stackrel{\text{def}}{=}1 / {\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\\ be the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of \\X\\. Write the [score](#def-score) using \\\mathbb{d}\\ and \\\tau\\.
+
+> **NOTE:**
+>
+> *Solution 42*. Starting from [Solution 41](#sol-derive-bernoulli-score):
+>
+> \\ \begin{aligned} \ell' &= \frac{x - \pi}{\pi(1 - \pi)} && \text{(score)}\\ &= \frac{x - \pi}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}} && \text{(\${\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \pi(1 - \pi)\$)}\\ &= \frac{x - {\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}}}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}} && \text{(\${\mathbb{E}\mathopen{}\left\[X\right\]\mathclose{}} = \pi\$)}\\ &= \frac{\mathbb{d}}{{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}} && \text{(definition of \$\mathbb{d}\$)}\\ &= \tau\mathbb{d} && \text{(definition of \$\tau\$)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -1723,7 +1730,7 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 41](#exr-derive-bernoulli-score), worked in [Solution 41](#sol-derive-bernoulli-score). It builds on [Corollary 1](#cor-bernoulli-loglik-contribution-logodds).
+> *Proof*. The [score](#def-score) as \\(x - \pi) / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ is the solution to [Exercise 41](#exr-derive-bernoulli-score), worked in [Solution 41](#sol-derive-bernoulli-score). Writing the score as \\\mathbb{d}/ {\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\\ and then as \\\tau\mathbb{d}\\ is the solution to [Exercise 42](#exr-derive-bernoulli-score-deviation), worked in [Solution 42](#sol-derive-bernoulli-score-deviation). The proof builds on [Corollary 1](#cor-bernoulli-loglik-contribution-logodds).
 
 > **NOTE:**
 >
@@ -1739,18 +1746,28 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Exercise 42 (Score contribution of one binary outcome)** In the setting of [Exercise 38](#exr-bernoulli-loglik-contribution), let:
+> **Exercise 43 (Score contribution of one binary outcome)** In the setting of [Exercise 38](#exr-bernoulli-loglik-contribution), derive the [score](#def-score) contribution \\\ell'\_i(\pi) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell_i(\pi)\\ of [observation](exploratory-descriptive.llms.md#def-observation) \\i\\.
+
+> **NOTE:**
+>
+> *Solution 43*. The [score](#def-score) contribution is the score of the single [observation](exploratory-descriptive.llms.md#def-observation) \\y_i\\, so [Theorem 20](#thm-bernoulli-score) with \\x = y_i\\ gives
+>
+> \\ \begin{aligned} \ell'\_i(\pi) &= \frac{\partial}{\partial \pi} \ell_i(\pi) && \text{(definition of the score contribution)}\\ &= \frac{y_i- \pi}{\pi(1 - \pi)} && \text{(score of a Bernoulli variable)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Exercise 44 (Score contribution in terms of deviation and precision)** In the setting of [Exercise 43](#exr-bernoulli-score-contribution), let:
 >
 > - \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of \\y_i\\ from its mean \\\pi\\;
 > - \\\tau\stackrel{\text{def}}{=}1 / {\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}\\ be the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of \\Y_i\\.
 >
-> Derive the [score](#def-score) contribution \\\ell'\_i(\pi) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell_i(\pi)\\ of observation \\i\\, and write it using \\\mathbb{d}\_i\\ and \\\tau\\.
+> Write the [score](#def-score) contribution using \\\mathbb{d}\_i\\ and \\\tau\\.
 
 > **NOTE:**
 >
-> *Solution 42*. \\ \begin{aligned} \ell'\_i(\pi) &= \frac{\partial}{\partial \pi} \ell_i(\pi) && \text{(definition of the score contribution)}\\ &= \tau\mathbb{d}\_i && \text{(score of a Bernoulli variable, with \$x = y_i\$)} \end{aligned} \\
+> *Solution 44*. Starting from [Solution 43](#sol-bernoulli-score-contribution):
 >
-> The last step is [Theorem 20](#thm-bernoulli-score) for the observed value \\y_i\\ of \\Y_i\\, whose [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is \\\tau\\ and whose [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is \\\mathbb{d}\_i\\.
+> \\ \begin{aligned} \ell'\_i(\pi) &= \frac{y_i- \pi}{\pi(1 - \pi)} && \text{(score contribution)}\\ &= \frac{y_i- \pi}{{\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}} && \text{(\${\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}} = \pi(1 - \pi)\$)}\\ &= \frac{y_i- {\mathbb{E}\mathopen{}\left\[Y_i\right\]\mathclose{}}}{{\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}} && \text{(\${\mathbb{E}\mathopen{}\left\[Y_i\right\]\mathclose{}} = \pi\$)}\\ &= \frac{\mathbb{d}\_i}{{\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}} && \text{(definition of \$\mathbb{d}\_i\$)}\\ &= \tau\mathbb{d}\_i && \text{(definition of \$\tau\$)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -1762,13 +1779,13 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 42](#exr-bernoulli-score-contribution), worked in [Solution 42](#sol-bernoulli-score-contribution).
+> *Proof*. The [score](#def-score) contribution as \\(y_i- \pi) / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ is the solution to [Exercise 43](#exr-bernoulli-score-contribution), worked in [Solution 43](#sol-bernoulli-score-contribution). The form in terms of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is the solution to [Exercise 44](#exr-bernoulli-score-contribution-deviation), worked in [Solution 44](#sol-bernoulli-score-contribution-deviation).
 
 ### 3.5 The score function of the sample
 
 > **NOTE:**
 >
-> **Exercise 43 (Sample mean of the deviations of a binary sample)** In the setting of [Exercise 42](#exr-bernoulli-score-contribution), let:
+> **Exercise 45 (Sample mean of the deviations of a binary sample)** In the setting of [Exercise 43](#exr-bernoulli-score-contribution), let:
 >
 > - \\{\bar{y}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^ny_i\\ be the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of the observed outcomes;
 > - \\{\bar{\mathbb{d}}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\mathbb{d}\_i\\ be the sample mean of the [deviations](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\_i\\.
@@ -1777,15 +1794,15 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Solution 43*. \\ \begin{aligned} {\bar{\mathbb{d}}} &= \frac{1}{n}\sum\_{i=1}^n\mathbb{d}\_i && \text{(definition of \${\bar{\mathbb{d}}}\$)}\\ &= \frac{1}{n}\sum\_{i=1}^n(y_i- \pi) && \text{(definition of \$\mathbb{d}\_i\$)}\\ &= \frac{1}{n} \mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(distribute the sum over the difference)}\\ &= \frac{1}{n} \mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= \frac{1}{n} \mathopen{}\left(n {\bar{y}}- n \pi\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n {\bar{y}}\$ and \$\textstyle\sum\_{i=1}^n\pi= n \pi\$)}\\ &= \frac{1}{n} \cdot n ({\bar{y}}- \pi) && \text{(factor out \$n\$)}\\ &= {\bar{y}}- \pi && \text{(\$\frac{1}{n} \cdot n = 1\$)} \end{aligned} \\
+> *Solution 45*. \\ \begin{aligned} {\bar{\mathbb{d}}} &= \frac{1}{n}\sum\_{i=1}^n\mathbb{d}\_i && \text{(definition of \${\bar{\mathbb{d}}}\$)}\\ &= \frac{1}{n}\sum\_{i=1}^n(y_i- \pi) && \text{(definition of \$\mathbb{d}\_i\$)}\\ &= \frac{1}{n} \mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(distribute the sum over the difference)}\\ &= \frac{1}{n} \mathopen{}\left({s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \sum\_{i=1}^n\pi\right)\mathclose{} && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= \frac{1}{n} \mathopen{}\left(n {\bar{y}}- n \pi\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n {\bar{y}}\$ and \$\textstyle\sum\_{i=1}^n\pi= n \pi\$)}\\ &= \frac{1}{n} \cdot n ({\bar{y}}- \pi) && \text{(factor out \$n\$)}\\ &= {\bar{y}}- \pi && \text{(\$\frac{1}{n} \cdot n = 1\$)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Exercise 44 (Score function of a binary sample)** In the setting of [Exercise 43](#exr-bernoulli-sample-mean-deviation), assemble the [score function](#def-score) \\\ell'(\pi)\\ of the whole [sample](exploratory-descriptive.llms.md#def-sample) from the [score](#def-score) contributions, and write it using \\{\bar{\mathbb{d}}}\\ and \\\tau\\.
+> **Exercise 46 (Score function of a binary sample)** In the setting of [Exercise 45](#exr-bernoulli-sample-mean-deviation), assemble the [score function](#def-score) \\\ell'(\pi)\\ of the whole [sample](exploratory-descriptive.llms.md#def-sample) from the [score](#def-score) contributions, and write it using \\{\bar{\mathbb{d}}}\\ and \\\tau\\.
 
 > **NOTE:**
 >
-> *Solution 44*. \\ \begin{aligned} \ell'(\pi) &= \sum\_{i=1}^n\ell'\_i(\pi) && \text{(score of an independent sample is the sum of the score contributions)}\\ &= \sum\_{i=1}^n\tau\mathbb{d}\_i && \text{(score contribution of a binary outcome)}\\ &= \tau\sum\_{i=1}^n\mathbb{d}\_i && \text{(\$\tau\$ is the same for every \$i\$)}\\ &= \tau\cdot n {\bar{\mathbb{d}}} && \text{(\$\textstyle\sum\_{i=1}^n\mathbb{d}\_i= n {\bar{\mathbb{d}}}\$, from the definition of \${\bar{\mathbb{d}}}\$)}\\ &= n \tau{\bar{\mathbb{d}}} && \text{(reorder the factors)} \end{aligned} \\
+> *Solution 46*. \\ \begin{aligned} \ell'(\pi) &= \sum\_{i=1}^n\ell'\_i(\pi) && \text{(score of an independent sample is the sum of the score contributions)}\\ &= \sum\_{i=1}^n\tau\mathbb{d}\_i && \text{(score contribution of a binary outcome)}\\ &= \tau\sum\_{i=1}^n\mathbb{d}\_i && \text{(\$\tau\$ is the same for every \$i\$)}\\ &= \tau\cdot n {\bar{\mathbb{d}}} && \text{(\$\textstyle\sum\_{i=1}^n\mathbb{d}\_i= n {\bar{\mathbb{d}}}\$, from the definition of \${\bar{\mathbb{d}}}\$)}\\ &= n \tau{\bar{\mathbb{d}}} && \text{(reorder the factors)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -1795,17 +1812,17 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Proof*. The first equality is the solution to [Exercise 44](#exr-bernoulli-score-sum), worked in [Solution 44](#sol-bernoulli-score-sum). The second is the solution to [Exercise 43](#exr-bernoulli-sample-mean-deviation), worked in [Solution 43](#sol-bernoulli-sample-mean-deviation).
+> *Proof*. The first equality is the solution to [Exercise 46](#exr-bernoulli-score-sum), worked in [Solution 46](#sol-bernoulli-score-sum). The second is the solution to [Exercise 45](#exr-bernoulli-sample-mean-deviation), worked in [Solution 45](#sol-bernoulli-sample-mean-deviation).
 
 ### 3.6 Solving the score equation
 
 > **NOTE:**
 >
-> **Exercise 45 (Solving the score equation of a binary sample)** In the setting of [Exercise 44](#exr-bernoulli-score-sum), assume \\{\bar{y}}\in (0, 1)\\: the [sample](exploratory-descriptive.llms.md#def-sample) has at least one [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) and at least one non-event. Solve the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ for \\\pi\in (0, 1)\\.
+> **Exercise 47 (Solving the score equation of a binary sample)** In the setting of [Exercise 46](#exr-bernoulli-score-sum), assume \\{\bar{y}}\in (0, 1)\\: the [sample](exploratory-descriptive.llms.md#def-sample) has at least one [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) and at least one non-event. Solve the [score equation](#def-score-equation) \\\ell'(\pi) = 0\\ for \\\pi\in (0, 1)\\.
 
 > **NOTE:**
 >
-> *Solution 45*. For \\\pi\in (0, 1)\\, \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ is finite and positive, and \\n \> 0\\, so \\n \tau\neq 0\\.
+> *Solution 47*. For \\\pi\in (0, 1)\\, \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ is finite and positive, and \\n \> 0\\, so \\n \tau\neq 0\\.
 >
 > \\ \begin{aligned} 0 &= \ell'(\pi) && \text{(score equation)}\\ 0 &= n \tau({\bar{y}}- \pi) && \text{(score function of a binary sample)}\\ 0 &= {\bar{y}}- \pi && \text{(divide both sides by \$n \tau\neq 0\$)}\\ \pi&= {\bar{y}} && \text{(add \$\pi\$ to both sides)} \end{aligned} \\
 >
@@ -1817,7 +1834,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 45](#exr-bernoulli-score-equation), worked in [Solution 45](#sol-bernoulli-score-equation).
+> *Proof*. This is the solution to [Exercise 47](#exr-bernoulli-score-equation), worked in [Solution 47](#sol-bernoulli-score-equation).
 
 > **NOTE:**
 >
@@ -1827,11 +1844,11 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Exercise 46 (Hessian contribution of one binary outcome)** In the setting of [Exercise 42](#exr-bernoulli-score-contribution), derive the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell'\_i(\pi)\\ of observation \\i\\. Start from the [score](#def-score) contribution written as a difference of two fractions, \\\ell'\_i(\pi) = y_i/ \pi- (1 - y_i) / (1 - \pi)\\, the form in [Solution 41](#sol-derive-bernoulli-score) before its fractions are combined.
+> **Exercise 48 (Hessian contribution of one binary outcome)** In the setting of [Exercise 43](#exr-bernoulli-score-contribution), derive the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell'\_i(\pi)\\ of observation \\i\\. Start from the [score](#def-score) contribution written as a difference of two fractions, \\\ell'\_i(\pi) = y_i/ \pi- (1 - y_i) / (1 - \pi)\\, the form in [Solution 41](#sol-derive-bernoulli-score) before its fractions are combined.
 
 > **NOTE:**
 >
-> *Solution 46*. \\ \begin{aligned} \ell''\_i(\pi) &= \frac{\partial}{\partial \pi} \ell'\_i(\pi) && \text{(definition of the Hessian contribution)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(\frac{y_i}{\pi} - \frac{1 - y_i}{1 - \pi}\right)\mathclose{} && \text{(score contribution as a difference of fractions)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(y_i\pi^{-1} - (1 - y_i) (1 - \pi)^{-1}\right)\mathclose{} && \text{(write each fraction as a negative power)}\\ &= y_i\frac{\partial}{\partial \pi} \pi^{-1} - (1 - y_i) \frac{\partial}{\partial \pi} (1 - \pi)^{-1} && \text{(linearity and constant multiple rule)} \end{aligned} \\
+> *Solution 48*. \\ \begin{aligned} \ell''\_i(\pi) &= \frac{\partial}{\partial \pi} \ell'\_i(\pi) && \text{(definition of the Hessian contribution)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(\frac{y_i}{\pi} - \frac{1 - y_i}{1 - \pi}\right)\mathclose{} && \text{(score contribution as a difference of fractions)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(y_i\pi^{-1} - (1 - y_i) (1 - \pi)^{-1}\right)\mathclose{} && \text{(write each fraction as a negative power)}\\ &= y_i\frac{\partial}{\partial \pi} \pi^{-1} - (1 - y_i) \frac{\partial}{\partial \pi} (1 - \pi)^{-1} && \text{(linearity and constant multiple rule)} \end{aligned} \\
 >
 > The first derivative is:
 >
@@ -1853,7 +1870,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 46](#exr-bernoulli-hessian-contribution), worked in [Solution 46](#sol-bernoulli-hessian-contribution).
+> *Proof*. This is the solution to [Exercise 48](#exr-bernoulli-hessian-contribution), worked in [Solution 48](#sol-bernoulli-hessian-contribution).
 
 > **NOTE:**
 >
@@ -1881,11 +1898,11 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> **Exercise 47 (Hessian contribution of one binary outcome in terms of the precision and deviation)** In the setting of [Exercise 46](#exr-bernoulli-hessian-contribution), derive the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ starting from the simplified [score](#def-score) contribution \\\ell'\_i(\pi) = \tau\mathbb{d}\_i\\ in [Theorem 21](#thm-bernoulli-score-contribution), with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\. Both \\\tau\\ and \\\mathbb{d}\_i\\ depend on \\\pi\\, while the observed value \\y_i\\ does not.
+> **Exercise 49 (Hessian contribution of one binary outcome in terms of the precision and deviation)** In the setting of [Exercise 48](#exr-bernoulli-hessian-contribution), derive the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ starting from the simplified [score](#def-score) contribution \\\ell'\_i(\pi) = \tau\mathbb{d}\_i\\ in [Theorem 21](#thm-bernoulli-score-contribution), with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ and the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\. Both \\\tau\\ and \\\mathbb{d}\_i\\ depend on \\\pi\\, while the observed value \\y_i\\ does not.
 
 > **NOTE:**
 >
-> *Solution 47*. \\ \begin{aligned} \ell''\_i(\pi) &= \frac{\partial}{\partial \pi} \ell'\_i(\pi) && \text{(definition of the Hessian contribution)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(\tau\mathbb{d}\_i\right)\mathclose{} && \text{(score contribution)}\\ &= \mathopen{}\left(\frac{\partial}{\partial \pi} \tau\right)\mathclose{} \mathbb{d}\_i+ \tau\frac{\partial}{\partial \pi} \mathbb{d}\_i && \text{(product rule)} \end{aligned} \\
+> *Solution 49*. \\ \begin{aligned} \ell''\_i(\pi) &= \frac{\partial}{\partial \pi} \ell'\_i(\pi) && \text{(definition of the Hessian contribution)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(\tau\mathbb{d}\_i\right)\mathclose{} && \text{(score contribution)}\\ &= \mathopen{}\left(\frac{\partial}{\partial \pi} \tau\right)\mathclose{} \mathbb{d}\_i+ \tau\frac{\partial}{\partial \pi} \mathbb{d}\_i && \text{(product rule)} \end{aligned} \\
 >
 > The derivative of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is:
 >
@@ -1907,15 +1924,15 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 47](#exr-bernoulli-hessian-contribution-precision), worked in [Solution 47](#sol-bernoulli-hessian-contribution-precision). It follows from [Theorem 24](#thm-bernoulli-hessian-contribution).
+> *Proof*. This is the solution to [Exercise 49](#exr-bernoulli-hessian-contribution-precision), worked in [Solution 49](#sol-bernoulli-hessian-contribution-precision). It follows from [Theorem 24](#thm-bernoulli-hessian-contribution).
 
 > **NOTE:**
 >
-> **Exercise 48 (Hessian contribution of one binary outcome as a squared deviation)** In the setting of [Exercise 47](#exr-bernoulli-hessian-contribution-precision), starting from the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ in [Corollary 2](#cor-bernoulli-hessian-contribution-precision), write \\\ell''\_i(\pi)\\ with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ as a multiple of \\{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\\ times the square of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\. Hint: because \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, \\{\mathopen{}\left(y_i\right)\mathclose{}}^{2} = y_i\\.
+> **Exercise 50 (Hessian contribution of one binary outcome as a squared deviation)** In the setting of [Exercise 49](#exr-bernoulli-hessian-contribution-precision), starting from the [Hessian](#def-hessian) contribution \\\ell''\_i(\pi)\\ in [Corollary 2](#cor-bernoulli-hessian-contribution-precision), write \\\ell''\_i(\pi)\\ with the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) \\\tau= 1 / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ as a multiple of \\{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\\ times the square of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\. Hint: because \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, \\{\mathopen{}\left(y_i\right)\mathclose{}}^{2} = y_i\\.
 
 > **NOTE:**
 >
-> *Solution 48*. Starting from [Corollary 2](#cor-bernoulli-hessian-contribution-precision), factor out \\{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\\. The reciprocal of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is \\1 / \tau= \pi(1 - \pi)\\, so:
+> *Solution 50*. Starting from [Corollary 2](#cor-bernoulli-hessian-contribution-precision), factor out \\{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\\. The reciprocal of the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) is \\1 / \tau= \pi(1 - \pi)\\, so:
 >
 > \\ \begin{aligned} \ell''\_i(\pi) &= -\tau- \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathbb{d}\_i && \text{(the contribution from the corollary)}\\ &= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \frac{1}{\tau} - \mathopen{}\left(1 - 2 \pi\right)\mathclose{} {\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathbb{d}\_i && \text{(\$\tau= {\mathopen{}\left(\tau\right)\mathclose{}}^{2} / \tau\$)}\\ &= -{\mathopen{}\left(\tau\right)\mathclose{}}^{2} \mathopen{}\left(\pi(1 - \pi) + \mathopen{}\left(1 - 2 \pi\right)\mathclose{} \mathbb{d}\_i\right)\mathclose{} && \text{(factor out \$-{\mathopen{}\left(\tau\right)\mathclose{}}^{2}\$)} \end{aligned} \\
 >
@@ -1935,17 +1952,17 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 48](#exr-bernoulli-hessian-contribution-fraction), worked in [Solution 48](#sol-bernoulli-hessian-contribution-fraction). It follows from [Corollary 2](#cor-bernoulli-hessian-contribution-precision).
+> *Proof*. This is the solution to [Exercise 50](#exr-bernoulli-hessian-contribution-fraction), worked in [Solution 50](#sol-bernoulli-hessian-contribution-fraction). It follows from [Corollary 2](#cor-bernoulli-hessian-contribution-precision).
 
 ### 3.8 The Hessian of the sample
 
 > **NOTE:**
 >
-> **Exercise 49 (Hessian of a binary sample)** In the setting of [Exercise 44](#exr-bernoulli-score-sum), assemble the [Hessian](#def-hessian) \\\ell''(\pi)\\ of the whole [sample](exploratory-descriptive.llms.md#def-sample) from the Hessian contributions.
+> **Exercise 51 (Hessian of a binary sample)** In the setting of [Exercise 46](#exr-bernoulli-score-sum), assemble the [Hessian](#def-hessian) \\\ell''(\pi)\\ of the whole [sample](exploratory-descriptive.llms.md#def-sample) from the Hessian contributions.
 
 > **NOTE:**
 >
-> *Solution 49*. \\ \begin{aligned} \ell''(\pi) &= \sum\_{i=1}^n\ell''\_i(\pi) && \text{(the derivative of a sum is the sum of the derivatives)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{y_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1 - y_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(Hessian contribution of a binary outcome)}\\ &= -\frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} \sum\_{i=1}^ny_i- \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \sum\_{i=1}^n(1 - y_i) && \text{(distribute the sum over the terms; the denominators do not depend on \$i\$)}\\ &= -\frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \sum\_{i=1}^n(1 - y_i) && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= -\frac{n {\bar{y}}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \mathopen{}\left(n - n {\bar{y}}\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n {\bar{y}}\$ and \$\textstyle\sum\_{i=1}^n1 = n\$)}\\ &= -\frac{n {\bar{y}}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{n (1 - {\bar{y}})}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(factor out \$n\$)}\\ &= -n \mathopen{}\left(\frac{{\bar{y}}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} + \frac{1 - {\bar{y}}}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(factor out \$-n\$)} \end{aligned} \\
+> *Solution 51*. \\ \begin{aligned} \ell''(\pi) &= \sum\_{i=1}^n\ell''\_i(\pi) && \text{(the derivative of a sum is the sum of the derivatives)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{y_i}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1 - y_i}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(Hessian contribution of a binary outcome)}\\ &= -\frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} \sum\_{i=1}^ny_i- \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \sum\_{i=1}^n(1 - y_i) && \text{(distribute the sum over the terms; the denominators do not depend on \$i\$)}\\ &= -\frac{1}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} {s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \sum\_{i=1}^n(1 - y_i) && \text{(definition of \${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}}\$)}\\ &= -\frac{n {\bar{y}}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{1}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} \mathopen{}\left(n - n {\bar{y}}\right)\mathclose{} && \text{(\${s\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}}} = n {\bar{y}}\$ and \$\textstyle\sum\_{i=1}^n1 = n\$)}\\ &= -\frac{n {\bar{y}}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} - \frac{n (1 - {\bar{y}})}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}} && \text{(factor out \$n\$)}\\ &= -n \mathopen{}\left(\frac{{\bar{y}}}{{\mathopen{}\left(\pi\right)\mathclose{}}^{2}} + \frac{1 - {\bar{y}}}{{\mathopen{}\left(1 - \pi\right)\mathclose{}}^{2}}\right)\mathclose{} && \text{(factor out \$-n\$)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -1955,17 +1972,17 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 49](#exr-bernoulli-hessian-sum), worked in [Solution 49](#sol-bernoulli-hessian-sum).
+> *Proof*. This is the solution to [Exercise 51](#exr-bernoulli-hessian-sum), worked in [Solution 51](#sol-bernoulli-hessian-sum).
 
 ### 3.9 Checking that the Hessian is negative definite
 
 > **NOTE:**
 >
-> **Exercise 50 (Negative definiteness of the Hessian of a binary sample)** In the setting of [Exercise 49](#exr-bernoulli-hessian-sum), show that the [Hessian](#def-hessian) \\\ell''(\pi)\\ is negative definite for every \\\pi\in (0, 1)\\.
+> **Exercise 52 (Negative definiteness of the Hessian of a binary sample)** In the setting of [Exercise 51](#exr-bernoulli-hessian-sum), show that the [Hessian](#def-hessian) \\\ell''(\pi)\\ is negative definite for every \\\pi\in (0, 1)\\.
 
 > **NOTE:**
 >
-> *Solution 50*. A \\1 \times 1\\ matrix is negative definite exactly when its only entry is negative, so it is enough to show \\\ell''(\pi) \< 0\\.
+> *Solution 52*. A \\1 \times 1\\ matrix is negative definite exactly when its only entry is negative, so it is enough to show \\\ell''(\pi) \< 0\\.
 >
 > Fix \\\pi\in (0, 1)\\. Then:
 >
@@ -1985,17 +2002,17 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 50](#exr-bernoulli-hessian-nd), worked in [Solution 50](#sol-bernoulli-hessian-nd). It builds on [Theorem 25](#thm-bernoulli-hessian-sum).
+> *Proof*. This is the solution to [Exercise 52](#exr-bernoulli-hessian-nd), worked in [Solution 52](#sol-bernoulli-hessian-nd). It builds on [Theorem 25](#thm-bernoulli-hessian-sum).
 
 ### 3.10 The maximum likelihood estimate
 
 > **NOTE:**
 >
-> **Exercise 51 (Maximum likelihood estimate of a binary sample)** In the setting of [Exercise 45](#exr-bernoulli-score-equation), use [Theorem 26](#thm-bernoulli-hessian-nd) to find the [maximum likelihood estimate](#def-mle) \\\hat{\pi}\_{\text{ML}}\\ of \\\pi\\.
+> **Exercise 53 (Maximum likelihood estimate of a binary sample)** In the setting of [Exercise 47](#exr-bernoulli-score-equation), use [Theorem 26](#thm-bernoulli-hessian-nd) to find the [maximum likelihood estimate](#def-mle) \\\hat{\pi}\_{\text{ML}}\\ of \\\pi\\.
 
 > **NOTE:**
 >
-> *Solution 51*. By [Theorem 26](#thm-bernoulli-hessian-nd), \\\ell\\ is strictly concave on \\(0, 1)\\. A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else. With \\{\bar{y}}\in (0, 1)\\, [Theorem 23](#thm-bernoulli-score-equation) says the only critical point of \\\ell\\ in \\(0, 1)\\ is \\{\bar{y}}\\. So \\\ell\\ is maximized at \\\pi= {\bar{y}}\\.
+> *Solution 53*. By [Theorem 26](#thm-bernoulli-hessian-nd), \\\ell\\ is strictly concave on \\(0, 1)\\. A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else. With \\{\bar{y}}\in (0, 1)\\, [Theorem 23](#thm-bernoulli-score-equation) says the only critical point of \\\ell\\ in \\(0, 1)\\ is \\{\bar{y}}\\. So \\\ell\\ is maximized at \\\pi= {\bar{y}}\\.
 
 > **NOTE:**
 >
@@ -2005,7 +2022,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 51](#exr-bernoulli-mle), worked in [Solution 51](#sol-bernoulli-mle). It builds on [Theorem 23](#thm-bernoulli-score-equation) and [Theorem 26](#thm-bernoulli-hessian-nd).
+> *Proof*. This is the solution to [Exercise 53](#exr-bernoulli-mle), worked in [Solution 53](#sol-bernoulli-mle). It builds on [Theorem 23](#thm-bernoulli-score-equation) and [Theorem 26](#thm-bernoulli-hessian-nd).
 
 ## 4 Maximum likelihood for univariate Gaussian models
 
@@ -2577,7 +2594,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 52 (Binomial likelihood (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\Y \sim \text{Binomial}(n, \pi)\\, so that
+> **Exercise 54 (Binomial likelihood (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\Y \sim \text{Binomial}(n, \pi)\\, so that
 >
 > \\ \operatorname{p}(Y = y \mid \pi) = \binom{n}{y} \pi^y (1-\pi)^{n-y}, \quad y \in \\0, 1, \ldots, n\\. \\
 >
@@ -2593,7 +2610,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> *Solution 52*. **(a)**
+> *Solution 54*. **(a)**
 >
 > \\ \begin{aligned} \ell(\pi; y) &= {\operatorname{log}\mathopen{}\left\\\binom{n}{y} \pi^y (1-\pi)^{n-y}\right\\\mathclose{}} && \text{(log of the binomial PMF)} \\ &= {\operatorname{log}\mathopen{}\left\\\binom{n}{y}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\\pi^y\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\(1-\pi)^{n-y}\right\\\mathclose{}} && \text{(log of a product)} \\ &= {\operatorname{log}\mathopen{}\left\\\binom{n}{y}\right\\\mathclose{}} + y{\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}} + (n-y){\operatorname{log}\mathopen{}\left\\1-\pi\right\\\mathclose{}} && \text{(log of a power)} \end{aligned} \\
 >
@@ -2625,7 +2642,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 53 (Gaussian log-likelihood (adapted from Kleinbaum et al. [\[24\]](#ref-kleinbaum2014applied), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}(\mu, \sigma^2)\\.
+> **Exercise 55 (Gaussian log-likelihood (adapted from Kleinbaum et al. [\[24\]](#ref-kleinbaum2014applied), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}(\mu, \sigma^2)\\.
 >
 > **(a)** Write the likelihood \\\mathcal{L}(\mu, \sigma^2; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\ for the observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\\.
 >
@@ -2635,7 +2652,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> *Solution 53*. **(a)**
+> *Solution 55*. **(a)**
 >
 > \\ \begin{aligned} \mathcal{L}(\mu, \sigma^2; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \prod\_{i=1}^n(2\pi\sigma^2)^{-1/2} {\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}} && \text{(likelihood of an \$\operatorname{iid}\$ sample)} \\ &= \mathopen{}\left(\prod\_{i=1}^n(2\pi\sigma^2)^{-1/2}\right)\mathclose{} \mathopen{}\left(\prod\_{i=1}^n{\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}}\right)\mathclose{} && \text{(regroup the factors of the product)} \\ &= (2\pi\sigma^2)^{-n/2} \prod\_{i=1}^n{\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}} && \text{(product of \$n\$ copies of a power)} \\ &= (2\pi\sigma^2)^{-n/2} {\operatorname{exp}\mathopen{}\left\\\sum\_{i=1}^n-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}} && \text{(product of exponentials)} \\ &= (2\pi\sigma^2)^{-n/2} {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i-\mu)^2\right\\\mathclose{}} && \text{(factor the constant out of the sum)} \end{aligned} \\
 >
@@ -2675,7 +2692,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 54 (Score at the MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\.
+> **Exercise 56 (Score at the MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\.
 >
 > **(a)** Write the log-likelihood \\\ell({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\.
 >
@@ -2687,7 +2704,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> *Solution 54*. **(a)**
+> *Solution 56*. **(a)**
 >
 > \\ \begin{aligned} \ell({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= {\operatorname{log}\mathopen{}\left\\\prod\_{i=1}^n\frac{{\lambda}^{x_i} e^{-{\lambda}}}{x_i!}\right\\\mathclose{}} && \text{(log of the likelihood of an \$\operatorname{iid}\$ sample)} \\ &= \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\\frac{{\lambda}^{x_i} e^{-{\lambda}}}{x_i!}\right\\\mathclose{}} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left({\operatorname{log}\mathopen{}\left\\{\lambda}^{x_i} e^{-{\lambda}}\right\\\mathclose{}} - {\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a quotient)} \\ &= \sum\_{i=1}^n\mathopen{}\left({\operatorname{log}\mathopen{}\left\\{\lambda}^{x_i}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-{\lambda}}\right\\\mathclose{}} - {\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left(x_i{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-{\lambda}}\right\\\mathclose{}} - {\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a power)} \\ &= \sum\_{i=1}^n\mathopen{}\left(x_i{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - {\lambda}- {\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}}\right)\mathclose{} && \text{(\$\operatorname{log}\$ undoes \$\operatorname{exp}\$)} \\ &= \sum\_{i=1}^nx_i{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - \sum\_{i=1}^n{\lambda}- \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}} && \text{(distribute the sum over the terms)} \\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - \sum\_{i=1}^n{\lambda}- \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}} && \text{(factor \${\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}}\$ out of the first sum)} \\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}{\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - n{\lambda}- \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}} && \text{(sum of \$n\$ copies of \${\lambda}\$)} \end{aligned} \\
 >
@@ -2713,7 +2730,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 55 (Standard error of an MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\.
+> **Exercise 57 (Standard error of an MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\.
 >
 > **(a)** Derive the Hessian \\\ell''({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{\partial}{\partial \[}2\]{{\lambda}}\ell({\lambda};\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\.
 >
@@ -2725,9 +2742,9 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> *Solution 55*. **(a)**
+> *Solution 57*. **(a)**
 >
-> From [Exercise 54](#exr-prac-score-zero), \\\ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{n{\bar{x}}}{{\lambda}} - n\\.
+> From [Exercise 56](#exr-prac-score-zero), \\\ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{n{\bar{x}}}{{\lambda}} - n\\.
 >
 > \\ \begin{aligned} \ell''({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[\frac{n{\bar{x}}}{{\lambda}} - n\right\]\mathclose{} && \text{(Poisson score)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\bar{x}}{\lambda}^{-1} - n\right\]\mathclose{} && \text{(write \$\tfrac{n{\bar{x}}}{{\lambda}}\$ as \$n{\bar{x}}{\lambda}^{-1}\$)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\bar{x}}{\lambda}^{-1}\right\]\mathclose{} - \frac{\partial}{\partial {\lambda}} n && \text{(linearity of differentiation)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\bar{x}}{\lambda}^{-1}\right\]\mathclose{} - 0 && \text{(derivative of a constant)} \\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left\[n{\bar{x}}{\lambda}^{-1}\right\]\mathclose{} && \text{(drop the zero term)} \\ &= n{\bar{x}}\frac{\partial}{\partial {\lambda}}{\lambda}^{-1} && \text{(constant multiple rule)} \\ &= n{\bar{x}}\mathopen{}\left(-{\lambda}^{-2}\right)\mathclose{} && \text{(power rule)} \\ &= -n{\bar{x}}{\lambda}^{-2} && \text{(multiply)} \\ &= -\frac{n{\bar{x}}}{{\lambda}^2} && \text{(write the negative power as a fraction)} \end{aligned} \\
 >
@@ -2757,59 +2774,87 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 56 (Exponential MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \text{Exponential}(\mu)\\, so that \\ \operatorname{p}(X = x \mid \mu) = \frac{1}{\mu} e^{-x/\mu}, \quad x \> 0, \quad \mu\> 0. \\
+> **Exercise 58 (Exponential MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \text{Exponential}(\mu)\\, so that \\ \operatorname{p}(X = x \mid \mu) = \frac{1}{\mu} e^{-x/\mu}, \quad x \> 0, \quad \mu\> 0. \\
 >
-> **(a)** Write the log-likelihood \\\ell(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\ for the observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\\.
->
-> **(b)** Derive the score function \\\ell'(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{\partial}{\partial \mu}\ell(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\.
->
-> **(c)** Set the score equal to zero and show that \\\hat\mu\_{ML} = {\bar{x}}\\. Compute the second derivative and verify this critical point is a maximum.
->
-> **(d)** Derive the observed information \\I(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = -\ell''(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\, evaluate it at \\\hat\mu\_{ML}\\, and give an approximate 95% confidence interval for \\\mu\\.
+> Write the [log-likelihood](#def-loglik) \\\ell(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\ for the observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\\.
 
 > **NOTE:**
 >
-> *Solution 56*. **(a)**
+> *Solution 58*. \\ \begin{aligned} \ell(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= {\operatorname{log}\mathopen{}\left\\\prod\_{i=1}^n\frac{1}{\mu} e^{-x_i/\mu}\right\\\mathclose{}} && \text{(log of the likelihood of an \$\operatorname{iid}\$ sample)} \\ &= \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\\frac{1}{\mu} e^{-x_i/\mu}\right\\\mathclose{}} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left({\operatorname{log}\mathopen{}\left\\\frac{1}{\mu}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-x_i/\mu}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-x_i/\mu}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a reciprocal)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{x_i}{\mu}\right)\mathclose{} && \text{(\$\operatorname{log}\$ undoes \$\operatorname{exp}\$)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}}\right)\mathclose{} - \sum\_{i=1}^n\frac{x_i}{\mu} && \text{(distribute the sum over the terms)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \sum\_{i=1}^n\frac{x_i}{\mu} && \text{(sum of \$n\$ identical terms)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{1}{\mu}\sum\_{i=1}^nx_i && \text{(factor the constant \$\tfrac{1}{\mu}\$ out of the sum)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{n{\bar{x}}}{\mu} && \text{(\$\textstyle\sum\_{i=1}^nx_i= n{\bar{x}}\$)} \end{aligned} \\
+
+> **NOTE:**
 >
-> \\ \begin{aligned} \ell(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= {\operatorname{log}\mathopen{}\left\\\prod\_{i=1}^n\frac{1}{\mu} e^{-x_i/\mu}\right\\\mathclose{}} && \text{(log of the likelihood of an \$\operatorname{iid}\$ sample)} \\ &= \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\\frac{1}{\mu} e^{-x_i/\mu}\right\\\mathclose{}} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left({\operatorname{log}\mathopen{}\left\\\frac{1}{\mu}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-x_i/\mu}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a product)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\e^{-x_i/\mu}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a reciprocal)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{x_i}{\mu}\right)\mathclose{} && \text{(\$\operatorname{log}\$ undoes \$\operatorname{exp}\$)} \\ &= \sum\_{i=1}^n\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}}\right)\mathclose{} - \sum\_{i=1}^n\frac{x_i}{\mu} && \text{(distribute the sum over the terms)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \sum\_{i=1}^n\frac{x_i}{\mu} && \text{(sum of \$n\$ identical terms)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{1}{\mu}\sum\_{i=1}^nx_i && \text{(factor the constant \$\tfrac{1}{\mu}\$ out of the sum)} \\ &= -n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{n{\bar{x}}}{\mu} && \text{(\$\textstyle\sum\_{i=1}^nx_i= n{\bar{x}}\$)} \end{aligned} \\
+> **Exercise 59 (Score function of the exponential)** In the setting of [Exercise 58](#exr-prac-exp-mle), derive the [score function](#def-score) \\\ell'(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{\partial}{\partial \mu}\ell(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\.
+
+> **NOTE:**
 >
-> **(b)**
+> *Solution 59*. \\ \begin{aligned} \ell'(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{n{\bar{x}}}{\mu}\right)\mathclose{} && \text{(log-likelihood)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - n{\bar{x}}\mu^{-1}\right)\mathclose{} && \text{(write \$\tfrac{n{\bar{x}}}{\mu}\$ as \$n{\bar{x}}\mu^{-1}\$)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}}\right)\mathclose{} - \frac{\partial}{\partial \mu}\mathopen{}\left(n{\bar{x}}\mu^{-1}\right)\mathclose{} && \text{(linearity of differentiation)} \\ &= -n\frac{\partial}{\partial \mu}{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - n{\bar{x}}\frac{\partial}{\partial \mu}\mu^{-1} && \text{(constant multiple rule)} \\ &= -n\mu^{-1} - n{\bar{x}}\frac{\partial}{\partial \mu}\mu^{-1} && \text{(derivative of \$\log\$)} \\ &= -n\mu^{-1} - n{\bar{x}}\mathopen{}\left(-\mu^{-2}\right)\mathclose{} && \text{(power rule)} \\ &= -n\mu^{-1} + n{\bar{x}}\mu^{-2} && \text{(multiply)} \\ &= -\frac{n}{\mu} + \frac{n{\bar{x}}}{\mu^2} && \text{(write the negative powers as fractions)} \\ &= -\frac{n\mu}{\mu^2} + \frac{n{\bar{x}}}{\mu^2} && \text{(write both terms over the common denominator)} \\ &= \frac{-n\mu+ n{\bar{x}}}{\mu^2} && \text{(combine the fractions)} \\ &= \frac{n{\bar{x}}- n\mu}{\mu^2} && \text{(reorder the numerator)} \\ &= \frac{n}{\mu^2}\mathopen{}\left({\bar{x}}- \mu\right)\mathclose{} && \text{(factor out \$\tfrac{n}{\mu^2}\$)} \end{aligned} \\
+
+> **NOTE:**
 >
-> \\ \begin{aligned} \ell'(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - \frac{n{\bar{x}}}{\mu}\right)\mathclose{} && \text{(log-likelihood from (a))} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - n{\bar{x}}\mu^{-1}\right)\mathclose{} && \text{(write \$\tfrac{n{\bar{x}}}{\mu}\$ as \$n{\bar{x}}\mu^{-1}\$)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}}\right)\mathclose{} - \frac{\partial}{\partial \mu}\mathopen{}\left(n{\bar{x}}\mu^{-1}\right)\mathclose{} && \text{(linearity of differentiation)} \\ &= -n\frac{\partial}{\partial \mu}{\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}} - n{\bar{x}}\frac{\partial}{\partial \mu}\mu^{-1} && \text{(constant multiple rule)} \\ &= -n\mu^{-1} - n{\bar{x}}\frac{\partial}{\partial \mu}\mu^{-1} && \text{(derivative of \$\log\$)} \\ &= -n\mu^{-1} - n{\bar{x}}\mathopen{}\left(-\mu^{-2}\right)\mathclose{} && \text{(power rule)} \\ &= -n\mu^{-1} + n{\bar{x}}\mu^{-2} && \text{(multiply)} \\ &= -\frac{n}{\mu} + \frac{n{\bar{x}}}{\mu^2} && \text{(write the negative powers as fractions)} \\ &= -\frac{n\mu}{\mu^2} + \frac{n{\bar{x}}}{\mu^2} && \text{(write both terms over the common denominator)} \\ &= \frac{-n\mu+ n{\bar{x}}}{\mu^2} && \text{(combine the fractions)} \\ &= \frac{n{\bar{x}}- n\mu}{\mu^2} && \text{(reorder the numerator)} \\ &= \frac{n}{\mu^2}\mathopen{}\left({\bar{x}}- \mu\right)\mathclose{} && \text{(factor out \$\tfrac{n}{\mu^2}\$)} \end{aligned} \\
+> **Exercise 60 (Maximum likelihood estimate of the exponential mean)** In the setting of [Exercise 58](#exr-prac-exp-mle), solve the [score equation](#def-score-equation) \\\ell'(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = 0\\ with the [score](#def-score) from [Exercise 59](#exr-prac-exp-mle-score), to show that \\\hat\mu\_{ML} = {\bar{x}}\\.
+
+> **NOTE:**
 >
-> **(c)**
+> *Solution 60*. Setting \\\ell'(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = 0\\:
 >
-> Setting \\\ell'(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = 0\\:
+> \\ \begin{aligned} 0 &= \frac{n}{\mu^2}\mathopen{}\left({\bar{x}}- \mu\right)\mathclose{} && \text{(score)} \\ 0 &= {\bar{x}}- \mu && \text{(multiply both sides by \$\tfrac{\mu^2}{n}\$)} \\ \hat\mu\_{ML} &= {\bar{x}} && \text{(add \$\mu\$ to both sides)} \end{aligned} \\
+
+> **NOTE:**
 >
-> \\ \begin{aligned} 0 &= \frac{n}{\mu^2}\mathopen{}\left({\bar{x}}- \mu\right)\mathclose{} && \text{(score from (b))} \\ 0 &= {\bar{x}}- \mu && \text{(multiply both sides by \$\tfrac{\mu^2}{n}\$)} \\ \hat\mu\_{ML} &= {\bar{x}} && \text{(add \$\mu\$ to both sides)} \end{aligned} \\
+> **Exercise 61 (Second derivative of the exponential log-likelihood)** In the setting of [Exercise 58](#exr-prac-exp-mle), compute the second derivative \\\ell''(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\ of the [log-likelihood](#def-loglik).
+
+> **NOTE:**
 >
-> The second derivative is:
+> *Solution 61*. The second derivative is:
 >
-> \\ \begin{aligned} \ell''(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{\mu} + \frac{n{\bar{x}}}{\mu^2}\right)\mathclose{} && \text{(score from (b))} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\mu^{-1} + n{\bar{x}}\mu^{-2}\right)\mathclose{} && \text{(write the fractions as negative powers)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\mu^{-1}\right)\mathclose{} + \frac{\partial}{\partial \mu}\mathopen{}\left(n{\bar{x}}\mu^{-2}\right)\mathclose{} && \text{(linearity of differentiation)} \\ &= -n\frac{\partial}{\partial \mu}\mu^{-1} + n{\bar{x}}\frac{\partial}{\partial \mu}\mu^{-2} && \text{(constant multiple rule)} \\ &= -n\mathopen{}\left(-\mu^{-2}\right)\mathclose{} + n{\bar{x}}\frac{\partial}{\partial \mu}\mu^{-2} && \text{(power rule for \$\mu^{-1}\$)} \\ &= -n\mathopen{}\left(-\mu^{-2}\right)\mathclose{} + n{\bar{x}}\mathopen{}\left(-2\mu^{-3}\right)\mathclose{} && \text{(power rule for \$\mu^{-2}\$)} \\ &= n\mu^{-2} - 2n{\bar{x}}\mu^{-3} && \text{(multiply)} \\ &= \frac{n}{\mu^2} - \frac{2n{\bar{x}}}{\mu^3} && \text{(write the negative powers as fractions)} \end{aligned} \\
+> \\ \begin{aligned} \ell''(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{\mu} + \frac{n{\bar{x}}}{\mu^2}\right)\mathclose{} && \text{(score, before factoring)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\mu^{-1} + n{\bar{x}}\mu^{-2}\right)\mathclose{} && \text{(write the fractions as negative powers)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\mu^{-1}\right)\mathclose{} + \frac{\partial}{\partial \mu}\mathopen{}\left(n{\bar{x}}\mu^{-2}\right)\mathclose{} && \text{(linearity of differentiation)} \\ &= -n\frac{\partial}{\partial \mu}\mu^{-1} + n{\bar{x}}\frac{\partial}{\partial \mu}\mu^{-2} && \text{(constant multiple rule)} \\ &= -n\mathopen{}\left(-\mu^{-2}\right)\mathclose{} + n{\bar{x}}\frac{\partial}{\partial \mu}\mu^{-2} && \text{(power rule for \$\mu^{-1}\$)} \\ &= -n\mathopen{}\left(-\mu^{-2}\right)\mathclose{} + n{\bar{x}}\mathopen{}\left(-2\mu^{-3}\right)\mathclose{} && \text{(power rule for \$\mu^{-2}\$)} \\ &= n\mu^{-2} - 2n{\bar{x}}\mu^{-3} && \text{(multiply)} \\ &= \frac{n}{\mu^2} - \frac{2n{\bar{x}}}{\mu^3} && \text{(write the negative powers as fractions)} \end{aligned} \\
+
+> **NOTE:**
 >
-> Evaluated at \\\hat\mu\_{ML} = {\bar{x}}\\:
+> **Exercise 62 (Check the critical point is a maximum)** In the setting of [Exercise 58](#exr-prac-exp-mle), use the second derivative from [Exercise 61](#exr-prac-exp-mle-second-derivative) to verify that the [critical point](#def-critical-point) \\\hat\mu\_{ML}\\ from [Exercise 60](#exr-prac-exp-mle-mle) is a maximum.
+
+> **NOTE:**
+>
+> *Solution 62*. Evaluated at \\\hat\mu\_{ML} = {\bar{x}}\\:
 >
 > \\ \begin{aligned} \ell''({\bar{x}}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{n}{{\bar{x}}^2} - \frac{2n{\bar{x}}}{{\bar{x}}^3} && \text{(second derivative at \$\mu= {\bar{x}}\$)} \\ &= \frac{n}{{\bar{x}}^2} - \frac{2n}{{\bar{x}}^2} && \text{(cancel one factor of \${\bar{x}}\$)} \\ &= -\frac{n}{{\bar{x}}^2} && \text{(combine like terms)} \end{aligned} \\
 >
 > Since \\n \> 0\\ and \\{\bar{x}}^2 \> 0\\, the second derivative is negative, so \\\hat\mu\_{ML} = {\bar{x}}\\ is a maximum.
+
+> **NOTE:**
 >
-> **(d)**
+> **Exercise 63 (Observed information for the exponential mean)** In the setting of [Exercise 58](#exr-prac-exp-mle), use the second derivative from [Exercise 61](#exr-prac-exp-mle-second-derivative) to derive the [observed information](#def-oinf) \\I(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = -\ell''(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\.
+
+> **NOTE:**
 >
-> The observed information is:
+> *Solution 63*. The observed information is:
 >
-> \\ \begin{aligned} I(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= -\ell''(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) && \text{(observed information is the negative Hessian)} \\ &= -\mathopen{}\left(\frac{n}{\mu^2} - \frac{2n{\bar{x}}}{\mu^3}\right)\mathclose{} && \text{(second derivative from (c))} \\ &= -\frac{n}{\mu^2} + \frac{2n{\bar{x}}}{\mu^3} && \text{(distribute the minus sign)} \\ &= \frac{2n{\bar{x}}}{\mu^3} - \frac{n}{\mu^2} && \text{(reorder the terms)} \end{aligned} \\
+> \\ \begin{aligned} I(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= -\ell''(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) && \text{(observed information is the negative Hessian)} \\ &= -\mathopen{}\left(\frac{n}{\mu^2} - \frac{2n{\bar{x}}}{\mu^3}\right)\mathclose{} && \text{(second derivative)} \\ &= -\frac{n}{\mu^2} + \frac{2n{\bar{x}}}{\mu^3} && \text{(distribute the minus sign)} \\ &= \frac{2n{\bar{x}}}{\mu^3} - \frac{n}{\mu^2} && \text{(reorder the terms)} \end{aligned} \\
+
+> **NOTE:**
 >
-> Evaluated at \\\hat\mu\_{ML} = {\bar{x}}\\:
+> **Exercise 64 (Observed information at the MLE)** In the setting of [Exercise 58](#exr-prac-exp-mle), evaluate the [observed information](#def-oinf) from [Exercise 63](#exr-prac-exp-mle-oinf) at \\\hat\mu\_{ML}\\ from [Exercise 60](#exr-prac-exp-mle-mle).
+
+> **NOTE:**
+>
+> *Solution 64*. Evaluated at \\\hat\mu\_{ML} = {\bar{x}}\\:
 >
 > \\ \begin{aligned} I(\hat\mu\_{ML}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &= \frac{2n{\bar{x}}}{{\bar{x}}^3} - \frac{n}{{\bar{x}}^2} && \text{(observed information at \$\mu= {\bar{x}}\$)} \\ &= \frac{2n}{{\bar{x}}^2} - \frac{n}{{\bar{x}}^2} && \text{(cancel one factor of \${\bar{x}}\$)} \\ &= \frac{n}{{\bar{x}}^2} && \text{(combine like terms)} \end{aligned} \\
 >
 > So \\{\operatorname{SE}\mathopen{}\left(\hat\mu\_{ML}\right)\mathclose{}} \approx \sqrt{I(\hat\mu\_{ML}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})^{-1}} = \frac{{\bar{x}}}{\sqrt{n}}\\.
+
+> **NOTE:**
 >
-> An approximate 95% CI for \\\mu\\ is:
+> **Exercise 65 (Approximate confidence interval for the exponential mean)** In the setting of [Exercise 58](#exr-prac-exp-mle), use the [observed information](#def-oinf) at the MLE from [Exercise 64](#exr-prac-exp-mle-oinf-at-mle) to give an [approximate 95% confidence interval](inference.llms.md#def-approximate-ci) for \\\mu\\.
+
+> **NOTE:**
+>
+> *Solution 65*. An [approximate](inference.llms.md#def-approximate-ci) 95% CI for \\\mu\\ is:
 >
 > \\ \hat\mu\_{ML} \pm 1.96 \times \frac{{\bar{x}}}{\sqrt{n}} = {\bar{x}}\pm \frac{1.96{\bar{x}}}{\sqrt{n}} \\
 >
-> Note: the exponential distribution has \\{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \mu^2\\, so \\{\operatorname{SE}\mathopen{}\left(\hat\mu\_{ML}\right)\mathclose{}} = \mu/\sqrt{n}\\, which is estimated by \\{\bar{x}}/\sqrt{n}\\. More generally, the standard error of a sample mean is \\{\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}}/\sqrt{n}\\; here that reduces to \\\mu/\sqrt{n}\\ because \\{\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}} = \mu\\ for the exponential distribution.
+> Note: the exponential distribution has \\{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \mu^2\\, so \\{\operatorname{SE}\mathopen{}\left(\hat\mu\_{ML}\right)\mathclose{}} = \mu/\sqrt{n}\\, which is estimated by \\{\bar{x}}/\sqrt{n}\\. More generally, the standard error of a sample mean is \\{\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}}/\sqrt{n}\\; here the standard error reduces to \\\mu/\sqrt{n}\\ because \\{\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}} = \mu\\ for the exponential distribution.
 
 ## References
 
