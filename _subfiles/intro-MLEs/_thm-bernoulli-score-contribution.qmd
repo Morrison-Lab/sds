@@ -13,7 +13,7 @@ The precision $\precision$ is the same for every $\iobs$, because all $\Outvar_\
 
 ::: proof
 
-The score contribution as $(\outvar_\iobs - \prob) / \paren{\prob(1 - \prob)}$ is the solution to @exr-bernoulli-score-contribution,
+The [score](#def-score) contribution as $(\outvar_\iobs - \prob) / \paren{\prob(1 - \prob)}$ is the solution to @exr-bernoulli-score-contribution,
 worked in @sol-bernoulli-score-contribution.
 The form in terms of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is the solution to @exr-bernoulli-score-contribution-deviation,
 worked in @sol-bernoulli-score-contribution-deviation.
