@@ -1,6 +1,7 @@
 :::{#exr-prac-exp-mle-oinf}
 #### Observed information for the exponential mean
 
-In the setting of @exr-prac-exp-mle, derive the [observed information](#def-oinf) $\oinf(\pmean; \vx) = -\hess(\pmean; \vx)$.
+In the setting of @exr-prac-exp-mle,
+use the second derivative from @exr-prac-exp-mle-second-derivative to derive the [observed information](#def-oinf) $\oinf(\pmean; \vx) = -\hess(\pmean; \vx)$.
 
 :::

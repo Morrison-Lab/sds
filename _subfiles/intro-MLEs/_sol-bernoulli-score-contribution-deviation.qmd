@@ -7,8 +7,12 @@ $$
 \score_\iobs(\prob)
 &= \frac{\outvar_\iobs - \prob}{\prob(1 - \prob)}
 && \text{(score contribution)}\\
+&= \frac{\outvar_\iobs - \prob}{\Var{\Outvar_\iobs}}
+&& \text{($\Var{\Outvar_\iobs} = \prob(1 - \prob)$)}\\
+&= \frac{\outvar_\iobs - \E{\Outvar_\iobs}}{\Var{\Outvar_\iobs}}
+&& \text{($\E{\Outvar_\iobs} = \prob$)}\\
 &= \frac{\devn_\iobs}{\Var{\Outvar_\iobs}}
-&& \text{(definition of $\devn_\iobs$; $\Var{\Outvar_\iobs} = \prob(1 - \prob)$)}\\
+&& \text{(definition of $\devn_\iobs$)}\\
 &= \precision \devn_\iobs
 && \text{(definition of $\precision$)}
 \end{aligned}
