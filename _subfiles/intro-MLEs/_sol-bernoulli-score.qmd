@@ -71,8 +71,12 @@ Substituting both derivatives back in:
 $$
 \begin{aligned}
 \score
-&= \frac{x}{\prob(1 - \prob)} - \frac{1}{1 - \prob}
+&= x \paren{\frac{1}{\prob(1 - \prob)}} + \paren{-\frac{1}{1 - \prob}}
 && \text{(substitute the two derivatives)}\\
+&= \frac{x}{\prob(1 - \prob)} + \paren{-\frac{1}{1 - \prob}}
+&& \text{(multiply $x$ into the numerator)}\\
+&= \frac{x}{\prob(1 - \prob)} - \frac{1}{1 - \prob}
+&& \text{(adding a negative is subtracting)}\\
 &= \frac{x}{\prob(1 - \prob)} - \frac{\prob}{\prob(1 - \prob)}
 && \text{(multiply the numerator and denominator of the second term by $\prob$)}\\
 &= \frac{x - \prob}{\prob(1 - \prob)}
