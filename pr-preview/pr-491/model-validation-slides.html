@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-27 01:31:01 (PDT)</p>
+  <p class="date">Last modified: 2026-10-27 03:08:59 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -695,7 +695,7 @@ h\mapsto {\mathcal{J}\mathopen{}\left(h; \mathcal{D}\right)\mathclose{}}, \quad 
 <span id="cb4-17"><a aria-label="17"></a>    <span class="st">"held_out"</span>: empirical_risk(birthwt[is_held_out]),</span>
 <span id="cb4-18"><a aria-label="18"></a>}</span>
 <span id="cb4-19"><a aria-label="19"></a>empirical_risks</span>
-<span id="cb4-20"><a aria-label="20"></a><span class="co">#&gt; {'training': np.float64(488364.99564830225), 'held_out': np.float64(503648.7535191132)}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-20"><a aria-label="20"></a><span class="co">#&gt; {'training': np.float64(488364.9956483022), 'held_out': np.float64(503648.75351911323)}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -2265,15 +2265,11 @@ rme's remark that k = 5 or 10 is typical is in @rem-choosing-k.
 <div id="rem-source-cv-estimate" class="proof remark">
 <p><span class="proof-title"><em>Remark 27</em> (Source: Cross-validation estimate). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 7.10.1]</a></span>, for the per-observation form with the fold index <span class="math inline">\({\kappa\mathopen{}\left(i\right)\mathclose{}}\)</span>.</p>
 </div>
-</section><section class="slide level2 scrollable"><div id="exr-cv-estimate-by-fold" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12 (The cross-validation estimate, fold by fold)</strong></span> &nbsp;</p>
-<ol type="1">
-<li>Rewrite the <a href="#/def-cv-estimate">cross-validation estimate</a> <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;52</a> as <span class="math inline">\(1/n\)</span> times a double sum: an outer sum over the fold numbers <span class="math inline">\(j= 1, \ldots, k\)</span> and an inner sum over the observations <span class="math inline">\(i\)</span> in <a href="#/def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span>.</li>
-<li>Simplify the summand, so that it no longer uses the <a href="#/def-fold-assignment">fold assignment</a> <span class="math inline">\({\kappa\mathopen{}\left(i\right)\mathclose{}}\)</span>.</li>
-</ol>
+</section><section class="slide level2"><div id="exr-cv-estimate-by-fold" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12 (The cross-validation estimate, fold by fold)</strong></span> Rewrite the <a href="#/def-cv-estimate">cross-validation estimate</a> <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;52</a> as <span class="math inline">\(1/n\)</span> times a double sum: an outer sum over the fold numbers <span class="math inline">\(j= 1, \ldots, k\)</span> and an inner sum over the observations <span class="math inline">\(i\)</span> in <a href="#/def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-cv-estimate-by-fold" class="proof solution">
-<p><span class="proof-title"><em>Solution 12</em>. </span><strong>1.</strong> The <a href="#/def-folds">folds</a> <span class="math inline">\(\mathcal{F}_{1}, \ldots, \mathcal{F}_{k}\)</span> partition <span class="math inline">\(I\)</span> (<a href="#/def-folds" class="quarto-xref">Definition&nbsp;50</a>), so summing over the observations of each fold and then over the folds adds each term of <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;52</a> exactly once:</p>
+<p><span class="proof-title"><em>Solution 12</em>. </span>The <a href="#/def-folds">folds</a> <span class="math inline">\(\mathcal{F}_{1}, \ldots, \mathcal{F}_{k}\)</span> partition <span class="math inline">\(I\)</span> (<a href="#/def-folds" class="quarto-xref">Definition&nbsp;50</a>), so summing over the observations of each fold and then over the folds adds each term of <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;52</a> exactly once:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \widehat{\operatorname{Err}}_{\text{CV}(k)}
@@ -2284,7 +2280,12 @@ rme's remark that k = 5 or 10 is typical is in @rem-choosing-k.
 &amp;&amp; \text{(group by fold)}
 \end{aligned}
 \]</span></p>
-<p><strong>2.</strong> For <span class="math inline">\(i\in \mathcal{F}_{j}\)</span>, <a href="#/eq-fold-assignment" class="quarto-xref">Equation&nbsp;50</a> also puts <span class="math inline">\(i\)</span> in <span class="math inline">\(\mathcal{F}_{{\kappa\mathopen{}\left(i\right)\mathclose{}}}\)</span>, and the folds are disjoint, so <span class="math inline">\({\kappa\mathopen{}\left(i\right)\mathclose{}} = j\)</span>. Then</p>
+</div>
+</section><section class="slide level2"><div id="exr-cv-estimate-by-fold-simplify" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13 (Simplify the summand of the cross-validation estimate)</strong></span> In the setting of <a href="#/exr-cv-estimate-by-fold" class="quarto-xref">Exercise&nbsp;12</a>, simplify the summand, so that it no longer uses the <a href="#/def-fold-assignment">fold assignment</a> <span class="math inline">\({\kappa\mathopen{}\left(i\right)\mathclose{}}\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-cv-estimate-by-fold-simplify" class="proof solution">
+<p><span class="proof-title"><em>Solution 13</em>. </span>For <span class="math inline">\(i\in \mathcal{F}_{j}\)</span>, <a href="#/eq-fold-assignment" class="quarto-xref">Equation&nbsp;50</a> also puts <span class="math inline">\(i\)</span> in <span class="math inline">\(\mathcal{F}_{{\kappa\mathopen{}\left(i\right)\mathclose{}}}\)</span>, and the folds are disjoint, so <span class="math inline">\({\kappa\mathopen{}\left(i\right)\mathclose{}} = j\)</span>. Then</p>
 <p><span class="math display">\[
 \begin{aligned}
 \widehat{\operatorname{Err}}_{\text{CV}(k)}
@@ -2600,7 +2601,7 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated sRMSE in each of 5
 </section><section id="sec-loocv" class="slide level2 scrollable" data-number="7"><h2>
 <span class="header-section-number">7</span> Leave-one-out cross-validation</h2>
 <div id="exr-loocv" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13 (The largest number of folds)</strong></span> Suppose we take <span class="math inline">\(k= n\)</span> in <a href="#/def-kfold"><span class="math inline">\(k\)</span>-fold cross-validation</a> on the <span class="math inline">\(n= 32\)</span> cars in <code>mtcars</code>.</p>
+<p><span class="theorem-title"><strong>Exercise 14 (The largest number of folds)</strong></span> Suppose we take <span class="math inline">\(k= n\)</span> in <a href="#/def-kfold"><span class="math inline">\(k\)</span>-fold cross-validation</a> on the <span class="math inline">\(n= 32\)</span> cars in <code>mtcars</code>.</p>
 <ol type="1">
 <li>How many cars are in each fold?</li>
 <li>How many models are fit, and how many cars is each fitted to?</li>
@@ -2608,7 +2609,7 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated sRMSE in each of 5
 </ol>
 </div>
 </section><section class="slide level2 scrollable"><div id="sol-loocv" class="proof solution">
-<p><span class="proof-title"><em>Solution 13</em>. </span></p>
+<p><span class="proof-title"><em>Solution 14</em>. </span></p>
 <ol type="1">
 <li>
 <span class="math inline">\(32 / 32 = 1\)</span> car per fold.</li>
@@ -2627,7 +2628,7 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated sRMSE in each of 5
 <p><span class="theorem-title"><strong>Lemma 1 (Leave-one-out cross-validation does not depend on the fold assignment)</strong></span> Let <span class="math inline">\(\mathcal{D}_{\text{train}}= \mathopen{}\left((x_i, y_i)\right)\mathclose{}_{i \in I}\)</span> be a <a href="#/def-training-set">training set</a> of <span class="math inline">\(n = \mathopen{}\left|I\right|\mathclose{}\)</span> observations, indexed by <span class="math inline">\(I\)</span>. Then the <a href="#/def-cv-estimate">cross-validation estimate</a> <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> of <a href="#/def-loocv">leave-one-out cross-validation</a> (<span class="math inline">\(k = n\)</span>) is the same for every <a href="#/def-fold-assignment">fold assignment</a> <span class="math inline">\({\kappa\mathopen{}\left(i\right)\mathclose{}}\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-loocv" class="quarto-xref">Exercise&nbsp;13</a>, part 3, worked in <a href="#/sol-loocv" class="quarto-xref">Solution&nbsp;13</a>. It uses <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;52</a> and <a href="#/eq-fold-out-fitted-model" class="quarto-xref">Equation&nbsp;51</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-loocv" class="quarto-xref">Exercise&nbsp;14</a>, part 3, worked in <a href="#/sol-loocv" class="quarto-xref">Solution&nbsp;14</a>. It uses <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;52</a> and <a href="#/eq-fold-out-fitted-model" class="quarto-xref">Equation&nbsp;51</a>.</p>
 <p>Each step below changes one thing.</p>
 <ol type="1">
 <li><p>With <span class="math inline">\(k = n\)</span>, the <span class="math inline">\(n\)</span> nonempty, disjoint <a href="#/def-folds">folds</a> of <a href="#/eq-folds" class="quarto-xref">Equation&nbsp;48</a> partition the <span class="math inline">\(n\)</span> indices of <span class="math inline">\(I\)</span>, so each fold holds exactly one index. (A partition of <span class="math inline">\(n\)</span> indices into <span class="math inline">\(n\)</span> nonempty, disjoint subsets has one index per subset.)</p></li>
@@ -2746,10 +2747,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span id="cb35-3"><a aria-label="3"></a>  mtcars_loocv<span class="sc">$</span>degree[<span class="fu">which.min</span>(mtcars_loocv<span class="sc">$</span>formula)]</span>
 <span id="cb35-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">max_difference =</span> loocv_max_diff, <span class="at">best_degree =</span> mtcars_best_loocv)</span>
 <span id="cb35-5"><a aria-label="5"></a><span class="co">#&gt; max_difference    best_degree </span></span>
-<span id="cb35-6"><a aria-label="6"></a><span class="co">#&gt;    7.10543e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb35-6"><a aria-label="6"></a><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
 <p><span class="proof-title"><em>Remark 36</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k= n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;30</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;29</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\({\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each <a href="#/def-fitted-model">fitted model</a> is fitted to <span class="math inline">\(n- 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\({\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[6, Sec. 5.1.4]</a></span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;8</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
@@ -3086,7 +3087,7 @@ so it renders after that one.
 </section><section id="sec-cv-whole-procedure" class="slide level2 scrollable" data-number="10"><h2>
 <span class="header-section-number">10</span> Cross-validating the whole procedure</h2>
 <div id="exr-cv-screening" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 14 (Screening predictors before cross-validating)</strong></span> A data set has <span class="math inline">\(n= 50\)</span> observations of an outcome <span class="math inline">\(Y\)</span> and of <span class="math inline">\(p= 1000\)</span> candidate predictors. In fact every variable is independent standard normal noise, so no predictor carries any information about <span class="math inline">\(Y\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 15 (Screening predictors before cross-validating)</strong></span> A data set has <span class="math inline">\(n= 50\)</span> observations of an outcome <span class="math inline">\(Y\)</span> and of <span class="math inline">\(p= 1000\)</span> candidate predictors. In fact every variable is independent standard normal noise, so no predictor carries any information about <span class="math inline">\(Y\)</span>.</p>
 <p>An analyst</p>
 <ol type="1">
 <li>picks the 10 predictors most correlated with <span class="math inline">\(Y\)</span> in all 50 observations, then</li>
@@ -3117,7 +3118,7 @@ This fragment's R chunks use objects made by earlier fragments
 of model-validation.qmd, so it renders only after them:
 assign_folds(), from _exm-kfold-simulated.qmd.
 --><div id="sol-cv-screening" class="proof solution">
-<p><span class="proof-title"><em>Solution 14</em>. </span></p>
+<p><span class="proof-title"><em>Solution 15</em>. </span></p>
 <ol type="1">
 <li><p><span class="math inline">\(Y\)</span> is independent of every predictor, with mean 0 and variance 1. The best prediction is the constant 0, and its generalization error is <span class="math inline">\({\operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}} = 1\)</span>. Every other <a href="#/def-fitted-model">fitted model</a> does worse, so any honest estimate should be near or above 1.</p></li>
 <li><p>and 3. The function below runs one data set through both procedures. The only difference is whether the screening step sees the whole data set (<code>"outside"</code>) or only the training folds (<code>"inside"</code>).</p></li>
@@ -3191,7 +3192,7 @@ assign_folds(), from _exm-kfold-simulated.qmd.
 </section><section class="slide level2"><div id="rem-cv-every-step" class="proof remark">
 <p><span class="proof-title"><em>Remark 43</em> (Cross-validate the whole procedure). </span>Every step that uses the outcome is part of fitting, and must be repeated inside each fold using only that fold’s training observations <span class="citation" data-cites="hastie2009elements"><a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 7.10.2]</a></span>. Such steps include:</p>
 <ul>
-<li>screening or selecting predictors, as in <a href="#/exr-cv-screening" class="quarto-xref">Exercise&nbsp;14</a>;</li>
+<li>screening or selecting predictors, as in <a href="#/exr-cv-screening" class="quarto-xref">Exercise&nbsp;15</a>;</li>
 <li>choosing transformations or a polynomial degree;</li>
 <li>choosing a penalty or another <a href="#/def-tuning-parameter">tuning parameter</a>.</li>
 </ul>
