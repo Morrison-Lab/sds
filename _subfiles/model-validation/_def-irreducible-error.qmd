@@ -11,12 +11,12 @@ $$
 \varpar \eqdef \Var{\noise \mid \Predvar = \predvar}.
 $$ {#eq-irreducible-error}
 
-It is a variance, a component of the expected squared prediction error, and not an error.
-It is irreducible only given the covariates the prediction uses:
-a further covariate that predicts the outcome moves part of the spread out of the noise and into the [mean function](#def-mean-function),
+It is a [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), a component of the [expected squared prediction error](#def-epe), and not an error.
+It is irreducible only given the [covariates](#def-covariate) the [prediction](prediction.qmd#def-prediction) uses:
+a further covariate that [predicts](prediction.qmd#def-prediction) the outcome moves part of the spread out of the noise and into the [mean function](#def-mean-function),
 so the residual variance depends on which covariates are measured.
 Averaged over new covariate values, it is $\E{\Var{\Outvar \mid \Predvar}}$.
-It is a population quantity, not the estimate computed from a fitted model's residuals.
+It is a population quantity, not the [estimate](estimation.qmd#def-estimate) computed from the [residuals](prediction.qmd#def-residual) of a [fitted model](#def-fitted-model).
 
 Source: @wikipedia_bias_variance_tradeoff;
 @james2021islr2e [Section 2.2.2].
