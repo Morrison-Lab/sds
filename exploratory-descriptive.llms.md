@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 23:10:36 (PDT)
+Last modified: 2026-10-26 23:44:21 (PDT)
 
 ## 1 Introduction
 
@@ -581,7 +581,12 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 >   ggplot2::ggplot() +
 >   ggplot2::aes(x = sbp, y = chol) +
 >   ggplot2::geom_point(alpha = 0.3) +
->   ggplot2::geom_smooth(method = "lm", se = TRUE, color = "red") +
+>   ggplot2::geom_smooth(
+>     method = "lm",
+>     formula = y ~ x,
+>     se = TRUE,
+>     color = "red"
+>   ) +
 >   ggplot2::labs(x = "Systolic BP (mmHg)", y = "Cholesterol (mg/dL)")
 > ```
 >
