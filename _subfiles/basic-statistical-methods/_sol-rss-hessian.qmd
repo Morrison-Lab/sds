@@ -113,6 +113,4 @@ $$
 \begin{pmatrix} 2n & 2 n \predbar \\ 2 n \predbar & 2 \sumin \predvar_\iobs^2 \end{pmatrix}.
 $$
 
-{{< slidebreak >}}
-
 :::

@@ -1,7 +1,7 @@
 :::{#exr-cv-estimate-by-fold-simplify}
 #### Simplify the summand of the cross-validation estimate
 
-In the setting of @exr-cv-estimate-by-fold,
+In the double sum from @exr-cv-estimate-by-fold,
 simplify the summand
 so that the summand no longer uses the [fold assignment](#def-fold-assignment) $\foldof{\iobs}$.
 

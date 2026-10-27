@@ -27,7 +27,7 @@ $$
 \end{aligned}
 $$
 
-Equality would need $v_0 + v_x \predvar_\iobs = 0$ for every $i$.
+Equality would need the condition $v_0 + v_x \predvar_\iobs = 0$ for every $\iobs$.
 If $v_x \neq 0$, the condition would force every $\predvar_\iobs = -v_0 / v_x$,
 contradicting $\sspred > 0$;
 if $v_x = 0$, the condition would force $v_0 = 0$,
