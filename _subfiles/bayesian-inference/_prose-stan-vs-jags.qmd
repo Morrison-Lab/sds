@@ -9,7 +9,7 @@ JAGS updates one node of the model at a time,
 in the manner of a [Gibbs sampler](mcmc.qmd#def-gibbs-sampler)
 [@plummer2003jags; @plummer2017jagsmanual].
 For each [full conditional](mcmc.qmd#def-full-conditional),
-it uses a conjugate sampler where it recognizes one,
+it uses a [conjugate](bayesian-inference.qmd#def-conjugate-prior) sampler where it recognizes one,
 and slice sampling otherwise.
 Stan uses Hamiltonian Monte Carlo,
 which proposes moves along the gradient of the logarithm of the [posterior](bayesian-inference.qmd#def-posterior),
