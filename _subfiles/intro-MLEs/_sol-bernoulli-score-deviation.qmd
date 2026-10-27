@@ -6,7 +6,7 @@ $$
 \begin{aligned}
 \score
 &= \frac{x - \prob}{\prob(1 - \prob)}
-&& \text{(score, with $\precision$ written out)}\\
+&& \text{(score)}\\
 &= \frac{x - \prob}{\Var{X}}
 && \text{($\Var{X} = \prob(1 - \prob)$)}\\
 &= \precision (x - \prob)

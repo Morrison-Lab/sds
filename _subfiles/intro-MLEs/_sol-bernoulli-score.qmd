@@ -62,11 +62,7 @@ $$
 &= \frac{1 - \prob}{\prob(1 - \prob)} + \frac{\prob}{\prob(1 - \prob)}
 && \text{(write both terms over the common denominator)}\\
 &= \frac{1}{\prob(1 - \prob)}
-&& \text{(add the numerators)}\\
-&= \frac{1}{\Var{X}}
-&& \text{($\Var{X} = \prob(1 - \prob)$)}\\
-&= \precision
-&& \text{(definition of $\precision$)}
+&& \text{(add the numerators)}
 \end{aligned}
 $$
 
@@ -75,14 +71,12 @@ Substituting both derivatives back in:
 $$
 \begin{aligned}
 \score
-&= x \precision - \frac{1}{1 - \prob}
+&= \frac{x}{\prob(1 - \prob)} - \frac{1}{1 - \prob}
 && \text{(substitute the two derivatives)}\\
-&= x \precision - \frac{\prob}{\prob(1 - \prob)}
-&& \text{(multiply the numerator and denominator by $\prob$)}\\
-&= x \precision - \prob \precision
-&& \text{(definition of $\precision$)}\\
-&= \precision (x - \prob)
-&& \text{(factor out $\precision$)}
+&= \frac{x}{\prob(1 - \prob)} - \frac{\prob}{\prob(1 - \prob)}
+&& \text{(multiply the numerator and denominator of the second term by $\prob$)}\\
+&= \frac{x - \prob}{\prob(1 - \prob)}
+&& \text{(combine the fractions)}
 \end{aligned}
 $$
 

@@ -1,8 +1,7 @@
 :::{#exr-derive-bernoulli-score}
 #### Score function of a Bernoulli variable
 
-Let $X \sim \Ber(\prob)$ have observed value $x \in \cb{0, 1}$,
-and let $\precision \eqdef 1 / \Var{X}$ be the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of $X$.
+Let $X \sim \Ber(\prob)$ have observed value $x \in \cb{0, 1}$.
 
 Derive the [score](#def-score) of $x$.
 In other words, differentiate the [log-likelihood](#def-loglik) of $x$
