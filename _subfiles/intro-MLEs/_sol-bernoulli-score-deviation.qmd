@@ -7,7 +7,7 @@ $$
 \begin{aligned}
 \score
 &= \precision (x - \prob)
-&& \text{(score of the first part)}\\
+&& \text{(the score derived in the exercise above)}\\
 &= \precision \paren{x - \E{X}}
 && \text{($\E{X} = \prob$)}\\
 &= \precision \devn
