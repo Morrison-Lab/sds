@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-26 17:10:42 (PDT)</p>
+  <p class="date">Last modified: 2026-10-26 17:35:11 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -408,7 +408,7 @@ text-align: center;
 </section><section id="sec-bayes-examples-stan-jags" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Comparing Stan and JAGS</h2>
 <p>JAGS is not the only program that turns a model description into an MCMC sampler. Stan <span class="citation" data-cites="carpenter2017stan"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> is a widely used alternative. Both take a model written in their own language, accept data from R, and return draws from the <a href="./bayesian-inference.html#def-posterior">posterior</a>. They differ in how they draw and in what a model may contain.</p>
-<p>JAGS updates one node of the model at a time, in the manner of a <a href="./mcmc.html#def-gibbs-sampler">Gibbs sampler</a> <span class="citation" data-cites="plummer2003jags plummer2017jagsmanual"><a href="#/references" role="doc-biblioref" onclick="">[3]</a>, <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>. For each <a href="./mcmc.html#def-full-conditional">full conditional</a>, it uses a <a href="./bayesian-inference.html#def-conjugate-prior">conjugate</a> sampler where it recognizes one, and slice sampling otherwise. Stan uses Hamiltonian Monte Carlo, which proposes moves along the gradient of the logarithm of the <a href="./bayesian-inference.html#def-posterior">posterior</a>, in the adaptive form called the No-U-Turn sampler (NUTS) <span class="citation" data-cites="hoffman2014nuts"><a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>. Using the gradient is why Stan cannot draw a <a href="./data.html#def-discrete-var">discrete</a> parameter: a discrete parameter has no gradient. A Stan model sums a discrete quantity out of the <a href="./intro-MLEs.html#def-lik">likelihood</a> instead <span class="citation" data-cites="stanusersguide"><a href="#/references" role="doc-biblioref" onclick="">[6]</a>, chapter “Latent Discrete Parameters”</span>. <a href="#/tbl-stan-vs-jags" class="quarto-xref">Table&nbsp;1</a> lists the practical differences, taken from the JAGS manual <span class="citation" data-cites="plummer2017jagsmanual"><a href="#/references" role="doc-biblioref" onclick="">[4]</a></span> and the Stan User’s Guide <span class="citation" data-cites="stanusersguide"><a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>:</p>
+<p>JAGS updates one node of the model at a time, in the manner of a <a href="./mcmc.html#def-gibbs-sampler">Gibbs sampler</a> <span class="citation" data-cites="plummer2003jags plummer2017jagsmanual"><a href="#/references" role="doc-biblioref" onclick="">[3]</a>, <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>. For each <a href="./mcmc.html#def-full-conditional">full conditional</a>, it uses a <a href="./bayesian-inference.html#def-conjugate-prior">conjugate</a> sampler where it recognizes one, and slice or Metropolis steps otherwise. Stan uses Hamiltonian Monte Carlo, which proposes moves along the gradient of the logarithm of the <a href="./bayesian-inference.html#def-posterior">posterior</a>, in the adaptive form called the No-U-Turn sampler (NUTS) <span class="citation" data-cites="hoffman2014nuts"><a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>. Using the gradient is why Stan cannot draw a <a href="./data.html#def-discrete-var">discrete</a> parameter: a discrete parameter has no gradient. A Stan model sums a discrete quantity out of the joint <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> of the data and the parameters instead <span class="citation" data-cites="stanusersguide"><a href="#/references" role="doc-biblioref" onclick="">[6]</a>, chapter “Latent Discrete Parameters”</span>. <a href="#/tbl-stan-vs-jags" class="quarto-xref">Table&nbsp;1</a> lists the practical differences, taken from the JAGS manual <span class="citation" data-cites="plummer2017jagsmanual"><a href="#/references" role="doc-biblioref" onclick="">[4]</a></span> and the Stan User’s Guide <span class="citation" data-cites="stanusersguide"><a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>:</p>
 <div class="cell">
 <div id="tbl-stan-vs-jags" class="cell quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-stan-vs-jags-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -424,7 +424,7 @@ Table&nbsp;1: JAGS and Stan compared
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Sampling algorithm</td>
-<td style="text-align: left;">Updates one node at a time, as in Gibbs sampling, with conjugate samplers where it recognizes them and slice sampling otherwise</td>
+<td style="text-align: left;">Updates one node at a time, as in Gibbs sampling, with conjugate samplers where it recognizes them and slice or Metropolis steps otherwise</td>
 <td style="text-align: left;">Hamiltonian Monte Carlo, in its No-U-Turn form (NUTS)</td>
 </tr>
 <tr class="even">
@@ -440,7 +440,7 @@ Table&nbsp;1: JAGS and Stan compared
 <tr class="even">
 <td style="text-align: left;">Discrete parameters</td>
 <td style="text-align: left;">Allowed; JAGS samples them</td>
-<td style="text-align: left;">Not allowed; they are summed out of the likelihood</td>
+<td style="text-align: left;">Not allowed; they are summed out of the joint density</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Execution</td>
@@ -475,7 +475,7 @@ Table&nbsp;1: JAGS and Stan compared
 </figure>
 </div>
 </div>
-<p>The table’s rows are in <a href="data/bayes-software.csv"><code>data/bayes-software.csv</code></a>. The next example fits the model of <a href="#/exm-bayes-proportion">the first example</a> in Stan, so the two programs can be compared on one problem.</p>
+<p>The next example fits the model of <a href="#/exm-bayes-proportion">the first example</a> in Stan, so the two programs can be compared on one problem.</p>
 </section><section class="slide level2"><div id="exm-bayes-proportion-stan" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (The Bernoulli model fitted with Stan)</strong></span> The data and the <a href="./bayesian-inference.html#def-flat-prior">uniform prior</a> are those of <a href="#/exm-bayes-proportion">the JAGS example</a>. The Stan program declares the data and the parameter with their types and ranges, and the <code>model</code> block states the <a href="./bayesian-inference.html#def-prior">prior</a> and the <a href="./intro-MLEs.html#def-lik">likelihood</a>:</p>
 <div class="cell">
@@ -548,7 +548,7 @@ Table&nbsp;2: Posterior of the proportion from JAGS, Stan and the Beta posterior
 </figure>
 </div>
 </div>
-<p>Stan’s split <a href="./mcmc.html#def-psrf">potential scale reduction factor</a> is 1, and the sampler reports 0 divergent transitions. As <a href="#/tbl-stan-jags-proportion" class="quarto-xref">Table&nbsp;2</a> shows, the mean and interval from each program differ from the Beta <a href="./bayesian-inference.html#def-posterior">posterior</a>’s by at most 0.002. The programs differ in the model code: the Stan program carries the types and ranges of its variables, and it is compiled before it draws.</p>
+<p>Stan’s split <a href="./mcmc.html#def-psrf">potential scale reduction factor</a> is 1, and the sampler reports 0 divergent transitions. As <a href="#/tbl-stan-jags-proportion" class="quarto-xref">Table&nbsp;2</a> shows, the mean and the interval endpoints from each program differ from those of the Beta <a href="./bayesian-inference.html#def-posterior">posterior</a> by at most 0.002. The programs differ in the model code: the Stan program carries the types and ranges of its variables, and it is compiled before it draws.</p>
 </section><section id="sec-bayes-examples-logistic" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Binary outcomes: logistic regression</h2>
 <p>For a binary outcome <span class="math inline">\(Y_i\sim \operatorname{Bernoulli}(\pi_i)\)</span> with <span class="math inline">\(\operatorname{logit}(\pi_i) = \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span>, the <a href="https://morrison-lab.github.io/rme/chapters/logistic-regression.html">logistic regression</a> model, a Bayesian analysis places a prior on the coefficient vector <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span> and samples the posterior <span class="math inline">\(\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\)</span> by MCMC <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[1, Ch. 14]</a>, p.&nbsp;318</span>. Each <span class="math inline">\(\beta_{x_j}\)</span> is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio <span class="math inline">\(e^{\beta_{x_j}}\)</span>, or of any other function of <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span>, is obtained by transforming the draws. For a video introduction, see Richard McElreath’s lecture <a href="https://www.youtube.com/watch?v=RuBUVQELw-c"><em>Modeling Events</em></a> (Statistical Rethinking 2026, Lecture A09).</p>

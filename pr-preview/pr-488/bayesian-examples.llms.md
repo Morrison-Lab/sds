@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 17:10:42 (PDT)
+Last modified: 2026-10-26 17:35:11 (PDT)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models [\[1, Ch. 14\]](#ref-dobson4e). After the first example, the page compares JAGS with Stan on the same model. It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -61,16 +61,16 @@ From here on, the models are fit by Bayesian inference with JAGS (“Just Anothe
 
 JAGS is not the only program that turns a model description into an MCMC sampler. Stan [\[2\]](#ref-carpenter2017stan) is a widely used alternative. Both take a model written in their own language, accept data from R, and return draws from the [posterior](bayesian-inference.llms.md#def-posterior). They differ in how they draw and in what a model may contain.
 
-JAGS updates one node of the model at a time, in the manner of a [Gibbs sampler](mcmc.llms.md#def-gibbs-sampler) [\[3\]](#ref-plummer2003jags), [\[4\]](#ref-plummer2017jagsmanual). For each [full conditional](mcmc.llms.md#def-full-conditional), it uses a [conjugate](bayesian-inference.llms.md#def-conjugate-prior) sampler where it recognizes one, and slice sampling otherwise. Stan uses Hamiltonian Monte Carlo, which proposes moves along the gradient of the logarithm of the [posterior](bayesian-inference.llms.md#def-posterior), in the adaptive form called the No-U-Turn sampler (NUTS) [\[5\]](#ref-hoffman2014nuts). Using the gradient is why Stan cannot draw a [discrete](data.llms.md#def-discrete-var) parameter: a discrete parameter has no gradient. A Stan model sums a discrete quantity out of the [likelihood](intro-MLEs.llms.md#def-lik) instead [\[6\]](#ref-stanusersguide), chapter “Latent Discrete Parameters”. [Table 1](#tbl-stan-vs-jags) lists the practical differences, taken from the JAGS manual [\[4\]](#ref-plummer2017jagsmanual) and the Stan User’s Guide [\[6\]](#ref-stanusersguide):
+JAGS updates one node of the model at a time, in the manner of a [Gibbs sampler](mcmc.llms.md#def-gibbs-sampler) [\[3\]](#ref-plummer2003jags), [\[4\]](#ref-plummer2017jagsmanual). For each [full conditional](mcmc.llms.md#def-full-conditional), it uses a [conjugate](bayesian-inference.llms.md#def-conjugate-prior) sampler where it recognizes one, and slice or Metropolis steps otherwise. Stan uses Hamiltonian Monte Carlo, which proposes moves along the gradient of the logarithm of the [posterior](bayesian-inference.llms.md#def-posterior), in the adaptive form called the No-U-Turn sampler (NUTS) [\[5\]](#ref-hoffman2014nuts). Using the gradient is why Stan cannot draw a [discrete](data.llms.md#def-discrete-var) parameter: a discrete parameter has no gradient. A Stan model sums a discrete quantity out of the joint [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) of the data and the parameters instead [\[6\]](#ref-stanusersguide), chapter “Latent Discrete Parameters”. [Table 1](#tbl-stan-vs-jags) lists the practical differences, taken from the JAGS manual [\[4\]](#ref-plummer2017jagsmanual) and the Stan User’s Guide [\[6\]](#ref-stanusersguide):
 
 > **NOTE:**
 >
 > | Feature | JAGS | Stan |
 > |:---|:---|:---|
-> | Sampling algorithm | Updates one node at a time, as in Gibbs sampling, with conjugate samplers where it recognizes them and slice sampling otherwise | Hamiltonian Monte Carlo, in its No-U-Turn form (NUTS) |
+> | Sampling algorithm | Updates one node at a time, as in Gibbs sampling, with conjugate samplers where it recognizes them and slice or Metropolis steps otherwise | Hamiltonian Monte Carlo, in its No-U-Turn form (NUTS) |
 > | Model language | A BUGS-style description of a graphical model; the order of the statements does not matter | A typed program in blocks (`data`, `parameters`, `model`); the statements run in order and accumulate the log density |
 > | Normal distribution | `dnorm(mean, precision)` | `normal(mean, sd)` |
-> | Discrete parameters | Allowed; JAGS samples them | Not allowed; they are summed out of the likelihood |
+> | Discrete parameters | Allowed; JAGS samples them | Not allowed; they are summed out of the joint density |
 > | Execution | Interpreted by the JAGS library | Translated to C++ and compiled before sampling |
 > | Convergence checks | `Rhat` and effective sample size, computed from the draws with the `coda` package | `Rhat` and effective sample size, plus sampler checks such as divergent transitions and tree depth |
 > | R interfaces | `rjags`, `runjags` | `rstan`, `cmdstanr` |
@@ -78,7 +78,7 @@ JAGS updates one node of the model at a time, in the manner of a [Gibbs sampler]
 >
 > Table 1: JAGS and Stan compared
 
-The table’s rows are in [`data/bayes-software.csv`](data/bayes-software.csv). The next example fits the model of [the first example](#exm-bayes-proportion) in Stan, so the two programs can be compared on one problem.
+The next example fits the model of [the first example](#exm-bayes-proportion) in Stan, so the two programs can be compared on one problem.
 
 > **NOTE:**
 >
@@ -126,7 +126,7 @@ The table’s rows are in [`data/bayes-software.csv`](data/bayes-software.csv). 
 >
 > Table 2: Posterior of the proportion from JAGS, Stan and the Beta posterior
 
-Stan’s split [potential scale reduction factor](mcmc.llms.md#def-psrf) is 1, and the sampler reports 0 divergent transitions. As [Table 2](#tbl-stan-jags-proportion) shows, the mean and interval from each program differ from the Beta [posterior](bayesian-inference.llms.md#def-posterior)’s by at most 0.002. The programs differ in the model code: the Stan program carries the types and ranges of its variables, and it is compiled before it draws.
+Stan’s split [potential scale reduction factor](mcmc.llms.md#def-psrf) is 1, and the sampler reports 0 divergent transitions. As [Table 2](#tbl-stan-jags-proportion) shows, the mean and the interval endpoints from each program differ from those of the Beta [posterior](bayesian-inference.llms.md#def-posterior) by at most 0.002. The programs differ in the model code: the Stan program carries the types and ranges of its variables, and it is compiled before it draws.
 
 ## 3 Binary outcomes: logistic regression
 
