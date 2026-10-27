@@ -3,13 +3,13 @@
 For $\iobs \in \fold{\ifold}$, @eq-fold-assignment also puts $\iobs$ in $\fold{\foldof{\iobs}}$,
 and the folds are disjoint,
 so $\foldof{\iobs} = \ifold$.
-Then
+Starting from the grouped sum of @sol-cv-estimate-by-fold:
 
 $$
 \ba
 \cvest{\nfolds}
 &= \frac{1}{\nobs} \sumto{\ifold}{\nfolds} \sum_{\iobs \in \fold{\ifold}} \sqf{\fittedwo{\foldof{\iobs}}{\predvar_{\iobs}} - \outvar_{\iobs}}
-&& \text{(group by fold)}
+&& \text{(grouped by fold)}
 \\
 &= \frac{1}{\nobs} \sumto{\ifold}{\nfolds} \sum_{\iobs \in \fold{\ifold}} \sqf{\fittedwo{\ifold}{\predvar_{\iobs}} - \outvar_{\iobs}}
 && (\foldof{\iobs} = \ifold \text{ for } \iobs \in \fold{\ifold})

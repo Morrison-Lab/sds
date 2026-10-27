@@ -7,7 +7,7 @@ $$
 = \rvarbar \pm \frac{1.96\rvarbar}{\sqrt{n}}
 $$
 
-Note: the exponential distribution has $\Varf{X} = \pmean^2$,
+Note: the exponential distribution has $\Var{X} = \pmean^2$,
 so $\SE{\hat\pmean_{ML}} = \pmean/\sqrt{n}$,
 which is estimated by $\rvarbar/\sqrt{n}$.
 More generally,
