@@ -28,9 +28,9 @@ $$
 $$
 
 Equality would need $v_0 + v_x \predvar_\iobs = 0$ for every $i$.
-If $v_x \neq 0$, that would force every $\predvar_\iobs = -v_0 / v_x$,
+If $v_x \neq 0$, the condition would force every $\predvar_\iobs = -v_0 / v_x$,
 contradicting $\sspred > 0$;
-if $v_x = 0$, that condition would force $v_0 = 0$,
+if $v_x = 0$, the condition would force $v_0 = 0$,
 contradicting $\v{v} \neq \vzero$.
 So the inequality is strict,
 and the Hessian is positive definite at every $\vcoef$.
