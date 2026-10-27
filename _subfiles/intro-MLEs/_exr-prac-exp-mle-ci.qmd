@@ -2,6 +2,6 @@
 #### Approximate confidence interval for the exponential mean
 
 In the setting of @exr-prac-exp-mle,
-use the observed information at the MLE from @exr-prac-exp-mle-oinf-at-mle to give an [approximate 95% confidence interval](inference.qmd#def-approximate-ci) for $\pmean$.
+use the [observed information](#def-oinf) at the MLE from @exr-prac-exp-mle-oinf-at-mle to give an [approximate 95% confidence interval](inference.qmd#def-approximate-ci) for $\pmean$.
 
 :::

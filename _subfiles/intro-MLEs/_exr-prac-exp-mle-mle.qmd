@@ -2,6 +2,6 @@
 #### Maximum likelihood estimate of the exponential mean
 
 In the setting of @exr-prac-exp-mle, solve the [score equation](#def-score-equation) $\score(\pmean; \vx) = 0$
-with the score from @exr-prac-exp-mle-score, to show that $\hat\pmean_{ML} = \rvarbar$.
+with the [score](#def-score) from @exr-prac-exp-mle-score, to show that $\hat\pmean_{ML} = \rvarbar$.
 
 :::
