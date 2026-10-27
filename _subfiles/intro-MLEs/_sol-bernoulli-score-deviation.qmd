@@ -1,12 +1,13 @@
 :::{#sol-derive-bernoulli-score-deviation}
 
-Write the result using $\devn$ and $\precision$:
+Write the [score](#def-score) from @exr-derive-bernoulli-score
+using $\devn$ and $\precision$:
 
 $$
 \begin{aligned}
 \score
 &= \precision (x - \prob)
-&& \text{(previous solution)}\\
+&& \text{(score of the first part)}\\
 &= \precision \paren{x - \E{X}}
 && \text{($\E{X} = \prob$)}\\
 &= \precision \devn

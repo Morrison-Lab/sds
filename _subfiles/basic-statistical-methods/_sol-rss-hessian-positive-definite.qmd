@@ -1,6 +1,7 @@
 :::{#sol-rss-hessian-positive-definite}
 
-The top-left entry of the matrix of second derivatives, $2n$, is positive.
+The top-left entry of the matrix of second derivatives from @exr-rss-hessian,
+$2n$, is positive.
 Its determinant,
 using the expanded form of $\sspred$ from @exr-sxx-expand, is
 
