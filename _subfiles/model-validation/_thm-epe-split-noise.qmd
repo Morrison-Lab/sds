@@ -15,7 +15,7 @@ Assume:
 Then, given $\newpredvar = \predvar$,
 the [expected squared prediction error](#def-epe) (ESPE) of $\predvalf{\predvar}$
 is the sum of two terms.
-The first is the [irreducible error](#def-irreducible-error) $\varpar$.
+The first is the [residual variance](#def-irreducible-error) $\varpar$.
 The second is the [expected squared estimation error](estimation.qmd#def-mse) (ESEE) of $\predvalf{\predvar}$
 as an [estimator](estimation.qmd#def-estimator) of $\truemeanf{\predvar}$:
 
