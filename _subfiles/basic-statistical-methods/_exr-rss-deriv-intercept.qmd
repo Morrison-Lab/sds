@@ -1,9 +1,9 @@
 :::{#exr-rss-deriv-intercept}
 #### Derivative of RSS with respect to the intercept
 
-1.  Find the partial derivative of the simple linear regression
+1.  Find the partial derivative of the [simple linear regression](correlation-regression.qmd#def-slr)
     residual sum of squares $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
-    with respect to the intercept, $\partial \text{RSS} / \partial \intcoef$.
+    with respect to the [intercept](correlation-regression.qmd#def-slr-intercept), $\partial \text{RSS} / \partial \intcoef$.
 2.  Write it in terms of $\predbar$ and $\outbar$.
 :::
 

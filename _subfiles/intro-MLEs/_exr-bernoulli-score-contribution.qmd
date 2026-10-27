@@ -6,7 +6,7 @@ In the setting of @exr-bernoulli-loglik-contribution, let:
 - $\devn_\iobs \eqdef \outvar_\iobs - \prob$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $\outvar_\iobs$ from its mean $\prob$;
 - $\precision \eqdef 1 / \Var{\Outvar_\iobs}$ be the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of $\Outvar_\iobs$.
 
-1.  Derive the [score](#def-score) contribution $\score_\iobs(\prob) \eqdef \deriv{\prob} \llik_\iobs(\prob)$ of observation $\iobs$.
+1.  Derive the [score](#def-score) contribution $\score_\iobs(\prob) \eqdef \deriv{\prob} \llik_\iobs(\prob)$ of [observation](exploratory-descriptive.qmd#def-observation) $\iobs$.
 2.  Write it using $\devn_\iobs$ and $\precision$.
 
 :::

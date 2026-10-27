@@ -5,6 +5,6 @@
     as $1/\nobs$ times a double sum:
     an outer sum over the fold numbers $\ifold = 1, \ldots, \nfolds$
     and an inner sum over the observations $\iobs$ in [fold](#def-folds) $\fold{\ifold}$.
-2.  Simplify the summand, so that it no longer uses the fold assignment $\foldof{\iobs}$.
+2.  Simplify the summand, so that it no longer uses the [fold assignment](#def-fold-assignment) $\foldof{\iobs}$.
 
 :::

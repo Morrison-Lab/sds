@@ -15,13 +15,13 @@ for the observed data $\vx = (\dsn{x})$.
 
 **(c)** Set the score equal to zero and show that $\hat\pmean_{ML} = \rvarbar$.
 
-**(d)** Compute the second derivative and verify this critical point is a maximum.
+**(d)** Compute the second derivative and verify this [critical point](#def-critical-point) is a maximum.
 
-**(e)** Derive the observed information $\oinf(\pmean; \vx) = -\hess(\pmean; \vx)$.
+**(e)** Derive the [observed information](#def-oinf) $\oinf(\pmean; \vx) = -\hess(\pmean; \vx)$.
 
 **(f)** Evaluate it at $\hat\pmean_{ML}$.
 
-**(g)** Give an approximate 95% confidence interval for $\pmean$.
+**(g)** Give an [approximate 95% confidence interval](inference.qmd#def-approximate-ci) for $\pmean$.
 :::
 
 :::{#sol-prac-exp-mle}
@@ -209,7 +209,7 @@ $$
 
 So $\SE{\hat\pmean_{ML}} \approx \sqrt{\oinf(\hat\pmean_{ML}; \vx)^{-1}} = \frac{\rvarbar}{\sqrt{n}}$.
 
-**(g)** An approximate 95% CI for $\pmean$ is:
+**(g)** An [approximate](inference.qmd#def-approximate-ci) 95% CI for $\pmean$ is:
 
 $$
 \hat\pmean_{ML} \pm 1.96 \times \frac{\rvarbar}{\sqrt{n}}
