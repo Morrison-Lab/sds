@@ -3549,7 +3549,7 @@
    "page": "model-validation",
    "div": "def-irreducible-error",
    "kind": "def",
-   "title": "Irreducible error",
+   "title": "Residual variance",
    "external": false
   },
   {
@@ -6521,6 +6521,14 @@
   ],
   [
    "sds/model-validation#def-irreducible-error",
+   "pds/variance-covariance#def-variance"
+  ],
+  [
+   "sds/model-validation#def-irreducible-error",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/model-validation#def-irreducible-error",
    "sds/exploratory-descriptive#def-population"
   ],
   [
@@ -6529,7 +6537,31 @@
   ],
   [
    "sds/model-validation#def-irreducible-error",
+   "sds/model-validation#def-epe"
+  ],
+  [
+   "sds/model-validation#def-irreducible-error",
+   "sds/model-validation#def-fitted-model"
+  ],
+  [
+   "sds/model-validation#def-irreducible-error",
+   "sds/model-validation#def-mean-function"
+  ],
+  [
+   "sds/model-validation#def-irreducible-error",
+   "sds/model-validation#def-new-observation"
+  ],
+  [
+   "sds/model-validation#def-irreducible-error",
    "sds/model-validation#def-noise"
+  ],
+  [
+   "sds/model-validation#def-irreducible-error",
+   "sds/prediction#def-prediction"
+  ],
+  [
+   "sds/model-validation#def-irreducible-error",
+   "sds/prediction#def-residual"
   ],
   [
    "sds/model-validation#def-kfold",

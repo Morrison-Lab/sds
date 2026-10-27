@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-27 04:54:13 (PDT)
+Last modified: 2026-10-27 14:23:57 (PDT)
 
 ## 1 Scientific models
 
@@ -285,7 +285,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 > *Remark 1* (Estimation versus prediction). The squared-error split has two forms, and they differ in what the estimate is compared with.
 >
 > - **Estimation.** [Theorem 5](#thm-mse-bias-variance) compares an estimator \\\hat{\theta}\\ with a fixed parameter \\\theta\\. The target is a constant, so the expected squared error is squared bias plus variance, with no other term.
-> - **Prediction.** The target is a new outcome, which is itself random. The model validation notes prove that [expected squared prediction error](model-validation.llms.md#thm-epe-decomposition) equals squared bias plus variance plus the noise variance, the [irreducible error](model-validation.llms.md#def-irreducible-error) of that outcome. No choice of prediction can remove the extra term.
+> - **Prediction.** The target is a new outcome, which is itself random. The model validation notes prove that [expected squared prediction error](model-validation.llms.md#thm-epe-decomposition) equals squared bias plus variance plus the noise variance, the [residual variance](model-validation.llms.md#def-irreducible-error) of that outcome. No choice of prediction using the same [covariates](model-validation.llms.md#def-covariate) can remove the extra term.
 
 > **NOTE:**
 >

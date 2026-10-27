@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-27 04:54:13 (PDT)
+Last modified: 2026-10-27 14:23:57 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -353,7 +353,7 @@ Last modified: 2026-10-27 04:54:13 (PDT)
 >     "held_out": empirical_risk(birthwt[is_held_out]),
 > }
 > empirical_risks
-> #> {'training': np.float64(488364.9956483022), 'held_out': np.float64(503648.75351911323)}
+> #> {'training': np.float64(488364.99564830225), 'held_out': np.float64(503648.7535191132)}
 > ```
 >
 > Of the 189 babies, 126 are in the [training set](#def-training-set). The [fitted model](#def-fitted-model) has an [empirical risk](#def-empirical-risk) of 488,365 squared grams on the training set and 503,649 squared grams on the [held-out set](#def-held-out-set). Its square root, 699 grams, is the typical [prediction error](prediction.llms.md#def-prediction-error) on the training set.
@@ -825,21 +825,23 @@ Last modified: 2026-10-27 04:54:13 (PDT)
 
 > **NOTE:**
 >
-> **Definition 37 (Irreducible error)** Let \\\mathopen{}\left(X, Y\right)\mathclose{}\\ be the [covariate](#def-covariate) and the outcome of one observation from a [population](exploratory-descriptive.llms.md#def-population), and let \\\varepsilon\\ be its [noise](#def-noise).
+> **Definition 37 (Residual variance)** Let \\\mathopen{}\left(X, Y\right)\mathclose{}\\ be the [covariate](#def-covariate) and the outcome of one observation from a [population](exploratory-descriptive.llms.md#def-population), and let \\\varepsilon\\ be its [noise](#def-noise).
 >
-> The **irreducible error** at the covariate value \\x\\ is the [conditional population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) of the noise given \\X= x\\:
+> The **residual variance** (or **irreducible error**) at the covariate value \\x\\ is the [conditional population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) of the noise given \\X= x\\:
 >
 > \\ \sigma^2\stackrel{\text{def}}{=}{\operatorname{Var}\mathopen{}\left(\varepsilon\mid X= x\right)\mathclose{}}. \tag{35}\\
+>
+> It is a [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), a component of the [expected squared prediction error](#def-epe), and not an error. It is irreducible only given the [covariates](#def-covariate) the [prediction](prediction.llms.md#def-prediction) uses: a further covariate that [predicts](prediction.llms.md#def-prediction) the outcome moves part of the spread out of the noise and into the [mean function](#def-mean-function), so the residual variance depends on which covariates are measured. Because \\{\operatorname{Var}\mathopen{}\left(\varepsilon\mid X= x\right)\mathclose{}} = {\operatorname{Var}\mathopen{}\left(Y\mid X= x\right)\mathclose{}}\\, the residual variance averaged over the covariate values of [new observations](#def-new-observation) is \\{\mathbb{E}\mathopen{}\left\[{\operatorname{Var}\mathopen{}\left(Y\mid X\right)\mathclose{}}\right\]\mathclose{}}\\. It is a population quantity, not the [estimate](estimation.llms.md#def-estimate) computed from the [residuals](prediction.llms.md#def-residual) of a [fitted model](#def-fitted-model).
 >
 > Source: Wikipedia contributors [\[11\]](#ref-wikipedia_bias_variance_tradeoff); James et al. [\[6, Sec. 2.2.2\]](#ref-james2021islr2e).
 
 > **NOTE:**
 >
-> **Example 28 (The irreducible error of a normal population)** Take a [population](exploratory-descriptive.llms.md#def-population) whose outcome given the [covariate](#def-covariate) value \\x\\ has the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) \\{\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\, where \\\sigma^2= \sigma^2\\ and \\\sigma= 0.3\\. Its [noise](#def-noise) \\\varepsilon= Y- \sin(2 \pi X)\\, given \\X= x\\, has the normal distribution with mean \\0\\ and [conditional variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) \\\sigma^2\\. The [irreducible error](#def-irreducible-error) at every \\x\\ is therefore \\\sigma^2= \sigma^2 = 0.09\\.
+> **Example 28 (The residual variance of a normal population)** Take a [population](exploratory-descriptive.llms.md#def-population) whose outcome given the [covariate](#def-covariate) value \\x\\ has the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) \\{\operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}}\\, where \\\sigma^2= \sigma^2\\ and \\\sigma= 0.3\\. Its [noise](#def-noise) \\\varepsilon= Y- \sin(2 \pi X)\\, given \\X= x\\, has the normal distribution with mean \\0\\ and [conditional variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) \\\sigma^2\\. The [residual variance](#def-irreducible-error) at every \\x\\ is therefore \\\sigma^2= \sigma^2 = 0.09\\.
 
 > **NOTE:**
 >
-> *Remark 14* (What the irreducible error does and does not depend on). The [irreducible error](#def-irreducible-error) \\\sigma^2\\ does not depend on the [fitting procedure](#def-fitting-procedure) \\g\\, so no choice of [prediction](prediction.llms.md#def-prediction) can remove it. It is defined at the single [covariate](#def-covariate) value \\x\\, so it may differ from one covariate value to another: it does not assume constant [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) across covariate values. For example, in [Example 28](#exm-irreducible-error), every prediction has [expected squared prediction error](#def-epe) at least \\\sigma^2\\.
+> *Remark 14* (What the residual variance does and does not depend on). The [residual variance](#def-irreducible-error) \\\sigma^2\\ does not depend on the [fitting procedure](#def-fitting-procedure) \\g\\, so no choice of [prediction](prediction.llms.md#def-prediction) using the same [covariates](#def-covariate) can remove it. It is defined at the single [covariate](#def-covariate) value \\x\\, so it may differ from one covariate value to another: it does not assume constant [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) across covariate values. For example, in [Example 28](#exm-irreducible-error), every prediction has [expected squared prediction error](#def-epe) at least \\\sigma^2\\.
 
 > **NOTE:**
 >
@@ -939,7 +941,7 @@ Last modified: 2026-10-27 04:54:13 (PDT)
 > - the new [covariate](#def-covariate) value \\X\_{\*}\\ equals the covariate value \\x\\ of the [prediction](prediction.llms.md#def-prediction) and
 > - the population variance \\\sigma^2\\ is finite.
 >
-> Then, given \\X\_{\*}= x\\, the [expected squared prediction error](#def-epe) (ESPE) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is the sum of two terms. The first is the [irreducible error](#def-irreducible-error) \\\sigma^2\\. The second is the [expected squared estimation error](estimation.llms.md#def-mse) (ESEE) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ as an [estimator](estimation.llms.md#def-estimator) of \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\:
+> Then, given \\X\_{\*}= x\\, the [expected squared prediction error](#def-epe) (ESPE) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is the sum of two terms. The first is the [residual variance](#def-irreducible-error) \\\sigma^2\\. The second is the [expected squared estimation error](estimation.llms.md#def-mse) (ESEE) of \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ as an [estimator](estimation.llms.md#def-estimator) of \\{\mu\mathopen{}\left(x\right)\mathclose{}}\\:
 >
 > \\ {\operatorname{ESPE}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} = \sigma^2+ {\operatorname{ESEE}\mathopen{}\left({{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}}. \tag{37}\\
 
@@ -1174,9 +1176,9 @@ Last modified: 2026-10-27 04:54:13 (PDT)
 > >   ggplot2::theme(legend.position = "top")
 > > ```
 > >
-> > [![Root mean squared error against polynomial degree from 1 to 10. The training error falls as the degree grows. The estimated generalization error falls at the low degrees, then levels off and rises slightly. A dashed horizontal line marks the noise standard deviation, 0.3.](model-validation_files/figure-html/train-test-error-plot-1.png)](model-validation_files/figure-html/train-test-error-plot-1.png "Figure 2: Training sRMSE and estimated generalization error (sRMSE on 10{,}000 new observations) of polynomial fits to one simulated training set of n= 30. The dashed line is the noise standard deviation \sigma, the square root of the irreducible error.")
+> > [![Root mean squared error against polynomial degree from 1 to 10. The training error falls as the degree grows. The estimated generalization error falls at the low degrees, then levels off and rises slightly. A dashed horizontal line marks the noise standard deviation, 0.3.](model-validation_files/figure-html/train-test-error-plot-1.png)](model-validation_files/figure-html/train-test-error-plot-1.png "Figure 2: Training sRMSE and estimated generalization error (sRMSE on 10{,}000 new observations) of polynomial fits to one simulated training set of n= 30. The dashed line is the noise standard deviation \sigma, the square root of the residual variance.")
 > >
-> > Figure 2: Training sRMSE and estimated generalization error (sRMSE on \\10{,}000\\ new observations) of polynomial fits to one simulated training set of \\n= 30\\. The dashed line is the noise standard deviation \\\sigma\\, the square root of the [irreducible error](#def-irreducible-error).
+> > Figure 2: Training sRMSE and estimated generalization error (sRMSE on \\10{,}000\\ new observations) of polynomial fits to one simulated training set of \\n= 30\\. The dashed line is the noise standard deviation \\\sigma\\, the square root of the [residual variance](#def-irreducible-error).
 >
 > Show R code
 >
@@ -1706,7 +1708,7 @@ Last modified: 2026-10-27 04:54:13 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 13 (Simplify the summand of the cross-validation estimate)** In the setting of [Exercise 12](#exr-cv-estimate-by-fold), simplify the summand, so that it no longer uses the [fold assignment](#def-fold-assignment) \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\.
+> **Exercise 13 (Simplify the summand of the cross-validation estimate)** In the setting of [Exercise 12](#exr-cv-estimate-by-fold), simplify the summand so that the summand no longer uses the [fold assignment](#def-fold-assignment) \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\.
 
 > **NOTE:**
 >
@@ -2132,10 +2134,10 @@ Last modified: 2026-10-27 04:54:13 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    8.88178e-15    2.00000e+00
+> #>    7.10543e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >

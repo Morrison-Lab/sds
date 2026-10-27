@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-27 04:54:13 (PDT)
+Last modified: 2026-10-27 14:23:57 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -220,7 +220,7 @@ Last modified: 2026-10-27 04:54:13 (PDT)
 > - **Target.** An [estimate](estimation.llms.md#def-estimate) aims at a fixed, unknown [estimand](estimation.llms.md#def-estimand). A [prediction](#def-prediction) aims at an outcome \\y\\, which is a random quantity even when the model is known exactly.
 > - **Error.** The [estimation error](estimation.llms.md#def-estimation-error) is the estimate minus the estimand. The [prediction error](#def-prediction-error) is the prediction minus the outcome.
 > - **Mean squared error.** The [pMSE of an estimator](estimation.llms.md#mean-squared-error) is an expectation over repeated samples. The [sMSE of predictions](#def-prediction-mse) is an average over observations.
-> - **What cannot be removed.** The estimation error of a consistent estimator shrinks toward zero as the sample grows. A prediction’s expected squared error cannot fall below the [irreducible error](model-validation.llms.md#def-irreducible-error), the variance of the outcome around its conditional mean.
+> - **What cannot be removed.** The estimation error of a consistent estimator shrinks toward zero as the sample grows. A prediction’s expected squared error, given the same [covariates](model-validation.llms.md#def-covariate), cannot fall below the [residual variance](model-validation.llms.md#def-irreducible-error), the variance of the outcome around its conditional mean.
 >
 > [Validating Predictions](model-validation.llms.md) estimates the prediction error on new observations.
 
