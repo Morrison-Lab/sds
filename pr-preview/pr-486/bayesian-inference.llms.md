@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 12:22:50 (PDT)
+Last modified: 2026-10-26 23:15:43 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models [\[1, Ch. 12\]](#ref-dobson4e). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -48,7 +48,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > **Example 2 (A uniform prior for a probability)** Let \\\pi\\ be the probability that a randomly chosen adult in some population smokes. Before collecting any data, an analyst who considers every value of \\\pi\\ in \\(0, 1)\\ equally plausible could use the uniform prior
 >
-> \\\operatorname{p}(\pi) = 1, \quad 0 \< \pi\< 1.\\
+> \\\operatorname{p}(\pi) = 1, \quad \pi\in (0, 1).\\
 >
 > Under this prior, the prior probability that fewer than 10% of adults smoke is
 >
