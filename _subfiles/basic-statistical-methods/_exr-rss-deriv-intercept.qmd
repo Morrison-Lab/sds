@@ -1,17 +1,17 @@
 :::{#exr-rss-deriv-intercept}
 #### Derivative of RSS with respect to the intercept
 
-Find the partial derivative of the simple linear regression
-residual sum of squares $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
-with respect to the intercept, $\partial \text{RSS} / \partial \intcoef$,
-and write it in terms of $\predbar$ and $\outbar$.
+1.  Find the partial derivative of the simple linear regression
+    residual sum of squares $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
+    with respect to the intercept, $\partial \text{RSS} / \partial \intcoef$.
+2.  Write it in terms of $\predbar$ and $\outbar$.
 :::
 
 {{< slidebreak >}}
 
 :::{#sol-rss-deriv-intercept}
 
-Differentiate one operation at a time,
+**1.** Differentiate one operation at a time,
 starting from the definition (@exm-rss-slr):
 
 $$
@@ -53,7 +53,17 @@ $$
 &= \sumin -2 (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(multiply $2$ by $-1$)}\\
 &= -2 \sumin (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
-&& \text{(constant factor out of the sum)}\\
+&& \text{(constant factor out of the sum)}
+\end{aligned}
+$$
+
+**2.** Write it in terms of $\predbar$ and $\outbar$:
+
+$$
+\begin{aligned}
+\frac{\partial \text{RSS}}{\partial \intcoef}
+&= -2 \sumin (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
+&& \text{(part 1)}\\
 &= -2 \paren{\sumin \outvar_\iobs - \sumin \intcoef - \sumin \coef{x} \predvar_\iobs}
 && \text{(distribute the sum over the terms)}\\
 &= -2 \paren{\sumin \outvar_\iobs - n \intcoef - \sumin \coef{x} \predvar_\iobs}

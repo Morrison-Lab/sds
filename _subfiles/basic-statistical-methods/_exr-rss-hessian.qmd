@@ -1,17 +1,17 @@
 :::{#exr-rss-hessian}
 #### Second derivatives of RSS
 
-Find the matrix of second derivatives of
-$\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
-with respect to $\intcoef$ and $\coef{x}$,
-and show that it is positive definite when $\sspred > 0$ (@def-centered-sums).
+1.  Find the matrix of second derivatives of
+    $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
+    with respect to $\intcoef$ and $\coef{x}$.
+2.  Show that it is positive definite when $\sspred > 0$ (@def-centered-sums).
 :::
 
 {{< slidebreak >}}
 
 :::{#sol-rss-hessian}
 
-Differentiate each first derivative again.
+**1.** Differentiate each first derivative again.
 
 **Derivatives of $\partial \text{RSS} / \partial \intcoef$.**
 By @exr-rss-deriv-intercept,
@@ -125,7 +125,9 @@ $$
 \begin{pmatrix} 2n & 2 n \predbar \\ 2 n \predbar & 2 \sumin \predvar_\iobs^2 \end{pmatrix}.
 $$
 
-Its top-left entry, $2n$, is positive.
+{{< slidebreak >}}
+
+**2.** Its top-left entry, $2n$, is positive.
 Its determinant,
 using the expanded form of $\sspred$ from @exr-sxx-expand, is
 

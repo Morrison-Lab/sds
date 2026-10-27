@@ -1,16 +1,16 @@
 :::{#exr-rss-hessian-vector}
 #### Hessian of RSS in vector notation
 
-Find the [Hessian](intro-MLEs.qmd#def-hessian)
-$\deriv{\vcoef} \deriv{\tp{\vcoef}} \text{RSS}(\vcoef)$,
-and show that it is positive definite when $\sspred > 0$ (@def-centered-sums).
+1.  Find the [Hessian](intro-MLEs.qmd#def-hessian)
+    $\deriv{\vcoef} \deriv{\tp{\vcoef}} \text{RSS}(\vcoef)$.
+2.  Show that it is positive definite when $\sspred > 0$ (@def-centered-sums).
 :::
 
 {{< slidebreak >}}
 
 :::{#sol-rss-hessian-vector}
 
-Differentiate the gradient $-2 \paren{\v{c} - A \vcoef}$
+**1.** Differentiate the gradient $-2 \paren{\v{c} - A \vcoef}$
 from @exr-normal-equations-vector
 with respect to $\tp{\vcoef}$.
 $\v{c}$ does not depend on $\vcoef$.
@@ -42,7 +42,7 @@ $$
 \end{aligned}
 $$
 
-To show it is positive definite,
+**2.** To show it is positive definite,
 take any vector $\v{v} = \tp{(v_0, v_x)} \neq \vzero$:
 
 $$

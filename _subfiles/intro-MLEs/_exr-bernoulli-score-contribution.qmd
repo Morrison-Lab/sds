@@ -6,8 +6,8 @@ In the setting of @exr-bernoulli-loglik-contribution, let:
 - $\devn_\iobs \eqdef \outvar_\iobs - \prob$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $\outvar_\iobs$ from its mean $\prob$;
 - $\precision \eqdef 1 / \Var{\Outvar_\iobs}$ be the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of $\Outvar_\iobs$.
 
-Derive the [score](#def-score) contribution $\score_\iobs(\prob) \eqdef \deriv{\prob} \llik_\iobs(\prob)$ of observation $\iobs$,
-and write it using $\devn_\iobs$ and $\precision$.
+1.  Derive the [score](#def-score) contribution $\score_\iobs(\prob) \eqdef \deriv{\prob} \llik_\iobs(\prob)$ of observation $\iobs$.
+2.  Write it using $\devn_\iobs$ and $\precision$.
 
 :::
 
@@ -15,11 +15,18 @@ and write it using $\devn_\iobs$ and $\precision$.
 
 :::{#sol-bernoulli-score-contribution}
 
+**1.** By definition,
+
+$$
+\score_\iobs(\prob)
+= \deriv{\prob} \llik_\iobs(\prob)
+$$
+
+**2.** Using @thm-bernoulli-score,
+
 $$
 \begin{aligned}
-\score_\iobs(\prob)
-&= \deriv{\prob} \llik_\iobs(\prob)
-&& \text{(definition of the score contribution)}\\
+\deriv{\prob} \llik_\iobs(\prob)
 &= \precision \devn_\iobs
 && \text{(score of a Bernoulli variable, with $x = \outvar_\iobs$)}
 \end{aligned}

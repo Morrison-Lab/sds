@@ -6,11 +6,11 @@ Let $X \sim \Ber(\prob)$ have observed value $x \in \cb{0, 1}$, and let:
 - $\devn \eqdef x - \E{X}$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $x$ from the mean of $X$;
 - $\precision \eqdef 1 / \Var{X}$ be the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of $X$.
 
-Derive the [score](#def-score) of $x$.
-In other words, differentiate the [log-likelihood](#def-loglik) of $x$
-with respect to the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) parameter $\prob$,
-starting from the log-likelihood in terms of the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) $\logodds \eqdef \logit(\prob)$ in @cor-bernoulli-loglik-contribution-logodds.
-Write the result using $\devn$ and $\precision$.
+1.  Derive the [score](#def-score) of $x$.
+    In other words, differentiate the [log-likelihood](#def-loglik) of $x$
+    with respect to the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) parameter $\prob$,
+    starting from the log-likelihood in terms of the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) $\logodds \eqdef \logit(\prob)$ in @cor-bernoulli-loglik-contribution-logodds.
+2.  Write the result using $\devn$ and $\precision$.
 
 :::
 
@@ -18,7 +18,7 @@ Write the result using $\devn$ and $\precision$.
 
 :::{#sol-derive-bernoulli-score}
 
-With $\outvar_\iobs = x$, @cor-bernoulli-loglik-contribution-logodds gives $\loglik = x \logodds + \logf{1 - \prob}$, so:
+**1.** With $\outvar_\iobs = x$, @cor-bernoulli-loglik-contribution-logodds gives $\loglik = x \logodds + \logf{1 - \prob}$, so:
 
 $$
 \begin{aligned}
@@ -100,7 +100,17 @@ $$
 &= x \precision - \prob \precision
 && \text{(definition of $\precision$)}\\
 &= \precision (x - \prob)
-&& \text{(factor out $\precision$)}\\
+&& \text{(factor out $\precision$)}
+\end{aligned}
+$$
+
+**2.** Write the result using $\devn$ and $\precision$:
+
+$$
+\begin{aligned}
+\score
+&= \precision (x - \prob)
+&& \text{(part 1)}\\
 &= \precision \paren{x - \E{X}}
 && \text{($\E{X} = \prob$)}\\
 &= \precision \devn

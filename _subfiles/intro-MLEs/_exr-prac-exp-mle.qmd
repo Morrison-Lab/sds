@@ -14,11 +14,14 @@ for the observed data $\vx = (\dsn{x})$.
 **(b)** Derive the score function $\score(\pmean; \vx) = \deriv{\pmean}\llik(\pmean; \vx)$.
 
 **(c)** Set the score equal to zero and show that $\hat\pmean_{ML} = \rvarbar$.
-Compute the second derivative and verify this critical point is a maximum.
 
-**(d)** Derive the observed information $\oinf(\pmean; \vx) = -\hess(\pmean; \vx)$,
-evaluate it at $\hat\pmean_{ML}$,
-and give an approximate 95% confidence interval for $\pmean$.
+**(d)** Compute the second derivative and verify this critical point is a maximum.
+
+**(e)** Derive the observed information $\oinf(\pmean; \vx) = -\hess(\pmean; \vx)$.
+
+**(f)** Evaluate it at $\hat\pmean_{ML}$.
+
+**(g)** Give an approximate 95% confidence interval for $\pmean$.
 :::
 
 :::{#sol-prac-exp-mle}
@@ -117,7 +120,7 @@ $$
 \ea
 $$
 
-The second derivative is:
+**(d)** The second derivative is:
 
 $$
 \ba
@@ -167,7 +170,7 @@ $$
 Since $n > 0$ and $\rvarbar^2 > 0$, the second derivative is negative,
 so $\hat\pmean_{ML} = \rvarbar$ is a maximum.
 
-**(d)**
+**(e)**
 
 The observed information is:
 
@@ -178,7 +181,7 @@ $$
 && \text{(observed information is the negative Hessian)}
 \\
 &= -\paren{\frac{n}{\pmean^2} - \frac{2n\rvarbar}{\pmean^3}}
-&& \text{(second derivative from (c))}
+&& \text{(second derivative from (d))}
 \\
 &= -\frac{n}{\pmean^2} + \frac{2n\rvarbar}{\pmean^3}
 && \text{(distribute the minus sign)}
@@ -188,7 +191,7 @@ $$
 \ea
 $$
 
-Evaluated at $\hat\pmean_{ML} = \rvarbar$:
+**(f)** Evaluated at $\hat\pmean_{ML} = \rvarbar$:
 
 $$
 \ba
@@ -206,7 +209,7 @@ $$
 
 So $\SE{\hat\pmean_{ML}} \approx \sqrt{\oinf(\hat\pmean_{ML}; \vx)^{-1}} = \frac{\rvarbar}{\sqrt{n}}$.
 
-An approximate 95% CI for $\pmean$ is:
+**(g)** An approximate 95% CI for $\pmean$ is:
 
 $$
 \hat\pmean_{ML} \pm 1.96 \times \frac{\rvarbar}{\sqrt{n}}
