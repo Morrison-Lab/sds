@@ -11,7 +11,7 @@ JAGS builds a [Gibbs sampler](mcmc.qmd#def-gibbs-sampler) from the model's descr
 It chooses a sampling method for each [full conditional](mcmc.qmd#def-full-conditional),
 using slice or Metropolis--Hastings steps where the full conditional has no closed form.
 Stan uses Hamiltonian Monte Carlo,
-which proposes moves along the gradient of the logarithm of the posterior density,
+which proposes moves along the gradient of the logarithm of the [posterior](bayesian-inference.qmd#def-posterior),
 in the adaptive form called the No-U-Turn sampler (NUTS)
 [@hoffman2014nuts].
 Using the gradient is why Stan cannot draw a [discrete](data.qmd#def-discrete-var) parameter:
