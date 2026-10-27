@@ -1,8 +1,8 @@
 :::{#exm-irreducible-error}
-#### The irreducible error of a normal population
+#### The residual variance of a normal population
 
 Take a [population](exploratory-descriptive.qmd#def-population) whose outcome given the [covariate](#def-covariate) value $\predvar$ has the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) $\ndist{\sin(2 \pi \predvar), \varpar}$, where $\varpar = \sdpar^2$ and $\sdpar = 0.3$.
 Its [noise](#def-noise) $\noise = \Outvar - \sin(2 \pi \Predvar)$, given $\Predvar = \predvar$, has the normal distribution with mean $0$ and [conditional variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance) $\varpar$.
-The [irreducible error](#def-irreducible-error) at every $\predvar$ is therefore $\varpar = \sdpar^2 = `{r} 0.3^2`$.
+The [residual variance](#def-irreducible-error) at every $\predvar$ is therefore $\varpar = \sdpar^2 = `{r} 0.3^2`$.
 
 :::

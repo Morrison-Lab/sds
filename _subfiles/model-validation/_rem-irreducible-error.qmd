@@ -1,8 +1,8 @@
 :::{#rem-irreducible-error}
-#### What the irreducible error does and does not depend on
+#### What the residual variance does and does not depend on
 
-The [irreducible error](#def-irreducible-error) $\varpar$ does not depend on the [fitting procedure](#def-fitting-procedure) $\fitproc$,
-so no choice of [prediction](prediction.qmd#def-prediction) can remove it.
+The [residual variance](#def-irreducible-error) $\varpar$ does not depend on the [fitting procedure](#def-fitting-procedure) $\fitproc$,
+so no choice of [prediction](prediction.qmd#def-prediction) using the same [covariates](#def-covariate) can remove it.
 It is defined at the single [covariate](#def-covariate) value $\predvar$,
 so it may differ from one covariate value to another:
 it does not assume constant [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) across covariate values.
