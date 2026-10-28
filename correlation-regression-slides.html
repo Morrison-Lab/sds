@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-27 19:56:56 (PDT)</p>
+  <p class="date">Last modified: 2026-10-27 22:35:55 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -1218,7 +1218,7 @@ S_{xx}
 <p>Differentiating with respect to <span class="math inline">\(\beta_{x}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\frac{\partial^2 \text{RSS}}{\partial \beta_{x} \, \partial \beta_{0}}
+\frac{\partial^2 \text{RSS}}{\partial \beta_{x} \partial \beta_{0}}
 &amp;= -2 \frac{\partial}{\partial \beta_{x}}
   \mathopen{}\left(n {\bar{y}}- n \beta_{0}- \beta_{x} n {\bar{x}}\right)\mathclose{}
 &amp;&amp; \text{(constant factor)}\\
@@ -1240,7 +1240,7 @@ S_{xx}
 = -2 \sum_{i=1}^nx_i(y_i- \beta_{0}- \beta_{x} x_i)\)</span>. Differentiating with respect to <span class="math inline">\(\beta_{0}\)</span>, and reusing the inner derivative <span class="math inline">\(-1\)</span> from <a href="#/exr-rss-deriv-intercept" class="quarto-xref">Exercise&nbsp;6</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\frac{\partial^2 \text{RSS}}{\partial \beta_{0}\, \partial \beta_{x}}
+\frac{\partial^2 \text{RSS}}{\partial \beta_{0} \partial \beta_{x}}
 &amp;= -2 \frac{\partial}{\partial \beta_{0}} \sum_{i=1}^nx_i(y_i- \beta_{0}- \beta_{x} x_i)
 &amp;&amp; \text{(constant factor)}\\
 &amp;= -2 \sum_{i=1}^n\frac{\partial}{\partial \beta_{0}} \mathopen{}\left(x_i(y_i- \beta_{0}- \beta_{x} x_i)\right)\mathclose{}

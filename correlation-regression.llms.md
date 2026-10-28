@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-27 19:56:56 (PDT)
+Last modified: 2026-10-27 22:35:55 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -603,11 +603,11 @@ hers |> head()
 >
 > Differentiating with respect to \\\beta\_{x}\\:
 >
-> \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{x} \\ \partial \beta\_{0}} &= -2 \frac{\partial}{\partial \beta\_{x}} \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left( \frac{\partial (n {\bar{y}})}{\partial \beta\_{x}} - \frac{\partial (n \beta\_{0})}{\partial \beta\_{x}} - \frac{\partial (\beta\_{x} n {\bar{x}})}{\partial \beta\_{x}}\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 (0 - 0 - n {\bar{x}}) && \text{(differentiate each term)}\\ &= -2 (-n {\bar{x}}) && \text{(drop the zeros)}\\ &= 2 n {\bar{x}} && \text{(multiply)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{x} \partial \beta\_{0}} &= -2 \frac{\partial}{\partial \beta\_{x}} \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left( \frac{\partial (n {\bar{y}})}{\partial \beta\_{x}} - \frac{\partial (n \beta\_{0})}{\partial \beta\_{x}} - \frac{\partial (\beta\_{x} n {\bar{x}})}{\partial \beta\_{x}}\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 (0 - 0 - n {\bar{x}}) && \text{(differentiate each term)}\\ &= -2 (-n {\bar{x}}) && \text{(drop the zeros)}\\ &= 2 n {\bar{x}} && \text{(multiply)} \end{aligned} \\
 >
 > **Derivatives of \\\partial \text{RSS} / \partial \beta\_{x}\\.** By [Exercise 8](#exr-rss-deriv-slope), \\\partial \text{RSS} / \partial \beta\_{x} = -2 \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i)\\. Differentiating with respect to \\\beta\_{0}\\, and reusing the inner derivative \\-1\\ from [Exercise 6](#exr-rss-deriv-intercept):
 >
-> \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{0}\\ \partial \beta\_{x}} &= -2 \frac{\partial}{\partial \beta\_{0}} \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(constant factor)}\\ &= -2 \sum\_{i=1}^n\frac{\partial}{\partial \beta\_{0}} \mathopen{}\left(x_i(y_i- \beta\_{0}- \beta\_{x} x_i)\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 \sum\_{i=1}^nx_i\frac{\partial}{\partial \beta\_{0}} (y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(\$x_i\$ does not depend on \$\beta\_{0}\$)}\\ &= -2 \sum\_{i=1}^nx_i(-1) && \text{(inner derivative is \$-1\$)}\\ &= -2 \sum\_{i=1}^n(-x_i) && \text{(multiply)}\\ &= -2 \mathopen{}\left(-\sum\_{i=1}^nx_i\right)\mathclose{} && \text{(constant factor out of the sum)}\\ &= 2 \sum\_{i=1}^nx_i && \text{(multiply)}\\ &= 2 n {\bar{x}} && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{0} \partial \beta\_{x}} &= -2 \frac{\partial}{\partial \beta\_{0}} \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(constant factor)}\\ &= -2 \sum\_{i=1}^n\frac{\partial}{\partial \beta\_{0}} \mathopen{}\left(x_i(y_i- \beta\_{0}- \beta\_{x} x_i)\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 \sum\_{i=1}^nx_i\frac{\partial}{\partial \beta\_{0}} (y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(\$x_i\$ does not depend on \$\beta\_{0}\$)}\\ &= -2 \sum\_{i=1}^nx_i(-1) && \text{(inner derivative is \$-1\$)}\\ &= -2 \sum\_{i=1}^n(-x_i) && \text{(multiply)}\\ &= -2 \mathopen{}\left(-\sum\_{i=1}^nx_i\right)\mathclose{} && \text{(constant factor out of the sum)}\\ &= 2 \sum\_{i=1}^nx_i && \text{(multiply)}\\ &= 2 n {\bar{x}} && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$)} \end{aligned} \\
 >
 > Differentiating with respect to \\\beta\_{x}\\, and reusing the inner derivative \\-x_i\\ from [Exercise 8](#exr-rss-deriv-slope):
 >
