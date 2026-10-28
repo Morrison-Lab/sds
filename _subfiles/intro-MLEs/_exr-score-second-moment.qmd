@@ -26,16 +26,16 @@ $$
 && \text{(derivative of a constant)}\\
 &= \int \deriv{\param}\sb{\paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param)} d\vx
 && \text{(exchange derivative and integral)}\\
-&= \int \paren{\frac{\partial^2}{\partial \param^2} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
+&= \int \paren{\dderiv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
  + \int \paren{\deriv{\param} \log \p(\vx \mid \param)} \deriv{\param}\p(\vx \mid \param) \, d\vx
 && \text{(product rule)}\\
-&= \int \paren{\frac{\partial^2}{\partial \param^2} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
+&= \int \paren{\dderiv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
  + \int \paren{\deriv{\param} \log \p(\vx \mid \param)} \paren{\deriv{\param}\log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
 && \text{($\deriv{\param}\p = \paren{\deriv{\param}\log \p} \p$)}\\
-&= \int \paren{\frac{\partial^2}{\partial \param^2} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
+&= \int \paren{\dderiv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
  + \int \paren{\deriv{\param} \log \p(\vx \mid \param)}^2 \p(\vx \mid \param) \, d\vx
 && \text{(product of two equal factors is a square)}\\
-&= \E{\frac{\partial^2}{\partial \param^2} \log \p(\vX \mid \param)}
+&= \E{\dderiv{\param} \log \p(\vX \mid \param)}
  + \int \paren{\deriv{\param} \log \p(\vx \mid \param)}^2 \p(\vx \mid \param) \, d\vx
 && \text{(definition of expectation)}\\
 &= \E{\hess} + \int \paren{\deriv{\param} \log \p(\vx \mid \param)}^2 \p(\vx \mid \param) \, d\vx

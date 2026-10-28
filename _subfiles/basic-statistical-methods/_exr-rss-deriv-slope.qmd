@@ -3,7 +3,7 @@
 
 Find the partial derivative of the simple linear regression
 residual sum of squares $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
-with respect to the slope, $\partial \text{RSS} / \partial \coef{x}$.
+with respect to the slope, $\derivfslash{\text{RSS}}{\coef{x}}$.
 :::
 
 {{< slidebreak >}}

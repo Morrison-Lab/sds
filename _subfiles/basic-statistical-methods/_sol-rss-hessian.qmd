@@ -2,9 +2,9 @@
 
 Differentiate each first derivative again.
 
-**Derivatives of $\partial \text{RSS} / \partial \intcoef$.**
+**Derivatives of $\derivfslash{\text{RSS}}{\intcoef}$.**
 By @exr-rss-deriv-intercept,
-$\partial \text{RSS} / \partial \intcoef
+$\derivfslash{\text{RSS}}{\intcoef}
 = -2 \paren{n \outbar - n \intcoef - \coef{x} n \predbar}$.
 Differentiating with respect to $\intcoef$:
 
@@ -52,9 +52,9 @@ $$
 
 {{< slidebreak >}}
 
-**Derivatives of $\partial \text{RSS} / \partial \coef{x}$.**
+**Derivatives of $\derivfslash{\text{RSS}}{\coef{x}}$.**
 By @exr-rss-deriv-slope,
-$\partial \text{RSS} / \partial \coef{x}
+$\derivfslash{\text{RSS}}{\coef{x}}
 = -2 \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)$.
 Differentiating with respect to $\intcoef$,
 and reusing the inner derivative $-1$ from @exr-rss-deriv-intercept:

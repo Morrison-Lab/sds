@@ -51,7 +51,7 @@ $$
 
 To shorten the next steps, write
 $d_i \eqdef (\outvar_\iobs - \outbar) - \coef{x} (\predvar_\iobs - \predbar)$,
-so that $\partial \text{RSS} / \partial \coef{x} = -2 \sumin \predvar_\iobs d_i$.
+so that $\derivfslash{\text{RSS}}{\coef{x}} = -2 \sumin \predvar_\iobs d_i$.
 The $d_i$ sum to zero,
 because deviations from a sample mean sum to zero (@exr-sum-deviations-zero):
 
@@ -102,7 +102,7 @@ $$
 \end{aligned}
 $$
 
-So $\partial \text{RSS} / \partial \coef{x} = -2 \paren{\sspredout - \coef{x} \sspred}$.
+So $\derivfslash{\text{RSS}}{\coef{x}} = -2 \paren{\sspredout - \coef{x} \sspred}$.
 Set it to zero and isolate $\coef{x}$:
 
 $$
