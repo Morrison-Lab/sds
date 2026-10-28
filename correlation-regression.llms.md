@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-27 22:35:55 (PDT)
+Last modified: 2026-10-27 23:24:14 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -487,7 +487,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 6 (Derivative of RSS with respect to the intercept)** Find the partial derivative of the [simple linear regression](correlation-regression.llms.md#def-slr) residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the [intercept](correlation-regression.llms.md#def-slr-intercept), \\\partial \text{RSS} / \partial \beta\_{0}\\.
+> **Exercise 6 (Derivative of RSS with respect to the intercept)** Find the partial derivative of the [simple linear regression](correlation-regression.llms.md#def-slr) residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the [intercept](correlation-regression.llms.md#def-slr-intercept), \\{\partial \text{RSS} / \partial \beta\_{0}}\\.
 
 > **NOTE:**
 >
@@ -525,7 +525,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 8 (Derivative of RSS with respect to the slope)** Find the partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the slope, \\\partial \text{RSS} / \partial \beta\_{x}\\.
+> **Exercise 8 (Derivative of RSS with respect to the slope)** Find the partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the [slope](correlation-regression.llms.md#def-slr-slope), \\{\partial \text{RSS} / \partial \beta\_{x}}\\.
 
 > **NOTE:**
 >
@@ -565,7 +565,7 @@ hers |> head()
 >
 > \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{x}} &= -2 \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(derivative with respect to \$\beta\_{x}\$)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left(y_i- ({\bar{y}}- \beta\_{x} {\bar{x}}) - \beta\_{x} x_i\right)\mathclose{} && \text{(substitute \$\beta\_{0}\$)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left(y_i- {\bar{y}}+ \beta\_{x} {\bar{x}}- \beta\_{x} x_i\right)\mathclose{} && \text{(remove the inner parentheses)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left((y_i- {\bar{y}}) - (\beta\_{x} x_i- \beta\_{x} {\bar{x}})\right)\mathclose{} && \text{(group terms)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left((y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})\right)\mathclose{} && \text{(factor out \$\beta\_{x}\$)} \end{aligned} \\
 >
-> To shorten the next steps, write \\d_i \stackrel{\text{def}}{=}(y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})\\, so that \\\partial \text{RSS} / \partial \beta\_{x} = -2 \sum\_{i=1}^nx_id_i\\. The \\d_i\\ sum to zero, because deviations from a sample mean sum to zero ([Exercise 4](#exr-sum-deviations-zero)):
+> To shorten the next steps, write \\d_i \stackrel{\text{def}}{=}(y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})\\, so that \\{\partial \text{RSS} / \partial \beta\_{x}} = -2 \sum\_{i=1}^nx_id_i\\. The \\d_i\\ sum to zero, because deviations from a sample mean sum to zero ([Exercise 4](#exr-sum-deviations-zero)):
 >
 > \\ \begin{aligned} \sum\_{i=1}^nd_i &= \sum\_{i=1}^n\mathopen{}\left((y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})\right)\mathclose{} && \text{(definition of \$d_i\$)}\\ &= \sum\_{i=1}^n(y_i- {\bar{y}}) - \sum\_{i=1}^n\beta\_{x} (x_i- {\bar{x}}) && \text{(distribute the sum over the terms)}\\ &= \sum\_{i=1}^n(y_i- {\bar{y}}) - \beta\_{x} \sum\_{i=1}^n(x_i- {\bar{x}}) && \text{(constant factor out of the sum)}\\ &= 0 - \beta\_{x} \cdot 0 && \text{(deviations sum to zero)}\\ &= 0 - 0 && \text{(multiply)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
 >
@@ -573,7 +573,7 @@ hers |> head()
 >
 > \\ \begin{aligned} \sum\_{i=1}^nx_id_i &= \sum\_{i=1}^nx_id_i - {\bar{x}}\sum\_{i=1}^nd_i && \text{(\$\sum\_{i=1}^nd_i = 0\$)}\\ &= \sum\_{i=1}^nx_id_i - \sum\_{i=1}^n{\bar{x}}d_i && \text{(constant factor into the sum)}\\ &= \sum\_{i=1}^n(x_i- {\bar{x}}) d_i && \text{(combine the sums)}\\ &= \sum\_{i=1}^n(x_i- {\bar{x}}) \mathopen{}\left((y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})\right)\mathclose{} && \text{(definition of \$d_i\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left((x_i- {\bar{x}})(y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})^2\right)\mathclose{} && \text{(distribute)}\\ &= \sum\_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}) - \sum\_{i=1}^n\beta\_{x} (x_i- {\bar{x}})^2 && \text{(distribute the sum over the terms)}\\ &= \sum\_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}) - \beta\_{x} \sum\_{i=1}^n(x_i- {\bar{x}})^2 && \text{(constant factor out of the sum)}\\ &= S\_{xy}- \beta\_{x} \sum\_{i=1}^n(x_i- {\bar{x}})^2 && \text{(definition of \$S\_{xy}\$)}\\ &= S\_{xy}- \beta\_{x} S\_{xx} && \text{(definition of \$S\_{xx}\$)} \end{aligned} \\
 >
-> So \\\partial \text{RSS} / \partial \beta\_{x} = -2 \mathopen{}\left(S\_{xy}- \beta\_{x} S\_{xx}\right)\mathclose{}\\. Set it to zero and isolate \\\beta\_{x}\\:
+> So \\{\partial \text{RSS} / \partial \beta\_{x}} = -2 \mathopen{}\left(S\_{xy}- \beta\_{x} S\_{xx}\right)\mathclose{}\\. Set it to zero and isolate \\\beta\_{x}\\:
 >
 > \\ \begin{aligned} 0 &= -2 \mathopen{}\left(S\_{xy}- \beta\_{x} S\_{xx}\right)\mathclose{} && \text{(second normal equation)}\\ 0 &= S\_{xy}- \beta\_{x} S\_{xx} && \text{(divide both sides by \$-2\$)}\\ \beta\_{x} S\_{xx}&= S\_{xy} && \text{(add \$\beta\_{x} S\_{xx}\$ to both sides)}\\ \beta\_{x} &= \frac{S\_{xy}}{S\_{xx}} && \text{(divide both sides by \$S\_{xx}\> 0\$)} \end{aligned} \\
 >
@@ -597,7 +597,7 @@ hers |> head()
 >
 > *Solution 10*. Differentiate each first derivative again.
 >
-> **Derivatives of \\\partial \text{RSS} / \partial \beta\_{0}\\.** By [Exercise 6](#exr-rss-deriv-intercept), \\\partial \text{RSS} / \partial \beta\_{0} = -2 \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{}\\. Differentiating with respect to \\\beta\_{0}\\:
+> **Derivatives of \\{\partial \text{RSS} / \partial \beta\_{0}}\\.** By [Exercise 6](#exr-rss-deriv-intercept), \\{\partial \text{RSS} / \partial \beta\_{0}} = -2 \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{}\\. Differentiating with respect to \\\beta\_{0}\\:
 >
 > \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{0}^2} &= -2 \frac{\partial}{\partial \beta\_{0}} \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left( \frac{\partial (n {\bar{y}})}{\partial \beta\_{0}} - \frac{\partial (n \beta\_{0})}{\partial \beta\_{0}} - \frac{\partial (\beta\_{x} n {\bar{x}})}{\partial \beta\_{0}}\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 (0 - n - 0) && \text{(differentiate each term)}\\ &= -2 (-n) && \text{(drop the zeros)}\\ &= 2n && \text{(multiply)} \end{aligned} \\
 >
@@ -605,7 +605,7 @@ hers |> head()
 >
 > \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{x} \partial \beta\_{0}} &= -2 \frac{\partial}{\partial \beta\_{x}} \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left( \frac{\partial (n {\bar{y}})}{\partial \beta\_{x}} - \frac{\partial (n \beta\_{0})}{\partial \beta\_{x}} - \frac{\partial (\beta\_{x} n {\bar{x}})}{\partial \beta\_{x}}\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 (0 - 0 - n {\bar{x}}) && \text{(differentiate each term)}\\ &= -2 (-n {\bar{x}}) && \text{(drop the zeros)}\\ &= 2 n {\bar{x}} && \text{(multiply)} \end{aligned} \\
 >
-> **Derivatives of \\\partial \text{RSS} / \partial \beta\_{x}\\.** By [Exercise 8](#exr-rss-deriv-slope), \\\partial \text{RSS} / \partial \beta\_{x} = -2 \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i)\\. Differentiating with respect to \\\beta\_{0}\\, and reusing the inner derivative \\-1\\ from [Exercise 6](#exr-rss-deriv-intercept):
+> **Derivatives of \\{\partial \text{RSS} / \partial \beta\_{x}}\\.** By [Exercise 8](#exr-rss-deriv-slope), \\{\partial \text{RSS} / \partial \beta\_{x}} = -2 \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i)\\. Differentiating with respect to \\\beta\_{0}\\, and reusing the inner derivative \\-1\\ from [Exercise 6](#exr-rss-deriv-intercept):
 >
 > \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{0} \partial \beta\_{x}} &= -2 \frac{\partial}{\partial \beta\_{0}} \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(constant factor)}\\ &= -2 \sum\_{i=1}^n\frac{\partial}{\partial \beta\_{0}} \mathopen{}\left(x_i(y_i- \beta\_{0}- \beta\_{x} x_i)\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 \sum\_{i=1}^nx_i\frac{\partial}{\partial \beta\_{0}} (y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(\$x_i\$ does not depend on \$\beta\_{0}\$)}\\ &= -2 \sum\_{i=1}^nx_i(-1) && \text{(inner derivative is \$-1\$)}\\ &= -2 \sum\_{i=1}^n(-x_i) && \text{(multiply)}\\ &= -2 \mathopen{}\left(-\sum\_{i=1}^nx_i\right)\mathclose{} && \text{(constant factor out of the sum)}\\ &= 2 \sum\_{i=1}^nx_i && \text{(multiply)}\\ &= 2 n {\bar{x}} && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$)} \end{aligned} \\
 >

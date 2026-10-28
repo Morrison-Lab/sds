@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-27 22:35:55 (PDT)</p>
+  <p class="date">Last modified: 2026-10-27 23:24:14 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -962,7 +962,7 @@ S_{xx}
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-sxx-expand" class="quarto-xref">Exercise&nbsp;5</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-rss-deriv-intercept" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6 (Derivative of RSS with respect to the intercept)</strong></span> Find the partial derivative of the <a href="./correlation-regression.html#def-slr">simple linear regression</a> residual sum of squares <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>) with respect to the <a href="./correlation-regression.html#def-slr-intercept">intercept</a>, <span class="math inline">\(\partial \text{RSS} / \partial \beta_{0}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 6 (Derivative of RSS with respect to the intercept)</strong></span> Find the partial derivative of the <a href="./correlation-regression.html#def-slr">simple linear regression</a> residual sum of squares <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>) with respect to the <a href="./correlation-regression.html#def-slr-intercept">intercept</a>, <span class="math inline">\({\partial \text{RSS} / \partial \beta_{0}}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-rss-deriv-intercept" class="proof solution">
 <p><span class="proof-title"><em>Solution 6</em>. </span>Differentiate one operation at a time, starting from the definition (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>):</p>
@@ -1038,7 +1038,7 @@ S_{xx}
 <p><span class="proof-title"><em>Proof</em>. </span>The derivative in sum form is the solution to <a href="#/exr-rss-deriv-intercept" class="quarto-xref">Exercise&nbsp;6</a>. The form in terms of means is the solution to <a href="#/exr-rss-deriv-intercept-in-means" class="quarto-xref">Exercise&nbsp;7</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-rss-deriv-slope" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8 (Derivative of RSS with respect to the slope)</strong></span> Find the partial derivative of the simple linear regression residual sum of squares <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>) with respect to the slope, <span class="math inline">\(\partial \text{RSS} / \partial \beta_{x}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 8 (Derivative of RSS with respect to the slope)</strong></span> Find the partial derivative of the simple linear regression residual sum of squares <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>) with respect to the <a href="./correlation-regression.html#def-slr-slope">slope</a>, <span class="math inline">\({\partial \text{RSS} / \partial \beta_{x}}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-rss-deriv-slope" class="proof solution">
 <p><span class="proof-title"><em>Solution 8</em>. </span>Differentiate one operation at a time, starting from the definition (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>):</p>
@@ -1123,7 +1123,7 @@ S_{xx}
 &amp;&amp; \text{(factor out $\beta_{x}$)}
 \end{aligned}
 \]</span></p>
-<p>To shorten the next steps, write <span class="math inline">\(d_i \stackrel{\text{def}}{=}(y_i- {\bar{y}}) - \beta_{x} (x_i- {\bar{x}})\)</span>, so that <span class="math inline">\(\partial \text{RSS} / \partial \beta_{x} = -2 \sum_{i=1}^nx_id_i\)</span>. The <span class="math inline">\(d_i\)</span> sum to zero, because deviations from a sample mean sum to zero (<a href="#/exr-sum-deviations-zero" class="quarto-xref">Exercise&nbsp;4</a>):</p>
+<p>To shorten the next steps, write <span class="math inline">\(d_i \stackrel{\text{def}}{=}(y_i- {\bar{y}}) - \beta_{x} (x_i- {\bar{x}})\)</span>, so that <span class="math inline">\({\partial \text{RSS} / \partial \beta_{x}} = -2 \sum_{i=1}^nx_id_i\)</span>. The <span class="math inline">\(d_i\)</span> sum to zero, because deviations from a sample mean sum to zero (<a href="#/exr-sum-deviations-zero" class="quarto-xref">Exercise&nbsp;4</a>):</p>
 <p><span class="math display">\[
 \begin{aligned}
 \sum_{i=1}^nd_i
@@ -1166,7 +1166,7 @@ S_{xx}
 &amp;&amp; \text{(definition of $S_{xx}$)}
 \end{aligned}
 \]</span></p>
-<p>So <span class="math inline">\(\partial \text{RSS} / \partial \beta_{x} = -2 \mathopen{}\left(S_{xy}- \beta_{x} S_{xx}\right)\mathclose{}\)</span>. Set it to zero and isolate <span class="math inline">\(\beta_{x}\)</span>:</p>
+<p>So <span class="math inline">\({\partial \text{RSS} / \partial \beta_{x}} = -2 \mathopen{}\left(S_{xy}- \beta_{x} S_{xx}\right)\mathclose{}\)</span>. Set it to zero and isolate <span class="math inline">\(\beta_{x}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 0 &amp;= -2 \mathopen{}\left(S_{xy}- \beta_{x} S_{xx}\right)\mathclose{}
@@ -1194,7 +1194,7 @@ S_{xx}
 </div>
 </section><section class="slide level2"><div id="sol-rss-hessian" class="proof solution">
 <p><span class="proof-title"><em>Solution 10</em>. </span>Differentiate each first derivative again.</p>
-<p><strong>Derivatives of <span class="math inline">\(\partial \text{RSS} / \partial \beta_{0}\)</span>.</strong> By <a href="#/exr-rss-deriv-intercept" class="quarto-xref">Exercise&nbsp;6</a>, <span class="math inline">\(\partial \text{RSS} / \partial \beta_{0}
+<p><strong>Derivatives of <span class="math inline">\({\partial \text{RSS} / \partial \beta_{0}}\)</span>.</strong> By <a href="#/exr-rss-deriv-intercept" class="quarto-xref">Exercise&nbsp;6</a>, <span class="math inline">\({\partial \text{RSS} / \partial \beta_{0}}
 = -2 \mathopen{}\left(n {\bar{y}}- n \beta_{0}- \beta_{x} n {\bar{x}}\right)\mathclose{}\)</span>. Differentiating with respect to <span class="math inline">\(\beta_{0}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1236,7 +1236,7 @@ S_{xx}
 \end{aligned}
 \]</span></p>
 <hr>
-<p><strong>Derivatives of <span class="math inline">\(\partial \text{RSS} / \partial \beta_{x}\)</span>.</strong> By <a href="#/exr-rss-deriv-slope" class="quarto-xref">Exercise&nbsp;8</a>, <span class="math inline">\(\partial \text{RSS} / \partial \beta_{x}
+<p><strong>Derivatives of <span class="math inline">\({\partial \text{RSS} / \partial \beta_{x}}\)</span>.</strong> By <a href="#/exr-rss-deriv-slope" class="quarto-xref">Exercise&nbsp;8</a>, <span class="math inline">\({\partial \text{RSS} / \partial \beta_{x}}
 = -2 \sum_{i=1}^nx_i(y_i- \beta_{0}- \beta_{x} x_i)\)</span>. Differentiating with respect to <span class="math inline">\(\beta_{0}\)</span>, and reusing the inner derivative <span class="math inline">\(-1\)</span> from <a href="#/exr-rss-deriv-intercept" class="quarto-xref">Exercise&nbsp;6</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
