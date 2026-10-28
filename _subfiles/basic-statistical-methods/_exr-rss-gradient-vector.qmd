@@ -37,7 +37,7 @@ $$
 && \text{(write out the dot product)}\\
 &= \begin{pmatrix}
   \deriv{\intcoef} \paren{a_0 \intcoef + a_x \coef{x}} \\
-  \frac{\partial}{\partial \coef{x}} \paren{a_0 \intcoef + a_x \coef{x}}
+  \deriv{\coef{x}} \paren{a_0 \intcoef + a_x \coef{x}}
   \end{pmatrix}
 && \text{(definition of the gradient)}\\
 &= \begin{pmatrix} a_0 + 0 \\ 0 + a_x \end{pmatrix}

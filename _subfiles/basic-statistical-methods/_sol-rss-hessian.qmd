@@ -10,14 +10,14 @@ Differentiating with respect to $\intcoef$:
 
 $$
 \begin{aligned}
-\frac{\partial^2 \text{RSS}}{\partial \intcoef^2}
+\dderivf{\text{RSS}}{\intcoef}
 &= -2 \deriv{\intcoef}
   \paren{n \outbar - n \intcoef - \coef{x} n \predbar}
 && \text{(constant factor)}\\
 &= -2 \paren{
-  \frac{\partial (n \outbar)}{\partial \intcoef}
-  - \frac{\partial (n \intcoef)}{\partial \intcoef}
-  - \frac{\partial (\coef{x} n \predbar)}{\partial \intcoef}}
+  \derivf{(n \outbar)}{\intcoef}
+  - \derivf{(n \intcoef)}{\intcoef}
+  - \derivf{(\coef{x} n \predbar)}{\intcoef}}
 && \text{(derivative of a sum)}\\
 &= -2 (0 - n - 0)
 && \text{(differentiate each term)}\\
@@ -32,14 +32,14 @@ Differentiating with respect to $\coef{x}$:
 
 $$
 \begin{aligned}
-\frac{\partial^2 \text{RSS}}{\partial \coef{x} \, \partial \intcoef}
+\xderivf{\text{RSS}}{\coef{x}}{\intcoef}
 &= -2 \deriv{\coef{x}}
   \paren{n \outbar - n \intcoef - \coef{x} n \predbar}
 && \text{(constant factor)}\\
 &= -2 \paren{
-  \frac{\partial (n \outbar)}{\partial \coef{x}}
-  - \frac{\partial (n \intcoef)}{\partial \coef{x}}
-  - \frac{\partial (\coef{x} n \predbar)}{\partial \coef{x}}}
+  \derivf{(n \outbar)}{\coef{x}}
+  - \derivf{(n \intcoef)}{\coef{x}}
+  - \derivf{(\coef{x} n \predbar)}{\coef{x}}}
 && \text{(derivative of a sum)}\\
 &= -2 (0 - 0 - n \predbar)
 && \text{(differentiate each term)}\\
@@ -61,7 +61,7 @@ and reusing the inner derivative $-1$ from @exr-rss-deriv-intercept:
 
 $$
 \begin{aligned}
-\frac{\partial^2 \text{RSS}}{\partial \intcoef \, \partial \coef{x}}
+\xderivf{\text{RSS}}{\intcoef}{\coef{x}}
 &= -2 \deriv{\intcoef} \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(constant factor)}\\
 &= -2 \sumin \deriv{\intcoef} \paren{\predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)}
@@ -86,7 +86,7 @@ and reusing the inner derivative $-\predvar_\iobs$ from @exr-rss-deriv-slope:
 
 $$
 \begin{aligned}
-\frac{\partial^2 \text{RSS}}{\partial \coef{x}^2}
+\dderivf{\text{RSS}}{\coef{x}}
 &= -2 \deriv{\coef{x}} \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(constant factor)}\\
 &= -2 \sumin \deriv{\coef{x}} \paren{\predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)}

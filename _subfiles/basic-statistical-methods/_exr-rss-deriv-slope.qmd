@@ -15,13 +15,13 @@ starting from the definition (@exm-rss-slr):
 
 $$
 \begin{aligned}
-\frac{\partial \text{RSS}}{\partial \coef{x}}
-&= \frac{\partial}{\partial \coef{x}} \sumin (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)^2
+\derivf{\text{RSS}}{\coef{x}}
+&= \deriv{\coef{x}} \sumin (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)^2
 && \text{(definition of RSS)}\\
-&= \sumin \frac{\partial}{\partial \coef{x}} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)^2
+&= \sumin \deriv{\coef{x}} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)^2
 && \text{(derivative of a sum)}\\
 &= \sumin 2 (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
-  \frac{\partial}{\partial \coef{x}} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
+  \deriv{\coef{x}} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(chain rule)}
 \end{aligned}
 $$
@@ -30,10 +30,10 @@ The inner derivative:
 
 $$
 \begin{aligned}
-\frac{\partial}{\partial \coef{x}} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
-&= \frac{\partial \outvar_\iobs}{\partial \coef{x}}
-  - \frac{\partial \intcoef}{\partial \coef{x}}
-  - \frac{\partial (\coef{x} \predvar_\iobs)}{\partial \coef{x}}
+\deriv{\coef{x}} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
+&= \derivf{\outvar_\iobs}{\coef{x}}
+  - \derivf{\intcoef}{\coef{x}}
+  - \derivf{(\coef{x} \predvar_\iobs)}{\coef{x}}
 && \text{(derivative of a sum)}\\
 &= 0 - 0 - \predvar_\iobs
 && \text{($\outvar_\iobs$ and $\intcoef$ do not depend on $\coef{x}$)}\\
@@ -46,7 +46,7 @@ Plugging the inner derivative back in:
 
 $$
 \begin{aligned}
-\frac{\partial \text{RSS}}{\partial \coef{x}}
+\derivf{\text{RSS}}{\coef{x}}
 &= \sumin 2 (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs) (-\predvar_\iobs)
 && \text{(inner derivative is $-\predvar_\iobs$)}\\
 &= \sumin -2 \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)

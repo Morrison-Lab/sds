@@ -5,7 +5,7 @@ The partial derivative of the simple linear regression
 residual sum of squares $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
 with respect to the slope is
 
-$$\frac{\partial \text{RSS}}{\partial \coef{x}}
+$$\derivf{\text{RSS}}{\coef{x}}
 = -2 \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs).$$
 :::
 

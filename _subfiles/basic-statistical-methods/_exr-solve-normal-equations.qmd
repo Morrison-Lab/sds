@@ -35,7 +35,7 @@ Substitute that intercept into the derivative from @exr-rss-deriv-slope:
 
 $$
 \begin{aligned}
-\frac{\partial \text{RSS}}{\partial \coef{x}}
+\derivf{\text{RSS}}{\coef{x}}
 &= -2 \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(derivative with respect to $\coef{x}$)}\\
 &= -2 \sumin \predvar_\iobs \paren{\outvar_\iobs - (\outbar - \coef{x} \predbar) - \coef{x} \predvar_\iobs}
