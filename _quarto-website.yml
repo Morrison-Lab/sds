@@ -37,6 +37,10 @@ website:
   back-to-top-navigation: true
   page-navigation: true
   reader-mode: true
+  # Quarto opens search on a bare "f" or "s" keyup, which also fires after
+  # Ctrl/Cmd-F (find in page) and Ctrl/Cmd-S (save). Keep only "/".
+  search:
+    keyboard-shortcut: ["/"]
   repo-url: https://github.com/Morrison-Lab/sds
   repo-actions: [edit, issue, source]
   # The navbar menus and the sidebar list the same pages in the same groups
