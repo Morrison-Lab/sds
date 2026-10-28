@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-27 16:11:29 (PDT)
+Last modified: 2026-10-27 19:56:56 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -1758,7 +1758,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > **Exercise 44 (Score contribution in terms of deviation and precision)** In the setting of [Exercise 43](#exr-bernoulli-score-contribution), let:
 >
-> - \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of \\y_i\\ from its mean \\\pi\\;
+> - \\\mathbb{d}\_i\stackrel{\text{def}}{=}y_i- \pi\\ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of \\y_i\\ from the mean \\\pi\\ of \\Y_i\\;
 > - \\\tau\stackrel{\text{def}}{=}1 / {\operatorname{Var}\mathopen{}\left(Y_i\right)\mathclose{}}\\ be the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of \\Y_i\\.
 >
 > Write the [score](#def-score) contribution using \\\mathbb{d}\_i\\ and \\\tau\\.

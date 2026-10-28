@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-27 16:11:29 (PDT)
+Last modified: 2026-10-27 19:56:56 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -1708,7 +1708,7 @@ Last modified: 2026-10-27 16:11:29 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 13 (Simplify the summand of the cross-validation estimate)** In the setting of [Exercise 12](#exr-cv-estimate-by-fold), simplify the summand so that the summand no longer uses the [fold assignment](#def-fold-assignment) \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\.
+> **Exercise 13 (Simplify the summand of the cross-validation estimate)** In the double sum from [Exercise 12](#exr-cv-estimate-by-fold), simplify the summand so that the summand no longer uses the [fold assignment](#def-fold-assignment) \\{\kappa\mathopen{}\left(i\right)\mathclose{}}\\.
 
 > **NOTE:**
 >
@@ -1726,7 +1726,7 @@ Last modified: 2026-10-27 16:11:29 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. This combines [Solution 12](#sol-cv-estimate-by-fold) and [Solution 13](#sol-cv-estimate-by-fold-simplify).
+> *Proof*. The proof combines [Solution 12](#sol-cv-estimate-by-fold) and [Solution 13](#sol-cv-estimate-by-fold-simplify).
 
 > **NOTE:**
 >

@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-27 16:11:29 (PDT)</p>
+  <p class="date">Last modified: 2026-10-27 19:56:56 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -978,7 +978,7 @@ S_{xx}
 &amp;&amp; \text{(chain rule)}
 \end{aligned}
 \]</span></p>
-<p>The inner derivative:</p>
+<p>The inner derivative is:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \frac{\partial}{\partial \beta_{0}} (y_i- \beta_{0}- \beta_{x} x_i)
@@ -992,7 +992,7 @@ S_{xx}
 &amp;&amp; \text{(subtract)}
 \end{aligned}
 \]</span></p>
-<p>Plugging the inner derivative back in:</p>
+<p>Plugging the inner derivative back in gives:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \frac{\partial \text{RSS}}{\partial \beta_{0}}
@@ -1284,7 +1284,6 @@ S_{xx}
 <p><span class="math display">\[
 \begin{pmatrix} 2n &amp; 2 n {\bar{x}}\\ 2 n {\bar{x}}&amp; 2 \sum_{i=1}^nx_i^2 \end{pmatrix}.
 \]</span></p>
-<hr>
 </div>
 </section><section class="slide level2"><div id="exr-rss-hessian-positive-definite" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 11 (Positive definiteness of the second-derivative matrix of RSS)</strong></span> In the setting of <a href="#/exr-rss-hessian" class="quarto-xref">Exercise&nbsp;10</a>, show that the matrix of second derivatives is positive definite when <span class="math inline">\(S_{xx}&gt; 0\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>).</p>
@@ -1703,7 +1702,7 @@ A^{-1} \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vph
 <p><span class="theorem-title"><strong>Exercise 16 (Hessian of RSS in vector notation)</strong></span> Find the <a href="./intro-MLEs.html#def-hessian">Hessian</a> <span class="math inline">\(\frac{\partial}{\partial \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}} \frac{\partial}{\partial {\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}^{\top}} \text{RSS}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}})\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-rss-hessian-vector" class="proof solution">
-<p><span class="proof-title"><em>Solution 16</em>. </span>Differentiate the gradient <span class="math inline">\(-2 \mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}} - A \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\right)\mathclose{}\)</span> from <a href="#/exr-normal-equations-vector" class="quarto-xref">Exercise&nbsp;14</a> with respect to <span class="math inline">\({\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}^{\top}\)</span>. <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}\)</span> does not depend on <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span>. Each entry of <span class="math inline">\(A \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span> is the dot product of a row of <span class="math inline">\(A\)</span> with <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span>, so by the gradient of a linear function (<a href="#/exr-rss-gradient-vector" class="quarto-xref">Exercise&nbsp;13</a>), the derivative of <span class="math inline">\(A \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span> with respect to <span class="math inline">\({\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}^{\top}\)</span> is <span class="math inline">\(A\)</span>. So:</p>
+<p><span class="proof-title"><em>Solution 16</em>. </span>Differentiate the gradient <span class="math inline">\(-2 \mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}} - A \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\right)\mathclose{}\)</span> from <a href="#/exr-normal-equations-vector" class="quarto-xref">Exercise&nbsp;14</a> with respect to <span class="math inline">\({\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}^{\top}\)</span>. <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}\)</span> does not depend on <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span>. Each entry of <span class="math inline">\(A \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span> is the dot product of a row of <span class="math inline">\(A\)</span> with <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span>, so by the gradient of a linear function (<a href="#/exr-rss-gradient-vector" class="quarto-xref">Exercise&nbsp;13</a>), the derivative of <span class="math inline">\(A \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span> with respect to <span class="math inline">\({\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}^{\top}\)</span> is <span class="math inline">\(A\)</span>. The <a href="./intro-MLEs.html#def-hessian">Hessian</a> is then:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \frac{\partial}{\partial \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}} \frac{\partial}{\partial {\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}^{\top}} \text{RSS}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}})
@@ -1752,7 +1751,7 @@ A^{-1} \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vph
 &amp;&amp; \text{(sum of squares)}
 \end{aligned}
 \]</span></p>
-<p>Equality would need <span class="math inline">\(v_0 + v_x x_i= 0\)</span> for every <span class="math inline">\(i\)</span>. If <span class="math inline">\(v_x \neq 0\)</span>, the condition would force every <span class="math inline">\(x_i= -v_0 / v_x\)</span>, contradicting <span class="math inline">\(S_{xx}&gt; 0\)</span>; if <span class="math inline">\(v_x = 0\)</span>, the condition would force <span class="math inline">\(v_0 = 0\)</span>, contradicting <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{v}}\vphantom{v}} \neq \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{0}}\vphantom{0}}\)</span>. So the inequality is strict, and the Hessian is positive definite at every <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span>.</p>
+<p>Equality would need the condition <span class="math inline">\(v_0 + v_x x_i= 0\)</span> for every <span class="math inline">\(i\)</span>. If <span class="math inline">\(v_x \neq 0\)</span>, the condition would force every <span class="math inline">\(x_i= -v_0 / v_x\)</span>, contradicting <span class="math inline">\(S_{xx}&gt; 0\)</span>; if <span class="math inline">\(v_x = 0\)</span>, the condition would force <span class="math inline">\(v_0 = 0\)</span>, contradicting <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{v}}\vphantom{v}} \neq \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{0}}\vphantom{0}}\)</span>. So the inequality is strict, and the Hessian is positive definite at every <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="lem-rss-hessian-vector" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 11 (Hessian of RSS in vector notation)</strong></span> The <a href="./intro-MLEs.html#def-hessian">Hessian</a> of the residual sum of squares is</p>
