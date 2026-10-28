@@ -5,7 +5,7 @@ The partial derivative of the simple linear regression
 residual sum of squares $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
 with respect to the intercept is
 
-$$\frac{\partial \text{RSS}}{\partial \intcoef}
+$$\derivf{\text{RSS}}{\intcoef}
 = -2 \sumin (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 = -2 \paren{n \outbar - n \intcoef - \coef{x} n \predbar}.$$
 :::

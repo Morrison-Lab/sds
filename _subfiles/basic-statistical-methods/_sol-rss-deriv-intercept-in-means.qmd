@@ -5,7 +5,7 @@ in terms of $\predbar$ and $\outbar$:
 
 $$
 \begin{aligned}
-\frac{\partial \text{RSS}}{\partial \intcoef}
+\derivf{\text{RSS}}{\intcoef}
 &= -2 \sumin (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(derivative of the RSS)}\\
 &= -2 \paren{\sumin \outvar_\iobs - \sumin \intcoef - \sumin \coef{x} \predvar_\iobs}

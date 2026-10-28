@@ -8,8 +8,8 @@ Its gradient has one entry per coefficient,
 so the normal equations (@def-normal-equations) are two scalar equations:
 
 $$
-\frac{\partial \text{RSS}}{\partial \intcoef} = 0,
+\derivf{\text{RSS}}{\intcoef} = 0,
 \qquad
-\frac{\partial \text{RSS}}{\partial \coef{x}} = 0.
+\derivf{\text{RSS}}{\coef{x}} = 0.
 $$
 :::
