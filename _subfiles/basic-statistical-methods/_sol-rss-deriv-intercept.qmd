@@ -16,7 +16,7 @@ $$
 \end{aligned}
 $$
 
-The inner derivative:
+The inner derivative is:
 
 $$
 \begin{aligned}
@@ -32,7 +32,7 @@ $$
 \end{aligned}
 $$
 
-Plugging the inner derivative back in:
+Plugging the inner derivative back in gives:
 
 $$
 \begin{aligned}

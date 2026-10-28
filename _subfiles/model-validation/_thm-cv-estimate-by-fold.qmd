@@ -14,5 +14,5 @@ $$ {#eq-cv-estimate-by-fold}
 :::
 
 ::: proof
-This combines @sol-cv-estimate-by-fold and @sol-cv-estimate-by-fold-simplify.
+The proof combines @sol-cv-estimate-by-fold and @sol-cv-estimate-by-fold-simplify.
 :::

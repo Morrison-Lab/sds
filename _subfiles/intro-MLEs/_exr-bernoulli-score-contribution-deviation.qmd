@@ -3,7 +3,7 @@
 
 In the setting of @exr-bernoulli-score-contribution, let:
 
-- $\devn_\iobs \eqdef \outvar_\iobs - \prob$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $\outvar_\iobs$ from its mean $\prob$;
+- $\devn_\iobs \eqdef \outvar_\iobs - \prob$ be the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) of $\outvar_\iobs$ from the mean $\prob$ of $\Outvar_\iobs$;
 - $\precision \eqdef 1 / \Var{\Outvar_\iobs}$ be the [precision](https://morrison-lab.github.io/pds/variance-covariance.html#def-precision) of $\Outvar_\iobs$.
 
 Write the [score](#def-score) contribution using $\devn_\iobs$ and $\precision$.
