@@ -20,7 +20,7 @@ The second derivative is
 
 $$
 \begin{aligned}
-\frac{\partial^2 \llik}{\partial \mean^2}
+\dderivf{\llik}{\mean}
 &= \deriv{\mean}\paren{\frac{1}{\varpar}\paren{\sumin \rvar_\iobs - n\mean}}
 && \text{(differentiate the score for $\mean$)}\\
 &= \frac{1}{\varpar}\deriv{\mean}\paren{\sumin \rvar_\iobs - n\mean}
