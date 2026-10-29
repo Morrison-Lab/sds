@@ -107,8 +107,9 @@ website:
   # and order; edit the two lists together.
   sidebar:
     style: docked
-    # sections are collapsible, and open by default so every page shows
-    collapse-level: 2
+    # sections are collapsible and start folded; the current page's section
+    # stays open (collapse-level 1 folds every depth, default 2 opens depth 1)
+    collapse-level: 1
     search: false
     contents:
       - section: "Describing Data"
