@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-29 15:05:35 (PDT)
+Last modified: 2026-10-29 15:24:42 (PDT)
 
 ## 1 Scientific models
 
@@ -275,6 +275,16 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 > **Theorem 5 (Population mean squared error equals bias squared plus variance)** For any one-dimensional estimator \\\hat{\theta}\\:
 >
 > \\{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} \tag{4}\\
+
+> **NOTE:**
+>
+> *Proof* (Shorter proof). Apply the [second moment is variance plus squared mean](https://morrison-lab.github.io/pds/variance-covariance.html#lem-second-moment-variance) lemma to the [estimation error](#def-estimation-error) \\Z = {\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\:
+>
+> \\ \begin{aligned} {\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[{\mathopen{}\left({\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}} && \text{(definition of pMSE)}\\ &= {\operatorname{Var}\mathopen{}\left({\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}} + {\mathopen{}\left({\mathbb{E}\mathopen{}\left\[{\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}}^{2} && \text{(second moment is variance plus squared mean)}\\ &= {\operatorname{Var}\mathopen{}\left({\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}} + {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} && \text{(definition of bias)}\\ &= {\operatorname{Var}\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}} + {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} && \text{(definition of estimation error)}\\ &= {\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} + {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\right)\mathclose{}}^{2} && \text{(subtracting a constant does not change a variance)} \end{aligned} \\
+>
+> Unlike the [expansion route](#thm-mse-expand), this proof never expands the square.
+>
+> Source: Wikipedia contributors [\[13\]](#ref-wikipedia_mean_squared_error).
 
 > **NOTE:**
 >
