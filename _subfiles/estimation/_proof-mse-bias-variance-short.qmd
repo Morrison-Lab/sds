@@ -2,27 +2,29 @@
 
 #### Shorter proof
 
-Apply the
-[simplified expression for variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance),
-rearranged as $\E{X^2} = \Var{X} + \sqf{\E{X}}$,
-to the [estimation error](#def-estimation-error) $X = \erf{\hparam}$:
+For any random variable $Z$ with $\E{Z^2} < \infty$,
+the [simplified expression for variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance)
+rearranges to $\E{Z^2} = \var{Z} + \sqf{\E{Z}}$.
+Apply it to the [estimation error](#def-estimation-error) $Z = \erf{\hparam}$:
 
 $$
 \begin{aligned}
 \pMSE{\hparam}
 &= \E{\sqf{\erf{\hparam}}}
 && \text{(definition of pMSE)}\\
-&= \Var{\erf{\hparam}} + \sqf{\E{\erf{\hparam}}}
+&= \var{\erf{\hparam}} + \sqf{\E{\erf{\hparam}}}
 && \text{(second moment is variance plus squared mean)}\\
-&= \Var{\hparam - \param} + \sqf{\bias{\hparam}}
-&& \text{(definitions of estimation error and bias)}\\
+&= \var{\erf{\hparam}} + \sqf{\bias{\hparam}}
+&& \text{(definition of bias)}\\
+&= \var{\hparam - \param} + \sqf{\bias{\hparam}}
+&& \text{(definition of estimation error)}\\
 &= \var{\hparam} + \sqf{\bias{\hparam}}
 && \text{(subtracting a constant does not change a variance)}
 \end{aligned}
 $$
 
-This proof needs no cross term,
-because the variance identity already separates the squared mean from the spread.
+Unlike the [expansion route](#thm-mse-expand),
+this proof never expands the square.
 
 Source: @wikipedia_mean_squared_error.
 
