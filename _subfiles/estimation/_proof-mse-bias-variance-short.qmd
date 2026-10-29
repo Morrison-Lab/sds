@@ -1,0 +1,30 @@
+::: proof
+
+#### Shorter proof
+
+Apply the
+[second moment is variance plus squared mean](https://morrison-lab.github.io/pds/variance-covariance.html#lem-second-moment-variance)
+lemma to the [estimation error](#def-estimation-error) $Z = \erf{\hparam}$:
+
+$$
+\begin{aligned}
+\pMSE{\hparam}
+&= \E{\sqf{\erf{\hparam}}}
+&& \text{(definition of pMSE)}\\
+&= \var{\erf{\hparam}} + \sqf{\E{\erf{\hparam}}}
+&& \text{(second moment is variance plus squared mean)}\\
+&= \var{\erf{\hparam}} + \sqf{\bias{\hparam}}
+&& \text{(definition of bias)}\\
+&= \var{\hparam - \param} + \sqf{\bias{\hparam}}
+&& \text{(definition of estimation error)}\\
+&= \var{\hparam} + \sqf{\bias{\hparam}}
+&& \text{(subtracting a constant does not change a variance)}
+\end{aligned}
+$$
+
+Unlike the [expansion route](#thm-mse-expand),
+this proof never expands the square.
+
+Source: @wikipedia_mean_squared_error.
+
+:::

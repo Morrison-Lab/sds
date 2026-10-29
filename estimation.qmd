@@ -185,6 +185,8 @@ format:
 
 {{< include sds/_subfiles/estimation/_thm-mse-bias-variance.qmd >}}
 
+{{< include sds/_subfiles/estimation/_proof-mse-bias-variance-short.qmd >}}
+
 {{< include sds/_subfiles/estimation/_proof-mse-bias-variance.qmd >}}
 
 {{< slidebreak >}}
