@@ -1,0 +1,9 @@
+::: {#def-feature}
+
+#### Feature
+
+A **feature** is one entry of the output $\featmap\paren{\predvar}$ of the [preprocessing](#def-preprocessing) $\featmap$:
+a value that the [model family](#def-model-family) receives as input.
+With no preprocessing, the features are the [covariates](#def-covariate).
+
+:::

@@ -93,6 +93,14 @@ reticulate::py_require(
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-feature.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-feature.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-tuning-parameter.qmd >}}
 
 {{< slidebreak >}}
