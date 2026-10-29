@@ -3427,6 +3427,15 @@
    "external": false
   },
   {
+   "id": "sds/model-validation#def-feature",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "def-feature",
+   "kind": "def",
+   "title": "Feature",
+   "external": false
+  },
+  {
    "id": "sds/model-validation#def-fitted-distribution-model",
    "site": "sds",
    "page": "model-validation",
@@ -3540,7 +3549,7 @@
    "page": "model-validation",
    "div": "def-input-matrix",
    "kind": "def",
-   "title": "Input matrix, feature matrix",
+   "title": "Input matrix",
    "external": false
   },
   {
@@ -6362,6 +6371,18 @@
   [
    "sds/model-validation#def-expected-generalization-error",
    "sds/model-validation#def-training-set"
+  ],
+  [
+   "sds/model-validation#def-feature",
+   "sds/model-validation#def-covariate"
+  ],
+  [
+   "sds/model-validation#def-feature",
+   "sds/model-validation#def-model-family"
+  ],
+  [
+   "sds/model-validation#def-feature",
+   "sds/model-validation#def-preprocessing"
   ],
   [
    "sds/model-validation#def-fitted-distribution-model",
