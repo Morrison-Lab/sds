@@ -8,6 +8,6 @@ A **feature** is one measured property of an input, written as a number
 Other names:
 a feature is also called an **input variable**, a **predictor**, a **covariate**,
 an **attribute** or an **independent variable**.
-Statistics uses *predictor* for a feature, not for a model.
+The word *predictor* names a feature, not a model.
 
 :::
