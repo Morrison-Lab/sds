@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-29 13:30:02 (PDT)
+Last modified: 2026-10-29 15:05:35 (PDT)
 
 ## 1 Types of variables
 
