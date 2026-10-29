@@ -1,0 +1,29 @@
+::: proof
+
+#### Shorter proof
+
+Apply the
+[simplified expression for variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance),
+rearranged as $\E{X^2} = \Var{X} + \sqf{\E{X}}$,
+to the [estimation error](#def-estimation-error) $X = \erf{\hparam}$:
+
+$$
+\begin{aligned}
+\pMSE{\hparam}
+&= \E{\sqf{\erf{\hparam}}}
+&& \text{(definition of pMSE)}\\
+&= \Var{\erf{\hparam}} + \sqf{\E{\erf{\hparam}}}
+&& \text{(second moment is variance plus squared mean)}\\
+&= \Var{\hparam - \param} + \sqf{\bias{\hparam}}
+&& \text{(definitions of estimation error and bias)}\\
+&= \var{\hparam} + \sqf{\bias{\hparam}}
+&& \text{(subtracting a constant does not change a variance)}
+\end{aligned}
+$$
+
+This proof needs no cross term,
+because the variance identity already separates the squared mean from the spread.
+
+Source: @wikipedia_mean_squared_error.
+
+:::
