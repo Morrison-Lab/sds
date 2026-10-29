@@ -1,0 +1,26 @@
+# Thin caller of Morrison-Lab/gha's reusable restated-results check.
+#
+# Flags a derivation solution (an #sol- div whose exercise asks to derive,
+# prove, show or solve, and whose solution displays an equation) that a PR
+# edits when no #thm-, #lem-, #cor- or #prp- div restates the result after the
+# exercise. Diff-scoped and warn-only, so it never reflags older solutions.
+# <!-- restated-ok: reason --> exempts one solution.
+#
+# Why it exists: a result first derived in a solution is restated in its own
+# theorem-type div (Ezra, 2026-10-29; Morrison-Lab/gha#1309,
+# Morrison-Lab/psw#407).
+
+name: Check restated results
+
+on:
+  pull_request:
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-restated-results.yml@v3
+    with:
+      globs: '*.qmd'
+      # Vendored Quarto extensions are not ours to edit.
+      paths-ignore: '_extensions/**'
