@@ -1,0 +1,13 @@
+::: {#def-feature}
+
+#### Feature (input variable, predictor, covariate, attribute, independent variable)
+
+A **feature** is one measured property of an input, written as a number
+[@wikipedia_feature_machine_learning].
+
+Other names:
+a feature is also called an **input variable**, a **predictor**, a **covariate**,
+an **attribute** or an **independent variable**.
+Statistics uses *predictor* for a feature, not for a model.
+
+:::

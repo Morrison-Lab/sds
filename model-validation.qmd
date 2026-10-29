@@ -33,6 +33,10 @@ reticulate::py_require(
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-feature.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-input-matrix.qmd >}}
 
 {{< slidebreak >}}
