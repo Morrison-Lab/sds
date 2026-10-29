@@ -1,0 +1,9 @@
+::: {#exm-feature}
+
+#### Features of a quadratic fit
+
+Let the one [covariate](#def-covariate) be a patient's age $\predvar$.
+The preprocessing $\featmap\paren{\predvar} = \tp{\sb{1, \predvar, \predvar^2}}$ has the three features $1$, $\predvar$ and $\predvar^2$ (@def-feature).
+The covariate is one number, and the model family receives three.
+
+:::
