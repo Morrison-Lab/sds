@@ -1,0 +1,13 @@
+::: {#rem-feature-matrix-usage}
+
+#### Which matrix a "feature matrix" is
+
+ESL writes "raw feature matrix" for the matrix of raw inputs [@hastie2009elements, Chap. 18],
+and ISLR2 writes "training feature matrix" for the matrix of raw word indicators of a text data set [@james2021islr2e, Sec. 10.4].
+Both are the input matrix defined above.
+
+A matrix of constructed features, such as powers of an input, is a different matrix.
+These notes call it the [design matrix](https://morrison-lab.github.io/mds/linear-algebra-projections.html#def-design-matrix),
+and keep *feature matrix* for the raw inputs.
+
+:::

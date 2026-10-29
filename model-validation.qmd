@@ -41,6 +41,10 @@ reticulate::py_require(
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_rem-feature-matrix-usage.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-outcome-vector.qmd >}}
 
 {{< slidebreak >}}
