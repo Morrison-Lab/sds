@@ -1,8 +1,8 @@
 ::: {#def-input-matrix}
 
-#### Input matrix
+#### Input matrix, feature matrix
 
-The **input matrix** $\mpredvar$ of a [data set](#def-data-set) $\dataset$ stacks the $\nobs$ inputs $\vpredvar_\iobs$ as rows,
+The **input matrix** (also called the **feature matrix**) $\mpredvar$ of a [data set](#def-data-set) $\dataset$ stacks the $\nobs$ inputs $\vpredvar_\iobs$ as rows,
 with one column for each of the $\inputdim$ input variables:
 
 $$
