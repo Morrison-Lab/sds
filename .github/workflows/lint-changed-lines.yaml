@@ -1,0 +1,18 @@
+# Thin caller of Morrison-Lab/gha's reusable changed-lines linter.
+# Lints the R chunks of the .R, .Rmd and .qmd lines a PR adds or edits with the
+# lab's lms linters, including the no-nested-calls rules, and leaves the
+# untouched lines of a file alone.
+name: Lint changed lines
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    permissions:
+      contents: read
+      pull-requests: read
+    uses: Morrison-Lab/gha/.github/workflows/lint-changed-lines.yml@v3
+    with:
+      file-pattern: '[.]([Rr]|[Rr]md|[Qq]md)$'
+      lms-ref: 1490eaac059118041bc17e7a846618eac2d41320
