@@ -2,10 +2,9 @@
 
 #### Shorter proof
 
-For any random variable $Z$ with $\E{Z^2} < \infty$,
-the [simplified expression for variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance)
-rearranges to $\E{Z^2} = \var{Z} + \sqf{\E{Z}}$.
-Apply it to the [estimation error](#def-estimation-error) $Z = \erf{\hparam}$:
+Apply the
+[second moment is variance plus squared mean](https://morrison-lab.github.io/pds/variance-covariance.html#lem-second-moment-variance)
+lemma to the [estimation error](#def-estimation-error) $Z = \erf{\hparam}$:
 
 $$
 \begin{aligned}
