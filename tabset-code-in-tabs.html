@@ -1,0 +1,39 @@
+<script>
+// Put each folded code cell inside the tab it belongs to.
+// Quarto hoists the `details.code-fold` of a cross-referenced figure out of the figure,
+// so an R and a Python tab end up with their folds stacked above the whole figure.
+// For every language tabset, take the run of folds immediately before it (or before the figure
+// that holds it), match each fold to a tab by language, and move it to the top of that tab.
+document.querySelectorAll("div.panel-tabset").forEach(function (tabset) {
+  var anchor = tabset.closest("div.quarto-float") || tabset;
+  var panes = Array.prototype.slice.call(tabset.querySelectorAll(":scope > .tab-content > .tab-pane"));
+  var tabs = Array.prototype.slice.call(tabset.querySelectorAll(":scope > .nav-tabs > li > a"));
+  var folds = [];
+  var node = anchor.previousElementSibling;
+  while (node && node.matches("details.code-fold")) {
+    folds.unshift(node);
+    node = node.previousElementSibling;
+  }
+  if (folds.length === 0 || folds.length !== panes.length) {
+    return;
+  }
+  var language = function (fold) {
+    var pre = fold.querySelector("pre.sourceCode");
+    var found = pre && Array.prototype.find.call(pre.classList, function (name) {
+      return name !== "sourceCode" && name !== "downlit" && name !== "code-with-copy";
+    });
+    return found ? found.toLowerCase() : "";
+  };
+  var used = {};
+  folds.forEach(function (fold, i) {
+    var index = tabs.findIndex(function (tab, j) {
+      return !used[j] && tab.textContent.trim().toLowerCase() === language(fold);
+    });
+    if (index < 0) {
+      index = i;
+    }
+    used[index] = true;
+    panes[index].insertBefore(fold, panes[index].firstChild);
+  });
+});
+</script>
