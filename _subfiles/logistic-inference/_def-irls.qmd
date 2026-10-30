@@ -14,7 +14,7 @@ the minimizer of $\sum_{\iobs=1}^{\nobs} w_{\iobs} \paren{z_{\iobs} - \dprod{\vc
 which is
 
 $$
-\inv{\paren{\tp{X} W X}} \tp{X} W \vecf{z},
+\inv{\paren{\qform{W}{X}}} \tp{X} W \vecf{z},
 $$
 
 and repeats until the estimate stops changing.

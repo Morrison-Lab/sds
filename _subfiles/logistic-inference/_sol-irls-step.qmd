@@ -14,7 +14,7 @@ $$
 **2.** With $W = \tfrac{1}{4} \matr{I}_6$,
 
 $$
-\tp{X} W X
+\qform{W}{X}
 = \tfrac{1}{4}
 \begin{bmatrix} 6 & 0 \\ 0 & 6 \end{bmatrix}
 = \begin{bmatrix} 3/2 & 0 \\ 0 & 3/2 \end{bmatrix},
