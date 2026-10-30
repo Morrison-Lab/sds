@@ -10,8 +10,6 @@ format:
     output-file: data-handout.docx
 ---
 
-## Types of variables
-
 {{< include sds/_subfiles/shared-config.qmd >}}
 
 Before summarizing data,
