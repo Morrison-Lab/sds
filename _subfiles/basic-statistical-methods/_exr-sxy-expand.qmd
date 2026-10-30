@@ -1,0 +1,32 @@
+:::{#exr-sxy-expand}
+#### Expanding the centered sum of cross-products
+
+Expand the centered sum of cross-products $\sspredout$ (@def-centered-cross-product)
+into an expression in terms of $n$, $\sumin \predvar_\iobs \outvar_\iobs$, $\predbar$ and $\outbar$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-sxy-expand}
+
+$$
+\begin{aligned}
+\sspredout
+&= \sumin (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar)
+&& \text{(definition of $\sspredout$)}\\
+&= \sumin \paren{\predvar_\iobs \outvar_\iobs - \outbar \predvar_\iobs - \predbar \outvar_\iobs + \predbar \outbar}
+&& \text{(expand the product)}\\
+&= \sumin \predvar_\iobs \outvar_\iobs - \outbar \sumin \predvar_\iobs - \predbar \sumin \outvar_\iobs + \sumin \predbar \outbar
+&& \text{(distribute the sum, constants factor out)}\\
+&= \sumin \predvar_\iobs \outvar_\iobs - \outbar \sumin \predvar_\iobs - \predbar \sumin \outvar_\iobs + n \predbar \outbar
+&& \text{(sum of a constant)}\\
+&= \sumin \predvar_\iobs \outvar_\iobs - \outbar \cdot n \predbar - \predbar \cdot n \outbar + n \predbar \outbar
+&& \text{($\sumin \predvar_\iobs = n \predbar$, $\sumin \outvar_\iobs = n \outbar$)}\\
+&= \sumin \predvar_\iobs \outvar_\iobs - n \predbar \outbar - n \predbar \outbar + n \predbar \outbar
+&& \text{(multiply)}\\
+&= \sumin \predvar_\iobs \outvar_\iobs - n \predbar \outbar
+&& \text{(collect the $n \predbar \outbar$ terms)}
+\end{aligned}
+$$
+
+:::
