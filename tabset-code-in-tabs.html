@@ -4,33 +4,39 @@
 // so an R and a Python tab end up with their folds stacked above the whole figure.
 // For every language tabset, take the run of folds immediately before it (or before the figure
 // that holds it), match each fold to a tab by language, and move it to the top of that tab.
+// The selectors cover both the website tabsets (Bootstrap) and the slide tabsets (tabby).
 document.querySelectorAll("div.panel-tabset").forEach(function (tabset) {
   var anchor = tabset.closest("div.quarto-float") || tabset;
-  var panes = Array.prototype.slice.call(tabset.querySelectorAll(":scope > .tab-content > .tab-pane"));
-  var tabs = Array.prototype.slice.call(tabset.querySelectorAll(":scope > .nav-tabs > li > a"));
+  var panes = Array.prototype.slice.call(tabset.querySelectorAll(":scope > .tab-content > div"));
+  var tabs = Array.prototype.slice.call(tabset.querySelectorAll(":scope > ul > li > a"));
   var folds = [];
   var node = anchor.previousElementSibling;
   while (node && node.matches("details.code-fold")) {
     folds.unshift(node);
     node = node.previousElementSibling;
   }
-  if (folds.length === 0 || folds.length !== panes.length) {
+  if (folds.length === 0 || folds.length !== panes.length || tabs.length !== panes.length) {
     return;
   }
   var language = function (fold) {
-    var pre = fold.querySelector("pre.sourceCode");
-    var found = pre && Array.prototype.find.call(pre.classList, function (name) {
+    var code = fold.querySelector("pre.sourceCode");
+    var found = code && Array.prototype.find.call(code.classList, function (name) {
       return name !== "sourceCode" && name !== "downlit" && name !== "code-with-copy";
     });
     return found ? found.toLowerCase() : "";
   };
   var used = {};
-  folds.forEach(function (fold, i) {
+  var unused = function () {
+    return tabs.findIndex(function (tab, j) {
+      return !used[j];
+    });
+  };
+  folds.forEach(function (fold) {
     var index = tabs.findIndex(function (tab, j) {
       return !used[j] && tab.textContent.trim().toLowerCase() === language(fold);
     });
     if (index < 0) {
-      index = i;
+      index = unused();
     }
     used[index] = true;
     panes[index].insertBefore(fold, panes[index].firstChild);
