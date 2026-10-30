@@ -9,29 +9,29 @@ One step of [iteratively reweighted least squares](#def-irls) from $\vcoef^*$ eq
 - one step of [Fisher scoring](intro-MLEs.qmd#def-fisher-scoring) from $\vcoef^*$:
 
 $$
-\vcoef^* + \inv{\paren{\tp{X} W X}} \tp{X} \paren{\voutvar - \vprob^*}.
+\vcoef^* + \inv{\paren{\qform{W}{X}}} \tp{X} \paren{\voutvar - \vprob^*}.
 $$ {#eq-irls-newton}
 
 :::
 
 ::: proof
 
-The [log-likelihood](intro-MLEs.qmd#def-loglik) has [score](intro-MLEs.qmd#def-score) $\tp{X} \paren{\voutvar - \vprob}$ and [Hessian](intro-MLEs.qmd#def-hessian) $-\tp{X} W X$ at every $\vcoef$ (with $\vprob$ and $W$ computed from $\vcoef$),
+The [log-likelihood](intro-MLEs.qmd#def-loglik) has [score](intro-MLEs.qmd#def-score) $\tp{X} \paren{\voutvar - \vprob}$ and [Hessian](intro-MLEs.qmd#def-hessian) $-\qform{W}{X}$ at every $\vcoef$ (with $\vprob$ and $W$ computed from $\vcoef$),
 and the Hessian does not involve the outcomes
 (proof of @thm-logistic-mle-distribution).
-So the [observed information](intro-MLEs.qmd#def-oinf) $\tp{X} W X$ equals the [expected information](intro-MLEs.qmd#def-einf),
+So the [observed information](intro-MLEs.qmd#def-oinf) $\qform{W}{X}$ equals the [expected information](intro-MLEs.qmd#def-einf),
 and the Newton-Raphson and [Fisher scoring](intro-MLEs.qmd#def-fisher-scoring) steps both equal @eq-irls-newton.
 
 For [IRLS](#def-irls), the working responses satisfy $W \vecf{z} = W X \vcoef^* + \paren{\voutvar - \vprob^*}$, so
 
 $$
 \ba
-\inv{\paren{\tp{X} W X}} \tp{X} W \vecf{z}
-&= \inv{\paren{\tp{X} W X}} \tp{X} W X \vcoef^* + \inv{\paren{\tp{X} W X}} \tp{X} \paren{\voutvar - \vprob^*}
+\inv{\paren{\qform{W}{X}}} \tp{X} W \vecf{z}
+&= \inv{\paren{\qform{W}{X}}} \qform{W}{X} \vcoef^* + \inv{\paren{\qform{W}{X}}} \tp{X} \paren{\voutvar - \vprob^*}
 && \text{(substitute } W \vecf{z} \text{)}
 \\
-&= \vcoef^* + \inv{\paren{\tp{X} W X}} \tp{X} \paren{\voutvar - \vprob^*}.
-&& \text{(cancel } \tp{X} W X \text{)}
+&= \vcoef^* + \inv{\paren{\qform{W}{X}}} \tp{X} \paren{\voutvar - \vprob^*}.
+&& \text{(cancel } \qform{W}{X} \text{)}
 \ea
 $$
 
