@@ -1510,6 +1510,15 @@
    "external": false
   },
   {
+   "id": "sds/correlation-regression#lem-sxy-expand",
+   "site": "sds",
+   "page": "correlation-regression",
+   "div": "lem-sxy-expand",
+   "kind": "lem",
+   "title": "Expanded centered sum of cross-products",
+   "external": false
+  },
+  {
    "id": "sds/correlation-regression#thm-mse-rss",
    "site": "sds",
    "page": "correlation-regression",
@@ -5303,6 +5312,10 @@
   [
    "sds/correlation-regression#lem-sxx-expand",
    "sds/correlation-regression#def-centered-sums"
+  ],
+  [
+   "sds/correlation-regression#lem-sxy-expand",
+   "sds/correlation-regression#def-centered-cross-product"
   ],
   [
    "sds/correlation-regression#thm-mse-rss",

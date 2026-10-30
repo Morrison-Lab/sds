@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 07:36:33 (PDT)
+Last modified: 2026-10-30 11:26:23 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -487,11 +487,29 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 6 (Derivative of RSS with respect to the intercept)** Find the partial derivative of the [simple linear regression](correlation-regression.llms.md#def-slr) residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the [intercept](correlation-regression.llms.md#def-slr-intercept), \\{\partial \text{RSS} / \partial \beta\_{0}}\\.
+> **Exercise 6 (Expanding the centered sum of cross-products)** Expand the centered sum of cross-products \\S\_{xy}\\ ([Definition 15](#def-centered-cross-product)) into an expression in terms of \\n\\, \\\sum\_{i=1}^nx_iy_i\\, \\{\bar{x}}\\ and \\{\bar{y}}\\.
 
 > **NOTE:**
 >
-> *Solution 6*. Differentiate one operation at a time, starting from the definition ([Example 3](#exm-rss-slr)):
+> *Solution 6*. \\ \begin{aligned} S\_{xy} &= \sum\_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}}) && \text{(definition of \$S\_{xy}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(x_iy_i- {\bar{y}}x_i- {\bar{x}}y_i+ {\bar{x}}{\bar{y}}\right)\mathclose{} && \text{(expand the product)}\\ &= \sum\_{i=1}^nx_iy_i- \sum\_{i=1}^n{\bar{y}}x_i- \sum\_{i=1}^n{\bar{x}}y_i+ \sum\_{i=1}^n{\bar{x}}{\bar{y}} && \text{(distribute the sum over the terms)}\\ &= \sum\_{i=1}^nx_iy_i- {\bar{y}}\sum\_{i=1}^nx_i- {\bar{x}}\sum\_{i=1}^ny_i+ \sum\_{i=1}^n{\bar{x}}{\bar{y}} && \text{(constant factors out of the sum)}\\ &= \sum\_{i=1}^nx_iy_i- {\bar{y}}\sum\_{i=1}^nx_i- {\bar{x}}\sum\_{i=1}^ny_i+ n {\bar{x}}{\bar{y}} && \text{(sum of a constant)}\\ &= \sum\_{i=1}^nx_iy_i- {\bar{y}}\cdot n {\bar{x}}- {\bar{x}}\cdot n {\bar{y}}+ n {\bar{x}}{\bar{y}} && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$, \$\sum\_{i=1}^ny_i= n {\bar{y}}\$)}\\ &= \sum\_{i=1}^nx_iy_i- n {\bar{x}}{\bar{y}}- n {\bar{x}}{\bar{y}}+ n {\bar{x}}{\bar{y}} && \text{(multiply)}\\ &= \sum\_{i=1}^nx_iy_i- 2 n {\bar{x}}{\bar{y}}+ n {\bar{x}}{\bar{y}} && \text{(add the two equal terms)}\\ &= \sum\_{i=1}^nx_iy_i- n {\bar{x}}{\bar{y}} && \text{(add the remaining term)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Lemma 3 (Expanded centered sum of cross-products)** The centered sum of cross-products \\S\_{xy}\\ ([Definition 15](#def-centered-cross-product)) equals
+>
+> \\S\_{xy}= \sum\_{i=1}^nx_iy_i- n {\bar{x}}{\bar{y}}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 6](#exr-sxy-expand).
+
+> **NOTE:**
+>
+> **Exercise 7 (Derivative of RSS with respect to the intercept)** Find the partial derivative of the [simple linear regression](correlation-regression.llms.md#def-slr) residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the [intercept](correlation-regression.llms.md#def-slr-intercept), \\{\partial \text{RSS} / \partial \beta\_{0}}\\.
+
+> **NOTE:**
+>
+> *Solution 7*. Differentiate one operation at a time, starting from the definition ([Example 3](#exm-rss-slr)):
 >
 > \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{0}} &= \frac{\partial}{\partial \beta\_{0}} \sum\_{i=1}^n(y_i- \beta\_{0}- \beta\_{x} x_i)^2 && \text{(definition of RSS)}\\ &= \sum\_{i=1}^n\frac{\partial}{\partial \beta\_{0}} (y_i- \beta\_{0}- \beta\_{x} x_i)^2 && \text{(derivative of a sum)}\\ &= \sum\_{i=1}^n2 (y_i- \beta\_{0}- \beta\_{x} x_i) \frac{\partial}{\partial \beta\_{0}} (y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(chain rule)} \end{aligned} \\
 >
@@ -505,31 +523,31 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 7 (Derivative of RSS in terms of the means)** In the setting of [Exercise 6](#exr-rss-deriv-intercept), write the partial derivative in terms of \\{\bar{x}}\\ and \\{\bar{y}}\\.
+> **Exercise 8 (Derivative of RSS in terms of the means)** In the setting of [Exercise 7](#exr-rss-deriv-intercept), write the partial derivative in terms of \\{\bar{x}}\\ and \\{\bar{y}}\\.
 
 > **NOTE:**
 >
-> *Solution 7*. Write the derivative from [Exercise 6](#exr-rss-deriv-intercept) in terms of \\{\bar{x}}\\ and \\{\bar{y}}\\:
+> *Solution 8*. Write the derivative from [Exercise 7](#exr-rss-deriv-intercept) in terms of \\{\bar{x}}\\ and \\{\bar{y}}\\:
 >
 > \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{0}} &= -2 \sum\_{i=1}^n(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(derivative of the RSS)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\beta\_{0}- \sum\_{i=1}^n\beta\_{x} x_i\right)\mathclose{} && \text{(distribute the sum over the terms)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- n \beta\_{0}- \sum\_{i=1}^n\beta\_{x} x_i\right)\mathclose{} && \text{(sum of a constant)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- n \beta\_{0}- \beta\_{x} \sum\_{i=1}^nx_i\right)\mathclose{} && \text{(constant factor out of the sum)}\\ &= -2 \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} \sum\_{i=1}^nx_i\right)\mathclose{} && \text{(\$\sum\_{i=1}^ny_i= n {\bar{y}}\$)}\\ &= -2 \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{} && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Lemma 3 (Derivative of RSS with respect to the intercept)** The partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the intercept is
+> **Lemma 4 (Derivative of RSS with respect to the intercept)** The partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the intercept is
 >
 > \\\frac{\partial \text{RSS}}{\partial \beta\_{0}} = -2 \sum\_{i=1}^n(y_i- \beta\_{0}- \beta\_{x} x_i) = -2 \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{}.\\
 
 > **NOTE:**
 >
-> *Proof*. The derivative in sum form is the solution to [Exercise 6](#exr-rss-deriv-intercept). The form in terms of means is the solution to [Exercise 7](#exr-rss-deriv-intercept-in-means).
+> *Proof*. The derivative in sum form is the solution to [Exercise 7](#exr-rss-deriv-intercept). The form in terms of means is the solution to [Exercise 8](#exr-rss-deriv-intercept-in-means).
 
 > **NOTE:**
 >
-> **Exercise 8 (Derivative of RSS with respect to the slope)** Find the partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the [slope](correlation-regression.llms.md#def-slr-slope), \\{\partial \text{RSS} / \partial \beta\_{x}}\\.
+> **Exercise 9 (Derivative of RSS with respect to the slope)** Find the partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the [slope](correlation-regression.llms.md#def-slr-slope), \\{\partial \text{RSS} / \partial \beta\_{x}}\\.
 
 > **NOTE:**
 >
-> *Solution 8*. Differentiate one operation at a time, starting from the definition ([Example 3](#exm-rss-slr)):
+> *Solution 9*. Differentiate one operation at a time, starting from the definition ([Example 3](#exm-rss-slr)):
 >
 > \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{x}} &= \frac{\partial}{\partial \beta\_{x}} \sum\_{i=1}^n(y_i- \beta\_{0}- \beta\_{x} x_i)^2 && \text{(definition of RSS)}\\ &= \sum\_{i=1}^n\frac{\partial}{\partial \beta\_{x}} (y_i- \beta\_{0}- \beta\_{x} x_i)^2 && \text{(derivative of a sum)}\\ &= \sum\_{i=1}^n2 (y_i- \beta\_{0}- \beta\_{x} x_i) \frac{\partial}{\partial \beta\_{x}} (y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(chain rule)} \end{aligned} \\
 >
@@ -543,25 +561,25 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Lemma 4 (Derivative of RSS with respect to the slope)** The partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the slope is
+> **Lemma 5 (Derivative of RSS with respect to the slope)** The partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the slope is
 >
 > \\\frac{\partial \text{RSS}}{\partial \beta\_{x}} = -2 \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i).\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 8](#exr-rss-deriv-slope).
+> *Proof*. This is the solution to [Exercise 9](#exr-rss-deriv-slope).
 
 > **NOTE:**
 >
-> **Exercise 9 (Solving the normal equations)** Using [Exercise 6](#exr-rss-deriv-intercept) and [Exercise 8](#exr-rss-deriv-slope), solve the normal equations of [Example 6](#exm-normal-equations-slr) for \\\beta\_{0}\\ and \\\beta\_{x}\\, assuming \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)).
+> **Exercise 10 (Solving the normal equations)** Using [Exercise 7](#exr-rss-deriv-intercept) and [Exercise 9](#exr-rss-deriv-slope), solve the normal equations of [Example 6](#exm-normal-equations-slr) for \\\beta\_{0}\\ and \\\beta\_{x}\\, assuming \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
 >
-> *Solution 9*. **First normal equation.** Set the derivative from [Exercise 6](#exr-rss-deriv-intercept) to zero, then isolate \\\beta\_{0}\\:
+> *Solution 10*. **First normal equation.** Set the derivative from [Exercise 7](#exr-rss-deriv-intercept) to zero, then isolate \\\beta\_{0}\\:
 >
 > \\ \begin{aligned} 0 &= -2 \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{} && \text{(first normal equation)}\\ 0 &= n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}} && \text{(divide both sides by \$-2\$)}\\ 0 &= {\bar{y}}- \beta\_{0}- \beta\_{x} {\bar{x}} && \text{(divide both sides by \$n\$)}\\ \beta\_{0}&= {\bar{y}}- \beta\_{x} {\bar{x}} && \text{(add \$\beta\_{0}\$ to both sides)} \end{aligned} \\
 >
-> **Second normal equation.** Substitute that intercept into the derivative from [Exercise 8](#exr-rss-deriv-slope):
+> **Second normal equation.** Substitute that intercept into the derivative from [Exercise 9](#exr-rss-deriv-slope):
 >
 > \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{x}} &= -2 \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(derivative with respect to \$\beta\_{x}\$)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left(y_i- ({\bar{y}}- \beta\_{x} {\bar{x}}) - \beta\_{x} x_i\right)\mathclose{} && \text{(substitute \$\beta\_{0}\$)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left(y_i- {\bar{y}}+ \beta\_{x} {\bar{x}}- \beta\_{x} x_i\right)\mathclose{} && \text{(remove the inner parentheses)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left((y_i- {\bar{y}}) - (\beta\_{x} x_i- \beta\_{x} {\bar{x}})\right)\mathclose{} && \text{(group terms)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left((y_i- {\bar{y}}) - \beta\_{x} (x_i- {\bar{x}})\right)\mathclose{} && \text{(factor out \$\beta\_{x}\$)} \end{aligned} \\
 >
@@ -581,23 +599,23 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Lemma 5 (Solution of the normal equations)** If \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), the normal equations of [Example 6](#exm-normal-equations-slr) have exactly one solution:
+> **Lemma 6 (Solution of the normal equations)** If \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), the normal equations of [Example 6](#exm-normal-equations-slr) have exactly one solution:
 >
 > \\\beta\_{x} = \frac{S\_{xy}}{S\_{xx}}, \qquad \beta\_{0}= {\bar{y}}- \beta\_{x} {\bar{x}}.\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 9](#exr-solve-normal-equations).
+> *Proof*. This is the solution to [Exercise 10](#exr-solve-normal-equations).
 
 > **NOTE:**
 >
-> **Exercise 10 (Second derivatives of RSS)** Find the matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\.
+> **Exercise 11 (Second derivatives of RSS)** Find the matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\.
 
 > **NOTE:**
 >
-> *Solution 10*. Differentiate each first derivative again.
+> *Solution 11*. Differentiate each first derivative again.
 >
-> **Derivatives of \\{\partial \text{RSS} / \partial \beta\_{0}}\\.** By [Exercise 6](#exr-rss-deriv-intercept), \\{\partial \text{RSS} / \partial \beta\_{0}} = -2 \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{}\\. Differentiating with respect to \\\beta\_{0}\\:
+> **Derivatives of \\{\partial \text{RSS} / \partial \beta\_{0}}\\.** By [Exercise 7](#exr-rss-deriv-intercept), \\{\partial \text{RSS} / \partial \beta\_{0}} = -2 \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{}\\. Differentiating with respect to \\\beta\_{0}\\:
 >
 > \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{0}^2} &= -2 \frac{\partial}{\partial \beta\_{0}} \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left( \frac{\partial (n {\bar{y}})}{\partial \beta\_{0}} - \frac{\partial (n \beta\_{0})}{\partial \beta\_{0}} - \frac{\partial (\beta\_{x} n {\bar{x}})}{\partial \beta\_{0}}\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 (0 - n - 0) && \text{(differentiate each term)}\\ &= -2 (-n) && \text{(drop the zeros)}\\ &= 2n && \text{(multiply)} \end{aligned} \\
 >
@@ -605,11 +623,11 @@ hers |> head()
 >
 > \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{x} \partial \beta\_{0}} &= -2 \frac{\partial}{\partial \beta\_{x}} \mathopen{}\left(n {\bar{y}}- n \beta\_{0}- \beta\_{x} n {\bar{x}}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left( \frac{\partial (n {\bar{y}})}{\partial \beta\_{x}} - \frac{\partial (n \beta\_{0})}{\partial \beta\_{x}} - \frac{\partial (\beta\_{x} n {\bar{x}})}{\partial \beta\_{x}}\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 (0 - 0 - n {\bar{x}}) && \text{(differentiate each term)}\\ &= -2 (-n {\bar{x}}) && \text{(drop the zeros)}\\ &= 2 n {\bar{x}} && \text{(multiply)} \end{aligned} \\
 >
-> **Derivatives of \\{\partial \text{RSS} / \partial \beta\_{x}}\\.** By [Exercise 8](#exr-rss-deriv-slope), \\{\partial \text{RSS} / \partial \beta\_{x}} = -2 \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i)\\. Differentiating with respect to \\\beta\_{0}\\, and reusing the inner derivative \\-1\\ from [Exercise 6](#exr-rss-deriv-intercept):
+> **Derivatives of \\{\partial \text{RSS} / \partial \beta\_{x}}\\.** By [Exercise 9](#exr-rss-deriv-slope), \\{\partial \text{RSS} / \partial \beta\_{x}} = -2 \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i)\\. Differentiating with respect to \\\beta\_{0}\\, and reusing the inner derivative \\-1\\ from [Exercise 7](#exr-rss-deriv-intercept):
 >
 > \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{0} \partial \beta\_{x}} &= -2 \frac{\partial}{\partial \beta\_{0}} \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(constant factor)}\\ &= -2 \sum\_{i=1}^n\frac{\partial}{\partial \beta\_{0}} \mathopen{}\left(x_i(y_i- \beta\_{0}- \beta\_{x} x_i)\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 \sum\_{i=1}^nx_i\frac{\partial}{\partial \beta\_{0}} (y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(\$x_i\$ does not depend on \$\beta\_{0}\$)}\\ &= -2 \sum\_{i=1}^nx_i(-1) && \text{(inner derivative is \$-1\$)}\\ &= -2 \sum\_{i=1}^n(-x_i) && \text{(multiply)}\\ &= -2 \mathopen{}\left(-\sum\_{i=1}^nx_i\right)\mathclose{} && \text{(constant factor out of the sum)}\\ &= 2 \sum\_{i=1}^nx_i && \text{(multiply)}\\ &= 2 n {\bar{x}} && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$)} \end{aligned} \\
 >
-> Differentiating with respect to \\\beta\_{x}\\, and reusing the inner derivative \\-x_i\\ from [Exercise 8](#exr-rss-deriv-slope):
+> Differentiating with respect to \\\beta\_{x}\\, and reusing the inner derivative \\-x_i\\ from [Exercise 9](#exr-rss-deriv-slope):
 >
 > \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{x}^2} &= -2 \frac{\partial}{\partial \beta\_{x}} \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(constant factor)}\\ &= -2 \sum\_{i=1}^n\frac{\partial}{\partial \beta\_{x}} \mathopen{}\left(x_i(y_i- \beta\_{0}- \beta\_{x} x_i)\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 \sum\_{i=1}^nx_i\frac{\partial}{\partial \beta\_{x}} (y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(\$x_i\$ does not depend on \$\beta\_{x}\$)}\\ &= -2 \sum\_{i=1}^nx_i(-x_i) && \text{(inner derivative is \$-x_i\$)}\\ &= -2 \sum\_{i=1}^n\mathopen{}\left(-x_i^2\right)\mathclose{} && \text{(multiply)}\\ &= -2 \mathopen{}\left(-\sum\_{i=1}^nx_i^2\right)\mathclose{} && \text{(constant factor out of the sum)}\\ &= 2 \sum\_{i=1}^nx_i^2 && \text{(multiply)} \end{aligned} \\
 >
@@ -619,11 +637,11 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 11 (Positive definiteness of the second-derivative matrix of RSS)** In the setting of [Exercise 10](#exr-rss-hessian), show that the matrix of second derivatives is positive definite when \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)).
+> **Exercise 12 (Positive definiteness of the second-derivative matrix of RSS)** In the setting of [Exercise 11](#exr-rss-hessian), show that the matrix of second derivatives is positive definite when \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
 >
-> *Solution 11*. The top-left entry of the matrix of second derivatives from [Exercise 10](#exr-rss-hessian), \\2n\\, is positive. The determinant of this matrix, using the expanded form of \\S\_{xx}\\ from [Exercise 5](#exr-sxx-expand), is
+> *Solution 12*. The top-left entry of the matrix of second derivatives from [Exercise 11](#exr-rss-hessian), \\2n\\, is positive. The determinant of this matrix, using the expanded form of \\S\_{xx}\\ from [Exercise 5](#exr-sxx-expand), is
 >
 > \\ \begin{aligned} \det \begin{pmatrix} 2n & 2 n {\bar{x}}\\ 2 n {\bar{x}}& 2 \sum\_{i=1}^nx_i^2 \end{pmatrix} &= (2n) \mathopen{}\left(2 \sum\_{i=1}^nx_i^2\right)\mathclose{} - (2 n {\bar{x}}) (2 n {\bar{x}}) && \text{(\$2 \times 2\$ determinant)}\\ &= 4 n \sum\_{i=1}^nx_i^2 - 4 n^2 {\bar{x}}^2 && \text{(multiply)}\\ &= 4 n \mathopen{}\left(\sum\_{i=1}^nx_i^2 - n {\bar{x}}^2\right)\mathclose{} && \text{(factor out \$4n\$)}\\ &= 4 n S\_{xx} && \text{(expanded form of \$S\_{xx}\$)} \end{aligned} \\
 >
@@ -631,13 +649,13 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Lemma 6 (Second derivatives of RSS)** The matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\ is positive definite at every \\(\beta\_{0}, \beta\_{x})\\ when \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), and equals
+> **Lemma 7 (Second derivatives of RSS)** The matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\ is positive definite at every \\(\beta\_{0}, \beta\_{x})\\ when \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), and equals
 >
 > \\\begin{pmatrix} 2n & 2 n {\bar{x}}\\ 2 n {\bar{x}}& 2 \sum\_{i=1}^nx_i^2 \end{pmatrix}.\\
 
 > **NOTE:**
 >
-> *Proof*. The matrix of second derivatives is the solution to [Exercise 10](#exr-rss-hessian). The positive definiteness is the solution to [Exercise 11](#exr-rss-hessian-positive-definite).
+> *Proof*. The matrix of second derivatives is the solution to [Exercise 11](#exr-rss-hessian). The positive definiteness is the solution to [Exercise 12](#exr-rss-hessian-positive-definite).
 
 > **NOTE:**
 >
@@ -647,7 +665,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Lemma 5](#lem-solve-normal-equations), the normal equations have exactly one solution, \\\beta\_{x} = S\_{xy}/ S\_{xx}\\ and \\\beta\_{0}= {\bar{y}}- \beta\_{x} {\bar{x}}\\. By [Lemma 6](#lem-rss-hessian), the matrix of second derivatives of \\\text{RSS}\\ is positive definite at every point, so \\\text{RSS}\\ is strictly convex and its only stationary point is its unique global minimum. So the OLS estimates exist, are unique, and equal that solution.
+> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Lemma 6](#lem-solve-normal-equations), the normal equations have exactly one solution, \\\beta\_{x} = S\_{xy}/ S\_{xx}\\ and \\\beta\_{0}= {\bar{y}}- \beta\_{x} {\bar{x}}\\. By [Lemma 7](#lem-rss-hessian), the matrix of second derivatives of \\\text{RSS}\\ is positive definite at every point, so \\\text{RSS}\\ is strictly convex and its only stationary point is its unique global minimum. So the OLS estimates exist, are unique, and equal that solution.
 
 The same estimates follow from a derivation in vector notation, which treats \\(\beta\_{0}, \beta\_{x})\\ as a single vector instead of differentiating with respect to each component separately.
 
@@ -659,11 +677,11 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 12 (The conditional mean and the covariate vector)** In simple linear regression ([Definition 8](#def-slr)), express the conditional mean \\\mu(x_i)\\ as a dot product of the covariate vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\\ ([Definition 16](#def-slr-covariate-vector)) and the coefficient vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)).
+> **Exercise 13 (The conditional mean and the covariate vector)** In simple linear regression ([Definition 8](#def-slr)), express the conditional mean \\\mu(x_i)\\ as a dot product of the covariate vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\\ ([Definition 16](#def-slr-covariate-vector)) and the coefficient vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)).
 
 > **NOTE:**
 >
-> *Solution 12*. Start from the dot product:
+> *Solution 13*. Start from the dot product:
 >
 > \\ \begin{aligned} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}} &= \begin{pmatrix} 1 \\ x_i\end{pmatrix} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}} && \text{(definition of \$\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\$)}\\ &= \begin{pmatrix} 1 \\ x_i\end{pmatrix} \cdot \begin{pmatrix} \beta\_{0}\\ \beta\_{x} \end{pmatrix} && \text{(definition of \$\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\$, written as a column)}\\ &= 1 \cdot \beta\_{0}+ x_i\beta\_{x} && \text{(definition of the dot product)}\\ &= \beta\_{0}+ x_i\beta\_{x} && \text{(\$1 \cdot a = a\$)}\\ &= \beta\_{0}+ \beta\_{x} x_i && \text{(reorder the factors)}\\ &= \mu(x_i) && \text{(definition of \$\mu(x)\$)} \end{aligned} \\
 >
@@ -671,27 +689,27 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Lemma 7 (The conditional mean is a dot product)** In simple linear regression ([Definition 8](#def-slr)), the conditional mean of observation \\i\\ is the dot product of its covariate vector ([Definition 16](#def-slr-covariate-vector)) and the coefficient vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ ([Example 6](#exm-normal-equations-slr)):
+> **Lemma 8 (The conditional mean is a dot product)** In simple linear regression ([Definition 8](#def-slr)), the conditional mean of observation \\i\\ is the dot product of its covariate vector ([Definition 16](#def-slr-covariate-vector)) and the coefficient vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ ([Example 6](#exm-normal-equations-slr)):
 >
 > \\\mu(x_i) = \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}.\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 12](#exr-slr-mean-dot-product).
+> *Proof*. This is the solution to [Exercise 13](#exr-slr-mean-dot-product).
 
 > **NOTE:**
 >
-> **Example 7 (Residual sum of squares in vector notation)** In simple linear regression, take \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ and substitute \\\mu(x_i) = \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ ([Lemma 7](#lem-slr-mean-dot-product)) into each residual of the residual sum of squares ([Definition 11](#def-rss)). The residual sum of squares is then a function of the coefficient vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, the same function as \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ in [Example 3](#exm-rss-slr):
+> **Example 7 (Residual sum of squares in vector notation)** In simple linear regression, take \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ and substitute \\\mu(x_i) = \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ ([Lemma 8](#lem-slr-mean-dot-product)) into each residual of the residual sum of squares ([Definition 11](#def-rss)). The residual sum of squares is then a function of the coefficient vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, the same function as \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ in [Example 3](#exm-rss-slr):
 >
 > \\ \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}) = \sum\_{i=1}^n\mathopen{}\left(y_i- \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{}^2. \\
 
 > **NOTE:**
 >
-> **Exercise 13 (Gradient of RSS in vector notation)** Find the gradient of the residual sum of squares in vector notation ([Example 7](#exm-rss-vector)), \\\frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}})\\, by differentiating with respect to the vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ directly, rather than one component at a time.
+> **Exercise 14 (Gradient of RSS in vector notation)** Find the gradient of the residual sum of squares in vector notation ([Example 7](#exm-rss-vector)), \\\frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}})\\, by differentiating with respect to the vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ directly, rather than one component at a time.
 
 > **NOTE:**
 >
-> *Solution 13*. Differentiate one operation at a time, starting from \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}})\\ in vector notation ([Example 7](#exm-rss-vector)):
+> *Solution 14*. Differentiate one operation at a time, starting from \\\text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}})\\ in vector notation ([Example 7](#exm-rss-vector)):
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}) &= \frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \sum\_{i=1}^n\mathopen{}\left(y_i- \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{}^2 && \text{(RSS in vector form)}\\ &= \sum\_{i=1}^n\frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \mathopen{}\left(y_i- \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{}^2 && \text{(derivative of a sum)}\\ &= \sum\_{i=1}^n2 \mathopen{}\left(y_i- \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{} \frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \mathopen{}\left(y_i- \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{} && \text{(chain rule)} \end{aligned} \\
 >
@@ -709,25 +727,25 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Lemma 8 (Gradient of RSS in vector notation)** The gradient of the residual sum of squares in vector notation ([Example 7](#exm-rss-vector)) is
+> **Lemma 9 (Gradient of RSS in vector notation)** The gradient of the residual sum of squares in vector notation ([Example 7](#exm-rss-vector)) is
 >
 > \\\frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}) = -2 \sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\mathopen{}\left(y_i- \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{}.\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 13](#exr-rss-gradient-vector).
+> *Proof*. This is the solution to [Exercise 14](#exr-rss-gradient-vector).
 
 > **NOTE:**
 >
-> **Exercise 14 (Normal equations in vector notation)** Define the matrix and vector
+> **Exercise 15 (Normal equations in vector notation)** Define the matrix and vector
 >
 > \\ A \stackrel{\text{def}}{=}\sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i}^{\top}, \qquad \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} \stackrel{\text{def}}{=}\sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_iy_i. \\
 >
-> Using [Exercise 13](#exr-rss-gradient-vector), show that the [normal equations](#def-normal-equations) can be written as \\A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\.
+> Using [Exercise 14](#exr-rss-gradient-vector), show that the [normal equations](#def-normal-equations) can be written as \\A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\.
 
 > **NOTE:**
 >
-> *Solution 14*. Distribute the sum in the gradient from [Exercise 13](#exr-rss-gradient-vector):
+> *Solution 15*. Distribute the sum in the gradient from [Exercise 14](#exr-rss-gradient-vector):
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}) &= -2 \sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\mathopen{}\left(y_i- \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{} && \text{(gradient of RSS)}\\ &= -2 \sum\_{i=1}^n\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_iy_i- \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{}\right)\mathclose{} && \text{(distribute \$\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\$)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_iy_i- \sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{}\right)\mathclose{} && \text{(sum of differences)} \end{aligned} \\
 >
@@ -745,7 +763,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Lemma 9 (Normal equations in vector notation)** Let
+> **Lemma 10 (Normal equations in vector notation)** Let
 >
 > \\ A \stackrel{\text{def}}{=}\sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i}^{\top}, \qquad \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} \stackrel{\text{def}}{=}\sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_iy_i. \\
 >
@@ -755,15 +773,15 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 14](#exr-normal-equations-vector).
+> *Proof*. This is the solution to [Exercise 15](#exr-normal-equations-vector).
 
 > **NOTE:**
 >
-> **Exercise 15 (Solving the normal equations in vector notation)** Assuming \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), show that \\A\\ from [Exercise 14](#exr-normal-equations-vector) is invertible, solve \\A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\ for \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, and compare the result with [Exercise 9](#exr-solve-normal-equations).
+> **Exercise 16 (Solving the normal equations in vector notation)** Assuming \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), show that \\A\\ from [Exercise 15](#exr-normal-equations-vector) is invertible, solve \\A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\ for \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, and compare the result with [Exercise 10](#exr-solve-normal-equations).
 
 > **NOTE:**
 >
-> *Solution 15*. Write out the entries of each term of \\A\\ and \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\, then add them up:
+> *Solution 16*. Write out the entries of each term of \\A\\ and \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\, then add them up:
 >
 > \\ \begin{aligned} A &= \sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i}^{\top} && \text{(definition of \$A\$)}\\ &= \sum\_{i=1}^n\begin{pmatrix} 1 & x_i\\ x_i& x_i^2 \end{pmatrix} && \text{(outer product of \$\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\$)}\\ &= \begin{pmatrix} \sum\_{i=1}^n1 & \sum\_{i=1}^nx_i\\ \sum\_{i=1}^nx_i& \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(matrices add entrywise)}\\ &= \begin{pmatrix} n & \sum\_{i=1}^nx_i\\ \sum\_{i=1}^nx_i& \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(sum of a constant)}\\ &= \begin{pmatrix} n & n{\bar{x}}\\ n{\bar{x}}& \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i= n {\bar{x}}\$)} \end{aligned} \\
 >
@@ -783,37 +801,37 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > \\ \begin{aligned} A^{-1} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} &= \frac{1}{\det A} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n{\bar{x}}\\ -n{\bar{x}}& n \end{pmatrix} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} && \text{(inverse of a \$2 \times 2\$ matrix)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n{\bar{x}}\\ -n{\bar{x}}& n \end{pmatrix} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} && \text{(\$\det A = n S\_{xx}\$)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n{\bar{x}}\\ -n{\bar{x}}& n \end{pmatrix} \begin{pmatrix} n{\bar{y}}\\ \sum\_{i=1}^nx_iy_i\end{pmatrix} && \text{(substitute \$\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\$)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 \cdot n{\bar{y}}+ \mathopen{}\left(-n{\bar{x}}\right)\mathclose{} \sum\_{i=1}^nx_iy_i\\ \mathopen{}\left(-n{\bar{x}}\right)\mathclose{} \cdot n{\bar{y}}+ n \sum\_{i=1}^nx_iy_i \end{pmatrix} && \text{(matrix times a vector)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} n {\bar{y}}\sum\_{i=1}^nx_i^2 - n {\bar{x}}\sum\_{i=1}^nx_iy_i\\ -n^2 {\bar{x}}{\bar{y}}+ n \sum\_{i=1}^nx_iy_i \end{pmatrix} && \text{(multiply out the products)}\\ &= \frac{1}{n S\_{xx}} \\ n \begin{pmatrix} {\bar{y}}\sum\_{i=1}^nx_i^2 - {\bar{x}}\sum\_{i=1}^nx_iy_i\\ -n {\bar{x}}{\bar{y}}+ \sum\_{i=1}^nx_iy_i \end{pmatrix} && \text{(factor \$n\$ out of the vector)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} {\bar{y}}\sum\_{i=1}^nx_i^2 - {\bar{x}}\sum\_{i=1}^nx_iy_i\\ -n {\bar{x}}{\bar{y}}+ \sum\_{i=1}^nx_iy_i \end{pmatrix} && \text{(cancel \$n\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} {\bar{y}}\sum\_{i=1}^nx_i^2 - {\bar{x}}\sum\_{i=1}^nx_iy_i\\ \sum\_{i=1}^nx_iy_i- n {\bar{x}}{\bar{y}} \end{pmatrix} && \text{(reorder the terms of the second entry)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} {\bar{y}}\mathopen{}\left(S\_{xx}+ n{\bar{x}}^2\right)\mathclose{} - {\bar{x}}\sum\_{i=1}^nx_iy_i\\ \sum\_{i=1}^nx_iy_i- n {\bar{x}}{\bar{y}} \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i^2 = S\_{xx}+ n{\bar{x}}^2\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} {\bar{y}}\mathopen{}\left(S\_{xx}+ n{\bar{x}}^2\right)\mathclose{} - {\bar{x}}\mathopen{}\left(S\_{xy}+ n{\bar{x}}{\bar{y}}\right)\mathclose{} \\ \mathopen{}\left(S\_{xy}+ n{\bar{x}}{\bar{y}}\right)\mathclose{} - n {\bar{x}}{\bar{y}} \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_iy_i= S\_{xy}+ n{\bar{x}}{\bar{y}}\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} {\bar{y}}S\_{xx}+ {\bar{y}}n{\bar{x}}^2 - {\bar{x}}S\_{xy}- {\bar{x}}n{\bar{x}}{\bar{y}}\\ S\_{xy}+ n{\bar{x}}{\bar{y}}- n {\bar{x}}{\bar{y}} \end{pmatrix} && \text{(distribute)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} {\bar{y}}S\_{xx}+ n{\bar{x}}^2{\bar{y}}- {\bar{x}}S\_{xy}- n{\bar{x}}{\bar{x}}{\bar{y}}\\ S\_{xy}+ n{\bar{x}}{\bar{y}}- n {\bar{x}}{\bar{y}} \end{pmatrix} && \text{(reorder the factors)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} {\bar{y}}S\_{xx}+ n{\bar{x}}^2{\bar{y}}- {\bar{x}}S\_{xy}- n{\bar{x}}^2{\bar{y}}\\ S\_{xy}+ n{\bar{x}}{\bar{y}}- n {\bar{x}}{\bar{y}} \end{pmatrix} && \text{(\${\bar{x}}{\bar{x}}= {\bar{x}}^2\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} {\bar{y}}S\_{xx}- {\bar{x}}S\_{xy}\\ S\_{xy}+ n{\bar{x}}{\bar{y}}- n {\bar{x}}{\bar{y}} \end{pmatrix} && \text{(first entry: cancel \$\pm n{\bar{x}}^2{\bar{y}}\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} {\bar{y}}S\_{xx}- {\bar{x}}S\_{xy}\\ S\_{xy} \end{pmatrix} && \text{(second entry: cancel \$\pm n{\bar{x}}{\bar{y}}\$)}\\ &= \begin{pmatrix} {\bar{y}}S\_{xx}/ S\_{xx}- {\bar{x}}\\ S\_{xy}/ S\_{xx}\\ S\_{xy}/ S\_{xx} \end{pmatrix} && \text{(multiply each entry by \$1 / S\_{xx}\$)}\\ &= \begin{pmatrix} {\bar{y}}- {\bar{x}}\\ S\_{xy}/ S\_{xx}\\ S\_{xy}/ S\_{xx} \end{pmatrix} && \text{(cancel \$S\_{xx}\$)} \end{aligned} \\
 >
-> Its entries are \\\beta\_{0}= {\bar{y}}- \beta\_{x} {\bar{x}}\\ and \\\beta\_{x} = S\_{xy}/ S\_{xx}\\, the same solution as [Exercise 9](#exr-solve-normal-equations).
+> Its entries are \\\beta\_{0}= {\bar{y}}- \beta\_{x} {\bar{x}}\\ and \\\beta\_{x} = S\_{xy}/ S\_{xx}\\, the same solution as [Exercise 10](#exr-solve-normal-equations).
 
 > **NOTE:**
 >
-> **Lemma 10 (Solution of the normal equations in vector notation)** If \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), the matrix \\A = \sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i}^{\top}\\ is invertible, and the normal equations \\A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\ with \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} = \sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_iy_i\\ ([Lemma 9](#lem-normal-equations-vector)) have exactly one solution,
+> **Lemma 11 (Solution of the normal equations in vector notation)** If \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), the matrix \\A = \sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i}^{\top}\\ is invertible, and the normal equations \\A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\ with \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} = \sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_iy_i\\ ([Lemma 10](#lem-normal-equations-vector)) have exactly one solution,
 >
 > \\ \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= A^{-1} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} = \begin{pmatrix} {\bar{y}}- \beta\_{x} {\bar{x}}\\ S\_{xy}/ S\_{xx}\end{pmatrix} \quad \text{with} \quad \beta\_{x} = \frac{S\_{xy}}{S\_{xx}}, \\
 >
-> the same solution as [Lemma 5](#lem-solve-normal-equations).
+> the same solution as [Lemma 6](#lem-solve-normal-equations).
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 15](#exr-solve-normal-equations-vector).
+> *Proof*. This is the solution to [Exercise 16](#exr-solve-normal-equations-vector).
 
 > **NOTE:**
 >
-> **Exercise 16 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \frac{\partial}{\partial {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}})\\.
+> **Exercise 17 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \frac{\partial}{\partial {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}})\\.
 
 > **NOTE:**
 >
-> *Solution 16*. Differentiate the gradient \\-2 \mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} - A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{}\\ from [Exercise 14](#exr-normal-equations-vector) with respect to \\{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}\\. \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\ does not depend on \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\. Each entry of \\A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ is the dot product of a row of \\A\\ with \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, so by the gradient of a linear function ([Exercise 13](#exr-rss-gradient-vector)), the derivative of \\A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ with respect to \\{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}\\ is \\A\\. The [Hessian](intro-MLEs.llms.md#def-hessian) is then:
+> *Solution 17*. Differentiate the gradient \\-2 \mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} - A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{}\\ from [Exercise 15](#exr-normal-equations-vector) with respect to \\{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}\\. \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\ does not depend on \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\. Each entry of \\A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ is the dot product of a row of \\A\\ with \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, so by the gradient of a linear function ([Exercise 14](#exr-rss-gradient-vector)), the derivative of \\A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ with respect to \\{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}\\ is \\A\\. The [Hessian](intro-MLEs.llms.md#def-hessian) is then:
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \frac{\partial}{\partial {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}) &= \frac{\partial}{\partial {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}} \mathopen{}\left(-2 \mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} - A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{}\right)\mathclose{} && \text{(differentiate the gradient)}\\ &= -2 \frac{\partial}{\partial {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}} \mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} - A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left(\frac{\partial}{\partial {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}} - \frac{\partial}{\partial {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}} A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{} && \text{(derivative of a difference)}\\ &= -2 \mathopen{}\left(\mathbf{0} - \frac{\partial}{\partial {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}} A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\right)\mathclose{} && \text{(\$\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\$ does not depend on \$\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\$)}\\ &= -2 \mathopen{}\left(\mathbf{0} - A\right)\mathclose{} && \text{(derivative of a linear function)}\\ &= -2 \mathopen{}\left(-A\right)\mathclose{} && \text{(subtract from zero)}\\ &= 2 A && \text{(multiply)}\\ &= 2 \sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i}^{\top} && \text{(definition of \$A\$)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Exercise 17 (Positive definiteness of the Hessian of RSS)** In the setting of [Exercise 16](#exr-rss-hessian-vector), show that the [Hessian](intro-MLEs.llms.md#def-hessian) is positive definite when \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)).
+> **Exercise 18 (Positive definiteness of the Hessian of RSS)** In the setting of [Exercise 17](#exr-rss-hessian-vector), show that the [Hessian](intro-MLEs.llms.md#def-hessian) is positive definite when \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
 >
-> *Solution 17*. By [Exercise 16](#exr-rss-hessian-vector), the [Hessian](intro-MLEs.llms.md#def-hessian) is \\2A\\ with \\A = \sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i}^{\top}\\. To show that this Hessian is positive definite, take any vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}} = {(v_0, v_x)}^{\top} \neq \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{0}}\vphantom{0}}\\:
+> *Solution 18*. By [Exercise 17](#exr-rss-hessian-vector), the [Hessian](intro-MLEs.llms.md#def-hessian) is \\2A\\ with \\A = \sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i}^{\top}\\. To show that this Hessian is positive definite, take any vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}} = {(v_0, v_x)}^{\top} \neq \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{0}}\vphantom{0}}\\:
 >
 > \\ \begin{aligned} {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}}}^{\top} \mathopen{}\left(2 A\right)\mathclose{} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}} &= 2 \\ {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}}}^{\top} A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}} && \text{(constant factor)}\\ &= 2 \\ {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}}}^{\top} \mathopen{}\left(\sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i}^{\top}\right)\mathclose{} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}} && \text{(definition of \$A\$)}\\ &= 2 \sum\_{i=1}^n{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}}}^{\top} \mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i}^{\top}\right)\mathclose{} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}} && \text{(matrix multiplication distributes over the sum)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left({\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}}}^{\top} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{} \mathopen{}\left({\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i}^{\top} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}}\right)\mathclose{} && \text{(matrix multiplication is associative)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{} \mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}}\right)\mathclose{} && \text{(transpose products as dot products)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{v}}\vphantom{v}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}^2 && \text{(dot product is symmetric)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left(v_0 + v_x x_i\right)\mathclose{}^2 && \text{(write out the dot product)}\\ &\ge 0 && \text{(sum of squares)} \end{aligned} \\
 >
@@ -821,7 +839,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Lemma 11 (Hessian of RSS in vector notation)** The [Hessian](intro-MLEs.llms.md#def-hessian) of the residual sum of squares is
+> **Lemma 12 (Hessian of RSS in vector notation)** The [Hessian](intro-MLEs.llms.md#def-hessian) of the residual sum of squares is
 >
 > \\ \frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \frac{\partial}{\partial {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}}^{\top}} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}) = 2 \sum\_{i=1}^n\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i {\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i}^{\top}, \\
 >
@@ -829,7 +847,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> *Proof*. The [Hessian](intro-MLEs.llms.md#def-hessian) is the solution to [Exercise 16](#exr-rss-hessian-vector). The positive definiteness is the solution to [Exercise 17](#exr-rss-hessian-vector-positive-definite).
+> *Proof*. The [Hessian](intro-MLEs.llms.md#def-hessian) is the solution to [Exercise 17](#exr-rss-hessian-vector). The positive definiteness is the solution to [Exercise 18](#exr-rss-hessian-vector-positive-definite).
 
 > **NOTE:**
 >
@@ -841,15 +859,15 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Lemma 9](#lem-normal-equations-vector), the normal equations are \\A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\. By [Lemma 10](#lem-solve-normal-equations-vector), \\A\\ is invertible, so their only solution is \\A^{-1} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\, whose entries are those of [Theorem 5](#thm-ols-slr). By [Lemma 11](#lem-rss-hessian-vector), the Hessian of \\\text{RSS}\\ is positive definite at every \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, so \\\text{RSS}\\ is strictly convex and \\A^{-1} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\ is its unique global minimum.
+> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Lemma 10](#lem-normal-equations-vector), the normal equations are \\A \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\. By [Lemma 11](#lem-solve-normal-equations-vector), \\A\\ is invertible, so their only solution is \\A^{-1} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\, whose entries are those of [Theorem 5](#thm-ols-slr). By [Lemma 12](#lem-rss-hessian-vector), the Hessian of \\\text{RSS}\\ is positive definite at every \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, so \\\text{RSS}\\ is strictly convex and \\A^{-1} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{c}}\vphantom{c}}\\ is its unique global minimum.
 
 > **NOTE:**
 >
-> **Exercise 18 (OLS slope and the correlation)** Assuming \\S\_{xx}\> 0\\ and \\S\_{yy}\> 0\\ ([Definition 14](#def-centered-sums)), write the OLS slope \\\hat{\beta}\_{x}\\ from [Theorem 5](#thm-ols-slr) in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ and the [sample standard deviations](exploratory-descriptive.llms.md#def-sample-sd) \\s_x\\ and \\s_y\\ of the \\x_i\\ and the \\y_i\\.
+> **Exercise 19 (OLS slope and the correlation)** Assuming \\S\_{xx}\> 0\\ and \\S\_{yy}\> 0\\ ([Definition 14](#def-centered-sums)), write the OLS slope \\\hat{\beta}\_{x}\\ from [Theorem 5](#thm-ols-slr) in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ and the [sample standard deviations](exploratory-descriptive.llms.md#def-sample-sd) \\s_x\\ and \\s_y\\ of the \\x_i\\ and the \\y_i\\.
 
 > **NOTE:**
 >
-> *Solution 18*. In terms of the centered sums ([Definition 14](#def-centered-sums), [Definition 15](#def-centered-cross-product)),
+> *Solution 19*. In terms of the centered sums ([Definition 14](#def-centered-sums), [Definition 15](#def-centered-cross-product)),
 >
 > \\ r = \frac{S\_{xy}}{\sqrt{S\_{xx}S\_{yy}}}, \qquad s_x = \sqrt{\frac{S\_{xx}}{n-1}}, \qquad s_y = \sqrt{\frac{S\_{yy}}{n-1}}. \\
 >
@@ -867,7 +885,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 18](#exr-ols-slope-r).
+> *Proof*. This is the solution to [Exercise 19](#exr-ols-slope-r).
 
 > **TIP:**
 >
@@ -976,11 +994,11 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 19 (Residual sum of squares of the OLS fit)** Assuming \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), write the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)), \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^n\hat{\varepsilon}\_i^2\\, in terms of \\S\_{xx}\\, \\S\_{yy}\\ and \\S\_{xy}\\.
+> **Exercise 20 (Residual sum of squares of the OLS fit)** Assuming \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), write the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)), \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^n\hat{\varepsilon}\_i^2\\, in terms of \\S\_{xx}\\, \\S\_{yy}\\ and \\S\_{xy}\\.
 
 > **NOTE:**
 >
-> *Solution 19*. The [fitted values](prediction.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i= \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](prediction.llms.md#def-residual) is
+> *Solution 20*. The [fitted values](prediction.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i= \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](prediction.llms.md#def-residual) is
 >
 > \\ \begin{aligned} \hat{\varepsilon}\_i &= y_i- \hat y_i && \text{(definition of a residual)}\\ &= y_i- \mathopen{}\left(\hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat y_i\$)}\\ &= y_i- \mathopen{}\left({\bar{y}}- \hat{\beta}\_{x} {\bar{x}}+ \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat{\beta}\_{0}\$)}\\ &= y_i- {\bar{y}}+ \hat{\beta}\_{x} {\bar{x}}- \hat{\beta}\_{x} x_i && \text{(distribute the minus sign)}\\ &= (y_i- {\bar{y}}) - \mathopen{}\left(\hat{\beta}\_{x} x_i- \hat{\beta}\_{x} {\bar{x}}\right)\mathclose{} && \text{(group terms)}\\ &= (y_i- {\bar{y}}) - \hat{\beta}\_{x} (x_i- {\bar{x}}) && \text{(factor out \$\hat{\beta}\_{x}\$)} \end{aligned} \\
 >
@@ -990,21 +1008,21 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Lemma 12 (Residual sum of squares of the OLS fit)** If \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)) is
+> **Lemma 13 (Residual sum of squares of the OLS fit)** If \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)) is
 >
 > \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^n\hat{\varepsilon}\_i^2 = S\_{yy}- \frac{S\_{xy}^2}{S\_{xx}}.\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 19](#exr-rss-ols-fit).
+> *Proof*. This is the solution to [Exercise 20](#exr-rss-ols-fit).
 
 > **NOTE:**
 >
-> **Exercise 20 (\\R^2\\ and the correlation)** Assuming \\S\_{xx}\> 0\\ and \\S\_{yy}\> 0\\ ([Definition 14](#def-centered-sums)), use [Exercise 19](#exr-rss-ols-fit) to write the [coefficient of determination](#def-r-squared) \\R^2\\ of the OLS fit in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\, and show that \\0 \le R^2 \le 1\\.
+> **Exercise 21 (\\R^2\\ and the correlation)** Assuming \\S\_{xx}\> 0\\ and \\S\_{yy}\> 0\\ ([Definition 14](#def-centered-sums)), use [Exercise 20](#exr-rss-ols-fit) to write the [coefficient of determination](#def-r-squared) \\R^2\\ of the OLS fit in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\, and show that \\0 \le R^2 \le 1\\.
 
 > **NOTE:**
 >
-> *Solution 20*. The [total sum of squares](#def-tss) is \\S\_{yy}\\ ([Definition 14](#def-centered-sums)), and [Exercise 19](#exr-rss-ols-fit) gives the residual sum of squares, so:
+> *Solution 21*. The [total sum of squares](#def-tss) is \\S\_{yy}\\ ([Definition 14](#def-centered-sums)), and [Exercise 20](#exr-rss-ols-fit) gives the residual sum of squares, so:
 >
 > \\ \begin{aligned} R^2 &= 1 - \frac{\text{RSS}(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})}{\text{TSS}} && \text{(definition of \$R^2\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{\text{TSS}} && \text{(the OLS estimate is \$(\hat{\beta}\_{0}, \hat{\beta}\_{x})\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{S\_{yy}} && \text{(TSS is \$S\_{yy}\$)}\\ &= 1 - \frac{S\_{yy}- S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(residual sum of squares of the OLS fit)}\\ &= 1 - \mathopen{}\left(\frac{S\_{yy}}{S\_{yy}} - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(distribute the division over the difference)}\\ &= 1 - \mathopen{}\left(1 - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(\$S\_{yy}/ S\_{yy}= 1\$)}\\ &= 1 - 1 + \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(distribute the minus sign)}\\ &= \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(\$1 - 1 = 0\$)}\\ &= \frac{S\_{xy}^2}{S\_{xx}S\_{yy}} && \text{(divide a fraction by \$S\_{yy}\$)}\\ &= \mathopen{}\left(\frac{S\_{xy}}{\sqrt{S\_{xx}S\_{yy}}}\right)\mathclose{}^2 && \text{(write as a square)}\\ &= r^2 && \text{(\$r = S\_{xy}/ \sqrt{S\_{xx}S\_{yy}}\$)} \end{aligned} \\
 >
@@ -1018,7 +1036,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 20](#exr-r-squared-slr), which uses the residual sum of squares from [Lemma 12](#lem-rss-ols-fit).
+> *Proof*. This is the solution to [Exercise 21](#exr-r-squared-slr), which uses the residual sum of squares from [Lemma 13](#lem-rss-ols-fit).
 
 > **NOTE:**
 >
