@@ -173,6 +173,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_exr-sxy-expand.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-sxy-expand.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-rss-deriv-intercept.qmd >}}
 
 {{< slidebreak >}}

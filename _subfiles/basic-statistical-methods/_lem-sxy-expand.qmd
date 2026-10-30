@@ -1,0 +1,13 @@
+::: {#lem-sxy-expand}
+#### Expanded centered sum of cross-products
+
+The centered sum of cross-products $\sspredout$ (@def-centered-cross-product) equals
+
+$$\sspredout = \sumin \predvar_\iobs \outvar_\iobs - n \predbar \outbar.$$
+:::
+
+::: proof
+
+This is the solution to @exr-sxy-expand.
+
+:::
