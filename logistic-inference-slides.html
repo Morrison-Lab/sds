@@ -8,10 +8,10 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
+<meta name="generator" content="quarto-1.10.20">
 <title>Statistics for Data Science – Inference for Logistic Regression</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-30 00:29:08 (PDT)</p>
+  <p class="date">Last modified: 2026-10-30 07:36:33 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -823,7 +823,7 @@ s_k = \sum_{i:\, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$
 \tag{8}\]</span></span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The log-likelihood has score <span class="math inline">\({X}^{\top} \mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}- \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\pi}}\vphantom{\pi}}\right)\mathclose{}\)</span>, and its Hessian is <span class="math inline">\(-{X}^{\top} W X\)</span>, which does not involve the outcomes. The observed and expected information are therefore both <span class="math inline">\({X}^{\top} W X\)</span>. The claim is the Gaussian approximation of the <a href="./intro-MLEs.html#thm-dist-mle">central limit theorem for MLEs</a>, with this information in place of the inverse covariance. The result is stated for logistic regression by <span class="citation" data-cites="hastie2009elements">Hastie et al. <a href="#/references" role="doc-biblioref" onclick="">[6, Sec. 4.4.3]</a></span>. For independent but non-identically distributed outcomes it holds under conditions on the predictors that <span class="citation" data-cites="fahrmeir1985consistency">Fahrmeir and Kaufmann <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span> give.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The log-likelihood has score <span class="math inline">\({X}^{\top} \mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}- \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\pi}}\vphantom{\pi}}\right)\mathclose{}\)</span>, and its <a href="./intro-MLEs.html#def-hessian">Hessian</a> is <span class="math inline">\(-{X}^{\top} W X\)</span>, which does not involve the outcomes. The <a href="./intro-MLEs.html#def-oinf">observed information</a> and <a href="./intro-MLEs.html#def-einf">expected information</a> are therefore both <span class="math inline">\({X}^{\top} W X\)</span>. The claim is the Gaussian approximation of the <a href="./intro-MLEs.html#thm-dist-mle">central limit theorem for MLEs</a>, with this information in place of the inverse covariance. The result is stated for logistic regression by <span class="citation" data-cites="hastie2009elements">Hastie et al. <a href="#/references" role="doc-biblioref" onclick="">[6, Sec. 4.4.3]</a></span>. For independent but non-identically distributed outcomes it holds under conditions on the predictors that <span class="citation" data-cites="fahrmeir1985consistency">Fahrmeir and Kaufmann <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span> give.</p>
 </div>
 </section><section class="slide level2"><div id="cor-logistic-wald" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 3 (Wald interval for a logistic coefficient)</strong></span> Let <span class="math inline">\(\hat W\)</span> be <span class="math inline">\(W\)</span> with each <span class="math inline">\(\pi_i\)</span> replaced by its fitted value. The estimated standard error of <span class="math inline">\(\hat{\beta}_{j}\)</span> is the square root of the diagonal entry of <span class="math inline">\({\mathopen{}\left({X}^{\top} \hat W X\right)\mathclose{}}^{-1}\)</span> in the row and column of <span class="math inline">\(\beta_{j}\)</span>; because <span class="math inline">\(\beta_{0}\)</span> comes first, that is the <span class="math inline">\((j+1)\)</span>th diagonal entry counting from <span class="math inline">\(1\)</span>, and a <a href="./intro-MLEs.html#def-wald-ci">Wald confidence interval</a> with level <span class="math inline">\(1 - \alpha\)</span> for <span class="math inline">\(\beta_{j}\)</span> is</p>

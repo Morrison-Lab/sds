@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 00:29:08 (PDT)
+Last modified: 2026-10-30 07:36:33 (PDT)
 
 ## 0.1 Introduction
 
@@ -440,7 +440,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Proof*. The log-likelihood has score \\{X}^{\top} \mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}- \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\pi}}\vphantom{\pi}}\right)\mathclose{}\\, and its Hessian is \\-{X}^{\top} W X\\, which does not involve the outcomes. The observed and expected information are therefore both \\{X}^{\top} W X\\. The claim is the Gaussian approximation of the [central limit theorem for MLEs](intro-MLEs.llms.md#thm-dist-mle), with this information in place of the inverse covariance. The result is stated for logistic regression by Hastie et al. [\[6, Sec. 4.4.3\]](#ref-hastie2009elements). For independent but non-identically distributed outcomes it holds under conditions on the predictors that Fahrmeir and Kaufmann [\[10\]](#ref-fahrmeir1985consistency) give.
+> *Proof*. The log-likelihood has score \\{X}^{\top} \mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}- \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\pi}}\vphantom{\pi}}\right)\mathclose{}\\, and its [Hessian](intro-MLEs.llms.md#def-hessian) is \\-{X}^{\top} W X\\, which does not involve the outcomes. The [observed information](intro-MLEs.llms.md#def-oinf) and [expected information](intro-MLEs.llms.md#def-einf) are therefore both \\{X}^{\top} W X\\. The claim is the Gaussian approximation of the [central limit theorem for MLEs](intro-MLEs.llms.md#thm-dist-mle), with this information in place of the inverse covariance. The result is stated for logistic regression by Hastie et al. [\[6, Sec. 4.4.3\]](#ref-hastie2009elements). For independent but non-identically distributed outcomes it holds under conditions on the predictors that Fahrmeir and Kaufmann [\[10\]](#ref-fahrmeir1985consistency) give.
 
 > **NOTE:**
 >
