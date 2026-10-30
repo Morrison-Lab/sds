@@ -14,9 +14,9 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
-## 1 Introduction
+## 0.1 Introduction
 
 Before fitting a model, it is good practice to explore and summarize the data. Exploratory data analysis (EDA) serves several purposes:
 
@@ -28,7 +28,7 @@ Before fitting a model, it is good practice to explore and summarize the data. E
 
 This page is adapted from [\[1, Ch. 2\]](#ref-vittinghoff2e).
 
-### 1.1 The WCGS data
+### 0.1.1 The WCGS data
 
 This page illustrates exploratory data analysis using data from the Western Collaborative Group Study (WCGS) [\[2\]](#ref-rosenman1975coronary). Vittinghoff et al. [\[1, p. 9\]](#ref-vittinghoff2e) describe the study this way:
 
@@ -46,7 +46,7 @@ This page illustrates exploratory data analysis using data from the Western Coll
 > >
 > > The hypothesis describes Type B individuals as a contrast to those of Type A. Type B personalities, by definition, are noted to live at lower stress levels. They typically work steadily and may enjoy achievement, although they have a greater tendency to disregard physical or mental stress when they do not achieve.
 
-### 1.2 Study design
+### 0.1.2 Study design
 
 The WCGS began in 1960 with 3,524 male volunteers employed by 11 California companies. Participants were 39 to 59 years old and free of heart disease, as determined by electrocardiogram. After the initial screening, various exclusions reduced the study population to 3,154 men and the number of companies to 10. The cohort comprised both blue- and white-collar employees. Average follow-up was 8.5 years, with repeat examinations.
 
@@ -62,7 +62,7 @@ At baseline, the study collected:
 
 Later surveys added anthropometry, triglycerides, the Jenkins Activity Survey, and caffeine use.
 
-### 1.3 Loading the data
+### 0.1.3 Loading the data
 
 The WCGS data are distributed with Vittinghoff et al. [\[1\]](#ref-vittinghoff2e) on the book’s companion website, as a Stata file that R can read directly:
 
@@ -151,7 +151,7 @@ dplyr::glimpse(wcgs)
 #> $ agec     <fct> 46-50, 51-55, 56-60, 51-55, 41-45, 46-50, 35-40, 41-45, 46-50…
 ```
 
-### 1.4 Populations and samples
+### 0.1.4 Populations and samples
 
 > **NOTE:**
 >
@@ -217,9 +217,9 @@ dplyr::glimpse(wcgs)
 >
 > *Remark 1* (Population parameters are fixed and usually unknown). A population parameter is fixed. It is usually unknown.
 
-## 2 Summarizing a single variable
+## 0.2 Summarizing a single variable
 
-### 2.1 Measures of center
+### 0.2.1 Measures of center
 
 > **NOTE:**
 >
@@ -260,7 +260,7 @@ dplyr::glimpse(wcgs)
 >
 > The median cholesterol is a little lower than the sample mean ([Example 4](#exm-sample-mean)). Cholesterol has a longer right tail than left tail (the maximum is 645 mg/dL), and the large values in that tail pull the sample mean upward but barely change which value is in the middle. A median is less sensitive to extreme values than a sample mean.
 
-### 2.2 Measures of spread
+### 0.2.2 Measures of spread
 
 > **NOTE:**
 >
@@ -327,7 +327,7 @@ dplyr::glimpse(wcgs)
 >
 > The middle half of the cholesterol values span 56 mg/dL. Like the median, the IQR does not depend on the most extreme values, so it is less sensitive to outliers than the standard deviation.
 
-### 2.3 Summary statistics in R
+### 0.2.3 Summary statistics in R
 
 The [`summary()`](https://rdrr.io/r/base/summary.html) function reports the minimum, quartiles, mean, maximum, and number of missing values in one call; its quartiles use R’s default interpolating quantile rule (`type = 7`), so they can differ slightly from [Definition 11](#def-quartiles):
 
@@ -366,7 +366,7 @@ For a formatted table of several variables at once, [`gtsummary::tbl_summary()`]
 >
 > Table 1: WCGS: descriptive statistics for continuous variables
 
-### 2.4 Binary and categorical variables
+### 0.2.4 Binary and categorical variables
 
 > **NOTE:**
 >
@@ -412,11 +412,11 @@ For categorical variables with more than two levels, the natural descriptive sta
 > - Hogg et al. [\[10, Sec. 6.1\]](#ref-hoggtanis2015), pp. 233–244 covers descriptive statistics.
 > - Rice [\[11, Secs. 10.4–10.5\]](#ref-rice2007mathematical), pp. 392–401 covers measures of location and dispersion.
 
-## 3 Graphical methods
+## 0.3 Graphical methods
 
 Graphs can reveal features of a distribution that summary statistics miss, such as skewness, multiple peaks, and outliers. Different types of graph suit different types of variable.
 
-### 3.1 Histograms
+### 0.3.1 Histograms
 
 > **NOTE:**
 >
@@ -446,7 +446,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 [Figure 1](#fig-hist-chol) shows a single-peaked distribution with a longer right tail than left tail: 97% of the values lie between 150 and 350 mg/dL, but the largest value is 645 mg/dL.
 
-### 3.2 Density plots
+### 0.3.2 Density plots
 
 > **NOTE:**
 >
@@ -470,7 +470,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 >
 > Figure 2: Density plot of total cholesterol in the WCGS dataset
 
-### 3.3 Box plots
+### 0.3.3 Box plots
 
 > **NOTE:**
 >
@@ -504,7 +504,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 >
 > Figure 3: Box plot of total cholesterol in the WCGS dataset
 
-### 3.4 Bar charts
+### 0.3.4 Bar charts
 
 > **NOTE:**
 >
@@ -528,7 +528,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 >
 > Figure 4: Bar chart of behavioral pattern in the WCGS dataset
 
-### 3.5 Normal quantile-quantile plots
+### 0.3.5 Normal quantile-quantile plots
 
 > **NOTE:**
 >
@@ -562,9 +562,9 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 > - Rice [\[11, Sec. 10.3\]](#ref-rice2007mathematical), pp. 389–391 covers histograms, density curves and stem-and-leaf plots.
 > - Rice [\[11, Sec. 10.6\]](#ref-rice2007mathematical), pp. 402–403 covers boxplots.
 
-## 4 Bivariate relationships
+## 0.4 Bivariate relationships
 
-### 4.1 Two continuous variables
+### 0.4.1 Two continuous variables
 
 > **NOTE:**
 >
@@ -637,7 +637,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 >
 > Rice [\[11, Sec. 10.7\]](#ref-rice2007mathematical), pp. 404–406 covers scatterplots.
 
-### 4.2 A continuous variable by a categorical variable
+### 0.4.2 A continuous variable by a categorical variable
 
 Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous variable across the groups defined by a categorical variable ([Figure 7](#fig-box-chol-by-smoke) and [Figure 8](#fig-box-chol-by-behpat)).
 
@@ -699,7 +699,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 >
 > Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCGS
 
-### 4.3 Two categorical variables
+### 0.4.3 Two categorical variables
 
 > **NOTE:**
 >
@@ -753,7 +753,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 > >
 > > Table 4: Smoking status and CHD event in the WCGS
 
-## 5 Data transformations
+## 0.5 Data transformations
 
 When a continuous variable has a right-skewed distribution (a longer tail to the right than to the left), a logarithmic transformation often makes the distribution more symmetric. A log-transformed variable also has a multiplicative interpretation: an increase of 1 in \\\log(x)\\ corresponds to multiplying \\x\\ by \\e \approx 2.72\\, because \\\log(x) + 1 = \log(e \cdot x)\\.
 
@@ -814,7 +814,7 @@ sbp_skew
 
 The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 versus 1.2), but still not symmetric. Whether to transform a variable in a regression model depends on the assumptions of that model and on the scientific question.
 
-### 5.1 Rescaling a variable
+### 0.5.1 Rescaling a variable
 
 > **NOTE:**
 >
@@ -914,7 +914,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 >
 > The smallest cholesterol value maps to 0 and the largest maps to 1. The scaled values keep the shape of the distribution but have no units.
 
-## 6 An exploratory data analysis workflow
+## 0.6 An exploratory data analysis workflow
 
 A typical exploratory data analysis proceeds as follows:
 
@@ -949,7 +949,7 @@ A typical exploratory data analysis proceeds as follows:
 >
 > Table 5: Summary of selected WCGS variables
 
-## 7 Further reading
+## 0.7 Further reading
 
 [Plotting a Binary Outcome](https://morrison-lab.github.io/vds/chapters/binary-outcomes.html) shows how to plot a 0/1 outcome against a [continuous](data.llms.md#def-continuous-var) feature, where [scatterplot](exploratory-descriptive.llms.md#def-scatterplot) dots would pile into two stripes. It draws a rug and two [histograms](exploratory-descriptive.llms.md#def-histogram) of the WCGS data, in R and Python.
 
@@ -1046,5 +1046,32 @@ A. Géron, *Hands-on machine learning with Scikit-Learn and TensorFlow*, 1st ed.
 \[23\]
 
 Wikipedia contributors, “Feature scaling — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Feature_scaling>
+
+# Definitions on this page
+
+- [Definition 1 (Population)](#def-population)
+- [Definition 2 (Population distribution)](#def-population-distribution)
+- [Definition 3 (Observation)](#def-observation)
+- [Definition 4 (Sample)](#def-sample)
+- [Definition 5 (Random sample)](#def-random-sample)
+- [Definition 6 (Population parameter)](#def-population-parameter)
+- [Definition 7 (Sample mean)](#def-sample-mean)
+- [Definition 8 (Sample median)](#def-sample-median)
+- [Definition 9 (Sample variance)](#def-sample-variance)
+- [Definition 10 (Sample standard deviation)](#def-sample-sd)
+- [Definition 11 (Quartiles (first quartile, third quartile, 25th percentile, 75th percentile))](#def-quartiles)
+- [Definition 12 (Interquartile range)](#def-IQR)
+- [Definition 13 (Sample proportion)](#def-sample-proportion)
+- [Definition 14 (Histogram)](#def-histogram)
+- [Definition 15 (Bin)](#def-bin)
+- [Definition 16 (Density plot)](#def-density-plot)
+- [Definition 17 (Box plot (box-and-whisker plot))](#def-boxplot)
+- [Definition 18 (Bar chart)](#def-bar-chart)
+- [Definition 19 (Normal quantile-quantile plot)](#def-qq-plot)
+- [Definition 20 (Scatter plot)](#def-scatterplot)
+- [Definition 21 (Pearson correlation coefficient)](#def-pearson-r)
+- [Definition 22 (Contingency table (cross-tabulation))](#def-contingency-table)
+- [Definition 23 (Standardization (z-scoring, standard scaling))](#def-standardization)
+- [Definition 24 (Min-max scaling)](#def-min-max-scaling)
 
 Back to top

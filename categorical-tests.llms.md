@@ -4,11 +4,11 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
-## 1 The HERS data
+## 0.1 The HERS data
 
 The examples on this page use the HERS data, which the [Comparing Means](basic-statistical-methods.llms.md#sec-hers-intro) page describes. The `rmb` R package includes the dataset; [`haven::as_factor()`](https://forcats.tidyverse.org/reference/as_factor.html) converts its Stata value labels to factors:
 
@@ -17,9 +17,9 @@ hers <- rmb::hers |> haven::as_factor()
 hers |> head()
 ```
 
-## 2 Comparing two groups: categorical outcomes
+## 0.2 Comparing two groups: categorical outcomes
 
-### 2.1 Contingency tables
+### 0.2.1 Contingency tables
 
 > **NOTE:**
 >
@@ -51,7 +51,7 @@ hers |> head()
 > - Hogg et al. [\[2, Sec. 7.3\]](#ref-hoggtanis2015), pp. 323–328 covers confidence intervals for proportions.
 > - Hogg et al. [\[2, Sec. 8.4\]](#ref-hoggtanis2015), pp. 385–391 covers tests about proportions.
 
-### 2.2 The chi-square test
+### 0.2.2 The chi-square test
 
 > **NOTE:**
 >
@@ -130,7 +130,7 @@ hers |> head()
 > - Rice [\[5, Sec. 13.4\]](#ref-rice2007mathematical), pp. 520–522 covers the chi-square test of independence.
 > - Rice [\[5, Sec. 9.5\]](#ref-rice2007mathematical), pp. 341–346 covers likelihood ratio tests for the multinomial distribution.
 
-### 2.3 Fisher’s exact test
+### 0.2.3 Fisher’s exact test
 
 > **NOTE:**
 >
@@ -187,7 +187,7 @@ hers |> head()
 >
 > Rice [\[5, Sec. 13.2\]](#ref-rice2007mathematical), pp. 514–515 covers Fisher’s exact test.
 
-### 2.4 Measures of association for \\2 \times 2\\ tables
+### 0.2.4 Measures of association for \\2 \times 2\\ tables
 
 Tests of independence say whether two binary variables are associated, but not how strongly. The [risk difference](#def-risk-difference), the [risk ratio](#def-risk-ratio) and the [odds ratio](#def-odds-ratio) measure the strength of the association.
 
@@ -567,7 +567,7 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > Rice [\[5, Sec. 13.6\]](#ref-rice2007mathematical), pp. 526–529 covers odds ratios.
 
-## 3 Further reading
+## 0.3 Further reading
 
 - Sections 4.6 to 4.8 of Lange’s *Mathematical and Statistical Methods for Genetic Analysis* [\[11\]](#ref-lange2002genetic) cover exact tests of independence, case-control association tests, and the transmission/disequilibrium test, with genetic examples.
 
@@ -616,5 +616,19 @@ Wikipedia contributors, “Odds ratio — Wikipedia, the free encyclopedia.” 2
 \[11\]
 
 K. Lange, *Mathematical and statistical methods for genetic analysis*, 2nd ed. in Statistics for biology and health. Springer, 2002. doi: [10.1007/978-0-387-21750-5](https://doi.org/10.1007/978-0-387-21750-5).
+
+# Definitions on this page
+
+- [Definition 1 (Expected count under independence)](#def-expected-count)
+- [Definition 2 (Pearson’s chi-square test of independence)](#def-chi-square-test)
+- [Definition 3 (Fisher’s exact test)](#def-fishers-exact)
+- [Definition 4 (Risk of a binary outcome (also called the incidence proportion or cumulative incidence))](#def-outcome-risk)
+- [Definition 5 (Reference group)](#def-reference-group)
+- [Definition 6 (Risk difference (also called the absolute risk reduction))](#def-risk-difference)
+- [Definition 7 (Risk ratio (also called the relative risk, relative risk ratio or probability ratio))](#def-risk-ratio)
+- [Definition 8 (Odds ratio)](#def-odds-ratio)
+- [Definition 9 (Case)](#def-case)
+- [Definition 10 (Control)](#def-control)
+- [Definition 11 (Case-control study)](#def-case-control-study)
 
 Back to top

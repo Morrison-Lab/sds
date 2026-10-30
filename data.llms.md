@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
-## 1 Types of variables
+## 0.1 Types of variables
 
 Before summarizing data, it helps to identify the **type** of each variable, since the appropriate descriptive methods depend on the type. Variables are broadly classified as either **numerical** or **categorical**, and within each class there are important subtypes.
 
@@ -97,7 +97,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > **Example 9 (Binary variables in the WCGS)** Coronary heart disease event status (`chd69`, yes/no) and current smoking status (`smoke`, yes/no) are binary variables.
 
-## 2 Coding a categorical variable with numbers
+## 0.2 Coding a categorical variable with numbers
 
 > **NOTE:**
 >
@@ -156,7 +156,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > *Remark 6* (Any category can be the reference level). The choice of reference level changes how we code the categories. It does not change what the data say. For example, in [Example 12](#exm-reference-level-sex), we could instead use “male” as the reference level and the indicator variable \\F\\ for “female”. Both choices describe the same two groups.
 
-## 3 Taxonomy of variable types
+## 0.3 Taxonomy of variable types
 
 [Figure 1](#fig-var-taxonomy) illustrates the relationships among these variable types.
 
@@ -248,7 +248,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > The continuous/discrete distinction cuts across the numerical/categorical distinction. Continuous variables are always numerical. Discrete variables include both numerical types (such as count variables) and categorical types (such as binary, nominal, and ordinal variables).
 
-## 4 Variables in the WCGS dataset
+## 0.4 Variables in the WCGS dataset
 
 [Table 1](#tbl-wcgs-vartypes) shows selected variables from the Western Collaborative Group Study (WCGS) dataset and their types.
 
@@ -296,9 +296,9 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > Table 1: Selected WCGS variables and their types
 
-## 5 Random variables
+## 0.5 Random variables
 
-### 5.1 Binary variables
+### 0.5.1 Binary variables
 
 > **NOTE:**
 >
@@ -319,7 +319,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 > - return to hospital (returned vs not returned)
 > - vital status (dead vs alive)
 
-### 5.2 Count variables
+### 0.5.2 Count variables
 
 > **NOTE:**
 >
@@ -342,7 +342,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 > - visits to an emergency room per person-month
 > - car accidents per 1,000 miles driven
 
-#### 5.2.1 Probability distributions for count outcomes
+#### 0.5.2.1 Probability distributions for count outcomes
 
 Standard probability distributions for count outcomes include:
 
@@ -354,5 +354,22 @@ Standard probability distributions for count outcomes include:
 \[1\]
 
 A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
+
+# Definitions on this page
+
+- [Definition 1 (Numerical variable (quantitative variable))](#def-numerical-var)
+- [Definition 2 (Interval variable)](#def-interval-var)
+- [Definition 3 (Ratio variable)](#def-ratio-var)
+- [Definition 4 (Continuous variable)](#def-continuous-var)
+- [Definition 5 (Discrete variable)](#def-discrete-var)
+- [Definition 6 (Categorical variable (qualitative variable))](#def-categorical-var)
+- [Definition 7 (Nominal variable)](#def-nominal-var)
+- [Definition 8 (Ordinal variable)](#def-ordinal-var)
+- [Definition 9 (Binary variable)](#def-binary-var)
+- [Definition 10 (Dummy variables)](#def-dummy-variable)
+- [Definition 11 (Indicator variable)](#def-indicator-variable)
+- [Definition 12 (Reference level)](#def-reference-level)
+- [Definition 13 (Binary random variable)](#def-binary)
+- [Definition 14 (Count variable)](#def-count)
 
 Back to top

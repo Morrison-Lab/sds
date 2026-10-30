@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
-## 1 Inference
+## 0.1 Inference
 
 > **NOTE:**
 >
@@ -28,9 +28,9 @@ There are two predominant paradigms for statistical inference:
 - frequentist inference, which treats parameters as fixed unknown constants;
 - Bayesian inference, which treats parameters as random variables with prior distributions.
 
-## 2 Hypothesis tests
+## 0.2 Hypothesis tests
 
-### 2.1 Hypotheses
+### 0.2.1 Hypotheses
 
 > **NOTE:**
 >
@@ -54,7 +54,7 @@ There are two predominant paradigms for statistical inference:
 >
 > \\H_0: \mu_1 = \mu_0 \qquad H_1: \mu_1 \ne \mu_0\\
 
-### 2.2 p-values
+### 0.2.2 p-values
 
 > **NOTE:**
 >
@@ -125,7 +125,7 @@ There are two predominant paradigms for statistical inference:
 > - Casella and Berger [\[9, Sec. 8.3\]](#ref-CaseBerg01), pp. 382–401 covers methods of evaluating tests.
 > - Rice [\[10, Sec. 9.2\]](#ref-rice2007mathematical), pp. 331–336 covers the Neyman–Pearson paradigm.
 
-## 3 Reference distributions
+## 0.3 Reference distributions
 
 The tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
 
@@ -186,7 +186,7 @@ The tests on this page compare a test statistic with one of three families of di
 > #>   5.11736   5.11736
 > ```
 
-## 4 Confidence intervals
+## 0.4 Confidence intervals
 
 > **NOTE:**
 >
@@ -286,7 +286,7 @@ The tests on this page compare a test statistic with one of three families of di
 > - Casella and Berger [\[9, Sec. 9.2\]](#ref-CaseBerg01), pp. 420–439 covers methods of finding interval estimators.
 > - Rice [\[10, Sec. 9.3\]](#ref-rice2007mathematical), pp. 337–338 covers duality of confidence intervals and hypothesis tests.
 
-## 5 Further reading on confidence intervals
+## 0.5 Further reading on confidence intervals
 
 For more on confidence intervals:
 
@@ -296,7 +296,7 @@ For more on confidence intervals:
 
   Unable to execute JavaScript.
 
-## 6 Interpretation of negative findings
+## 0.6 Interpretation of negative findings
 
 If a confidence interval includes the null value, or a hypothesis test fails to reject the null hypothesis, that result does not *necessarily* mean that the null hypothesis is true. (When the interval and the test are built from the same statistic, with coverage \\1 - \alpha\\ and significance level \\\alpha\\, the two results coincide.) So we should not interpret such results as “the odds (or risks, hazards, or means) are not significantly different”. Instead, we should write something like “the data do not provide statistically significant *evidence* that the odds (or risks, hazards, or means) differ”. Statistical significance is a property of evidence, not of the estimands.
 
@@ -399,5 +399,27 @@ Wikipedia contributors, “Margin of error — Wikipedia, the free encyclopedia.
 \[14\]
 
 E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
+
+# Definitions on this page
+
+- [Definition 1 (Statistical inference)](#def-inference)
+- [Definition 2 (Null hypothesis)](#def-null-hypothesis)
+- [Definition 3 (Alternative hypothesis)](#def-alternative-hypothesis)
+- [Definition 4 (Two-sided alternative)](#def-two-sided-alternative)
+- [Definition 5 (Test statistic)](#def-test-statistic)
+- [Definition 6 (p-value)](#def-p-value)
+- [Definition 7 (Significance level)](#def-significance-level)
+- [Definition 8 (Statistically significant)](#def-statistically-significant)
+- [Definition 9 (Chi-square distribution)](#def-chi-square-dist)
+- [Definition 10 (t-distribution (Student’s t-distribution))](#def-t-dist)
+- [Definition 11 (F-distribution)](#def-f-dist)
+- [Definition 12 (Confidence interval)](#def-confidence-interval)
+- [Definition 13 (Coverage probability)](#def-coverage-probability)
+- [Definition 14 (Confidence coefficient)](#def-confidence-coefficient)
+- [Definition 15 (Exact confidence interval)](#def-exact-confidence-interval)
+- [Definition 16 (Conservative confidence interval)](#def-conservative-confidence-interval)
+- [Definition 17 (Confidence set)](#def-confidence-set)
+- [Definition 18 (Approximate confidence interval)](#def-approximate-ci)
+- [Definition 19 (Margin of error (radius))](#def-margin-error)
 
 Back to top

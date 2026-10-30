@@ -14,11 +14,11 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and population mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
-## 1 Consistency
+## 0.1 Consistency
 
 > **NOTE:**
 >
@@ -143,7 +143,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > The simulated probability shrinks toward zero as \\n\\ grows, as consistency says it must, and it lies below the bound at every sample size here, which is loose for small \\n\\ but follows the same \\1/n\\ decay.
 
-## 2 Efficiency
+## 0.2 Efficiency
 
 > **NOTE:**
 >
@@ -173,7 +173,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > Casella and Berger [\[1, Sec. 10.1\]](#ref-CaseBerg01), pp. 467–480 covers point estimation, including consistency, efficiency and bootstrap standard errors.
 
-## 3 The Cramér–Rao lower bound
+## 0.3 The Cramér–Rao lower bound
 
 > **NOTE:**
 >
@@ -283,5 +283,11 @@ R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical infer
 \[9\]
 
 J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
+
+# Definitions on this page
+
+- [Definition 1 (Consistent estimator)](#def-consistent)
+- [Definition 2 (Relative efficiency)](#def-relative-efficiency)
+- [Definition 3 (Efficient estimator)](#def-efficient)
 
 Back to top

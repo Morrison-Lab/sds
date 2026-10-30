@@ -14,13 +14,13 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
-## 1 Overview of maximum likelihood estimation
+## 0.1 Overview of maximum likelihood estimation
 
 These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with some material from [\[2\]](#ref-mclachlan2007em) and [\[3\]](#ref-CaseBerg01).
 
-### 1.1 The likelihood function
+### 0.1.1 The likelihood function
 
 > **NOTE:**
 >
@@ -92,7 +92,7 @@ These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with s
 >
 > *Proof*. This is the solution to [Exercise 2](#exr-ds-lik-obs-lik).
 
-### 1.2 The maximum likelihood estimate
+### 0.1.2 The maximum likelihood estimate
 
 > **NOTE:**
 >
@@ -116,7 +116,7 @@ These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with s
 > - Casella and Berger [\[3, Sec. 7.2.2\]](#ref-CaseBerg01), pp. 315–323 covers maximum likelihood estimators.
 > - Rice [\[8, Sec. 8.5\]](#ref-rice2007mathematical), pp. 267–284 covers the method of maximum likelihood.
 
-### 1.3 Finding the maximum of a function
+### 0.1.3 Finding the maximum of a function
 
 > **NOTE:**
 >
@@ -128,7 +128,7 @@ These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with s
 
 From calculus: if \\f(x)\\ is differentiable, its maximum over an interval of input values can occur only at an endpoint of the interval or at a [critical point](#def-critical-point). At a critical point \\x_0\\, \\f''(x_0) \< 0\\ is sufficient for \\x_0\\ to be a local maximum, but not necessary: \\f(x) = -x^4\\ has a maximum at \\x_0 = 0\\, where \\f''(0) = 0\\. For a function of a vector, a negative definite Hessian matrix at a critical point is sufficient for a local maximum.
 
-### 1.4 Directly maximizing the likelihood function for independent data
+### 0.1.4 Directly maximizing the likelihood function for independent data
 
 To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta) = 0\\ for \\\theta\\. For mutually independent data, [Equation 1](#eq-Lik) gives:
 
@@ -136,7 +136,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 [Equation 3](#eq-deriv-Lik) is the derivative of a product of \\n\\ factors, which takes \\n - 1\\ applications of the [product rule](https://morrison-lab.github.io/mds/calculus.html#thm-product-rule) and produces \\n\\ terms. The log-likelihood avoids this work.
 
-### 1.5 The log-likelihood function
+### 0.1.5 The log-likelihood function
 
 > **NOTE:**
 >
@@ -212,7 +212,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 >
 > *Proof*. This is the solution to [Exercise 5](#exr-deriv-llik-iid).
 
-### 1.6 The score function
+### 0.1.6 The score function
 
 > **NOTE:**
 >
@@ -304,7 +304,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 The score equation is one example of an **estimating equation**, an equation whose solution defines an estimator. Estimating equations in general need not come from a likelihood.
 
-### 1.7 Information matrices
+### 0.1.7 Information matrices
 
 > **NOTE:**
 >
@@ -559,7 +559,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 These notes write the [observed information](intro-MLEs.llms.md#def-oinf) as \\I\\ and the [expected information](intro-MLEs.llms.md#def-einf) as \\\mathcal{I}\\. Sources disagree on these symbols. The [Notation Across Sources page](https://morrison-lab.github.io/macros/notation-across-sources.html#sec-notation-information) of the macros site lists them side by side.
 
-### 1.8 Asymptotic distribution of the maximum likelihood estimate
+### 0.1.8 Asymptotic distribution of the maximum likelihood estimate
 
 > **NOTE:**
 >
@@ -598,9 +598,9 @@ where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\mathord{\sma
 > - Hogg et al. [\[7, Sec. 6.6\]](#ref-hoggtanis2015), pp. 285–289 covers asymptotic distributions of maximum likelihood estimators.
 > - Rice [\[8, Sec. 8.5.2\]](#ref-rice2007mathematical), pp. 274–278 covers large-sample theory for maximum likelihood estimators.
 
-### 1.9 Quantifying uncertainty about MLEs
+### 0.1.9 Quantifying uncertainty about MLEs
 
-#### 1.9.1 Confidence intervals for MLEs
+#### 0.1.9.1 Confidence intervals for MLEs
 
 > **NOTE:**
 >
@@ -617,7 +617,7 @@ By [Theorem 15](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/{\mathop{\wideha
 > - Casella and Berger [\[3, Sec. 10.4.1\]](#ref-CaseBerg01), pp. 496–498 covers approximate maximum likelihood intervals.
 > - Rice [\[8, Sec. 8.5.3\]](#ref-rice2007mathematical), pp. 279–284 covers confidence intervals from maximum likelihood estimators.
 
-#### 1.9.2 Wald tests
+#### 0.1.9.2 Wald tests
 
 > **NOTE:**
 >
@@ -654,7 +654,7 @@ By [Theorem 15](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/{\mathop{\wideha
 >
 > *Remark 7* (Null distributions of the Wald statistics). By [Theorem 15](#thm-dist-mle), the statistic \\Z\\ of the [Wald test](#def-wald-test) has approximately a standard Gaussian distribution under \\H_0\\ in large samples. The Wald statistic for \\q\\ constraints ([Definition 15](#def-wald-statistic-q)) has approximately a \\\chi^2_q\\ distribution under \\H_0\\.
 
-#### 1.9.3 Likelihood ratio tests for MLEs
+#### 0.1.9.3 Likelihood ratio tests for MLEs
 
 > **NOTE:**
 >
@@ -781,7 +781,7 @@ See also [\[1, Sec. 5.7\]](#ref-dobson4e) and <https://online.stat.psu.edu/stat5
 > - Casella and Berger [\[3, Sec. 10.3.1\]](#ref-CaseBerg01), pp. 488–491 covers asymptotic distribution of likelihood ratio tests.
 > - Rice [\[8, Sec. 9.4\]](#ref-rice2007mathematical), pp. 339–340 covers generalized likelihood ratio tests.
 
-#### 1.9.4 Exact and approximate tests
+#### 0.1.9.4 Exact and approximate tests
 
 > **NOTE:**
 >
@@ -800,7 +800,7 @@ See also [\[1, Sec. 5.7\]](#ref-dobson4e) and <https://online.stat.psu.edu/stat5
 >
 > *Remark 9* (Exact and approximate tests). The \\t\\ and \\F\\ distributions are defined in [Statistical Inference](inference.llms.md#sec-reference-distributions). The exact tests assume \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ N(\mu_i, \sigma^2)\\, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of [Theorem 15](#thm-dist-mle), Gaussian or not.
 
-#### 1.9.5 Prediction intervals
+#### 0.1.9.5 Prediction intervals
 
 > **NOTE:**
 >
@@ -830,11 +830,11 @@ Usually \\m = 1\\. The term \\1/n\\ accounts for the uncertainty in \\\hat{\mu}\
 >
 > The prediction interval is always the wider of the two, because its variance has the extra term \\\sigma^2/ m\\, the variance of the new observations’ sample mean. As \\n\\ grows, the width of the confidence interval shrinks to 0, but the width of the prediction interval shrinks only to \\2 z\_{1 - \alpha/2} \\ \sigma/ \sqrt{m}\\: more data pins down \\\mu\\, but cannot remove the randomness of the new observations. The same contrast holds in regression, between a confidence interval for the conditional mean \\{\mathbb{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}}\\ and a prediction interval for a new outcome \\Y\\ at \\X = x\\.
 
-## 2 Example: maximum likelihood for tropical cyclones in Australia
+## 0.2 Example: maximum likelihood for tropical cyclones in Australia
 
 Adapted from [\[1, Sec. 1.6.5\]](#ref-dobson4e).
 
-### 2.1 Data
+### 0.2.1 Data
 
 [Table 2](#tbl-cyclones-data) records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 [\[1, Sec. 1.6.5\]](#ref-dobson4e). [Figure 1](#fig-dobson-cyclone-time-series) graphs the number of cyclones by season. Let \\X_i\\ represent the number of cyclones in season \\i\\, and \\x_i\\ its observed value.
 
@@ -872,7 +872,7 @@ Adapted from [\[1, Sec. 1.6.5\]](#ref-dobson4e).
 >
 > Table 2: Number of tropical cyclones during each November-to-April season in northeastern Australia [\[1, Sec. 1.6.5\]](#ref-dobson4e)
 
-### 2.2 Exploratory analysis
+### 0.2.2 Exploratory analysis
 
 Suppose we want to learn how many cyclones to expect per season.
 
@@ -944,7 +944,7 @@ Suppose we want to learn how many cyclones to expect per season.
 >
 > Table 3: Summary statistics for the `cyclones` data
 
-### 2.3 Model
+### 0.2.3 Model
 
 We want to estimate \\\Pr(X = x)\\; that is, \\\Pr(X = x)\\ is our [estimand](estimation.llms.md#def-estimand).
 
@@ -966,7 +966,7 @@ We could estimate \\\Pr(X = x)\\ for each value of \\x\\ in \\0, 1, 2, \ldots\\ 
 >
 > *Solution 20*. \\\Pr(X = x) = \frac{{\lambda}^{x} e^{-{\lambda}}}{x!}, \quad x \in \mathopen{}\left\\0, 1, 2, \ldots\right\\\mathclose{} \tag{15}\\
 
-### 2.4 Estimating the model parameters using maximum likelihood
+### 0.2.4 Estimating the model parameters using maximum likelihood
 
 We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 
@@ -1081,7 +1081,7 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 > >
 > > Figure 4: Log-likelihood of the cyclone data
 
-#### 2.4.1 The score function
+#### 0.2.4.1 The score function
 
 > **NOTE:**
 >
@@ -1126,7 +1126,7 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 > >
 > > Figure 5: Score function of the cyclone data
 
-#### 2.4.2 The Hessian
+#### 0.2.4.2 The Hessian
 
 > **NOTE:**
 >
@@ -1179,7 +1179,7 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 >
 > *Solution 32*. \\\ell'({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = 0\\
 
-### 2.5 Finding the MLE analytically
+### 0.2.5 Finding the MLE analytically
 
 In this example, we can find the MLE of \\{\lambda}\\ by solving the score equation algebraically.
 
@@ -1261,9 +1261,9 @@ Call this solution of the score equation \\\tilde {\lambda}\\ for now:
 >
 > Figure 8: Observed information of the cyclone data
 
-### 2.6 Finding the MLE using the Newton-Raphson algorithm
+### 0.2.6 Finding the MLE using the Newton-Raphson algorithm
 
-#### 2.6.1 Iterative maximization
+#### 0.2.6.1 Iterative maximization
 
 When we cannot solve the score equation \\\ell'(\theta) = 0\\ algebraically, we can search for its solution numerically [\[1, Ch. 4\]](#ref-dobson4e).
 
@@ -1313,7 +1313,7 @@ The expected information is sometimes simpler to compute than the observed infor
 
 For \\\operatorname{iid}\\ data, \\\frac{1}{n}I_e(\theta; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\ is the sample covariance matrix (with divisor \\n\\) of the observations’ scores, so it estimates the covariance matrix of one observation’s score, \\\mathcal{I}(\theta)/n\\ ([Theorem 13](#thm-information-equality)). The empirical information needs only first derivatives, so it can be easier to compute than the observed information, and it can replace the observed information in the Newton-Raphson update.
 
-#### 2.6.2 Applying Newton-Raphson to the cyclone data
+#### 0.2.6.2 Applying Newton-Raphson to the cyclone data
 
 > **NOTE:**
 >
@@ -1585,9 +1585,9 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 >
 > Figure 13: Newton-Raphson steps toward the MLE of the Poisson model ([Equation 15](#eq-iid-model)) for the cyclone data
 
-## 3 Maximum likelihood for a Bernoulli model without covariates
+## 0.3 Maximum likelihood for a Bernoulli model without covariates
 
-### 3.1 The likelihood
+### 0.3.1 The likelihood
 
 > **NOTE:**
 >
@@ -1611,7 +1611,7 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 >
 > *Proof*. This is the solution to [Exercise 37](#exr-bernoulli-likelihood-one-group), worked in [Solution 37](#sol-bernoulli-likelihood-one-group).
 
-### 3.2 Log-likelihood contributions
+### 0.3.2 Log-likelihood contributions
 
 > **NOTE:**
 >
@@ -1656,7 +1656,7 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 >
 > *Proof*. This is the solution to [Exercise 39](#exr-bernoulli-loglik-contribution-logodds), worked in [Solution 39](#sol-bernoulli-loglik-contribution-logodds). It follows from [Theorem 18](#thm-bernoulli-loglik-contribution).
 
-### 3.3 The log-likelihood of the sample
+### 0.3.3 The log-likelihood of the sample
 
 > **NOTE:**
 >
@@ -1678,7 +1678,7 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 >
 > *Proof*. This is the solution to [Exercise 40](#exr-bernoulli-loglik-one-group), worked in [Solution 40](#sol-bernoulli-loglik-one-group). It builds on [Theorem 17](#thm-bernoulli-likelihood-one-group).
 
-### 3.4 Score contributions
+### 0.3.4 Score contributions
 
 > **NOTE:**
 >
@@ -1781,7 +1781,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > *Proof*. The [score](#def-score) contribution as \\(y_i- \pi) / \mathopen{}\left(\pi(1 - \pi)\right)\mathclose{}\\ is the solution to [Exercise 43](#exr-bernoulli-score-contribution), worked in [Solution 43](#sol-bernoulli-score-contribution). The form in terms of the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean) is the solution to [Exercise 44](#exr-bernoulli-score-contribution-deviation), worked in [Solution 44](#sol-bernoulli-score-contribution-deviation).
 
-### 3.5 The score function of the sample
+### 0.3.5 The score function of the sample
 
 > **NOTE:**
 >
@@ -1814,7 +1814,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > *Proof*. The first equality is the solution to [Exercise 46](#exr-bernoulli-score-sum), worked in [Solution 46](#sol-bernoulli-score-sum). The second is the solution to [Exercise 45](#exr-bernoulli-sample-mean-deviation), worked in [Solution 45](#sol-bernoulli-sample-mean-deviation).
 
-### 3.6 Solving the score equation
+### 0.3.6 Solving the score equation
 
 > **NOTE:**
 >
@@ -1840,7 +1840,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > **Example 16 (Score equation of a Bernoulli sample)** For \\n\\ independent Bernoulli observations with \\r = \sum_i y_i\\ successes, the score is \\\sum\_{i=1}^n(y_i- \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}\\ (summing [Bernoulli score](#thm-bernoulli-score) over the observations), so for \\0 \< r \< n\\ the score equation \\(r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0\\ has the single solution \\\pi= r/n\\.
 
-### 3.7 Hessian contributions
+### 0.3.7 Hessian contributions
 
 > **NOTE:**
 >
@@ -1954,7 +1954,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > *Proof*. This is the solution to [Exercise 50](#exr-bernoulli-hessian-contribution-fraction), worked in [Solution 50](#sol-bernoulli-hessian-contribution-fraction). It follows from [Corollary 2](#cor-bernoulli-hessian-contribution-precision).
 
-### 3.8 The Hessian of the sample
+### 0.3.8 The Hessian of the sample
 
 > **NOTE:**
 >
@@ -1974,7 +1974,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > *Proof*. This is the solution to [Exercise 51](#exr-bernoulli-hessian-sum), worked in [Solution 51](#sol-bernoulli-hessian-sum).
 
-### 3.9 Checking that the Hessian is negative definite
+### 0.3.9 Checking that the Hessian is negative definite
 
 > **NOTE:**
 >
@@ -2004,7 +2004,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > *Proof*. This is the solution to [Exercise 52](#exr-bernoulli-hessian-nd), worked in [Solution 52](#sol-bernoulli-hessian-nd). It builds on [Theorem 25](#thm-bernoulli-hessian-sum).
 
-### 3.10 The maximum likelihood estimate
+### 0.3.10 The maximum likelihood estimate
 
 > **NOTE:**
 >
@@ -2024,7 +2024,7 @@ In all four examples ([Bernoulli score](#thm-bernoulli-score), [Theorem 6](#thm
 >
 > *Proof*. This is the solution to [Exercise 53](#exr-bernoulli-mle), worked in [Solution 53](#sol-bernoulli-mle). It builds on [Theorem 23](#thm-bernoulli-score-equation) and [Theorem 26](#thm-bernoulli-hessian-nd).
 
-## 4 Maximum likelihood for univariate Gaussian models
+## 0.4 Maximum likelihood for univariate Gaussian models
 
 Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ {\operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}}\\, and let \\x_1, \ldots, x_n\\ be the observed values. The parameter vector is \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}= (\mu, \sigma^2)\\. We treat \\\sigma^2\\, rather than \\\sigma\\, as the second parameter, and differentiate with respect to \\\sigma^2\\ directly.
 
@@ -2036,7 +2036,7 @@ and by [the log-likelihood of independent data](#thm-loglik-iid), the log-likeli
 
 \\ \begin{aligned} \ell(\mu, \sigma^2) &= \sum\_{i=1}^n{\operatorname{log}\mathopen{}\left\\(2\pi\sigma^2)^{-1/2} {\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}}\right\\\mathclose{}} && \text{(log of each Gaussian density)}\\ &= \sum\_{i=1}^n\mathopen{}\left({\operatorname{log}\mathopen{}\left\\(2\pi\sigma^2)^{-1/2}\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\{\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a product)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{1}{2}{\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\{\operatorname{exp}\mathopen{}\left\\-\frac{(x_i- \mu)^2}{2\sigma^2}\right\\\mathclose{}}\right\\\mathclose{}}\right)\mathclose{} && \text{(log of a power)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{1}{2}{\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{}} - \frac{(x_i- \mu)^2}{2\sigma^2}\right)\mathclose{} && \text{(\$\operatorname{log}\$ undoes \$\operatorname{exp}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{1}{2}{\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{}}\right)\mathclose{} - \sum\_{i=1}^n\frac{(x_i- \mu)^2}{2\sigma^2} && \text{(distribute the sum over the terms)}\\ &= -\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{}} - \sum\_{i=1}^n\frac{(x_i- \mu)^2}{2\sigma^2} && \text{(sum of \$n\$ identical terms)}\\ &= -\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{}} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(factor the constant \$\tfrac{1}{2\sigma^2}\$ out of the sum)}\\ &= -\frac{n}{2}\mathopen{}\left({\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(log of a product)}\\ &= -\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}} - \frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \mu)^2 && \text{(distribute \$-\tfrac{n}{2}\$)} \end{aligned} \\
 
-### 4.1 The score function
+### 0.4.1 The score function
 
 The score function is the vector of the two partial derivatives:
 
@@ -2058,7 +2058,7 @@ For the second entry, write the [population variance](https://morrison-lab.githu
 
 \\ \begin{aligned} \frac{\partial}{\partial \sigma^2}\ell &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}} - \frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}S\right)\mathclose{} && \text{(Gaussian log-likelihood)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}S\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= 0 + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}S\right)\mathclose{} && \text{(derivative of a constant)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}S\right)\mathclose{} && \text{(drop the zero term)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{1}{2}S {\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1}\right)\mathclose{} && \text{(reorder the factors)}\\ &= -\frac{n}{2}\frac{\partial}{\partial \sigma^2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{1}{2}S \frac{\partial}{\partial \sigma^2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} && \text{(constant multiple rule)}\\ &= -\frac{n}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} - \frac{1}{2}S \frac{\partial}{\partial \sigma^2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} && \text{(derivative of \$\log v\$)}\\ &= -\frac{n}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} - \frac{1}{2}S \mathopen{}\left(-{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-2}\right)\mathclose{} && \text{(power rule for \$v^{-1}\$)}\\ &= -\frac{n}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} + \frac{1}{2}S {\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-2} && \text{(multiply)}\\ &= -\frac{n}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-1} + \frac{1}{2}{\mathopen{}\left(\sigma^2\right)\mathclose{}}^{-2}S && \text{(reorder the factors)} \end{aligned} \\
 
-### 4.2 MLE of \\\mu\\
+### 0.4.2 MLE of \\\mu\\
 
 Setting \\\frac{\partial}{\partial \mu}\ell= 0\\:
 
@@ -2070,7 +2070,7 @@ This solution does not depend on \\\sigma^2\\. The second derivative is
 
 so for every fixed \\\sigma^2\\, \\\ell\\ is maximized over \\\mu\\ at \\\bar x\\, and \\\hat{\mu}\_{\text{ML}} = \bar x\\.
 
-### 4.3 The profile log-likelihood
+### 0.4.3 The profile log-likelihood
 
 > **NOTE:**
 >
@@ -2084,7 +2084,7 @@ so for every fixed \\\sigma^2\\, \\\ell\\ is maximized over \\\mu\\ at \\\bar x\
 >
 > \\ \begin{aligned} \ell_p(\sigma^2) &= \ell(\bar x, \sigma^2) && \text{(definition of the profile log-likelihood)}\\ &= -\frac{n}{2}{\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}} - \frac{n}{2}{\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i- \bar x)^2 && \text{(Gaussian log-likelihood at \$\mu= \bar x\$)} \end{aligned} \\
 
-### 4.4 MLE of \\\sigma^2\\
+### 0.4.4 MLE of \\\sigma^2\\
 
 Setting \\\frac{\partial}{\partial \sigma^2}\ell= 0\\:
 
@@ -2104,7 +2104,7 @@ The profile log-likelihood, \\\ell_p(\sigma^2) = -\frac{n}{2}{\operatorname{log}
 >
 > *Remark 13* (The Gaussian variance MLE is biased). This MLE divides by \\n\\, so it is a biased estimator of \\\sigma^2\\ ([bias of the divide-by-\\n\\ estimator](estimation.llms.md#exm-biased-variance-mle)).
 
-### 4.5 Second derivatives
+### 0.4.5 Second derivatives
 
 The remaining second derivatives are:
 
@@ -2114,7 +2114,7 @@ At the MLE, \\\sum\_{i=1}^n(x_i- \bar x) = 0\\ and \\\sum\_{i=1}^n(x_i- \bar x)^
 
 \\ \begin{aligned} \left.{\frac{\partial^2 \ell}{\partial (\sigma^2)^2}}\right\|\_{\text{MLE}} &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3}\sum\_{i=1}^n(x_i- \bar x)^2 && \text{(evaluate at \$\mu= \bar x\$, \$\sigma^2= \hat{\sigma}^2\$)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3} n\hat{\sigma}^2 && \text{(substitute \$\textstyle\sum\_{i=1}^n(x_i- \bar x)^2 = n\hat{\sigma}^2\$)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3}\hat{\sigma}^2 && \text{(reorder the factors)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} && \text{(cancel one factor of \$\hat{\sigma}^2\$)}\\ &= -\frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} && \text{(combine like terms)}\\ \left.{\frac{\partial^2 \ell}{\partial \mu \partial \sigma^2}}\right\|\_{\text{MLE}} &= -\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i- \bar x) && \text{(evaluate at \$\mu= \bar x\$, \$\sigma^2= \hat{\sigma}^2\$)}\\ &= -\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} \cdot 0 && \text{(substitute \$\textstyle\sum\_{i=1}^n(x_i- \bar x) = 0\$)}\\ &= 0 && \text{(multiply by zero)} \end{aligned} \\
 
-### 4.6 Information matrix and standard errors
+### 0.4.6 Information matrix and standard errors
 
 Collecting the second derivatives at the MLE, the [observed information](#def-oinf) is
 
@@ -2128,11 +2128,11 @@ By [the asymptotic distribution of the MLE](#thm-dist-mle), the estimated standa
 
 See also [\[3\]](#ref-CaseBerg01), Example 7.2.12.
 
-## 5 Example: hormone therapy study
+## 0.5 Example: hormone therapy study
 
 This example fits a Gaussian model to real data by maximum likelihood, and then uses simulation to examine the properties of maximum likelihood estimation for that model.
 
-### 5.1 Data
+### 0.5.1 Data
 
 The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) [\[21\]](#ref-HulleyStephen1998RToE).
 
@@ -2207,7 +2207,7 @@ summary(glucose_data)
 
 The histogram is irregular, as histograms of 100 observations often are, with a somewhat longer right tail than left tail. A Gaussian model is a rough but usable starting point.
 
-### 5.2 Maximum likelihood estimates
+### 0.5.2 Maximum likelihood estimates
 
 By the [Gaussian MLEs](#sec-gaussian-mle), \\\hat{\mu}\_{\text{ML}} = \bar x\\ and \\\hat{\sigma}^2\_{\text{ML}} = \frac{1}{n}\sum_i (x_i- \bar x)^2\\:
 
@@ -2240,7 +2240,7 @@ c(mu_hat = mu_hat, sigma_sq_hat = sigma_sq_hat)
 
 The fitted curve follows the overall shape of the histogram, but it underestimates the frequency of values between 110 and 122 mg/dL, consistent with the histogram’s longer right tail.
 
-### 5.3 Likelihood and log-likelihood functions
+### 0.5.3 Likelihood and log-likelihood functions
 
 It is numerically better to compute the log-likelihood first and exponentiate it to get the likelihood, because a product of 100 densities can underflow to zero:
 
@@ -2344,7 +2344,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 >
 > Figure 17: Likelihood and log-likelihood of the HERS glucose data as functions of \\\sigma\\, with \\\mu= \hat{\mu}\_{\text{ML}}\\; the red line marks \\\hat{\sigma}\_{\text{ML}}\\
 
-### 5.4 Log-likelihood surface
+### 0.5.4 Log-likelihood surface
 
 [Figure 18](#fig-3d-llik) graphs the log-likelihood over both parameters at once.
 
@@ -2378,7 +2378,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 >
 > Figure 18: Log-likelihood of the HERS glucose data as a function of \\\mu\\ and \\\sigma\\ (interactive: drag to rotate)
 
-### 5.5 Standard errors by sample size
+### 0.5.5 Standard errors by sample size
 
 By the [covariance matrix of the Gaussian MLEs](#sec-covariance-matrix), the estimated standard error of \\\hat{\mu}\_{\text{ML}}\\ is
 
@@ -2405,7 +2405,7 @@ which shrinks in proportion to \\1/\sqrt{n}\\ ([Figure 19](#fig-hers-se-by-n)).
 >
 > Figure 19: Standard error of \\\hat{\mu}\_{\text{ML}}\\ as a function of sample size, with \\\sigma= \hat{\sigma}\_{\text{ML}}\\
 
-### 5.6 Power
+### 0.5.6 Power
 
 Suppose we test the null hypothesis \\H_0: \mu= \mu_0\\, with \\\mu_0 = 95\\ mg/dL, at significance level \\\alpha= 0.05\\, and suppose for simplicity that \\\sigma\\ is known, equal to \\\hat{\sigma}\_{\text{ML}}\\. Then under \\H_0\\, \\\bar X \sim {\operatorname{N}\mathopen{}\left(\mu_0, \sigma^2/n\right)\mathclose{}}\\, and the test rejects \\H_0\\ when \\\bar x\\ falls outside the non-rejection interval
 
@@ -2472,7 +2472,7 @@ power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 >
 > *Remark 14* (Choosing the alternative, and observed power). The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat{\mu}\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed [\[23\]](#ref-hoenig2001abuse).
 
-### 5.7 Simulation
+### 0.5.7 Simulation
 
 To check how maximum likelihood estimation behaves for this model, we simulate many datasets from a Gaussian distribution whose parameters equal the HERS estimates, analyze each one, and summarize the results.
 
@@ -2590,7 +2590,7 @@ Across 1000 simulated datasets:
 
 Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` shows how these properties depend on them.
 
-## 6 Practice exercises
+## 0.6 Practice exercises
 
 > **NOTE:**
 >
@@ -2953,5 +2953,30 @@ J. M. Hoenig and D. M. Heisey, “The abuse of power: The pervasive fallacy of p
 \[24\]
 
 D. G. Kleinbaum, L. L. Kupper, A. Nizam, K. Muller, and E. Rosenberg, *Applied regression analysis and other multivariable methods*, 5th ed. Cengage Learning, 2014. Available: <https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/>
+
+# Definitions on this page
+
+- [Definition 1 (Likelihood of a single observation)](#def-lik-obs)
+- [Definition 2 (Likelihood of a dataset)](#def-lik)
+- [Definition 3 (Likelihood component (likelihood factor))](#def-lik-factor)
+- [Definition 4 (Maximum likelihood estimate)](#def-mle)
+- [Definition 5 (Critical point)](#def-critical-point)
+- [Definition 6 (Log-likelihood)](#def-loglik)
+- [Definition 7 (Score function)](#def-score)
+- [Definition 8 (Score equation)](#def-score-equation)
+- [Definition 9 (Hessian)](#def-hessian)
+- [Definition 10 (Expected information matrix (Fisher information matrix, information matrix))](#def-einf)
+- [Definition 11 (Observed information matrix)](#def-oinf)
+- [Definition 12 (Kullback–Leibler divergence between two parameter values)](#def-model-kl-divergence)
+- [Definition 13 (Wald confidence interval)](#def-wald-ci)
+- [Definition 14 (Wald test)](#def-wald-test)
+- [Definition 15 (Wald statistic for several constraints)](#def-wald-statistic-q)
+- [Definition 16 (Likelihood ratio statistic)](#def-lrt-stat)
+- [Definition 17 (Prediction interval)](#def-prediction-interval)
+- [Definition 18 (Newton-Raphson algorithm)](#def-newton-raphson)
+- [Definition 19 (Fisher scoring (method of scoring))](#def-fisher-scoring)
+- [Definition 20 (Empirical information matrix)](#def-empirical-information)
+- [Definition 21 (Profile log-likelihood)](#def-profile-loglik)
+- [Definition 22 (Power)](#def-power)
 
 Back to top

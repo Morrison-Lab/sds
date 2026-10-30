@@ -14,9 +14,9 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
-## 1 Data sets, input matrices and outcome vectors
+## 0.1 Data sets, input matrices and outcome vectors
 
 > **NOTE:**
 >
@@ -66,7 +66,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > The [input matrix](#def-input-matrix) `X_cars5` has 5 rows, one per car, and 2 columns, one per input variable. The [outcome vector](#def-outcome-vector) `y_cars5` has 5 entries, one per car.
 
-## 2 Fitting and scoring models
+## 0.2 Fitting and scoring models
 
 > **NOTE:**
 >
@@ -376,7 +376,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > *Remark 7* (Source: Training error). Hastie et al. [\[4, Sec. 7.2\]](#ref-hastie2009elements), who write the training error as \\\overline{\text{err}}\\ and define it for any loss.
 
-## 3 Overfitting
+## 0.3 Overfitting
 
 > **NOTE:**
 >
@@ -453,7 +453,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > **Example 19 (Polynomial degree)** In [Exercise 1](#exr-overfitting), least squares computes the coefficients of each polynomial from the 20 training cars, but the degree \\d\\ is fixed before the fit. So the degree is a [tuning parameter](#def-tuning-parameter) of least-squares polynomial fitting, and the four fits are \\g\_{1}, g\_{2}, g\_{3}, g\_{4}\\ with \\\lambda= d\\.
 
-## 4 Generalization error
+## 0.4 Generalization error
 
 > **NOTE:**
 >
@@ -1211,7 +1211,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No [fitted model](#def-fitted-model) can have generalization [pRMSE](estimation.llms.md#def-rmse) below \\\sigma= 0.3\\. Yet the training sRMSE falls below \\\sigma\\ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
 
-## 5 Training, validation, and test sets
+## 0.5 Training, validation, and test sets
 
 > **NOTE:**
 >
@@ -1622,7 +1622,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 > >
 > > The validation-set lab of James et al. [\[6, p. 213\]](#ref-james2021islr2e).
 
-## 6 \\k\\-fold cross-validation
+## 0.6 \\k\\-fold cross-validation
 
 > **NOTE:**
 >
@@ -1997,7 +1997,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > Each row of [Table 4](#tbl-cv-mtcars-repeats) holds, for each degree, the square root of \\\widehat{\operatorname{Err}}\_{\text{CV}(4)}\\ ([Equation 52](#eq-cv-estimate)) for one fold assignment. Across fold assignments, the estimate for one degree varied by as much as 0.32 mpg, but every assignment chose degree 2: the estimates moved, and the winner did not. A single run of \\k\\-fold cross-validation reports one of these rows, so a small difference between two models’ estimates may not survive a different split.
 
-## 7 Leave-one-out cross-validation
+## 0.7 Leave-one-out cross-validation
 
 > **NOTE:**
 >
@@ -2151,7 +2151,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > *Remark 36* (When to use leave-one-out cross-validation). LOOCV is the \\k= n\\ end of [Remark 30](#rem-choosing-k). By [Remark 29](#rem-cv-estimate), \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ estimates \\{\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}}\\ for the fitting procedure \\g\\: each [fitted model](#def-fitted-model) is fitted to \\n- 1\\ observations, so the bias of \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ as an estimate of \\{\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}}\\ is the smallest of any \\k\\. But the \\n\\ training sets are nearly identical, so the variance of \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ can be larger than that of 5- or 10-fold cross-validation [\[6, Sec. 5.1.4\]](#ref-james2021islr2e). For least squares fits, [Theorem 8](#thm-loocv-shortcut) computes LOOCV from a single fit; for most other fitting methods, LOOCV requires \\n\\ fits.
 
-## 8 Choosing a model by cross-validation
+## 0.8 Choosing a model by cross-validation
 
 > **NOTE:**
 >
@@ -2298,7 +2298,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization pRMSE of [Example 31](#exm-train-test-error-simulated) for each: 0.335 for degree 8 and 0.315 for degree 3.
 
-## 9 Criteria that adjust the training error
+## 0.9 Criteria that adjust the training error
 
 > **NOTE:**
 >
@@ -2447,7 +2447,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > Each criterion assumes a [model family](#def-model-family) whose parameter count measures its [flexibility](#def-flexibility). When the [estimate](estimation.llms.md#def-estimate) of the noise variance comes from the [fitted model](#def-fitted-model) itself, it can reach zero, and the criteria then fail. Cross-validation makes no such assumption.
 
-## 10 Cross-validating the whole procedure
+## 0.10 Cross-validating the whole procedure
 
 > **NOTE:**
 >
@@ -2546,7 +2546,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > Hastie et al. [\[4, Sec. 7.10.2\]](#ref-hastie2009elements) note that steps using only the predictors, such as dropping predictors with almost no variation, can be done once on all the data before the folds are formed. Repeating such a step inside each fold is never wrong, though, and it scores each held-out fold the way new data would be scored. Examples are estimating the mean and standard deviation used for [standardization](exploratory-descriptive.llms.md#def-standardization), and the values used to fill in missing predictor values, when they are computed without the outcome.
 
-## 11 Further reading
+## 0.11 Further reading
 
 Sanchez [\[14\]](#ref-sanchez2020matrix4sl) reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.
 
@@ -2625,5 +2625,80 @@ H. Akaike, “A new look at the statistical model identification,” *IEEE Trans
 \[18\]
 
 G. Schwarz, “Estimating the dimension of a model,” *The Annals of Statistics*, vol. 6, no. 2, pp. 461–464, 1978, doi: [10.1214/aos/1176344136](https://doi.org/10.1214/aos/1176344136).
+
+# Definitions on this page
+
+- [Definition 1 (Data set)](#def-data-set)
+- [Definition 2 (Input matrix)](#def-input-matrix)
+- [Definition 3 (Outcome vector)](#def-outcome-vector)
+- [Definition 4 (Covariate)](#def-covariate)
+- [Definition 5 (Mean function)](#def-mean-function)
+- [Definition 6 (Mean-function model family)](#def-model-family)
+- [Definition 7 (Objective function)](#def-objective-function)
+- [Definition 8 (Random seed)](#def-random-seed)
+- [Definition 9 (Preprocessing)](#def-preprocessing)
+- [Definition 10 (Feature)](#def-feature)
+- [Definition 11 (Tuning parameter)](#def-tuning-parameter)
+- [Definition 12 (Fitted model)](#def-fitted-model)
+- [Definition 13 (Prediction rule )](#def-prediction-rule)
+- [Definition 14 (Fitting procedure)](#def-fitting-procedure)
+- [Definition 15 (Training set)](#def-training-set)
+- [Definition 16 (Prediction function family (hypothesis class, hypothesis space))](#def-prediction-function-family)
+- [Definition 17 (New observation)](#def-new-observation)
+- [Definition 18 (Predictive model)](#def-predictive-model)
+- [Definition 19 (Noise)](#def-noise)
+- [Definition 20 (Loss of a fitted model on an observation)](#def-observation-loss)
+- [Definition 21 (Generalization error)](#def-generalization-error)
+- [Definition 22 (Held-out set (hold-out set))](#def-held-out-set)
+- [Definition 23 (Root mean squared error of predictions)](#def-prediction-rmse)
+- [Definition 24 (Empirical risk)](#def-empirical-risk)
+- [Definition 25 (Training error)](#def-training-mse)
+- [Definition 26 (Overfitting)](#def-overfitting)
+- [Definition 27 (Expected generalization error (expected prediction error, expected test error))](#def-expected-generalization-error)
+- [Definition 31 (Distribution model)](#def-distribution-model)
+- [Definition 32 (Distribution model family)](#def-distribution-model-family)
+- [Definition 33 (Fitted distribution model)](#def-fitted-distribution-model)
+- [Definition 31 (Distribution model)](#def-distribution-model)
+- [Definition 32 (Distribution model family)](#def-distribution-model-family)
+- [Definition 33 (Fitted distribution model)](#def-fitted-distribution-model)
+- [Definition 34 (Expected prediction loss at a covariate value)](#def-epl)
+- [Definition 35 (Expected prediction error at a covariate value)](#def-epe)
+- [Definition 36 (Expected prediction)](#def-average-fit)
+- [Definition 37 (Bias of a prediction)](#def-prediction-bias)
+- [Definition 38 (Residual variance)](#def-irreducible-error)
+- [Definition 39 (Flexibility)](#def-flexibility)
+- [Definition 40 (Bias–variance trade-off)](#def-bias-variance-tradeoff)
+- [Definition 41 (Training/validation/test split)](#def-data-splits)
+- [Definition 42 (Model selection)](#def-model-selection)
+- [Definition 43 (Validation set)](#def-validation-set)
+- [Definition 44 (Validation error)](#def-validation-error)
+- [Definition 45 (Validation choice)](#def-validation-choice)
+- [Definition 46 (Test set)](#def-test-set)
+- [Definition 47 (Test error)](#def-test-error)
+- [Definition 48 (Error rate (misclassification rate))](#def-error-rate)
+- [Definition 49 (Training error rate)](#def-training-error-rate)
+- [Definition 50 (Test error rate)](#def-test-error-rate)
+- [Definition 51 (Folds)](#def-folds)
+- [Definition 52 (Fold size)](#def-fold-size)
+- [Definition 53 (Fold assignment)](#def-fold-assignment)
+- [Definition 54 (Fold-out fitted model)](#def-fold-out-fitted-model)
+- [Definition 55 (\\k\\-fold cross-validation)](#def-kfold)
+- [Definition 56 (Cross-validation estimate)](#def-cv-estimate)
+- [Definition 57 (Fold mean squared error)](#def-fold-mse)
+- [Definition 58 (Leave-one-out cross-validation)](#def-loocv)
+- [Definition 59 (Term vector)](#def-term-vector)
+- [Definition 60 (Cross-product matrix (sum-of-squares and cross-products matrix))](#def-cross-product-matrix)
+- [Definition 61 (Leverage)](#def-leverage)
+- [Definition 62 (Cross-validation estimate of a named procedure)](#def-cv-estimate-indexed)
+- [Definition 63 (Cross-validation choice procedure)](#def-cv-choice)
+- [Definition 64 (Nested cross-validation)](#def-nested-cv)
+- [Definition 65 (Fold-based standard error)](#def-cv-se)
+- [Definition 66 (Fold mean squared error of a named procedure)](#def-fold-mse-indexed)
+- [Definition 67 (Fold-based standard error of a named procedure)](#def-cv-se-indexed)
+- [Definition 68 (One-standard-error rule)](#def-one-se-rule)
+- [Definition 69 (Adjusted coefficient of determination)](#def-adjusted-r-squared)
+- [Definition 70 (Mallows’ \\C_p\\)](#def-mallows-cp)
+- [Definition 71 (Akaike information criterion (AIC))](#def-aic)
+- [Definition 72 (Bayesian information criterion (BIC))](#def-bic)
 
 Back to top

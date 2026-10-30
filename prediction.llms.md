@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
-## 1 Predictions, fitted values, residuals, and prediction errors
+## 0.1 Predictions, fitted values, residuals, and prediction errors
 
 > **NOTE:**
 >
@@ -148,7 +148,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > For a fitted value, the prediction error is the negative of the residual ([Theorem 1](#thm-prediction-error-residual)), so the two differ only in orientation.
 
-## 2 Sample mean squared error of predictions
+## 0.2 Sample mean squared error of predictions
 
 > **NOTE:**
 >
@@ -211,7 +211,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > the residual sum of squares, \\0.25\\, divided by \\n = 3\\.
 
-## 3 Estimation versus prediction
+## 0.3 Estimation versus prediction
 
 > **NOTE:**
 >
@@ -241,5 +241,13 @@ D. W. Hosmer and S. Lemeshow, *Applied logistic regression*. New York: Wiley, 19
 \[4\]
 
 Wikipedia contributors, “Mean squared prediction error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Mean_squared_prediction_error>
+
+# Definitions on this page
+
+- [Definition 1 (Prediction (predicted value))](#def-prediction)
+- [Definition 2 (Fitted value)](#def-fitted-value)
+- [Definition 3 (Residual)](#def-residual)
+- [Definition 4 (Prediction error)](#def-prediction-error)
+- [Definition 5 (Mean squared error of predictions)](#def-prediction-mse)
 
 Back to top

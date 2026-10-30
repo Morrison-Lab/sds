@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests [\[1\]](#ref-wikipedia_multiple_comparisons_problem).
 
@@ -26,7 +26,7 @@ This page does three things:
 
 The next page, [permutation tests](permutation-tests.llms.md), shows how to compute a p-value without a distributional model. These notes follow chapter 13 of James et al. [\[4\]](#ref-james2021islr2e).
 
-## 1 The Khan gene expression data
+## 0.1 The Khan gene expression data
 
 The examples on this page use gene expression data from Khan et al. [\[5\]](#ref-khan2001classification), who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at [`data/khan.csv`](data/khan.csv), taken from the `Khan` data of the R package [`ISLR2`](https://cran.r-project.org/package=ISLR2) [\[4\]](#ref-james2021islr2e): the column `tumor_class` holds the class, and the columns `gene_1` to `gene_2308` hold the expression values. The examples compare classes 2 and 4.
 
@@ -39,9 +39,9 @@ table(tumor_class = khan_pair$tumor_class)
 #> 23 20
 ```
 
-## 2 The multiplicity problem
+## 0.2 The multiplicity problem
 
-### 2.1 The chance of a false positive
+### 0.2.1 The chance of a false positive
 
 > **NOTE:**
 >
@@ -103,7 +103,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > The chance first passes one half at 14 tests. With 2308 tests, the number of genes in the Khan data, the chance of no false positive at all is 3.9e-52, so a false positive is a near certainty.
 
-### 2.2 Testing every gene
+### 0.2.2 Testing every gene
 
 > **NOTE:**
 >
@@ -144,9 +144,9 @@ table(tumor_class = khan_pair$tumor_class)
 > >
 > > Figure 1: Histogram of the 2308 Welch t-test p-values comparing tumor classes 2 and 4 in the Khan data.
 
-## 3 Error rates for a family of tests
+## 0.3 Error rates for a family of tests
 
-### 3.1 Counting errors
+### 0.3.1 Counting errors
 
 > **NOTE:**
 >
@@ -206,7 +206,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > *Remark 1* (Only the number of rejections is observed). \\V\\, \\S\\, \\U\\, \\T\\ and \\R\\ are random, because they depend on the data. In practice only \\m\\ and \\R\\ are observed; \\m_0\\ and the split of \\R\\ into \\V\\ and \\S\\ are not. Error rates are therefore defined as properties of a procedure over repeated data sets, not of the particular list of rejections that one data set produces.
 
-### 3.2 The family-wise error rate
+### 0.3.2 The family-wise error rate
 
 > **NOTE:**
 >
@@ -244,7 +244,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > The estimated FWER is 1: with 900 true null hypotheses, almost every repetition produces a false positive, as [Theorem 1](#thm-false-positive-prob) predicts for tests that are independent.
 
-### 3.3 The false discovery rate
+### 0.3.3 The false discovery rate
 
 > **NOTE:**
 >
@@ -292,7 +292,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > *Remark 3* (The FDR is never larger than the FWER). If \\V \ge 1\\ then \\V / \max(R, 1) \le 1\\ because \\V \le R\\, and if \\V = 0\\ then \\V / \max(R, 1) = 0\\. So \\\text{FDP} \le \mathbb{1}\_{V \ge 1}\\, and taking expectations gives \\\text{FDR} \le \text{FWER}\\. A procedure that controls the FWER at level \\\alpha\\ therefore controls the FDR at level \\\alpha\\ too, but the FDR can be controlled with many more rejections, which is why it suits exploratory screens such as the Khan genes, where a few false positives are an acceptable price for more discoveries.
 
-### 3.4 Valid p-values
+### 0.3.4 Valid p-values
 
 > **NOTE:**
 >
@@ -321,9 +321,9 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > *Remark 5* (Discrete statistics give conservative p-values). When the test statistic is discrete, as in [Fisher’s exact test](categorical-tests.llms.md#def-fishers-exact), a p-value can satisfy \\\Pr\_{H_0}(p \le u) \< u\\ for some \\u\\. It is still valid, but conservative: it rejects a true null hypothesis less often than its nominal level.
 
-## 4 Controlling the family-wise error rate
+## 0.4 Controlling the family-wise error rate
 
-### 4.1 The Bonferroni correction
+### 0.4.1 The Bonferroni correction
 
 > **NOTE:**
 >
@@ -472,7 +472,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > The estimated FWER, 0.043, is below the bound, up to simulation error. The Bonferroni correction loses power in exchange: it finds 15% of the 100 false null hypotheses, against 85% for unadjusted testing.
 
-### 4.2 Holm’s step-down procedure
+### 0.4.2 Holm’s step-down procedure
 
 > **NOTE:**
 >
@@ -632,9 +632,9 @@ table(tumor_class = khan_pair$tumor_class)
 > - Casella and Berger [\[11, Sec. 11.2.5\]](#ref-CaseBerg01), pp. 534–535 covers simultaneous estimation of contrasts.
 > - Rice [\[12, Sec. 12.2.2\]](#ref-rice2007mathematical), pp. 485–487 covers multiple comparisons.
 
-## 5 Controlling the false discovery rate
+## 0.5 Controlling the false discovery rate
 
-### 5.1 The Benjamini–Hochberg procedure
+### 0.5.1 The Benjamini–Hochberg procedure
 
 > **NOTE:**
 >
@@ -747,7 +747,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > *Remark 8* (BH under dependence). Gene expression levels are usually correlated, and [Theorem 5](#thm-bh-fdr) assumes independence. Benjamini and Yekutieli [\[13\]](#ref-benjamini2001control) proved that BH still controls the FDR at level \\q\\ under a form of positive dependence among the p-values, and that the procedure run at level \\q / \sum\_{k=1}^m (1/k)\\ controls it under any dependence. James et al. [\[4, Ch. 13\]](#ref-james2021islr2e) and Efron and Hastie [\[14, Ch. 15\]](#ref-efron2016computer) discuss the procedure in practice.
 
-## 6 Adjusted p-values and q-values
+## 0.6 Adjusted p-values and q-values
 
 > **NOTE:**
 >
@@ -822,7 +822,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > *Remark 10* (q-values). The BH adjusted p-value of a hypothesis is the smallest FDR level \\q\\ at which BH rejects it. Some authors call this a *q-value*. Storey [\[15\]](#ref-storey2002direct) defines the q-value with the same meaning, but estimates the fraction \\m_0 / m\\ of true null hypotheses from the p-values and multiplies by the estimate, \\\hat\pi_0\\, which is usually below 1. BH is the case \\\hat\pi_0 = 1\\, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.
 
-## 7 Comparing the procedures
+## 0.7 Comparing the procedures
 
 > **NOTE:**
 >
@@ -849,7 +849,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > *Remark 11* (Choosing an error rate). Control the FWER when a single false positive is costly, as in a confirmatory trial that tests a handful of outcomes. Control the FDR when the rejections are leads to follow up, as in a screen of thousands of genes, where a small fraction of false leads is acceptable. The choice should be made before looking at the data.
 
-## 8 Further reading
+## 0.8 Further reading
 
 - Chapter 13 of James et al. [\[4\]](#ref-james2021islr2e) covers the same procedures, with labs.
 - Chapter 15 of Efron and Hastie [\[14\]](#ref-efron2016computer) treats large-scale testing and the false discovery rate.
@@ -918,5 +918,21 @@ B. Efron and T. Hastie, *Computer age statistical inference: Algorithms, evidenc
 \[15\]
 
 J. D. Storey, “A direct approach to false discovery rates,” *Journal of the Royal Statistical Society: Series B (Statistical Methodology)*, vol. 64, no. 3, pp. 479–498, 2002, doi: [10.1111/1467-9868.00346](https://doi.org/10.1111/1467-9868.00346).
+
+# Definitions on this page
+
+- [Definition 1 (Outcome counts of a family of tests)](#def-rejection-counts)
+- [Definition 2 (Family-wise error rate)](#def-fwer)
+- [Definition 3 (Controlling the family-wise error rate)](#def-fwer-control)
+- [Definition 4 (False discovery proportion)](#def-fdp)
+- [Definition 5 (False discovery rate)](#def-fdr)
+- [Definition 6 (Controlling the false discovery rate)](#def-fdr-control)
+- [Definition 7 (Valid p-value)](#def-valid-p-value)
+- [Definition 8 (Bonferroni correction)](#def-bonferroni)
+- [Definition 9 (Holm cutoff rank)](#def-holm-cutoff)
+- [Definition 10 (Holm’s step-down procedure)](#def-holm)
+- [Definition 11 (Benjamini–Hochberg cutoff rank)](#def-bh-cutoff)
+- [Definition 12 (Benjamini–Hochberg procedure)](#def-bh)
+- [Definition 13 (Adjusted p-value)](#def-adjusted-p-value)
 
 Back to top

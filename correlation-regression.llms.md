@@ -4,11 +4,11 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
-## 1 The HERS data
+## 0.1 The HERS data
 
 The examples on this page use the HERS data, which the [Comparing Means](basic-statistical-methods.llms.md#sec-hers-intro) page describes. The `rmb` R package includes the dataset; [`haven::as_factor()`](https://forcats.tidyverse.org/reference/as_factor.html) converts its Stata value labels to factors:
 
@@ -17,9 +17,9 @@ hers <- rmb::hers |> haven::as_factor()
 hers |> head()
 ```
 
-## 2 Correlation
+## 0.2 Correlation
 
-### 2.1 Testing the Pearson correlation
+### 0.2.1 Testing the Pearson correlation
 
 > **NOTE:**
 >
@@ -114,7 +114,7 @@ hers |> head()
 > - Hogg et al. [\[3, Sec. 9.6\]](#ref-hoggtanis2015), pp. 471–476 covers tests concerning regression and correlation.
 > - Rice [\[4, Sec. 14.2.3\]](#ref-rice2007mathematical), pp. 560–563 covers correlation and regression.
 
-### 2.2 Spearman rank correlation
+### 0.2.2 Spearman rank correlation
 
 > **NOTE:**
 >
@@ -150,9 +150,9 @@ hers |> head()
 >
 > \\r_S\\ is larger than the Pearson \\r\\ of [Example 1](#exm-hers-cor): the association is closer to monotone than to linear.
 
-## 3 Simple linear regression
+## 0.3 Simple linear regression
 
-### 3.1 Model specification
+### 0.3.1 Model specification
 
 > **NOTE:**
 >
@@ -280,7 +280,7 @@ hers |> head()
 >
 > *Remark 4* (Interpreting the variance parameter). \\\sigma^2\\ is the variance of \\Y\\ around its mean at each value of \\X\\.
 
-### 3.2 Ordinary least squares estimation
+### 0.3.2 Ordinary least squares estimation
 
 > **NOTE:**
 >
@@ -879,7 +879,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 > - Casella and Berger [\[12, Sec. 11.3\]](#ref-CaseBerg01), pp. 539–562 covers simple linear regression.
 > - Rice [\[4, Sec. 14.2.1\]](#ref-rice2007mathematical), pp. 547–549 covers slope and intercept properties.
 
-### 3.3 Fitting a simple linear regression in R
+### 0.3.3 Fitting a simple linear regression in R
 
 > **NOTE:**
 >
@@ -946,7 +946,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > The estimated slope is \\\hat{\beta}\_{\text{BMI}} = 1.82\\ mg/dL per kg/m²: mean fasting glucose is about 1.8 mg/dL higher among participants whose BMI is 1 kg/m² higher. The t statistic for the slope equals the correlation test statistic of [Example 1](#exm-hers-cor).
 
-### 3.4 The coefficient of determination
+### 0.3.4 The coefficient of determination
 
 > **NOTE:**
 >
@@ -1043,7 +1043,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 > - Hogg et al. [\[3, Sec. 7.6\]](#ref-hoggtanis2015), pp. 344–352 covers more regression.
 > - Rice [\[4, Sec. 14.2.2\]](#ref-rice2007mathematical), pp. 550–559 covers assessing the fit of a regression line.
 
-### 3.5 Comparing nested regression models
+### 0.3.5 Comparing nested regression models
 
 > **NOTE:**
 >
@@ -1136,7 +1136,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > For large \\n\\ under \\H_0\\, the quantity \\(\text{RSS}\_0 - \text{RSS}\_1) / \text{RSS}\_1\\ is near \\0\\, so \\\log(1 + u) \approx u\\ gives \\\Lambda\approx n (\text{RSS}\_0 - \text{RSS}\_1) / \text{RSS}\_1\\. Also \\q F = (n - p - 1) (\text{RSS}\_0 - \text{RSS}\_1) / \text{RSS}\_1\\, which is close to the same value when \\n\\ is much larger than \\p\\. Under \\H_0\\, \\\Lambda\\ and \\q F\\ therefore have approximately the \\\chi^2_q\\ distribution, but the F-test is exact for Gaussian errors at every \\n\\, while the [likelihood ratio test](intro-MLEs.llms.md#def-lrt-stat) holds only approximately.
 
-### 3.6 Further reading
+### 0.3.6 Further reading
 
 [Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html) covers linear regression in depth, including inference for the coefficients and multiple predictors. Vittinghoff et al. [\[1\]](#ref-vittinghoff2e) cover linear regression in Chapter 4.
 
@@ -1201,5 +1201,28 @@ Wikipedia contributors, “Coefficient of determination — Wikipedia, the free 
 \[15\]
 
 A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
+
+# Definitions on this page
+
+- [Definition 1 (Population correlation)](#def-population-correlation)
+- [Definition 2 (Test of zero correlation)](#def-pearson-test)
+- [Definition 3 (Spearman rank correlation)](#def-spearman-r)
+- [Definition 4 (Conditional Gaussian model)](#def-cond-gaussian)
+- [Definition 5 (Deviation from the conditional mean)](#def-slr-deviation)
+- [Definition 6 (Homoskedastic model)](#def-homoskedastic)
+- [Definition 7 (Linear regression model)](#def-linear-regression)
+- [Definition 8 (Simple linear regression model)](#def-slr)
+- [Definition 9 (Intercept)](#def-slr-intercept)
+- [Definition 10 (Slope)](#def-slr-slope)
+- [Definition 11 (Residual sum of squares)](#def-rss)
+- [Definition 12 (Ordinary least squares)](#def-ols)
+- [Definition 13 (Normal equations)](#def-normal-equations)
+- [Definition 14 (Centered sums of squares)](#def-centered-sums)
+- [Definition 15 (Centered sum of cross-products)](#def-centered-cross-product)
+- [Definition 16 (Covariate vector)](#def-slr-covariate-vector)
+- [Definition 17 (Total sum of squares)](#def-tss)
+- [Definition 18 (Coefficient of determination)](#def-r-squared)
+- [Definition 19 (Nested linear regression models)](#def-nested-regression-models)
+- [Definition 20 (Partial F-test)](#def-partial-f-test)
 
 Back to top

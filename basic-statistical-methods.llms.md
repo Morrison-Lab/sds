@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
-## 1 Introduction
+## 0.1 Introduction
 
 This page reviews the standard methods for comparing the mean of a continuous outcome between groups: t-tests, confidence intervals for a difference in means, and one-way analysis of variance.
 
@@ -20,7 +20,7 @@ The t-tests and ANOVA on this page are the exact, Gaussian-outcome tests in the 
 
 This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
-## 2 The HERS data
+## 0.2 The HERS data
 
 The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) [\[2\]](#ref-HulleyStephen1998RToE).
 
@@ -72,7 +72,7 @@ hers |>
 #> $ glucose1 <dbl> 94, 78, 98, 93, 92, 115, NA, 95, 113, 98, 96, 107, 90, 100, 1…
 ```
 
-## 3 Descriptive statistics
+## 0.3 Descriptive statistics
 
 The [Exploratory Data Analysis](exploratory-descriptive.llms.md) page defines the sample statistics used on this page, each with an example:
 
@@ -128,13 +128,13 @@ That page also defines the graphs used here, including [box plots](exploratory-d
 >
 > Because treatment was assigned at random, the two groups differ at baseline only by chance, and their summaries are close.
 
-## 4 Comparing two groups: continuous outcomes
+## 0.4 Comparing two groups: continuous outcomes
 
-### 4.1 Hypotheses
+### 0.4.1 Hypotheses
 
 The [Statistical Inference](inference.llms.md) page defines the [null hypothesis](inference.llms.md#def-null-hypothesis), the [alternative hypothesis](inference.llms.md#def-alternative-hypothesis), [test statistics](inference.llms.md#def-test-statistic), [p-values](inference.llms.md#def-p-value), and [significance levels](inference.llms.md#def-significance-level). In a comparison of two groups with means \\\mu_1\\ and \\\mu_2\\, the null hypothesis is usually \\H_0: \mu_1 = \mu_2\\, and the two-sided alternative is \\H_1: \mu_1 \neq \mu_2\\.
 
-### 4.2 One-sample t-test
+### 0.4.2 One-sample t-test
 
 > **NOTE:**
 >
@@ -160,7 +160,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > *Remark 1* (Non-Gaussian data). When the observations are not Gaussian, \\T\\ still has approximately the standard Gaussian distribution when \\n\\ is large, by the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), and then \\t\_{n-1}\\ is close to the standard Gaussian distribution ([t quantiles approach Gaussian quantiles](inference.llms.md#exm-t-dist)).
 
-### 4.3 Paired t-test
+### 0.4.3 Paired t-test
 
 > **NOTE:**
 >
@@ -208,7 +208,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > Mean fasting glucose rose by about 2.6 mg/dL over the year, and the p-value is far below 0.05.
 
-### 4.4 Two-sample t-tests
+### 0.4.4 Two-sample t-tests
 
 > **NOTE:**
 >
@@ -353,7 +353,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > - Rice [\[7, Sec. 11.2.1\]](#ref-rice2007mathematical), pp. 421–432 covers normal-theory methods for two independent samples.
 > - Rice [\[7, Sec. 11.3.1\]](#ref-rice2007mathematical), pp. 446–447 covers normal-theory methods for paired samples.
 
-### 4.5 Confidence intervals for the difference in means
+### 0.4.5 Confidence intervals for the difference in means
 
 > **NOTE:**
 >
@@ -380,7 +380,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > Hogg et al. [\[4, Sec. 7.2\]](#ref-hoggtanis2015), pp. 314–322 covers confidence intervals for the difference of two means.
 
-## 5 One-way analysis of variance
+## 0.5 One-way analysis of variance
 
 > **NOTE:**
 >
@@ -592,5 +592,18 @@ Wikipedia contributors, “Analysis of variance — Wikipedia, the free encyclop
 \[11\]
 
 G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
+
+# Definitions on this page
+
+- [Definition 1 (One-sample t-test)](#def-one-sample-t-test)
+- [Definition 2 (Paired t-test)](#def-paired-t-test)
+- [Definition 3 (Welch’s two-sample t-test)](#def-two-sample-t-test)
+- [Definition 4 (Pooled variance)](#def-pooled-variance)
+- [Definition 5 (Pooled two-sample t-test)](#def-pooled-t-test)
+- [Definition 6 (Welch confidence interval for a difference in means)](#def-ci-diff-means)
+- [Definition 7 (Between-group sum of squares)](#def-ss-between)
+- [Definition 8 (Within-group sum of squares)](#def-ss-within)
+- [Definition 9 (Mean squares)](#def-mean-squares)
+- [Definition 10 (One-way analysis of variance)](#def-one-way-anova)
 
 Back to top

@@ -4,11 +4,11 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models [\[1, Ch. 13\]](#ref-dobson4e). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
-## 1 Foundations of MCMC
+## 0.1 Foundations of MCMC
 
 When the posterior has a known closed form, as in [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), we can compute its summaries exactly or sample from it directly. In most real-world models, however, the [marginal likelihood](bayesian-inference.llms.md#def-marginal-likelihood) \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ that normalizes the posterior cannot be computed, so neither can the posterior’s summaries. Markov chain Monte Carlo methods get around this problem: instead of independent draws from the posterior, they generate a correlated sequence of draws whose distribution converges to the posterior [\[1, Ch. 13\]](#ref-dobson4e), p. 287.
 
@@ -22,7 +22,7 @@ When the posterior has a known closed form, as in [the Beta-Bernoulli example](b
 >
 > **Example 1 (A sequence that converges to the standard Gaussian)** Let \\\theta^{(t+1)} = 0.5\\\theta^{(t)} + \varepsilon_t\\, with \\\varepsilon_t \\ \sim\_{\operatorname{iid}}\\ {\operatorname{N}\mathopen{}\left(0, 0.75\right)\mathclose{}}\\ independent of the past. Each draw depends on the previous one. If \\\theta^{(t)}\\ has mean \\m_t\\ and variance \\v_t\\, then \\m\_{t+1} = 0.5\\ m_t\\ and \\v\_{t+1} = 0.25\\ v_t + 0.75\\, so from any starting value \\m_t \to 0\\ and \\v_t \to 1\\: the draws’ distribution converges to \\{\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}\\. This sequence is an MCMC method for sampling the standard Gaussian distribution; its draws are correlated, unlike independent draws.
 
-### 1.1 Why the normalizing constant is hard to compute
+### 0.1.1 Why the normalizing constant is hard to compute
 
 With a parameter vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\, the normalizing constant of the posterior is
 
@@ -30,7 +30,7 @@ With a parameter vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scri
 
 an integral over every dimension of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\ that typically has no closed form. Computing it numerically becomes infeasible as the dimension of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\ grows [\[1, Ch. 13\]](#ref-dobson4e), p. 287. MCMC sidesteps the problem: MCMC samplers use the posterior only through ratios \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^\* \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) / \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\, in which the normalizing constant cancels.
 
-### 1.2 Monte Carlo integration
+### 0.1.2 Monte Carlo integration
 
 > **NOTE:**
 >
@@ -68,7 +68,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 >
 > The two agree to about two decimal places, and the agreement improves as \\M\\ grows.
 
-### 1.3 Markov chains
+### 0.1.3 Markov chains
 
 > **NOTE:**
 >
@@ -177,9 +177,9 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 
 Under conditions on its transition probabilities (irreducibility, aperiodicity and positive recurrence; for a continuous parameter, Harris positive recurrence), a Markov chain has a unique stationary distribution and the distribution of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ converges to it [\[7, Sec. 11.2\]](#ref-gelman2013bda), p. 279, [\[8, Sec. 6.6.1\]](#ref-robert2004mcsm), Theorem 6.51, p. 234. Sample means along the chain also converge to expectations under that distribution, even though successive values are correlated [\[8, Sec. 6.7.1\]](#ref-robert2004mcsm), Theorem 6.63, p. 241, [\[8, Sec. 7.2\]](#ref-robert2004mcsm), p. 269. MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ [\[7, Ch. 11\]](#ref-gelman2013bda), p. 275, so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
 
-## 2 MCMC samplers
+## 0.2 MCMC samplers
 
-### 2.1 The Metropolis–Hastings algorithm
+### 0.2.1 The Metropolis–Hastings algorithm
 
 > **NOTE:**
 >
@@ -259,7 +259,7 @@ The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\mathord{\smash\[
 >
 > Comparing \\\log u\\, for \\u\\ uniform on \\(0, 1)\\, with \\\log \alpha\\ accepts with probability \\\min(1, \alpha)\\, and avoids computing \\\alpha\\ itself, which can overflow or underflow. Every accepted proposal changes the chain’s value, so the fraction of iterations that change estimates the acceptance rate. The chain’s sample mean is close to the exact posterior mean \\56/93\\.
 
-### 2.2 Trace plots and burn-in
+### 0.2.2 Trace plots and burn-in
 
 > **NOTE:**
 >
@@ -304,7 +304,7 @@ A chain started far from where the posterior puts its probability takes some ite
 >
 > Both chains reach the region around \\0.6\\ within a few dozen iterations, and after that the two are indistinguishable, so discarding the first 500 iterations of each leaves a generous margin.
 
-### 2.3 The Gibbs sampler
+### 0.2.3 The Gibbs sampler
 
 > **NOTE:**
 >
@@ -354,7 +354,7 @@ The Gibbs sampler is a special case of the [Metropolis–Hastings algorithm](#de
 >
 > With \\\rho= 0\\, successive draws of \\\theta_1\\ are nearly uncorrelated. With \\\rho= 0.99\\, each full conditional has standard deviation \\\sqrt{1 - 0.99^2} \approx 0.14\\, so each update moves only a short way along the narrow ridge where the target puts its probability, and successive draws are almost perfectly correlated: 2,000 such draws carry far less information about the target than 2,000 independent ones.
 
-## 3 Checking and improving MCMC
+## 0.3 Checking and improving MCMC
 
 Because MCMC draws are correlated, and a chain may take many iterations to reach its stationary distribution, we must check whether the chains have converged before using them for inference [\[1, Ch. 13\]](#ref-dobson4e), p. 302. [Trace plots](#def-trace-plot) give a visual check; the potential scale reduction factor gives a numerical one, by comparing several chains started from different values.
 
@@ -394,7 +394,7 @@ If the chains have all converged to the posterior, \\\hat V\\ estimates the post
 >
 > Here `stats::var(colMeans(chains))` is \\\frac{1}{m-1}\sum_j (\bar\theta_j - \bar\theta)^2\\, so `b` is \\B\\. While the chains are still approaching the posterior from opposite ends, \\\hat{R}\\ is well above 1; after burn-in it is essentially 1.
 
-### 3.1 Comparing MCMC estimates to maximum likelihood
+### 0.3.1 Comparing MCMC estimates to maximum likelihood
 
 When the prior is weak and the sample is moderate or large, the posterior mean from a well-mixed chain and the [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) typically agree closely, and the posterior standard deviation is close to the frequentist [standard error](estimation.llms.md#def-SE) [\[1, Ch. 13\]](#ref-dobson4e), p. 302. As \\n\\ grows the likelihood dominates the prior, so the posterior concentrates near the maximum likelihood estimate. Comparing the two is therefore a useful check on an MCMC analysis.
 
@@ -425,13 +425,13 @@ When the prior is weak and the sample is moderate or large, the posterior mean f
 
 A persistent discrepancy between the two is a signal worth investigating: it may reflect a genuinely informative prior, an unconverged chain, or a coding error in the model.
 
-### 3.2 The importance of parameterization
+### 0.3.2 The importance of parameterization
 
 How a model is written affects how well its sampler mixes [\[1, Ch. 13\]](#ref-dobson4e), p. 299. Two algebraically equivalent parameterizations of the same model can produce chains with very different autocorrelation. Strong posterior correlation between parameters slows a sampler that updates one component at a time, because each update can move only a short way along a narrow, tilted ridge, as [Example 9](#exm-gibbs-bivariate-normal) shows with \\\rho= 0.99\\.
 
 Common remedies include *centering* predictors (subtracting their means), so that the intercept and slopes are less correlated, and *reparameterizing* variance components on a scale on which the posterior is more nearly symmetric. These changes leave the model, and so the scientific conclusions, unchanged; they alter only the geometry the sampler must explore.
 
-## 4 Deviance information criterion
+## 0.4 Deviance information criterion
 
 To compare models fit to the same data by Bayesian inference, we need a measure that balances goodness of fit against complexity, as [Akaike’s information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-aic) does for models fit by maximum likelihood. The standard criterion computed from MCMC output is the deviance information criterion [\[1, Ch. 13\]](#ref-dobson4e), p. 306.
 
@@ -547,5 +547,25 @@ Wikipedia contributors, “Gibbs sampling — Wikipedia, the free encyclopedia.�
 \[11\]
 
 Wikipedia contributors, “Deviance information criterion — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Deviance_information_criterion>
+
+# Definitions on this page
+
+- [Definition 1 (Markov chain Monte Carlo)](#def-mcmc)
+- [Definition 2 (Monte Carlo estimate)](#def-monte-carlo-estimate)
+- [Definition 3 (Markov chain)](#def-markov-chain)
+- [Definition 4 (Stationary distribution)](#def-stationary-distribution)
+- [Definition 5 (Proposal distribution)](#def-proposal-distribution)
+- [Definition 6 (Symmetric proposal)](#def-symmetric-proposal)
+- [Definition 7 (Acceptance ratio)](#def-acceptance-ratio)
+- [Definition 8 (Metropolis–Hastings algorithm)](#def-mh)
+- [Definition 9 (Trace plot)](#def-trace-plot)
+- [Definition 10 (Burn-in)](#def-burnin)
+- [Definition 11 (Full conditional distribution)](#def-full-conditional)
+- [Definition 12 (Gibbs sampler)](#def-gibbs-sampler)
+- [Definition 13 (Potential scale reduction factor)](#def-psrf)
+- [Definition 14 (Deviance of a parameter value)](#def-bayes-deviance)
+- [Definition 15 (Posterior mean deviance)](#def-mean-bayes-deviance)
+- [Definition 16 (Effective number of parameters)](#def-effective-parameters)
+- [Definition 17 (Deviance information criterion)](#def-dic)
 
 Back to top

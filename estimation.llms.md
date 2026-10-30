@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
-## 1 Scientific models
+## 0.1 Scientific models
 
 > **NOTE:**
 >
@@ -16,7 +16,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 >
 > **Example 1 (Scientific models in epidemiology)** Epidemiologists typically study *biological conditions and changes*, such as the spread of infectious diseases through populations, or the effects of environmental factors on individuals.
 
-### 1.1 Models as approximations
+### 0.1.1 Models as approximations
 
 > …Essentially, all models are wrong, but some are useful. **However, the approximate nature of the model must always be borne in mind.**
 
@@ -24,7 +24,7 @@ Last modified: 2026-10-29 18:15:36 (PDT)
 
 See also [\[2, Sec. 1.8\]](#ref-dunn2018generalized).
 
-### 1.2 Statistical analysis of scientific models
+### 0.1.2 Statistical analysis of scientific models
 
 When we perform statistical analyses, we use data to help us choose between models; specifically, to determine which models best explain those data.
 
@@ -34,9 +34,9 @@ To learn about the physical processes we are ultimately interested in, we often 
 
 These kinds of *missing data* issues are outside the scope of these notes; see Van Buuren [\[3\]](#ref-van2018flexible) for more details.
 
-## 2 Estimands, estimates, and estimators
+## 0.2 Estimands, estimates, and estimators
 
-### 2.1 Estimands
+### 0.2.1 Estimands
 
 > **NOTE:**
 >
@@ -54,7 +54,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 >
 > Model parameters and other estimands are often symbolized using lower-case Greek letters. The [notation choices page](https://morrison-lab.github.io/macros/notation-choices.html#sec-estimand-estimator-symbols) gives our convention and the alternatives.
 
-### 2.2 Estimates
+### 0.2.2 Estimates
 
 > **NOTE:**
 >
@@ -66,7 +66,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 >
 > **Example 3 (Mean height of students)** Suppose we measure the heights of 50 randomly sampled students from our school, and their [sample mean](exploratory-descriptive.llms.md#def-sample-mean) is 175 cm. We might use 175 cm as an [*estimate*](#def-estimate) of the population mean.
 
-### 2.3 Estimators
+### 0.2.3 Estimators
 
 > **NOTE:**
 >
@@ -104,7 +104,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 >
 > \\\hat{\mu}^{(3)}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n-2}\sum\_{i=2}^{n-1} X\_{(i)}\\
 >
-> Which of these estimators is best? The answer depends on how we evaluate them (see [Section 3](#sec-est-accuracy)).
+> Which of these estimators is best? The answer depends on how we evaluate them (see [Section 0.3](#sec-est-accuracy)).
 
 > **NOTE:**
 >
@@ -120,7 +120,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 >
 > which has standard deviation \\\sigma/ \sqrt{25} = 10 / 5 = 2\\ cm. Across repeated samples of 25 students, about 95% of the sample means land within \\2 \times 2 = 4\\ cm of the true mean \\\mu\\.
 
-### 2.4 Contrasting estimands, estimates, and estimators
+### 0.2.4 Contrasting estimands, estimates, and estimators
 
 It’s helpful to keep in mind the mathematical type of each estimation concept:
 
@@ -134,13 +134,13 @@ It’s helpful to keep in mind the mathematical type of each estimation concept:
 > - Casella and Berger [\[10, Sec. 7.2\]](#ref-CaseBerg01), pp. 312–329 covers methods of finding estimators.
 > - Rice [\[11, Secs. 8.3–8.4\]](#ref-rice2007mathematical), pp. 257–266 covers parameter estimation and the method of moments.
 
-## 3 Accuracy of estimators
+## 0.3 Accuracy of estimators
 
-### 3.1 Accuracy
+### 0.3.1 Accuracy
 
 To determine which estimator is best, we need to define *best*. Accuracy is usually most important, and ease of computation is usually secondary.
 
-### 3.2 Estimation error
+### 0.3.2 Estimation error
 
 > **NOTE:**
 >
@@ -158,11 +158,11 @@ To determine which estimator is best, we need to define *best*. Accuracy is usua
 
 The accuracy of an estimator has no single, agreed formal definition. The usual measures of accuracy, including the bias, population mean squared error, and population mean absolute error defined in this section, are all functions of the distribution of the estimator’s [estimation error](#def-estimation-error).
 
-### 3.3 Predictions and residuals
+### 0.3.3 Predictions and residuals
 
 Predictions, fitted values, residuals, prediction errors and the sample mean squared error of predictions have their own page, [Prediction](prediction.llms.md). That page also contrasts them with the estimation quantities defined here: [estimation error](#def-estimation-error) and the [population mean squared error of an estimator](#mean-squared-error).
 
-### 3.4 Bias
+### 0.3.4 Bias
 
 > **NOTE:**
 >
@@ -200,7 +200,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > So both estimators have zero bias, even though \\\bar X\\ uses all \\n\\ observations and \\X_1\\ uses only one.
 
-### 3.5 Population mean squared error of an estimator
+### 0.3.5 Population mean squared error of an estimator
 
 > **NOTE:**
 >
@@ -337,7 +337,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > Casella and Berger [\[10, Sec. 7.3.1\]](#ref-CaseBerg01), pp. 330–333 covers mean squared error.
 
-### 3.6 Unbiased estimators
+### 0.3.6 Unbiased estimators
 
 > **NOTE:**
 >
@@ -420,7 +420,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > 5MinuteAI covers the [properties of estimators](https://www.youtube.com/watch?v=sUFpzYNDn3Q), including bias, following the University of Washington’s CSE 312 [\[15\]](#ref-fiveminuteai_probstat).
 
-### 3.7 Population mean absolute error
+### 0.3.7 Population mean absolute error
 
 > **NOTE:**
 >
@@ -438,7 +438,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > So for an [unbiased](#def-unbiased) Gaussian estimator, the pMAE is about \\0.80\\ times the standard deviation \\\tau\\, while the [pRMSE](#def-rmse) is \\\tau\\ itself ([Theorem 6](#thm-unbiased-props)).
 
-### 3.8 Standard error
+### 0.3.8 Standard error
 
 > **NOTE:**
 >
@@ -587,5 +587,21 @@ Wikipedia contributors, “Mean absolute error — Wikipedia, the free encyclope
 \[17\]
 
 Wikipedia contributors, “Standard error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Standard_error>
+
+# Definitions on this page
+
+- [Definition 1 (Scientific models)](#def-scientific-model)
+- [Definition 2 (Estimand)](#def-estimand)
+- [Definition 3 (Estimate/estimated value)](#def-estimate)
+- [Definition 4 (Estimator)](#def-estimator)
+- [Definition 5 (Sampling distribution)](#def-sampling-distribution)
+- [Definition 6 (Estimation error)](#def-estimation-error)
+- [Definition 7 (Bias)](#def-bias)
+- [Definition 8 (Mean squared error)](#def-mse)
+- [Definition 9 (Root mean squared error)](#def-rmse)
+- [Definition 10 (Unbiased estimator)](#def-unbiased)
+- [Definition 11 (Biased estimator)](#def-biased)
+- [Definition 12 (Mean absolute error)](#def-mae)
+- [Definition 13 (Standard error)](#def-SE)
 
 Back to top

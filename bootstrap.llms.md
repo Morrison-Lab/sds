@@ -4,11 +4,11 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
 This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Section 3.6.
 
-## 1 The HERS data
+## 0.1 The HERS data
 
 The examples on this page use the HERS data, which the [Comparing Means](basic-statistical-methods.llms.md#sec-hers-intro) page describes. The `rmb` R package includes the dataset; [`haven::as_factor()`](https://forcats.tidyverse.org/reference/as_factor.html) converts its Stata value labels to factors:
 
@@ -17,9 +17,9 @@ hers <- rmb::hers |> haven::as_factor()
 hers |> head()
 ```
 
-## 2 Bootstrap confidence intervals
+## 0.2 Bootstrap confidence intervals
 
-### 2.1 When to use the bootstrap
+### 0.2.1 When to use the bootstrap
 
 The bootstrap [\[2\]](#ref-efron1979bootstrap), [\[3\]](#ref-efron1993introduction) estimates the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short [\[1, Ch. 3\]](#ref-vittinghoff2e):
 
@@ -27,7 +27,7 @@ The bootstrap [\[2\]](#ref-efron1979bootstrap), [\[3\]](#ref-efron1993introducti
 - no closed-form approximate method has been found;
 - the data violate the assumptions of the established methods badly enough that their confidence intervals would be unreliable.
 
-### 2.2 The bootstrap procedure
+### 0.2.2 The bootstrap procedure
 
 > **NOTE:**
 >
@@ -121,11 +121,11 @@ The bootstrap [\[2\]](#ref-efron1979bootstrap), [\[3\]](#ref-efron1993introducti
 > - Rice [\[9, Sec. 10.4.6\]](#ref-rice2007mathematical), pp. 399–400 covers variability of location estimates by the bootstrap.
 > - Rice [\[9, Sec. 14.6\]](#ref-rice2007mathematical), pp. 585–586 covers conditional inference, unconditional inference and the bootstrap.
 
-### 2.3 Bootstrap confidence interval methods
+### 0.2.3 Bootstrap confidence interval methods
 
 There are three common methods for turning a bootstrap distribution into a \\100(1-\alpha)\\\\ confidence interval for a parameter \\\theta\\ [\[1, Ch. 3\]](#ref-vittinghoff2e), [\[3\]](#ref-efron1993introduction). Each is an approximate [confidence interval](inference.llms.md#def-confidence-interval). Throughout, \\z_q\\ is the \\q\\ quantile of the standard Gaussian distribution and \\\Phi\\ is its CDF.
 
-#### 2.3.1 Normal approximation
+#### 0.2.3.1 Normal approximation
 
 > **NOTE:**
 >
@@ -150,7 +150,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 > #>  96.9795 110.6205
 > ```
 
-#### 2.3.2 Percentile method
+#### 0.2.3.2 Percentile method
 
 > **NOTE:**
 >
@@ -172,7 +172,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 > #>  96.5 110.4
 > ```
 
-#### 2.3.3 Bias-corrected and accelerated method
+#### 0.2.3.3 Bias-corrected and accelerated method
 
 > **NOTE:**
 >
@@ -233,14 +233,14 @@ There are three common methods for turning a bootstrap distribution into a \\100
 >
 > The acceleration \\\hat{a}\\ is nearly 0 here, and \\\hat{z}\_0\\ is small, so the BCa interval is close to the percentile interval of [Example 4](#exm-bootstrap-percentile-toy).
 
-### 2.4 The boot package
+### 0.2.4 The boot package
 
 The `boot` package [\[11\]](#ref-davison1997bootstrap), a recommended package distributed with R, provides [`boot::boot()`](https://rdrr.io/pkg/boot/man/boot.html) to draw the bootstrap replicates and [`boot::boot.ci()`](https://rdrr.io/pkg/boot/man/boot.ci.html) to compute the three intervals. [`boot::boot.ci()`](https://rdrr.io/pkg/boot/man/boot.ci.html) differs from the definitions on this page in two small ways:
 
 - its normal interval (`type = "norm"`) is centered at \\\hat{\theta}\\ minus the bootstrap estimate of bias, \\\hat{\theta}- (\bar\theta^\* - \hat{\theta})\\, where \\\bar\theta^\*\\ is the mean of the replicates, rather than at \\\hat{\theta}\\;
 - it estimates quantiles of the replicates by interpolation, so its percentile and BCa endpoints can differ slightly from those computed with [`quantile()`](https://rdrr.io/r/stats/quantile.html).
 
-### 2.5 Example: slope of SBP on age in HERS
+### 0.2.5 Example: slope of SBP on age in HERS
 
 > **NOTE:**
 >
@@ -298,7 +298,7 @@ The `boot` package [\[11\]](#ref-davison1997bootstrap), a recommended package di
 >
 > All three intervals are similar here. When the bootstrap distribution is skewed, the intervals differ more, and the BCa interval, which corrects for skewness, is the better choice [\[3, Ch. 14\]](#ref-efron1993introduction).
 
-## 3 Further reading
+## 0.3 Further reading
 
 - Chapter 24 of Lange’s textbook [\[12\]](#ref-lange2010numerical) covers permutation tests and the bootstrap, with an emphasis on computation.
 
@@ -351,5 +351,16 @@ A. C. Davison and D. V. Hinkley, *Bootstrap methods and their application*. in C
 \[12\]
 
 K. Lange, *Numerical analysis for statisticians*, 2nd ed. in Statistics and computing. Springer, 2010. doi: [10.1007/978-1-4419-5945-4](https://doi.org/10.1007/978-1-4419-5945-4).
+
+# Definitions on this page
+
+- [Definition 1 (Bootstrap sample)](#def-bootstrap-sample)
+- [Definition 2 (Bootstrap distribution)](#def-bootstrap-distribution)
+- [Definition 3 (Bootstrap standard error)](#def-bootstrap-se)
+- [Definition 4 (Normal bootstrap confidence interval)](#def-bootstrap-ci-normal)
+- [Definition 5 (Percentile bootstrap confidence interval)](#def-bootstrap-ci-percentile)
+- [Definition 6 (Bias correction of the BCa interval)](#def-bca-bias-correction)
+- [Definition 7 (Acceleration of the BCa interval)](#def-bca-acceleration)
+- [Definition 8 (Bias-corrected and accelerated bootstrap confidence interval)](#def-bootstrap-ci-bca)
 
 Back to top

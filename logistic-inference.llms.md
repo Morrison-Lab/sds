@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
-## 1 Introduction
+## 0.1 Introduction
 
 Logistic regression models a binary outcome, such as whether a patient recovers, from one or more predictors. Its fitted coefficients are maximum likelihood estimates, so the likelihood theory of [Introduction to maximum likelihood](intro-MLEs.llms.md#sec-intro-MLEs) gives them standard errors, confidence intervals and tests. This page specializes that theory to the logistic model and introduces the deviance, the measure of fit that the likelihood ratio test of a logistic model is built from [\[1\]](#ref-wikipedia_likelihood_ratio_test).
 
@@ -38,7 +38,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > The fitted slope is \\\hat{\beta}\_{1} = 0.693\\. The control group recovered at rate \\1/3\\ and the treatment group at \\2/3\\, so the model fits both group proportions exactly.
 
-## 2 Fitting by iteratively reweighted least squares
+## 0.2 Fitting by iteratively reweighted least squares
 
 > **NOTE:**
 >
@@ -158,7 +158,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > The first step moves the [slope](correlation-regression.llms.md#def-slr-slope) to \\0.6667\\, which is \\2/3\\ ([the hand computation](#exr-irls-step)). After six steps the slope is \\0.693147\\, and [`glm()`](https://rdrr.io/r/stats/glm.html) reports \\0.693147\\. The slope settles at \\\ln 2 = 0.693147\\, half the natural logarithm of the [odds ratio](basic-statistical-methods.llms.md#def-odds-ratio) between the treatment group (recovery [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) \\2\\) and the other group (recovery odds \\1/2\\), since the groups are coded \\\pm 1\\.
 
-## 3 Deviance
+## 0.3 Deviance
 
 > **NOTE:**
 >
@@ -268,7 +268,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > The p-value is \\0.41\\, so six patients give no evidence of a treatment effect.
 
-## 4 Covariate patterns and the saturated model
+## 0.4 Covariate patterns and the saturated model
 
 > **NOTE:**
 >
@@ -430,7 +430,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 > #>            216.818            216.818
 > ```
 
-## 5 Confidence intervals for the coefficients
+## 0.5 Confidence intervals for the coefficients
 
 > **NOTE:**
 >
@@ -491,7 +491,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > The fitted odds of recovery in the treatment group are \\4\\ times those in the control group, with interval \\(0.13, 119.2)\\. The interval runs from a strong harm to a large benefit. Its width shows how little information six observations carry about the slope.
 
-## 6 Further reading
+## 0.6 Further reading
 
 - [Hua Zhou](https://hua-zhou.github.io/)’s [course page for “UCLA Biostat 257 - Statistical Computing” (2025 Spring)](https://ucla-biostat-257.github.io/2025spring/) has lectures on fitting generalized linear models and on quasi-Newton optimization. Its source is [on GitHub](https://github.com/ucla-biostat-257/2025spring) under the MIT License.
 
@@ -536,5 +536,17 @@ Wikipedia contributors, “Saturated model — Wikipedia, the free encyclopedia.
 \[10\]
 
 L. Fahrmeir and H. Kaufmann, “Consistency and asymptotic normality of the maximum likelihood estimator in generalized linear models,” *The Annals of Statistics*, vol. 13, no. 1, pp. 342–368, 1985, doi: [10.1214/aos/1176346597](https://doi.org/10.1214/aos/1176346597).
+
+# Definitions on this page
+
+- [Definition 1 (Logistic regression)](#def-logistic-regression)
+- [Definition 2 (Iteratively reweighted least squares (IRLS))](#def-irls)
+- [Definition 3 (Deviance)](#def-deviance)
+- [Definition 4 (Null deviance)](#def-null-deviance)
+- [Definition 5 (Covariate pattern)](#def-covariate-pattern)
+- [Definition 6 (Replicates)](#def-replicates)
+- [Definition 7 (Events at a covariate pattern)](#def-pattern-events)
+- [Definition 8 (Saturated model (full model, maximal model))](#def-saturated-model)
+- [Definition 9 (Deviance relative to the saturated model)](#def-saturated-deviance)
 
 Back to top

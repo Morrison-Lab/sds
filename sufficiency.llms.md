@@ -14,11 +14,11 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
-## 1 Sufficient statistics
+## 0.1 Sufficient statistics
 
 > **NOTE:**
 >
@@ -92,7 +92,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > This has the form of [Equation 2](#eq-factorization) with \\{g\mathopen{}\left(t ; {\lambda}\right)\mathclose{}} = e^{-n{\lambda}} {\lambda}^{t}\\ and \\{h\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{}} = \prod\_{i=1}^n 1 / x_i!\\, where \\t = \sum\_{i=1}^nx_i\\. So the sum \\S\\ is [sufficient](#def-sufficient) for \\{\lambda}\\ by [Theorem 1](#thm-factorization).
 
-## 2 The Rao–Blackwell theorem
+## 0.2 The Rao–Blackwell theorem
 
 > **NOTE:**
 >
@@ -242,7 +242,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > *Remark 5* (Sufficiency is needed). If \\{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\\ is not sufficient, then \\{{\mathbb{E}\mathopen{}\left\[\hat{\theta} \mid{T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}}\right\]\mathclose{}}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger [\[4\]](#ref-CaseBerg01), Example 7.3.18).
 
-## 3 Further reading
+## 0.3 Further reading
 
 - The [Fall 2024 course site for UC Berkeley’s Stat 210A, *Theoretical Statistics*](https://stat210a.berkeley.edu/fall-2024/) (Will Fithian) has a course reader on exponential families, sufficiency, completeness and unbiased estimation.
 
@@ -283,5 +283,11 @@ Wikipedia contributors, “Rao–blackwell theorem — Wikipedia, the free encyc
 \[9\]
 
 D. W. Hosmer and S. Lemeshow, *Applied logistic regression*. New York: Wiley, 1989.
+
+# Definitions on this page
+
+- [Definition 1 (Statistic)](#def-statistic)
+- [Definition 2 (Sufficient statistic)](#def-sufficient)
+- [Definition 3 (Rao–Blackwellized estimator)](#def-rao-blackwellized)
 
 Back to top

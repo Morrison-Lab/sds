@@ -14,13 +14,13 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead [\[1\]](#ref-wikipedia_resampling_statistics). If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
 This page defines exchangeability, the permutation distribution and the permutation p-value, shows why that p-value is valid, and then approximates it by random relabelings, which is how it is computed in practice. It continues the [bootstrap](bootstrap.llms.md) page’s idea of computing a [sampling distribution](estimation.llms.md#def-sampling-distribution) by resampling, and supplies the p-values that the [multiple testing](multiple-testing.llms.md) page corrects. These notes follow chapter 13 of James et al. [\[2\]](#ref-james2021islr2e) and the treatment in Good [\[3\]](#ref-good2005permutation).
 
-## 1 The Khan gene expression data
+## 0.1 The Khan gene expression data
 
 The examples on this page use gene expression data from Khan et al. [\[4\]](#ref-khan2001classification), who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at [`data/khan.csv`](data/khan.csv), taken from the `Khan` data of the R package [`ISLR2`](https://cran.r-project.org/package=ISLR2) [\[2\]](#ref-james2021islr2e): the column `tumor_class` holds the class, and the columns `gene_1` to `gene_2308` hold the expression values. The examples compare classes 2 and 4.
 
@@ -33,7 +33,7 @@ table(tumor_class = khan_pair$tumor_class)
 #> 23 20
 ```
 
-## 2 Exchangeability under the null hypothesis
+## 0.2 Exchangeability under the null hypothesis
 
 > **NOTE:**
 >
@@ -54,9 +54,9 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > ways to choose which 20 of the 43 values form the class 4 group.
 
-## 3 The permutation distribution and p-value
+## 0.3 The permutation distribution and p-value
 
-### 3.1 The permutation distribution
+### 0.3.1 The permutation distribution
 
 > **NOTE:**
 >
@@ -118,7 +118,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > The statistics come in equal pairs, because swapping the two groups gives the same absolute value. The observed statistic is 1.019, the value of the relabeling `1 2 3`.
 
-### 3.2 The permutation p-value
+### 0.3.2 The permutation p-value
 
 > **NOTE:**
 >
@@ -151,7 +151,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > *Remark 1* (What a permutation test tests). Relabeling is justified only if the null hypothesis makes the labels irrelevant, that is, if the two groups have the same distribution. A permutation test of a difference in means therefore tests the hypothesis of equal distributions. Such a test can reject because the groups differ in spread rather than in mean, and a test that does not assume equal distributions needs a different method.
 
-### 3.3 Why the permutation p-value is valid
+### 0.3.3 Why the permutation p-value is valid
 
 > **NOTE:**
 >
@@ -245,7 +245,7 @@ table(tumor_class = khan_pair$tumor_class)
 > - Rice [\[8, Sec. 11.2.3\]](#ref-rice2007mathematical), pp. 435–442 covers the Mann–Whitney test.
 > - Rice [\[8, Sec. 11.4.6\]](#ref-rice2007mathematical), p. 456 covers randomization.
 
-## 4 The Monte Carlo approximation
+## 0.4 The Monte Carlo approximation
 
 > **NOTE:**
 >
@@ -339,7 +339,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > Hogg et al. [\[7, Sec. 7.7\]](#ref-hoggtanis2015), pp. 353–360 covers resampling methods.
 
-## 5 Permutation tests and multiple testing
+## 0.5 Permutation tests and multiple testing
 
 > **NOTE:**
 >
@@ -401,7 +401,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > The two sets of p-values give BH rejection counts of 249 and 250.
 
-## 6 Further reading
+## 0.6 Further reading
 
 - Good [\[3\]](#ref-good2005permutation) gives a book-length treatment of permutation tests.
 - Phipson and Smyth [\[9\]](#ref-phipson2010permutation) explain why [Monte Carlo permutation p-values](#def-monte-carlo-p-value) need the added 1.
@@ -450,5 +450,12 @@ B. Phipson and G. K. Smyth, “Permutation p-values should never be zero: Calcul
 \[10\]
 
 K. Lange, *Numerical analysis for statisticians*, 2nd ed. in Statistics and computing. Springer, 2010. doi: [10.1007/978-1-4419-5945-4](https://doi.org/10.1007/978-1-4419-5945-4).
+
+# Definitions on this page
+
+- [Definition 1 (Exchangeable random variables)](#def-exchangeable)
+- [Definition 2 (Permutation distribution)](#def-permutation-distribution)
+- [Definition 3 (Permutation p-value)](#def-permutation-p-value)
+- [Definition 4 (Monte Carlo permutation p-value)](#def-monte-carlo-p-value)
 
 Back to top

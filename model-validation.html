@@ -334,45 +334,25 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-fig.callout {
-  border-left-color: #757575;
+div.callout-exr.callout {
+  border-left-color: #FFA500;
 }
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
 }
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
+div.callout-cor.callout {
+  border-left-color: #00838F;
 }
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
 }
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-reading.callout {
   border-left-color: #00695C;
@@ -388,15 +368,15 @@ div.callout-reading.callout-style-default .callout-icon::before, div.callout-rea
   content: '\f518' !important;
   background-image: none;
 }
-div.callout-def.callout {
-  border-left-color: #1B5E20;
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
 }
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
 }
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-tbl.callout {
   border-left-color: #757575;
@@ -418,15 +398,69 @@ div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-exr.callout {
-  border-left-color: #FFA500;
+div.callout-videos.callout {
+  border-left-color: #283593;
 }
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
+div.callout-videos.callout-style-default .callout-header {
+  background-color: rgba(40, 53, 147, 0.13);
 }
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f144' !important;
+  background-image: none;
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-fig.callout {
+  border-left-color: #757575;
+}
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-prp.callout {
   border-left-color: #827717;
@@ -447,40 +481,6 @@ div.callout-proof.callout-style-default .callout-header {
 div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-remark.callout {
-  border-left-color: #AD1457;
-}
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
-}
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-videos.callout {
-  border-left-color: #283593;
-}
-div.callout-videos.callout-style-default .callout-header {
-  background-color: rgba(40, 53, 147, 0.13);
-}
-div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f144' !important;
-  background-image: none;
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -1017,18 +1017,19 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#sec-data-sets" id="toc-sec-data-sets" class="nav-link active" data-scroll-target="#sec-data-sets"><span class="header-section-number">1</span> Data sets, input matrices and outcome vectors</a></li>
-  <li><a href="#sec-prediction-rules" id="toc-sec-prediction-rules" class="nav-link" data-scroll-target="#sec-prediction-rules"><span class="header-section-number">2</span> Fitting and scoring models</a></li>
-  <li><a href="#overfitting" id="toc-overfitting" class="nav-link" data-scroll-target="#overfitting"><span class="header-section-number">3</span> Overfitting</a></li>
-  <li><a href="#sec-generalization-error" id="toc-sec-generalization-error" class="nav-link" data-scroll-target="#sec-generalization-error"><span class="header-section-number">4</span> Generalization error</a></li>
-  <li><a href="#sec-data-splits" id="toc-sec-data-splits" class="nav-link" data-scroll-target="#sec-data-splits"><span class="header-section-number">5</span> Training, validation, and test sets</a></li>
-  <li><a href="#sec-kfold" id="toc-sec-kfold" class="nav-link" data-scroll-target="#sec-kfold"><span class="header-section-number">6</span> <span class="math inline">\(k\)</span>-fold cross-validation</a></li>
-  <li><a href="#sec-loocv" id="toc-sec-loocv" class="nav-link" data-scroll-target="#sec-loocv"><span class="header-section-number">7</span> Leave-one-out cross-validation</a></li>
-  <li><a href="#sec-cv-model-choice" id="toc-sec-cv-model-choice" class="nav-link" data-scroll-target="#sec-cv-model-choice"><span class="header-section-number">8</span> Choosing a model by cross-validation</a></li>
-  <li><a href="#sec-information-criteria" id="toc-sec-information-criteria" class="nav-link" data-scroll-target="#sec-information-criteria"><span class="header-section-number">9</span> Criteria that adjust the training error</a></li>
-  <li><a href="#sec-cv-whole-procedure" id="toc-sec-cv-whole-procedure" class="nav-link" data-scroll-target="#sec-cv-whole-procedure"><span class="header-section-number">10</span> Cross-validating the whole procedure</a></li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">11</span> Further reading</a></li>
+<li><a href="#sec-data-sets" id="toc-sec-data-sets" class="nav-link active" data-scroll-target="#sec-data-sets"><span class="header-section-number">0.1</span> Data sets, input matrices and outcome vectors</a></li>
+  <li><a href="#sec-prediction-rules" id="toc-sec-prediction-rules" class="nav-link" data-scroll-target="#sec-prediction-rules"><span class="header-section-number">0.2</span> Fitting and scoring models</a></li>
+  <li><a href="#overfitting" id="toc-overfitting" class="nav-link" data-scroll-target="#overfitting"><span class="header-section-number">0.3</span> Overfitting</a></li>
+  <li><a href="#sec-generalization-error" id="toc-sec-generalization-error" class="nav-link" data-scroll-target="#sec-generalization-error"><span class="header-section-number">0.4</span> Generalization error</a></li>
+  <li><a href="#sec-data-splits" id="toc-sec-data-splits" class="nav-link" data-scroll-target="#sec-data-splits"><span class="header-section-number">0.5</span> Training, validation, and test sets</a></li>
+  <li><a href="#sec-kfold" id="toc-sec-kfold" class="nav-link" data-scroll-target="#sec-kfold"><span class="header-section-number">0.6</span> <span class="math inline">\(k\)</span>-fold cross-validation</a></li>
+  <li><a href="#sec-loocv" id="toc-sec-loocv" class="nav-link" data-scroll-target="#sec-loocv"><span class="header-section-number">0.7</span> Leave-one-out cross-validation</a></li>
+  <li><a href="#sec-cv-model-choice" id="toc-sec-cv-model-choice" class="nav-link" data-scroll-target="#sec-cv-model-choice"><span class="header-section-number">0.8</span> Choosing a model by cross-validation</a></li>
+  <li><a href="#sec-information-criteria" id="toc-sec-information-criteria" class="nav-link" data-scroll-target="#sec-information-criteria"><span class="header-section-number">0.9</span> Criteria that adjust the training error</a></li>
+  <li><a href="#sec-cv-whole-procedure" id="toc-sec-cv-whole-procedure" class="nav-link" data-scroll-target="#sec-cv-whole-procedure"><span class="header-section-number">0.10</span> Cross-validating the whole procedure</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">0.11</span> Further reading</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#def-list-section" id="toc-def-list-section" class="nav-link" data-scroll-target="#def-list-section">Definitions on this page</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/Morrison-Lab/sds/edit/main/model-validation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Morrison-Lab/sds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/Morrison-Lab/sds/blob/main/model-validation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="model-validation-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="model-validation-handout.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="model-validation-handout.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -1044,7 +1045,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-29 18:15:36 (PDT)</p>
+      <p class="date">Last modified: 2026-10-30 00:29:08 (PDT)</p>
     </div>
   </div>
   
@@ -1058,8 +1059,8 @@ window.Quarto = {
 text-align: center;
 }
 </style>
-<section id="sec-data-sets" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="sec-data-sets">
-<span class="header-section-number">1</span> Data sets, input matrices and outcome vectors</h2>
+<section id="sec-data-sets" class="level2" data-number="0.1"><h2 data-number="0.1" class="anchored" data-anchor-id="sec-data-sets">
+<span class="header-section-number">0.1</span> Data sets, input matrices and outcome vectors</h2>
 <div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1183,8 +1184,8 @@ text-align: center;
 </div>
 </div>
 </div>
-</section><section id="sec-prediction-rules" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="sec-prediction-rules">
-<span class="header-section-number">2</span> Fitting and scoring models</h2>
+</section><section id="sec-prediction-rules" class="level2" data-number="0.2"><h2 data-number="0.2" class="anchored" data-anchor-id="sec-prediction-rules">
+<span class="header-section-number">0.2</span> Fitting and scoring models</h2>
 <div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2179,8 +2180,8 @@ h\mapsto {\mathcal{J}\mathopen{}\left(h; \mathcal{D}\right)\mathclose{}}, \quad 
 </div>
 </div>
 </div>
-</section><section id="overfitting" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="overfitting">
-<span class="header-section-number">3</span> Overfitting</h2>
+</section><section id="overfitting" class="level2" data-number="0.3"><h2 data-number="0.3" class="anchored" data-anchor-id="overfitting">
+<span class="header-section-number">0.3</span> Overfitting</h2>
 <div class="callouty-titled callout callout-style-default callout-exr callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2329,8 +2330,8 @@ h\mapsto {\mathcal{J}\mathopen{}\left(h; \mathcal{D}\right)\mathclose{}}, \quad 
 </div>
 </div>
 </div>
-</section><section id="sec-generalization-error" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="sec-generalization-error">
-<span class="header-section-number">4</span> Generalization error</h2>
+</section><section id="sec-generalization-error" class="level2" data-number="0.4"><h2 data-number="0.4" class="anchored" data-anchor-id="sec-generalization-error">
+<span class="header-section-number">0.4</span> Generalization error</h2>
 <div class="callouty-titled callout callout-style-default callout-exr callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-57-contents" aria-controls="callout-57" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -4260,8 +4261,8 @@ Figure&nbsp;2: Training sRMSE and estimated generalization error (sRMSE on <span
 </div>
 </div>
 </div>
-</section><section id="sec-data-splits" class="level2" data-number="5"><h2 data-number="5" class="anchored" data-anchor-id="sec-data-splits">
-<span class="header-section-number">5</span> Training, validation, and test sets</h2>
+</section><section id="sec-data-splits" class="level2" data-number="0.5"><h2 data-number="0.5" class="anchored" data-anchor-id="sec-data-splits">
+<span class="header-section-number">0.5</span> Training, validation, and test sets</h2>
 <div class="callouty-titled callout callout-style-default callout-exr callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-124-contents" aria-controls="callout-124" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -5067,8 +5068,8 @@ Table&nbsp;3: Validation and test sRMSE for the chosen model
 </div>
 </div>
 </div>
-</section><section id="sec-kfold" class="level2" data-number="6"><h2 data-number="6" class="anchored" data-anchor-id="sec-kfold">
-<span class="header-section-number">6</span> <span class="math inline">\(k\)</span>-fold cross-validation</h2>
+</section><section id="sec-kfold" class="level2" data-number="0.6"><h2 data-number="0.6" class="anchored" data-anchor-id="sec-kfold">
+<span class="header-section-number">0.6</span> <span class="math inline">\(k\)</span>-fold cross-validation</h2>
 <div class="callouty-titled callout callout-style-default callout-exr callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-143-contents" aria-controls="callout-143" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -5894,8 +5895,8 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated sRMSE in each of 5
 </div>
 </div>
 </div>
-</section><section id="sec-loocv" class="level2" data-number="7"><h2 data-number="7" class="anchored" data-anchor-id="sec-loocv">
-<span class="header-section-number">7</span> Leave-one-out cross-validation</h2>
+</section><section id="sec-loocv" class="level2" data-number="0.7"><h2 data-number="0.7" class="anchored" data-anchor-id="sec-loocv">
+<span class="header-section-number">0.7</span> Leave-one-out cross-validation</h2>
 <div class="callouty-titled callout callout-style-default callout-exr callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-168-contents" aria-controls="callout-168" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -6310,8 +6311,8 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 </div>
 </div>
 </div>
-</section><section id="sec-cv-model-choice" class="level2" data-number="8"><h2 data-number="8" class="anchored" data-anchor-id="sec-cv-model-choice">
-<span class="header-section-number">8</span> Choosing a model by cross-validation</h2>
+</section><section id="sec-cv-model-choice" class="level2" data-number="0.8"><h2 data-number="0.8" class="anchored" data-anchor-id="sec-cv-model-choice">
+<span class="header-section-number">0.8</span> Choosing a model by cross-validation</h2>
 <div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-186-contents" aria-controls="callout-186" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -6703,8 +6704,8 @@ Figure&nbsp;8: 10-fold cross-validation estimates, with bars of one <a href="#de
 </div>
 </div>
 </div>
-</section><section id="sec-information-criteria" class="level2" data-number="9"><h2 data-number="9" class="anchored" data-anchor-id="sec-information-criteria">
-<span class="header-section-number">9</span> Criteria that adjust the training error</h2>
+</section><section id="sec-information-criteria" class="level2" data-number="0.9"><h2 data-number="0.9" class="anchored" data-anchor-id="sec-information-criteria">
+<span class="header-section-number">0.9</span> Criteria that adjust the training error</h2>
 <div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-201-contents" aria-controls="callout-201" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -7001,8 +7002,8 @@ so it renders after that one.
 </div>
 </div>
 </div>
-</section><section id="sec-cv-whole-procedure" class="level2" data-number="10"><h2 data-number="10" class="anchored" data-anchor-id="sec-cv-whole-procedure">
-<span class="header-section-number">10</span> Cross-validating the whole procedure</h2>
+</section><section id="sec-cv-whole-procedure" class="level2" data-number="0.10"><h2 data-number="0.10" class="anchored" data-anchor-id="sec-cv-whole-procedure">
+<span class="header-section-number">0.10</span> Cross-validating the whole procedure</h2>
 <div class="callouty-titled callout callout-style-default callout-exr callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-211-contents" aria-controls="callout-211" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -7164,8 +7165,8 @@ assign_folds(), from _exm-kfold-simulated.qmd.
 </div>
 </div>
 </div>
-</section><section id="further-reading" class="level2" data-number="11"><h2 data-number="11" class="anchored" data-anchor-id="further-reading">
-<span class="header-section-number">11</span> Further reading</h2>
+</section><section id="further-reading" class="level2" data-number="0.11"><h2 data-number="0.11" class="anchored" data-anchor-id="further-reading">
+<span class="header-section-number">0.11</span> Further reading</h2>
 <p><span class="citation" data-cites="sanchez2020matrix4sl">Sanchez <a href="#ref-sanchez2020matrix4sl" role="doc-biblioref">[14]</a></span> reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.</p>
 <p>For <a href="#def-kfold">cross-validation</a>, see <span class="citation" data-cites="james2021islr2e">James et al. <a href="#ref-james2021islr2e" role="doc-biblioref">[6, Ch. 5]</a></span> and <span class="citation" data-cites="hastie2009elements">Hastie et al. <a href="#ref-hastie2009elements" role="doc-biblioref">[4, Sec. 7.10]</a></span>. A PDF of each book can be downloaded at no cost from the authors’ webpages: <a href="https://www.statlearning.com/"><em>An Introduction to Statistical Learning</em></a> and <a href="https://hastie.su.domains/ElemStatLearn/"><em>The Elements of Statistical Learning</em></a>.</p>
 </section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
@@ -7505,7 +7506,81 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 window.addEventListener("load", alignEquationAnchorsWithDefault);
-</script></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script>
+</script></section><section id="def-list-section" class="level1 unnumbered"><h1 class="unnumbered">Definitions on this page</h1>
+<ul>
+<li><a href="#def-data-set"><span class="quarto-xref">Definition&nbsp;1</span> (Data set)</a></li>
+<li><a href="#def-input-matrix"><span class="quarto-xref">Definition&nbsp;2</span> (Input matrix)</a></li>
+<li><a href="#def-outcome-vector"><span class="quarto-xref">Definition&nbsp;3</span> (Outcome vector)</a></li>
+<li><a href="#def-covariate"><span class="quarto-xref">Definition&nbsp;4</span> (Covariate)</a></li>
+<li><a href="#def-mean-function"><span class="quarto-xref">Definition&nbsp;5</span> (Mean function)</a></li>
+<li><a href="#def-model-family"><span class="quarto-xref">Definition&nbsp;6</span> (Mean-function model family)</a></li>
+<li><a href="#def-objective-function"><span class="quarto-xref">Definition&nbsp;7</span> (Objective function)</a></li>
+<li><a href="#def-random-seed"><span class="quarto-xref">Definition&nbsp;8</span> (Random seed)</a></li>
+<li><a href="#def-preprocessing"><span class="quarto-xref">Definition&nbsp;9</span> (Preprocessing)</a></li>
+<li><a href="#def-feature"><span class="quarto-xref">Definition&nbsp;10</span> (Feature)</a></li>
+<li><a href="#def-tuning-parameter"><span class="quarto-xref">Definition&nbsp;11</span> (Tuning parameter)</a></li>
+<li><a href="#def-fitted-model"><span class="quarto-xref">Definition&nbsp;12</span> (Fitted model)</a></li>
+<li><a href="#def-prediction-rule"><span class="quarto-xref">Definition&nbsp;13</span> (Prediction rule <!-- prose-allow: prediction rule -->)</a></li>
+<li><a href="#def-fitting-procedure"><span class="quarto-xref">Definition&nbsp;14</span> (Fitting procedure)</a></li>
+<li><a href="#def-training-set"><span class="quarto-xref">Definition&nbsp;15</span> (Training set)</a></li>
+<li><a href="#def-prediction-function-family"><span class="quarto-xref">Definition&nbsp;16</span> (Prediction function family (hypothesis class, hypothesis space))</a></li>
+<li><a href="#def-new-observation"><span class="quarto-xref">Definition&nbsp;17</span> (New observation)</a></li>
+<li><a href="#def-predictive-model"><span class="quarto-xref">Definition&nbsp;18</span> (Predictive model)</a></li>
+<li><a href="#def-noise"><span class="quarto-xref">Definition&nbsp;19</span> (Noise)</a></li>
+<li><a href="#def-observation-loss"><span class="quarto-xref">Definition&nbsp;20</span> (Loss of a fitted model on an observation)</a></li>
+<li><a href="#def-generalization-error"><span class="quarto-xref">Definition&nbsp;21</span> (Generalization error)</a></li>
+<li><a href="#def-held-out-set"><span class="quarto-xref">Definition&nbsp;22</span> (Held-out set (hold-out set))</a></li>
+<li><a href="#def-prediction-rmse"><span class="quarto-xref">Definition&nbsp;23</span> (Root mean squared error of predictions)</a></li>
+<li><a href="#def-empirical-risk"><span class="quarto-xref">Definition&nbsp;24</span> (Empirical risk)</a></li>
+<li><a href="#def-training-mse"><span class="quarto-xref">Definition&nbsp;25</span> (Training error)</a></li>
+<li><a href="#def-overfitting"><span class="quarto-xref">Definition&nbsp;26</span> (Overfitting)</a></li>
+<li><a href="#def-expected-generalization-error"><span class="quarto-xref">Definition&nbsp;27</span> (Expected generalization error (expected prediction error, expected test error))</a></li>
+<li><a href="#def-distribution-model"><span class="quarto-xref">Definition&nbsp;31</span> (Distribution model)</a></li>
+<li><a href="#def-distribution-model-family"><span class="quarto-xref">Definition&nbsp;32</span> (Distribution model family)</a></li>
+<li><a href="#def-fitted-distribution-model"><span class="quarto-xref">Definition&nbsp;33</span> (Fitted distribution model)</a></li>
+<li><a href="#def-distribution-model"><span class="quarto-xref">Definition&nbsp;31</span> (Distribution model)</a></li>
+<li><a href="#def-distribution-model-family"><span class="quarto-xref">Definition&nbsp;32</span> (Distribution model family)</a></li>
+<li><a href="#def-fitted-distribution-model"><span class="quarto-xref">Definition&nbsp;33</span> (Fitted distribution model)</a></li>
+<li><a href="#def-epl"><span class="quarto-xref">Definition&nbsp;34</span> (Expected prediction loss at a covariate value)</a></li>
+<li><a href="#def-epe"><span class="quarto-xref">Definition&nbsp;35</span> (Expected prediction error at a covariate value)</a></li>
+<li><a href="#def-average-fit"><span class="quarto-xref">Definition&nbsp;36</span> (Expected prediction)</a></li>
+<li><a href="#def-prediction-bias"><span class="quarto-xref">Definition&nbsp;37</span> (Bias of a prediction)</a></li>
+<li><a href="#def-irreducible-error"><span class="quarto-xref">Definition&nbsp;38</span> (Residual variance)</a></li>
+<li><a href="#def-flexibility"><span class="quarto-xref">Definition&nbsp;39</span> (Flexibility)</a></li>
+<li><a href="#def-bias-variance-tradeoff"><span class="quarto-xref">Definition&nbsp;40</span> (Bias–variance trade-off)</a></li>
+<li><a href="#def-data-splits"><span class="quarto-xref">Definition&nbsp;41</span> (Training/validation/test split)</a></li>
+<li><a href="#def-model-selection"><span class="quarto-xref">Definition&nbsp;42</span> (Model selection)</a></li>
+<li><a href="#def-validation-set"><span class="quarto-xref">Definition&nbsp;43</span> (Validation set)</a></li>
+<li><a href="#def-validation-error"><span class="quarto-xref">Definition&nbsp;44</span> (Validation error)</a></li>
+<li><a href="#def-validation-choice"><span class="quarto-xref">Definition&nbsp;45</span> (Validation choice)</a></li>
+<li><a href="#def-test-set"><span class="quarto-xref">Definition&nbsp;46</span> (Test set)</a></li>
+<li><a href="#def-test-error"><span class="quarto-xref">Definition&nbsp;47</span> (Test error)</a></li>
+<li><a href="#def-error-rate"><span class="quarto-xref">Definition&nbsp;48</span> (Error rate (misclassification rate))</a></li>
+<li><a href="#def-training-error-rate"><span class="quarto-xref">Definition&nbsp;49</span> (Training error rate)</a></li>
+<li><a href="#def-test-error-rate"><span class="quarto-xref">Definition&nbsp;50</span> (Test error rate)</a></li>
+<li><a href="#def-folds"><span class="quarto-xref">Definition&nbsp;51</span> (Folds)</a></li>
+<li><a href="#def-fold-size"><span class="quarto-xref">Definition&nbsp;52</span> (Fold size)</a></li>
+<li><a href="#def-fold-assignment"><span class="quarto-xref">Definition&nbsp;53</span> (Fold assignment)</a></li>
+<li><a href="#def-fold-out-fitted-model"><span class="quarto-xref">Definition&nbsp;54</span> (Fold-out fitted model)</a></li>
+<li><a href="#def-kfold"><span class="quarto-xref">Definition&nbsp;55</span> (<span class="math inline">\(k\)</span>-fold cross-validation)</a></li>
+<li><a href="#def-cv-estimate"><span class="quarto-xref">Definition&nbsp;56</span> (Cross-validation estimate)</a></li>
+<li><a href="#def-fold-mse"><span class="quarto-xref">Definition&nbsp;57</span> (Fold mean squared error)</a></li>
+<li><a href="#def-loocv"><span class="quarto-xref">Definition&nbsp;58</span> (Leave-one-out cross-validation)</a></li>
+<li><a href="#def-term-vector"><span class="quarto-xref">Definition&nbsp;59</span> (Term vector)</a></li>
+<li><a href="#def-cross-product-matrix"><span class="quarto-xref">Definition&nbsp;60</span> (Cross-product matrix (sum-of-squares and cross-products matrix))</a></li>
+<li><a href="#def-leverage"><span class="quarto-xref">Definition&nbsp;61</span> (Leverage)</a></li>
+<li><a href="#def-cv-estimate-indexed"><span class="quarto-xref">Definition&nbsp;62</span> (Cross-validation estimate of a named procedure)</a></li>
+<li><a href="#def-cv-choice"><span class="quarto-xref">Definition&nbsp;63</span> (Cross-validation choice procedure)</a></li>
+<li><a href="#def-nested-cv"><span class="quarto-xref">Definition&nbsp;64</span> (Nested cross-validation)</a></li>
+<li><a href="#def-cv-se"><span class="quarto-xref">Definition&nbsp;65</span> (Fold-based standard error)</a></li>
+<li><a href="#def-fold-mse-indexed"><span class="quarto-xref">Definition&nbsp;66</span> (Fold mean squared error of a named procedure)</a></li>
+<li><a href="#def-cv-se-indexed"><span class="quarto-xref">Definition&nbsp;67</span> (Fold-based standard error of a named procedure)</a></li>
+<li><a href="#def-one-se-rule"><span class="quarto-xref">Definition&nbsp;68</span> (One-standard-error rule)</a></li>
+<li><a href="#def-adjusted-r-squared"><span class="quarto-xref">Definition&nbsp;69</span> (Adjusted coefficient of determination)</a></li>
+<li><a href="#def-mallows-cp"><span class="quarto-xref">Definition&nbsp;70</span> (Mallows’ <span class="math inline">\(C_p\)</span>)</a></li>
+<li><a href="#def-aic"><span class="quarto-xref">Definition&nbsp;71</span> (Akaike information criterion (AIC))</a></li>
+<li><a href="#def-bic"><span class="quarto-xref">Definition&nbsp;72</span> (Bayesian information criterion (BIC))</a></li>
+</ul></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script>
 // Typesetting equations and loading images change the height of everything
 // above the reader and push the text they were reading out of view. Keep the
 // reader's place: until they scroll, that is the link target (#id or a text

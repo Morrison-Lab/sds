@@ -14,9 +14,9 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
-## 1 Introduction
+## 0.1 Introduction
 
 Classification is a core problem in statistics and machine learning: we seek to assign individuals or observations to one of several discrete categories based on available data. In medicine and epidemiology, classification problems arise constantly; for example, a clinician decides whether a patient has a disease based on evidence such as:
 
@@ -98,7 +98,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > *Remark 1* (Labels in binary classification). In a [binary classification problem](#def-binary-classification), the two [classes](#def-class) \\k_1\\ and \\k_0\\ are often labeled “[positive](#def-positive-classification)” and “[negative](#def-negative-classification)”, or, in medical diagnostic testing, “has the disease” and “does not have the disease”.
 
-## 2 Diagnostic test characteristics
+## 0.2 Diagnostic test characteristics
 
 > **NOTE:**
 >
@@ -150,7 +150,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\ \begin{aligned} \Pr(\neg D) &= 1 - \Pr(D) && \text{(complement rule)} \\ &= 1 - 0.07 && \text{(substitute the prevalence)} \\ &= 0.93 && \text{(subtract)} \end{aligned} \tag{15}\\
 
-## 3 Predictive values
+## 0.3 Predictive values
 
 > **NOTE:**
 >
@@ -188,7 +188,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > A negative result from this test is very reliable: only about 8 in 10,000 people who test negative have COVID-19.
 
-## 4 PPV in terms of sensitivity, specificity, and prevalence
+## 0.4 PPV in terms of sensitivity, specificity, and prevalence
 
 > **NOTE:**
 >
@@ -283,7 +283,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > *Remark 2* (The PPV depends on the population, not only on the test). The sensitivity and specificity describe the test’s performance in a specified setting, and may differ across settings (for example, with the case mix of the people tested or the threshold used to call a result positive), but the ratio \\\frac{1 - \pi}{\pi}\\ in [Theorem 4](#thm-ppv-sens-spec-prev) describes the population being tested. When the disease is rare, that ratio is large, so even a small false positive rate can make the PPV low, as [Example 7](#exm-ppv-sens-spec-prev) shows.
 
-## 5 Agreement between two classifiers
+## 0.5 Agreement between two classifiers
 
 So far, we have compared a test with the true disease status. The same tools apply whenever we compare two classifiers that label the same observations: for example, a new diagnostic test against a reference test, or an automated grader (an “agent”) against a human grader. We call the classifier being evaluated the **agent** and the one we compare it with the **reference**.
 
@@ -322,7 +322,7 @@ So far, we have compared a test with the true disease status. The same tools app
 > #>  693   93    7 9207
 > ```
 
-## 6 Agreement proportions
+## 0.6 Agreement proportions
 
 > **NOTE:**
 >
@@ -444,7 +444,7 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > These estimates match the test’s sensitivity (0.99) and specificity (0.99), its positive predictive value (about 0.88, [Example 5](#exm-ppv)), and its negative predictive value (about 0.999, [Example 6](#exm-npv)), because the table’s counts are the expected counts for those values.
 
-## 7 Positive and negative agreement as harmonic means
+## 0.7 Positive and negative agreement as harmonic means
 
 > **NOTE:**
 >
@@ -518,7 +518,7 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > which matches [Example 12](#exm-negative-agreement).
 
-## 8 Cohen’s kappa
+## 0.8 Cohen’s kappa
 
 > **NOTE:**
 >
@@ -682,5 +682,31 @@ Wikipedia contributors, “Cohen’s kappa — Wikipedia, the free encyclopedia.
 \[11\]
 
 A. R. Feinstein and D. V. Cicchetti, “High agreement but low kappa: I. The problems of two paradoxes,” *Journal of Clinical Epidemiology*, vol. 43, no. 6, pp. 543–549, 1990, doi: [10.1016/0895-4356(90)90158-L](https://doi.org/10.1016/0895-4356(90)90158-L).
+
+# Definitions on this page
+
+- [Definition 1 (Classification)](#def-classification)
+- [Definition 2 (Class)](#def-class)
+- [Definition 3 (Classification rule)](#def-classification-rule)
+- [Definition 4 (Binary classification)](#def-binary-classification)
+- [Definition 5 (Positive classification)](#def-positive-classification)
+- [Definition 6 (Negative classification)](#def-negative-classification)
+- [Definition 7 (Sensitivity)](#def-sensitivity)
+- [Definition 8 (Specificity)](#def-specificity)
+- [Definition 9 (Prevalence)](#def-prevalence)
+- [Definition 10 (Positive predictive value (PPV))](#def-ppv)
+- [Definition 11 (Negative predictive value (NPV))](#def-npv)
+- [Definition 12 (Agreement table)](#def-agreement-table)
+- [Definition 13 (Overall agreement)](#def-overall-agreement)
+- [Definition 14 (Estimated overall agreement)](#def-estimated-overall-agreement)
+- [Definition 15 (Positive agreement)](#def-positive-agreement)
+- [Definition 16 (Negative agreement)](#def-negative-agreement)
+- [Definition 17 (Agent-only rate)](#def-agent-only-rate)
+- [Definition 18 (Test measures estimated from an agreement table)](#def-agreement-test-measures)
+- [Definition 19 (Harmonic mean)](#def-harmonic-mean)
+- [Definition 20 (Chance agreement)](#def-chance-agreement)
+- [Definition 21 (Estimated chance agreement)](#def-estimated-chance-agreement)
+- [Definition 22 (Cohen’s kappa)](#def-cohen-kappa)
+- [Definition 23 (Estimated Cohen’s kappa)](#def-estimated-cohen-kappa)
 
 Back to top

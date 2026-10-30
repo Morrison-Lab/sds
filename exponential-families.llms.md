@@ -4,11 +4,11 @@ Code
 
 Published
 
-Last modified: 2026-10-29 18:15:36 (PDT)
+Last modified: 2026-10-30 00:29:08 (PDT)
 
 Many of the distributions in this course, such as the [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli), [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) and [Normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) distributions, share one algebraic form for their [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). Distributions with that form are called an [exponential family](#def-exponential-family), and they share properties that make estimation easier. This page defines the form and its [natural parameter](#def-natural-parameter), and checks the form for the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) on data.
 
-## 1 The exponential family form
+## 0.1 The exponential family form
 
 > **NOTE:**
 >
@@ -113,7 +113,7 @@ Many of the distributions in this course, such as the [Bernoulli](https://morris
 >
 > For the cyclone data, the rate set to the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) is 5.538 cyclones per season, so the natural parameter is \\\eta= 1.712\\. The natural parameter can be any real number, while the rate must be greater than zero.
 
-## 2 Further reading
+## 0.2 Further reading
 
 - The [Fall 2024 course site for UC Berkeley’s Stat 210A, *Theoretical Statistics*](https://stat210a.berkeley.edu/fall-2024/) (Will Fithian) has a course reader on exponential families, sufficiency, completeness and [unbiased](estimation.llms.md#def-unbiased) estimation.
 
@@ -126,5 +126,10 @@ G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 200
 \[2\]
 
 A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
+
+# Definitions on this page
+
+- [Definition 1 (Exponential family)](#def-exponential-family)
+- [Definition 2 (Natural parameter)](#def-natural-parameter)
 
 Back to top
