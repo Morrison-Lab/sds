@@ -10,8 +10,6 @@ format:
     output-file: data-handout.docx
 ---
 
-## Types of variables
-
 {{< include sds/_subfiles/shared-config.qmd >}}
 
 Before summarizing data,
@@ -20,7 +18,7 @@ since the appropriate descriptive methods depend on the type.
 Variables are broadly classified as either **numerical** or **categorical**,
 and within each class there are important subtypes.
 
-<!-- No slidebreak here: the heading shares its slide with the def-numerical-var div. -->
+<!-- No slidebreak here: the intro text shares its slide with the def-numerical-var div. -->
 
 {{< include sds/_subfiles/data/_def-numerical-var.qmd >}}
 
