@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-30 11:51:54 (PDT)</p>
+  <p class="date">Last modified: 2026-10-30 17:27:44 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -407,7 +407,7 @@ t \sim t_{n-2}.
 </div>
 </section><section class="slide level2"><div id="exm-hers-cor" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (Correlation between BMI and fasting glucose in HERS)</strong></span> <a href="#/fig-hers-scatter" class="quarto-xref">Figure&nbsp;1</a> plots baseline fasting glucose against BMI.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>hers <span class="sc">|&gt;</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>hers <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BMI)) <span class="sc">|&gt;</span></span>
 <span id="cb2-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb2-4"><a aria-label="4"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> BMI, <span class="at">y =</span> glucose) <span class="sc">+</span></span>
@@ -734,7 +734,7 @@ f_{\mathbb{d}}(t)
 \end{aligned}
 \]</span></p>
 <p>(<a href="#/fig-rss-three-points" class="quarto-xref">Figure&nbsp;2</a>).</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>rss_points <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>rss_points <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb6-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">fitted =</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> x)</span>
 <span id="cb6-3"><a aria-label="3"></a></span>
 <span id="cb6-4"><a aria-label="4"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(rss_points, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
@@ -829,7 +829,7 @@ n \, {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}
 </div>
 </section><section class="slide level2"><div id="exm-ols-slr" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (OLS estimates of a simple linear regression)</strong></span> For a simple linear regression, the OLS estimates (<a href="#/def-ols" class="quarto-xref">Definition&nbsp;12</a>) <span class="math inline">\(\hat{\beta}_{0}\)</span> and <span class="math inline">\(\hat{\beta}_{x}\)</span> are the values of <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{x}\)</span> that minimize <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> from <a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>. <a href="#/fig-rss-surface" class="quarto-xref">Figure&nbsp;3</a> shows <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> for the three points of <a href="#/exm-rss" class="quarto-xref">Example&nbsp;4</a>: the OLS estimates sit at the bottom of the bowl, and the line of <a href="#/exm-rss" class="quarto-xref">Example&nbsp;4</a> sits higher up.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>rss_grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>rss_grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
 <span id="cb7-2"><a aria-label="2"></a>  <span class="at">b0 =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fl">2.5</span>, <span class="at">length.out =</span> <span class="dv">101</span>),</span>
 <span id="cb7-3"><a aria-label="3"></a>  <span class="at">bx =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="at">length.out =</span> <span class="dv">101</span>)</span>
 <span id="cb7-4"><a aria-label="4"></a>)</span>
@@ -855,7 +855,7 @@ n \, {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}
 <span id="cb7-24"><a aria-label="24"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="st">"Slope, "</span> <span class="sc">*</span> beta[x]),</span>
 <span id="cb7-25"><a aria-label="25"></a>    <span class="at">color =</span> <span class="st">"RSS"</span></span>
 <span id="cb7-26"><a aria-label="26"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a></span>
+</details><details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a></span>
 <span id="cb8-2"><a aria-label="2"></a>ols_coefs</span>
 <span id="cb8-3"><a aria-label="3"></a><span class="co">#&gt; (Intercept)           x </span></span>
 <span id="cb8-4"><a aria-label="4"></a><span class="co">#&gt;     1.16667     0.50000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1971,7 +1971,7 @@ r \, \frac{s_y}{s_x}
 </div>
 </div>
 <p><a href="#/fig-hers-slr" class="quarto-xref">Figure&nbsp;4</a> shows the data with the fitted line.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(hers_bmi, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> BMI, <span class="at">y =</span> glucose)) <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(hers_bmi, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> BMI, <span class="at">y =</span> glucose)) <span class="sc">+</span></span>
 <span id="cb12-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
 <span id="cb12-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_abline</span>(</span>
 <span id="cb12-4"><a aria-label="4"></a>    <span class="at">intercept =</span> <span class="fu">coef</span>(slr_fit)[[<span class="dv">1</span>]],</span>
@@ -2758,6 +2758,50 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
           RevealZoom
         ]
       });
+    </script><script>
+    // Put each folded code cell inside the tab it belongs to.
+    // Quarto hoists the `details.code-fold` of a cross-referenced figure out of the figure,
+    // so an R and a Python tab end up with their folds stacked above the whole figure.
+    // For every language tabset, take the run of folds immediately before it (or before the figure
+    // that holds it), match each fold to a tab by language, and move it to the top of that tab.
+    // The selectors cover both the website tabsets (Bootstrap) and the slide tabsets (tabby).
+    document.querySelectorAll("div.panel-tabset").forEach(function (tabset) {
+      var anchor = tabset.closest("div.quarto-float") || tabset;
+      var panes = Array.prototype.slice.call(tabset.querySelectorAll(":scope > .tab-content > div"));
+      var tabs = Array.prototype.slice.call(tabset.querySelectorAll(":scope > ul > li > a"));
+      var folds = [];
+      var node = anchor.previousElementSibling;
+      while (node && node.matches("details.code-fold")) {
+        folds.unshift(node);
+        node = node.previousElementSibling;
+      }
+      if (folds.length === 0 || folds.length !== panes.length || tabs.length !== panes.length) {
+        return;
+      }
+      var language = function (fold) {
+        var code = fold.querySelector("pre.sourceCode");
+        var found = code && Array.prototype.find.call(code.classList, function (name) {
+          return name !== "sourceCode" && name !== "downlit" && name !== "code-with-copy";
+        });
+        return found ? found.toLowerCase() : "";
+      };
+      var used = {};
+      var unused = function () {
+        return tabs.findIndex(function (tab, j) {
+          return !used[j];
+        });
+      };
+      folds.forEach(function (fold) {
+        var index = tabs.findIndex(function (tab, j) {
+          return !used[j] && tab.textContent.trim().toLowerCase() === language(fold);
+        });
+        if (index < 0) {
+          index = unused();
+        }
+        used[index] = true;
+        panes[index].insertBefore(fold, panes[index].firstChild);
+      });
+    });
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 ## 0.1 Predictions, fitted values, residuals, and prediction errors
 
@@ -178,7 +178,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > fre_points <- tibble::tibble(x = c(0, 1, 2), y = c(1, 2, 2)) |>

@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-30 11:51:54 (PDT)</p>
+  <p class="date">Last modified: 2026-10-30 17:27:44 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -425,7 +425,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Example 1 (Consistency of the sample mean for birth weights)</strong></span> The <code>birthwt</code> data record the birth weight (grams) of 189 babies from a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied"><a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>; the data ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this site has a copy at <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>.</p>
 <p>To see <a href="#/cor-sample-mean-consistent" class="quarto-xref">Corollary&nbsp;1</a> at work, treat these babies as a finite population and let the estimand <span class="math inline">\(\mu\)</span> be their population mean birth weight. We draw <span class="math inline">\(n\)</span> babies at random with replacement, so the draws are independent with the population’s mean and variance, and we ask how often the sample mean misses <span class="math inline">\(\mu\)</span> by at least <span class="math inline">\(\varepsilon = 100\)</span> grams. For each <span class="math inline">\(n\)</span> we repeat the sampling 2000 times and report the fraction of repeats that miss, with a 95% confidence interval for that probability (the Wilson score interval with continuity correction, the default of <code><a href="https://rdrr.io/r/stats/prop.test.html">prop.test()</a></code>), next to the bound <span class="math inline">\(\sigma^2/ (n \varepsilon^2)\)</span> that <a href="#/lem-estimation-error-bound" class="quarto-xref">Lemma&nbsp;1</a> gives, capped at 1 because a probability cannot exceed 1, using <span class="math inline">\({\operatorname{pMSE}\mathopen{}\left(\bar X_n\right)\mathclose{}} = \sigma^2/ n\)</span> from <a href="./estimation.html#exm-mse-sample-mean">the example on two estimators of a mean</a>.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>birthwt <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/birthwt.csv"</span>)</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>birthwt <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/birthwt.csv"</span>)</span>
 <span id="cb1-2"><a aria-label="2"></a>bwt <span class="ot">&lt;-</span> birthwt<span class="sc">$</span>bwt</span>
 <span id="cb1-3"><a aria-label="3"></a></span>
 <span id="cb1-4"><a aria-label="4"></a><span class="co"># The population: the 189 observed birth weights.</span></span>
@@ -467,7 +467,7 @@ text-align: center;
 </div>
 </div>
 </div>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(consistency_sim, <span class="fu">aes</span>(<span class="at">x =</span> n)) <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(consistency_sim, <span class="fu">aes</span>(<span class="at">x =</span> n)) <span class="sc">+</span></span>
 <span id="cb2-2"><a aria-label="2"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">alpha =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
 <span id="cb2-3"><a aria-label="3"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> miss_prob, <span class="at">linetype =</span> <span class="st">"simulated"</span>)) <span class="sc">+</span></span>
 <span id="cb2-4"><a aria-label="4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> miss_prob)) <span class="sc">+</span></span>
@@ -1072,6 +1072,50 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
           RevealZoom
         ]
       });
+    </script><script>
+    // Put each folded code cell inside the tab it belongs to.
+    // Quarto hoists the `details.code-fold` of a cross-referenced figure out of the figure,
+    // so an R and a Python tab end up with their folds stacked above the whole figure.
+    // For every language tabset, take the run of folds immediately before it (or before the figure
+    // that holds it), match each fold to a tab by language, and move it to the top of that tab.
+    // The selectors cover both the website tabsets (Bootstrap) and the slide tabsets (tabby).
+    document.querySelectorAll("div.panel-tabset").forEach(function (tabset) {
+      var anchor = tabset.closest("div.quarto-float") || tabset;
+      var panes = Array.prototype.slice.call(tabset.querySelectorAll(":scope > .tab-content > div"));
+      var tabs = Array.prototype.slice.call(tabset.querySelectorAll(":scope > ul > li > a"));
+      var folds = [];
+      var node = anchor.previousElementSibling;
+      while (node && node.matches("details.code-fold")) {
+        folds.unshift(node);
+        node = node.previousElementSibling;
+      }
+      if (folds.length === 0 || folds.length !== panes.length || tabs.length !== panes.length) {
+        return;
+      }
+      var language = function (fold) {
+        var code = fold.querySelector("pre.sourceCode");
+        var found = code && Array.prototype.find.call(code.classList, function (name) {
+          return name !== "sourceCode" && name !== "downlit" && name !== "code-with-copy";
+        });
+        return found ? found.toLowerCase() : "";
+      };
+      var used = {};
+      var unused = function () {
+        return tabs.findIndex(function (tab, j) {
+          return !used[j];
+        });
+      };
+      folds.forEach(function (fold) {
+        var index = tabs.findIndex(function (tab, j) {
+          return !used[j] && tab.textContent.trim().toLowerCase() === language(fold);
+        });
+        if (index < 0) {
+          index = unused();
+        }
+        used[index] = true;
+        panes[index].insertBefore(fold, panes[index].firstChild);
+      });
+    });
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-30 11:51:54 (PDT)</p>
+  <p class="date">Last modified: 2026-10-30 17:27:44 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -505,7 +505,7 @@ text-align: center;
 </div>
 <p>528 of the 2308 genes have a p-value of at most 0.05. If every null hypothesis were true, the p-values would be uniform on <span class="math inline">\([0, 1]\)</span> and about 115.4 genes would fall below 0.05 by chance alone. <a href="#/fig-khan-p-hist" class="quarto-xref">Figure&nbsp;1</a> shows the p-values: the spike at the left is the signal, and the roughly flat remainder looks like p-values from true null hypotheses. The data alone do not say which of the 528 genes are the false positives.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">p =</span> khan_p), <span class="fu">aes</span>(<span class="at">x =</span> p)) <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">p =</span> khan_p), <span class="fu">aes</span>(<span class="at">x =</span> p)) <span class="sc">+</span></span>
 <span id="cb4-2"><a aria-label="2"></a>  <span class="fu">geom_histogram</span>(</span>
 <span id="cb4-3"><a aria-label="3"></a>    <span class="at">binwidth =</span> <span class="fl">0.05</span>, <span class="at">boundary =</span> <span class="dv">0</span>, <span class="at">fill =</span> <span class="st">"grey60"</span>, <span class="at">color =</span> <span class="st">"white"</span></span>
 <span id="cb4-4"><a aria-label="4"></a>  ) <span class="sc">+</span></span>
@@ -733,7 +733,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <p>With <span class="math inline">\(m =\)</span> 2308 tests the threshold is 2.17e-05, and the correction rejects 62 genes out of the 528 with an unadjusted p-value of at most 0.05. The same functions applied to the first ten genes of the data set show the arithmetic: with <span class="math inline">\(m = 10\)</span> the threshold is <span class="math inline">\(0.05 / 10 = 0.005\)</span>.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>fmt_p <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="fu">vapply</span>(p, format, <span class="fu">character</span>(<span class="dv">1</span>), <span class="at">digits =</span> <span class="dv">3</span>)</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>fmt_p <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="fu">vapply</span>(p, format, <span class="fu">character</span>(<span class="dv">1</span>), <span class="at">digits =</span> <span class="dv">3</span>)</span>
 <span id="cb10-2"><a aria-label="2"></a>ten_genes <span class="ot">&lt;-</span> khan_p[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
 <span id="cb10-3"><a aria-label="3"></a><span class="fu">data.frame</span>(</span>
 <span id="cb10-4"><a aria-label="4"></a>  <span class="at">gene =</span> <span class="fu">names</span>(ten_genes),</span>
@@ -947,7 +947,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <p>For the first ten genes at <span class="math inline">\(\alpha= 0.05\)</span>, the thresholds <span class="math inline">\(0.05 / (10 - k + 1)\)</span> rise from <span class="math inline">\(0.005\)</span> for the smallest p-value to <span class="math inline">\(0.05\)</span> for the largest:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>holm_ten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>holm_ten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb13-2"><a aria-label="2"></a>  <span class="at">gene =</span> <span class="fu">names</span>(ten_genes),</span>
 <span id="cb13-3"><a aria-label="3"></a>  <span class="at">p_value =</span> ten_genes,</span>
 <span id="cb13-4"><a aria-label="4"></a>  <span class="at">row.names =</span> <span class="cn">NULL</span></span>
@@ -1175,7 +1175,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <p>For the first ten genes at <span class="math inline">\(q = 0.05\)</span> the thresholds <span class="math inline">\(k \times 0.05 / 10\)</span> rise from <span class="math inline">\(0.005\)</span> to <span class="math inline">\(0.05\)</span>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a>bh_ten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a>bh_ten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb17-2"><a aria-label="2"></a>  <span class="at">gene =</span> <span class="fu">names</span>(ten_genes),</span>
 <span id="cb17-3"><a aria-label="3"></a>  <span class="at">p_value =</span> ten_genes,</span>
 <span id="cb17-4"><a aria-label="4"></a>  <span class="at">row.names =</span> <span class="cn">NULL</span></span>
@@ -1326,7 +1326,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 \]</span></p>
 <p>R computes all three with <code><a href="https://rdrr.io/r/stats/p.adjust.html">p.adjust()</a></code>. For the first ten genes:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="fu">data.frame</span>(</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="fu">data.frame</span>(</span>
 <span id="cb20-2"><a aria-label="2"></a>  <span class="at">gene =</span> <span class="fu">names</span>(ten_genes),</span>
 <span id="cb20-3"><a aria-label="3"></a>  <span class="at">p_value =</span> ten_genes,</span>
 <span id="cb20-4"><a aria-label="4"></a>  <span class="at">bonferroni =</span> <span class="fu">p.adjust</span>(ten_genes, <span class="at">method =</span> <span class="st">"bonferroni"</span>),</span>
@@ -1962,6 +1962,50 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
           RevealZoom
         ]
       });
+    </script><script>
+    // Put each folded code cell inside the tab it belongs to.
+    // Quarto hoists the `details.code-fold` of a cross-referenced figure out of the figure,
+    // so an R and a Python tab end up with their folds stacked above the whole figure.
+    // For every language tabset, take the run of folds immediately before it (or before the figure
+    // that holds it), match each fold to a tab by language, and move it to the top of that tab.
+    // The selectors cover both the website tabsets (Bootstrap) and the slide tabsets (tabby).
+    document.querySelectorAll("div.panel-tabset").forEach(function (tabset) {
+      var anchor = tabset.closest("div.quarto-float") || tabset;
+      var panes = Array.prototype.slice.call(tabset.querySelectorAll(":scope > .tab-content > div"));
+      var tabs = Array.prototype.slice.call(tabset.querySelectorAll(":scope > ul > li > a"));
+      var folds = [];
+      var node = anchor.previousElementSibling;
+      while (node && node.matches("details.code-fold")) {
+        folds.unshift(node);
+        node = node.previousElementSibling;
+      }
+      if (folds.length === 0 || folds.length !== panes.length || tabs.length !== panes.length) {
+        return;
+      }
+      var language = function (fold) {
+        var code = fold.querySelector("pre.sourceCode");
+        var found = code && Array.prototype.find.call(code.classList, function (name) {
+          return name !== "sourceCode" && name !== "downlit" && name !== "code-with-copy";
+        });
+        return found ? found.toLowerCase() : "";
+      };
+      var used = {};
+      var unused = function () {
+        return tabs.findIndex(function (tab, j) {
+          return !used[j];
+        });
+      };
+      folds.forEach(function (fold) {
+        var index = tabs.findIndex(function (tab, j) {
+          return !used[j] && tab.textContent.trim().toLowerCase() === language(fold);
+        });
+        if (index < 0) {
+          index = unused();
+        }
+        used[index] = true;
+        panes[index].insertBefore(fold, panes[index].firstChild);
+      });
+    });
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

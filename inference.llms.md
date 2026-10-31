@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 ## 0.1 Inference
 
@@ -311,7 +311,7 @@ Conversely, even statistically significant evidence of a non-null value does not
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > ci_scenarios <- tibble::tribble(

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests [\[1\]](#ref-wikipedia_multiple_comparisons_problem).
 
@@ -128,7 +128,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > 528 of the 2308 genes have a p-value of at most 0.05. If every null hypothesis were true, the p-values would be uniform on \\\[0, 1\]\\ and about 115.4 genes would fall below 0.05 by chance alone. [Figure 1](#fig-khan-p-hist) shows the p-values: the spike at the left is the signal, and the roughly flat remainder looks like p-values from true null hypotheses. The data alone do not say which of the 528 genes are the false positives.
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > ggplot(data.frame(p = khan_p), aes(x = p)) +
@@ -351,7 +351,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > With \\m =\\ 2308 tests the threshold is 2.17e-05, and the correction rejects 62 genes out of the 528 with an unadjusted p-value of at most 0.05. The same functions applied to the first ten genes of the data set show the arithmetic: with \\m = 10\\ the threshold is \\0.05 / 10 = 0.005\\.
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > fmt_p <- function(p) vapply(p, format, character(1), digits = 3)
@@ -506,7 +506,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > For the first ten genes at \\\alpha= 0.05\\, the thresholds \\0.05 / (10 - k + 1)\\ rise from \\0.005\\ for the smallest p-value to \\0.05\\ for the largest:
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > holm_ten <- data.frame(
@@ -672,7 +672,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > For the first ten genes at \\q = 0.05\\ the thresholds \\k \times 0.05 / 10\\ rise from \\0.005\\ to \\0.05\\:
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > bh_ten <- data.frame(
@@ -767,7 +767,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > R computes all three with [`p.adjust()`](https://rdrr.io/r/stats/p.adjust.html). For the first ten genes:
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > data.frame(

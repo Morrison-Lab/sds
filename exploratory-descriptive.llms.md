@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 ## 0.1 Introduction
 
@@ -79,7 +79,7 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 wcgs |> head()
 ```
 
-Show R code
+Show code
 
 ``` downlit
 # attach a descriptive label to each variable;
@@ -395,7 +395,7 @@ For categorical variables with more than two levels, the natural descriptive sta
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>
@@ -430,7 +430,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>
@@ -456,7 +456,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>
@@ -489,7 +489,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>
@@ -514,7 +514,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>
@@ -538,7 +538,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>
@@ -574,7 +574,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>
@@ -643,7 +643,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>
@@ -660,7 +660,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>
@@ -679,7 +679,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>
@@ -740,7 +740,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > wcgs |>
@@ -764,7 +764,7 @@ The WCGS dataset already contains log-transformed versions of two variables:
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>
@@ -778,7 +778,7 @@ The WCGS dataset already contains log-transformed versions of two variables:
 >
 > \(a\) Raw scale
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>
@@ -795,7 +795,7 @@ The WCGS dataset already contains log-transformed versions of two variables:
 >
 > Figure 9: Distribution of systolic blood pressure in the WCGS, on two scales. Both panels label the axis in mmHg; the right panel spaces the values logarithmically, so its histogram is the histogram of `lnsbp`.
 
-Show R code
+Show code
 
 ``` downlit
 # sample skewness: mean cubed deviation, divided by the cubed SD
@@ -934,7 +934,7 @@ A typical exploratory data analysis proceeds as follows:
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > wcgs |>

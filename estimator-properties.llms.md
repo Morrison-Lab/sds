@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and population mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
@@ -78,7 +78,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > To see [Corollary 1](#cor-sample-mean-consistent) at work, treat these babies as a finite population and let the estimand \\\mu\\ be their population mean birth weight. We draw \\n\\ babies at random with replacement, so the draws are independent with the population’s mean and variance, and we ask how often the sample mean misses \\\mu\\ by at least \\\varepsilon = 100\\ grams. For each \\n\\ we repeat the sampling 2000 times and report the fraction of repeats that miss, with a 95% confidence interval for that probability (the Wilson score interval with continuity correction, the default of [`prop.test()`](https://rdrr.io/r/stats/prop.test.html)), next to the bound \\\sigma^2/ (n \varepsilon^2)\\ that [Lemma 1](#lem-estimation-error-bound) gives, capped at 1 because a probability cannot exceed 1, using \\{\operatorname{pMSE}\mathopen{}\left(\bar X_n\right)\mathclose{}} = \sigma^2/ n\\ from [the example on two estimators of a mean](estimation.llms.md#exm-mse-sample-mean).
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > birthwt <- read.csv("data/birthwt.csv")
@@ -119,7 +119,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > p <- ggplot(consistency_sim, aes(x = n)) +

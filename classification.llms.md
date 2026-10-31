@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 ## 0.1 Introduction
 
@@ -313,7 +313,7 @@ So far, we have compared a test with the true disease status. The same tools app
 > | **Test negative** |   \\c = 7\\ | \\d = 9{,}207\\ |  \\9{,}214\\ |
 > | **Total**         |     \\700\\ |     \\9{,}300\\ | \\10{,}000\\ |
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > agree_covid <- c(a = 693, b = 93, c = 7, d = 9207)

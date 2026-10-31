@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 ## 0.1 Overview of maximum likelihood estimation
 
@@ -840,7 +840,7 @@ Adapted from [\[1, Sec. 1.6.5\]](#ref-dobson4e).
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > cyclones <- tibble::tibble(
@@ -878,7 +878,7 @@ Suppose we want to learn how many cyclones to expect per season.
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > cyclones |>
@@ -903,7 +903,7 @@ Suppose we want to learn how many cyclones to expect per season.
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > cyclones |>
@@ -923,7 +923,7 @@ Suppose we want to learn how many cyclones to expect per season.
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > n <- nrow(cyclones)
@@ -1019,7 +1019,7 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > # `cyclones` is defined earlier on the page:
@@ -1060,7 +1060,7 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > # `cyclones` is defined earlier on the page:
@@ -1105,7 +1105,7 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > # `cyclones` is defined earlier on the page:
@@ -1150,7 +1150,7 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > # `cyclones` is defined earlier on the page:
@@ -1229,7 +1229,7 @@ Call this solution of the score equation \\\tilde {\lambda}\\ for now:
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > mle_data <- tibble::tibble(x = mle, y = loglik(mle))
@@ -1245,7 +1245,7 @@ Call this solution of the score equation \\\tilde {\lambda}\\ for now:
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > obs_inf <- function(...) -hessian(...) # nolint: object_usage_linter.
@@ -1337,7 +1337,7 @@ So the first-order Taylor approximation of the score function around \\{\widehat
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > # score(), hessian() and loglik() are defined earlier on the page
@@ -1391,7 +1391,7 @@ Approximating the score function by a linear function is equivalent to approxima
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > # nolint start: object_usage_linter.
@@ -1449,7 +1449,7 @@ new_lambda_est
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > plot2 <- plot1 +
@@ -1480,7 +1480,7 @@ We update \\{\widehat{\lambda}}^\*\leftarrow 4.375\\ and repeat the process ([Fi
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > plot2 +
@@ -1562,7 +1562,7 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > ll_plot +
@@ -2163,7 +2163,7 @@ The `rmb` R package includes the same file, which these notes use so that render
 
 To keep the likelihood graphs readable, we use only the first 100 eligible participants ([Figure 14](#fig-hers-glucose-hist)); with the whole subset, the likelihood would be too concentrated to graph clearly.
 
-Show R code
+Show code
 
 ``` downlit
 n_obs <- 100
@@ -2185,7 +2185,7 @@ summary(glucose_data)
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > plot1 <-
@@ -2224,7 +2224,7 @@ c(mu_hat = mu_hat, sigma_sq_hat = sigma_sq_hat)
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > plot1 +
@@ -2264,7 +2264,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > ggplot2::ggplot() +
@@ -2282,7 +2282,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 >
 > \(a\) Likelihood
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > ggplot2::ggplot() +
@@ -2306,7 +2306,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > ggplot2::ggplot() +
@@ -2324,7 +2324,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 >
 > \(a\) Likelihood
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > ggplot2::ggplot() +
@@ -2350,7 +2350,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > n_points <- 25
@@ -2388,7 +2388,7 @@ which shrinks in proportion to \\1/\sqrt{n}\\ ([Figure 19](#fig-hers-se-by-n)).
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > se_mu_hat <- function(n, sigma) sigma / sqrt(n)
@@ -2449,7 +2449,7 @@ power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > ggplot2::ggplot() +

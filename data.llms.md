@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 ## 0.1 Types of variables
 
@@ -162,7 +162,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > nodes <- tibble::tribble(
@@ -254,7 +254,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > tibble::tribble(

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -59,7 +59,7 @@ hers |> head()
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > hers |>
@@ -308,7 +308,7 @@ hers |> head()
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > rss_points <- tibble::tibble(x = c(0, 1, 2), y = c(1, 2, 2)) |>
@@ -379,7 +379,7 @@ hers |> head()
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > rss_grid <- expand.grid(
@@ -410,7 +410,7 @@ hers |> head()
 > >   )
 > > ```
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > >
@@ -945,7 +945,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > ggplot2::ggplot(hers_bmi, ggplot2::aes(x = BMI, y = glucose)) +

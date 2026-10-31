@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 ## 0.1 Empirical distribution
 
@@ -136,7 +136,7 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 
 > **NOTE:**
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > x <- c(4, 1, 7, 3)
@@ -178,7 +178,7 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 >
 > \(a\) Empirical CDF, horizontal pieces only. Closed circles mark included endpoints; open circles mark excluded endpoints.
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > eqf_y_padding <- 0.5

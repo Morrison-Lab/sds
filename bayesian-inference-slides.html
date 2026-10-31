@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-30 11:51:54 (PDT)</p>
+  <p class="date">Last modified: 2026-10-30 17:27:44 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -676,7 +676,7 @@ text-align: center;
 \]</span></p>
 <p>so <span class="math inline">\(\mu= \frac{n}{n+1}{\bar{x}}\)</span>. The penalty <span class="math inline">\(\frac{1}{2}\mu^2\)</span> pulls the estimate toward the prior mean <span class="math inline">\(0\)</span>, and its pull weakens relative to the data as <span class="math inline">\(n\)</span> grows.</p>
 <p><a href="#/fig-map-penalized" class="quarto-xref">Figure&nbsp;1</a> shows the penalized form for simulated data (<span class="math inline">\(n = 20\)</span>, true mean <span class="math inline">\(2\)</span>). The penalty is a parabola centered at the prior mean <span class="math inline">\(0\)</span>. Adding it to the negative log-likelihood moves the minimizer from the sample mean toward <span class="math inline">\(0\)</span>.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb2-2"><a aria-label="2"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
 <span id="cb2-3"><a aria-label="3"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> n, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
 <span id="cb2-4"><a aria-label="4"></a>xbar <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
@@ -750,7 +750,7 @@ Figure&nbsp;1: Negative log-likelihood, penalty, and their sum, up to constants.
 </div>
 <p>The sample mean is <span class="math inline">\(\bar x = 2.191\)</span>. The credible interval is slightly narrower than the confidence interval, because the prior adds information, and shifted toward the prior mean <span class="math inline">\(0\)</span>.</p>
 <p><a href="#/fig-normal-prior-lik-post" class="quarto-xref">Figure&nbsp;2</a> shows how the posterior combines prior and data. Completing the square in the likelihood of <a href="#/exm-normal-normal" class="quarto-xref">Example&nbsp;6</a> as a function of <span class="math inline">\(\mu\)</span> alone shows that the likelihood is proportional to a <span class="math inline">\({\operatorname{N}\mathopen{}\left(\bar x, 1/n\right)\mathclose{}}\)</span> density, which is the curve drawn for it.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>mu_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="at">length.out =</span> <span class="dv">801</span>)</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>mu_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="at">length.out =</span> <span class="dv">801</span>)</span>
 <span id="cb4-2"><a aria-label="2"></a>curves <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
 <span id="cb4-3"><a aria-label="3"></a>  <span class="at">mu =</span> <span class="fu">rep</span>(mu_grid, <span class="at">times =</span> <span class="dv">3</span>),</span>
 <span id="cb4-4"><a aria-label="4"></a>  <span class="at">curve =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"prior"</span>, <span class="st">"likelihood"</span>, <span class="st">"posterior"</span>), <span class="at">each =</span> <span class="fu">length</span>(mu_grid)),</span>
@@ -908,7 +908,7 @@ Figure&nbsp;2: The <span class="math inline">\({\operatorname{N}\mathopen{}\left
 </div>
 <p>The marginal likelihood is 0.0824 (with a uniform prior over eleven values, the average of the likelihood column), and the posterior probabilities sum to 1. <a href="#/fig-discrete-prior" class="quarto-xref">Figure&nbsp;3</a> compares the prior with the posterior.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>discrete_long <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>discrete_long <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
 <span id="cb7-2"><a aria-label="2"></a>  <span class="fu">data.frame</span>(</span>
 <span id="cb7-3"><a aria-label="3"></a>    <span class="at">prob =</span> discrete_post<span class="sc">$</span>prob,</span>
 <span id="cb7-4"><a aria-label="4"></a>    <span class="at">distribution =</span> <span class="st">"prior"</span>,</span>
@@ -1218,7 +1218,7 @@ Figure&nbsp;3: Prior and posterior probabilities on the grid of values of the su
 <p>R and Python use different random-number generators, so their simulated draws differ, and their summaries can differ too; the numbers in the text below come from the R code.</p>
 <hr>
 <p><a href="#/fig-prior-posterior" class="quarto-xref">Figure&nbsp;4</a> plots each prior and posterior density.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>prob_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">length.out =</span> <span class="dv">500</span>)</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>prob_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">length.out =</span> <span class="dv">500</span>)</span>
 <span id="cb12-2"><a aria-label="2"></a>density_curves <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(</span>
 <span id="cb12-3"><a aria-label="3"></a>  <span class="fu">lapply</span>(<span class="fu">rownames</span>(post_params), \(data_set) {</span>
 <span id="cb12-4"><a aria-label="4"></a>    dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(</span>
@@ -1769,7 +1769,7 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 <p>The output is the proportion of simulated counts at least as large as the observed count, 74.</p>
 <hr>
 <p><a href="#/fig-prior-predictive-check" class="quarto-xref">Figure&nbsp;5</a> plots the simulated counts.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(prior_pred_counts, ggplot2<span class="sc">::</span><span class="fu">aes</span>(count)) <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(prior_pred_counts, ggplot2<span class="sc">::</span><span class="fu">aes</span>(count)) <span class="sc">+</span></span>
 <span id="cb24-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">boundary =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb24-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">t_count</span>(smoke_y), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
 <span id="cb24-4"><a aria-label="4"></a>  ggplot2<span class="sc">::</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>prior) <span class="sc">+</span></span>
@@ -1917,7 +1917,7 @@ Figure&nbsp;5: Prior predictive distributions of the number of smokers among the
 </div>
 <hr>
 <p><a href="#/fig-posterior-predictive-check" class="quarto-xref">Figure&nbsp;6</a> compares the replicated and observed values of <span class="math inline">\(T_2\)</span>.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ppc_draws, ggplot2<span class="sc">::</span><span class="fu">aes</span>(t_rep)) <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ppc_draws, ggplot2<span class="sc">::</span><span class="fu">aes</span>(t_rep)) <span class="sc">+</span></span>
 <span id="cb28-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">40</span>) <span class="sc">+</span></span>
 <span id="cb28-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_vline</span>(</span>
 <span id="cb28-4"><a aria-label="4"></a>    <span class="at">data =</span> ppc_obs,</span>
@@ -2596,6 +2596,50 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
           RevealZoom
         ]
       });
+    </script><script>
+    // Put each folded code cell inside the tab it belongs to.
+    // Quarto hoists the `details.code-fold` of a cross-referenced figure out of the figure,
+    // so an R and a Python tab end up with their folds stacked above the whole figure.
+    // For every language tabset, take the run of folds immediately before it (or before the figure
+    // that holds it), match each fold to a tab by language, and move it to the top of that tab.
+    // The selectors cover both the website tabsets (Bootstrap) and the slide tabsets (tabby).
+    document.querySelectorAll("div.panel-tabset").forEach(function (tabset) {
+      var anchor = tabset.closest("div.quarto-float") || tabset;
+      var panes = Array.prototype.slice.call(tabset.querySelectorAll(":scope > .tab-content > div"));
+      var tabs = Array.prototype.slice.call(tabset.querySelectorAll(":scope > ul > li > a"));
+      var folds = [];
+      var node = anchor.previousElementSibling;
+      while (node && node.matches("details.code-fold")) {
+        folds.unshift(node);
+        node = node.previousElementSibling;
+      }
+      if (folds.length === 0 || folds.length !== panes.length || tabs.length !== panes.length) {
+        return;
+      }
+      var language = function (fold) {
+        var code = fold.querySelector("pre.sourceCode");
+        var found = code && Array.prototype.find.call(code.classList, function (name) {
+          return name !== "sourceCode" && name !== "downlit" && name !== "code-with-copy";
+        });
+        return found ? found.toLowerCase() : "";
+      };
+      var used = {};
+      var unused = function () {
+        return tabs.findIndex(function (tab, j) {
+          return !used[j];
+        });
+      };
+      folds.forEach(function (fold) {
+        var index = tabs.findIndex(function (tab, j) {
+          return !used[j] && tab.textContent.trim().toLowerCase() === language(fold);
+        });
+        if (index < 0) {
+          index = unused();
+        }
+        used[index] = true;
+        panes[index].insertBefore(fold, panes[index].firstChild);
+      });
+    });
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

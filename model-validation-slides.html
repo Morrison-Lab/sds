@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-30 11:51:54 (PDT)</p>
+  <p class="date">Last modified: 2026-10-30 17:27:44 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -764,7 +764,7 @@ h\mapsto {\mathcal{J}\mathopen{}\left(h; \mathcal{D}\right)\mathclose{}}, \quad 
 </div>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>best_train <span class="ot">&lt;-</span> overfitting_results<span class="sc">$</span>degree[</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>best_train <span class="ot">&lt;-</span> overfitting_results<span class="sc">$</span>degree[</span>
 <span id="cb6-2"><a aria-label="2"></a>  <span class="fu">which.min</span>(overfitting_results<span class="sc">$</span>training_RMSE)</span>
 <span id="cb6-3"><a aria-label="3"></a>]</span>
 <span id="cb6-4"><a aria-label="4"></a>best_held_out <span class="ot">&lt;-</span> overfitting_results<span class="sc">$</span>degree[</span>
@@ -989,7 +989,7 @@ Y\mid X= x
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell">
-<details open="" class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-label="1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-label="1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a aria-label="2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-3"><a aria-label="3"></a><span class="im">from</span> SyncRNG <span class="im">import</span> SyncRNG</span>
 <span id="cb7-4"><a aria-label="4"></a></span>
@@ -1017,7 +1017,7 @@ Y\mid X= x
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<details open="" class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>auto_af <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/auto.csv"</span>)</span>
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>auto_af <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/auto.csv"</span>)</span>
 <span id="cb8-2"><a aria-label="2"></a>auto_af <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(auto_af[, <span class="fu">c</span>(<span class="st">"mpg"</span>, <span class="st">"cylinders"</span>, <span class="st">"horsepower"</span>)])</span>
 <span id="cb8-3"><a aria-label="3"></a></span>
 <span id="cb8-4"><a aria-label="4"></a><span class="co"># SyncRNG is a random number generator with the same algorithm</span></span>
@@ -1060,7 +1060,7 @@ Y\mid X= x
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-label="1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-label="1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb9-2"><a aria-label="2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb9-3"><a aria-label="3"></a></span>
 <span id="cb9-4"><a aria-label="4"></a>grid_af <span class="op">=</span> np.arange(<span class="dv">3</span>, <span class="dv">9</span>)</span>
@@ -1094,7 +1094,7 @@ Figure&nbsp;1: The fitted lines of 100 of the 2000 training sets (grey), their p
 </div>
 <div id="tabset-3-2">
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb10-2"><a aria-label="2"></a></span>
 <span id="cb10-3"><a aria-label="3"></a>grid_af <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">8</span></span>
 <span id="cb10-4"><a aria-label="4"></a><span class="co"># One row per fitted line and cylinder count;</span></span>
@@ -1659,7 +1659,7 @@ rmse(), from _sol-overfitting.qmd.
 </div>
 </div>
 </div>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>sim_errors <span class="sc">|&gt;</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>sim_errors <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a aria-label="2"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
 <span id="cb13-3"><a aria-label="3"></a>    <span class="fu">c</span>(training, generalization),</span>
 <span id="cb13-4"><a aria-label="4"></a>    <span class="at">names_to =</span> <span class="st">"error"</span>,</span>
@@ -1695,7 +1695,7 @@ Figure&nbsp;2: Training sRMSE and estimated generalization error (sRMSE on <span
 </figure>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>sim_best_generalization <span class="ot">&lt;-</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>sim_best_generalization <span class="ot">&lt;-</span></span>
 <span id="cb14-2"><a aria-label="2"></a>  sim_errors<span class="sc">$</span>degree[<span class="fu">which.min</span>(sim_errors<span class="sc">$</span>generalization)]</span>
 <span id="cb14-3"><a aria-label="3"></a>sim_best_training <span class="ot">&lt;-</span> sim_errors<span class="sc">$</span>degree[<span class="fu">which.min</span>(sim_errors<span class="sc">$</span>training)]</span>
 <span id="cb14-4"><a aria-label="4"></a>sim_n_below <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
@@ -1928,7 +1928,7 @@ Table&nbsp;1: Sizes of the training, validation, and test splits
 </figure>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>train_dat <span class="ot">&lt;-</span> mtcars[idx_train, ]</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>train_dat <span class="ot">&lt;-</span> mtcars[idx_train, ]</span>
 <span id="cb18-2"><a aria-label="2"></a>valid_dat <span class="ot">&lt;-</span> mtcars[idx_valid, ]</span>
 <span id="cb18-3"><a aria-label="3"></a>test_dat <span class="ot">&lt;-</span> mtcars[idx_test, ]</span>
 <span id="cb18-4"><a aria-label="4"></a></span>
@@ -1993,7 +1993,7 @@ Table&nbsp;1: Sizes of the training, validation, and test splits
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>partition_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>partition_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
 <span id="cb19-2"><a aria-label="2"></a>  <span class="at">training =</span> <span class="st">"#1b9e77"</span>,</span>
 <span id="cb19-3"><a aria-label="3"></a>  <span class="at">validation =</span> <span class="st">"#d95f02"</span>,</span>
 <span id="cb19-4"><a aria-label="4"></a>  <span class="at">test =</span> <span class="st">"#7570b3"</span></span>
@@ -2070,7 +2070,7 @@ Table&nbsp;1: Sizes of the training, validation, and test splits
 <span id="cb19-75"><a aria-label="75"></a><span class="co">#&gt; mpg 10.400 33.900</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="fu">plot_partitions_with_fit</span>(model_linear, <span class="st">"linear fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="fu">plot_partitions_with_fit</span>(model_linear, <span class="st">"linear fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-linear-model-superimposed" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-linear-model-superimposed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: Linear model fit superimposed on data partitions
@@ -2086,7 +2086,7 @@ Figure&nbsp;3: Linear model fit superimposed on data partitions
 </div>
 </figure>
 </div>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="fu">plot_partitions_with_fit</span>(model_quadratic, <span class="st">"quadratic fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="fu">plot_partitions_with_fit</span>(model_quadratic, <span class="st">"quadratic fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-quadratic-model-superimposed" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-quadratic-model-superimposed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Quadratic model fit superimposed on data partitions
@@ -2102,7 +2102,7 @@ Figure&nbsp;4: Quadratic model fit superimposed on data partitions
 </div>
 </figure>
 </div>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a><span class="fu">plot_partitions_with_fit</span>(model_cubic, <span class="st">"cubic fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a><span class="fu">plot_partitions_with_fit</span>(model_cubic, <span class="st">"cubic fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-cubic-model-superimposed" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-cubic-model-superimposed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5: Cubic model fit superimposed on data partitions
@@ -2118,7 +2118,7 @@ Figure&nbsp;5: Cubic model fit superimposed on data partitions
 </div>
 </figure>
 </div>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">plot_partitions_with_fit</span>(model_quartic, <span class="st">"quartic fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">plot_partitions_with_fit</span>(model_quartic, <span class="st">"quartic fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-quartic-model-superimposed" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-quartic-model-superimposed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6: Quartic model fit superimposed on data partitions
@@ -2134,7 +2134,7 @@ Figure&nbsp;6: Quartic model fit superimposed on data partitions
 </div>
 </figure>
 </div>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>validation_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>validation_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="tbl-train-validation-results" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-train-validation-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: Training and validation sRMSE for candidate models
@@ -2152,7 +2152,7 @@ Table&nbsp;2: Training and validation sRMSE for candidate models
 </figure>
 </div>
 <p>The chosen model is the linear model, because it has the lowest validation sRMSE of the four. This split uses different cars from <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, and its validation set has only 6 cars, so the model it picks can differ from the one chosen there.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a>performance_comparison</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a>performance_comparison</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="tbl-train-validation-test-rmse" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-train-validation-test-rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;3: Validation and test sRMSE for the chosen model
@@ -2378,7 +2378,7 @@ and prediction_mse(), from _sol-overfitting.qmd.
 </div>
 <p>The same fold assignment is used for every degree, so the degrees are compared on the same splits. The table and figure report the square root of each cross-validation estimate, so that it is in the same unit as the training sRMSE and generalization pRMSE of <a href="#/exm-train-test-error-simulated" class="quarto-xref">Example&nbsp;31</a>.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a>sim_errors_cv <span class="ot">&lt;-</span> sim_errors <span class="sc">|&gt;</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a>sim_errors_cv <span class="ot">&lt;-</span> sim_errors <span class="sc">|&gt;</span></span>
 <span id="cb27-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
 <span id="cb27-3"><a aria-label="3"></a>    <span class="at">cv_5 =</span> purrr<span class="sc">::</span><span class="fu">map_dbl</span>(</span>
 <span id="cb27-4"><a aria-label="4"></a>      degree,</span>
@@ -2395,7 +2395,7 @@ and prediction_mse(), from _sol-overfitting.qmd.
 </div>
 </div>
 </div>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>sim_errors_cv <span class="sc">|&gt;</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>sim_errors_cv <span class="sc">|&gt;</span></span>
 <span id="cb28-2"><a aria-label="2"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
 <span id="cb28-3"><a aria-label="3"></a>    <span class="fu">c</span>(training, generalization, cv_5),</span>
 <span id="cb28-4"><a aria-label="4"></a>    <span class="at">names_to =</span> <span class="st">"error"</span>,</span>
@@ -2438,7 +2438,7 @@ Figure&nbsp;7: <a href="#/fig-train-test-error" class="quarto-xref">Figure&nbsp;
 </figure>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a>sim_best_cv <span class="ot">&lt;-</span> sim_errors_cv<span class="sc">$</span>degree[<span class="fu">which.min</span>(sim_errors_cv<span class="sc">$</span>cv_5)]</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a>sim_best_cv <span class="ot">&lt;-</span> sim_errors_cv<span class="sc">$</span>degree[<span class="fu">which.min</span>(sim_errors_cv<span class="sc">$</span>cv_5)]</span>
 <span id="cb29-2"><a aria-label="2"></a>sim_n_fit <span class="ot">&lt;-</span> <span class="fu">nrow</span>(sim_train) <span class="sc">-</span> <span class="fu">max</span>(<span class="fu">table</span>(sim_folds))</span>
 <span id="cb29-3"><a aria-label="3"></a>sim_top <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(sim_errors_cv, degree <span class="sc">==</span> <span class="fu">max</span>(sim_degrees))</span>
 <span id="cb29-4"><a aria-label="4"></a>sim_cv_ratio_top <span class="ot">&lt;-</span> sim_top<span class="sc">$</span>cv_5 <span class="sc">/</span> sim_top<span class="sc">$</span>generalization</span>
@@ -2457,7 +2457,7 @@ Figure&nbsp;7: <a href="#/fig-train-test-error" class="quarto-xref">Figure&nbsp;
 <p>The cross-validation estimate is smallest at degree 3, and the estimated generalization error at degree 5. Unlike the training error, the cross-validation estimate does not keep falling as the degree grows, so it does not simply reward higher degrees. It is not an estimate of <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> for the fit to all 30 observations, though (<a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;29</a>). Each of its fits uses only 24 observations. At degree 10, polynomials fitted to 24 points predict their held-out points much worse than the fit to all 30 predicts new data: the cross-validation estimate is 4.1 times the estimated generalization pRMSE.</p>
 <p>Part of that gap is expected: by <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;29</a>, with <span class="math inline">\(g\)</span> the least-squares fit of a degree-10 polynomial, the cross-validation estimate targets <span class="math inline">\({\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}}\)</span>, not the expected generalization error of a fit to 30 points. A simulation of many training sets of each size shows how much the size alone matters at this degree.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>sim_generalization_draws <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>sim_generalization_draws <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
 <span id="cb30-2"><a aria-label="2"></a>  n_train, degree, n_reps, draw, new_data, score</span>
 <span id="cb30-3"><a aria-label="3"></a>) {</span>
 <span id="cb30-4"><a aria-label="4"></a>  purrr<span class="sc">::</span><span class="fu">map_dbl</span>(<span class="fu">seq_len</span>(n_reps), \(r) {</span>
@@ -2509,7 +2509,7 @@ of model-validation.qmd, so it renders only after them:
 assign_folds() and cv_mse(), from _exm-kfold-simulated.qmd.
 --><div id="exm-kfold-mtcars" class="theorem example">
 <p><span class="theorem-title"><strong>Example 37 (Four-fold cross-validation of the <code>mtcars</code> polynomials)</strong></span> This example applies the <span class="math inline">\(k= 4\)</span> folds of <a href="#/exr-kfold" class="quarto-xref">Exercise&nbsp;11</a> to the four polynomial models of <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, now using all <span class="math inline">\(n= 32\)</span> cars and the <code>cv_mse()</code> function of <a href="#/exm-kfold-simulated" class="quarto-xref">Example&nbsp;36</a>. The fold assignment is random, so the estimate is too; to show how much, we repeat the whole procedure with 5 different random fold assignments.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a>mtcars_degrees <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a>mtcars_degrees <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
 <span id="cb31-2"><a aria-label="2"></a>n_repeats <span class="ot">&lt;-</span> <span class="dv">5</span></span>
 <span id="cb31-3"><a aria-label="3"></a></span>
 <span id="cb31-4"><a aria-label="4"></a><span class="fu">set.seed</span>(<span class="dv">32</span>)</span>
@@ -2548,7 +2548,7 @@ Table&nbsp;4: Square root of the 4-fold cross-validation estimate, by degree, fo
 </div>
 </figure>
 </div>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a>mtcars_cv_best <span class="ot">&lt;-</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a>mtcars_cv_best <span class="ot">&lt;-</span></span>
 <span id="cb32-2"><a aria-label="2"></a>  mtcars_cv <span class="sc">|&gt;</span></span>
 <span id="cb32-3"><a aria-label="3"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
 <span id="cb32-4"><a aria-label="4"></a>    <span class="sc">-</span>repeat_id,</span>
@@ -2576,7 +2576,7 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated sRMSE in each of 5
 </figure>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a>mtcars_cv_range <span class="ot">&lt;-</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a>mtcars_cv_range <span class="ot">&lt;-</span></span>
 <span id="cb33-2"><a aria-label="2"></a>  mtcars_cv <span class="sc">|&gt;</span></span>
 <span id="cb33-3"><a aria-label="3"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
 <span id="cb33-4"><a aria-label="4"></a>    dplyr<span class="sc">::</span><span class="fu">across</span>(dplyr<span class="sc">::</span><span class="fu">starts_with</span>(<span class="st">"degree_"</span>), \(v) <span class="fu">diff</span>(<span class="fu">range</span>(v)))</span>
@@ -2749,7 +2749,7 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 </div>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>loocv_max_diff <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">abs</span>(mtcars_loocv<span class="sc">$</span>refitting <span class="sc">-</span> mtcars_loocv<span class="sc">$</span>formula))</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>loocv_max_diff <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">abs</span>(mtcars_loocv<span class="sc">$</span>refitting <span class="sc">-</span> mtcars_loocv<span class="sc">$</span>formula))</span>
 <span id="cb35-2"><a aria-label="2"></a>mtcars_best_loocv <span class="ot">&lt;-</span></span>
 <span id="cb35-3"><a aria-label="3"></a>  mtcars_loocv<span class="sc">$</span>degree[<span class="fu">which.min</span>(mtcars_loocv<span class="sc">$</span>formula)]</span>
 <span id="cb35-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">max_difference =</span> loocv_max_diff, <span class="at">best_degree =</span> mtcars_best_loocv)</span>
@@ -2864,7 +2864,7 @@ from _exm-train-test-error-simulated.qmd.
 --><div id="exm-one-se-rule" class="theorem example">
 <p><span class="theorem-title"><strong>Example 40 (The one-standard-error rule for the simulated polynomials)</strong></span> This example applies 10-fold cross-validation to the simulated training set of <a href="#/exm-train-test-error-simulated" class="quarto-xref">Example&nbsp;31</a>, records the sMSE in each fold, and applies <a href="#/def-one-se-rule" class="quarto-xref">Definition&nbsp;68</a> to the ten degrees.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
 <span id="cb36-2"><a aria-label="2"></a>sim_folds_ten <span class="ot">&lt;-</span> <span class="fu">assign_folds</span>(<span class="fu">nrow</span>(sim_train), <span class="at">k =</span> <span class="dv">10</span>)</span>
 <span id="cb36-3"><a aria-label="3"></a></span>
 <span id="cb36-4"><a aria-label="4"></a>sim_cv_ten <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">degree =</span> sim_degrees) <span class="sc">|&gt;</span></span>
@@ -2897,7 +2897,7 @@ from _exm-train-test-error-simulated.qmd.
 </div>
 </div>
 <p>With 30 observations and 10 folds, each fold holds 3 observations, so all ten folds have equal size and <code>cv</code> is <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(10)}\)</span> (<a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;29</a>).</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a>sim_cv_ten <span class="sc">|&gt;</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a>sim_cv_ten <span class="sc">|&gt;</span></span>
 <span id="cb37-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(degree, cv)) <span class="sc">+</span></span>
 <span id="cb37-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_hline</span>(</span>
 <span id="cb37-4"><a aria-label="4"></a>    <span class="at">yintercept =</span> sim_min<span class="sc">$</span>cv <span class="sc">+</span> sim_min<span class="sc">$</span>se,</span>
@@ -2949,7 +2949,7 @@ so it renders before them.
 --><div id="exm-adjusted-r-squared" class="theorem example">
 <p><span class="theorem-title"><strong>Example 41 (Adjusted coefficient of determination of nested <code>mtcars</code> models)</strong></span> The <code>mtcars</code> <a href="#/def-data-set">data set</a> has the fuel economy <code>mpg</code> of 32 cars from the 1974 <em>Motor Trend</em> magazine. This example fits four <a href="./correlation-regression.html#def-nested-regression-models">nested</a> linear models of <code>mpg</code>, each adding one predictor to the one before, and computes <a href="#/def-adjusted-r-squared" class="quarto-xref">Definition&nbsp;69</a> from its formula.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a>mtcars_formulas <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a>mtcars_formulas <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb38-2"><a aria-label="2"></a>  mpg <span class="sc">~</span> wt,</span>
 <span id="cb38-3"><a aria-label="3"></a>  mpg <span class="sc">~</span> wt <span class="sc">+</span> hp,</span>
 <span id="cb38-4"><a aria-label="4"></a>  mpg <span class="sc">~</span> wt <span class="sc">+</span> hp <span class="sc">+</span> qsec,</span>
@@ -2996,7 +2996,7 @@ from _exm-adjusted-r-squared.qmd, so it renders after that one.
 --><div id="exm-mallows-cp" class="theorem example">
 <p><span class="theorem-title"><strong>Example 42 (Mallows’ <span class="math inline">\(C_p\)</span> of nested <code>mtcars</code> models)</strong></span> This example computes <a href="#/def-mallows-cp" class="quarto-xref">Definition&nbsp;70</a> for the four models of <a href="#/exm-adjusted-r-squared" class="quarto-xref">Example&nbsp;41</a>. The <a href="./estimation.html#def-estimate">estimate</a> <span class="math inline">\(\hat{\sigma^2}\)</span> of the <a href="#/def-noise">noise</a> <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> is the <a href="./prediction.html#def-residual">residual</a> variance of the model with all four predictors, 6.45.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a>mtcars_cp <span class="ot">&lt;-</span> <span class="fu">vapply</span>(</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a>mtcars_cp <span class="ot">&lt;-</span> <span class="fu">vapply</span>(</span>
 <span id="cb39-2"><a aria-label="2"></a>  <span class="fu">seq_along</span>(mtcars_fits),</span>
 <span id="cb39-3"><a aria-label="3"></a>  \(k) {</span>
 <span id="cb39-4"><a aria-label="4"></a>    rss <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">resid</span>(mtcars_fits[[k]])<span class="sc">^</span><span class="dv">2</span>)</span>
@@ -3029,7 +3029,7 @@ so it renders after that one.
 --><div id="exm-aic" class="theorem example">
 <p><span class="theorem-title"><strong>Example 43 (AIC of nested <code>mtcars</code> models)</strong></span> This example computes <a href="#/def-aic" class="quarto-xref">Definition&nbsp;71</a> for the four models of <a href="#/exm-adjusted-r-squared" class="quarto-xref">Example&nbsp;41</a>, each fitted by <a href="./intro-MLEs.html#def-mle">maximum likelihood</a> with Gaussian <a href="#/def-noise">noise</a>. The number of <a href="./estimation.html#def-estimate">estimated</a> parameters is the number of coefficients plus one for the noise <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a>mtcars_aic <span class="ot">&lt;-</span> <span class="fu">vapply</span>(</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a>mtcars_aic <span class="ot">&lt;-</span> <span class="fu">vapply</span>(</span>
 <span id="cb40-2"><a aria-label="2"></a>  mtcars_fits,</span>
 <span id="cb40-3"><a aria-label="3"></a>  \(f) <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">as.numeric</span>(<span class="fu">logLik</span>(f)) <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> (<span class="fu">length</span>(<span class="fu">coef</span>(f)) <span class="sc">+</span> <span class="dv">1</span>),</span>
 <span id="cb40-4"><a aria-label="4"></a>  <span class="fu">numeric</span>(<span class="dv">1</span>)</span>
@@ -3063,7 +3063,7 @@ so it renders after that one.
 --><div id="exm-bic" class="theorem example">
 <p><span class="theorem-title"><strong>Example 44 (BIC of nested <code>mtcars</code> models)</strong></span> This example computes <a href="#/def-bic" class="quarto-xref">Definition&nbsp;72</a> for the four models of <a href="#/exm-adjusted-r-squared" class="quarto-xref">Example&nbsp;41</a>, with <span class="math inline">\(p^{*}\)</span> counted as in <a href="#/exm-aic" class="quarto-xref">Example&nbsp;43</a>.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-label="1"></a>mtcars_bic <span class="ot">&lt;-</span> <span class="fu">vapply</span>(</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-label="1"></a>mtcars_bic <span class="ot">&lt;-</span> <span class="fu">vapply</span>(</span>
 <span id="cb41-2"><a aria-label="2"></a>  mtcars_fits,</span>
 <span id="cb41-3"><a aria-label="3"></a>  \(f) {</span>
 <span id="cb41-4"><a aria-label="4"></a>    <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">as.numeric</span>(<span class="fu">logLik</span>(f)) <span class="sc">+</span></span>
@@ -3681,6 +3681,50 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
           RevealZoom
         ]
       });
+    </script><script>
+    // Put each folded code cell inside the tab it belongs to.
+    // Quarto hoists the `details.code-fold` of a cross-referenced figure out of the figure,
+    // so an R and a Python tab end up with their folds stacked above the whole figure.
+    // For every language tabset, take the run of folds immediately before it (or before the figure
+    // that holds it), match each fold to a tab by language, and move it to the top of that tab.
+    // The selectors cover both the website tabsets (Bootstrap) and the slide tabsets (tabby).
+    document.querySelectorAll("div.panel-tabset").forEach(function (tabset) {
+      var anchor = tabset.closest("div.quarto-float") || tabset;
+      var panes = Array.prototype.slice.call(tabset.querySelectorAll(":scope > .tab-content > div"));
+      var tabs = Array.prototype.slice.call(tabset.querySelectorAll(":scope > ul > li > a"));
+      var folds = [];
+      var node = anchor.previousElementSibling;
+      while (node && node.matches("details.code-fold")) {
+        folds.unshift(node);
+        node = node.previousElementSibling;
+      }
+      if (folds.length === 0 || folds.length !== panes.length || tabs.length !== panes.length) {
+        return;
+      }
+      var language = function (fold) {
+        var code = fold.querySelector("pre.sourceCode");
+        var found = code && Array.prototype.find.call(code.classList, function (name) {
+          return name !== "sourceCode" && name !== "downlit" && name !== "code-with-copy";
+        });
+        return found ? found.toLowerCase() : "";
+      };
+      var used = {};
+      var unused = function () {
+        return tabs.findIndex(function (tab, j) {
+          return !used[j];
+        });
+      };
+      folds.forEach(function (fold) {
+        var index = tabs.findIndex(function (tab, j) {
+          return !used[j] && tab.textContent.trim().toLowerCase() === language(fold);
+        });
+        if (index < 0) {
+          index = unused();
+        }
+        used[index] = true;
+        panes[index].insertBefore(fold, panes[index].firstChild);
+      });
+    });
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

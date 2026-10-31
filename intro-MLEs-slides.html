@@ -359,7 +359,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-30 11:51:54 (PDT)</p>
+  <p class="date">Last modified: 2026-10-30 17:27:44 (PDT)</p>
 </section><section id="sec-intro-MLEs" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Overview of maximum likelihood estimation</h2>
 <style>
@@ -1582,7 +1582,7 @@ Table&nbsp;1: Exact tests that assume Gaussian outcomes, and their approximate, 
       }</style></aside><h3 data-number="2.1" id="sec-dobson-cyclones-data">
 <span class="header-section-number">2.1</span> Data</h3>
 <p><a href="#/tbl-cyclones-data" class="quarto-xref">Table&nbsp;2</a> records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[1, Sec. 1.6.5]</a></span>. <a href="#/fig-dobson-cyclone-time-series" class="quarto-xref">Figure&nbsp;1</a> graphs the number of cyclones by season. Let <span class="math inline">\(X_i\)</span> represent the number of cyclones in season <span class="math inline">\(i\)</span>, and <span class="math inline">\(x_i\)</span> its observed value.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>cyclones <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>cyclones <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
 <span id="cb4-2"><a aria-label="2"></a>  <span class="at">years =</span> <span class="fu">c</span>(</span>
 <span id="cb4-3"><a aria-label="3"></a>    <span class="st">"1956/7"</span>, <span class="st">"1957/8"</span>, <span class="st">"1958/9"</span>, <span class="st">"1959/60"</span>, <span class="st">"1960/1"</span>, <span class="st">"1961/2"</span>, <span class="st">"1962/3"</span>,</span>
 <span id="cb4-4"><a aria-label="4"></a>    <span class="st">"1963/4"</span>, <span class="st">"1964/5"</span>, <span class="st">"1965/6"</span>, <span class="st">"1966/7"</span>, <span class="st">"1967/8"</span>, <span class="st">"1968/9"</span></span>
@@ -1679,7 +1679,7 @@ Table&nbsp;2: Number of tropical cyclones during each November-to-April season i
 </section><section class="slide level2"><h3 data-number="2.2" id="exploratory-analysis">
 <span class="header-section-number">2.2</span> Exploratory analysis</h3>
 <p>Suppose we want to learn how many cyclones to expect per season.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>cyclones <span class="sc">|&gt;</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>cyclones <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">years =</span> <span class="fu">factor</span>(years, <span class="at">levels =</span> years)) <span class="sc">|&gt;</span></span>
 <span id="cb5-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb5-4"><a aria-label="4"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> years, <span class="at">y =</span> number, <span class="at">group =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
@@ -1706,7 +1706,7 @@ Figure&nbsp;1: Number of tropical cyclones per season in northeastern Australia,
 </div>
 <p><a href="#/fig-dobson-cyclone-time-series" class="quarto-xref">Figure&nbsp;1</a> shows no obvious trend, and no obvious correlation between adjacent seasons, so we assume that the seasons’ counts are mutually independent. We also assume that they are identically distributed, with a common distribution <span class="math inline">\(\Pr(X = x)\)</span>; the expression has no index <span class="math inline">\(i\)</span>, because the distribution is the same for every season.</p>
 </section><section class="slide level2"><p><a href="#/fig-cyclones-bar-plot" class="quarto-xref">Figure&nbsp;2</a> shows the empirical distribution of the counts.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>cyclones <span class="sc">|&gt;</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>cyclones <span class="sc">|&gt;</span></span>
 <span id="cb6-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb6-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> number) <span class="sc">+</span></span>
 <span id="cb6-4"><a aria-label="4"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_bar</span>() <span class="sc">+</span></span>
@@ -1729,7 +1729,7 @@ Figure&nbsp;2: Bar plot of cyclones per season
 </figure>
 </div>
 </section><section class="slide level2"><p><a href="#/tbl-dobson-cyclones-sumstat" class="quarto-xref">Table&nbsp;3</a> provides summary statistics.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cyclones)</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cyclones)</span>
 <span id="cb7-2"><a aria-label="2"></a>sumx <span class="ot">&lt;-</span> <span class="fu">sum</span>(cyclones<span class="sc">$</span>number)</span>
 <span id="cb7-3"><a aria-label="3"></a>xbar <span class="ot">&lt;-</span> <span class="fu">mean</span>(cyclones<span class="sc">$</span>number)</span>
 <span id="cb7-4"><a aria-label="4"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
@@ -1838,7 +1838,7 @@ Table&nbsp;3: Summary statistics for the <code>cyclones</code> data
 </div>
 </section><section class="slide level2"><div id="sol-graph-likelihood" class="proof solution">
 <p><span class="proof-title"><em>Solution 25</em>. </span></p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="co"># `cyclones` is defined earlier on the page:</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="co"># `cyclones` is defined earlier on the page:</span></span>
 <span id="cb8-2"><a aria-label="2"></a><span class="co"># nolint next: object_usage_linter.</span></span>
 <span id="cb8-3"><a aria-label="3"></a>lik <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda, <span class="at">y =</span> cyclones<span class="sc">$</span>number, <span class="at">n =</span> <span class="fu">length</span>(y)) {</span>
 <span id="cb8-4"><a aria-label="4"></a>  lambda<span class="sc">^</span><span class="fu">sum</span>(y) <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>n <span class="sc">*</span> lambda) <span class="sc">/</span> <span class="fu">prod</span>(<span class="fu">factorial</span>(y))</span>
@@ -1895,7 +1895,7 @@ Figure&nbsp;3: Likelihood of the cyclone data
 </div>
 </section><section class="slide level2"><div id="sol-graph-loglikelihood" class="proof solution">
 <p><span class="proof-title"><em>Solution 27</em>. </span></p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="co"># `cyclones` is defined earlier on the page:</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="co"># `cyclones` is defined earlier on the page:</span></span>
 <span id="cb9-2"><a aria-label="2"></a><span class="co"># nolint next: object_usage_linter.</span></span>
 <span id="cb9-3"><a aria-label="3"></a>loglik <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda, <span class="at">y =</span> cyclones<span class="sc">$</span>number, <span class="at">n =</span> <span class="fu">length</span>(y)) {</span>
 <span id="cb9-4"><a aria-label="4"></a>  <span class="fu">sum</span>(y) <span class="sc">*</span> <span class="fu">log</span>(lambda) <span class="sc">-</span> n <span class="sc">*</span> lambda <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">lfactorial</span>(y))</span>
@@ -1949,7 +1949,7 @@ Figure&nbsp;4: Log-likelihood of the cyclone data
 </div>
 </section><section class="slide level2"><div id="sol-graph-score-function" class="proof solution">
 <p><span class="proof-title"><em>Solution 29</em>. </span></p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="co"># `cyclones` is defined earlier on the page:</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="co"># `cyclones` is defined earlier on the page:</span></span>
 <span id="cb10-2"><a aria-label="2"></a><span class="co"># nolint next: object_usage_linter.</span></span>
 <span id="cb10-3"><a aria-label="3"></a>score <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda, <span class="at">y =</span> cyclones<span class="sc">$</span>number, <span class="at">n =</span> <span class="fu">length</span>(y)) {</span>
 <span id="cb10-4"><a aria-label="4"></a>  (<span class="fu">sum</span>(y) <span class="sc">/</span> lambda) <span class="sc">-</span> n</span>
@@ -2001,7 +2001,7 @@ Figure&nbsp;5: Score function of the cyclone data
 </div>
 </section><section class="slide level2"><div id="sol-graph-hessian" class="proof solution">
 <p><span class="proof-title"><em>Solution 31</em>. </span></p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="co"># `cyclones` is defined earlier on the page:</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="co"># `cyclones` is defined earlier on the page:</span></span>
 <span id="cb11-2"><a aria-label="2"></a><span class="co"># nolint next: object_usage_linter.</span></span>
 <span id="cb11-3"><a aria-label="3"></a>hessian <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda, <span class="at">y =</span> cyclones<span class="sc">$</span>number, <span class="at">n =</span> <span class="fu">length</span>(y)) {</span>
 <span id="cb11-4"><a aria-label="4"></a>  <span class="sc">-</span><span class="fu">sum</span>(y) <span class="sc">/</span> (lambda<span class="sc">^</span><span class="dv">2</span>)</span>
@@ -2098,7 +2098,7 @@ n{\lambda}&amp;= n \bar x
 </div>
 </section><section class="slide level2"><div id="sol-graph-mle" class="proof solution">
 <p><span class="proof-title"><em>Solution 36</em>. </span></p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>mle_data <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> mle, <span class="at">y =</span> <span class="fu">loglik</span>(mle))</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>mle_data <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> mle, <span class="at">y =</span> <span class="fu">loglik</span>(mle))</span>
 <span id="cb13-2"><a aria-label="2"></a>ll_plot <span class="sc">+</span></span>
 <span id="cb13-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(<span class="at">data =</span> mle_data, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">col =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-cyclone-llik-mle" class="quarto-float quarto-figure quarto-figure-center">
@@ -2118,7 +2118,7 @@ Figure&nbsp;7: Log-likelihood of the cyclone data, with the MLE marked in red
 </div>
 </div>
 </section><section class="slide level2"><p><a href="#/fig-obs-inf-matrix" class="quarto-xref">Figure&nbsp;8</a> graphs the <a href="./intro-MLEs.html#def-oinf">observed information</a>, <span class="math inline">\(I({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = -\ell''({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>obs_inf <span class="ot">&lt;-</span> <span class="cf">function</span>(...) <span class="sc">-</span><span class="fu">hessian</span>(...) <span class="co"># nolint: object_usage_linter.</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>obs_inf <span class="ot">&lt;-</span> <span class="cf">function</span>(...) <span class="sc">-</span><span class="fu">hessian</span>(...) <span class="co"># nolint: object_usage_linter.</span></span>
 <span id="cb14-2"><a aria-label="2"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb14-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_function</span>(<span class="at">fun =</span> obs_inf, <span class="at">n =</span> <span class="dv">1001</span>) <span class="sc">+</span></span>
 <span id="cb14-4"><a aria-label="4"></a>  ggplot2<span class="sc">::</span><span class="fu">xlim</span>(<span class="fu">min</span>(cyclones<span class="sc">$</span>number), <span class="fu">max</span>(cyclones<span class="sc">$</span>number)) <span class="sc">+</span></span>
@@ -2237,7 +2237,7 @@ I_e(\theta; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}
 \end{aligned}
 \]</span></p>
 </section><section class="slide level2"><p><a href="#/fig-cyclone-newton-step1" class="quarto-xref">Figure&nbsp;9</a> compares the score function and the approximate score function at <span class="math inline">\({\widehat{\lambda}}^*= 3\)</span>.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="co"># score(), hessian() and loglik() are defined earlier on the page</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="co"># score(), hessian() and loglik() are defined earlier on the page</span></span>
 <span id="cb16-2"><a aria-label="2"></a><span class="co"># nolint start: object_usage_linter.</span></span>
 <span id="cb16-3"><a aria-label="3"></a>approx_score <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda, lhat, ...) {</span>
 <span id="cb16-4"><a aria-label="4"></a>  <span class="fu">score</span>(<span class="at">lambda =</span> lhat, ...) <span class="sc">+</span></span>
@@ -2298,7 +2298,7 @@ Figure&nbsp;9: Score function of the cyclone data and its first-order approximat
 ({\lambda}- {\widehat{\lambda}}^*) \ell'({\widehat{\lambda}}^*) +
 \frac{1}{2}\ell''({\widehat{\lambda}}^*)({\lambda}- {\widehat{\lambda}}^*)^2
 \]</span></p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="co"># nolint start: object_usage_linter.</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="co"># nolint start: object_usage_linter.</span></span>
 <span id="cb17-2"><a aria-label="2"></a>approx_loglik <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda, lhat, ...) {</span>
 <span id="cb17-3"><a aria-label="3"></a>  <span class="fu">loglik</span>(<span class="at">lambda =</span> lhat, ...) <span class="sc">+</span></span>
 <span id="cb17-4"><a aria-label="4"></a>    <span class="fu">score</span>(<span class="at">lambda =</span> lhat, ...) <span class="sc">*</span> (lambda <span class="sc">-</span> lhat) <span class="sc">+</span></span>
@@ -2363,7 +2363,7 @@ Figure&nbsp;10: Log-likelihood of the cyclone data and its second-order approxim
 <span id="cb18-3"><a aria-label="3"></a>new_lambda_est</span>
 <span id="cb18-4"><a aria-label="4"></a><span class="co">#&gt; [1] 4.375</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>plot2 <span class="ot">&lt;-</span> plot1 <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>plot2 <span class="ot">&lt;-</span> plot1 <span class="sc">+</span></span>
 <span id="cb19-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(</span>
 <span id="cb19-3"><a aria-label="3"></a>    <span class="at">size =</span> point_size,</span>
 <span id="cb19-4"><a aria-label="4"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> new_lambda_est, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">"new estimate"</span>)</span>
@@ -2397,7 +2397,7 @@ Figure&nbsp;11: The first Newton-Raphson update: the new estimate is where the a
 </figure>
 </div>
 </section><section class="slide level2"><p>We update <span class="math inline">\({\widehat{\lambda}}^*\leftarrow 4.375\)</span> and repeat the process (<a href="#/fig-cyclone-newton-step2" class="quarto-xref">Figure&nbsp;12</a>).</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>plot2 <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>plot2 <span class="sc">+</span></span>
 <span id="cb20-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_function</span>(</span>
 <span id="cb20-3"><a aria-label="3"></a>    <span class="at">fun =</span> approx_score,</span>
 <span id="cb20-4"><a aria-label="4"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">col =</span> <span class="st">"new approximate score function"</span>),</span>
@@ -2536,7 +2536,7 @@ Table&nbsp;4: Convergence of the Newton-Raphson algorithm to the MLE for the cyc
 </figure>
 </div>
 <p>The final estimate matches the closed-form MLE, <span class="math inline">\(\bar x = 5.53846\)</span> (<a href="#/exr-find-mle" class="quarto-xref">Exercise&nbsp;35</a>).</p>
-</section><section class="slide level2"><details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>ll_plot <span class="sc">+</span></span>
+</section><section class="slide level2"><details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>ll_plot <span class="sc">+</span></span>
 <span id="cb22-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_segment</span>(</span>
 <span id="cb22-3"><a aria-label="3"></a>    <span class="at">data =</span> nr_info,</span>
 <span id="cb22-4"><a aria-label="4"></a>    <span class="at">arrow =</span> grid<span class="sc">::</span><span class="fu">arrow</span>(),</span>
@@ -3629,7 +3629,7 @@ Table&nbsp;5: The first rows of the HERS dataset
 </div>
 </section><section class="slide level2"><p>To keep the likelihood graphs readable, we use only the first 100 eligible participants (<a href="#/fig-hers-glucose-hist" class="quarto-xref">Figure&nbsp;14</a>); with the whole subset, the likelihood would be too concentrated to graph clearly.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a>n_obs <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a>n_obs <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb25-2"><a aria-label="2"></a></span>
 <span id="cb25-3"><a aria-label="3"></a>data1 <span class="ot">&lt;-</span></span>
 <span id="cb25-4"><a aria-label="4"></a>  hers <span class="sc">|&gt;</span></span>
@@ -3646,7 +3646,7 @@ Table&nbsp;5: The first rows of the HERS dataset
 <span id="cb25-15"><a aria-label="15"></a><span class="co">#&gt;    80.0    91.5    98.0    98.7   105.0   125.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>plot1 <span class="ot">&lt;-</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>plot1 <span class="ot">&lt;-</span></span>
 <span id="cb26-2"><a aria-label="2"></a>  data1 <span class="sc">|&gt;</span></span>
 <span id="cb26-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb26-4"><a aria-label="4"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> glucose) <span class="sc">+</span></span>
@@ -3685,7 +3685,7 @@ Figure&nbsp;14: Fasting glucose among 100 HERS participants without diabetes who
 <span id="cb27-6"><a aria-label="6"></a><span class="co">#&gt;       98.660      104.744</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><a href="#/fig-hers-fitted" class="quarto-xref">Figure&nbsp;15</a> superimposes the fitted Gaussian density on the histogram.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>plot1 <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>plot1 <span class="sc">+</span></span>
 <span id="cb28-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_function</span>(</span>
 <span id="cb28-3"><a aria-label="3"></a>    <span class="at">fun =</span> <span class="cf">function</span>(x) <span class="fu">dnorm</span>(x, <span class="at">mean =</span> mu_hat, <span class="at">sd =</span> sigma_hat),</span>
 <span id="cb28-4"><a aria-label="4"></a>    <span class="at">col =</span> <span class="st">"red"</span></span>
@@ -3731,7 +3731,7 @@ Figure&nbsp;16: Likelihood and log-likelihood of the HERS glucose data as functi
 </figcaption><div aria-describedby="fig-hers-lik-mu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-hers-lik-mu" style="flex-basis: 50.0%;justify-content: flex-start;">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb30-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_function</span>(</span>
 <span id="cb30-3"><a aria-label="3"></a>    <span class="at">fun =</span> lik,</span>
 <span id="cb30-4"><a aria-label="4"></a>    <span class="at">args =</span> <span class="fu">list</span>(<span class="at">sigma =</span> sigma_hat, <span class="at">x =</span> glucose_data)</span>
@@ -3757,7 +3757,7 @@ Figure&nbsp;16: Likelihood and log-likelihood of the HERS glucose data as functi
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-hers-lik-mu" style="flex-basis: 50.0%;justify-content: flex-start;">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb31-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_function</span>(</span>
 <span id="cb31-3"><a aria-label="3"></a>    <span class="at">fun =</span> loglik,</span>
 <span id="cb31-4"><a aria-label="4"></a>    <span class="at">args =</span> <span class="fu">list</span>(<span class="at">sigma =</span> sigma_hat, <span class="at">x =</span> glucose_data)</span>
@@ -3793,7 +3793,7 @@ Figure&nbsp;17: Likelihood and log-likelihood of the HERS glucose data as functi
 </figcaption><div aria-describedby="fig-hers-lik-sigma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-hers-lik-sigma" style="flex-basis: 50.0%;justify-content: flex-start;">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb32-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_function</span>(</span>
 <span id="cb32-3"><a aria-label="3"></a>    <span class="at">fun =</span> lik,</span>
 <span id="cb32-4"><a aria-label="4"></a>    <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mu =</span> mu_hat, <span class="at">x =</span> glucose_data)</span>
@@ -3819,7 +3819,7 @@ Figure&nbsp;17: Likelihood and log-likelihood of the HERS glucose data as functi
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-hers-lik-sigma" style="flex-basis: 50.0%;justify-content: flex-start;">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb33-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_function</span>(</span>
 <span id="cb33-3"><a aria-label="3"></a>    <span class="at">fun =</span> loglik,</span>
 <span id="cb33-4"><a aria-label="4"></a>    <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mu =</span> mu_hat, <span class="at">x =</span> glucose_data)</span>
@@ -3851,7 +3851,7 @@ Figure&nbsp;17: Likelihood and log-likelihood of the HERS glucose data as functi
 </section><section class="slide level2"><h3 data-number="5.4" id="log-likelihood-surface">
 <span class="header-section-number">5.4</span> Log-likelihood surface</h3>
 <p><a href="#/fig-3d-llik" class="quarto-xref">Figure&nbsp;18</a> graphs the log-likelihood over both parameters at once.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a>n_points <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a>n_points <span class="ot">&lt;-</span> <span class="dv">25</span></span>
 <span id="cb34-2"><a aria-label="2"></a>mu_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">94</span>, <span class="dv">104</span>, <span class="at">length.out =</span> n_points)</span>
 <span id="cb34-3"><a aria-label="3"></a>sigma_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">7</span>, <span class="dv">15</span>, <span class="at">length.out =</span> n_points)</span>
 <span id="cb34-4"><a aria-label="4"></a>lliks <span class="ot">&lt;-</span> <span class="fu">outer</span>(mu_grid, sigma_grid, loglik, <span class="at">x =</span> glucose_data)</span>
@@ -3900,7 +3900,7 @@ Figure&nbsp;18: Log-likelihood of the HERS glucose data as a function of <span c
 \end{aligned}
 \]</span></p>
 <p>which shrinks in proportion to <span class="math inline">\(1/\sqrt{n}\)</span> (<a href="#/fig-hers-se-by-n" class="quarto-xref">Figure&nbsp;19</a>).</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>se_mu_hat <span class="ot">&lt;-</span> <span class="cf">function</span>(n, sigma) sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>se_mu_hat <span class="ot">&lt;-</span> <span class="cf">function</span>(n, sigma) sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
 <span id="cb35-2"><a aria-label="2"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb35-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_function</span>(<span class="at">fun =</span> se_mu_hat, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">sigma =</span> sigma_hat)) <span class="sc">+</span></span>
 <span id="cb35-4"><a aria-label="4"></a>  ggplot2<span class="sc">::</span><span class="fu">scale_x_log10</span>(</span>
@@ -3959,7 +3959,7 @@ Figure&nbsp;19: Standard error of <span class="math inline">\(\hat{\mu}_{\text{M
 <span id="cb37-9"><a aria-label="9"></a><span class="co">#&gt; [1] 0.99828</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section class="slide level2"><p><a href="#/fig-hers-power" class="quarto-xref">Figure&nbsp;20</a> graphs the power as a function of the sample size.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb38-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_function</span>(</span>
 <span id="cb38-3"><a aria-label="3"></a>    <span class="at">fun =</span> power,</span>
 <span id="cb38-4"><a aria-label="4"></a>    <span class="at">args =</span> <span class="fu">list</span>(<span class="at">null =</span> mu0, <span class="at">alt =</span> mu1, <span class="at">sigma =</span> sigma_hat),</span>
@@ -5391,6 +5391,50 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
           RevealZoom
         ]
       });
+    </script><script>
+    // Put each folded code cell inside the tab it belongs to.
+    // Quarto hoists the `details.code-fold` of a cross-referenced figure out of the figure,
+    // so an R and a Python tab end up with their folds stacked above the whole figure.
+    // For every language tabset, take the run of folds immediately before it (or before the figure
+    // that holds it), match each fold to a tab by language, and move it to the top of that tab.
+    // The selectors cover both the website tabsets (Bootstrap) and the slide tabsets (tabby).
+    document.querySelectorAll("div.panel-tabset").forEach(function (tabset) {
+      var anchor = tabset.closest("div.quarto-float") || tabset;
+      var panes = Array.prototype.slice.call(tabset.querySelectorAll(":scope > .tab-content > div"));
+      var tabs = Array.prototype.slice.call(tabset.querySelectorAll(":scope > ul > li > a"));
+      var folds = [];
+      var node = anchor.previousElementSibling;
+      while (node && node.matches("details.code-fold")) {
+        folds.unshift(node);
+        node = node.previousElementSibling;
+      }
+      if (folds.length === 0 || folds.length !== panes.length || tabs.length !== panes.length) {
+        return;
+      }
+      var language = function (fold) {
+        var code = fold.querySelector("pre.sourceCode");
+        var found = code && Array.prototype.find.call(code.classList, function (name) {
+          return name !== "sourceCode" && name !== "downlit" && name !== "code-with-copy";
+        });
+        return found ? found.toLowerCase() : "";
+      };
+      var used = {};
+      var unused = function () {
+        return tabs.findIndex(function (tab, j) {
+          return !used[j];
+        });
+      };
+      folds.forEach(function (fold) {
+        var index = tabs.findIndex(function (tab, j) {
+          return !used[j] && tab.textContent.trim().toLowerCase() === language(fold);
+        });
+        if (index < 0) {
+          index = unused();
+        }
+        used[index] = true;
+        panes[index].insertBefore(fold, panes[index].firstChild);
+      });
+    });
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

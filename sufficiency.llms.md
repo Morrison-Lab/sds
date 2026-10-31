@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -170,7 +170,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > By [Lemma 2](#lem-poisson-zero-rb), the conditional probability in the last line is the one in [Equation 5](#eq-poisson-zero-conditional). For \\n = 20\\ we draw 10,000 samples, compute both estimators on each, and report each one’s sample mean (with a 95% confidence interval) and variance (with a 95% confidence interval from the normal approximation to the sampling distribution of a sample variance).
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > birthwt <- read.csv("data/birthwt.csv")
@@ -218,7 +218,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > est_long <- data.frame(

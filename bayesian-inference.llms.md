@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models [\[1, Ch. 12\]](#ref-dobson4e). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -226,7 +226,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > set.seed(1)
@@ -305,7 +305,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > mu_grid <- seq(-3, 5, length.out = 801)
@@ -384,7 +384,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > The marginal likelihood is 0.0824 (with a uniform prior over eleven values, the average of the likelihood column), and the posterior probabilities sum to 1. [Figure 3](#fig-discrete-prior) compares the prior with the posterior.
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > discrete_long <- rbind(
@@ -615,7 +615,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > prob_grid <- seq(0.001, 0.999, length.out = 500)
@@ -1086,7 +1086,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > ggplot2::ggplot(prior_pred_counts, ggplot2::aes(count)) +
@@ -1208,7 +1208,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > ggplot2::ggplot(ppc_draws, ggplot2::aes(t_rep)) +

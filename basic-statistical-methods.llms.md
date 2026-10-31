@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 ## 0.1 Introduction
 
@@ -91,7 +91,7 @@ That page also defines the graphs used here, including [box plots](exploratory-d
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > hers |>
@@ -234,7 +234,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > hers |>

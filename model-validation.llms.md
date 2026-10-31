@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 11:51:54 (PDT)
+Last modified: 2026-10-30 17:27:44 (PDT)
 
 ## 0.1 Data sets, input matrices and outcome vectors
 
@@ -418,7 +418,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 > overfitting_results
 > ```
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > best_train <- overfitting_results$degree[
@@ -629,7 +629,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > ## Python
 >
-> Show R code
+> Show code
 >
 > ``` python
 > import numpy as np
@@ -659,7 +659,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > ## R
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > auto_af <- read.csv("data/auto.csv")
@@ -698,7 +698,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > ## Python
 >
-> Show R code
+> Show code
 >
 > ``` python
 > import numpy as np
@@ -731,7 +731,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > ## R
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > library(ggplot2)
@@ -1159,7 +1159,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > sim_errors |>
@@ -1188,7 +1188,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 > >
 > > Figure 2: Training sRMSE and estimated generalization error (sRMSE on \\10{,}000\\ new observations) of polynomial fits to one simulated training set of \\n= 30\\. The dashed line is the noise standard deviation \\\sigma\\, the square root of the [residual variance](#def-irreducible-error).
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > sim_best_generalization <-
@@ -1401,7 +1401,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 > >
 > > Table 1: Sizes of the training, validation, and test splits
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > train_dat <- mtcars[idx_train, ]
@@ -1468,7 +1468,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 > #> [1] "linear"
 > ```
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > partition_colors <- c(
@@ -1550,7 +1550,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > plot_partitions_with_fit(model_linear, "linear fit")
@@ -1562,7 +1562,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > plot_partitions_with_fit(model_quadratic, "quadratic fit")
@@ -1574,7 +1574,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > plot_partitions_with_fit(model_cubic, "cubic fit")
@@ -1586,7 +1586,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > plot_partitions_with_fit(model_quartic, "quartic fit")
@@ -1598,7 +1598,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > validation_results
@@ -1610,7 +1610,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > performance_comparison
@@ -1797,7 +1797,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > The same fold assignment is used for every degree, so the degrees are compared on the same splits. The table and figure report the square root of each cross-validation estimate, so that it is in the same unit as the training sRMSE and generalization pRMSE of [Example 31](#exm-train-test-error-simulated).
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > sim_errors_cv <- sim_errors |>
@@ -1813,7 +1813,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > sim_errors_cv |>
@@ -1849,7 +1849,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 > >
 > > Figure 7: [Figure 2](#fig-train-test-error) with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data.
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > sim_best_cv <- sim_errors_cv$degree[which.min(sim_errors_cv$cv_5)]
@@ -1872,7 +1872,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > Part of that gap is expected: by [Remark 29](#rem-cv-estimate), with \\g\\ the least-squares fit of a degree-10 polynomial, the cross-validation estimate targets \\{\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}}\\, not the expected generalization error of a fit to 30 points. A simulation of many training sets of each size shows how much the size alone matters at this degree.
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > sim_generalization_draws <- function(
@@ -1921,7 +1921,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > mtcars_degrees <- 1:4
@@ -1953,7 +1953,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > mtcars_cv_best <-
@@ -1971,7 +1971,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 > >
 > > Table 5: Degree with the smallest 4-fold cross-validated sRMSE in each of 5 random fold assignments
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > mtcars_cv_range <-
@@ -2134,7 +2134,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 > mtcars_loocv
 > ```
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > loocv_max_diff <- max(abs(mtcars_loocv$refitting - mtcars_loocv$formula))
@@ -2236,7 +2236,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > **Example 40 (The one-standard-error rule for the simulated polynomials)** This example applies 10-fold cross-validation to the simulated training set of [Example 31](#exm-train-test-error-simulated), records the sMSE in each fold, and applies [Definition 68](#def-one-se-rule) to the ten degrees.
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > set.seed(10)
@@ -2269,7 +2269,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > > **NOTE:**
 > >
-> > Show R code
+> > Show code
 > >
 > > ``` downlit
 > > sim_cv_ten |>
@@ -2314,7 +2314,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > **Example 41 (Adjusted coefficient of determination of nested `mtcars` models)** The `mtcars` [data set](#def-data-set) has the fuel economy `mpg` of 32 cars from the 1974 *Motor Trend* magazine. This example fits four [nested](correlation-regression.llms.md#def-nested-regression-models) linear models of `mpg`, each adding one predictor to the one before, and computes [Definition 69](#def-adjusted-r-squared) from its formula.
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > mtcars_formulas <- list(
@@ -2358,7 +2358,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > **Example 42 (Mallows’ \\C_p\\ of nested `mtcars` models)** This example computes [Definition 70](#def-mallows-cp) for the four models of [Example 41](#exm-adjusted-r-squared). The [estimate](estimation.llms.md#def-estimate) \\\hat{\sigma^2}\\ of the [noise](#def-noise) [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) is the [residual](prediction.llms.md#def-residual) variance of the model with all four predictors, 6.45.
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > mtcars_cp <- vapply(
@@ -2388,7 +2388,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > **Example 43 (AIC of nested `mtcars` models)** This example computes [Definition 71](#def-aic) for the four models of [Example 41](#exm-adjusted-r-squared), each fitted by [maximum likelihood](intro-MLEs.llms.md#def-mle) with Gaussian [noise](#def-noise). The number of [estimated](estimation.llms.md#def-estimate) parameters is the number of coefficients plus one for the noise [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance).
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > mtcars_aic <- vapply(
@@ -2419,7 +2419,7 @@ Last modified: 2026-10-30 11:51:54 (PDT)
 >
 > **Example 44 (BIC of nested `mtcars` models)** This example computes [Definition 72](#def-bic) for the four models of [Example 41](#exm-adjusted-r-squared), with \\p^{\*}\\ counted as in [Example 43](#exm-aic).
 >
-> Show R code
+> Show code
 >
 > ``` downlit
 > mtcars_bic <- vapply(
