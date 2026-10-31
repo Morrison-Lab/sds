@@ -277,6 +277,7 @@ format:
       - theme-picker.html
       - language-picker.html
     include-after-body:
+      - tabset-code-in-tabs.html
       - anchor-landing.html
       - watch-anchors.html
       - table-roles.html
@@ -289,7 +290,7 @@ format:
     code-fold: true
     code-tools: true
     code-link: true
-    code-summary: "Show R code"
+    code-summary: "Show code"
     highlight-style: arrow
     lightbox: true
     link-external-icon: true
@@ -312,6 +313,7 @@ format:
     search: false # decks duplicate the HTML pages, so the search indexes only the HTML format
     theme: [simple, styles-reveal.scss]
     include-in-header: qwt-reveal-toggle.html
+    include-after-body: tabset-code-in-tabs.html
     slide-number: true
     chalkboard: false
     preview-links: auto
@@ -333,7 +335,7 @@ format:
     margin: 0.0
     code-fold: true
     code-link: true
-    code-summary: "[R code]"
+    code-summary: "[Code]"
     auto-stretch: true
     fig-height: 5
     fig-width: 7
