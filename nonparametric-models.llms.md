@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-11-02 11:09:15 (PST)
+Last modified: 2026-11-02 11:26:46 (PST)
 
-## 0.1 Empirical distribution
+# 1 Empirical distribution
 
 > **NOTE:**
 >
@@ -26,7 +26,7 @@ Last modified: 2026-11-02 11:09:15 (PST)
 >
 > Because it needs only the data in hand, an empirical quantity can always be computed, and it serves as an estimate of the population quantity it mimics. The bootstrap rests on this replacement: it estimates the variability of a statistic by sampling from the empirical distribution [\[2, Sec. 7.11\]](#ref-hastie2009elements), p. 250, [\[3\]](#ref-efron1993introduction).
 
-## 0.2 Empirical CDF
+# 2 Empirical CDF
 
 > **NOTE:**
 >
@@ -58,7 +58,7 @@ Last modified: 2026-11-02 11:09:15 (PST)
 >
 > Rice [\[5, Sec. 10.2.1\]](#ref-rice2007mathematical), pp. 378–379 covers the empirical CDF.
 
-## 0.3 Order statistics
+# 3 Order statistics
 
 > **NOTE:**
 >
@@ -79,7 +79,7 @@ Last modified: 2026-11-02 11:09:15 (PST)
 > - Hogg et al. [\[7, Sec. 6.3\]](#ref-hoggtanis2015), pp. 256–263 covers order statistics.
 > - Casella and Berger [\[8, Sec. 5.4\]](#ref-CaseBerg01), pp. 226–231 covers order statistics.
 
-## 0.4 Sample quantiles
+# 4 Sample quantiles
 
 > **NOTE:**
 >
@@ -152,7 +152,7 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) $F$ 
 >
 > Hogg et al. [\[7, Sec. 7.5\]](#ref-hoggtanis2015), pp. 337–343 covers distribution-free confidence intervals for percentiles.
 
-## 0.5 The empirical CDF and quantile function as generalized inverses
+# 5 The empirical CDF and quantile function as generalized inverses
 
 > **NOTE:**
 >
@@ -243,7 +243,15 @@ Both functions in [Figure 1](#fig-ecdf-sample-quantile-example) are step functi
 > - Rice [\[5, Sec. 11.3.2\]](#ref-rice2007mathematical), pp. 448–449 covers the signed rank test.
 > - Rice [\[5, Sec. 12.2.3\]](#ref-rice2007mathematical), p. 488 covers the Kruskal–Wallis test.
 
-## References
+# Definitions on this page
+
+- [Definition 1 (Empirical distribution)](#def-empirical-distribution)
+- [Definition 2 (Empirical CDF)](#def-empirical-cdf)
+- [Definition 3 (Order statistics)](#def-order-statistics)
+- [Definition 4 (Sample quantile function (empirical quantile function))](#def-sample-quantile)
+- [Definition 5 (Sample](#def-sample-p-quantile) $p$ quantile (sample $100p$th percentile))
+
+# References
 
 \[1\]
 
@@ -280,13 +288,5 @@ G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 200
 \[9\]
 
 Wikipedia contributors, “Quantile — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Quantile>
-
-# Definitions on this page
-
-- [Definition 1 (Empirical distribution)](#def-empirical-distribution)
-- [Definition 2 (Empirical CDF)](#def-empirical-cdf)
-- [Definition 3 (Order statistics)](#def-order-statistics)
-- [Definition 4 (Sample quantile function (empirical quantile function))](#def-sample-quantile)
-- [Definition 5 (Sample](#def-sample-p-quantile) $p$ quantile (sample $100p$th percentile))
 
 Back to top
