@@ -1,0 +1,16 @@
+:::{#exm-predicted-probability}
+#### Predicted probability of COVID-19 after a positive test
+
+The [classification rule](#def-classification-rule) of @exm-classification has one feature, the test result.
+For a person whose test is [positive](#def-positive-classification) ($\predvar = \posclass$),
+the [positive predictive value](#def-ppv) of @exm-ppv is the predicted probability (@def-predicted-probability) of the class "has COVID-19":
+
+$$\hat{p}_{\text{has COVID-19}}(\posclass) \approx 0.88$$ {#eq-predicted-probability-exm}
+
+The rule predicts "has COVID-19" for this person,
+and the predicted probability says how sure that prediction is:
+about 88%, not 100%.
+
+<!-- no-figure: a single number reused from the PPV example -->
+
+:::

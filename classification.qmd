@@ -26,6 +26,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/classification/_exm-predicted-probability.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/classification/_def-binary-classification.qmd >}}
 
 {{< slidebreak >}}
