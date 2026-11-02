@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-02 10:26:24 (PST)</p>
+  <p class="date">Last modified: 2026-11-02 10:53:26 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -381,7 +381,7 @@ text-align: center;
 </section><section class="slide level2"><div id="def-predicted-probability" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Predicted probability)</strong></span> The <strong>predicted probability</strong> of <a href="#/def-class">class</a> <span class="math inline">\(k\)</span> at <a href="./model-validation.html#def-feature">features</a> <span class="math inline">\(x\)</span> is the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob">conditional probability</a> of that class given those features, under a model:</p>
 <p><span id="eq-predicted-probability"><span class="math display">\[\mathop{\hat{\operatorname{p}}}\nolimits_k(x) \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(Y= k \mid x\right)\mathclose{}} \tag{2}\]</span></span></p>
-<p>When the model is <a href="./model-validation.html#def-fitted-model">fitted</a>, the predicted probability is an <a href="./estimation.html#def-estimate">estimate</a> of the true conditional probability, and the true conditional probability need not equal its estimate.</p>
+<p>When the model is <a href="./model-validation.html#def-fitted-model">fitted</a>, the predicted probability is an <a href="./estimation.html#def-estimate">estimate</a> of the true conditional probability. The two can differ, by the <a href="./estimation.html#def-estimation-error">estimation error</a>.</p>
 </div>
 </section><section class="slide level2"><div id="def-binary-classification" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Binary classification)</strong></span> A <strong>binary classification problem</strong> is a <a href="#/def-classification">classification problem</a> whose set of <a href="#/def-class">classes</a> <span class="math inline">\(\mathcal{C}\)</span> consists of <span class="math inline">\(K = 2\)</span> distinct categories, one representing the presence of a condition of interest (<span class="math inline">\(k_1\)</span>) and the other representing its absence (<span class="math inline">\(k_0\)</span>):</p>

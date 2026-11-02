@@ -5050,6 +5050,10 @@
   ],
   [
    "sds/classification#def-predicted-probability",
+   "sds/estimation#def-estimation-error"
+  ],
+  [
+   "sds/classification#def-predicted-probability",
    "sds/model-validation#def-feature"
   ],
   [

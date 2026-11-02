@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-02 10:26:24 (PST)
+Last modified: 2026-11-02 10:53:26 (PST)
 
 ## 0.1 Introduction
 
@@ -48,7 +48,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > $$\mathop{\hat{\operatorname{p}}}\nolimits_k(x) \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(Y= k \mid x\right)\mathclose{}} \tag{2}$$
 >
-> When the model is [fitted](model-validation.llms.md#def-fitted-model), the predicted probability is an [estimate](estimation.llms.md#def-estimate) of the true conditional probability, and the true conditional probability need not equal its estimate.
+> When the model is [fitted](model-validation.llms.md#def-fitted-model), the predicted probability is an [estimate](estimation.llms.md#def-estimate) of the true conditional probability. The two can differ, by the [estimation error](estimation.llms.md#def-estimation-error).
 
 > **NOTE:**
 >
