@@ -12,7 +12,7 @@ format:
 
 These notes collect the statistics that data science courses assume.
 
-## Topics
+# Topics
 
 The notes are organized in four groups of pages.
 
@@ -77,7 +77,7 @@ Bayesian:
   a proportion, logistic regression, survival, random effects,
   and Bayesian model averaging.
 
-## Comparable courses {.unnumbered}
+# Comparable courses {.unnumbered}
 
 Stanford's statistics department posts the materials of several courses
 that cover the same inference topics at a more mathematical level:
@@ -93,7 +93,7 @@ that cover the same inference topics at a more mathematical level:
 - **STATS 305B**, [*Methods for Applied Statistics*](https://web.stanford.edu/class/stats305b/)
   (Jonathan Taylor): contingency tables, logistic regression and generalized linear models.
 
-## Origin
+# Origin
 
 These notes began as the statistics appendices of
 [*Regression Models for Epidemiology*](https://morrison-lab.github.io/rme/),
@@ -132,7 +132,7 @@ and [mathematics](https://morrison-lab.github.io/mds/)
 for data science,
 which are the canonical home for the probability and mathematics appendices of rme.
 
-## Using these notes in another site
+# Using these notes in another site
 
 Course sites link to these pages by URL;
 they do not include this repository as a git submodule.
