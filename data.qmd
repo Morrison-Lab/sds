@@ -4,6 +4,7 @@ format:
   html: default
   revealjs:
     output-file: data-slides.html
+    shift-heading-level-by: 1
   pdf:
     output-file: data-handout.pdf
   docx:
@@ -102,7 +103,7 @@ and within each class there are important subtypes.
 
 {{< include sds/_subfiles/data/_exm-binary-var.qmd >}}
 
-## Coding a categorical variable with numbers {#sec-dummy-coding}
+# Coding a categorical variable with numbers {#sec-dummy-coding}
 
 {{< include sds/_subfiles/data/_exr-dummy-coding.qmd >}}
 
@@ -122,7 +123,7 @@ and within each class there are important subtypes.
 
 {{< include sds/_subfiles/data/_def-reference-level.qmd >}}
 
-## Taxonomy of variable types
+# Taxonomy of variable types
 
 @fig-var-taxonomy illustrates the relationships among these variable types.
 
@@ -136,16 +137,16 @@ Discrete variables include both numerical types (such as count variables)
 and categorical types (such as binary, nominal, and ordinal variables).
 :::
 
-## Variables in the WCGS dataset
+# Variables in the WCGS dataset
 
 @tbl-wcgs-vartypes shows selected variables from the Western Collaborative
 Group Study (WCGS) dataset and their types.
 
 {{< include sds/_subfiles/data/_tbl-wcgs-vartypes.qmd >}}
 
-## Random variables
+# Random variables
 
-### Binary variables {#sec-binary-vars}
+## Binary variables {#sec-binary-vars}
 
 <!-- No slidebreak here: the heading shares its slide with the def-binary div. -->
 
@@ -155,7 +156,7 @@ Group Study (WCGS) dataset and their types.
 
 {{< include sds/_subfiles/data/_exr-binary-examples.qmd >}}
 
-### Count variables {#sec-count-vars}
+## Count variables {#sec-count-vars}
 
 <!-- No slidebreak here: the heading shares its slide with the def-count div. -->
 
@@ -169,7 +170,7 @@ Group Study (WCGS) dataset and their types.
 
 {{< include sds/_subfiles/data/_count-distributions.qmd >}}
 
-## References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::

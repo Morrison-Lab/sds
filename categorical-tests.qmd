@@ -4,6 +4,7 @@ format:
   html: default
   revealjs:
     output-file: categorical-tests-slides.html
+    shift-heading-level-by: 1
   pdf:
     output-file: categorical-tests-handout.pdf
   docx:
@@ -14,13 +15,13 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-intro-categorical.qmd >}}
 
-## The HERS data
+# The HERS data
 
 {{< include sds/_subfiles/basic-statistical-methods/_load-hers-short.qmd >}}
 
-## Comparing two groups: categorical outcomes {#sec-two-group-categorical}
+# Comparing two groups: categorical outcomes {#sec-two-group-categorical}
 
-### Contingency tables {#sec-contingency-tables}
+## Contingency tables {#sec-contingency-tables}
 
 <!-- No slidebreak here: the heading shares its slide with the exm-hers-crosstab div. -->
 
@@ -33,7 +34,7 @@ format:
 
 {{< slidebreak >}}
 
-### The chi-square test {#sec-chi-square}
+## The chi-square test {#sec-chi-square}
 
 <!-- No slidebreak here: the heading shares its slide with the def-expected-count div. -->
 
@@ -65,7 +66,7 @@ format:
 
 {{< slidebreak >}}
 
-### Fisher's exact test {#sec-fisher}
+## Fisher's exact test {#sec-fisher}
 
 <!-- No slidebreak here: the heading shares its slide with the def-fishers-exact div. -->
 
@@ -81,7 +82,7 @@ format:
 
 {{< slidebreak >}}
 
-### Measures of association for $2 \times 2$ tables {#sec-2x2-measures}
+## Measures of association for $2 \times 2$ tables {#sec-2x2-measures}
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-2x2-measures.qmd >}}
 
@@ -90,7 +91,7 @@ format:
 :::
 
 
-## Further reading {#sec-categorical-tests-reading}
+# Further reading {#sec-categorical-tests-reading}
 
 - Sections 4.6 to 4.8 of Lange's *Mathematical and Statistical Methods for Genetic Analysis* [@lange2002genetic]
   cover exact tests of independence, case-control association tests,
@@ -98,7 +99,7 @@ format:
   with genetic examples.
 
 
-## References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::

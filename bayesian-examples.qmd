@@ -4,6 +4,7 @@ format:
   html: default
   revealjs:
     output-file: bayesian-examples-slides.html
+    shift-heading-level-by: 1
   pdf:
     output-file: bayesian-examples-handout.pdf
   docx:
@@ -14,7 +15,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_prose-examples-overview.qmd >}}
 
-## A first example: a single proportion {#sec-bayes-examples}
+# A first example: a single proportion {#sec-bayes-examples}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-jags.qmd >}}
 
@@ -22,7 +23,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-proportion.qmd >}}
 
-## Comparing Stan and JAGS {#sec-bayes-examples-stan-jags}
+# Comparing Stan and JAGS {#sec-bayes-examples-stan-jags}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-stan-vs-jags.qmd >}}
 
@@ -32,7 +33,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_prose-stan-jags-agreement.qmd >}}
 
-## Binary outcomes: logistic regression {#sec-bayes-examples-logistic}
+# Binary outcomes: logistic regression {#sec-bayes-examples-logistic}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-logistic.qmd >}}
 
@@ -40,7 +41,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-logistic.qmd >}}
 
-## Survival analysis {#sec-bayes-examples-survival}
+# Survival analysis {#sec-bayes-examples-survival}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-survival.qmd >}}
 
@@ -52,7 +53,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-survival.qmd >}}
 
-## Random effects {#sec-bayes-examples-random-effects}
+# Random effects {#sec-bayes-examples-random-effects}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-random-effects.qmd >}}
 
@@ -60,7 +61,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-random-effects.qmd >}}
 
-## Bayesian model averaging {#sec-bayes-examples-bma}
+# Bayesian model averaging {#sec-bayes-examples-bma}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-bma.qmd >}}
 
@@ -85,7 +86,7 @@ format:
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-bma.qmd >}}
 
 
-## References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::

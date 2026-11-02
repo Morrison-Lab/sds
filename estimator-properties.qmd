@@ -4,6 +4,7 @@ format:
   html: default
   revealjs:
     output-file: estimator-properties-slides.html
+    shift-heading-level-by: 1
   pdf:
     output-file: estimator-properties-handout.pdf
   docx:
@@ -20,7 +21,7 @@ This page asks two further questions:
 what happens to an estimator as the sample size grows,
 and how small can the variance of an unbiased estimator be?
 
-## Consistency {#sec-consistency}
+# Consistency {#sec-consistency}
 
 {{< include sds/_subfiles/estimator-properties/_def-consistent.qmd >}}
 
@@ -48,7 +49,7 @@ and how small can the variance of an unbiased estimator be?
 
 {{< include sds/_subfiles/estimator-properties/_exm-consistency-birthwt.qmd >}}
 
-## Efficiency {#sec-efficiency}
+# Efficiency {#sec-efficiency}
 
 {{< include sds/_subfiles/estimator-properties/_def-relative-efficiency.qmd >}}
 
@@ -60,7 +61,7 @@ and how small can the variance of an unbiased estimator be?
 @CaseBerg01 [Sec. 10.1, pp. 467--480] covers point estimation, including consistency, efficiency and bootstrap standard errors.
 :::
 
-## The Cramér--Rao lower bound {#sec-cramer-rao}
+# The Cramér--Rao lower bound {#sec-cramer-rao}
 
 {{< include sds/_subfiles/estimator-properties/_exr-cov-estimator-score.qmd >}}
 
@@ -92,7 +93,7 @@ and how small can the variance of an unbiased estimator be?
 :::
 
 
-## References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::
