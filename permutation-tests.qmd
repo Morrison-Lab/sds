@@ -4,6 +4,7 @@ format:
   html: default
   revealjs:
     output-file: permutation-tests-slides.html
+    shift-heading-level-by: 1
   pdf:
     output-file: permutation-tests-handout.pdf
   docx:
