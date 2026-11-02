@@ -4,12 +4,11 @@
 # that does not name what it reuses (psw#442).
 # Fix the wording, or put `<!-- check-avoided-words: allow -->` on the line.
 # Warn-only here; where annotation-gate runs, its warning fails the run.
+# No push trigger: a push run has no base to diff against and would report
+# success having checked nothing. A manual run scans the whole tree.
 name: Check avoided words
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
   workflow_dispatch:
 
@@ -20,4 +19,5 @@ jobs:
     uses: Morrison-Lab/gha/.github/workflows/check-avoided-words.yml@v3
     with:
       fail: false
+      whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
       paths-ignore: '_extensions/**,**/outtakes/**,latex-macros/**'
