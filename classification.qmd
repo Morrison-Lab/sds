@@ -12,7 +12,7 @@ format:
 
 {{< include sds/_subfiles/shared-config.qmd >}}
 
-## Introduction
+# Introduction
 
 {{< include sds/_subfiles/classification/_prose-intro.qmd >}}
 
@@ -48,7 +48,7 @@ format:
 
 {{< include sds/_subfiles/classification/_rem-classification-binary-labels.qmd >}}
 
-## Diagnostic test characteristics
+# Diagnostic test characteristics
 
 <!-- No slidebreak here: the heading shares its slide with the def-sensitivity div. -->
 
@@ -74,7 +74,7 @@ format:
 
 {{< include sds/_subfiles/classification/_exm-prevalence.qmd >}}
 
-## Predictive values
+# Predictive values
 
 <!-- No slidebreak here: the heading shares its slide with the def-ppv div. -->
 
@@ -92,7 +92,7 @@ format:
 
 {{< include sds/_subfiles/classification/_exm-npv.qmd >}}
 
-## PPV in terms of sensitivity, specificity, and prevalence
+# PPV in terms of sensitivity, specificity, and prevalence
 
 <!-- No slidebreak here: the heading shares its slide with the exr-prob-positive div. -->
 
@@ -126,7 +126,7 @@ format:
 
 {{< include sds/_subfiles/classification/_rem-ppv-prevalence.qmd >}}
 
-## Agreement between two classifiers
+# Agreement between two classifiers
 
 {{< include sds/_subfiles/classification/_prose-agreement-intro.qmd >}}
 
@@ -138,7 +138,7 @@ format:
 
 {{< include sds/_subfiles/classification/_exm-agreement-table.qmd >}}
 
-## Agreement proportions
+# Agreement proportions
 
 <!-- No slidebreak here: the heading shares its slide with the def-overall-agreement div. -->
 
@@ -188,7 +188,7 @@ format:
 
 {{< include sds/_subfiles/classification/_exm-agreement-test-measures.qmd >}}
 
-## Positive and negative agreement as harmonic means
+# Positive and negative agreement as harmonic means
 
 <!-- No slidebreak here: the heading shares its slide with the def-harmonic-mean div. -->
 
@@ -222,7 +222,7 @@ format:
 
 {{< include sds/_subfiles/classification/_exm-neg-agreement-harmonic.qmd >}}
 
-## Cohen's kappa
+# Cohen's kappa
 
 <!-- No slidebreak here: the heading shares its slide with the def-chance-agreement div. -->
 
@@ -266,7 +266,7 @@ format:
 
 
 
-## References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::
