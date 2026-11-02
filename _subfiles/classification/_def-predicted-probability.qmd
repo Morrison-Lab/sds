@@ -1,7 +1,7 @@
 :::{#def-predicted-probability}
 #### Predicted probability
 
-The **predicted probability** of @def-class $k$ at [features](model-validation.qmd#def-feature) $\predvar$ is
+The **predicted probability** of [class](#def-class) $k$ at [features](model-validation.qmd#def-feature) $\predvar$ is
 the [estimate](estimation.qmd#def-estimate) $\hat{p}_k(\predvar)$ that a [fitted model](model-validation.qmd#def-fitted-model) gives of the [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) of that class given those features:
 
 $$\hat{p}_k(\predvar) \eqdef \est{\Prf{\Outvar = k \given \predvar}}$$ {#eq-predicted-probability}
