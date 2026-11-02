@@ -356,16 +356,15 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-02 10:11:50 (PST)</p>
+  <p class="date">Last modified: 2026-11-02 11:15:31 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
 </style>
 <p>This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the <span class="math inline">\(t\)</span> reference distribution defined on the <a href="./inference.html#sec-reference-distributions">Statistical Inference</a> page. This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 3.</p>
-</section><section><section id="the-hers-data" class="title-slide slide level1 center" data-number="1"><h1>
-<span class="header-section-number">1</span> The HERS data</h1>
-
+</section><section id="the-hers-data" class="slide level2" data-number="1"><h2>
+<span class="header-section-number">1</span> The HERS data</h2>
 </section><section class="slide level2"><p>The examples on this page use the HERS data, which the <a href="./basic-statistical-methods.html#sec-hers-intro">Comparing Means</a> page describes. The <code>rmb</code> R package includes the dataset; <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts its Stata value labels to factors:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>hers <span class="ot">&lt;-</span> rmb<span class="sc">::</span>hers <span class="sc">|&gt;</span> haven<span class="sc">::</span><span class="fu">as_factor</span>()</span>
@@ -378,11 +377,10 @@ text-align: center;
 </div>
 </div>
 </div>
-</section></section><section><section id="sec-correlation" class="title-slide slide level1 center" data-number="2"><h1>
-<span class="header-section-number">2</span> Correlation</h1>
-
-</section><section id="sec-pearson" class="slide level2" data-number="2.1"><h2>
-<span class="header-section-number">2.1</span> Testing the Pearson correlation</h2>
+</section><section id="sec-correlation" class="slide level2" data-number="2"><h2>
+<span class="header-section-number">2</span> Correlation</h2>
+</section><section class="slide level2"><h3 data-number="2.1" id="sec-pearson">
+<span class="header-section-number">2.1</span> Testing the Pearson correlation</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-population-correlation div. -->
 <div id="def-population-correlation" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Population correlation)</strong></span> The <strong>population correlation</strong> of two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with positive <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variances</a> is</p>
@@ -469,8 +467,8 @@ Figure&nbsp;1: Baseline fasting glucose against BMI in HERS, with the least-squa
 <span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 14.2.3]</a>, pp.&nbsp;560–563</span> covers correlation and regression.</li>
 </ul>
 </div>
-</section><section id="sec-spearman" class="slide level2" data-number="2.2"><h2>
-<span class="header-section-number">2.2</span> Spearman rank correlation</h2>
+</section><section class="slide level2"><h3 data-number="2.2" id="sec-spearman">
+<span class="header-section-number">2.2</span> Spearman rank correlation</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-spearman-r div. -->
 <div id="def-spearman-r" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Spearman rank correlation)</strong></span> Replace each <span class="math inline">\(x_i\)</span> by its rank <span class="math inline">\(u_i\)</span> among <span class="math inline">\(x_1, \ldots, x_n\)</span>, and each <span class="math inline">\(y_i\)</span> by its rank <span class="math inline">\(v_i\)</span> among <span class="math inline">\(y_1, \ldots, y_n\)</span>, giving tied values the average of the ranks they span. The <strong>Spearman rank correlation</strong> <span class="math inline">\(r_S\)</span> is the <a href="./exploratory-descriptive.html#def-pearson-r">Pearson correlation coefficient</a> evaluated at the rank pairs:</p>
@@ -501,11 +499,10 @@ r_S \stackrel{\text{def}}{=}r\mathopen{}\left((u_1, v_1), \ldots, (u_n, v_n)\rig
 </div>
 <p><span class="math inline">\(r_S\)</span> is larger than the Pearson <span class="math inline">\(r\)</span> of <a href="#/exm-hers-cor" class="quarto-xref">Example&nbsp;1</a>: the association is closer to monotone than to linear.</p>
 </div>
-</section></section><section><section id="sec-simple-linear-regression" class="title-slide slide level1 center" data-number="3"><h1>
-<span class="header-section-number">3</span> Simple linear regression</h1>
-
-</section><section id="sec-slr-model" class="slide level2" data-number="3.1"><h2>
-<span class="header-section-number">3.1</span> Model specification</h2>
+</section><section id="sec-simple-linear-regression" class="slide level2" data-number="3"><h2>
+<span class="header-section-number">3</span> Simple linear regression</h2>
+</section><section class="slide level2"><h3 data-number="3.1" id="sec-slr-model">
+<span class="header-section-number">3.1</span> Model specification</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-cond-gaussian div. -->
 <div id="def-cond-gaussian" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Conditional Gaussian model)</strong></span> A <strong>conditional Gaussian model</strong> for outcomes <span class="math inline">\(Y_1, \ldots, Y_n\)</span> with covariate values <span class="math inline">\(x_1, \ldots, x_n\)</span> (each a single value or a vector) says that, given the covariates, the outcomes are independent and Gaussian: outcome <span class="math inline">\(Y_i\)</span> is centered on a mean function <span class="math inline">\(\mu(x)\)</span> evaluated at <span class="math inline">\(x_i\)</span>, and has its own variance <span class="math inline">\(\sigma^2_i\)</span>:</p>
@@ -703,8 +700,8 @@ f_{\mathbb{d}}(t)
 </section><section class="slide level2"><div id="rem-slr-parameters" class="proof remark">
 <p><span class="proof-title"><em>Remark 4</em> (Interpreting the variance parameter). </span><span class="math inline">\(\sigma^2\)</span> is the variance of <span class="math inline">\(Y\)</span> around its mean at each value of <span class="math inline">\(X\)</span>.</p>
 </div>
-</section><section id="sec-ols" class="slide level2" data-number="3.2"><h2>
-<span class="header-section-number">3.2</span> Ordinary least squares estimation</h2>
+</section><section class="slide level2"><h3 data-number="3.2" id="sec-ols">
+<span class="header-section-number">3.2</span> Ordinary least squares estimation</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-rss div. -->
 <div id="def-rss" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 11 (Residual sum of squares)</strong></span> For a regression model whose conditional mean <span class="math inline">\(\mu(x; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\)</span> depends on a parameter vector <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>, the <strong>residual sum of squares</strong> at <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> is the sum of the squared residuals <span class="math inline">\(\hat{\varepsilon}_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}y_i- \mu(x_i; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\)</span> that the model has when its parameters equal <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>:</p>
@@ -1884,8 +1881,8 @@ r \, \frac{s_y}{s_x}
 <span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 14.2.1]</a>, pp.&nbsp;547–549</span> covers slope and intercept properties.</li>
 </ul>
 </div>
-</section><section id="sec-slr-R" class="slide level2" data-number="3.3"><h2>
-<span class="header-section-number">3.3</span> Fitting a simple linear regression in R</h2>
+</section><section class="slide level2"><h3 data-number="3.3" id="sec-slr-R">
+<span class="header-section-number">3.3</span> Fitting a simple linear regression in R</h3>
 <!-- No slidebreak here: the heading shares its slide with the exm-hers-slr div. -->
 <div id="exm-hers-slr" class="theorem example">
 <p><span class="theorem-title"><strong>Example 8 (Regression of fasting glucose on BMI in HERS)</strong></span> The OLS estimates from <a href="#/thm-ols-slr" class="quarto-xref">Theorem&nbsp;5</a>, and the slope from <a href="#/cor-ols-slope-r" class="quarto-xref">Corollary&nbsp;2</a>, for the participants with a BMI measurement:</p>
@@ -1997,8 +1994,8 @@ Figure&nbsp;4: Fasting glucose against BMI in HERS, with the OLS line
 </div>
 <p>The estimated slope is <span class="math inline">\(\hat{\beta}_{\text{BMI}} = 1.82\)</span> mg/dL per kg/m<sup>2</sup>: mean fasting glucose is about 1.8 mg/dL higher among participants whose BMI is 1 kg/m<sup>2</sup> higher. The t statistic for the slope equals the correlation test statistic of <a href="#/exm-hers-cor" class="quarto-xref">Example&nbsp;1</a>.</p>
 </div>
-</section><section id="sec-r-squared" class="slide level2" data-number="3.4"><h2>
-<span class="header-section-number">3.4</span> The coefficient of determination</h2>
+</section><section class="slide level2"><h3 data-number="3.4" id="sec-r-squared">
+<span class="header-section-number">3.4</span> The coefficient of determination</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-tss div. -->
 <div id="def-tss" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 17 (Total sum of squares)</strong></span> The <strong>total sum of squares</strong> of <span class="math inline">\(y_1, \ldots, y_n\)</span> is</p>
@@ -2163,8 +2160,8 @@ R^2 &amp;= r^2, &amp;
 <span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 14.2.2]</a>, pp.&nbsp;550–559</span> covers assessing the fit of a regression line.</li>
 </ul>
 </div>
-</section><section id="sec-partial-f" class="slide level2" data-number="3.5"><h2>
-<span class="header-section-number">3.5</span> Comparing nested regression models</h2>
+</section><section class="slide level2"><h3 data-number="3.5" id="sec-partial-f">
+<span class="header-section-number">3.5</span> Comparing nested regression models</h3>
 <div id="def-nested-regression-models" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 19 (Nested linear regression models)</strong></span> Let a <a href="#/def-linear-regression">linear regression model</a> have <span class="math inline">\(p\)</span> features and an <a href="#/def-slr-intercept">intercept</a>. A second linear regression model is <strong>nested</strong> in it if it uses the same outcome and the same observations and is the special case in which <span class="math inline">\(q\)</span> of the <span class="math inline">\(p\)</span> coefficients equal <span class="math inline">\(0\)</span>. The first model is the <em>larger</em> model, and the second is the <em>smaller</em> model; the smaller model has <span class="math inline">\(p - q\)</span> features.</p>
 <p>Source: <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1, Sec. 4.3]</a></span>.</p>
@@ -2295,11 +2292,10 @@ F \stackrel{\text{def}}{=}\frac{(\text{RSS}_0 - \text{RSS}_1) / q}{\text{RSS}_1 
 \]</span></p>
 <p>For large <span class="math inline">\(n\)</span> under <span class="math inline">\(H_0\)</span>, the quantity <span class="math inline">\((\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1\)</span> is near <span class="math inline">\(0\)</span>, so <span class="math inline">\(\log(1 + u) \approx u\)</span> gives <span class="math inline">\(\Lambda\approx n (\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1\)</span>. Also <span class="math inline">\(q F = (n - p - 1) (\text{RSS}_0 - \text{RSS}_1) / \text{RSS}_1\)</span>, which is close to the same value when <span class="math inline">\(n\)</span> is much larger than <span class="math inline">\(p\)</span>. Under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(\Lambda\)</span> and <span class="math inline">\(q F\)</span> therefore have approximately the <span class="math inline">\(\chi^2_q\)</span> distribution, but the F-test is exact for Gaussian errors at every <span class="math inline">\(n\)</span>, while the <a href="./intro-MLEs.html#def-lrt-stat">likelihood ratio test</a> holds only approximately.</p>
 </div>
-</section><section id="further-reading" class="slide level2" data-number="3.6"><h2>
-<span class="header-section-number">3.6</span> Further reading</h2>
+</section><section class="slide level2"><h3 data-number="3.6" id="further-reading">
+<span class="header-section-number">3.6</span> Further reading</h3>
 <p><a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html">Linear Models Overview</a> covers linear regression in depth, including inference for the coefficients and multiple predictors. <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span> cover linear regression in Chapter 4.</p>
-</section></section><section><section id="references" class="title-slide slide level1 unnumbered center"><h1>References</h1>
-
+</section><section id="references" class="slide level2 unnumbered"><h2>References</h2>
 </section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
@@ -2561,7 +2557,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     initRevealJsHtmlLink();
   }
 })();
-</script></section></section>
+</script></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

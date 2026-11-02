@@ -356,10 +356,9 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-02 10:11:50 (PST)</p>
-</section><section><section id="introduction" class="title-slide slide level1 center" data-number="1"><h1>
-<span class="header-section-number">1</span> Introduction</h1>
-
+  <p class="date">Last modified: 2026-11-02 11:15:31 (PST)</p>
+</section><section id="introduction" class="slide level2" data-number="1"><h2>
+<span class="header-section-number">1</span> Introduction</h2>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -377,9 +376,8 @@ text-align: center;
 </ul>
 <p>The t-tests and ANOVA on this page are the exact, Gaussian-outcome tests in the <a href="./intro-MLEs.html#tbl-gaussian-vs-mle-tests">table of exact and approximate tests</a> on the Maximum Likelihood page, which pairs each one with its large-sample counterpart.</p>
 <p>This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 3.</p>
-</section></section><section><section id="sec-hers-intro" class="title-slide slide level1 center" data-number="2"><h1>
-<span class="header-section-number">2</span> The HERS data</h1>
-
+</section><section id="sec-hers-intro" class="slide level2" data-number="2"><h2>
+<span class="header-section-number">2</span> The HERS data</h2>
 </section><section class="slide level2"><p>The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) <span class="citation" data-cites="HulleyStephen1998RToE"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 <p>The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo <span class="citation" data-cites="HulleyStephen1998RToE"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>. Women were followed for an average of 4.1 years <span class="citation" data-cites="HulleyStephen1998RToE"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 <p>The primary outcome was nonfatal myocardial infarction or CHD death <span class="citation" data-cites="HulleyStephen1998RToE"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
@@ -457,9 +455,8 @@ text-align: center;
 <span id="cb3-12"><a aria-label="12"></a><span class="co">#&gt; $ glucose  &lt;dbl&gt; 84, 111, 114, 94, 101, 116, 120, 95, 105, 98, 111, 95, 97, 10…</span></span>
 <span id="cb3-13"><a aria-label="13"></a><span class="co">#&gt; $ glucose1 &lt;dbl&gt; 94, 78, 98, 93, 92, 115, NA, 95, 113, 98, 96, 107, 90, 100, 1…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section></section><section><section id="sec-descriptive-stats" class="title-slide slide level1 center" data-number="3"><h1>
-<span class="header-section-number">3</span> Descriptive statistics</h1>
-
+</section><section id="sec-descriptive-stats" class="slide level2" data-number="3"><h2>
+<span class="header-section-number">3</span> Descriptive statistics</h2>
 </section><section class="slide level2"><p>The <a href="./exploratory-descriptive.html">Exploratory Data Analysis</a> page defines the sample statistics used on this page, each with an example:</p>
 <ul>
 <li>the <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a>;</li>
@@ -504,23 +501,23 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
 </figcaption><div aria-describedby="tbl-hers-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="nwrfmmqlwd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nwrfmmqlwd table {
+<div id="rbghpsohra" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rbghpsohra table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nwrfmmqlwd thead, #nwrfmmqlwd tbody, #nwrfmmqlwd tfoot, #nwrfmmqlwd tr, #nwrfmmqlwd td, #nwrfmmqlwd th {
+#rbghpsohra thead, #rbghpsohra tbody, #rbghpsohra tfoot, #rbghpsohra tr, #rbghpsohra td, #rbghpsohra th {
   border-style: none;
 }
 
-#nwrfmmqlwd p {
+#rbghpsohra p {
   margin: 0;
   padding: 0;
 }
 
-#nwrfmmqlwd .gt_table {
+#rbghpsohra .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -546,12 +543,12 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-left-color: #D3D3D3;
 }
 
-#nwrfmmqlwd .gt_caption {
+#rbghpsohra .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nwrfmmqlwd .gt_title {
+#rbghpsohra .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -563,7 +560,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-width: 0;
 }
 
-#nwrfmmqlwd .gt_subtitle {
+#rbghpsohra .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -575,7 +572,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-top-width: 0;
 }
 
-#nwrfmmqlwd .gt_heading {
+#rbghpsohra .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -587,13 +584,13 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#nwrfmmqlwd .gt_bottom_border {
+#rbghpsohra .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nwrfmmqlwd .gt_col_headings {
+#rbghpsohra .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -608,7 +605,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#nwrfmmqlwd .gt_col_heading {
+#rbghpsohra .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -628,7 +625,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   overflow-x: hidden;
 }
 
-#nwrfmmqlwd .gt_column_spanner_outer {
+#rbghpsohra .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -640,15 +637,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 4px;
 }
 
-#nwrfmmqlwd .gt_column_spanner_outer:first-child {
+#rbghpsohra .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nwrfmmqlwd .gt_column_spanner_outer:last-child {
+#rbghpsohra .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nwrfmmqlwd .gt_column_spanner {
+#rbghpsohra .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -660,11 +657,11 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   width: 100%;
 }
 
-#nwrfmmqlwd .gt_spanner_row {
+#rbghpsohra .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nwrfmmqlwd .gt_group_heading {
+#rbghpsohra .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -690,7 +687,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   text-align: left;
 }
 
-#nwrfmmqlwd .gt_empty_group_heading {
+#rbghpsohra .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -705,15 +702,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   vertical-align: middle;
 }
 
-#nwrfmmqlwd .gt_from_md > :first-child {
+#rbghpsohra .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nwrfmmqlwd .gt_from_md > :last-child {
+#rbghpsohra .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nwrfmmqlwd .gt_row {
+#rbghpsohra .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -732,7 +729,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   overflow-x: hidden;
 }
 
-#nwrfmmqlwd .gt_stub {
+#rbghpsohra .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -745,7 +742,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#nwrfmmqlwd .gt_stub_row_group {
+#rbghpsohra .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -759,15 +756,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   vertical-align: top;
 }
 
-#nwrfmmqlwd .gt_row_group_first td {
+#rbghpsohra .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nwrfmmqlwd .gt_row_group_first th {
+#rbghpsohra .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nwrfmmqlwd .gt_summary_row {
+#rbghpsohra .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -777,16 +774,16 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#nwrfmmqlwd .gt_first_summary_row {
+#rbghpsohra .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nwrfmmqlwd .gt_first_summary_row.thick {
+#rbghpsohra .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nwrfmmqlwd .gt_last_summary_row {
+#rbghpsohra .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -796,7 +793,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#nwrfmmqlwd .gt_grand_summary_row {
+#rbghpsohra .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -806,7 +803,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#nwrfmmqlwd .gt_first_grand_summary_row {
+#rbghpsohra .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -816,7 +813,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-top-color: #D3D3D3;
 }
 
-#nwrfmmqlwd .gt_last_grand_summary_row_top {
+#rbghpsohra .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -826,11 +823,11 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#nwrfmmqlwd .gt_striped {
+#rbghpsohra .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nwrfmmqlwd .gt_table_body {
+#rbghpsohra .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -839,7 +836,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#nwrfmmqlwd .gt_footnotes {
+#rbghpsohra .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -853,7 +850,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#nwrfmmqlwd .gt_footnote {
+#rbghpsohra .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -862,7 +859,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#nwrfmmqlwd .gt_sourcenotes {
+#rbghpsohra .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -876,7 +873,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#nwrfmmqlwd .gt_sourcenote {
+#rbghpsohra .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -884,72 +881,72 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#nwrfmmqlwd .gt_left {
+#rbghpsohra .gt_left {
   text-align: left;
 }
 
-#nwrfmmqlwd .gt_center {
+#rbghpsohra .gt_center {
   text-align: center;
 }
 
-#nwrfmmqlwd .gt_right {
+#rbghpsohra .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nwrfmmqlwd .gt_font_normal {
+#rbghpsohra .gt_font_normal {
   font-weight: normal;
 }
 
-#nwrfmmqlwd .gt_font_bold {
+#rbghpsohra .gt_font_bold {
   font-weight: bold;
 }
 
-#nwrfmmqlwd .gt_font_italic {
+#rbghpsohra .gt_font_italic {
   font-style: italic;
 }
 
-#nwrfmmqlwd .gt_super {
+#rbghpsohra .gt_super {
   font-size: 65%;
 }
 
-#nwrfmmqlwd .gt_footnote_marks {
+#rbghpsohra .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nwrfmmqlwd .gt_asterisk {
+#rbghpsohra .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nwrfmmqlwd .gt_indent_1 {
+#rbghpsohra .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nwrfmmqlwd .gt_indent_2 {
+#rbghpsohra .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nwrfmmqlwd .gt_indent_3 {
+#rbghpsohra .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nwrfmmqlwd .gt_indent_4 {
+#rbghpsohra .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nwrfmmqlwd .gt_indent_5 {
+#rbghpsohra .gt_indent_5 {
   text-indent: 25px;
 }
 
-#nwrfmmqlwd .katex-display {
+#rbghpsohra .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#nwrfmmqlwd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rbghpsohra div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1074,14 +1071,13 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 </div>
 <p>Because treatment was assigned at random, the two groups differ at baseline only by chance, and their summaries are close.</p>
 </div>
-</section></section><section><section id="sec-two-group-continuous" class="title-slide slide level1 center" data-number="4"><h1>
-<span class="header-section-number">4</span> Comparing two groups: continuous outcomes</h1>
-
-</section><section id="sec-hypotheses" class="slide level2" data-number="4.1"><h2>
-<span class="header-section-number">4.1</span> Hypotheses</h2>
+</section><section id="sec-two-group-continuous" class="slide level2" data-number="4"><h2>
+<span class="header-section-number">4</span> Comparing two groups: continuous outcomes</h2>
+</section><section class="slide level2"><h3 data-number="4.1" id="sec-hypotheses">
+<span class="header-section-number">4.1</span> Hypotheses</h3>
 <p>The <a href="./inference.html">Statistical Inference</a> page defines the <a href="./inference.html#def-null-hypothesis">null hypothesis</a>, the <a href="./inference.html#def-alternative-hypothesis">alternative hypothesis</a>, <a href="./inference.html#def-test-statistic">test statistics</a>, <a href="./inference.html#def-p-value">p-values</a>, and <a href="./inference.html#def-significance-level">significance levels</a>. In a comparison of two groups with means <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span>, the null hypothesis is usually <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span>, and the two-sided alternative is <span class="math inline">\(H_1: \mu_1 \neq \mu_2\)</span>.</p>
-</section><section id="sec-one-sample-t-test" class="slide level2" data-number="4.2"><h2>
-<span class="header-section-number">4.2</span> One-sample t-test</h2>
+</section><section class="slide level2"><h3 data-number="4.2" id="sec-one-sample-t-test">
+<span class="header-section-number">4.2</span> One-sample t-test</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-one-sample-t-test div. -->
 <div id="def-one-sample-t-test" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (One-sample t-test)</strong></span> Let <span class="math inline">\(x_1, \ldots, x_n\)</span> be observations with <span class="math inline">\(n \ge 2\)</span>, sample mean <span class="math inline">\({\bar{x}}\)</span>, and sample standard deviation <span class="math inline">\(s\)</span>. The <strong>one-sample t-test</strong> of <span class="math inline">\(H_0: \mu= \mu_0\)</span> against <span class="math inline">\(H_1: \mu\neq \mu_0\)</span> uses the <a href="./sufficiency.html#def-statistic">statistic</a></p>
@@ -1110,8 +1106,8 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 </section><section class="slide level2"><div id="rem-t-statistic-nongaussian" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Non-Gaussian data). </span>When the observations are not Gaussian, <span class="math inline">\(T\)</span> still has approximately the standard Gaussian distribution when <span class="math inline">\(n\)</span> is large, by the <a href="https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt">central limit theorem</a>, and then <span class="math inline">\(t_{n-1}\)</span> is close to the standard Gaussian distribution (<a href="./inference.html#exm-t-dist">t quantiles approach Gaussian quantiles</a>).</p>
 </div>
-</section><section id="sec-paired-t-test" class="slide level2" data-number="4.3"><h2>
-<span class="header-section-number">4.3</span> Paired t-test</h2>
+</section><section class="slide level2"><h3 data-number="4.3" id="sec-paired-t-test">
+<span class="header-section-number">4.3</span> Paired t-test</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-paired-t-test div. -->
 <div id="def-paired-t-test" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Paired t-test)</strong></span> Let <span class="math inline">\((x_{1,1}, x_{1,2}), \ldots, (x_{n,1}, x_{n,2})\)</span> be pairs of related measurements, such as the same participants measured at two times, and let <span class="math inline">\(d_i \stackrel{\text{def}}{=}x_{i,2} - x_{i,1}\)</span> be the within-pair differences, with population mean <span class="math inline">\(\mu_d\)</span>. The <strong>paired t-test</strong> of <span class="math inline">\(H_0: \mu_d = 0\)</span> against <span class="math inline">\(H_1: \mu_d \neq 0\)</span> is the one-sample t-test (<a href="#/def-one-sample-t-test" class="quarto-xref">Definition&nbsp;1</a>) of <span class="math inline">\(H_0: \mu= 0\)</span> applied to <span class="math inline">\(d_1, \ldots, d_n\)</span>.</p>
@@ -1152,8 +1148,8 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 </div>
 <p>Mean fasting glucose rose by about 2.6 mg/dL over the year, and the p-value is far below 0.05.</p>
 </div>
-</section><section id="sec-two-sample-t-test" class="slide level2" data-number="4.4"><h2>
-<span class="header-section-number">4.4</span> Two-sample t-tests</h2>
+</section><section class="slide level2"><h3 data-number="4.4" id="sec-two-sample-t-test">
+<span class="header-section-number">4.4</span> Two-sample t-tests</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-two-sample-t-test div. -->
 <div id="def-two-sample-t-test" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Welch’s two-sample t-test)</strong></span> Let two independent groups have sample sizes <span class="math inline">\(n_1, n_2 \ge 2\)</span>, sample means <span class="math inline">\(\bar{x}_1\)</span> and <span class="math inline">\(\bar{x}_2\)</span>, and sample variances <span class="math inline">\(s_1^2\)</span> and <span class="math inline">\(s_2^2\)</span>. <strong>Welch’s two-sample t-test</strong> of <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span> against <span class="math inline">\(H_1: \mu_1 \neq \mu_2\)</span> uses the <a href="./sufficiency.html#def-statistic">statistic</a></p>
@@ -1289,8 +1285,8 @@ s_p^2
 <span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[7, Sec. 11.3.1]</a>, pp.&nbsp;446–447</span> covers normal-theory methods for paired samples.</li>
 </ul>
 </div>
-</section><section id="sec-CI-diff-means" class="slide level2" data-number="4.5"><h2>
-<span class="header-section-number">4.5</span> Confidence intervals for the difference in means</h2>
+</section><section class="slide level2"><h3 data-number="4.5" id="sec-CI-diff-means">
+<span class="header-section-number">4.5</span> Confidence intervals for the difference in means</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-ci-diff-means div. -->
 <div id="def-ci-diff-means" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (Welch confidence interval for a difference in means)</strong></span> With the notation of <a href="#/def-two-sample-t-test" class="quarto-xref">Definition&nbsp;3</a>, the <strong>Welch <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for <span class="math inline">\(\mu_1 - \mu_2\)</span> is</p>
@@ -1311,9 +1307,8 @@ s_p^2
 <div class="reading">
 <p><span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 7.2]</a>, pp.&nbsp;314–322</span> covers confidence intervals for the difference of two means.</p>
 </div>
-</section></section><section><section id="sec-anova" class="title-slide slide level1 center" data-number="5"><h1>
-<span class="header-section-number">5</span> One-way analysis of variance</h1>
-
+</section><section id="sec-anova" class="slide level2" data-number="5"><h2>
+<span class="header-section-number">5</span> One-way analysis of variance</h2>
 </section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the def-ss-between div. --><div id="def-ss-between" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Between-group sum of squares)</strong></span> Let <span class="math inline">\(y_{j1}, \ldots, y_{jn_j}\)</span> be the <span class="math inline">\(n_j\)</span> observations in group <span class="math inline">\(j\)</span>, for <span class="math inline">\(k \ge 2\)</span> groups with <span class="math inline">\(n \stackrel{\text{def}}{=}\sum_{j=1}^{k} n_j\)</span> observations in all, let <span class="math inline">\({\bar{y}}_j\)</span> be the sample mean of group <span class="math inline">\(j\)</span>, and let <span class="math inline">\({\bar{y}}\)</span> be the sample mean of all <span class="math inline">\(n\)</span> observations. The <strong>between-group sum of squares</strong> is</p>
 <p><span class="math display">\[\text{SS}_\text{between} \stackrel{\text{def}}{=}\sum_{j=1}^{k} n_j ({\bar{y}}_j - {\bar{y}})^2.\]</span></p>
@@ -1553,8 +1548,7 @@ s_p^2
 <span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[7, Sec. 12.2]</a>, pp.&nbsp;477–488</span> covers the one-way layout.</li>
 </ul>
 </div>
-</section></section><section><section id="references" class="title-slide slide level1 unnumbered center"><h1>References</h1>
-
+</section><section id="references" class="slide level2 unnumbered"><h2>References</h2>
 </section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
@@ -1796,7 +1790,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     initRevealJsHtmlLink();
   }
 })();
-</script></section></section>
+</script></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

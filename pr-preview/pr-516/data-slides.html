@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-02 10:11:50 (PST)</p>
+  <p class="date">Last modified: 2026-11-02 11:15:31 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -431,9 +431,8 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-binary-var" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9 (Binary variables in the WCGS)</strong></span> Coronary heart disease event status (<code>chd69</code>, yes/no) and current smoking status (<code>smoke</code>, yes/no) are binary variables.</p>
 </div>
-</section><section><section id="sec-dummy-coding" class="title-slide slide level1 center" data-number="1"><h1>
-<span class="header-section-number">1</span> Coding a categorical variable with numbers</h1>
-
+</section><section id="sec-dummy-coding" class="slide level2" data-number="1"><h2>
+<span class="header-section-number">1</span> Coding a categorical variable with numbers</h2>
 </section><section class="slide level2 scrollable"><div id="exr-dummy-coding" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1 (Dummy coding)</strong></span> The Western Collaborative Group Study (WCGS) variable <code>behpat</code> (behavioral pattern) has four categories: A1, A2, B3, and B4.</p>
 <ol type="a">
@@ -486,9 +485,8 @@ The one-sentence definition is written for this page.
 </section><section class="slide level2"><div id="rem-reference-level-choice" class="proof remark">
 <p><span class="proof-title"><em>Remark 6</em> (Any category can be the reference level). </span>The choice of reference level changes how we code the categories. It does not change what the data say. For example, in <a href="#/exm-reference-level-sex" class="quarto-xref">Example&nbsp;12</a>, we could instead use “male” as the reference level and the indicator variable <span class="math inline">\(F\)</span> for “female”. Both choices describe the same two groups.</p>
 </div>
-</section></section><section><section id="taxonomy-of-variable-types" class="title-slide slide level1 center" data-number="2"><h1>
-<span class="header-section-number">2</span> Taxonomy of variable types</h1>
-
+</section><section id="taxonomy-of-variable-types" class="slide level2" data-number="2"><h2>
+<span class="header-section-number">2</span> Taxonomy of variable types</h2>
 </section><section class="slide level2"><p><a href="#/fig-var-taxonomy" class="quarto-xref">Figure&nbsp;1</a> illustrates the relationships among these variable types.</p>
 <details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>nodes <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
 <span id="cb1-2"><a aria-label="2"></a>  <span class="sc">~</span>id,   <span class="sc">~</span>x,    <span class="sc">~</span>y,   <span class="sc">~</span>label,</span>
@@ -591,9 +589,8 @@ Figure&nbsp;1: Taxonomy of variable types. Count variables are discrete and nume
 </div>
 </div>
 </div>
-</section></section><section><section id="variables-in-the-wcgs-dataset" class="title-slide slide level1 center" data-number="3"><h1>
-<span class="header-section-number">3</span> Variables in the WCGS dataset</h1>
-
+</section><section id="variables-in-the-wcgs-dataset" class="slide level2" data-number="3"><h2>
+<span class="header-section-number">3</span> Variables in the WCGS dataset</h2>
 </section><section class="slide level2"><p><a href="#/tbl-wcgs-vartypes" class="quarto-xref">Table&nbsp;1</a> shows selected variables from the Western Collaborative Group Study (WCGS) dataset and their types.</p>
 <details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
 <span id="cb2-2"><a aria-label="2"></a>  <span class="sc">~</span>Variable, <span class="sc">~</span>Description, <span class="sc">~</span>Type, <span class="sc">~</span>Scale,</span>
@@ -718,11 +715,10 @@ Table&nbsp;1: Selected WCGS variables and their types
 </div>
 </figure>
 </div>
-</section></section><section><section id="random-variables" class="title-slide slide level1 center" data-number="4"><h1>
-<span class="header-section-number">4</span> Random variables</h1>
-
-</section><section id="sec-binary-vars" class="slide level2" data-number="4.1"><h2>
-<span class="header-section-number">4.1</span> Binary variables</h2>
+</section><section id="random-variables" class="slide level2" data-number="4"><h2>
+<span class="header-section-number">4</span> Random variables</h2>
+</section><section class="slide level2"><h3 data-number="4.1" id="sec-binary-vars">
+<span class="header-section-number">4.1</span> Binary variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-binary div. -->
 <div id="def-binary" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13 (Binary random variable)</strong></span> A <strong>binary variable</strong> is a random variable which has only two possible values in its range.</p>
@@ -741,8 +737,8 @@ Table&nbsp;1: Selected WCGS variables and their types
 <li>vital status (dead vs alive)</li>
 </ul>
 </div>
-</section><section id="sec-count-vars" class="slide level2" data-number="4.2"><h2>
-<span class="header-section-number">4.2</span> Count variables</h2>
+<h3 data-number="4.2" id="sec-count-vars">
+<span class="header-section-number">4.2</span> Count variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-count div. -->
 <div id="def-count" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 14 (Count variable)</strong></span> A <strong>count variable</strong> is a random variable whose possible values are some subset of the non-negative integers; specifically, a random variable <span class="math inline">\(X\)</span> such that:</p>
@@ -762,13 +758,12 @@ Table&nbsp;1: Selected WCGS variables and their types
 <li>car accidents per 1,000 miles driven</li>
 </ul>
 </div>
-</section><section class="slide level2"><h4 id="probability-distributions-for-count-outcomes">Probability distributions for count outcomes</h4>
+</section><section class="slide level2"><h5 id="probability-distributions-for-count-outcomes">Probability distributions for count outcomes</h5>
 <p>Standard probability distributions for count outcomes include:</p>
 <ul>
 <li><a href="https://morrison-lab.github.io/pds/distributions.html#sec-poisson-dist">Poisson distribution</a></li>
 <li><a href="https://morrison-lab.github.io/pds/distributions.html#sec-nb-dist">Negative binomial distribution</a></li>
-</ul></section></section><section><section id="references" class="title-slide slide level1 unnumbered center"><h1>References</h1>
-
+</ul></section><section id="references" class="slide level2 unnumbered"><h2>References</h2>
 </section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-dobson4e" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
@@ -963,7 +958,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     initRevealJsHtmlLink();
   }
 })();
-</script></section></section>
+</script></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

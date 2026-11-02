@@ -14,9 +14,9 @@ Code
 
 Published
 
-Last modified: 2026-11-02 10:11:50 (PST)
+Last modified: 2026-11-02 11:15:31 (PST)
 
-## 0.1 Data sets, input matrices and outcome vectors
+# 1 Data sets, input matrices and outcome vectors
 
 > **NOTE:**
 >
@@ -73,7 +73,7 @@ Last modified: 2026-11-02 10:11:50 (PST)
 >
 > The [input matrix](#def-input-matrix) `X_cars5` has 5 rows, one per car, and 2 columns, one per input variable. The [outcome vector](#def-outcome-vector) `y_cars5` has 5 entries, one per car.
 
-## 0.2 Fitting and scoring models
+# 2 Fitting and scoring models
 
 > **NOTE:**
 >
@@ -394,7 +394,7 @@ Last modified: 2026-11-02 10:11:50 (PST)
 >     "held_out": empirical_risk(birthwt[is_held_out]),
 > }
 > empirical_risks
-> #> {'training': np.float64(488364.99564830225), 'held_out': np.float64(503648.7535191132)}
+> #> {'training': np.float64(488364.9956483022), 'held_out': np.float64(503648.75351911323)}
 > ```
 >
 > Of the 189 babies, 126 are in the [training set](#def-training-set). The [fitted model](#def-fitted-model) has an [empirical risk](#def-empirical-risk) of 488,365 squared grams on the training set and 503,649 squared grams on the [held-out set](#def-held-out-set). Its square root, 699 grams, is the typical [prediction error](prediction.llms.md#def-prediction-error) on the training set.
@@ -410,7 +410,7 @@ Last modified: 2026-11-02 10:11:50 (PST)
 >
 > *Remark 7* (Source: Training error). Hastie et al. [\[4, Sec. 7.2\]](#ref-hastie2009elements), who write the training error as $\overline{\text{err}}$ and define it for any loss.
 
-## 0.3 Overfitting
+# 3 Overfitting
 
 > **NOTE:**
 >
@@ -487,7 +487,7 @@ Last modified: 2026-11-02 10:11:50 (PST)
 >
 > **Example 19 (Polynomial degree)** In [Exercise 1](#exr-overfitting), least squares computes the coefficients of each polynomial from the 20 training cars, but the degree $d$ is fixed before the fit. So the degree is a [tuning parameter](#def-tuning-parameter) of least-squares polynomial fitting, and the four fits are $g_{1}, g_{2}, g_{3}, g_{4}$ with $\lambda= d$.
 
-## 0.4 Generalization error
+# 4 Generalization error
 
 > **NOTE:**
 >
@@ -1443,7 +1443,7 @@ Last modified: 2026-11-02 10:11:50 (PST)
 >
 > The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No [fitted model](#def-fitted-model) can have generalization [pRMSE](estimation.llms.md#def-rmse) below $\sigma= 0.3$. Yet the training sRMSE falls below $\sigma$ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
 
-## 0.5 Training, validation, and test sets
+# 5 Training, validation, and test sets
 
 > **NOTE:**
 >
@@ -1877,7 +1877,7 @@ Last modified: 2026-11-02 10:11:50 (PST)
 > >
 > > The validation-set lab of James et al. [\[6, p. 213\]](#ref-james2021islr2e).
 
-## 0.6 $k$-fold cross-validation
+# 6 $k$-fold cross-validation
 
 > **NOTE:**
 >
@@ -2273,7 +2273,7 @@ Last modified: 2026-11-02 10:11:50 (PST)
 >
 > Each row of [Table 4](#tbl-cv-mtcars-repeats) holds, for each degree, the square root of $\widehat{\operatorname{Err}}_{\text{CV}(4)}$ ([Equation 52](#eq-cv-estimate)) for one fold assignment. Across fold assignments, the estimate for one degree varied by as much as 0.32 mpg, but every assignment chose degree 2: the estimates moved, and the winner did not. A single run of $k$-fold cross-validation reports one of these rows, so a small difference between two models’ estimates may not survive a different split.
 
-## 0.7 Leave-one-out cross-validation
+# 7 Leave-one-out cross-validation
 
 > **NOTE:**
 >
@@ -2423,16 +2423,16 @@ Last modified: 2026-11-02 10:11:50 (PST)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    7.10543e-15    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
 > *Remark 36* (When to use leave-one-out cross-validation). LOOCV is the $k= n$ end of [Remark 30](#rem-choosing-k). By [Remark 29](#rem-cv-estimate), $\widehat{\operatorname{Err}}_{\text{CV}(n)}$ estimates ${\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}}$ for the fitting procedure $g$: each [fitted model](#def-fitted-model) is fitted to $n- 1$ observations, so the bias of $\widehat{\operatorname{Err}}_{\text{CV}(n)}$ as an estimate of ${\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}}$ is the smallest of any $k$. But the $n$ training sets are nearly identical, so the variance of $\widehat{\operatorname{Err}}_{\text{CV}(n)}$ can be larger than that of 5- or 10-fold cross-validation [\[6, Sec. 5.1.4\]](#ref-james2021islr2e). For least squares fits, [Theorem 8](#thm-loocv-shortcut) computes LOOCV from a single fit; for most other fitting methods, LOOCV requires $n$ fits.
 
-## 0.8 Choosing a model by cross-validation
+# 8 Choosing a model by cross-validation
 
 > **NOTE:**
 >
@@ -2589,7 +2589,7 @@ Last modified: 2026-11-02 10:11:50 (PST)
 >
 > The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization pRMSE of [Example 31](#exm-train-test-error-simulated) for each: 0.335 for degree 8 and 0.315 for degree 3.
 
-## 0.9 Criteria that adjust the training error
+# 9 Criteria that adjust the training error
 
 > **NOTE:**
 >
@@ -2738,7 +2738,7 @@ Last modified: 2026-11-02 10:11:50 (PST)
 >
 > Each criterion assumes a [model family](#def-model-family) whose parameter count measures its [flexibility](#def-flexibility). When the [estimate](estimation.llms.md#def-estimate) of the noise variance comes from the [fitted model](#def-fitted-model) itself, it can reach zero, and the criteria then fail. Cross-validation makes no such assumption.
 
-## 0.10 Cross-validating the whole procedure
+# 10 Cross-validating the whole procedure
 
 > **NOTE:**
 >
@@ -2837,85 +2837,11 @@ Last modified: 2026-11-02 10:11:50 (PST)
 >
 > Hastie et al. [\[4, Sec. 7.10.2\]](#ref-hastie2009elements) note that steps using only the predictors, such as dropping predictors with almost no variation, can be done once on all the data before the folds are formed. Repeating such a step inside each fold is never wrong, though, and it scores each held-out fold the way new data would be scored. Examples are estimating the mean and standard deviation used for [standardization](exploratory-descriptive.llms.md#def-standardization), and the values used to fill in missing predictor values, when they are computed without the outcome.
 
-## 0.11 Further reading
+# 11 Further reading
 
 Sanchez [\[14\]](#ref-sanchez2020matrix4sl) reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.
 
 For [cross-validation](#def-kfold), see James et al. [\[6, Ch. 5\]](#ref-james2021islr2e) and Hastie et al. [\[4, Sec. 7.10\]](#ref-hastie2009elements). A PDF of each book can be downloaded at no cost from the authors’ webpages: [*An Introduction to Statistical Learning*](https://www.statlearning.com/) and [*The Elements of Statistical Learning*](https://hastie.su.domains/ElemStatLearn/).
-
-## References
-
-\[1\]
-
-Wikipedia contributors, “Random seed — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Random_seed>
-
-\[2\]
-
-Wikipedia contributors, “Hyperparameter (machine learning) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Hyperparameter_%28machine_learning%29>
-
-\[3\]
-
-Wikipedia contributors, “Training, validation, and test data sets — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets>
-
-\[4\]
-
-T. Hastie, R. Tibshirani, and J. Friedman, *The elements of statistical learning: Data mining, inference, and prediction*, 2nd ed. Springer, 2009. doi: [10.1007/978-0-387-84858-7](https://doi.org/10.1007/978-0-387-84858-7).
-
-\[5\]
-
-Wikipedia contributors, “Generalization error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Generalization_error>
-
-\[6\]
-
-G. James, D. Witten, T. Hastie, and R. Tibshirani, *An introduction to statistical learning: With applications in R*, 2nd ed. Springer, 2021. doi: [10.1007/978-1-0716-1418-1](https://doi.org/10.1007/978-1-0716-1418-1).
-
-\[7\]
-
-D. W. Hosmer and S. Lemeshow, *Applied logistic regression*. New York: Wiley, 1989.
-
-\[8\]
-
-W. N. Venables and B. D. Ripley, *Modern applied statistics with S*, 4th ed. New York: Springer, 2002. doi: [10.1007/978-0-387-21706-2](https://doi.org/10.1007/978-0-387-21706-2).
-
-\[9\]
-
-Wikipedia contributors, “Overfitting — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Overfitting>
-
-\[10\]
-
-G. van den Burg, *SyncRNG: A synchronized Tausworthe RNG for R and Python*. 2024. doi: [10.32614/CRAN.package.SyncRNG](https://doi.org/10.32614/CRAN.package.SyncRNG).
-
-\[11\]
-
-Wikipedia contributors, “Bias–variance tradeoff — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff>
-
-\[12\]
-
-Wikipedia contributors, “Model selection — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Model_selection>
-
-\[13\]
-
-Wikipedia contributors, “Cross-validation (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29>
-
-\[14\]
-
-G. Sanchez, “A matrix algebra companion for statistical learning (matrix4sl).” Online book, work in progress. Licensed CC BY-NC-SA 4.0, 2020. Available: <https://www.gastonsanchez.com/matrix4sl/>
-
-\[15\]
-
-Wikipedia contributors, “Leverage (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Leverage_%28statistics%29>
-
-\[16\]
-
-C. L. Mallows, “Some comments on $C_p$,” *Technometrics*, vol. 15, no. 4, pp. 661–675, 1973, doi: [10.1080/00401706.1973.10489103](https://doi.org/10.1080/00401706.1973.10489103).
-
-\[17\]
-
-H. Akaike, “A new look at the statistical model identification,” *IEEE Transactions on Automatic Control*, vol. 19, no. 6, pp. 716–723, 1974, doi: [10.1109/TAC.1974.1100705](https://doi.org/10.1109/TAC.1974.1100705).
-
-\[18\]
-
-G. Schwarz, “Estimating the dimension of a model,” *The Annals of Statistics*, vol. 6, no. 2, pp. 461–464, 1978, doi: [10.1214/aos/1176344136](https://doi.org/10.1214/aos/1176344136).
 
 # Definitions on this page
 
@@ -2991,5 +2917,79 @@ G. Schwarz, “Estimating the dimension of a model,” *The Annals of Statistics
 - [Definition 70 (Mallows’](#def-mallows-cp) $C_p$)
 - [Definition 71 (Akaike information criterion (AIC))](#def-aic)
 - [Definition 72 (Bayesian information criterion (BIC))](#def-bic)
+
+# References
+
+\[1\]
+
+Wikipedia contributors, “Random seed — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Random_seed>
+
+\[2\]
+
+Wikipedia contributors, “Hyperparameter (machine learning) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Hyperparameter_%28machine_learning%29>
+
+\[3\]
+
+Wikipedia contributors, “Training, validation, and test data sets — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets>
+
+\[4\]
+
+T. Hastie, R. Tibshirani, and J. Friedman, *The elements of statistical learning: Data mining, inference, and prediction*, 2nd ed. Springer, 2009. doi: [10.1007/978-0-387-84858-7](https://doi.org/10.1007/978-0-387-84858-7).
+
+\[5\]
+
+Wikipedia contributors, “Generalization error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Generalization_error>
+
+\[6\]
+
+G. James, D. Witten, T. Hastie, and R. Tibshirani, *An introduction to statistical learning: With applications in R*, 2nd ed. Springer, 2021. doi: [10.1007/978-1-0716-1418-1](https://doi.org/10.1007/978-1-0716-1418-1).
+
+\[7\]
+
+D. W. Hosmer and S. Lemeshow, *Applied logistic regression*. New York: Wiley, 1989.
+
+\[8\]
+
+W. N. Venables and B. D. Ripley, *Modern applied statistics with S*, 4th ed. New York: Springer, 2002. doi: [10.1007/978-0-387-21706-2](https://doi.org/10.1007/978-0-387-21706-2).
+
+\[9\]
+
+Wikipedia contributors, “Overfitting — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Overfitting>
+
+\[10\]
+
+G. van den Burg, *SyncRNG: A synchronized Tausworthe RNG for R and Python*. 2024. doi: [10.32614/CRAN.package.SyncRNG](https://doi.org/10.32614/CRAN.package.SyncRNG).
+
+\[11\]
+
+Wikipedia contributors, “Bias–variance tradeoff — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff>
+
+\[12\]
+
+Wikipedia contributors, “Model selection — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Model_selection>
+
+\[13\]
+
+Wikipedia contributors, “Cross-validation (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29>
+
+\[14\]
+
+G. Sanchez, “A matrix algebra companion for statistical learning (matrix4sl).” Online book, work in progress. Licensed CC BY-NC-SA 4.0, 2020. Available: <https://www.gastonsanchez.com/matrix4sl/>
+
+\[15\]
+
+Wikipedia contributors, “Leverage (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Leverage_%28statistics%29>
+
+\[16\]
+
+C. L. Mallows, “Some comments on $C_p$,” *Technometrics*, vol. 15, no. 4, pp. 661–675, 1973, doi: [10.1080/00401706.1973.10489103](https://doi.org/10.1080/00401706.1973.10489103).
+
+\[17\]
+
+H. Akaike, “A new look at the statistical model identification,” *IEEE Transactions on Automatic Control*, vol. 19, no. 6, pp. 716–723, 1974, doi: [10.1109/TAC.1974.1100705](https://doi.org/10.1109/TAC.1974.1100705).
+
+\[18\]
+
+G. Schwarz, “Estimating the dimension of a model,” *The Annals of Statistics*, vol. 6, no. 2, pp. 461–464, 1978, doi: [10.1214/aos/1176344136](https://doi.org/10.1214/aos/1176344136).
 
 Back to top

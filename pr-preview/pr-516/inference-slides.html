@@ -356,10 +356,11 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-02 10:11:50 (PST)</p>
-</section><section id="inference" class="slide level2" data-number="1"><h2>
-<span class="header-section-number">1</span> Inference</h2>
-<style>
+  <p class="date">Last modified: 2026-11-02 11:15:31 (PST)</p>
+</section><section><section id="inference" class="title-slide slide level1 center" data-number="1"><h1>
+<span class="header-section-number">1</span> Inference</h1>
+
+</section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
@@ -390,10 +391,11 @@ text-align: center;
 <ul>
 <li>frequentist inference, which treats parameters as fixed unknown constants;</li>
 <li>Bayesian inference, which treats parameters as random variables with prior distributions.</li>
-</ul></section><section id="sec-hypothesis-tests" class="slide level2" data-number="2"><h2>
-<span class="header-section-number">2</span> Hypothesis tests</h2>
-<h3 data-number="2.1" id="hypotheses">
-<span class="header-section-number">2.1</span> Hypotheses</h3>
+</ul></section></section><section><section id="sec-hypothesis-tests" class="title-slide slide level1 center" data-number="2"><h1>
+<span class="header-section-number">2</span> Hypothesis tests</h1>
+
+</section><section id="hypotheses" class="slide level2" data-number="2.1"><h2>
+<span class="header-section-number">2.1</span> Hypotheses</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-null-hypothesis div. -->
 <div id="def-null-hypothesis" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Null hypothesis)</strong></span> The <strong>null hypothesis</strong>, written <span class="math inline">\(H_0\)</span>, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data.</p>
@@ -410,8 +412,8 @@ text-align: center;
 <p><span class="theorem-title"><strong>Example 2 (Cholesterol and CHD in the WCGS)</strong></span> Let <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_0\)</span> be the population mean cholesterol of men who do and do not have a CHD event by 1969, in the population the WCGS sampled. A comparison of the two groups tests the null hypothesis that the population means are equal against the <a href="#/def-two-sided-alternative">two-sided alternative</a> that they differ:</p>
 <p><span class="math display">\[H_0: \mu_1 = \mu_0 \qquad H_1: \mu_1 \ne \mu_0\]</span></p>
 </div>
-</section><section class="slide level2"><h3 data-number="2.2" id="p-values">
-<span class="header-section-number">2.2</span> p-values</h3>
+</section><section id="p-values" class="slide level2" data-number="2.2"><h2>
+<span class="header-section-number">2.2</span> p-values</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-test-statistic div. -->
 <div id="def-test-statistic" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Test statistic)</strong></span> A <strong>test statistic</strong> <span class="math inline">\(T\)</span> is a function of the data whose distribution under the <a href="#/def-null-hypothesis">null hypothesis</a> is known, exactly or approximately, and whose larger values are more extreme, meaning less consistent with <span class="math inline">\(H_0\)</span> and more consistent with <span class="math inline">\(H_1\)</span>.</p>
@@ -470,9 +472,10 @@ text-align: center;
 <span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[10, Sec. 9.2]</a>, pp.&nbsp;331–336</span> covers the Neyman–Pearson paradigm.</li>
 </ul>
 </div>
-</section><section id="sec-reference-distributions" class="slide level2" data-number="3"><h2>
-<span class="header-section-number">3</span> Reference distributions</h2>
-<p>The tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a>.</p>
+</section></section><section><section id="sec-reference-distributions" class="title-slide slide level1 center" data-number="3"><h1>
+<span class="header-section-number">3</span> Reference distributions</h1>
+
+</section><section class="slide level2"><p>The tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a>.</p>
 </section><section class="slide level2"><div id="def-chi-square-dist" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 9 (Chi-square distribution)</strong></span> Let <span class="math inline">\(Z_1, \ldots, Z_k\)</span> be independent random variables, each with the standard Gaussian distribution. The distribution of <span class="math inline">\(\sum_{j=1}^{k} Z_j^2\)</span> is the <strong>chi-square distribution with <span class="math inline">\(k\)</span> degrees of freedom</strong>, written <span class="math inline">\(\chi^2_k\)</span>.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_chi_squared_distribution">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[11]</a></span>.</p>
@@ -520,10 +523,10 @@ text-align: center;
 <span id="cb4-3"><a aria-label="3"></a><span class="co">#&gt;   5.11736   5.11736</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-</section><section id="sec-CI" class="slide level2" data-number="4"><h2>
-<span class="header-section-number">4</span> Confidence intervals</h2>
-<!-- No slidebreak here: the heading shares its slide with the def-confidence-interval div. -->
-<div id="def-confidence-interval" class="theorem definition">
+</section></section><section><section id="sec-CI" class="title-slide slide level1 center" data-number="4"><h1>
+<span class="header-section-number">4</span> Confidence intervals</h1>
+
+</section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the def-confidence-interval div. --><div id="def-confidence-interval" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12 (Confidence interval)</strong></span> A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a random <a href="https://morrison-lab.github.io/mds/sets.html#def-closed-interval">closed interval</a> <span class="math inline">\({\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\)</span> whose endpoints <span class="math inline">\({L\mathopen{}\left(X\right)\mathclose{}} \le {U\mathopen{}\left(X\right)\mathclose{}}\)</span> are <a href="./sufficiency.html#def-statistic">statistics</a> computed from the data <span class="math inline">\(X\)</span>, such that for every possible value of <span class="math inline">\(\theta\)</span>:</p>
 <p><span class="math display">\[{\Pr_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\right)\mathclose{}} \ge 1 - \alpha\]</span></p>
 <p>The probability is over repeated samples from the data-generating process, with <span class="math inline">\(\theta\)</span> held fixed. The interval is random and <span class="math inline">\(\theta\)</span> is not.</p>
@@ -600,16 +603,18 @@ text-align: center;
 <span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[10, Sec. 9.3]</a>, pp.&nbsp;337–338</span> covers duality of confidence intervals and hypothesis tests.</li>
 </ul>
 </div>
-</section><section id="further-reading-on-confidence-intervals" class="slide level2" data-number="5"><h2>
-<span class="header-section-number">5</span> Further reading on confidence intervals</h2>
-<p>For more on confidence intervals:</p>
+</section></section><section><section id="further-reading-on-confidence-intervals" class="title-slide slide level1 center" data-number="5"><h1>
+<span class="header-section-number">5</span> Further reading on confidence intervals</h1>
+
+</section><section class="slide level2"><p>For more on confidence intervals:</p>
 <ul>
 <li>
 <a href="https://wmed.edu/sites/default/files/ANATOMY%20OF%20A%20CONFIDENCE%20INTERVAL%20%28full%29.pdf">Anatomy of a confidence interval</a> (PDF);</li>
 <li><iframe data-external="1" src="https://www.youtube.com/embed/vq1KrE7gU5M" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></li>
-</ul></section><section id="interpretation-of-negative-findings" class="slide level2" data-number="6"><h2>
-<span class="header-section-number">6</span> Interpretation of negative findings</h2>
-<p>If a confidence interval includes the null value, or a hypothesis test fails to reject the null hypothesis, that result does not <em>necessarily</em> mean that the null hypothesis is true. (When the interval and the test are built from the same statistic, with coverage <span class="math inline">\(1 - \alpha\)</span> and significance level <span class="math inline">\(\alpha\)</span>, the two results coincide.) So we should not interpret such results as “the odds (or risks, hazards, or means) are not significantly different”. Instead, we should write something like “the data do not provide statistically significant <em>evidence</em> that the odds (or risks, hazards, or means) differ”. Statistical significance is a property of evidence, not of the estimands.</p>
+</ul></section></section><section><section id="interpretation-of-negative-findings" class="title-slide slide level1 center" data-number="6"><h1>
+<span class="header-section-number">6</span> Interpretation of negative findings</h1>
+
+</section><section class="slide level2"><p>If a confidence interval includes the null value, or a hypothesis test fails to reject the null hypothesis, that result does not <em>necessarily</em> mean that the null hypothesis is true. (When the interval and the test are built from the same statistic, with coverage <span class="math inline">\(1 - \alpha\)</span> and significance level <span class="math inline">\(\alpha\)</span>, the two results coincide.) So we should not interpret such results as “the odds (or risks, hazards, or means) are not significantly different”. Instead, we should write something like “the data do not provide statistically significant <em>evidence</em> that the odds (or risks, hazards, or means) differ”. Statistical significance is a property of evidence, not of the estimands.</p>
 <p>P-values do not distinguish between absence of evidence and evidence of absence. Confidence intervals do:</p>
 <ul>
 <li>a narrow confidence interval that includes the null value is evidence of absence (of any effect large enough to matter);</li>
@@ -663,8 +668,9 @@ Figure&nbsp;1: Interpretations of hypothetical 95% confidence intervals for a ra
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+      }</style></aside></section></section><section><section id="references" class="title-slide slide level1 unnumbered center"><h1>References</h1>
+
+</section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-wp:statinference" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
 <div class="csl-right-inline">Wikipedia contributors, <span>“Statistical inference — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2025. Available: <a href="https://en.wikipedia.org/w/index.php?title=Statistical_inference&amp;oldid=1304071803">https://en.wikipedia.org/w/index.php?title=Statistical_inference&amp;oldid=1304071803</a>
@@ -921,7 +927,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     initRevealJsHtmlLink();
   }
 })();
-</script></section>
+</script></section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

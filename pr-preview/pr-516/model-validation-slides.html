@@ -356,14 +356,15 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-02 10:11:50 (PST)</p>
+  <p class="date">Last modified: 2026-11-02 11:15:31 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
-</style></section><section id="sec-data-sets" class="slide level2" data-number="1"><h2>
-<span class="header-section-number">1</span> Data sets, input matrices and outcome vectors</h2>
-<div id="def-data-set" class="theorem definition">
+</style></section><section><section id="sec-data-sets" class="title-slide slide level1 center" data-number="1"><h1>
+<span class="header-section-number">1</span> Data sets, input matrices and outcome vectors</h1>
+
+</section><section class="slide level2"><div id="def-data-set" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Data set)</strong></span> A <strong>data set</strong> is a finite collection of <span class="math inline">\(n\)</span> labelled observations, that is, <span class="math inline">\(n\)</span> pairs <span class="math inline">\((\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i, y_i)\)</span>, where <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i\)</span> is an input vector and <span class="math inline">\(y_i\)</span> is the corresponding outcome:</p>
 <p><span id="eq-data-set"><span class="math display">\[
 \mathcal{D}\stackrel{\text{def}}{=}{\mathopen{}\left\{(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i, y_i) : i = 1, \ldots, n\right\}\mathclose{}} .
@@ -411,9 +412,10 @@ text-align: center;
 </div>
 <p>The <a href="#/def-input-matrix">input matrix</a> <code>X_cars5</code> has 5 rows, one per car, and 2 columns, one per input variable. The <a href="#/def-outcome-vector">outcome vector</a> <code>y_cars5</code> has 5 entries, one per car.</p>
 </div>
-</section><section id="sec-prediction-rules" class="slide level2" data-number="2"><h2>
-<span class="header-section-number">2</span> Fitting and scoring models</h2>
-<div id="def-covariate" class="theorem definition">
+</section></section><section><section id="sec-prediction-rules" class="title-slide slide level1 center" data-number="2"><h1>
+<span class="header-section-number">2</span> Fitting and scoring models</h1>
+
+</section><section class="slide level2"><div id="def-covariate" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Covariate)</strong></span> A <strong>covariate</strong> <span class="math inline">\(x\)</span> is a variable whose value is used to <a href="./prediction.html#def-prediction">predict</a> the outcome <span class="math inline">\(y\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-covariate" class="theorem example">
@@ -701,7 +703,7 @@ h\mapsto {\mathcal{J}\mathopen{}\left(h; \mathcal{D}\right)\mathclose{}}, \quad 
 <span id="cb4-17"><a aria-label="17"></a>    <span class="st">"held_out"</span>: empirical_risk(birthwt[is_held_out]),</span>
 <span id="cb4-18"><a aria-label="18"></a>}</span>
 <span id="cb4-19"><a aria-label="19"></a>empirical_risks</span>
-<span id="cb4-20"><a aria-label="20"></a><span class="co">#&gt; {'training': np.float64(488364.99564830225), 'held_out': np.float64(503648.7535191132)}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-20"><a aria-label="20"></a><span class="co">#&gt; {'training': np.float64(488364.9956483022), 'held_out': np.float64(503648.75351911323)}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -717,9 +719,10 @@ h\mapsto {\mathcal{J}\mathopen{}\left(h; \mathcal{D}\right)\mathclose{}}, \quad 
 <div id="rem-source-training-mse" class="proof remark">
 <p><span class="proof-title"><em>Remark 7</em> (Source: Training error). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 7.2]</a></span>, who write the training error as <span class="math inline">\(\overline{\text{err}}\)</span> and define it for any loss.</p>
 </div>
-</section><section id="overfitting" class="slide level2 scrollable" data-number="3"><h2>
-<span class="header-section-number">3</span> Overfitting</h2>
-<div id="exr-overfitting" class="theorem exercise">
+</section></section><section><section id="overfitting" class="title-slide slide level1 center" data-number="3"><h1>
+<span class="header-section-number">3</span> Overfitting</h1>
+
+</section><section class="slide level2 scrollable"><div id="exr-overfitting" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1 (Training error versus error on new cars)</strong></span> The built-in <code>mtcars</code> data frame has <span class="math inline">\(n= 32\)</span> cars. Fit four models for fuel efficiency <code>mpg</code> as a polynomial in weight <code>wt</code>, of degree 1, 2, 3, and 4, using only the first 20 rows as the <a href="#/def-training-set">training set</a>. For each model, compute the <a href="#/def-prediction-rmse">sRMSE</a> of its predictions on the 20 training rows and on the remaining 12 rows, a <a href="#/def-held-out-set">held-out set</a>.</p>
 <ol type="1">
 <li>Which degree has the smallest training sRMSE?</li>
@@ -792,9 +795,10 @@ h\mapsto {\mathcal{J}\mathopen{}\left(h; \mathcal{D}\right)\mathclose{}}, \quad 
 </section><section class="slide level2"><div id="exm-tuning-parameter" class="theorem example">
 <p><span class="theorem-title"><strong>Example 19 (Polynomial degree)</strong></span> In <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, least squares computes the coefficients of each polynomial from the 20 training cars, but the degree <span class="math inline">\(d\)</span> is fixed before the fit. So the degree is a <a href="#/def-tuning-parameter">tuning parameter</a> of least-squares polynomial fitting, and the four fits are <span class="math inline">\(g_{1}, g_{2}, g_{3}, g_{4}\)</span> with <span class="math inline">\(\lambda= d\)</span>.</p>
 </div>
-</section><section id="sec-generalization-error" class="slide level2 scrollable" data-number="4"><h2>
-<span class="header-section-number">4</span> Generalization error</h2>
-<div id="exr-generalization-error" class="theorem exercise">
+</section></section><section><section id="sec-generalization-error" class="title-slide slide level1 center" data-number="4"><h1>
+<span class="header-section-number">4</span> Generalization error</h1>
+
+</section><section class="slide level2 scrollable"><div id="exr-generalization-error" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2 (Score a fitted model on a car it has not seen)</strong></span> A <a href="#/def-fitted-model">fitted model</a> <span class="math inline">\(\hat y\)</span> has been fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations, such as the 20 training cars of <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>. A new car <span class="math inline">\((X_{*}, Y_{*})\)</span> is then drawn from the same population, independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>.</p>
 <ol type="1">
 <li>Holding <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> fixed, write the average <a href="#/def-observation-loss">loss</a> <span class="math inline">\(\ell_{*}\)</span> that <span class="math inline">\(\hat y\)</span> would incur over all such new cars, as an expectation. Then write it for squared-error loss, as the average squared <a href="./prediction.html#def-prediction-error">prediction error</a>.</li>
@@ -1715,9 +1719,10 @@ Figure&nbsp;2: Training sRMSE and estimated generalization error (sRMSE on <span
 </div>
 <p>The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No <a href="#/def-fitted-model">fitted model</a> can have generalization <a href="./estimation.html#def-rmse">pRMSE</a> below <span class="math inline">\(\sigma= 0.3\)</span>. Yet the training sRMSE falls below <span class="math inline">\(\sigma\)</span> at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is <a href="#/rem-training-mse-optimistic">optimistic</a>.</p>
 </div>
-</section><section id="sec-data-splits" class="slide level2" data-number="5"><h2>
-<span class="header-section-number">5</span> Training, validation, and test sets</h2>
-<div id="exr-data-splits" class="theorem exercise">
+</section></section><section><section id="sec-data-splits" class="title-slide slide level1 center" data-number="5"><h1>
+<span class="header-section-number">5</span> Training, validation, and test sets</h1>
+
+</section><section class="slide level2"><div id="exr-data-splits" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 10 (Sizes of a three-way split)</strong></span> The <code>mtcars</code> data frame has <span class="math inline">\(n= 32\)</span> cars. Suppose we assign <span class="math inline">\(\lfloor 0.6 n\rfloor\)</span> cars to a training set, <span class="math inline">\(\lfloor 0.2 n\rfloor\)</span> cars to a validation set, and all remaining cars to a test set. How many cars are in each set?</p>
 </div>
 </section><section class="slide level2"><div id="sol-data-splits" class="proof solution">
@@ -2183,9 +2188,10 @@ Table&nbsp;3: Validation and test sRMSE for the chosen model
 </div>
 </div>
 </div>
-</section><section id="sec-kfold" class="slide level2 scrollable" data-number="6"><h2>
-<span class="header-section-number">6</span> <span class="math inline">\(k\)</span>-fold cross-validation</h2>
-<div id="exr-kfold" class="theorem exercise">
+</section></section><section><section id="sec-kfold" class="title-slide slide level1 center" data-number="6"><h1>
+<span class="header-section-number">6</span> <span class="math inline">\(k\)</span>-fold cross-validation</h1>
+
+</section><section class="slide level2 scrollable"><div id="exr-kfold" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 11 (Folds of the <code>mtcars</code> data)</strong></span> Suppose we use <span class="math inline">\(k= 4\)</span>-fold cross-validation on the <span class="math inline">\(n= 32\)</span> cars in <code>mtcars</code>.</p>
 <ol type="1">
 <li>How many cars are in each fold?</li>
@@ -2605,9 +2611,10 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated sRMSE in each of 5
 </div>
 <p>Each row of <a href="#/tbl-cv-mtcars-repeats" class="quarto-xref">Table&nbsp;4</a> holds, for each degree, the square root of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(4)}\)</span> (<a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;52</a>) for one fold assignment. Across fold assignments, the estimate for one degree varied by as much as 0.32 mpg, but every assignment chose degree 2: the estimates moved, and the winner did not. A single run of <span class="math inline">\(k\)</span>-fold cross-validation reports one of these rows, so a small difference between two models’ estimates may not survive a different split.</p>
 </div>
-</section><section id="sec-loocv" class="slide level2 scrollable" data-number="7"><h2>
-<span class="header-section-number">7</span> Leave-one-out cross-validation</h2>
-<div id="exr-loocv" class="theorem exercise">
+</section></section><section><section id="sec-loocv" class="title-slide slide level1 center" data-number="7"><h1>
+<span class="header-section-number">7</span> Leave-one-out cross-validation</h1>
+
+</section><section class="slide level2 scrollable"><div id="exr-loocv" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 14 (The largest number of folds)</strong></span> Suppose we take <span class="math inline">\(k= n\)</span> in <a href="#/def-kfold"><span class="math inline">\(k\)</span>-fold cross-validation</a> on the <span class="math inline">\(n= 32\)</span> cars in <code>mtcars</code>.</p>
 <ol type="1">
 <li>How many cars are in each fold?</li>
@@ -2754,17 +2761,18 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span id="cb35-3"><a aria-label="3"></a>  mtcars_loocv<span class="sc">$</span>degree[<span class="fu">which.min</span>(mtcars_loocv<span class="sc">$</span>formula)]</span>
 <span id="cb35-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">max_difference =</span> loocv_max_diff, <span class="at">best_degree =</span> mtcars_best_loocv)</span>
 <span id="cb35-5"><a aria-label="5"></a><span class="co">#&gt; max_difference    best_degree </span></span>
-<span id="cb35-6"><a aria-label="6"></a><span class="co">#&gt;    7.10543e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb35-6"><a aria-label="6"></a><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
 <p><span class="proof-title"><em>Remark 36</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k= n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;30</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;29</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\({\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each <a href="#/def-fitted-model">fitted model</a> is fitted to <span class="math inline">\(n- 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\({\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[6, Sec. 5.1.4]</a></span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;8</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
 </div>
-</section><section id="sec-cv-model-choice" class="slide level2" data-number="8"><h2>
-<span class="header-section-number">8</span> Choosing a model by cross-validation</h2>
-<div id="def-cv-estimate-indexed" class="theorem definition">
+</section></section><section><section id="sec-cv-model-choice" class="title-slide slide level1 center" data-number="8"><h1>
+<span class="header-section-number">8</span> Choosing a model by cross-validation</h1>
+
+</section><section class="slide level2"><div id="def-cv-estimate-indexed" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 62 (Cross-validation estimate of a named procedure)</strong></span> Let a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, indexed by <span class="math inline">\(I\)</span>, be divided into <a href="#/def-folds">folds</a> <span class="math inline">\(\mathcal{F}_{1}, \ldots, \mathcal{F}_{k}\)</span>. The <strong>cross-validation estimate of procedure</strong> <span class="math inline">\(g\)</span> on <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, <span class="math inline">\({\widehat{\operatorname{Err}}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}\)</span>, is the <a href="#/def-cv-estimate">cross-validation estimate</a> computed with <a href="#/def-fold-out-fitted-model">fold-out fitted models</a> that <span class="math inline">\(g\)</span> produces from <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>:</p>
 <p><span id="eq-cv-estimate-indexed"><span class="math display">\[
 {\widehat{\operatorname{Err}}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i\in I}
@@ -2932,9 +2940,10 @@ Figure&nbsp;8: 10-fold cross-validation estimates, with bars of one <a href="#/d
 </div>
 <p>The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization pRMSE of <a href="#/exm-train-test-error-simulated" class="quarto-xref">Example&nbsp;31</a> for each: 0.335 for degree 8 and 0.315 for degree 3.</p>
 </div>
-</section><section id="sec-information-criteria" class="slide level2" data-number="9"><h2>
-<span class="header-section-number">9</span> Criteria that adjust the training error</h2>
-<div id="def-adjusted-r-squared" class="theorem definition">
+</section></section><section><section id="sec-information-criteria" class="title-slide slide level1 center" data-number="9"><h1>
+<span class="header-section-number">9</span> Criteria that adjust the training error</h1>
+
+</section><section class="slide level2"><div id="def-adjusted-r-squared" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 69 (Adjusted coefficient of determination)</strong></span> Let a regression model with <span class="math inline">\(p\)</span> predictors and a constant term be fitted to <span class="math inline">\(n\)</span> observations, with <span class="math inline">\(n&gt; p+ 1\)</span>. The <strong>adjusted coefficient of determination</strong> of the <a href="#/def-fitted-model">fitted model</a> is</p>
 <p><span class="math display">\[
 R^2_{\text{adj}} \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}) / (n- p- 1)}{\text{TSS} / (n- 1)},
@@ -3091,9 +3100,10 @@ so it renders after that one.
 <p>For a least squares model with Gaussian <a href="#/def-noise">noise</a> of known <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>, <span class="math inline">\(-2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\right)\mathclose{}}\)</span> equals <span class="math inline">\(\text{RSS}(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}) / \sigma^2\)</span> plus a constant that does not depend on the model. AIC then equals <span class="math inline">\(nC_p / \sigma^2\)</span> plus a constant, so the two criteria rank models the same way.</p>
 <p>Each criterion assumes a <a href="#/def-model-family">model family</a> whose parameter count measures its <a href="#/def-flexibility">flexibility</a>. When the <a href="./estimation.html#def-estimate">estimate</a> of the noise variance comes from the <a href="#/def-fitted-model">fitted model</a> itself, it can reach zero, and the criteria then fail. Cross-validation makes no such assumption.</p>
 </div>
-</section><section id="sec-cv-whole-procedure" class="slide level2 scrollable" data-number="10"><h2>
-<span class="header-section-number">10</span> Cross-validating the whole procedure</h2>
-<div id="exr-cv-screening" class="theorem exercise">
+</section></section><section><section id="sec-cv-whole-procedure" class="title-slide slide level1 center" data-number="10"><h1>
+<span class="header-section-number">10</span> Cross-validating the whole procedure</h1>
+
+</section><section class="slide level2 scrollable"><div id="exr-cv-screening" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 15 (Screening predictors before cross-validating)</strong></span> A data set has <span class="math inline">\(n= 50\)</span> observations of an outcome <span class="math inline">\(Y\)</span> and of <span class="math inline">\(p= 1000\)</span> candidate predictors. In fact every variable is independent standard normal noise, so no predictor carries any information about <span class="math inline">\(Y\)</span>.</p>
 <p>An analyst</p>
 <ol type="1">
@@ -3205,12 +3215,14 @@ assign_folds(), from _exm-kfold-simulated.qmd.
 </ul>
 <p><span class="citation" data-cites="hastie2009elements">Hastie et al. <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 7.10.2]</a></span> note that steps using only the predictors, such as dropping predictors with almost no variation, can be done once on all the data before the folds are formed. Repeating such a step inside each fold is never wrong, though, and it scores each held-out fold the way new data would be scored. Examples are estimating the mean and standard deviation used for <a href="./exploratory-descriptive.html#def-standardization">standardization</a>, and the values used to fill in missing predictor values, when they are computed without the outcome.</p>
 </div>
-</section><section id="further-reading" class="slide level2" data-number="11"><h2>
-<span class="header-section-number">11</span> Further reading</h2>
-<p><span class="citation" data-cites="sanchez2020matrix4sl">Sanchez <a href="#/references" role="doc-biblioref" onclick="">[14]</a></span> reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.</p>
+</section></section><section><section id="further-reading" class="title-slide slide level1 center" data-number="11"><h1>
+<span class="header-section-number">11</span> Further reading</h1>
+
+</section><section class="slide level2"><p><span class="citation" data-cites="sanchez2020matrix4sl">Sanchez <a href="#/references" role="doc-biblioref" onclick="">[14]</a></span> reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.</p>
 <p>For <a href="#/def-kfold">cross-validation</a>, see <span class="citation" data-cites="james2021islr2e">James et al. <a href="#/references" role="doc-biblioref" onclick="">[6, Ch. 5]</a></span> and <span class="citation" data-cites="hastie2009elements">Hastie et al. <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 7.10]</a></span>. A PDF of each book can be downloaded at no cost from the authors’ webpages: <a href="https://www.statlearning.com/"><em>An Introduction to Statistical Learning</em></a> and <a href="https://hastie.su.domains/ElemStatLearn/"><em>The Elements of Statistical Learning</em></a>.</p>
-</section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+</section></section><section><section id="references" class="title-slide slide level1 unnumbered center"><h1>References</h1>
+
+</section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-wikipedia_random_seed" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
 <div class="csl-right-inline">Wikipedia contributors, <span>“Random seed — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Random_seed">https://en.wikipedia.org/wiki/Random_seed</a>
@@ -3482,7 +3494,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     initRevealJsHtmlLink();
   }
 })();
-</script></section>
+</script></section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
