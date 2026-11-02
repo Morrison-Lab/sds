@@ -4,6 +4,7 @@ format:
   html: default
   revealjs:
     output-file: bayesian-inference-slides.html
+    shift-heading-level-by: 1
   pdf:
     output-file: bayesian-inference-handout.pdf
   docx:
