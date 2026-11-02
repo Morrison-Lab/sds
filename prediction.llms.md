@@ -4,69 +4,77 @@ Code
 
 Published
 
-Last modified: 2026-11-01 01:56:06 (PDT)
+Last modified: 2026-11-02 10:03:02 (PST)
 
 ## 0.1 Predictions, fitted values, residuals, and prediction errors
 
 > **NOTE:**
 >
-> **Definition 1 (Prediction (predicted value))** A **prediction** (or **predicted value**) \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ of an outcome \\Y\\ with covariate value \\X = x\\ is a number computed from \\x\\ and from data \\(x_1, y_1), \ldots, (x_n, y_n)\\ by a rule \\g\\, and used as a guess of \\Y\\:
+> **Definition 1 (Prediction (predicted value))** A **prediction** (or **predicted value**) ${\hat y\mathopen{}\left(x\right)\mathclose{}}$ of an outcome $Y$ with covariate value $X = x$ is a number computed from $x$ and from data $(x_1, y_1), \ldots, (x_n, y_n)$ by a rule $g$, and used as a guess of $Y$:
 >
-> \\{\hat y\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.\\
+> $${\hat y\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.$$
 
 > **NOTE:**
 >
-> **Example 1 (Predicting with an estimated conditional mean)** Suppose a model specifies the conditional mean \\{\mathbb{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}}\\ as a function \\\mu(x; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ of a parameter vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\, and \\\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\ is an estimate of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\. The usual prediction ([Definition 1](#def-prediction)) of \\Y\\ at \\X = x\\ is the estimated conditional mean:
+> **Example 1 (Predicting with an estimated conditional mean)** Suppose a model specifies the conditional mean ${\mathbb{E}\mathopen{}\left[Y \mid X = x\right]\mathclose{}}$ as a function $\mu(x; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})$ of a parameter vector $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}$, and $\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}$ is an estimate of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}$. The usual prediction ([Definition 1](#def-prediction)) of $Y$ at $X = x$ is the estimated conditional mean:
 >
-> \\{\hat y\mathopen{}\left(x\right)\mathclose{}} = \mu(x; \hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}).\\
+> $${\hat y\mathopen{}\left(x\right)\mathclose{}} = \mu(x; \hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}).$$
 
 > **NOTE:**
 >
-> *Remark 1* (Why the estimated conditional mean is the usual prediction). The prediction in [Example 1](#exm-prediction-cond-mean) is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions \\h\\ of the covariate, \\{{\mathbb{E}\mathopen{}\left\[Y \mid X\right\]\mathclose{}}}\\ has the smallest expected squared error \\{\mathbb{E}\mathopen{}\left\[{\mathopen{}\left(Y- {h\mathopen{}\left(X\right)\mathclose{}}\right)\mathclose{}}^{2}\right\]\mathclose{}}\\ ([conditional mean minimizes squared-error risk](https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor)). The conditional mean is unknown, so we estimate it from data and predict with the estimate.
+> *Remark 1* (Why the estimated conditional mean is the usual prediction). The prediction in [Example 1](#exm-prediction-cond-mean) is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions $h$ of the covariate, ${{\mathbb{E}\mathopen{}\left[Y \mid X\right]\mathclose{}}}$ has the smallest expected squared error ${\mathbb{E}\mathopen{}\left[{\mathopen{}\left(Y- {h\mathopen{}\left(X\right)\mathclose{}}\right)\mathclose{}}^{2}\right]\mathclose{}}$ ([conditional mean minimizes squared-error risk](https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor)). The conditional mean is unknown, so we estimate it from data and predict with the estimate.
 >
 > The target depends on the loss. For absolute error loss, the best prediction is the conditional median instead, and other losses have other targets [\[1, p. 20\]](#ref-hastie2009elements).
 
 > **NOTE:**
 >
-> **Definition 2 (Fitted value)** The **fitted value** \\\hat y_i\\ of observation \\i\\ is the [prediction](#def-prediction) at its own covariate value \\x_i\\:
+> **Definition 2 (Fitted value)** The **fitted value** $\hat y_i$ of observation $i$ is the [prediction](#def-prediction) at its own covariate value $x_i$:
 >
-> \\\hat y_i\stackrel{\text{def}}{=}{\hat y\mathopen{}\left(x_i\right)\mathclose{}}.\\
+> $$\hat y_i\stackrel{\text{def}}{=}{\hat y\mathopen{}\left(x_i\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
-> *Remark 2* (Why the fitted value is the estimated conditional mean). The [fitted value](#def-fitted-value) is the prediction at the observed covariate value \\x_i\\, so for the prediction in [Example 1](#exm-prediction-cond-mean) it is the estimated conditional mean at \\x_i\\:
+> *Remark 2* (Why the fitted value is the estimated conditional mean). The [fitted value](#def-fitted-value) is the prediction at the observed covariate value $x_i$, so for the prediction in [Example 1](#exm-prediction-cond-mean) it is the estimated conditional mean at $x_i$:
 >
-> \\\hat y_i= \mu(x_i; \hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}).\\
+> $$\hat y_i= \mu(x_i; \hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}).$$
 >
 > It is chosen for the reason in [Remark 1](#rem-why-cond-mean): the conditional mean is the best prediction under squared error loss.
 
 > **NOTE:**
 >
-> **Definition 3 (Residual)** The **residual** for observation \\i\\ is its observed outcome minus its [fitted value](#def-fitted-value):
+> **Definition 3 (Residual)** The **residual** for observation $i$ is its observed outcome minus its [fitted value](#def-fitted-value):
 >
-> \\\hat{\varepsilon}\_i\stackrel{\text{def}}{=}y_i- \hat y_i\\
+> $$\hat{\varepsilon}_i\stackrel{\text{def}}{=}y_i- \hat y_i$$
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_errors_and_residuals).
 
 > **NOTE:**
 >
-> **Definition 4 (Prediction error)** The **prediction error** of a [prediction](#def-prediction) \\\hat y\\ (such as \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ or a fitted value \\\hat y_i\\) of an observed outcome \\y\\ is the prediction minus the outcome:
+> **Definition 4 (Prediction error)** The **prediction error** of a [prediction](#def-prediction) $\hat y$ (such as ${\hat y\mathopen{}\left(x\right)\mathclose{}}$ or a fitted value $\hat y_i$) of an observed outcome $y$ is the prediction minus the outcome:
 >
-> \\{\varepsilon\_{\text{pred}}}\stackrel{\text{def}}{=}\hat y- y.\\
+> $${\varepsilon_{\text{pred}}}\stackrel{\text{def}}{=}\hat y- y.$$
 
 > **NOTE:**
 >
-> **Exercise 1 (Prediction error and residual)** For an observation \\i\\, write its [prediction error](#def-prediction-error) \\{\varepsilon\_{\text{pred}}}\_i\\ in terms of its [residual](#def-residual) \\\hat{\varepsilon}\_i\\.
+> **Exercise 1 (Prediction error and residual)** For an observation $i$, write its [prediction error](#def-prediction-error) ${\varepsilon_{\text{pred}}}_i$ in terms of its [residual](#def-residual) $\hat{\varepsilon}_i$.
 
 > **NOTE:**
 >
-> *Solution 1*. \\ \begin{aligned} {\varepsilon\_{\text{pred}}}\_i &= \hat y_i- y_i && \text{(definition of prediction error)}\\ &= -(y_i- \hat y_i) && \text{(factor out \$-1\$)}\\ &= -\hat{\varepsilon}\_i && \text{(definition of residual)} \end{aligned} \\
+> *Solution 1*. $$\begin{aligned}
+> {\varepsilon_{\text{pred}}}_i
+> &= \hat y_i- y_i
+> && \text{(definition of prediction error)}\\
+> &= -(y_i- \hat y_i)
+> && \text{(factor out $-1$)}\\
+> &= -\hat{\varepsilon}_i
+> && \text{(definition of residual)}
+> \end{aligned}$$
 
 > **NOTE:**
 >
-> **Theorem 1 (Prediction error is the negative of the residual)** For an observation \\i\\, the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value) is the negative of its [residual](#def-residual):
+> **Theorem 1 (Prediction error is the negative of the residual)** For an observation $i$, the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value) is the negative of its [residual](#def-residual):
 >
-> \\{\varepsilon\_{\text{pred}}}\_i= -\hat{\varepsilon}\_i.\\
+> $${\varepsilon_{\text{pred}}}_i= -\hat{\varepsilon}_i.$$
 
 > **NOTE:**
 >
@@ -74,13 +82,13 @@ Last modified: 2026-11-01 01:56:06 (PDT)
 
 > **NOTE:**
 >
-> **Corollary 1 (The residual is the negative of the prediction error)** For an observation \\i\\, its [residual](#def-residual) is the negative of the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value):
+> **Corollary 1 (The residual is the negative of the prediction error)** For an observation $i$, its [residual](#def-residual) is the negative of the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value):
 >
-> \\\hat{\varepsilon}\_i= -{\varepsilon\_{\text{pred}}}\_i.\\
+> $$\hat{\varepsilon}_i= -{\varepsilon_{\text{pred}}}_i.$$
 
 > **NOTE:**
 >
-> *Proof*. Multiply both sides of [Theorem 1](#thm-prediction-error-residual) by \\-1\\.
+> *Proof*. Multiply both sides of [Theorem 1](#thm-prediction-error-residual) by $-1$.
 
 > **NOTE:**
 >
@@ -144,7 +152,12 @@ Last modified: 2026-11-01 01:56:06 (PDT)
 >
 > *Remark 3* (Prediction errors and residuals). The prediction in [Definition 4](#def-prediction-error) can be a [fitted value](#def-fitted-value), for an observation used to fit the model, or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](estimation.llms.md#def-estimation-error): estimate minus true value.
 >
-> \\ \begin{aligned} {\varepsilon\_{\text{pred}}}&= \hat y- y && \text{(prediction error)}\\ {\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &= \hat{\theta}- \theta && \text{(estimation error)} \end{aligned} \\
+> $$\begin{aligned}
+> {\varepsilon_{\text{pred}}}&= \hat y- y
+> && \text{(prediction error)}\\
+> {\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &= \hat{\theta}- \theta
+> && \text{(estimation error)}
+> \end{aligned}$$
 >
 > For a fitted value, the prediction error is the negative of the residual ([Theorem 1](#thm-prediction-error-residual)), so the two differ only in orientation.
 
@@ -152,26 +165,28 @@ Last modified: 2026-11-01 01:56:06 (PDT)
 
 > **NOTE:**
 >
-> **Definition 5 (Mean squared error of predictions)** The **sample mean squared error (sMSE)** of predictions, also called their **mean squared error**, \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the mean of their squared [prediction errors](#def-prediction-error):
+> **Definition 5 (Mean squared error of predictions)** The **sample mean squared error (sMSE)** of predictions, also called their **mean squared error**, $\hat y_1, \ldots, \hat y_n$ of observed outcomes $y_1, \ldots, y_n$ is the mean of their squared [prediction errors](#def-prediction-error):
 >
-> \\{\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n{\varepsilon\_{\text{pred}}}\_i^2.\\
+> $${\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n{\varepsilon_{\text{pred}}}_i^2.$$
 >
 > Source: Wikipedia contributors [\[4\]](#ref-wikipedia_mean_squared_prediction_error).
 
 > **NOTE:**
 >
-> *Remark 4* (Prediction sMSE, estimator pMSE and RSS). [Definition 5](#def-prediction-mse) averages squared errors over observations, where the [pMSE of an estimator](estimation.llms.md#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the sMSE of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\ ([sMSE and RSS](correlation-regression.llms.md#thm-mse-rss)):
+> *Remark 4* (Prediction sMSE, estimator pMSE and RSS). [Definition 5](#def-prediction-mse) averages squared errors over observations, where the [pMSE of an estimator](estimation.llms.md#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the sMSE of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by $n$ ([sMSE and RSS](correlation-regression.llms.md#thm-mse-rss)):
 >
-> \\{\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} = \frac{1}{n} \text{RSS}(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}), \qquad \text{RSS}(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) = n \\ {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}.\\
+> $${\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} = \frac{1}{n} \text{RSS}(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}),
+> \qquad
+> \text{RSS}(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}) = n \, {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
-> **Example 3 (Fitted values, residuals, and prediction errors for three points)** Take the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\ from [the residual sum of squares example](correlation-regression.llms.md#exm-rss), and treat the line as the fitted model.
+> **Example 3 (Fitted values, residuals, and prediction errors for three points)** Take the points $(0, 1)$, $(1, 2)$, $(2, 2)$ and the line with $\beta_{0}= 1$ and $\beta_{x} = 0.5$ from [the residual sum of squares example](correlation-regression.llms.md#exm-rss), and treat the line as the fitted model.
 >
-> | \\x_i\\ | \\y_i\\ | \\\hat y_i= 1 + 0.5 x_i\\ | \\\hat{\varepsilon}\_i= y_i- \hat y_i\\ | \\{\varepsilon\_{\text{pred}}}\_i= \hat y_i- y_i\\ |
+> | $x_i$ | $y_i$ | $\hat y_i= 1 + 0.5 x_i$ | $\hat{\varepsilon}_i= y_i- \hat y_i$ | ${\varepsilon_{\text{pred}}}_i= \hat y_i- y_i$ |
 > |:--:|:--:|:--:|:--:|:--:|
 > | 0 | 1 | 1 | 0 | 0 |
-> | 1 | 2 | 1.5 | 0.5 | \\-0.5\\ |
+> | 1 | 2 | 1.5 | 0.5 | $-0.5$ |
 > | 2 | 2 | 2 | 0 | 0 |
 >
 > [Figure 1](#fig-fitted-residual-error) shows the observed outcomes, the fitted values on the line, and the residual of the second point.
@@ -207,9 +222,14 @@ Last modified: 2026-11-01 01:56:06 (PDT)
 >
 > The sMSE of these predictions is
 >
-> \\ \begin{aligned} {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} &= \frac{0^2 + (-0.5)^2 + 0^2}{3}\\ &= \frac{0.25}{3}\\ &\approx 0.083, \end{aligned} \\
+> $$\begin{aligned}
+> {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}
+> &= \frac{0^2 + (-0.5)^2 + 0^2}{3}\\
+> &= \frac{0.25}{3}\\
+> &\approx 0.083,
+> \end{aligned}$$
 >
-> the residual sum of squares, \\0.25\\, divided by \\n = 3\\.
+> the residual sum of squares, $0.25$, divided by $n = 3$.
 
 ## 0.3 Estimation versus prediction
 
@@ -217,7 +237,7 @@ Last modified: 2026-11-01 01:56:06 (PDT)
 >
 > *Remark 5* (Estimation versus prediction). Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error (a pMSE for an estimator, an sMSE for predictions), but they aim at different targets:
 >
-> - **Target.** An [estimate](estimation.llms.md#def-estimate) aims at a fixed, unknown [estimand](estimation.llms.md#def-estimand). A [prediction](#def-prediction) aims at an outcome \\y\\, which is a random quantity even when the model is known exactly.
+> - **Target.** An [estimate](estimation.llms.md#def-estimate) aims at a fixed, unknown [estimand](estimation.llms.md#def-estimand). A [prediction](#def-prediction) aims at an outcome $y$, which is a random quantity even when the model is known exactly.
 > - **Error.** The [estimation error](estimation.llms.md#def-estimation-error) is the estimate minus the estimand. The [prediction error](#def-prediction-error) is the prediction minus the outcome.
 > - **Mean squared error.** The [pMSE of an estimator](estimation.llms.md#mean-squared-error) is an expectation over repeated samples. The [sMSE of predictions](#def-prediction-mse) is an average over observations.
 > - **What cannot be removed.** The estimation error of a consistent estimator shrinks toward zero as the sample grows. A prediction’s expected squared error, given the same [covariates](model-validation.llms.md#def-covariate), cannot fall below the [residual variance](model-validation.llms.md#def-irreducible-error), the variance of the outcome around its conditional mean.

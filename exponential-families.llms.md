@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-01 01:56:06 (PDT)
+Last modified: 2026-11-02 10:03:02 (PST)
 
 Many of the distributions in this course, such as the [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli), [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) and [Normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) distributions, share one algebraic form for their [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). Distributions with that form are called an [exponential family](#def-exponential-family), and they share properties that make estimation easier. This page defines the form and its [natural parameter](#def-natural-parameter), and checks the form for the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) on data.
 
@@ -12,23 +12,35 @@ Many of the distributions in this course, such as the [Bernoulli](https://morris
 
 > **NOTE:**
 >
-> **Definition 1 (Exponential family)** Let \\X\\ be a random variable whose distribution depends on one parameter \\\eta\\, and let \\\operatorname{f}\mathopen{}\left(x; \eta\right)\mathclose{}\\ be its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). The distributions of \\X\\ form an **exponential family** if there are a nonnegative [function](https://morrison-lab.github.io/mds/functions.html#def-function) \\h\\ and a function \\T\\ of \\x\\ alone, and a function \\A\\ of \\\eta\\ alone, such that
+> **Definition 1 (Exponential family)** Let $X$ be a random variable whose distribution depends on one parameter $\eta$, and let $\operatorname{f}\mathopen{}\left(x; \eta\right)\mathclose{}$ be its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). The distributions of $X$ form an **exponential family** if there are a nonnegative [function](https://morrison-lab.github.io/mds/functions.html#def-function) $h$ and a function $T$ of $x$ alone, and a function $A$ of $\eta$ alone, such that
 >
-> \\ \operatorname{f}\mathopen{}\left(x; \eta\right)\mathclose{} = {{h\mathopen{}\left(x\right)\mathclose{}}} \\ {\operatorname{exp}\mathopen{}\left\\\eta\\ {T\mathopen{}\left(x\right)\mathclose{}} - {A\mathopen{}\left(\eta\right)\mathclose{}}\right\\\mathclose{}} \tag{1}\\
+> $$\operatorname{f}\mathopen{}\left(x; \eta\right)\mathclose{}
+> = {{h\mathopen{}\left(x\right)\mathclose{}}} \, {\operatorname{exp}\mathopen{}\left\{\eta\, {T\mathopen{}\left(x\right)\mathclose{}} - {A\mathopen{}\left(\eta\right)\mathclose{}}\right\}\mathclose{}}
+> \tag{1}$$
 >
-> for every value \\x\\ and every allowed \\\eta\\.
+> for every value $x$ and every allowed $\eta$.
 
 > **NOTE:**
 >
-> *Remark 1* (Source: Exponential family). Casella and Berger [\[1, Sec. 3.4\]](#ref-CaseBerg01), Eq. 3.4.1 write the family as a sum of \\k\\ terms inside the exponential, each a [function](https://morrison-lab.github.io/mds/functions.html#def-function) of the parameter times a function of \\x\\; Dobson and Barnett [\[2, Sec. 3.2\]](#ref-dobson4e), Eq. 3.3 write it in the form \\{\operatorname{exp}\mathopen{}\left\\a(y) b(\theta) + c(\theta) + d(y)\right\\\mathclose{}}\\. [Equation 1](#eq-exponential-family) is the case of one term. It is Dobson and Barnett’s canonical form when \\{T\mathopen{}\left(x\right)\mathclose{}} = x\\, and the [natural parameter](#def-natural-parameter) \\\eta\\ plays the role of their \\b(\theta)\\. See the [notation choices](https://morrison-lab.github.io/macros/notation-choices.html#sec-exponential-family-notation) for how the symbols line up.
+> *Remark 1* (Source: Exponential family). Casella and Berger [\[1, Sec. 3.4\]](#ref-CaseBerg01), Eq. 3.4.1 write the family as a sum of $k$ terms inside the exponential, each a [function](https://morrison-lab.github.io/mds/functions.html#def-function) of the parameter times a function of $x$; Dobson and Barnett [\[2, Sec. 3.2\]](#ref-dobson4e), Eq. 3.3 write it in the form ${\operatorname{exp}\mathopen{}\left\{a(y) b(\theta) + c(\theta) + d(y)\right\}\mathclose{}}$. [Equation 1](#eq-exponential-family) is the case of one term. It is Dobson and Barnett’s canonical form when ${T\mathopen{}\left(x\right)\mathclose{}} = x$, and the [natural parameter](#def-natural-parameter) $\eta$ plays the role of their $b(\theta)$. See the [notation choices](https://morrison-lab.github.io/macros/notation-choices.html#sec-exponential-family-notation) for how the symbols line up.
 
 > **NOTE:**
 >
-> **Example 1 (The Poisson distribution is an exponential family)** Let \\X\sim \operatorname{Pois}({\lambda})\\, the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) with rate \\{\lambda}\> 0\\. Its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) has one factor free of \\{\lambda}\\, and the factors \\{\lambda}^{x}\\ and \\{\operatorname{exp}\mathopen{}\left\\-{\lambda}\right\\\mathclose{}}\\. We rewrite it in the form of [Equation 1](#eq-exponential-family) by writing \\{\lambda}^{x}\\ as an exponential of a logarithm:
+> **Example 1 (The Poisson distribution is an exponential family)** Let $X\sim \operatorname{Pois}({\lambda})$, the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) with rate ${\lambda}> 0$. Its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) has one factor free of ${\lambda}$, and the factors ${\lambda}^{x}$ and ${\operatorname{exp}\mathopen{}\left\{-{\lambda}\right\}\mathclose{}}$. We rewrite it in the form of [Equation 1](#eq-exponential-family) by writing ${\lambda}^{x}$ as an exponential of a logarithm:
 >
-> \\ \begin{aligned} \operatorname{f}\mathopen{}\left(x; {\lambda}\right)\mathclose{} &= \frac{{\lambda}^{x} \\ {\operatorname{exp}\mathopen{}\left\\-{\lambda}\right\\\mathclose{}}}{x!} && \text{(Poisson mass function)}\\ &= \frac{1}{x!} \\ {\operatorname{exp}\mathopen{}\left\\{\operatorname{log}\mathopen{}\left\\{\lambda}^{x}\right\\\mathclose{}}\right\\\mathclose{}} \\ {\operatorname{exp}\mathopen{}\left\\-{\lambda}\right\\\mathclose{}} && \text{(a positive number is the exponential of its logarithm)}\\ &= \frac{1}{x!} \\ {\operatorname{exp}\mathopen{}\left\\x\\ {\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}}\right\\\mathclose{}} \\ {\operatorname{exp}\mathopen{}\left\\-{\lambda}\right\\\mathclose{}} && \text{(the logarithm of a power is the exponent times the logarithm)}\\ &= \frac{1}{x!} \\ {\operatorname{exp}\mathopen{}\left\\x\\ {\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} - {\lambda}\right\\\mathclose{}} && \text{(the product of exponentials is the exponential of the sum)} \end{aligned} \\
+> $$\begin{aligned}
+> \operatorname{f}\mathopen{}\left(x; {\lambda}\right)\mathclose{}
+> &= \frac{{\lambda}^{x} \, {\operatorname{exp}\mathopen{}\left\{-{\lambda}\right\}\mathclose{}}}{x!}
+> && \text{(Poisson mass function)}\\
+> &= \frac{1}{x!} \, {\operatorname{exp}\mathopen{}\left\{{\operatorname{log}\mathopen{}\left\{{\lambda}^{x}\right\}\mathclose{}}\right\}\mathclose{}} \, {\operatorname{exp}\mathopen{}\left\{-{\lambda}\right\}\mathclose{}}
+> && \text{(a positive number is the exponential of its logarithm)}\\
+> &= \frac{1}{x!} \, {\operatorname{exp}\mathopen{}\left\{x\, {\operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{}}\right\}\mathclose{}} \, {\operatorname{exp}\mathopen{}\left\{-{\lambda}\right\}\mathclose{}}
+> && \text{(the logarithm of a power is the exponent times the logarithm)}\\
+> &= \frac{1}{x!} \, {\operatorname{exp}\mathopen{}\left\{x\, {\operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{}} - {\lambda}\right\}\mathclose{}}
+> && \text{(the product of exponentials is the exponential of the sum)}
+> \end{aligned}$$
 >
-> So the Poisson distributions are an [exponential family](#def-exponential-family) with \\{{h\mathopen{}\left(x\right)\mathclose{}}} = 1 / x!\\, \\{T\mathopen{}\left(x\right)\mathclose{}} = x\\, [natural parameter](#def-natural-parameter) \\\eta= {\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}}\\, and \\{A\mathopen{}\left(\eta\right)\mathclose{}} = {\lambda}= {\operatorname{exp}\mathopen{}\left\\\eta\right\\\mathclose{}}\\.
+> So the Poisson distributions are an [exponential family](#def-exponential-family) with ${{h\mathopen{}\left(x\right)\mathclose{}}} = 1 / x!$, ${T\mathopen{}\left(x\right)\mathclose{}} = x$, [natural parameter](#def-natural-parameter) $\eta= {\operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{}}$, and ${A\mathopen{}\left(\eta\right)\mathclose{}} = {\lambda}= {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}}$.
 >
 > To check the algebra on data, we use the number of tropical cyclones in northeastern Australia in each of 13 seasons [\[2, Sec. 1.6.5\]](#ref-dobson4e), with the rate set to the [sample mean](exploratory-descriptive.llms.md#def-sample-mean). We evaluate both sides of [Equation 1](#eq-exponential-family) at every observed count.
 >
@@ -103,15 +115,17 @@ Many of the distributions in this course, such as the [Bernoulli](https://morris
 
 > **NOTE:**
 >
-> **Definition 2 (Natural parameter)** In the form of [Equation 1](#eq-exponential-family) of an [exponential family](#def-exponential-family), the parameter \\\eta\\ that multiplies the [statistic](sufficiency.llms.md#def-statistic) \\{T\mathopen{}\left(x\right)\mathclose{}}\\ inside the exponential is the **natural parameter**, also called the **canonical parameter** [\[2, Sec. 3.2\]](#ref-dobson4e).
+> **Definition 2 (Natural parameter)** In the form of [Equation 1](#eq-exponential-family) of an [exponential family](#def-exponential-family), the parameter $\eta$ that multiplies the [statistic](sufficiency.llms.md#def-statistic) ${T\mathopen{}\left(x\right)\mathclose{}}$ inside the exponential is the **natural parameter**, also called the **canonical parameter** [\[2, Sec. 3.2\]](#ref-dobson4e).
 
 > **NOTE:**
 >
-> **Example 2 (The natural parameter of the Poisson distribution is the log rate)** In [Example 1](#exm-poisson-exponential-family), the [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) rate \\{\lambda}\\ and the [natural parameter](#def-natural-parameter) \\\eta\\ are related by
+> **Example 2 (The natural parameter of the Poisson distribution is the log rate)** In [Example 1](#exm-poisson-exponential-family), the [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) rate ${\lambda}$ and the [natural parameter](#def-natural-parameter) $\eta$ are related by
 >
-> \\ \eta= {\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}} \qquad \text{and} \qquad {\lambda}= {\operatorname{exp}\mathopen{}\left\\\eta\right\\\mathclose{}} \\
+> $$\eta= {\operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{}}
+> \qquad \text{and} \qquad
+> {\lambda}= {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}}$$
 >
-> For the cyclone data, the rate set to the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) is 5.538 cyclones per season, so the natural parameter is \\\eta= 1.712\\. The natural parameter can be any real number, while the rate must be greater than zero.
+> For the cyclone data, the rate set to the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) is 5.538 cyclones per season, so the natural parameter is $\eta= 1.712$. The natural parameter can be any real number, while the rate must be greater than zero.
 
 ## 0.2 Further reading
 

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-01 01:56:06 (PDT)
+Last modified: 2026-11-02 10:03:02 (PST)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -55,35 +55,38 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Definition 1 (Expected count under independence)** Let a contingency table have \\r\\ rows and \\c\\ columns, with observed count \\O\_{ij}\\ in row \\i\\ and column \\j\\, row totals \\R_i\\, column totals \\C_j\\, and grand total \\n\\. The **expected count** in cell \\(i, j)\\ under independence is
+> **Definition 1 (Expected count under independence)** Let a contingency table have $r$ rows and $c$ columns, with observed count $O_{ij}$ in row $i$ and column $j$, row totals $R_i$, column totals $C_j$, and grand total $n$. The **expected count** in cell $(i, j)$ under independence is
 >
-> \\E\_{ij} \stackrel{\text{def}}{=}\frac{R_i \\ C_j}{n}.\\
+> $$E_{ij} \stackrel{\text{def}}{=}\frac{R_i \, C_j}{n}.$$
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_contingency_table).
 
 > **NOTE:**
 >
-> **Example 2 (Expected count in a 2 x 2 table)** In a table with \\n = 100\\, first-row total \\R_1 = 30\\, and first-column total \\C_1 = 40\\, the expected count in cell \\(1, 1)\\ is
+> **Example 2 (Expected count in a 2 x 2 table)** In a table with $n = 100$, first-row total $R_1 = 30$, and first-column total $C_1 = 40$, the expected count in cell $(1, 1)$ is
 >
-> \\ \begin{aligned} E\_{11} &= 30 \cdot 40 / 100 \\ &= 12. \end{aligned} \\
+> $$\begin{aligned}
+>   E_{11} &= 30 \cdot 40 / 100 \\
+>   &= 12.
+> \end{aligned}$$
 
 > **NOTE:**
 >
-> **Definition 2 (Pearson’s chi-square test of independence)** With observed counts \\O\_{ij}\\ and [expected counts](#def-expected-count) \\E\_{ij}\\ in an \\r \times c\\ contingency table, **Pearson’s chi-square test** of the null hypothesis that the row and column variables are independent uses the [statistic](sufficiency.llms.md#def-statistic)
+> **Definition 2 (Pearson’s chi-square test of independence)** With observed counts $O_{ij}$ and [expected counts](#def-expected-count) $E_{ij}$ in an $r \times c$ contingency table, **Pearson’s chi-square test** of the null hypothesis that the row and column variables are independent uses the [statistic](sufficiency.llms.md#def-statistic)
 >
-> \\X^2 \stackrel{\text{def}}{=}\sum\_{i=1}^{r} \sum\_{j=1}^{c} \frac{(O\_{ij} - E\_{ij})^2}{E\_{ij}}.\\
+> $$X^2 \stackrel{\text{def}}{=}\sum_{i=1}^{r} \sum_{j=1}^{c} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}.$$
 >
-> Its p-value is \\\Pr(W \ge X^2)\\, where \\W\\ has the \\\chi^2\_{(r-1)(c-1)}\\ distribution ([chi-square distribution](inference.llms.md#def-chi-square-dist)).
+> Its p-value is $\Pr(W \ge X^2)$, where $W$ has the $\chi^2_{(r-1)(c-1)}$ distribution ([chi-square distribution](inference.llms.md#def-chi-square-dist)).
 >
 > Source: Wikipedia contributors [\[4\]](#ref-wikipedia_pearsons_chi_squared_test).
 
 > **NOTE:**
 >
-> **Theorem 1 (Large-sample null distribution of the chi-square statistic)** Let \\n\\ observations be sampled independently and classified by two categorical variables, and let the two variables be independent. Then as \\n \to \infty\\, the distribution of \\X^2\\ ([Definition 2](#def-chi-square-test)) converges to the \\\chi^2\_{(r-1)(c-1)}\\ distribution [\[2, Sec. 9.2\]](#ref-hoggtanis2015), p. 440.
+> **Theorem 1 (Large-sample null distribution of the chi-square statistic)** Let $n$ observations be sampled independently and classified by two categorical variables, and let the two variables be independent. Then as $n \to \infty$, the distribution of $X^2$ ([Definition 2](#def-chi-square-test)) converges to the $\chi^2_{(r-1)(c-1)}$ distribution [\[2, Sec. 9.2\]](#ref-hoggtanis2015), p. 440.
 
 > **NOTE:**
 >
-> *Remark 1* (Small expected counts). The chi-square approximation is poor when some expected counts are small. A common rule of thumb asks for every \\E\_{ij}\\ to be at least 5.
+> *Remark 1* (Small expected counts). The chi-square approximation is poor when some expected counts are small. A common rule of thumb asks for every $E_{ij}$ to be at least 5.
 
 > **NOTE:**
 >
@@ -105,7 +108,7 @@ hers |> head()
 > #>  0.128054  0.720458
 > ```
 >
-> Every expected count is large, so the \\\chi^2_1\\ approximation of [Theorem 1](#thm-chi-square-null) is reasonable. [`chisq.test()`](https://rdrr.io/r/stats/chisq.test.html) with `correct = FALSE` reports the same values:
+> Every expected count is large, so the $\chi^2_1$ approximation of [Theorem 1](#thm-chi-square-null) is reasonable. [`chisq.test()`](https://rdrr.io/r/stats/chisq.test.html) with `correct = FALSE` reports the same values:
 >
 > ``` downlit
 > chisq.test(hers$exercise, hers$HT, correct = FALSE)
@@ -120,7 +123,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> *Remark 2* (Yates’ continuity correction). For a \\2 \times 2\\ table, [`chisq.test()`](https://rdrr.io/r/stats/chisq.test.html) applies Yates’ continuity correction by default, which subtracts 0.5 from each \\\mathopen{}\left\|O\_{ij} - E\_{ij}\right\|\mathclose{}\\ before squaring, and so gives a smaller statistic than [Definition 2](#def-chi-square-test). `correct = FALSE` turns the correction off.
+> *Remark 2* (Yates’ continuity correction). For a $2 \times 2$ table, [`chisq.test()`](https://rdrr.io/r/stats/chisq.test.html) applies Yates’ continuity correction by default, which subtracts 0.5 from each $\mathopen{}\left|O_{ij} - E_{ij}\right|\mathclose{}$ before squaring, and so gives a smaller statistic than [Definition 2](#def-chi-square-test). `correct = FALSE` turns the correction off.
 
 > **NOTE:**
 >
@@ -134,19 +137,19 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Definition 3 (Fisher’s exact test)** Take a \\2 \times 2\\ contingency table with cells \\a\\, \\b\\, \\c\\, and \\d\\ as in [the contingency table definition](exploratory-descriptive.llms.md#def-contingency-table), and hold its row and column totals fixed. Under independence of the row and column variables, the probability that the top-left cell equals \\x\\ is the hypergeometric probability
+> **Definition 3 (Fisher’s exact test)** Take a $2 \times 2$ contingency table with cells $a$, $b$, $c$, and $d$ as in [the contingency table definition](exploratory-descriptive.llms.md#def-contingency-table), and hold its row and column totals fixed. Under independence of the row and column variables, the probability that the top-left cell equals $x$ is the hypergeometric probability
 >
-> \\p(x) \stackrel{\text{def}}{=}\frac{\binom{a+b}{x} \binom{c+d}{a+c-x}}{\binom{n}{a+c}}.\\
+> $$p(x) \stackrel{\text{def}}{=}\frac{\binom{a+b}{x} \binom{c+d}{a+c-x}}{\binom{n}{a+c}}.$$
 >
 > **Fisher’s exact test** of independence has p-value [\[6\]](#ref-wikipedia_fishers_exact_test)
 >
-> \\\sum\_{x \\:\\ p(x) \le p(a)} p(x),\\
+> $$\sum_{x \,:\, p(x) \le p(a)} p(x),$$
 >
 > the total probability of the tables with the same totals that are no more probable than the observed table.
 
 > **NOTE:**
 >
-> *Remark 3* (Why Fisher’s exact test is exact). The p-value is exact: it comes from the null distribution itself, not from a large-sample approximation, so the test is valid even when expected counts are small, and it is often used for \\2 \times 2\\ tables in which some expected count is below 5 ([Theorem 1](#thm-chi-square-null)). Other two-sided versions exist; this one is the version that R’s [`fisher.test()`](https://rdrr.io/r/stats/fisher.test.html) computes.
+> *Remark 3* (Why Fisher’s exact test is exact). The p-value is exact: it comes from the null distribution itself, not from a large-sample approximation, so the test is valid even when expected counts are small, and it is often used for $2 \times 2$ tables in which some expected count is below 5 ([Theorem 1](#thm-chi-square-null)). Other two-sided versions exist; this one is the version that R’s [`fisher.test()`](https://rdrr.io/r/stats/fisher.test.html) computes.
 
 > **NOTE:**
 >
@@ -164,7 +167,7 @@ hers |> head()
 > #> [1] 0.72528
 > ```
 >
-> The tolerance `1e-7` keeps tables whose probability equals \\p(a)\\ up to rounding error, as [`fisher.test()`](https://rdrr.io/r/stats/fisher.test.html) does. [`fisher.test()`](https://rdrr.io/r/stats/fisher.test.html) reports the same p-value:
+> The tolerance `1e-7` keeps tables whose probability equals $p(a)$ up to rounding error, as [`fisher.test()`](https://rdrr.io/r/stats/fisher.test.html) does. [`fisher.test()`](https://rdrr.io/r/stats/fisher.test.html) reports the same p-value:
 >
 > ``` downlit
 > fisher.test(hers$exercise, hers$HT)
@@ -187,7 +190,7 @@ hers |> head()
 >
 > Rice [\[5, Sec. 13.2\]](#ref-rice2007mathematical), pp. 514–515 covers Fisher’s exact test.
 
-### 0.2.4 Measures of association for \\2 \times 2\\ tables
+### 0.2.4 Measures of association for $2 \times 2$ tables
 
 Tests of independence say whether two binary variables are associated, but not how strongly. The [risk difference](#def-risk-difference), the [risk ratio](#def-risk-ratio) and the [odds ratio](#def-odds-ratio) measure the strength of the association.
 
@@ -195,7 +198,7 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > **Definition 4 (Risk of a binary outcome (also called the incidence proportion or cumulative incidence))** The **risk** of a [binary](data.llms.md#def-binary-var) outcome in a group is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a member of the group has the outcome. When the outcome is an event, the risk is for a specified time period. The risk is also called the **incidence proportion** or **cumulative incidence**.
 >
-> The risk lies in \\\[0, 1\]\\, and its [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) is the proportion of the group’s observations that have the outcome.
+> The risk lies in $[0, 1]$, and its [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) is the proportion of the group’s observations that have the outcome.
 >
 > Source: Wikipedia contributors [\[7\]](#ref-wikipedia_relative_risk).
 
@@ -214,7 +217,7 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
-> *Remark 4* (Cumulative incidence has a second meaning). The name [cumulative incidence](#def-outcome-risk) for the [risk](#def-outcome-risk) fits a closed [population](exploratory-descriptive.llms.md#def-population), where no one enters or leaves after the start of the time period [\[8, Ch. 4\]](#ref-me4). The same name is also used for a different quantity: when several event types compete, the cumulative incidence function of one event type at time \\t\\ is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that this type of event occurs by time \\t\\ [\[8, Ch. 22\]](#ref-me4). This page uses the name only for the risk of a [binary](data.llms.md#def-binary-var) outcome.
+> *Remark 4* (Cumulative incidence has a second meaning). The name [cumulative incidence](#def-outcome-risk) for the [risk](#def-outcome-risk) fits a closed [population](exploratory-descriptive.llms.md#def-population), where no one enters or leaves after the start of the time period [\[8, Ch. 4\]](#ref-me4). The same name is also used for a different quantity: when several event types compete, the cumulative incidence function of one event type at time $t$ is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that this type of event occurs by time $t$ [\[8, Ch. 22\]](#ref-me4). This page uses the name only for the risk of a [binary](data.llms.md#def-binary-var) outcome.
 
 > **NOTE:**
 >
@@ -228,12 +231,12 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > **Definition 6 (Risk difference (also called the absolute risk reduction))** Let:
 >
-> - \\\pi_1\\ be the [risk](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
-> - \\\pi_2\\ be the risk of the same outcome in the [reference group](#def-reference-group), group 2.
+> - $\pi_1$ be the [risk](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
+> - $\pi_2$ be the risk of the same outcome in the [reference group](#def-reference-group), group 2.
 >
 > The **risk difference**, also called the **absolute risk reduction**, of group 1 compared with group 2 is
 >
-> \\\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2 \in \[-1, 1\].\\
+> $$\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2 \in [-1, 1].$$
 >
 > Source: Wikipedia contributors [\[9\]](#ref-wikipedia_absolute_risk_reduction).
 
@@ -253,25 +256,31 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > **Exercise 1** Let:
 >
-> - \\\pi_1\\ and \\\pi_2\\ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
-> - \\\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2\\ be the [risk difference](#def-risk-difference) of group 1 compared with group 2.
+> - $\pi_1$ and $\pi_2$ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
+> - $\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2$ be the [risk difference](#def-risk-difference) of group 1 compared with group 2.
 >
-> Express the risk difference of group 2 compared with group 1, \\\pi_2 - \pi_1\\, in terms of \\\operatorname{RD}\\.
+> Express the risk difference of group 2 compared with group 1, $\pi_2 - \pi_1$, in terms of $\operatorname{RD}$.
 
 > **NOTE:**
 >
-> *Solution 1*. \\ \begin{aligned} \pi_2 - \pi_1 &= -1 \cdot \mathopen{}\left(\pi_1 - \pi_2\right)\mathclose{} && \text{(factor \$-1\$ out of both terms)} \\ &= -\operatorname{RD} && \text{(definition of \$\operatorname{RD}\$)} \end{aligned} \\
+> *Solution 1*. $$\begin{aligned}
+> \pi_2 - \pi_1
+> &= -1 \cdot \mathopen{}\left(\pi_1 - \pi_2\right)\mathclose{}
+> && \text{(factor $-1$ out of both terms)}
+> \\ &= -\operatorname{RD}
+> && \text{(definition of $\operatorname{RD}$)}
+> \end{aligned}$$
 
 > **NOTE:**
 >
 > **Theorem 2 (Switching the reference group in a risk difference)** Let:
 >
-> - \\\pi_1\\ and \\\pi_2\\ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
-> - \\\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2\\ be the [risk difference](#def-risk-difference) of group 1 compared with group 2, with group 2 as the [reference group](#def-reference-group).
+> - $\pi_1$ and $\pi_2$ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
+> - $\operatorname{RD}\stackrel{\text{def}}{=}\pi_1 - \pi_2$ be the [risk difference](#def-risk-difference) of group 1 compared with group 2, with group 2 as the [reference group](#def-reference-group).
 >
-> Then the risk difference of group 2 compared with group 1, with group 1 as the reference group, is the negative of \\\operatorname{RD}\\:
+> Then the risk difference of group 2 compared with group 1, with group 1 as the reference group, is the negative of $\operatorname{RD}$:
 >
-> \\\pi_2 - \pi_1 = -\operatorname{RD}.\\
+> $$\pi_2 - \pi_1 = -\operatorname{RD}.$$
 
 > **NOTE:**
 >
@@ -293,12 +302,12 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > **Definition 7 (Risk ratio (also called the relative risk, relative risk ratio or probability ratio))** Let:
 >
-> - \\\pi_1\\ be the [risk](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
-> - \\\pi_2 \> 0\\ be the risk of the same outcome in the [reference group](#def-reference-group), group 2.
+> - $\pi_1$ be the [risk](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
+> - $\pi_2 > 0$ be the risk of the same outcome in the [reference group](#def-reference-group), group 2.
 >
 > The **risk ratio**, also called the **relative risk**, **relative risk ratio** or **probability ratio**, of group 1 compared with group 2 is
 >
-> \\\text{ϙ}\_{\pi}\stackrel{\text{def}}{=}\frac{\pi_1}{\pi_2} \in \[0, \infty).\\
+> $$\text{ϙ}_{\pi}\stackrel{\text{def}}{=}\frac{\pi_1}{\pi_2} \in [0, \infty).$$
 >
 > Source: Wikipedia contributors [\[7\]](#ref-wikipedia_relative_risk).
 
@@ -322,27 +331,33 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > **Exercise 2** Let:
 >
-> - \\\pi_1\\ and \\\pi_2 \> 0\\ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
-> - \\\text{ϙ}\_{\pi}\stackrel{\text{def}}{=}\pi_1 / \pi_2\\ be the [risk ratio](#def-risk-ratio) of group 1 compared with group 2.
-> - \\\text{ϙ}\_{\pi}\> 0\\.
+> - $\pi_1$ and $\pi_2 > 0$ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
+> - $\text{ϙ}_{\pi}\stackrel{\text{def}}{=}\pi_1 / \pi_2$ be the [risk ratio](#def-risk-ratio) of group 1 compared with group 2.
+> - $\text{ϙ}_{\pi}> 0$.
 >
-> Express the risk ratio of group 2 compared with group 1, \\\pi_2 / \pi_1\\, in terms of \\\text{ϙ}\_{\pi}\\.
+> Express the risk ratio of group 2 compared with group 1, $\pi_2 / \pi_1$, in terms of $\text{ϙ}_{\pi}$.
 
 > **NOTE:**
 >
-> *Solution 2*. \\ \begin{aligned} \frac{\pi_2}{\pi_1} &= \frac{1}{\pi_1 / \pi_2} && \text{(the reciprocal of a quotient swaps numerator and denominator)} \\ &= \frac{1}{\text{ϙ}\_{\pi}} && \text{(definition of \$\text{ϙ}\_{\pi}\$)} \end{aligned} \\
+> *Solution 2*. $$\begin{aligned}
+> \frac{\pi_2}{\pi_1}
+> &= \frac{1}{\pi_1 / \pi_2}
+> && \text{(the reciprocal of a quotient swaps numerator and denominator)}
+> \\ &= \frac{1}{\text{ϙ}_{\pi}}
+> && \text{(definition of $\text{ϙ}_{\pi}$)}
+> \end{aligned}$$
 
 > **NOTE:**
 >
 > **Theorem 3 (Switching the reference group in a risk ratio)** Let:
 >
-> - \\\pi_1\\ and \\\pi_2 \> 0\\ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
-> - \\\text{ϙ}\_{\pi}\stackrel{\text{def}}{=}\pi_1 / \pi_2\\ be the [risk ratio](#def-risk-ratio) of group 1 compared with group 2, with group 2 as the [reference group](#def-reference-group).
-> - \\\text{ϙ}\_{\pi}\> 0\\.
+> - $\pi_1$ and $\pi_2 > 0$ be the [risks](#def-outcome-risk) of a [binary](data.llms.md#def-binary-var) outcome in group 1 and group 2.
+> - $\text{ϙ}_{\pi}\stackrel{\text{def}}{=}\pi_1 / \pi_2$ be the [risk ratio](#def-risk-ratio) of group 1 compared with group 2, with group 2 as the [reference group](#def-reference-group).
+> - $\text{ϙ}_{\pi}> 0$.
 >
-> Then the risk ratio of group 2 compared with group 1, with group 1 as the reference group, is the reciprocal of \\\text{ϙ}\_{\pi}\\:
+> Then the risk ratio of group 2 compared with group 1, with group 1 as the reference group, is the reciprocal of $\text{ϙ}_{\pi}$:
 >
-> \\\frac{\pi_2}{\pi_1} = \frac{1}{\text{ϙ}\_{\pi}}.\\
+> $$\frac{\pi_2}{\pi_1} = \frac{1}{\text{ϙ}_{\pi}}.$$
 
 > **NOTE:**
 >
@@ -364,14 +379,14 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > **Definition 8 (Odds ratio)** Let:
 >
-> - \\\omega_1\\ be the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
-> - \\\omega_2\\ be the odds of the same outcome in the [reference group](#def-reference-group), group 2.
+> - $\omega_1$ be the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of a [binary](data.llms.md#def-binary-var) outcome in group 1.
+> - $\omega_2$ be the odds of the same outcome in the [reference group](#def-reference-group), group 2.
 >
 > The **odds ratio** of group 1 compared with group 2 is
 >
-> \\\text{ϙ}\_{\omega}\stackrel{\text{def}}{=}\frac{\omega_1}{\omega_2} \in (0, \infty).\\
+> $$\text{ϙ}_{\omega}\stackrel{\text{def}}{=}\frac{\omega_1}{\omega_2} \in (0, \infty).$$
 >
-> Here \\\omega_g = \pi_g / (1 - \pi_g)\\ for the [risk](#def-outcome-risk) \\\pi_g\\ of group \\g\\.
+> Here $\omega_g = \pi_g / (1 - \pi_g)$ for the [risk](#def-outcome-risk) $\pi_g$ of group $g$.
 >
 > Source: Wikipedia contributors [\[10\]](#ref-wikipedia_odds_ratio).
 
@@ -393,37 +408,49 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > **Exercise 3** Let:
 >
-> - \\X\\ and \\Y\\ be [binary](data.llms.md#def-binary-var) random variables, each with values \\0\\ and \\1\\.
-> - \\{\mathbb{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
+> - $X$ and $Y$ be [binary](data.llms.md#def-binary-var) random variables, each with values $0$ and $1$.
+> - ${\mathbb{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} > 0$ for each $x, y \in {\mathopen{}\left\{0, 1\right\}\mathclose{}}$.
 >
-> Express the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ given \\X = x\\ in terms of the joint probabilities \\{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}\\ and \\{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}\\.
+> Express the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of $Y = 1$ given $X = x$ in terms of the joint probabilities ${\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}$ and ${\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}$.
 
 > **NOTE:**
 >
-> *Solution 3*. \\ \begin{aligned} \omega &= \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{1 - {\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}} && \text{(definition of odds)} \\ &= \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 0 \mid X = x\right)\mathclose{}}} && \text{(the two values of \$Y\$ have conditional probabilities that sum to 1)} \\ &= \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}} && \text{(definition of conditional probability, in numerator and denominator)} \\ &= \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}} && \text{(divide the numerator and the denominator by the same positive number \${\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}\$)} \end{aligned} \\
+> *Solution 3*. $$\begin{aligned}
+> \omega
+> &= \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{1 - {\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}
+> && \text{(definition of odds)}
+> \\ &= \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 0 \mid X = x\right)\mathclose{}}}
+> && \text{(the two values of $Y$ have conditional probabilities that sum to 1)}
+> \\ &= \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}}
+> && \text{(definition of conditional probability, in numerator and denominator)}
+> \\ &= \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}}
+> && \text{(divide the numerator and the denominator by the same positive number ${\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}$)}
+> \end{aligned}$$
 
 > **NOTE:**
 >
 > **Theorem 4 (The odds ratio as a ratio of cross products)** Let:
 >
-> - \\X\\ and \\Y\\ be [binary](data.llms.md#def-binary-var) random variables, each with values \\0\\ and \\1\\.
-> - \\{\mathbb{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
+> - $X$ and $Y$ be [binary](data.llms.md#def-binary-var) random variables, each with values $0$ and $1$.
+> - ${\mathbb{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} > 0$ for each $x, y \in {\mathopen{}\left\{0, 1\right\}\mathclose{}}$.
 >
-> The [odds ratio](#def-odds-ratio) of \\Y = 1\\ comparing the group \\X = 1\\ with the [reference group](#def-reference-group) \\X = 0\\ is
+> The [odds ratio](#def-odds-ratio) of $Y = 1$ comparing the group $X = 1$ with the [reference group](#def-reference-group) $X = 0$ is
 >
-> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X\right)\mathclose{}} = \frac{{\mathbb{P}\mathopen{}\left(X = 1, Y = 1\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(X = 0, Y = 0\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = 1, Y = 0\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(X = 0, Y = 1\right)\mathclose{}}}. \\
+> $${\text{ϙ}_{\omega}\mathopen{}\left(Y \mid X\right)\mathclose{}} = \frac{{\mathbb{P}\mathopen{}\left(X = 1, Y = 1\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(X = 0, Y = 0\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = 1, Y = 0\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(X = 0, Y = 1\right)\mathclose{}}}.$$
 
 > **NOTE:**
 >
-> *Proof*. In the group \\X = x\\, the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ are \\{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(Y = 0 \mid X = x\right)\mathclose{}}\\, because the two [conditional probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) sum to 1. Writing each [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) as a joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) over \\{\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}\\, which is nonzero, gives
+> *Proof*. In the group $X = x$, the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of $Y = 1$ are ${\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(Y = 0 \mid X = x\right)\mathclose{}}$, because the two [conditional probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) sum to 1. Writing each [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) as a joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) over ${\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}$, which is nonzero, gives
 >
-> \\ \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 0 \mid X = x\right)\mathclose{}}} = \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}} = \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}}, \\
+> $$\frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 0 \mid X = x\right)\mathclose{}}}
+> = \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}}
+> = \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0\right)\mathclose{}}},$$
 >
-> where the last step multiplies the numerator and denominator by the same nonzero factor \\{\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}\\. So the odds of \\Y = 1\\ in the group \\X = 1\\ are \\{\mathbb{P}\mathopen{}\left(X = 1, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = 1, Y = 0\right)\mathclose{}}\\, and in the group \\X = 0\\ the odds are \\{\mathbb{P}\mathopen{}\left(X = 0, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = 0, Y = 0\right)\mathclose{}}\\. The [odds ratio](#def-odds-ratio) is the first odds divided by the second. Dividing by a fraction is multiplying by its reciprocal, which gives the stated product of the four joint probabilities.
+> where the last step multiplies the numerator and denominator by the same nonzero factor ${\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}$. So the odds of $Y = 1$ in the group $X = 1$ are ${\mathbb{P}\mathopen{}\left(X = 1, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = 1, Y = 0\right)\mathclose{}}$, and in the group $X = 0$ the odds are ${\mathbb{P}\mathopen{}\left(X = 0, Y = 1\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = 0, Y = 0\right)\mathclose{}}$. The [odds ratio](#def-odds-ratio) is the first odds divided by the second. Dividing by a fraction is multiplying by its reciprocal, which gives the stated product of the four joint probabilities.
 
 > **NOTE:**
 >
-> **Example 12 (The HERS odds ratio from the cell proportions)** Take \\X = 1\\ for hormone therapy and \\X = 0\\ for placebo, and \\Y = 1\\ for regular exercise. The estimated joint probabilities are the cell proportions of the HERS table:
+> **Example 12 (The HERS odds ratio from the cell proportions)** Take $X = 1$ for hormone therapy and $X = 0$ for placebo, and $Y = 1$ for regular exercise. The estimated joint probabilities are the cell proportions of the HERS table:
 >
 > ``` downlit
 > joint_hat <- prop.table(table(HT = hers$HT, exercise = hers$exercise))
@@ -440,20 +467,20 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > **Theorem 5 (The odds ratio is reversible)** Let:
 >
-> - \\X\\ and \\Y\\ be [binary](data.llms.md#def-binary-var) random variables, each with values \\0\\ and \\1\\.
-> - \\{\mathbb{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
+> - $X$ and $Y$ be [binary](data.llms.md#def-binary-var) random variables, each with values $0$ and $1$.
+> - ${\mathbb{P}\mathopen{}\left(X = x, Y = y\right)\mathclose{}} > 0$ for each $x, y \in {\mathopen{}\left\{0, 1\right\}\mathclose{}}$.
 >
-> The [odds ratio](#def-odds-ratio) of \\Y = 1\\ comparing \\X = 1\\ with \\X = 0\\ equals the odds ratio of \\X = 1\\ comparing \\Y = 1\\ with \\Y = 0\\:
+> The [odds ratio](#def-odds-ratio) of $Y = 1$ comparing $X = 1$ with $X = 0$ equals the odds ratio of $X = 1$ comparing $Y = 1$ with $Y = 0$:
 >
-> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X\right)\mathclose{}} = {\text{ϙ}\_{\omega}\mathopen{}\left(X \mid Y\right)\mathclose{}}. \\
+> $${\text{ϙ}_{\omega}\mathopen{}\left(Y \mid X\right)\mathclose{}} = {\text{ϙ}_{\omega}\mathopen{}\left(X \mid Y\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
-> *Proof*. By [Theorem 4](#thm-odds-ratio-cross-product), with the roles of \\X\\ and \\Y\\ exchanged,
+> *Proof*. By [Theorem 4](#thm-odds-ratio-cross-product), with the roles of $X$ and $Y$ exchanged,
 >
-> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(X \mid Y\right)\mathclose{}} = \frac{{\mathbb{P}\mathopen{}\left(Y = 1, X = 1\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(Y = 0, X = 0\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 1, X = 0\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(Y = 0, X = 1\right)\mathclose{}}}. \\
+> $${\text{ϙ}_{\omega}\mathopen{}\left(X \mid Y\right)\mathclose{}} = \frac{{\mathbb{P}\mathopen{}\left(Y = 1, X = 1\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(Y = 0, X = 0\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 1, X = 0\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(Y = 0, X = 1\right)\mathclose{}}}.$$
 >
-> The event \\{\mathopen{}\left\\Y = y, X = x\right\\\mathclose{}}\\ is the event \\{\mathopen{}\left\\X = x, Y = y\right\\\mathclose{}}\\, so each joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) here equals the joint probability with its arguments in the other order. The denominator is a product of two joint probabilities, and multiplication is commutative. Reordering its two factors gives the denominator of [Theorem 4](#thm-odds-ratio-cross-product) for \\{\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X\right)\mathclose{}}\\.
+> The event ${\mathopen{}\left\{Y = y, X = x\right\}\mathclose{}}$ is the event ${\mathopen{}\left\{X = x, Y = y\right\}\mathclose{}}$, so each joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) here equals the joint probability with its arguments in the other order. The denominator is a product of two joint probabilities, and multiplication is commutative. Reordering its two factors gives the denominator of [Theorem 4](#thm-odds-ratio-cross-product) for ${\text{ϙ}_{\omega}\mathopen{}\left(Y \mid X\right)\mathclose{}}$.
 
 > **NOTE:**
 >
@@ -474,29 +501,41 @@ Tests of independence say whether two binary variables are associated, but not h
 >
 > **Theorem 6 (The conditional odds ratio is reversible)** Let:
 >
-> - \\X\\ and \\Y\\ be [binary](data.llms.md#def-binary-var) random variables, each with values \\0\\ and \\1\\.
-> - \\Z\\ be a random variable, and \\z\\ be a value of \\Z\\.
-> - \\{\mathbb{P}\mathopen{}\left(X = x, Y = y, Z = z\right)\mathclose{}} \> 0\\ for each \\x, y \in {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\.
+> - $X$ and $Y$ be [binary](data.llms.md#def-binary-var) random variables, each with values $0$ and $1$.
+> - $Z$ be a random variable, and $z$ be a value of $Z$.
+> - ${\mathbb{P}\mathopen{}\left(X = x, Y = y, Z = z\right)\mathclose{}} > 0$ for each $x, y \in {\mathopen{}\left\{0, 1\right\}\mathclose{}}$.
 >
-> The [odds ratio](#def-odds-ratio) of \\Y = 1\\ comparing \\X = 1\\ with the [reference group](#def-reference-group) \\X = 0\\, among the units with \\Z = z\\, equals the odds ratio of \\X = 1\\ comparing \\Y = 1\\ with \\Y = 0\\, among the units with \\Z = z\\:
+> The [odds ratio](#def-odds-ratio) of $Y = 1$ comparing $X = 1$ with the [reference group](#def-reference-group) $X = 0$, among the units with $Z = z$, equals the odds ratio of $X = 1$ comparing $Y = 1$ with $Y = 0$, among the units with $Z = z$:
 >
-> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X, Z = z\right)\mathclose{}} = {\text{ϙ}\_{\omega}\mathopen{}\left(X \mid Y, Z = z\right)\mathclose{}}. \\
+> $${\text{ϙ}_{\omega}\mathopen{}\left(Y \mid X, Z = z\right)\mathclose{}} = {\text{ϙ}_{\omega}\mathopen{}\left(X \mid Y, Z = z\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
-> *Proof*. First, find the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of \\Y = 1\\ in the group \\X = x\\ among the units with \\Z = z\\:
+> *Proof*. First, find the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of $Y = 1$ in the group $X = x$ among the units with $Z = z$:
 >
-> \\ \begin{aligned} \omega\_{x} &= \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}}{1 - {\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}} && \text{(definition of odds)} \\ &= \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 0 \mid X = x, Z = z\right)\mathclose{}}} && \text{(the two values of \$Y\$ have conditional probabilities that sum to 1)} \\ &= \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1, Z = z\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0, Z = z\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}} && \text{(definition of conditional probability, in numerator and denominator)} \\ &= \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0, Z = z\right)\mathclose{}}} && \text{(divide the numerator and the denominator by the same positive number \${\mathbb{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}\$)} \end{aligned} \\
+> $$\begin{aligned}
+> \omega_{x}
+> &= \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}}{1 - {\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}}
+> && \text{(definition of odds)}
+> \\ &= \frac{{\mathbb{P}\mathopen{}\left(Y = 1 \mid X = x, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 0 \mid X = x, Z = z\right)\mathclose{}}}
+> && \text{(the two values of $Y$ have conditional probabilities that sum to 1)}
+> \\ &= \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1, Z = z\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0, Z = z\right)\mathclose{}} / {\mathbb{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}}
+> && \text{(definition of conditional probability, in numerator and denominator)}
+> \\ &= \frac{{\mathbb{P}\mathopen{}\left(X = x, Y = 1, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = x, Y = 0, Z = z\right)\mathclose{}}}
+> && \text{(divide the numerator and the denominator by the same positive number ${\mathbb{P}\mathopen{}\left(X = x, Z = z\right)\mathclose{}}$)}
+> \end{aligned}$$
 >
-> The [odds ratio](#def-odds-ratio) is the odds \\\omega_1\\ divided by the odds \\\omega_0\\. Dividing by a fraction is multiplying by its reciprocal, so
+> The [odds ratio](#def-odds-ratio) is the odds $\omega_1$ divided by the odds $\omega_0$. Dividing by a fraction is multiplying by its reciprocal, so
 >
-> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(Y \mid X, Z = z\right)\mathclose{}} = \frac{{\mathbb{P}\mathopen{}\left(X = 1, Y = 1, Z = z\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(X = 0, Y = 0, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = 1, Y = 0, Z = z\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(X = 0, Y = 1, Z = z\right)\mathclose{}}}. \\
+> $${\text{ϙ}_{\omega}\mathopen{}\left(Y \mid X, Z = z\right)\mathclose{}}
+> = \frac{{\mathbb{P}\mathopen{}\left(X = 1, Y = 1, Z = z\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(X = 0, Y = 0, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(X = 1, Y = 0, Z = z\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(X = 0, Y = 1, Z = z\right)\mathclose{}}}.$$
 >
-> The same steps with the roles of \\X\\ and \\Y\\ exchanged give
+> The same steps with the roles of $X$ and $Y$ exchanged give
 >
-> \\ {\text{ϙ}\_{\omega}\mathopen{}\left(X \mid Y, Z = z\right)\mathclose{}} = \frac{{\mathbb{P}\mathopen{}\left(Y = 1, X = 1, Z = z\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(Y = 0, X = 0, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 1, X = 0, Z = z\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(Y = 0, X = 1, Z = z\right)\mathclose{}}}. \\
+> $${\text{ϙ}_{\omega}\mathopen{}\left(X \mid Y, Z = z\right)\mathclose{}}
+> = \frac{{\mathbb{P}\mathopen{}\left(Y = 1, X = 1, Z = z\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(Y = 0, X = 0, Z = z\right)\mathclose{}}}{{\mathbb{P}\mathopen{}\left(Y = 1, X = 0, Z = z\right)\mathclose{}} {\mathbb{P}\mathopen{}\left(Y = 0, X = 1, Z = z\right)\mathclose{}}}.$$
 >
-> The event \\{\mathopen{}\left\\Y = y, X = x, Z = z\right\\\mathclose{}}\\ is the event \\{\mathopen{}\left\\X = x, Y = y, Z = z\right\\\mathclose{}}\\, so each joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) here equals the joint probability with its arguments in the other order. The denominator is a product of two joint probabilities, and multiplication is commutative. Reordering its two factors gives the denominator of the first display.
+> The event ${\mathopen{}\left\{Y = y, X = x, Z = z\right\}\mathclose{}}$ is the event ${\mathopen{}\left\{X = x, Y = y, Z = z\right\}\mathclose{}}$, so each joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) here equals the joint probability with its arguments in the other order. The denominator is a product of two joint probabilities, and multiplication is commutative. Reordering its two factors gives the denominator of the first display.
 
 > **NOTE:**
 >

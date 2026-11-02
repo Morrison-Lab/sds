@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-01 01:56:06 (PDT)
+Last modified: 2026-11-02 10:03:02 (PST)
 
 ## 0.1 Introduction
 
@@ -132,39 +132,48 @@ That page also defines the graphs used here, including [box plots](exploratory-d
 
 ### 0.4.1 Hypotheses
 
-The [Statistical Inference](inference.llms.md) page defines the [null hypothesis](inference.llms.md#def-null-hypothesis), the [alternative hypothesis](inference.llms.md#def-alternative-hypothesis), [test statistics](inference.llms.md#def-test-statistic), [p-values](inference.llms.md#def-p-value), and [significance levels](inference.llms.md#def-significance-level). In a comparison of two groups with means \\\mu_1\\ and \\\mu_2\\, the null hypothesis is usually \\H_0: \mu_1 = \mu_2\\, and the two-sided alternative is \\H_1: \mu_1 \neq \mu_2\\.
+The [Statistical Inference](inference.llms.md) page defines the [null hypothesis](inference.llms.md#def-null-hypothesis), the [alternative hypothesis](inference.llms.md#def-alternative-hypothesis), [test statistics](inference.llms.md#def-test-statistic), [p-values](inference.llms.md#def-p-value), and [significance levels](inference.llms.md#def-significance-level). In a comparison of two groups with means $\mu_1$ and $\mu_2$, the null hypothesis is usually $H_0: \mu_1 = \mu_2$, and the two-sided alternative is $H_1: \mu_1 \neq \mu_2$.
 
 ### 0.4.2 One-sample t-test
 
 > **NOTE:**
 >
-> **Definition 1 (One-sample t-test)** Let \\x_1, \ldots, x_n\\ be observations with \\n \ge 2\\, sample mean \\{\bar{x}}\\, and sample standard deviation \\s\\. The **one-sample t-test** of \\H_0: \mu= \mu_0\\ against \\H_1: \mu\neq \mu_0\\ uses the [statistic](sufficiency.llms.md#def-statistic)
+> **Definition 1 (One-sample t-test)** Let $x_1, \ldots, x_n$ be observations with $n \ge 2$, sample mean ${\bar{x}}$, and sample standard deviation $s$. The **one-sample t-test** of $H_0: \mu= \mu_0$ against $H_1: \mu\neq \mu_0$ uses the [statistic](sufficiency.llms.md#def-statistic)
 >
-> \\t \stackrel{\text{def}}{=}\frac{{\bar{x}}- \mu_0}{s / \sqrt{n}}.\\
+> $$t \stackrel{\text{def}}{=}\frac{{\bar{x}}- \mu_0}{s / \sqrt{n}}.$$
 >
-> Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{n-1}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
+> Its p-value is $\Pr(\mathopen{}\left|T\right|\mathclose{} \ge \mathopen{}\left|t\right|\mathclose{})$, where $T$ has the $t_{n-1}$ distribution ([t-distribution](inference.llms.md#def-t-dist)).
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_students_t_test).
 
 > **NOTE:**
 >
-> **Theorem 1 (Null distribution of the one-sample t statistic)** Let \\X_1, \ldots, X_n\\ be independent, each Gaussian with mean \\\mu_0\\ and variance \\\sigma^2\\, with \\n \ge 2\\. Then the statistic \\T \stackrel{\text{def}}{=}(\bar X - \mu_0) / (S / \sqrt{n})\\ of [Definition 1](#def-one-sample-t-test), computed from these random variables, has the \\t\_{n-1}\\ distribution.
+> **Theorem 1 (Null distribution of the one-sample t statistic)** Let $X_1, \ldots, X_n$ be independent, each Gaussian with mean $\mu_0$ and variance $\sigma^2$, with $n \ge 2$. Then the statistic $T \stackrel{\text{def}}{=}(\bar X - \mu_0) / (S / \sqrt{n})$ of [Definition 1](#def-one-sample-t-test), computed from these random variables, has the $t_{n-1}$ distribution.
 
 > **NOTE:**
 >
-> *Proof*. We use a standard fact about Gaussian samples [\[4, Sec. 5.5\]](#ref-hoggtanis2015), pp. 203-205: \\\bar X\\ and \\S^2\\ are independent, and \\V \stackrel{\text{def}}{=}(n-1) S^2 / \sigma^2\\ has the \\\chi^2\_{n-1}\\ distribution. Also, \\Z \stackrel{\text{def}}{=}(\bar X - \mu_0) / (\sigma/ \sqrt{n})\\ has the standard Gaussian distribution, and \\Z\\ is independent of \\V\\ because \\\bar X\\ is independent of \\S^2\\. So by the [definition of the t-distribution](inference.llms.md#def-t-dist), \\Z / \sqrt{V / (n-1)}\\ has the \\t\_{n-1}\\ distribution, and this ratio equals \\T\\:
+> *Proof*. We use a standard fact about Gaussian samples [\[4, Sec. 5.5\]](#ref-hoggtanis2015), pp. 203-205: $\bar X$ and $S^2$ are independent, and $V \stackrel{\text{def}}{=}(n-1) S^2 / \sigma^2$ has the $\chi^2_{n-1}$ distribution. Also, $Z \stackrel{\text{def}}{=}(\bar X - \mu_0) / (\sigma/ \sqrt{n})$ has the standard Gaussian distribution, and $Z$ is independent of $V$ because $\bar X$ is independent of $S^2$. So by the [definition of the t-distribution](inference.llms.md#def-t-dist), $Z / \sqrt{V / (n-1)}$ has the $t_{n-1}$ distribution, and this ratio equals $T$:
 >
-> \\ \begin{aligned} \frac{Z}{\sqrt{V/(n-1)}} &= \frac{(\bar X - \mu_0) / (\sigma/ \sqrt{n})}{\sqrt{S^2 / \sigma^2}} && \text{(substitute \$Z\$ and \$V\$)}\\ &= \frac{(\bar X - \mu_0) / (\sigma/ \sqrt{n})}{S / \sigma} && \text{(\$\sqrt{S^2} = S\$, since \$S \ge 0\$)}\\ &= \frac{\bar X - \mu_0}{S / \sqrt{n}} && \text{(the factors of \$\sigma\$ cancel)}\\ &= T. \end{aligned} \\
+> $$\begin{aligned}
+> \frac{Z}{\sqrt{V/(n-1)}}
+> &= \frac{(\bar X - \mu_0) / (\sigma/ \sqrt{n})}{\sqrt{S^2 / \sigma^2}}
+> && \text{(substitute $Z$ and $V$)}\\
+> &= \frac{(\bar X - \mu_0) / (\sigma/ \sqrt{n})}{S / \sigma}
+> && \text{($\sqrt{S^2} = S$, since $S \ge 0$)}\\
+> &= \frac{\bar X - \mu_0}{S / \sqrt{n}}
+> && \text{(the factors of $\sigma$ cancel)}\\
+> &= T.
+> \end{aligned}$$
 
 > **NOTE:**
 >
-> *Remark 1* (Non-Gaussian data). When the observations are not Gaussian, \\T\\ still has approximately the standard Gaussian distribution when \\n\\ is large, by the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), and then \\t\_{n-1}\\ is close to the standard Gaussian distribution ([t quantiles approach Gaussian quantiles](inference.llms.md#exm-t-dist)).
+> *Remark 1* (Non-Gaussian data). When the observations are not Gaussian, $T$ still has approximately the standard Gaussian distribution when $n$ is large, by the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), and then $t_{n-1}$ is close to the standard Gaussian distribution ([t quantiles approach Gaussian quantiles](inference.llms.md#exm-t-dist)).
 
 ### 0.4.3 Paired t-test
 
 > **NOTE:**
 >
-> **Definition 2 (Paired t-test)** Let \\(x\_{1,1}, x\_{1,2}), \ldots, (x\_{n,1}, x\_{n,2})\\ be pairs of related measurements, such as the same participants measured at two times, and let \\d_i \stackrel{\text{def}}{=}x\_{i,2} - x\_{i,1}\\ be the within-pair differences, with population mean \\\mu_d\\. The **paired t-test** of \\H_0: \mu_d = 0\\ against \\H_1: \mu_d \neq 0\\ is the one-sample t-test ([Definition 1](#def-one-sample-t-test)) of \\H_0: \mu= 0\\ applied to \\d_1, \ldots, d_n\\.
+> **Definition 2 (Paired t-test)** Let $(x_{1,1}, x_{1,2}), \ldots, (x_{n,1}, x_{n,2})$ be pairs of related measurements, such as the same participants measured at two times, and let $d_i \stackrel{\text{def}}{=}x_{i,2} - x_{i,1}$ be the within-pair differences, with population mean $\mu_d$. The **paired t-test** of $H_0: \mu_d = 0$ against $H_1: \mu_d \neq 0$ is the one-sample t-test ([Definition 1](#def-one-sample-t-test)) of $H_0: \mu= 0$ applied to $d_1, \ldots, d_n$.
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_students_t_test).
 
@@ -189,7 +198,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > #> 2.61300e+03 2.62036e+00 4.15081e+00 3.41911e-05
 > ```
 >
-> [`t.test()`](https://rdrr.io/r/stats/t.test.html) with `paired = TRUE` gives the same statistic, along with a confidence interval for \\\mu_d\\:
+> [`t.test()`](https://rdrr.io/r/stats/t.test.html) with `paired = TRUE` gives the same statistic, along with a confidence interval for $\mu_d$:
 >
 > ``` downlit
 > t.test(hers$glucose1, hers$glucose, paired = TRUE)
@@ -212,25 +221,26 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 3 (Welch’s two-sample t-test)** Let two independent groups have sample sizes \\n_1, n_2 \ge 2\\, sample means \\\bar{x}\_1\\ and \\\bar{x}\_2\\, and sample variances \\s_1^2\\ and \\s_2^2\\. **Welch’s two-sample t-test** of \\H_0: \mu_1 = \mu_2\\ against \\H_1: \mu_1 \neq \mu_2\\ uses the [statistic](sufficiency.llms.md#def-statistic)
+> **Definition 3 (Welch’s two-sample t-test)** Let two independent groups have sample sizes $n_1, n_2 \ge 2$, sample means $\bar{x}_1$ and $\bar{x}_2$, and sample variances $s_1^2$ and $s_2^2$. **Welch’s two-sample t-test** of $H_0: \mu_1 = \mu_2$ against $H_1: \mu_1 \neq \mu_2$ uses the [statistic](sufficiency.llms.md#def-statistic)
 >
-> \\t \stackrel{\text{def}}{=}\frac{\bar{x}\_1 - \bar{x}\_2}{\sqrt{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}}\\
+> $$t \stackrel{\text{def}}{=}\frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}}$$
 >
 > and the Welch–Satterthwaite degrees of freedom
 >
-> \\\hat{\operatorname{df}}\stackrel{\text{def}}{=}\frac{\mathopen{}\left(\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}\right)\mathclose{}^2} {\dfrac{(s_1^2 / n_1)^2}{n_1 - 1} + \dfrac{(s_2^2 / n_2)^2}{n_2 - 1}}.\\
+> $$\hat{\operatorname{df}}\stackrel{\text{def}}{=}\frac{\mathopen{}\left(\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}\right)\mathclose{}^2}
+> {\dfrac{(s_1^2 / n_1)^2}{n_1 - 1} + \dfrac{(s_2^2 / n_2)^2}{n_2 - 1}}.$$
 >
-> Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{\hat{\operatorname{df}}}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
+> Its p-value is $\Pr(\mathopen{}\left|T\right|\mathclose{} \ge \mathopen{}\left|t\right|\mathclose{})$, where $T$ has the $t_{\hat{\operatorname{df}}}$ distribution ([t-distribution](inference.llms.md#def-t-dist)).
 >
 > Source: Wikipedia contributors [\[5\]](#ref-wikipedia_welchs_t_test).
 
 > **NOTE:**
 >
-> *Remark 2* (Properties of Welch’s test). Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, \\t\_{\hat{\operatorname{df}}}\\ is only an approximation to the null distribution of \\t\\. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under \\H_0\\, as in [the WCGS cholesterol example](inference.llms.md#exm-p-value-wcgs). Welch’s test is the default in R’s [`t.test()`](https://rdrr.io/r/stats/t.test.html).
+> *Remark 2* (Properties of Welch’s test). Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, $t_{\hat{\operatorname{df}}}$ is only an approximation to the null distribution of $t$. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under $H_0$, as in [the WCGS cholesterol example](inference.llms.md#exm-p-value-wcgs). Welch’s test is the default in R’s [`t.test()`](https://rdrr.io/r/stats/t.test.html).
 
 > **NOTE:**
 >
-> **Example 3 (Baseline fasting glucose by treatment group in HERS)** We test \\H_0: \mu\_\text{HT} = \mu\_\text{placebo}\\ against \\H_1: \mu\_\text{HT} \neq \mu\_\text{placebo}\\, where \\\mu\_\text{HT}\\ and \\\mu\_\text{placebo}\\ are the population mean baseline fasting glucose levels in the hormone therapy and placebo populations. [Figure 1](#fig-hers-boxplot) compares the two groups’ distributions.
+> **Example 3 (Baseline fasting glucose by treatment group in HERS)** We test $H_0: \mu_\text{HT} = \mu_\text{placebo}$ against $H_1: \mu_\text{HT} \neq \mu_\text{placebo}$, where $\mu_\text{HT}$ and $\mu_\text{placebo}$ are the population mean baseline fasting glucose levels in the hormone therapy and placebo populations. [Figure 1](#fig-hers-boxplot) compares the two groups’ distributions.
 >
 > > **NOTE:**
 > >
@@ -288,41 +298,49 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > #>   111.854   112.449
 > ```
 >
-> The p-value is large, so the data give no evidence against \\H_0\\. That result is expected here: treatment was randomized, so the groups’ baseline sample means differ only by chance.
+> The p-value is large, so the data give no evidence against $H_0$. That result is expected here: treatment was randomized, so the groups’ baseline sample means differ only by chance.
 
 > **NOTE:**
 >
-> **Definition 4 (Pooled variance)** For two samples of sizes \\n_1\\ and \\n_2\\ with sample variances \\s_1^2\\ and \\s_2^2\\, the **pooled variance** is
+> **Definition 4 (Pooled variance)** For two samples of sizes $n_1$ and $n_2$ with sample variances $s_1^2$ and $s_2^2$, the **pooled variance** is
 >
-> \\s_p^2 \stackrel{\text{def}}{=}\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}.\\
+> $$s_p^2 \stackrel{\text{def}}{=}\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}.$$
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_pooled_variance).
 
 > **NOTE:**
 >
-> **Example 4 (Pooled variance of two small samples)** With \\n_1 = 3\\, \\s_1^2 = 4\\, \\n_2 = 5\\, and \\s_2^2 = 9\\:
+> **Example 4 (Pooled variance of two small samples)** With $n_1 = 3$, $s_1^2 = 4$, $n_2 = 5$, and $s_2^2 = 9$:
 >
-> \\ \begin{aligned} s_p^2 &= \frac{(3 - 1) \cdot 4 + (5 - 1) \cdot 9}{3 + 5 - 2} && \text{(definition of pooled variance)}\\ &= \frac{8 + 36}{6} && \text{(arithmetic)}\\ &\approx 7.33 && \text{(arithmetic)} \end{aligned} \\
+> $$\begin{aligned}
+> s_p^2
+> &= \frac{(3 - 1) \cdot 4 + (5 - 1) \cdot 9}{3 + 5 - 2}
+> && \text{(definition of pooled variance)}\\
+> &= \frac{8 + 36}{6}
+> && \text{(arithmetic)}\\
+> &\approx 7.33
+> && \text{(arithmetic)}
+> \end{aligned}$$
 >
-> The pooled variance lies between the two sample variances, closer to \\s_2^2\\, whose sample is larger.
+> The pooled variance lies between the two sample variances, closer to $s_2^2$, whose sample is larger.
 
 > **NOTE:**
 >
-> *Remark 3* (What the pooled variance estimates). When the two populations share one variance \\\sigma^2\\, the pooled variance estimates it.
+> *Remark 3* (What the pooled variance estimates). When the two populations share one variance $\sigma^2$, the pooled variance estimates it.
 
 > **NOTE:**
 >
-> **Definition 5 (Pooled two-sample t-test)** With the notation of [Definition 3](#def-two-sample-t-test) and the [pooled variance](#def-pooled-variance) \\s_p^2\\, the **pooled two-sample t-test** of \\H_0: \mu_1 = \mu_2\\ uses the statistic
+> **Definition 5 (Pooled two-sample t-test)** With the notation of [Definition 3](#def-two-sample-t-test) and the [pooled variance](#def-pooled-variance) $s_p^2$, the **pooled two-sample t-test** of $H_0: \mu_1 = \mu_2$ uses the statistic
 >
-> \\t_p \stackrel{\text{def}}{=}\frac{\bar{x}\_1 - \bar{x}\_2}{s_p \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}}}.\\
+> $$t_p \stackrel{\text{def}}{=}\frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}}}.$$
 >
-> Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t_p\right\|\mathclose{})\\, where \\T\\ has the \\t\_{n_1 + n_2 - 2}\\ distribution.
+> Its p-value is $\Pr(\mathopen{}\left|T\right|\mathclose{} \ge \mathopen{}\left|t_p\right|\mathclose{})$, where $T$ has the $t_{n_1 + n_2 - 2}$ distribution.
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_students_t_test).
 
 > **NOTE:**
 >
-> **Theorem 2 (Null distribution of the pooled t statistic)** Let the observations in both groups be independent and Gaussian, all with the same mean and the same variance \\\sigma^2\\. Then \\t_p\\ ([Definition 5](#def-pooled-t-test)), computed from these random variables, has the \\t\_{n_1 + n_2 - 2}\\ distribution [\[4, Sec. 8.2\]](#ref-hoggtanis2015), p. 371.
+> **Theorem 2 (Null distribution of the pooled t statistic)** Let the observations in both groups be independent and Gaussian, all with the same mean and the same variance $\sigma^2$. Then $t_p$ ([Definition 5](#def-pooled-t-test)), computed from these random variables, has the $t_{n_1 + n_2 - 2}$ distribution [\[4, Sec. 8.2\]](#ref-hoggtanis2015), p. 371.
 
 > **NOTE:**
 >
@@ -357,11 +375,12 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 6 (Welch confidence interval for a difference in means)** With the notation of [Definition 3](#def-two-sample-t-test), the **Welch \\100(1-\alpha)\\\\ confidence interval** for \\\mu_1 - \mu_2\\ is
+> **Definition 6 (Welch confidence interval for a difference in means)** With the notation of [Definition 3](#def-two-sample-t-test), the **Welch** $100(1-\alpha)\%$ confidence interval for $\mu_1 - \mu_2$ is
 >
-> \\(\bar{x}\_1 - \bar{x}\_2) \pm t\_{\hat{\operatorname{df}},\\ 1 - \alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},\\
+> $$(\bar{x}_1 - \bar{x}_2) \pm t_{\hat{\operatorname{df}},\, 1 - \alpha/2}
+> \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},$$
 >
-> where \\t\_{\hat{\operatorname{df}},\\ 1 - \alpha/2}\\ is the \\1 - \alpha/2\\ quantile of the \\t\_{\hat{\operatorname{df}}}\\ distribution. It is an approximate [confidence interval](inference.llms.md#def-confidence-interval).
+> where $t_{\hat{\operatorname{df}},\, 1 - \alpha/2}$ is the $1 - \alpha/2$ quantile of the $t_{\hat{\operatorname{df}}}$ distribution. It is an approximate [confidence interval](inference.llms.md#def-confidence-interval).
 
 > **NOTE:**
 >
@@ -384,23 +403,31 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 7 (Between-group sum of squares)** Let \\y\_{j1}, \ldots, y\_{jn_j}\\ be the \\n_j\\ observations in group \\j\\, for \\k \ge 2\\ groups with \\n \stackrel{\text{def}}{=}\sum\_{j=1}^{k} n_j\\ observations in all, let \\{\bar{y}}\_j\\ be the sample mean of group \\j\\, and let \\{\bar{y}}\\ be the sample mean of all \\n\\ observations. The **between-group sum of squares** is
+> **Definition 7 (Between-group sum of squares)** Let $y_{j1}, \ldots, y_{jn_j}$ be the $n_j$ observations in group $j$, for $k \ge 2$ groups with $n \stackrel{\text{def}}{=}\sum_{j=1}^{k} n_j$ observations in all, let ${\bar{y}}_j$ be the sample mean of group $j$, and let ${\bar{y}}$ be the sample mean of all $n$ observations. The **between-group sum of squares** is
 >
-> \\\text{SS}\_\text{between} \stackrel{\text{def}}{=}\sum\_{j=1}^{k} n_j ({\bar{y}}\_j - {\bar{y}})^2.\\
+> $$\text{SS}_\text{between} \stackrel{\text{def}}{=}\sum_{j=1}^{k} n_j ({\bar{y}}_j - {\bar{y}})^2.$$
 >
 > Source: Wikipedia contributors [\[8\]](#ref-wikipedia_partition_of_sums_of_squares).
 
 > **NOTE:**
 >
-> **Example 7 (Between-group sum of squares of two small groups)** Let group 1 be \\\mathopen{}\left\\1, 2, 3\right\\\mathclose{}\\ and group 2 be \\\mathopen{}\left\\4, 5, 6\right\\\mathclose{}\\, so \\\bar y_1 = 2\\, \\\bar y_2 = 5\\, and \\\bar y = 3.5\\. Then:
+> **Example 7 (Between-group sum of squares of two small groups)** Let group 1 be $\mathopen{}\left\{1, 2, 3\right\}\mathclose{}$ and group 2 be $\mathopen{}\left\{4, 5, 6\right\}\mathclose{}$, so $\bar y_1 = 2$, $\bar y_2 = 5$, and $\bar y = 3.5$. Then:
 >
-> \\ \begin{aligned} \text{SS}\_\text{between} &= 3(2 - 3.5)^2 + 3(5 - 3.5)^2 && \text{(definition)}\\ &= 3(2.25) + 3(2.25) && \text{(square the deviations)}\\ &= 13.5 && \text{(arithmetic)} \end{aligned} \\
+> $$\begin{aligned}
+> \text{SS}_\text{between}
+> &= 3(2 - 3.5)^2 + 3(5 - 3.5)^2
+> && \text{(definition)}\\
+> &= 3(2.25) + 3(2.25)
+> && \text{(square the deviations)}\\
+> &= 13.5
+> && \text{(arithmetic)}
+> \end{aligned}$$
 
 > **NOTE:**
 >
 > **Definition 8 (Within-group sum of squares)** With the notation of [Definition 7](#def-ss-between), the **within-group sum of squares** is
 >
-> \\\text{SS}\_\text{within} \stackrel{\text{def}}{=}\sum\_{j=1}^{k} \sum\_{i=1}^{n_j} (y\_{ji} - {\bar{y}}\_j)^2.\\
+> $$\text{SS}_\text{within} \stackrel{\text{def}}{=}\sum_{j=1}^{k} \sum_{i=1}^{n_j} (y_{ji} - {\bar{y}}_j)^2.$$
 >
 > Source: Wikipedia contributors [\[8\]](#ref-wikipedia_partition_of_sums_of_squares).
 
@@ -408,49 +435,73 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > **Example 8 (Within-group sum of squares of two small groups)** For the groups of [Example 7](#exm-ss-between):
 >
-> \\ \begin{aligned} \text{SS}\_\text{within} &= \mathopen{}\left\[(1-2)^2 + (2-2)^2 + (3-2)^2\right\]\mathclose{} + \mathopen{}\left\[(4-5)^2 + (5-5)^2 + (6-5)^2\right\]\mathclose{} && \text{(definition)}\\ &= 2 + 2 && \text{(arithmetic)}\\ &= 4 && \text{(arithmetic)} \end{aligned} \\
+> $$\begin{aligned}
+> \text{SS}_\text{within}
+> &= \mathopen{}\left[(1-2)^2 + (2-2)^2 + (3-2)^2\right]\mathclose{} + \mathopen{}\left[(4-5)^2 + (5-5)^2 + (6-5)^2\right]\mathclose{}
+> && \text{(definition)}\\
+> &= 2 + 2
+> && \text{(arithmetic)}\\
+> &= 4
+> && \text{(arithmetic)}
+> \end{aligned}$$
 
 > **NOTE:**
 >
-> **Definition 9 (Mean squares)** In one-way analysis of variance, the **mean squares** are the sums of squares divided by their degrees of freedom: \\\text{MS}\_\text{between} \stackrel{\text{def}}{=}\text{SS}\_\text{between} / (k - 1)\\ and \\\text{MS}\_\text{within} \stackrel{\text{def}}{=}\text{SS}\_\text{within} / (n - k)\\. When the \\k\\ groups share one variance \\\sigma^2\\, \\\text{MS}\_\text{within}\\ estimates it.
+> **Definition 9 (Mean squares)** In one-way analysis of variance, the **mean squares** are the sums of squares divided by their degrees of freedom: $\text{MS}_\text{between} \stackrel{\text{def}}{=}\text{SS}_\text{between} / (k - 1)$ and $\text{MS}_\text{within} \stackrel{\text{def}}{=}\text{SS}_\text{within} / (n - k)$. When the $k$ groups share one variance $\sigma^2$, $\text{MS}_\text{within}$ estimates it.
 
 > **NOTE:**
 >
-> **Example 9 (Mean squares of two small groups)** For the groups of [Example 7](#exm-ss-between), \\k = 2\\ and \\n = 6\\, so
+> **Example 9 (Mean squares of two small groups)** For the groups of [Example 7](#exm-ss-between), $k = 2$ and $n = 6$, so
 >
-> \\ \begin{aligned} \text{MS}\_\text{between} &= 13.5 / 1 \\ &= 13.5 \end{aligned} \\
+> $$\begin{aligned}
+>   \text{MS}_\text{between} &= 13.5 / 1 \\
+>   &= 13.5
+> \end{aligned}$$
 >
 > and
 >
-> \\ \begin{aligned} \text{MS}\_\text{within} &= 4 / 4 \\ &= 1. \end{aligned} \\
+> $$\begin{aligned}
+>   \text{MS}_\text{within} &= 4 / 4 \\
+>   &= 1.
+> \end{aligned}$$
 
 > **NOTE:**
 >
-> **Definition 10 (One-way analysis of variance)** With the [mean squares](#def-mean-squares) of \\k \ge 2\\ groups and \\n \> k\\ observations in all, the **one-way analysis of variance (ANOVA)** F-test of
+> **Definition 10 (One-way analysis of variance)** With the [mean squares](#def-mean-squares) of $k \ge 2$ groups and $n > k$ observations in all, the **one-way analysis of variance (ANOVA)** F-test of
 >
-> \\ \begin{aligned} H_0: \mu_1 &= \mu_2 \\ &= \cdots \\ &= \mu_k \end{aligned} \\
+> $$\begin{aligned}
+>   H_0: \mu_1 &= \mu_2 \\
+>   &= \cdots \\
+>   &= \mu_k
+> \end{aligned}$$
 >
 > against the alternative that at least two group means differ uses the [statistic](sufficiency.llms.md#def-statistic) [\[9\]](#ref-wikipedia_f_test)
 >
-> \\F \stackrel{\text{def}}{=}\frac{\text{MS}\_\text{between}}{\text{MS}\_\text{within}}.\\
+> $$F \stackrel{\text{def}}{=}\frac{\text{MS}_\text{between}}{\text{MS}_\text{within}}.$$
 >
-> Its p-value is \\\Pr(F^\* \ge F)\\, where \\F^\*\\ has the \\F\_{k-1,\\ n-k}\\ distribution ([F-distribution](inference.llms.md#def-f-dist)).
+> Its p-value is $\Pr(F^* \ge F)$, where $F^*$ has the $F_{k-1,\, n-k}$ distribution ([F-distribution](inference.llms.md#def-f-dist)).
 >
 > Source: Wikipedia contributors [\[10\]](#ref-wikipedia_analysis_of_variance).
 
 > **NOTE:**
 >
-> *Remark 5* (Interpreting the F statistic). Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares),
+> *Remark 5* (Interpreting the F statistic). Large values of $F$ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares),
 >
-> \\ \begin{aligned} F &= 13.5 / 1 \\ &= 13.5. \end{aligned} \\
+> $$\begin{aligned}
+>   F &= 13.5 / 1 \\
+>   &= 13.5.
+> \end{aligned}$$
 
 > **NOTE:**
 >
-> **Theorem 3 (Null distribution of the ANOVA F statistic)** Let all \\n\\ observations be independent, with observation \\y\_{ji}\\ Gaussian with mean \\\mu_j\\ and the same variance \\\sigma^2\\ in every group. If
+> **Theorem 3 (Null distribution of the ANOVA F statistic)** Let all $n$ observations be independent, with observation $y_{ji}$ Gaussian with mean $\mu_j$ and the same variance $\sigma^2$ in every group. If
 >
-> \\ \begin{aligned} H_0: \mu_1 &= \cdots \\ &= \mu_k \end{aligned} \\
+> $$\begin{aligned}
+>   H_0: \mu_1 &= \cdots \\
+>   &= \mu_k
+> \end{aligned}$$
 >
-> holds, then \\F\\ ([Definition 10](#def-one-way-anova)), computed from these random variables, has the \\F\_{k-1,\\ n-k}\\ distribution [\[4, Sec. 9.3\]](#ref-hoggtanis2015), p. 449.
+> holds, then $F$ ([Definition 10](#def-one-way-anova)), computed from these random variables, has the $F_{k-1,\, n-k}$ distribution [\[4, Sec. 9.3\]](#ref-hoggtanis2015), p. 449.
 
 > **NOTE:**
 >
@@ -485,7 +536,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > anova_parts
 > ```
 >
-> \\\text{SS}\_\text{between}\\ is summed here over observations rather than groups: each observation in group \\j\\ contributes \\({\bar{y}}\_j - {\bar{y}})^2\\, which gives the \\n_j\\ weights of [Definition 10](#def-one-way-anova). [`aov()`](https://rdrr.io/r/stats/aov.html) reports the same sums of squares, F statistic, and p-value:
+> $\text{SS}_\text{between}$ is summed here over observations rather than groups: each observation in group $j$ contributes $({\bar{y}}_j - {\bar{y}})^2$, which gives the $n_j$ weights of [Definition 10](#def-one-way-anova). [`aov()`](https://rdrr.io/r/stats/aov.html) reports the same sums of squares, F statistic, and p-value:
 >
 > ``` downlit
 > aov(glucose ~ raceth, data = hers) |>
@@ -529,7 +580,7 @@ lm(glucose ~ raceth, data = hers) |>
 | raceth    |  45918.814  |  2   |  22959.407  | 17.105 | \< .001 |
 | Residuals |  3.705e+06  | 2760 |  1342.226   |        |         |
 
-With \\k = 2\\ groups, the ANOVA F statistic equals the square of the pooled t statistic ([Definition 5](#def-pooled-t-test)), as the two treatment groups of [Example 5](#exm-hers-pooled-ttest) show:
+With $k = 2$ groups, the ANOVA F statistic equals the square of the pooled t statistic ([Definition 5](#def-pooled-t-test)), as the two treatment groups of [Example 5](#exm-hers-pooled-ttest) show:
 
 ``` downlit
 c(

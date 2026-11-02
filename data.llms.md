@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-01 01:56:06 (PDT)
+Last modified: 2026-11-02 10:03:02 (PST)
 
 Before summarizing data, it helps to identify the **type** of each variable, since the appropriate descriptive methods depend on the type. Variables are broadly classified as either **numerical** or **categorical**, and within each class there are important subtypes.
 
@@ -122,11 +122,11 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Example 10 (Dummy variables for chromosomal sex)** Let \\S\\ be the chromosomal sex of a newborn, a categorical variable with the categories “female” and “male”. Let \\M = 1\\ if \\S\\ is “male” and \\M = 0\\ if \\S\\ is “female”, and let \\F = 1\\ if \\S\\ is “female” and \\F = 0\\ if \\S\\ is “male”. Together, \\M\\ and \\F\\ are dummy variables for \\S\\.
+> **Example 10 (Dummy variables for chromosomal sex)** Let $S$ be the chromosomal sex of a newborn, a categorical variable with the categories “female” and “male”. Let $M = 1$ if $S$ is “male” and $M = 0$ if $S$ is “female”, and let $F = 1$ if $S$ is “female” and $F = 0$ if $S$ is “male”. Together, $M$ and $F$ are dummy variables for $S$.
 
 > **NOTE:**
 >
-> *Remark 4* (Other ways to code dummy variables). There are other ways to construct dummy variables. One is to use the values \\-1\\ and \\1\\: for example, \\-1\\ for “female” and \\1\\ for “male”. See Dobson and Barnett [\[1\]](#ref-dobson4e), section 2.4, for details.
+> *Remark 4* (Other ways to code dummy variables). There are other ways to construct dummy variables. One is to use the values $-1$ and $1$: for example, $-1$ for “female” and $1$ for “male”. See Dobson and Barnett [\[1\]](#ref-dobson4e), section 2.4, for details.
 
 > **NOTE:**
 >
@@ -136,7 +136,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Example 11 (Indicator variables for chromosomal sex)** In [Example 10](#exm-dummy-sex), \\M\\ and \\F\\ are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values \\-1\\ and \\1\\ ([Remark 4](#rem-dummy-other-codings)) is not an indicator variable.
+> **Example 11 (Indicator variables for chromosomal sex)** In [Example 10](#exm-dummy-sex), $M$ and $F$ are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values $-1$ and $1$ ([Remark 4](#rem-dummy-other-codings)) is not an indicator variable.
 
 > **NOTE:**
 >
@@ -148,11 +148,11 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Example 12 (The reference level for chromosomal sex)** Take chromosomal sex \\S\\ with the indicator variable \\M\\ for “male” ([Example 10](#exm-dummy-sex)). The category “female” has no indicator variable, so “female” is the reference level, and a female newborn has \\M = 0\\. In [Exercise 1](#exr-dummy-coding), category A1 of `behpat` is the reference level.
+> **Example 12 (The reference level for chromosomal sex)** Take chromosomal sex $S$ with the indicator variable $M$ for “male” ([Example 10](#exm-dummy-sex)). The category “female” has no indicator variable, so “female” is the reference level, and a female newborn has $M = 0$. In [Exercise 1](#exr-dummy-coding), category A1 of `behpat` is the reference level.
 
 > **NOTE:**
 >
-> *Remark 6* (Any category can be the reference level). The choice of reference level changes how we code the categories. It does not change what the data say. For example, in [Example 12](#exm-reference-level-sex), we could instead use “male” as the reference level and the indicator variable \\F\\ for “female”. Both choices describe the same two groups.
+> *Remark 6* (Any category can be the reference level). The choice of reference level changes how we code the categories. It does not change what the data say. For example, in [Example 12](#exm-reference-level-sex), we could instead use “male” as the reference level and the indicator variable $F$ for “female”. Both choices describe the same two groups.
 
 ## 0.2 Taxonomy of variable types
 
@@ -321,9 +321,9 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Definition 14 (Count variable)** A **count variable** is a random variable whose possible values are some subset of the non-negative integers; specifically, a random variable \\X\\ such that:
+> **Definition 14 (Count variable)** A **count variable** is a random variable whose possible values are some subset of the non-negative integers; specifically, a random variable $X$ such that:
 >
-> \\\mathcal{R}(X) \subseteq \mathbb{N}\\
+> $$\mathcal{R}(X) \subseteq \mathbb{N}$$
 
 > **NOTE:**
 >

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-01 01:56:06 (PDT)
+Last modified: 2026-11-02 10:03:02 (PST)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models [\[1, Ch. 14\]](#ref-dobson4e). After the first example, the page compares JAGS with Stan on the same model. It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -14,7 +14,7 @@ From here on, the models are fit by Bayesian inference with JAGS (“Just Anothe
 
 > **NOTE:**
 >
-> **Example 1 (A Bernoulli model fitted with JAGS)** The data are \\r = 55\\ successes in \\n = 91\\ trials, and the prior is uniform, as in [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli). Each chain gets its own random-number generator seed, so the output is reproducible:
+> **Example 1 (A Bernoulli model fitted with JAGS)** The data are $r = 55$ successes in $n = 91$ trials, and the prior is uniform, as in [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli). Each chain gets its own random-number generator seed, so the output is reproducible:
 >
 > ``` downlit
 > y <- rep(c(1L, 0L), times = c(55L, 36L))
@@ -55,7 +55,7 @@ From here on, the models are fit by Bayesian inference with JAGS (“Just Anothe
 > #> 0.601 0.499 0.698 1.000
 > ```
 >
-> The posterior mean and equal-tailed 95% credible interval agree with the exact \\\operatorname{Beta}(56, 37)\\ values of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli) to about two decimal places, and the [potential scale reduction factor](mcmc.llms.md#def-psrf) is 1.
+> The posterior mean and equal-tailed 95% credible interval agree with the exact $\operatorname{Beta}(56, 37)$ values of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli) to about two decimal places, and the [potential scale reduction factor](mcmc.llms.md#def-psrf) is 1.
 
 ## 0.2 Comparing Stan and JAGS
 
@@ -130,11 +130,11 @@ Stan’s split [potential scale reduction factor](mcmc.llms.md#def-psrf) is 1, a
 
 ## 0.3 Binary outcomes: logistic regression
 
-For a binary outcome \\Y_i\sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operatorname{logit}(\pi_i) = \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model, a Bayesian analysis places a prior on the coefficient vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ and samples the posterior \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ by MCMC [\[1, Ch. 14\]](#ref-dobson4e), p. 318. Each \\\beta\_{x_j}\\ is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio \\e^{\beta\_{x_j}}\\, or of any other function of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, is obtained by transforming the draws. For a video introduction, see Richard McElreath’s lecture [*Modeling Events*](https://www.youtube.com/watch?v=RuBUVQELw-c) (Statistical Rethinking 2026, Lecture A09).
+For a binary outcome $Y_i\sim \operatorname{Bernoulli}(\pi_i)$ with $\operatorname{logit}(\pi_i) = \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}$, the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model, a Bayesian analysis places a prior on the coefficient vector $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}$ and samples the posterior $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ by MCMC [\[1, Ch. 14\]](#ref-dobson4e), p. 318. Each $\beta_{x_j}$ is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio $e^{\beta_{x_j}}$, or of any other function of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}$, is obtained by transforming the draws. For a video introduction, see Richard McElreath’s lecture [*Modeling Events*](https://www.youtube.com/watch?v=RuBUVQELw-c) (Statistical Rethinking 2026, Lecture A09).
 
 > **NOTE:**
 >
-> **Example 3 (Logistic regression fitted by Bayesian inference)** We simulate \\N = 200\\ observations from a logistic model with one continuous predictor, intercept \\\beta\_{0}= -0.5\\ and slope \\\beta\_{x} = 1.2\\, and place a diffuse \\{\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}}\\ prior on each coefficient (precision \\0.01\\ in JAGS). The JAGS program also monitors the odds ratio \\e^{\beta\_{x}}\\ for a one-unit increase in \\x\\. In the code, `beta0` and `beta1` are \\\beta\_{0}\\ and \\\beta\_{x}\\.
+> **Example 3 (Logistic regression fitted by Bayesian inference)** We simulate $N = 200$ observations from a logistic model with one continuous predictor, intercept $\beta_{0}= -0.5$ and slope $\beta_{x} = 1.2$, and place a diffuse ${\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}}$ prior on each coefficient (precision $0.01$ in JAGS). The JAGS program also monitors the odds ratio $e^{\beta_{x}}$ for a one-unit increase in $x$. In the code, `beta0` and `beta1` are $\beta_{0}$ and $\beta_{x}$.
 >
 > ``` downlit
 > set.seed(2024)
@@ -184,7 +184,7 @@ For a binary outcome \\Y_i\sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operato
 > #> beta1  1.207  0.822  1.635 1.000
 > ```
 >
-> Each 95% credible interval contains its coefficient’s true value, and every \\\hat{R}\\ is near 1. As [comparing MCMC estimates to maximum likelihood](mcmc.llms.md#sec-mcmc-vs-mle) leads us to expect, the posterior means are close to the maximum likelihood estimates:
+> Each 95% credible interval contains its coefficient’s true value, and every $\hat{R}$ is near 1. As [comparing MCMC estimates to maximum likelihood](mcmc.llms.md#sec-mcmc-vs-mle) leads us to expect, the posterior means are close to the maximum likelihood estimates:
 >
 > ``` downlit
 > stats::glm(y ~ x, family = stats::binomial()) |>
@@ -196,21 +196,29 @@ For a binary outcome \\Y_i\sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operato
 
 ## 0.4 Survival analysis
 
-Parametric survival models, such as those with exponential or Weibull event times, can be fit by Bayesian inference: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC [\[1, Ch. 14\]](#ref-dobson4e), p. 327. Censoring enters through the likelihood, exactly as in maximum likelihood estimation with the [likelihood with censoring](https://morrison-lab.github.io/rme/chapters/intro-to-survival-analysis.html#sec-likelihood-with-censoring): an observed event at time \\t\\ contributes its density \\{\lambda}(t)\\\operatorname{S}(t)\\, and an observation right-censored at time \\t\\ contributes its survival probability \\\operatorname{S}(t)\\, where \\{\lambda}\\ is the hazard and \\\operatorname{S}\\ the survival function.
+Parametric survival models, such as those with exponential or Weibull event times, can be fit by Bayesian inference: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC [\[1, Ch. 14\]](#ref-dobson4e), p. 327. Censoring enters through the likelihood, exactly as in maximum likelihood estimation with the [likelihood with censoring](https://morrison-lab.github.io/rme/chapters/intro-to-survival-analysis.html#sec-likelihood-with-censoring): an observed event at time $t$ contributes its density ${\lambda}(t)\,\operatorname{S}(t)$, and an observation right-censored at time $t$ contributes its survival probability $\operatorname{S}(t)$, where ${\lambda}$ is the hazard and $\operatorname{S}$ the survival function.
 
-When a model’s log-likelihood contribution \\\ell_i\\ for observation \\i\\ is not one of the distributions built into JAGS, the *zeros trick* supplies it. An observed value of 0 from a Poisson distribution with mean \\\phi_i\\ has probability \\e^{-\phi_i}\\, and with \\\phi_i\stackrel{\text{def}}{=}C - \ell_i\\ for a constant \\C\\,
+When a model’s log-likelihood contribution $\ell_i$ for observation $i$ is not one of the distributions built into JAGS, the *zeros trick* supplies it. An observed value of 0 from a Poisson distribution with mean $\phi_i$ has probability $e^{-\phi_i}$, and with $\phi_i\stackrel{\text{def}}{=}C - \ell_i$ for a constant $C$,
 
-\\ \begin{aligned} e^{-\phi_i} &= e^{-(C - \ell_i)} && \text{(definition of \$\phi_i\$)}\\ &= e^{-C} e^{\ell_i} && \text{(splitting the exponent)}\\ &\propto e^{\ell_i} && \text{(\$C\$ does not depend on the parameters)}, \end{aligned} \\
+$$\begin{aligned}
+e^{-\phi_i}
+&= e^{-(C - \ell_i)}
+&& \text{(definition of $\phi_i$)}\\
+&= e^{-C} e^{\ell_i}
+&& \text{(splitting the exponent)}\\
+&\propto e^{\ell_i}
+&& \text{($C$ does not depend on the parameters)},
+\end{aligned}$$
 
-which is observation \\i\\’s likelihood contribution. So declaring data `zeros[i] = 0` with `zeros[i] ~ dpois(C - loglik[i])` multiplies the likelihood by \\e^{\ell_i}\\. The constant \\C\\ only has to be large enough to keep every \\\phi_i\\ positive.
+which is observation $i$’s likelihood contribution. So declaring data `zeros[i] = 0` with `zeros[i] ~ dpois(C - loglik[i])` multiplies the likelihood by $e^{\ell_i}$. The constant $C$ only has to be large enough to keep every $\phi_i$ positive.
 
 > **NOTE:**
 >
-> **Example 4 (Exponential survival regression fitted by Bayesian inference)** We simulate \\N = 200\\ right-censored exponential survival times, with a binary covariate \\x_i\\ (say, treatment) and hazard \\{\lambda}\_i= {\operatorname{exp}\mathopen{}\left\\\beta\_{0}+ \beta\_{x} x_i\right\\\mathclose{}}\\, where the log baseline hazard is \\\beta\_{0}= \log 0.05\\ and the log hazard ratio is \\\beta\_{x} = -0.7\\. With event indicator \\\delta_i\\ (1 for an event, 0 for a censored time) and follow-up time \\t_i\\, the exponential density is \\{\lambda}\_ie^{-{\lambda}\_it}\\ and its survival function is \\e^{-{\lambda}\_it}\\, so observation \\i\\ contributes the log-likelihood
+> **Example 4 (Exponential survival regression fitted by Bayesian inference)** We simulate $N = 200$ right-censored exponential survival times, with a binary covariate $x_i$ (say, treatment) and hazard ${\lambda}_i= {\operatorname{exp}\mathopen{}\left\{\beta_{0}+ \beta_{x} x_i\right\}\mathclose{}}$, where the log baseline hazard is $\beta_{0}= \log 0.05$ and the log hazard ratio is $\beta_{x} = -0.7$. With event indicator $\delta_i$ (1 for an event, 0 for a censored time) and follow-up time $t_i$, the exponential density is ${\lambda}_ie^{-{\lambda}_it}$ and its survival function is $e^{-{\lambda}_it}$, so observation $i$ contributes the log-likelihood
 >
-> \\ \ell_i\stackrel{\text{def}}{=}\delta_i\log {\lambda}\_i- {\lambda}\_it_i. \\
+> $$\ell_i\stackrel{\text{def}}{=}\delta_i\log {\lambda}_i- {\lambda}_it_i.$$
 >
-> JAGS has no built-in distribution for this contribution, so we fit it with the zeros trick. In the code, `beta0` and `beta1` are \\\beta\_{0}\\ and \\\beta\_{x}\\.
+> JAGS has no built-in distribution for this contribution, so we fit it with the zeros trick. In the code, `beta0` and `beta1` are $\beta_{0}$ and $\beta_{x}$.
 >
 > ``` downlit
 > set.seed(2026)
@@ -268,7 +276,7 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 > #> beta1 -0.529 -0.941 -0.133    1
 > ```
 >
-> About 50% of the follow-up times end in an event. The 95% credible interval for \\\beta\_{x}\\ contains the true \\-0.7\\, though the posterior mean is some distance from it. The maximum likelihood estimates, from the same log-likelihood, show that the gap is sampling variation in this data set rather than an effect of the prior:
+> About 50% of the follow-up times end in an event. The 95% credible interval for $\beta_{x}$ contains the true $-0.7$, though the posterior mean is some distance from it. The maximum likelihood estimates, from the same log-likelihood, show that the gap is sampling variation in this data set rather than an effect of the prior:
 >
 > ``` downlit
 > neg_loglik <- function(beta) {
@@ -282,15 +290,15 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 > #> -3.112 -0.524
 > ```
 >
-> The monitored \\e^{\beta\_{x}}\\ gives the hazard ratio and its credible interval directly.
+> The monitored $e^{\beta_{x}}$ gives the hazard ratio and its credible interval directly.
 
 ## 0.5 Random effects
 
-The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.llms.md#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters \\\theta_j \sim {\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}}\\ drawn from a common distribution [\[7\]](#ref-wikipedia_bayesian_hierarchical_modeling). What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters \\\mu\\ and \\\tau\\ and samples their joint posterior together with the group-level parameters [\[1, Ch. 14\]](#ref-dobson4e), p. 329. The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\\tau\\, and the posterior for \\\tau\\ carries the uncertainty about the between-group spread into every group-level summary.
+The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.llms.md#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters $\theta_j \sim {\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}}$ drawn from a common distribution [\[7\]](#ref-wikipedia_bayesian_hierarchical_modeling). What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters $\mu$ and $\tau$ and samples their joint posterior together with the group-level parameters [\[1, Ch. 14\]](#ref-dobson4e), p. 329. The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through $\tau$, and the posterior for $\tau$ carries the uncertainty about the between-group spread into every group-level summary.
 
 > **NOTE:**
 >
-> **Example 5 (A random-intercept model fitted by Bayesian inference)** We simulate \\J = 8\\ groups of 12 observations each, with group means drawn from \\{\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}}\\ (\\\mu= 5\\, \\\tau= 1.5\\) and within-group standard deviation \\\sigma= 2\\. The priors are a diffuse \\{\operatorname{N}\mathopen{}\left(0, 100^2\right)\mathclose{}}\\ for \\\mu\\ and [flat priors](bayesian-inference.llms.md#def-flat-prior) on \\(0, 100)\\ for the standard deviations \\\tau\\ and \\\sigma\\. Being flat on the standard-deviation scale is a choice: as [a flat prior on the log-odds](bayesian-inference.llms.md#exm-flat-prior-reparam) shows for a probability, it is not flat on another scale, such as the variance.
+> **Example 5 (A random-intercept model fitted by Bayesian inference)** We simulate $J = 8$ groups of 12 observations each, with group means drawn from ${\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}}$ ($\mu= 5$, $\tau= 1.5$) and within-group standard deviation $\sigma= 2$. The priors are a diffuse ${\operatorname{N}\mathopen{}\left(0, 100^2\right)\mathclose{}}$ for $\mu$ and [flat priors](bayesian-inference.llms.md#def-flat-prior) on $(0, 100)$ for the standard deviations $\tau$ and $\sigma$. Being flat on the standard-deviation scale is a choice: as [a flat prior on the log-odds](bayesian-inference.llms.md#exm-flat-prior-reparam) shows for a probability, it is not flat on another scale, such as the variance.
 >
 > ``` downlit
 > set.seed(2025)
@@ -344,7 +352,7 @@ The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [
 > #> sigma 2.161 1.867 2.520 1.000
 > ```
 >
-> The 95% credible intervals contain the true \\\mu= 5\\, \\\tau= 1.5\\ and \\\sigma= 2\\. The interval for \\\tau\\ is wide: eight groups say little about how spread out group means are, and the posterior reports that uncertainty instead of a single estimate of the variance component.
+> The 95% credible intervals contain the true $\mu= 5$, $\tau= 1.5$ and $\sigma= 2$. The interval for $\tau$ is wide: eight groups say little about how spread out group means are, and the posterior reports that uncertainty instead of a single estimate of the variance component.
 >
 > Each group’s posterior mean lies between its sample mean and the overall sample mean:
 >
@@ -369,27 +377,34 @@ When several candidate models are plausible, committing to a single “best” o
 
 > **NOTE:**
 >
-> **Definition 1 (Posterior model probability)** Let \\M_1, \ldots, M_K\\ be candidate models with prior probabilities \\\operatorname{p}(M_k)\\ summing to 1, and let \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid M_k)\\ be the [marginal likelihood](bayesian-inference.llms.md#def-marginal-likelihood) of the data under model \\M_k\\. The **posterior model probability** of \\M_k\\ is
+> **Definition 1 (Posterior model probability)** Let $M_1, \ldots, M_K$ be candidate models with prior probabilities $\operatorname{p}(M_k)$ summing to 1, and let $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid M_k)$ be the [marginal likelihood](bayesian-inference.llms.md#def-marginal-likelihood) of the data under model $M_k$. The **posterior model probability** of $M_k$ is
 >
-> \\ \operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \stackrel{\text{def}}{=} \frac{\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid M_k)\\ \operatorname{p}(M_k)}{\sum\_{l=1}^{K} \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid M_l)\\ \operatorname{p}(M_l)}. \\
+> $$\operatorname{p}(M_k \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \stackrel{\text{def}}{=}
+> \frac{\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid M_k)\, \operatorname{p}(M_k)}{\sum_{l=1}^{K} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid M_l)\, \operatorname{p}(M_l)}.$$
 
 > **NOTE:**
 >
 > **Example 6 (Posterior probabilities of two models)** Two models with equal prior probabilities
 >
-> \\ \begin{aligned} \operatorname{p}(M_1) &= \operatorname{p}(M_2) \\ &= 0.5 \end{aligned} \\
+> $$\begin{aligned}
+>   \operatorname{p}(M_1) &= \operatorname{p}(M_2) \\
+>   &= 0.5
+> \end{aligned}$$
 >
-> and marginal likelihoods \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid M_1) = 0.02\\ and \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid M_2) = 0.06\\ have posterior probabilities
+> and marginal likelihoods $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid M_1) = 0.02$ and $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid M_2) = 0.06$ have posterior probabilities
 >
-> \\ \begin{aligned} \operatorname{p}(M_1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) &= 0.01 / (0.01 + 0.03) \\ &= 0.25 \end{aligned} \\
+> $$\begin{aligned}
+>   \operatorname{p}(M_1 \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) &= 0.01 / (0.01 + 0.03) \\
+>   &= 0.25
+> \end{aligned}$$
 >
-> and \\\operatorname{p}(M_2 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = 0.75\\.
+> and $\operatorname{p}(M_2 \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = 0.75$.
 
 > **NOTE:**
 >
-> **Definition 2 (Bayesian model averaging)** With the [posterior model probabilities](#def-posterior-model-probability) \\\operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of candidate models \\M_1, \ldots, M_K\\, **Bayesian model averaging** estimates a quantity \\\Delta\\ that has the same meaning in every model by its posterior distribution averaged over the models:
+> **Definition 2 (Bayesian model averaging)** With the [posterior model probabilities](#def-posterior-model-probability) $\operatorname{p}(M_k \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ of candidate models $M_1, \ldots, M_K$, **Bayesian model averaging** estimates a quantity $\Delta$ that has the same meaning in every model by its posterior distribution averaged over the models:
 >
-> \\ \operatorname{p}(\Delta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \stackrel{\text{def}}{=}\sum\_{k=1}^{K} \operatorname{p}(\Delta\mid M_k, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ \operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}). \\
+> $$\operatorname{p}(\Delta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \stackrel{\text{def}}{=}\sum_{k=1}^{K} \operatorname{p}(\Delta\mid M_k, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\, \operatorname{p}(M_k \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}).$$
 
 > **NOTE:**
 >
@@ -399,9 +414,10 @@ When several candidate models are plausible, committing to a single “best” o
 >
 > **Example 7 (A BIC approximation to Bayesian model averaging)** Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the [Bayesian information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic) gives a large-sample approximation to the posterior model probabilities [\[8\]](#ref-schwarz1978estimating) [\[9\]](#ref-wikipedia_bayesian_information_criterion):
 >
-> \\ \operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \approx \frac{{\operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_k\right\\\mathclose{}}}{\sum\_{l=1}^{K} {\operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_l\right\\\mathclose{}}}. \\
+> $$\operatorname{p}(M_k \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \approx
+> \frac{{\operatorname{exp}\mathopen{}\left\{-\tfrac{1}{2}\operatorname{BIC}_k\right\}\mathclose{}}}{\sum_{l=1}^{K} {\operatorname{exp}\mathopen{}\left\{-\tfrac{1}{2}\operatorname{BIC}_l\right\}\mathclose{}}}.$$
 >
-> We simulate data in which only \\x_1\\ and \\x_2\\ affect the outcome, fit a linear regression for every subset of the three predictors \\x_1\\, \\x_2\\ and \\x_3\\, and compute these approximate posterior model probabilities:
+> We simulate data in which only $x_1$ and $x_2$ affect the outcome, fit a linear regression for every subset of the three predictors $x_1$, $x_2$ and $x_3$, and compute these approximate posterior model probabilities:
 >
 > ``` downlit
 > set.seed(2027)
@@ -446,7 +462,7 @@ When several candidate models are plausible, committing to a single “best” o
 > #> 1.000 1.000 0.152
 > ```
 >
-> For the model-averaged slope of \\x_1\\, we approximate its posterior mean within each model by the least-squares estimate, taken as \\0\\ in models that exclude \\x_1\\, and average with the posterior model probabilities as weights:
+> For the model-averaged slope of $x_1$, we approximate its posterior mean within each model by the least-squares estimate, taken as $0$ in models that exclude $x_1$, and average with the posterior model probabilities as weights:
 >
 > ``` downlit
 > beta_x1 <- vapply(models, function(m) {
@@ -462,7 +478,7 @@ When several candidate models are plausible, committing to a single “best” o
 > #>               0.947               0.948
 > ```
 >
-> The predictors that affect the outcome, \\x_1\\ and \\x_2\\, have inclusion probabilities near 1, and the irrelevant \\x_3\\ a much smaller one. The models without \\x_1\\ get almost no weight, so the model-averaged slope of \\x_1\\ is close to its least-squares estimate in the model with \\x_1\\ and \\x_2\\ only. Both differ from the true slope \\0.8\\ by sampling variation in this data set, not because of the averaging.
+> The predictors that affect the outcome, $x_1$ and $x_2$, have inclusion probabilities near 1, and the irrelevant $x_3$ a much smaller one. The models without $x_1$ get almost no weight, so the model-averaged slope of $x_1$ is close to its least-squares estimate in the model with $x_1$ and $x_2$ only. Both differ from the true slope $0.8$ by sampling variation in this data set, not because of the averaging.
 
 ## References
 

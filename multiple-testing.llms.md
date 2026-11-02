@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-01 01:56:06 (PDT)
+Last modified: 2026-11-02 10:03:02 (PST)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests [\[1\]](#ref-wikipedia_multiple_comparisons_problem).
 
@@ -45,19 +45,31 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Exercise 1 (Probability that no test rejects)** Let \\A_1, \ldots, A_m\\ be independent events, where \\A_j\\ is the event that the \\j\\th of \\m\\ tests rejects its true null hypothesis, and each has probability \\\Pr(A_j) = \alpha\\ (see [significance level](inference.llms.md#def-significance-level)). Find the probability that none of the tests rejects.
+> **Exercise 1 (Probability that no test rejects)** Let $A_1, \ldots, A_m$ be independent events, where $A_j$ is the event that the $j$th of $m$ tests rejects its true null hypothesis, and each has probability $\Pr(A_j) = \alpha$ (see [significance level](inference.llms.md#def-significance-level)). Find the probability that none of the tests rejects.
 
 > **NOTE:**
 >
-> *Solution 1*. No test rejects exactly when every event \\A_j\\ fails to occur. Write \\A_j^c\\ for the complement of \\A_j\\.
+> *Solution 1*. No test rejects exactly when every event $A_j$ fails to occur. Write $A_j^c$ for the complement of $A_j$.
 >
-> \\ \begin{aligned} {\Pr\mathopen{}\left(\text{no test rejects}\right)\mathclose{}} &= {\Pr\mathopen{}\left(A_1^c \cap A_2^c \cap \cdots \cap A_m^c\right)\mathclose{}} && \text{(no test rejects means every \$A_j\$ fails)}\\ &= \Pr(A_1^c) \Pr(A_2^c) \cdots \Pr(A_m^c) && \text{(the events are independent, so their complements are)}\\ &= \mathopen{}\left(1 - \Pr(A_1)\right)\mathclose{} \mathopen{}\left(1 - \Pr(A_2)\right)\mathclose{} \cdots \mathopen{}\left(1 - \Pr(A_m)\right)\mathclose{} && \text{(complement rule, applied to each factor)}\\ &= \mathopen{}\left(1 - \alpha\right)\mathclose{} \mathopen{}\left(1 - \alpha\right)\mathclose{} \cdots \mathopen{}\left(1 - \alpha\right)\mathclose{} && \text{(each \$\Pr(A_j) = \alpha\$)}\\ &= \mathopen{}\left(1 - \alpha\right)\mathclose{}^m && \text{(a product of \$m\$ equal factors)} \end{aligned} \\
+> $$\begin{aligned}
+> {\Pr\mathopen{}\left(\text{no test rejects}\right)\mathclose{}}
+> &= {\Pr\mathopen{}\left(A_1^c \cap A_2^c \cap \cdots \cap A_m^c\right)\mathclose{}}
+> && \text{(no test rejects means every $A_j$ fails)}\\
+> &= \Pr(A_1^c) \Pr(A_2^c) \cdots \Pr(A_m^c)
+> && \text{(the events are independent, so their complements are)}\\
+> &= \mathopen{}\left(1 - \Pr(A_1)\right)\mathclose{} \mathopen{}\left(1 - \Pr(A_2)\right)\mathclose{} \cdots \mathopen{}\left(1 - \Pr(A_m)\right)\mathclose{}
+> && \text{(complement rule, applied to each factor)}\\
+> &= \mathopen{}\left(1 - \alpha\right)\mathclose{} \mathopen{}\left(1 - \alpha\right)\mathclose{} \cdots \mathopen{}\left(1 - \alpha\right)\mathclose{}
+> && \text{(each $\Pr(A_j) = \alpha$)}\\
+> &= \mathopen{}\left(1 - \alpha\right)\mathclose{}^m
+> && \text{(a product of $m$ equal factors)}
+> \end{aligned}$$
 
 > **NOTE:**
 >
-> **Lemma 1 (Probability that no test rejects)** Let \\A_1, \ldots, A_m\\ be independent events, where \\A_j\\ is the event that the \\j\\th of \\m\\ tests rejects its true null hypothesis, and each has probability \\\Pr(A_j) = \alpha\\ (see [significance level](inference.llms.md#def-significance-level)). Then the probability that none of the tests rejects is
+> **Lemma 1 (Probability that no test rejects)** Let $A_1, \ldots, A_m$ be independent events, where $A_j$ is the event that the $j$th of $m$ tests rejects its true null hypothesis, and each has probability $\Pr(A_j) = \alpha$ (see [significance level](inference.llms.md#def-significance-level)). Then the probability that none of the tests rejects is
 >
-> \\{\Pr\mathopen{}\left(\text{no test rejects}\right)\mathclose{}} = \mathopen{}\left(1 - \alpha\right)\mathclose{}^m.\\
+> $${\Pr\mathopen{}\left(\text{no test rejects}\right)\mathclose{}} = \mathopen{}\left(1 - \alpha\right)\mathclose{}^m.$$
 
 > **NOTE:**
 >
@@ -65,19 +77,27 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Theorem 1 (Probability of at least one false positive)** Let \\A_1, \ldots, A_m\\ be independent events, where \\A_j\\ is the event that the \\j\\th of \\m\\ tests rejects its true null hypothesis, and each has probability \\\alpha\\. Then the probability that at least one test rejects is
+> **Theorem 1 (Probability of at least one false positive)** Let $A_1, \ldots, A_m$ be independent events, where $A_j$ is the event that the $j$th of $m$ tests rejects its true null hypothesis, and each has probability $\alpha$. Then the probability that at least one test rejects is
 >
-> \\{\Pr\mathopen{}\left(A_1 \cup A_2 \cup \cdots \cup A_m\right)\mathclose{}} = 1 - \mathopen{}\left(1 - \alpha\right)\mathclose{}^m.\\
+> $${\Pr\mathopen{}\left(A_1 \cup A_2 \cup \cdots \cup A_m\right)\mathclose{}} = 1 - \mathopen{}\left(1 - \alpha\right)\mathclose{}^m.$$
 
 > **NOTE:**
 >
 > *Proof*. The last line below is [Lemma 1](#lem-no-rejection-prob).
 >
-> \\ \begin{aligned} {\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_m\right)\mathclose{}} &= 1 - {\Pr\mathopen{}\left(\mathopen{}\left(A_1 \cup \cdots \cup A_m\right)\mathclose{}^c\right)\mathclose{}} && \text{(complement rule)}\\ &= 1 - {\Pr\mathopen{}\left(A_1^c \cap \cdots \cap A_m^c\right)\mathclose{}} && \text{(De Morgan's law)}\\ &= 1 - \mathopen{}\left(1 - \alpha\right)\mathclose{}^m && \text{(probability that no test rejects)} \end{aligned} \\
+> $$\begin{aligned}
+> {\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_m\right)\mathclose{}}
+> &= 1 - {\Pr\mathopen{}\left(\mathopen{}\left(A_1 \cup \cdots \cup A_m\right)\mathclose{}^c\right)\mathclose{}}
+> && \text{(complement rule)}\\
+> &= 1 - {\Pr\mathopen{}\left(A_1^c \cap \cdots \cap A_m^c\right)\mathclose{}}
+> && \text{(De Morgan's law)}\\
+> &= 1 - \mathopen{}\left(1 - \alpha\right)\mathclose{}^m
+> && \text{(probability that no test rejects)}
+> \end{aligned}$$
 
 > **NOTE:**
 >
-> **Example 1 (False positives accumulate with the number of tests)** With \\\alpha= 0.05\\, [Theorem 1](#thm-false-positive-prob) gives the chance of at least one false positive among \\m\\ independent tests of true null hypotheses:
+> **Example 1 (False positives accumulate with the number of tests)** With $\alpha= 0.05$, [Theorem 1](#thm-false-positive-prob) gives the chance of at least one false positive among $m$ independent tests of true null hypotheses:
 >
 > ``` downlit
 > alpha <- 0.05
@@ -126,7 +146,7 @@ table(tumor_class = khan_pair$tumor_class)
 > #>               2308.0                528.0                115.4
 > ```
 >
-> 528 of the 2308 genes have a p-value of at most 0.05. If every null hypothesis were true, the p-values would be uniform on \\\[0, 1\]\\ and about 115.4 genes would fall below 0.05 by chance alone. [Figure 1](#fig-khan-p-hist) shows the p-values: the spike at the left is the signal, and the roughly flat remainder looks like p-values from true null hypotheses. The data alone do not say which of the 528 genes are the false positives.
+> 528 of the 2308 genes have a p-value of at most 0.05. If every null hypothesis were true, the p-values would be uniform on $[0, 1]$ and about 115.4 genes would fall below 0.05 by chance alone. [Figure 1](#fig-khan-p-hist) shows the p-values: the spike at the left is the signal, and the roughly flat remainder looks like p-values from true null hypotheses. The data alone do not say which of the 528 genes are the false positives.
 >
 > Show code
 >
@@ -150,23 +170,23 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 1 (Outcome counts of a family of tests)** Suppose a procedure tests \\m\\ null hypotheses, \\m_0\\ of which are true. Count the outcomes as in [Table 1](#tbl-rejection-counts): \\V\\ true null hypotheses rejected (false positives), \\S\\ false null hypotheses rejected (true positives), \\U\\ true null hypotheses not rejected, and \\T\\ false null hypotheses not rejected. The total number of **rejections** is
+> **Definition 1 (Outcome counts of a family of tests)** Suppose a procedure tests $m$ null hypotheses, $m_0$ of which are true. Count the outcomes as in [Table 1](#tbl-rejection-counts): $V$ true null hypotheses rejected (false positives), $S$ false null hypotheses rejected (true positives), $U$ true null hypotheses not rejected, and $T$ false null hypotheses not rejected. The total number of **rejections** is
 >
-> \\R \stackrel{\text{def}}{=}V + S.\\
+> $$R \stackrel{\text{def}}{=}V + S.$$
 >
 > > **NOTE:**
 > >
-> > |                       | Not rejected | Rejected |    Total    |
-> > |:----------------------|:------------:|:--------:|:-----------:|
-> > | Null hypothesis true  |    \\U\\     |  \\V\\   |   \\m_0\\   |
-> > | Null hypothesis false |    \\T\\     |  \\S\\   | \\m - m_0\\ |
-> > | Total                 |  \\m - R\\   |  \\R\\   |    \\m\\    |
+> > |                       | Not rejected | Rejected |   Total   |
+> > |:----------------------|:------------:|:--------:|:---------:|
+> > | Null hypothesis true  |     $U$      |   $V$    |   $m_0$   |
+> > | Null hypothesis false |     $T$      |   $S$    | $m - m_0$ |
+> > | Total                 |   $m - R$    |   $R$    |    $m$    |
 > >
-> > Table 1: Outcomes of \\m\\ tests, of which \\m_0\\ have a true null hypothesis.
+> > Table 1: Outcomes of $m$ tests, of which $m_0$ have a true null hypothesis.
 
 > **NOTE:**
 >
-> **Example 3 (Outcome counts in a simulated family of 1000 tests)** With real data the truth is unknown, so \\V\\ and \\S\\ cannot be counted. A simulation knows the truth. Simulate \\m = 1000\\ z-tests, of which \\m_0 = 900\\ have a true null hypothesis (a standard Gaussian statistic \\Z_j\\) and 100 have a false one (a Gaussian statistic with mean 3 and variance 1). Each p-value is \\2 \Phi(-\mathopen{}\left\|z_j\right\|\mathclose{})\\. Rejecting every null hypothesis with \\p_j \le 0.05\\ gives the counts of [Definition 1](#def-rejection-counts):
+> **Example 3 (Outcome counts in a simulated family of 1000 tests)** With real data the truth is unknown, so $V$ and $S$ cannot be counted. A simulation knows the truth. Simulate $m = 1000$ z-tests, of which $m_0 = 900$ have a true null hypothesis (a standard Gaussian statistic $Z_j$) and 100 have a false one (a Gaussian statistic with mean 3 and variance 1). Each p-value is $2 \Phi(-\mathopen{}\left|z_j\right|\mathclose{})$. Rejecting every null hypothesis with $p_j \le 0.05$ gives the counts of [Definition 1](#def-rejection-counts):
 >
 > ``` downlit
 > simulate_tests <- function(m = 1000, m0 = 900, shift = 3) {
@@ -200,29 +220,29 @@ table(tumor_class = khan_pair$tumor_class)
 > #> Sum                 863      137 1000
 > ```
 >
-> The procedure made \\R =\\ 137 rejections, of which \\V =\\ 48 were false positives.
+> The procedure made $R =$ 137 rejections, of which $V =$ 48 were false positives.
 
 > **NOTE:**
 >
-> *Remark 1* (Only the number of rejections is observed). \\V\\, \\S\\, \\U\\, \\T\\ and \\R\\ are random, because they depend on the data. In practice only \\m\\ and \\R\\ are observed; \\m_0\\ and the split of \\R\\ into \\V\\ and \\S\\ are not. Error rates are therefore defined as properties of a procedure over repeated data sets, not of the particular list of rejections that one data set produces.
+> *Remark 1* (Only the number of rejections is observed). $V$, $S$, $U$, $T$ and $R$ are random, because they depend on the data. In practice only $m$ and $R$ are observed; $m_0$ and the split of $R$ into $V$ and $S$ are not. Error rates are therefore defined as properties of a procedure over repeated data sets, not of the particular list of rejections that one data set produces.
 
 ### 0.3.2 The family-wise error rate
 
 > **NOTE:**
 >
-> **Definition 2 (Family-wise error rate)** For a family of tests with \\V\\ false positives ([Definition 1](#def-rejection-counts)), the **family-wise error rate** (FWER) is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of at least one false positive:
+> **Definition 2 (Family-wise error rate)** For a family of tests with $V$ false positives ([Definition 1](#def-rejection-counts)), the **family-wise error rate** (FWER) is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of at least one false positive:
 >
-> \\\text{FWER} \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}}.\\
+> $$\text{FWER} \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}}.$$
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_family_wise_error_rate).
 
 > **NOTE:**
 >
-> **Definition 3 (Controlling the family-wise error rate)** A procedure **controls the FWER at level \\\alpha\\** if \\\text{FWER} \le \alpha\\ for every possible set of true null hypotheses.
+> **Definition 3 (Controlling the family-wise error rate)** A procedure **controls the FWER at level** $\alpha$ if $\text{FWER} \le \alpha$ for every possible set of true null hypotheses.
 
 > **NOTE:**
 >
-> **Example 4 (FWER of unadjusted testing in the simulated family)** Repeat the simulation of [Example 3](#exm-rejection-counts) 2000 times, rejecting every null hypothesis with \\p_j \le 0.05\\ each time, and record the fraction of repetitions with at least one false positive:
+> **Example 4 (FWER of unadjusted testing in the simulated family)** Repeat the simulation of [Example 3](#exm-rejection-counts) 2000 times, rejecting every null hypothesis with $p_j \le 0.05$ each time, and record the fraction of repetitions with at least one false positive:
 >
 > ``` downlit
 > run_simulation <- function(reject_fn, reps = 2000) {
@@ -248,29 +268,29 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 4 (False discovery proportion)** For a family of tests with \\V\\ false positives among \\R\\ rejections ([Definition 1](#def-rejection-counts)), the **false discovery proportion** (FDP) is the fraction of rejections that are false positives, counted as 0 when there are no rejections:
+> **Definition 4 (False discovery proportion)** For a family of tests with $V$ false positives among $R$ rejections ([Definition 1](#def-rejection-counts)), the **false discovery proportion** (FDP) is the fraction of rejections that are false positives, counted as 0 when there are no rejections:
 >
-> \\ \text{FDP} \stackrel{\text{def}}{=}\frac{V}{\max(R, 1)}. \\
+> $$\text{FDP} \stackrel{\text{def}}{=}\frac{V}{\max(R, 1)}.$$
 
 > **NOTE:**
 >
 > **Definition 5 (False discovery rate)** The **false discovery rate** (FDR) is the expected value of the [false discovery proportion](#def-fdp):
 >
-> \\ \text{FDR} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\text{FDP}\right\]\mathclose{}}. \\
+> $$\text{FDR} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[\text{FDP}\right]\mathclose{}}.$$
 >
 > Source: Wikipedia contributors [\[7\]](#ref-wikipedia_false_discovery_rate).
 
 > **NOTE:**
 >
-> *Remark 2* (Source: False discovery rate). The false discovery rate was introduced by Benjamini and Hochberg [\[3\]](#ref-benjamini1995controlling); the notation \\V\\, \\S\\, \\U\\, \\T\\ and \\R\\ follows James et al. [\[4, Ch. 13\]](#ref-james2021islr2e).
+> *Remark 2* (Source: False discovery rate). The false discovery rate was introduced by Benjamini and Hochberg [\[3\]](#ref-benjamini1995controlling); the notation $V$, $S$, $U$, $T$ and $R$ follows James et al. [\[4, Ch. 13\]](#ref-james2021islr2e).
 
 > **NOTE:**
 >
-> **Definition 6 (Controlling the false discovery rate)** A procedure **controls the FDR at level \\q\\** if \\\text{FDR} \le q\\ for every possible set of true null hypotheses.
+> **Definition 6 (Controlling the false discovery rate)** A procedure **controls the FDR at level** $q$ if $\text{FDR} \le q$ for every possible set of true null hypotheses.
 
 > **NOTE:**
 >
-> **Example 5 (FDR of unadjusted testing in the simulated family)** In the 2000 repetitions of [Example 4](#exm-fwer), average the false discovery proportion of each repetition to estimate the FDR. The *power* of a procedure is the expected fraction of the 100 false null hypotheses it rejects, \\{\mathbb{E}\mathopen{}\left\[S\right\]\mathclose{}} / m_1\\:
+> **Example 5 (FDR of unadjusted testing in the simulated family)** In the 2000 repetitions of [Example 4](#exm-fwer), average the false discovery proportion of each repetition to estimate the FDR. The *power* of a procedure is the expected fraction of the 100 false null hypotheses it rejects, ${\mathbb{E}\mathopen{}\left[S\right]\mathclose{}} / m_1$:
 >
 > ``` downlit
 > summarize_counts <- function(counts, m1 = 100) {
@@ -290,23 +310,23 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 3* (The FDR is never larger than the FWER). If \\V \ge 1\\ then \\V / \max(R, 1) \le 1\\ because \\V \le R\\, and if \\V = 0\\ then \\V / \max(R, 1) = 0\\. So \\\text{FDP} \le \mathbb{1}\_{V \ge 1}\\, and taking expectations gives \\\text{FDR} \le \text{FWER}\\. A procedure that controls the FWER at level \\\alpha\\ therefore controls the FDR at level \\\alpha\\ too, but the FDR can be controlled with many more rejections, which is why it suits exploratory screens such as the Khan genes, where a few false positives are an acceptable price for more discoveries.
+> *Remark 3* (The FDR is never larger than the FWER). If $V \ge 1$ then $V / \max(R, 1) \le 1$ because $V \le R$, and if $V = 0$ then $V / \max(R, 1) = 0$. So $\text{FDP} \le \mathbb{1}_{V \ge 1}$, and taking expectations gives $\text{FDR} \le \text{FWER}$. A procedure that controls the FWER at level $\alpha$ therefore controls the FDR at level $\alpha$ too, but the FDR can be controlled with many more rejections, which is why it suits exploratory screens such as the Khan genes, where a few false positives are an acceptable price for more discoveries.
 
 ### 0.3.4 Valid p-values
 
 > **NOTE:**
 >
-> **Definition 7 (Valid p-value)** A [p-value](inference.llms.md#def-p-value) \\p\\ for a null hypothesis \\H_0\\ is **valid** if, when \\H_0\\ is true, it is stochastically no smaller than a uniform random variable:
+> **Definition 7 (Valid p-value)** A [p-value](inference.llms.md#def-p-value) $p$ for a null hypothesis $H_0$ is **valid** if, when $H_0$ is true, it is stochastically no smaller than a uniform random variable:
 >
-> \\\Pr\_{H_0}(p \le u) \le u \quad \text{for every } u \in \[0, 1\].\\
+> $$\Pr_{H_0}(p \le u) \le u \quad \text{for every } u \in [0, 1].$$
 
 > **NOTE:**
 >
-> *Remark 4* (Uniform p-values). If the inequality in the definition of a valid p-value is an equality, \\p\\ is uniform on \\\[0, 1\]\\ under \\H_0\\.
+> *Remark 4* (Uniform p-values). If the inequality in the definition of a valid p-value is an equality, $p$ is uniform on $[0, 1]$ under $H_0$.
 
 > **NOTE:**
 >
-> **Example 6 (The two-sided z-test p-value is valid)** For a standard Gaussian statistic \\Z\\, the p-value \\p = 2 \Phi(-\mathopen{}\left\|Z\right\|\mathclose{})\\ is the probability that a standard Gaussian variable is at least as extreme as \\Z\\. Because \\Z\\ has a continuous distribution, this p-value is uniform on \\\[0, 1\]\\, so \\\Pr(p \le u) = u\\ exactly. Simulating \\10^5\\ true null hypotheses checks this:
+> **Example 6 (The two-sided z-test p-value is valid)** For a standard Gaussian statistic $Z$, the p-value $p = 2 \Phi(-\mathopen{}\left|Z\right|\mathclose{})$ is the probability that a standard Gaussian variable is at least as extreme as $Z$. Because $Z$ has a continuous distribution, this p-value is uniform on $[0, 1]$, so $\Pr(p \le u) = u$ exactly. Simulating $10^5$ true null hypotheses checks this:
 >
 > ``` downlit
 > set.seed(573)
@@ -315,11 +335,11 @@ table(tumor_class = khan_pair$tumor_class)
 > data.frame(u = u, fraction_at_most_u = sapply(u, function(x) mean(p_null <= x)))
 > ```
 >
-> Each fraction is close to its \\u\\.
+> Each fraction is close to its $u$.
 
 > **NOTE:**
 >
-> *Remark 5* (Discrete statistics give conservative p-values). When the test statistic is discrete, as in [Fisher’s exact test](categorical-tests.llms.md#def-fishers-exact), a p-value can satisfy \\\Pr\_{H_0}(p \le u) \< u\\ for some \\u\\. It is still valid, but conservative: it rejects a true null hypothesis less often than its nominal level.
+> *Remark 5* (Discrete statistics give conservative p-values). When the test statistic is discrete, as in [Fisher’s exact test](categorical-tests.llms.md#def-fishers-exact), a p-value can satisfy $\Pr_{H_0}(p \le u) < u$ for some $u$. It is still valid, but conservative: it rejects a true null hypothesis less often than its nominal level.
 
 ## 0.4 Controlling the family-wise error rate
 
@@ -327,15 +347,15 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 8 (Bonferroni correction)** Given \\m\\ null hypotheses \\H_1, \ldots, H_m\\ with p-values \\p_1, \ldots, p_m\\ and a level \\\alpha\\, the **Bonferroni correction** rejects \\H_j\\ when its p-value is at most \\\alpha/ m\\:
+> **Definition 8 (Bonferroni correction)** Given $m$ null hypotheses $H_1, \ldots, H_m$ with p-values $p_1, \ldots, p_m$ and a level $\alpha$, the **Bonferroni correction** rejects $H_j$ when its p-value is at most $\alpha/ m$:
 >
-> \\\text{reject } H_j \iff p_j \le \frac{\alpha}{m}.\\
+> $$\text{reject } H_j \iff p_j \le \frac{\alpha}{m}.$$
 >
 > Source: James et al. [\[4, Ch. 13\]](#ref-james2021islr2e); Wikipedia contributors [\[8\]](#ref-wikipedia_bonferroni_correction).
 
 > **NOTE:**
 >
-> **Example 7 (Bonferroni correction for the Khan genes)** R functions for this page’s procedures take the vector of p-values and a level, and return a logical vector. For the Bonferroni correction with \\\alpha= 0.05\\:
+> **Example 7 (Bonferroni correction for the Khan genes)** R functions for this page’s procedures take the vector of p-values and a level, and return a logical vector. For the Bonferroni correction with $\alpha= 0.05$:
 >
 > ``` downlit
 > bonferroni_reject <- function(p, alpha) p <= alpha / length(p)
@@ -349,7 +369,7 @@ table(tumor_class = khan_pair$tumor_class)
 > #> 2.16638e-05 6.20000e+01
 > ```
 >
-> With \\m =\\ 2308 tests the threshold is 2.17e-05, and the correction rejects 62 genes out of the 528 with an unadjusted p-value of at most 0.05. The same functions applied to the first ten genes of the data set show the arithmetic: with \\m = 10\\ the threshold is \\0.05 / 10 = 0.005\\.
+> With $m =$ 2308 tests the threshold is 2.17e-05, and the correction rejects 62 genes out of the 528 with an unadjusted p-value of at most 0.05. The same functions applied to the first ten genes of the data set show the arithmetic: with $m = 10$ the threshold is $0.05 / 10 = 0.005$.
 >
 > Show code
 >
@@ -383,22 +403,22 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Exercise 2 (Indicator of a union)** For events \\A_1, \ldots, A_k\\, let \\\mathbb{1}\_{A}\\ be the indicator of the event \\A\\: it equals 1 if \\A\\ occurs and 0 if it does not. Show that, for every outcome,
+> **Exercise 2 (Indicator of a union)** For events $A_1, \ldots, A_k$, let $\mathbb{1}_{A}$ be the indicator of the event $A$: it equals 1 if $A$ occurs and 0 if it does not. Show that, for every outcome,
 >
-> \\\mathbb{1}\_{A_1 \cup \cdots \cup A_k} \le \mathbb{1}\_{A_1} + \cdots + \mathbb{1}\_{A_k}.\\
+> $$\mathbb{1}_{A_1 \cup \cdots \cup A_k} \le \mathbb{1}_{A_1} + \cdots + \mathbb{1}_{A_k}.$$
 
 > **NOTE:**
 >
 > *Solution 2*. Take an outcome and consider two cases.
 >
-> - If none of \\A_1, \ldots, A_k\\ occurs, then the union does not occur, so the left side is \\0\\ and the right side is \\0 + \cdots + 0 = 0\\. The inequality holds with equality.
-> - If at least one \\A_j\\ occurs, then the union occurs, so the left side is \\1\\. The right side is a sum of \\k\\ terms, each \\0\\ or \\1\\, and at least one of them is \\1\\, so the right side is at least \\1\\. The inequality holds.
+> - If none of $A_1, \ldots, A_k$ occurs, then the union does not occur, so the left side is $0$ and the right side is $0 + \cdots + 0 = 0$. The inequality holds with equality.
+> - If at least one $A_j$ occurs, then the union occurs, so the left side is $1$. The right side is a sum of $k$ terms, each $0$ or $1$, and at least one of them is $1$, so the right side is at least $1$. The inequality holds.
 
 > **NOTE:**
 >
-> **Lemma 2 (The indicator of a union is at most the sum of the indicators)** For events \\A_1, \ldots, A_k\\, let \\\mathbb{1}\_{A}\\ be the indicator of the event \\A\\: it equals 1 if \\A\\ occurs and 0 if it does not. Then, for every outcome,
+> **Lemma 2 (The indicator of a union is at most the sum of the indicators)** For events $A_1, \ldots, A_k$, let $\mathbb{1}_{A}$ be the indicator of the event $A$: it equals 1 if $A$ occurs and 0 if it does not. Then, for every outcome,
 >
-> \\\mathbb{1}\_{A_1 \cup \cdots \cup A_k} \le \mathbb{1}\_{A_1} + \cdots + \mathbb{1}\_{A_k}.\\
+> $$\mathbb{1}_{A_1 \cup \cdots \cup A_k} \le \mathbb{1}_{A_1} + \cdots + \mathbb{1}_{A_k}.$$
 
 > **NOTE:**
 >
@@ -406,9 +426,9 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Theorem 2 (Union bound)** For any events \\A_1, \ldots, A_k\\, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of their union is at most the sum of their probabilities:
+> **Theorem 2 (Union bound)** For any events $A_1, \ldots, A_k$, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of their union is at most the sum of their probabilities:
 >
-> \\{\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{}} \le \Pr(A_1) + \cdots + \Pr(A_k).\\
+> $${\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{}} \le \Pr(A_1) + \cdots + \Pr(A_k).$$
 >
 > Source: Wikipedia contributors [\[9\]](#ref-wikipedia_booles_inequality).
 
@@ -416,27 +436,49 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > *Proof*. The inequality in the second line is [Lemma 2](#lem-indicator-union).
 >
-> \\ \begin{aligned} {\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left\[\mathbb{1}\_{A_1 \cup \cdots \cup A_k}\right\]\mathclose{}} && \text{(the expected value of an indicator is the probability of its event)}\\ &\le {\mathbb{E}\mathopen{}\left\[\mathbb{1}\_{A_1} + \cdots + \mathbb{1}\_{A_k}\right\]\mathclose{}} && \text{(indicator inequality, and expectation preserves inequalities)}\\ &= {\mathbb{E}\mathopen{}\left\[\mathbb{1}\_{A_1}\right\]\mathclose{}} + \cdots + {\mathbb{E}\mathopen{}\left\[\mathbb{1}\_{A_k}\right\]\mathclose{}} && \text{(expectation of a sum is the sum of expectations)}\\ &= \Pr(A_1) + \cdots + \Pr(A_k) && \text{(the expected value of an indicator is the probability of its event)} \end{aligned} \\
+> $$\begin{aligned}
+> {\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{}}
+> &= {\mathbb{E}\mathopen{}\left[\mathbb{1}_{A_1 \cup \cdots \cup A_k}\right]\mathclose{}}
+> && \text{(the expected value of an indicator is the probability of its event)}\\
+> &\le {\mathbb{E}\mathopen{}\left[\mathbb{1}_{A_1} + \cdots + \mathbb{1}_{A_k}\right]\mathclose{}}
+> && \text{(indicator inequality, and expectation preserves inequalities)}\\
+> &= {\mathbb{E}\mathopen{}\left[\mathbb{1}_{A_1}\right]\mathclose{}} + \cdots + {\mathbb{E}\mathopen{}\left[\mathbb{1}_{A_k}\right]\mathclose{}}
+> && \text{(expectation of a sum is the sum of expectations)}\\
+> &= \Pr(A_1) + \cdots + \Pr(A_k)
+> && \text{(the expected value of an indicator is the probability of its event)}
+> \end{aligned}$$
 
 > **NOTE:**
 >
-> **Example 8 (The union bound for tests of true null hypotheses)** Let \\A_j\\ be the event that the \\j\\th of \\m\\ tests of true null hypotheses, each at level \\\alpha= 0.05\\, rejects. The union bound gives \\{\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_m\right)\mathclose{}} \le m \times 0.05\\, which for \\m = 10\\ is 0.5. The exact probability for independent tests is \\1 - 0.95^{10} =\\ 0.401 ([Theorem 1](#thm-false-positive-prob)), so the bound is not tight, but it needs no independence. For large \\m\\ the bound exceeds 1 and says nothing.
+> **Example 8 (The union bound for tests of true null hypotheses)** Let $A_j$ be the event that the $j$th of $m$ tests of true null hypotheses, each at level $\alpha= 0.05$, rejects. The union bound gives ${\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_m\right)\mathclose{}} \le m \times 0.05$, which for $m = 10$ is 0.5. The exact probability for independent tests is $1 - 0.95^{10} =$ 0.401 ([Theorem 1](#thm-false-positive-prob)), so the bound is not tight, but it needs no independence. For large $m$ the bound exceeds 1 and says nothing.
 
 > **NOTE:**
 >
-> **Exercise 3 (Probability of a false positive under the Bonferroni correction)** Let \\m\\ null hypotheses have valid p-values ([Definition 7](#def-valid-p-value)), let \\\mathcal{I}\_0\\ be the set of \\m_0\\ indices of the true null hypotheses, and let \\V\\ be the number of true null hypotheses that the [Bonferroni correction](#def-bonferroni) at level \\\alpha\\ rejects. Show that \\{\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}} \le m_0 \alpha/ m\\.
+> **Exercise 3 (Probability of a false positive under the Bonferroni correction)** Let $m$ null hypotheses have valid p-values ([Definition 7](#def-valid-p-value)), let $\mathcal{I}_0$ be the set of $m_0$ indices of the true null hypotheses, and let $V$ be the number of true null hypotheses that the [Bonferroni correction](#def-bonferroni) at level $\alpha$ rejects. Show that ${\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}} \le m_0 \alpha/ m$.
 
 > **NOTE:**
 >
 > *Solution 3*. The steps use the Bonferroni rule ([Definition 8](#def-bonferroni)), the union bound ([Theorem 2](#thm-union-bound)) and the validity of each p-value ([Definition 7](#def-valid-p-value)).
 >
-> \\ \begin{aligned} {\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}} &= {\Pr\mathopen{}\left(\bigcup\_{j \in \mathcal{I}\_0} {\mathopen{}\left\\H_j \text{ is rejected}\right\\\mathclose{}}\right)\mathclose{}} && \text{(\$V \ge 1\$ means some true null hypothesis is rejected)}\\ &= {\Pr\mathopen{}\left(\bigcup\_{j \in \mathcal{I}\_0} {\mathopen{}\left\\p_j \le \alpha/ m\right\\\mathclose{}}\right)\mathclose{}} && \text{(the Bonferroni rule)}\\ &\le \sum\_{j \in \mathcal{I}\_0} {\Pr\mathopen{}\left(p_j \le \alpha/ m\right)\mathclose{}} && \text{(union bound)}\\ &\le \sum\_{j \in \mathcal{I}\_0} \frac{\alpha}{m} && \text{(each \$p_j\$ is valid, with \$u = \alpha/ m\$)}\\ &= m_0 \cdot \frac{\alpha}{m} && \text{(a sum of \$m_0\$ equal terms)} \end{aligned} \\
+> $$\begin{aligned}
+> {\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}}
+> &= {\Pr\mathopen{}\left(\bigcup_{j \in \mathcal{I}_0} {\mathopen{}\left\{H_j \text{ is rejected}\right\}\mathclose{}}\right)\mathclose{}}
+> && \text{($V \ge 1$ means some true null hypothesis is rejected)}\\
+> &= {\Pr\mathopen{}\left(\bigcup_{j \in \mathcal{I}_0} {\mathopen{}\left\{p_j \le \alpha/ m\right\}\mathclose{}}\right)\mathclose{}}
+> && \text{(the Bonferroni rule)}\\
+> &\le \sum_{j \in \mathcal{I}_0} {\Pr\mathopen{}\left(p_j \le \alpha/ m\right)\mathclose{}}
+> && \text{(union bound)}\\
+> &\le \sum_{j \in \mathcal{I}_0} \frac{\alpha}{m}
+> && \text{(each $p_j$ is valid, with $u = \alpha/ m$)}\\
+> &= m_0 \cdot \frac{\alpha}{m}
+> && \text{(a sum of $m_0$ equal terms)}
+> \end{aligned}$$
 
 > **NOTE:**
 >
-> **Lemma 3 (Probability of a false positive under the Bonferroni correction)** Let \\m\\ null hypotheses have valid p-values ([Definition 7](#def-valid-p-value)), let \\\mathcal{I}\_0\\ be the set of \\m_0\\ indices of the true null hypotheses, and let \\V\\ be the number of true null hypotheses that the [Bonferroni correction](#def-bonferroni) at level \\\alpha\\ rejects. Then the probability that at least one true null hypothesis is rejected is at most \\m_0 \alpha/ m\\:
+> **Lemma 3 (Probability of a false positive under the Bonferroni correction)** Let $m$ null hypotheses have valid p-values ([Definition 7](#def-valid-p-value)), let $\mathcal{I}_0$ be the set of $m_0$ indices of the true null hypotheses, and let $V$ be the number of true null hypotheses that the [Bonferroni correction](#def-bonferroni) at level $\alpha$ rejects. Then the probability that at least one true null hypothesis is rejected is at most $m_0 \alpha/ m$:
 >
-> \\{\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}} \le \frac{m_0 \alpha}{m}.\\
+> $${\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}} \le \frac{m_0 \alpha}{m}.$$
 
 > **NOTE:**
 >
@@ -444,9 +486,9 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Theorem 3 (The Bonferroni correction controls the FWER)** If all p-values of true null hypotheses are valid ([Definition 7](#def-valid-p-value)), the [Bonferroni correction](#def-bonferroni) at level \\\alpha\\ satisfies
+> **Theorem 3 (The Bonferroni correction controls the FWER)** If all p-values of true null hypotheses are valid ([Definition 7](#def-valid-p-value)), the [Bonferroni correction](#def-bonferroni) at level $\alpha$ satisfies
 >
-> \\\text{FWER} \le \frac{m_0}{m} \alpha\le \alpha,\\
+> $$\text{FWER} \le \frac{m_0}{m} \alpha\le \alpha,$$
 >
 > whatever the dependence between the p-values.
 
@@ -454,13 +496,21 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > *Proof*. The first line below is [Definition 2](#def-fwer), and the second is [Lemma 3](#lem-bonferroni-false-positive-prob).
 >
-> \\ \begin{aligned} \text{FWER} &= {\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}} && \text{(definition of the FWER)}\\ &\le \frac{m_0}{m} \alpha && \text{(bound from the exercise)}\\ &\le \alpha && \text{(\$m_0 \le m\$, so \$m_0 / m \le 1\$)} \end{aligned} \\
+> $$\begin{aligned}
+> \text{FWER}
+> &= {\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}}
+> && \text{(definition of the FWER)}\\
+> &\le \frac{m_0}{m} \alpha
+> && \text{(bound from the exercise)}\\
+> &\le \alpha
+> && \text{($m_0 \le m$, so $m_0 / m \le 1$)}
+> \end{aligned}$$
 >
 > The proof uses only the union bound and the validity of each p-value, so it needs no assumption about how the p-values depend on each other.
 
 > **NOTE:**
 >
-> **Example 9 (FWER of the Bonferroni correction in the simulated family)** In the simulated family of [Example 3](#exm-rejection-counts), \\m_0 / m = 0.9\\, so [Theorem 3](#thm-bonferroni-fwer) bounds the FWER by \\0.9 \times 0.05 =\\ 0.045. Repeating the simulation 2000 times with the Bonferroni correction:
+> **Example 9 (FWER of the Bonferroni correction in the simulated family)** In the simulated family of [Example 3](#exm-rejection-counts), $m_0 / m = 0.9$, so [Theorem 3](#thm-bonferroni-fwer) bounds the FWER by $0.9 \times 0.05 =$ 0.045. Repeating the simulation 2000 times with the Bonferroni correction:
 >
 > ``` downlit
 > set.seed(574)
@@ -476,15 +526,15 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 9 (Holm cutoff rank)** Given \\m\\ null hypotheses with p-values and a level \\\alpha\\, order the p-values from smallest to largest, \\p\_{(1)} \le p\_{(2)} \le \cdots \le p\_{(m)}\\, and let \\H\_{(k)}\\ be the null hypothesis with p-value \\p\_{(k)}\\. The **Holm cutoff rank** \\k^\*\\ is the first rank at which the p-value exceeds its threshold \\\alpha/ (m - k + 1)\\, with \\k^\* \stackrel{\text{def}}{=}m + 1\\ if there is no such rank:
+> **Definition 9 (Holm cutoff rank)** Given $m$ null hypotheses with p-values and a level $\alpha$, order the p-values from smallest to largest, $p_{(1)} \le p_{(2)} \le \cdots \le p_{(m)}$, and let $H_{(k)}$ be the null hypothesis with p-value $p_{(k)}$. The **Holm cutoff rank** $k^*$ is the first rank at which the p-value exceeds its threshold $\alpha/ (m - k + 1)$, with $k^* \stackrel{\text{def}}{=}m + 1$ if there is no such rank:
 >
-> \\k^\* \stackrel{\text{def}}{=}\min {\mathopen{}\left\\k : p\_{(k)} \> \frac{\alpha}{m - k + 1}\right\\\mathclose{}}.\\
+> $$k^* \stackrel{\text{def}}{=}\min {\mathopen{}\left\{k : p_{(k)} > \frac{\alpha}{m - k + 1}\right\}\mathclose{}}.$$
 >
 > Source: Holm [\[2\]](#ref-holm1979simple).
 
 > **NOTE:**
 >
-> **Definition 10 (Holm’s step-down procedure)** Given the cutoff rank \\k^\*\\ of [Definition 9](#def-holm-cutoff), **Holm’s procedure** rejects \\H\_{(1)}, \ldots, H\_{(k^\* - 1)}\\ and no others.
+> **Definition 10 (Holm’s step-down procedure)** Given the cutoff rank $k^*$ of [Definition 9](#def-holm-cutoff), **Holm’s procedure** rejects $H_{(1)}, \ldots, H_{(k^* - 1)}$ and no others.
 >
 > Source: Holm [\[2\]](#ref-holm1979simple); Wikipedia contributors [\[10\]](#ref-wikipedia_holm_bonferroni_method).
 
@@ -504,7 +554,7 @@ table(tumor_class = khan_pair$tumor_class)
 > }
 > ```
 >
-> For the first ten genes at \\\alpha= 0.05\\, the thresholds \\0.05 / (10 - k + 1)\\ rise from \\0.005\\ for the smallest p-value to \\0.05\\ for the largest:
+> For the first ten genes at $\alpha= 0.05$, the thresholds $0.05 / (10 - k + 1)$ rise from $0.005$ for the smallest p-value to $0.05$ for the largest:
 >
 > Show code
 >
@@ -538,9 +588,9 @@ table(tumor_class = khan_pair$tumor_class)
 > | gene_8  | 0.773    |    9 |  0.025000 | TRUE    |
 > | gene_1  | 0.944    |   10 |  0.050000 | TRUE    |
 >
-> The first p-value that exceeds its threshold is at rank \\k^\* =\\ 3, so Holm’s procedure rejects the 2 genes ranked before it.
+> The first p-value that exceeds its threshold is at rank $k^* =$ 3, so Holm’s procedure rejects the 2 genes ranked before it.
 >
-> Holm’s procedure always rejects every hypothesis that the Bonferroni correction rejects, because its first threshold is \\\alpha/ m\\ and its later thresholds are larger. On all 2308 genes the two procedures reject almost the same genes:
+> Holm’s procedure always rejects every hypothesis that the Bonferroni correction rejects, because its first threshold is $\alpha/ m$ and its later thresholds are larger. On all 2308 genes the two procedures reject almost the same genes:
 >
 > ``` downlit
 > holm_comparison <- sapply(c(0.05, 0.01), function(a) {
@@ -557,41 +607,41 @@ table(tumor_class = khan_pair$tumor_class)
 > #> holm       62.00 44.00
 > ```
 >
-> At \\\alpha= 0.01\\ Holm’s procedure rejects 44 genes and the Bonferroni correction 43; at \\\alpha= 0.05\\ they reject 62 and 62.
+> At $\alpha= 0.01$ Holm’s procedure rejects 44 genes and the Bonferroni correction 43; at $\alpha= 0.05$ they reject 62 and 62.
 
 > **NOTE:**
 >
-> **Exercise 4 (A rejected true null hypothesis has a small p-value under Holm’s procedure)** Let \\m\\ null hypotheses have p-values, and let \\\mathcal{I}\_0\\ be the set of \\m_0 \ge 1\\ indices of the true null hypotheses. Show that if [Holm’s procedure](#def-holm) at level \\\alpha\\ rejects at least one true null hypothesis, then the smallest p-value among the true null hypotheses is at most \\\alpha/ m_0\\:
+> **Exercise 4 (A rejected true null hypothesis has a small p-value under Holm’s procedure)** Let $m$ null hypotheses have p-values, and let $\mathcal{I}_0$ be the set of $m_0 \ge 1$ indices of the true null hypotheses. Show that if [Holm’s procedure](#def-holm) at level $\alpha$ rejects at least one true null hypothesis, then the smallest p-value among the true null hypotheses is at most $\alpha/ m_0$:
 >
-> \\\min\_{j \in \mathcal{I}\_0} p_j \le \frac{\alpha}{m_0}.\\
+> $$\min_{j \in \mathcal{I}_0} p_j \le \frac{\alpha}{m_0}.$$
 
 > **NOTE:**
 >
-> *Solution 4*. Order the p-values as in [Definition 9](#def-holm-cutoff), and let \\r\\ be the smallest rank held by a true null hypothesis, so that \\p\_{(r)} = \min\_{j \in \mathcal{I}\_0} p_j\\.
+> *Solution 4*. Order the p-values as in [Definition 9](#def-holm-cutoff), and let $r$ be the smallest rank held by a true null hypothesis, so that $p_{(r)} = \min_{j \in \mathcal{I}_0} p_j$.
 >
-> 1.  Every hypothesis ranked before \\r\\ is false, and there are \\m - m_0\\ false null hypotheses, so
+> 1.  Every hypothesis ranked before $r$ is false, and there are $m - m_0$ false null hypotheses, so
 >
->     \\r - 1 \le m - m_0.\\
+>     $$r - 1 \le m - m_0.$$
 >
-> 2.  Adding \\1 - r + m_0\\ to both sides of the inequality in step 1 gives
+> 2.  Adding $1 - r + m_0$ to both sides of the inequality in step 1 gives
 >
->     \\m_0 \le m - r + 1.\\
+>     $$m_0 \le m - r + 1.$$
 >
-> 3.  Holm’s procedure rejects hypotheses in rank order, \\H\_{(1)}, \ldots, H\_{(k^\* - 1)}\\. A true null hypothesis has rank at least \\r\\, so rejecting one means \\k^\* - 1 \ge r\\, that is \\k^\* \> r\\. Rank \\r\\ is therefore before the first failure, and
+> 3.  Holm’s procedure rejects hypotheses in rank order, $H_{(1)}, \ldots, H_{(k^* - 1)}$. A true null hypothesis has rank at least $r$, so rejecting one means $k^* - 1 \ge r$, that is $k^* > r$. Rank $r$ is therefore before the first failure, and
 >
->     \\p\_{(r)} \le \frac{\alpha}{m - r + 1}.\\
+>     $$p_{(r)} \le \frac{\alpha}{m - r + 1}.$$
 >
-> 4.  Step 2 gives \\m - r + 1 \ge m_0\\, so \\\alpha/ (m - r + 1) \le \alpha/ m_0\\. Combining this with step 3,
+> 4.  Step 2 gives $m - r + 1 \ge m_0$, so $\alpha/ (m - r + 1) \le \alpha/ m_0$. Combining this with step 3,
 >
->     \\p\_{(r)} \le \frac{\alpha}{m_0}.\\
+>     $$p_{(r)} \le \frac{\alpha}{m_0}.$$
 >
-> Since \\p\_{(r)} = \min\_{j \in \mathcal{I}\_0} p_j\\, the claim follows.
+> Since $p_{(r)} = \min_{j \in \mathcal{I}_0} p_j$, the claim follows.
 
 > **NOTE:**
 >
-> **Lemma 4 (A rejected true null hypothesis has a small p-value under Holm’s procedure)** Let \\m\\ null hypotheses have p-values, and let \\\mathcal{I}\_0\\ be the set of \\m_0 \ge 1\\ indices of the true null hypotheses. If [Holm’s procedure](#def-holm) at level \\\alpha\\ rejects at least one true null hypothesis, then the smallest p-value among the true null hypotheses is at most \\\alpha/ m_0\\:
+> **Lemma 4 (A rejected true null hypothesis has a small p-value under Holm’s procedure)** Let $m$ null hypotheses have p-values, and let $\mathcal{I}_0$ be the set of $m_0 \ge 1$ indices of the true null hypotheses. If [Holm’s procedure](#def-holm) at level $\alpha$ rejects at least one true null hypothesis, then the smallest p-value among the true null hypotheses is at most $\alpha/ m_0$:
 >
-> \\\min\_{j \in \mathcal{I}\_0} p_j \le \frac{\alpha}{m_0}.\\
+> $$\min_{j \in \mathcal{I}_0} p_j \le \frac{\alpha}{m_0}.$$
 
 > **NOTE:**
 >
@@ -599,17 +649,33 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Theorem 4 (Holm’s procedure controls the FWER)** If all p-values of true null hypotheses are valid ([Definition 7](#def-valid-p-value)), [Holm’s procedure](#def-holm) at level \\\alpha\\ satisfies
+> **Theorem 4 (Holm’s procedure controls the FWER)** If all p-values of true null hypotheses are valid ([Definition 7](#def-valid-p-value)), [Holm’s procedure](#def-holm) at level $\alpha$ satisfies
 >
-> \\\text{FWER} \le \alpha,\\
+> $$\text{FWER} \le \alpha,$$
 >
 > whatever the dependence between the p-values.
 
 > **NOTE:**
 >
-> *Proof*. If \\m_0 = 0\\ there is no true null hypothesis to reject, so \\V = 0\\ and \\\text{FWER} = 0\\. If \\m_0 \ge 1\\, the event \\V \ge 1\\ means Holm’s procedure rejects a true null hypothesis, so by [Lemma 4](#lem-holm-threshold) it is contained in the event \\\min\_{j \in \mathcal{I}\_0} p_j \le \alpha/ m_0\\:
+> *Proof*. If $m_0 = 0$ there is no true null hypothesis to reject, so $V = 0$ and $\text{FWER} = 0$. If $m_0 \ge 1$, the event $V \ge 1$ means Holm’s procedure rejects a true null hypothesis, so by [Lemma 4](#lem-holm-threshold) it is contained in the event $\min_{j \in \mathcal{I}_0} p_j \le \alpha/ m_0$:
 >
-> \\ \begin{aligned} \text{FWER} &= {\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}} && \text{(definition of the FWER)}\\ &\le {\Pr\mathopen{}\left(\min\_{j \in \mathcal{I}\_0} p_j \le \frac{\alpha}{m_0}\right)\mathclose{}} && \text{(the event \$V \ge 1\$ lies inside this event)}\\ &= {\Pr\mathopen{}\left(\bigcup\_{j \in \mathcal{I}\_0} {\mathopen{}\left\\p_j \le \frac{\alpha}{m_0}\right\\\mathclose{}}\right)\mathclose{}} && \text{(the minimum is at most a bound exactly when some term is)}\\ &\le \sum\_{j \in \mathcal{I}\_0} {\Pr\mathopen{}\left(p_j \le \frac{\alpha}{m_0}\right)\mathclose{}} && \text{(union bound)}\\ &\le \sum\_{j \in \mathcal{I}\_0} \frac{\alpha}{m_0} && \text{(each \$p_j\$ is valid, with \$u = \alpha/ m_0\$)}\\ &= m_0 \cdot \frac{\alpha}{m_0} && \text{(a sum of \$m_0\$ equal terms)}\\ &= \alpha && \text{(\$m_0 \cdot \frac{1}{m_0} = 1\$)} \end{aligned} \\
+> $$\begin{aligned}
+> \text{FWER}
+> &= {\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}}
+> && \text{(definition of the FWER)}\\
+> &\le {\Pr\mathopen{}\left(\min_{j \in \mathcal{I}_0} p_j \le \frac{\alpha}{m_0}\right)\mathclose{}}
+> && \text{(the event $V \ge 1$ lies inside this event)}\\
+> &= {\Pr\mathopen{}\left(\bigcup_{j \in \mathcal{I}_0} {\mathopen{}\left\{p_j \le \frac{\alpha}{m_0}\right\}\mathclose{}}\right)\mathclose{}}
+> && \text{(the minimum is at most a bound exactly when some term is)}\\
+> &\le \sum_{j \in \mathcal{I}_0} {\Pr\mathopen{}\left(p_j \le \frac{\alpha}{m_0}\right)\mathclose{}}
+> && \text{(union bound)}\\
+> &\le \sum_{j \in \mathcal{I}_0} \frac{\alpha}{m_0}
+> && \text{(each $p_j$ is valid, with $u = \alpha/ m_0$)}\\
+> &= m_0 \cdot \frac{\alpha}{m_0}
+> && \text{(a sum of $m_0$ equal terms)}\\
+> &= \alpha
+> && \text{($m_0 \cdot \frac{1}{m_0} = 1$)}
+> \end{aligned}$$
 >
 > The union bound is [Theorem 2](#thm-union-bound) and validity is [Definition 7](#def-valid-p-value). As for the Bonferroni correction, no assumption about dependence is needed.
 
@@ -625,7 +691,7 @@ table(tumor_class = khan_pair$tumor_class)
 > #> 0.04050000 0.00269911 0.14648500
 > ```
 >
-> The estimated FWER, 0.04, is below \\\alpha= 0.05\\, up to simulation error. Holm’s power is 0.146, against 0.146 for the Bonferroni correction: Holm’s procedure can only reject more, but here the extra rejections are rare.
+> The estimated FWER, 0.04, is below $\alpha= 0.05$, up to simulation error. Holm’s power is 0.146, against 0.146 for the Bonferroni correction: Holm’s procedure can only reject more, but here the extra rejections are rare.
 
 > **NOTE:**
 >
@@ -638,21 +704,21 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 11 (Benjamini–Hochberg cutoff rank)** Given \\m\\ null hypotheses with ordered p-values \\p\_{(1)} \le \cdots \le p\_{(m)}\\ (as in [Definition 9](#def-holm-cutoff)) and a level \\q\\, the **Benjamini–Hochberg cutoff rank** \\\hat k\\ is the largest rank whose p-value is at most \\k q / m\\, with \\\hat k \stackrel{\text{def}}{=}0\\ if there is no such rank:
+> **Definition 11 (Benjamini–Hochberg cutoff rank)** Given $m$ null hypotheses with ordered p-values $p_{(1)} \le \cdots \le p_{(m)}$ (as in [Definition 9](#def-holm-cutoff)) and a level $q$, the **Benjamini–Hochberg cutoff rank** $\hat k$ is the largest rank whose p-value is at most $k q / m$, with $\hat k \stackrel{\text{def}}{=}0$ if there is no such rank:
 >
-> \\\hat k \stackrel{\text{def}}{=}\max {\mathopen{}\left\\k : p\_{(k)} \le \frac{k q}{m}\right\\\mathclose{}}.\\
+> $$\hat k \stackrel{\text{def}}{=}\max {\mathopen{}\left\{k : p_{(k)} \le \frac{k q}{m}\right\}\mathclose{}}.$$
 >
 > Source: Benjamini and Hochberg [\[3\]](#ref-benjamini1995controlling).
 
 > **NOTE:**
 >
-> **Definition 12 (Benjamini–Hochberg procedure)** Given the cutoff rank \\\hat k\\ of [Definition 11](#def-bh-cutoff), the **Benjamini–Hochberg procedure** (BH) rejects \\H\_{(1)}, \ldots, H\_{(\hat k)}\\ and no others.
+> **Definition 12 (Benjamini–Hochberg procedure)** Given the cutoff rank $\hat k$ of [Definition 11](#def-bh-cutoff), the **Benjamini–Hochberg procedure** (BH) rejects $H_{(1)}, \ldots, H_{(\hat k)}$ and no others.
 >
 > Source: Benjamini and Hochberg [\[3\]](#ref-benjamini1995controlling); Wikipedia contributors [\[7\]](#ref-wikipedia_false_discovery_rate).
 
 > **NOTE:**
 >
-> *Remark 6* (BH is a step-up procedure). Holm’s procedure starts at the smallest p-value and stops at the first failure. BH starts at the largest p-value and works down until one passes its threshold \\k q / m\\. Every hypothesis ranked at or below \\\hat k\\ is rejected, including those with p-values above their own thresholds. The thresholds \\k q / m\\ grow with the rank \\k\\, and the smallest, \\q / m\\, equals the Bonferroni threshold, so BH rejects every hypothesis that the Bonferroni correction rejects at level \\\alpha= q\\.
+> *Remark 6* (BH is a step-up procedure). Holm’s procedure starts at the smallest p-value and stops at the first failure. BH starts at the largest p-value and works down until one passes its threshold $k q / m$. Every hypothesis ranked at or below $\hat k$ is rejected, including those with p-values above their own thresholds. The thresholds $k q / m$ grow with the rank $k$, and the smallest, $q / m$, equals the Bonferroni threshold, so BH rejects every hypothesis that the Bonferroni correction rejects at level $\alpha= q$.
 
 > **NOTE:**
 >
@@ -670,7 +736,7 @@ table(tumor_class = khan_pair$tumor_class)
 > }
 > ```
 >
-> For the first ten genes at \\q = 0.05\\ the thresholds \\k \times 0.05 / 10\\ rise from \\0.005\\ to \\0.05\\:
+> For the first ten genes at $q = 0.05$ the thresholds $k \times 0.05 / 10$ rise from $0.005$ to $0.05$:
 >
 > Show code
 >
@@ -704,7 +770,7 @@ table(tumor_class = khan_pair$tumor_class)
 > | gene_8  | 0.773    |    9 |     0.045 | FALSE  |
 > | gene_1  | 0.944    |   10 |     0.050 | FALSE  |
 >
-> The largest rank that passes is \\\hat k =\\ 2, so BH rejects the 2 genes with the smallest p-values. On all 2308 genes at \\q = 0.05\\, BH rejects far more genes than the Bonferroni correction:
+> The largest rank that passes is $\hat k =$ 2, so BH rejects the 2 genes with the smallest p-values. On all 2308 genes at $q = 0.05$, BH rejects far more genes than the Bonferroni correction:
 >
 > ``` downlit
 > c(
@@ -717,13 +783,13 @@ table(tumor_class = khan_pair$tumor_class)
 > #>        528         62         62        250
 > ```
 >
-> A guarantee that \\\text{FDR} \le 0.05\\ is a statement about the average false discovery proportion over repeated data sets, not about this particular list of 250 genes.
+> A guarantee that $\text{FDR} \le 0.05$ is a statement about the average false discovery proportion over repeated data sets, not about this particular list of 250 genes.
 
 > **NOTE:**
 >
-> **Theorem 5 (The BH procedure controls the FDR under independence)** Suppose the \\m\\ p-values are independent and each true null hypothesis has a p-value that is uniform on \\\[0, 1\]\\. Then the [BH procedure](#def-bh) at level \\q\\ satisfies
+> **Theorem 5 (The BH procedure controls the FDR under independence)** Suppose the $m$ p-values are independent and each true null hypothesis has a p-value that is uniform on $[0, 1]$. Then the [BH procedure](#def-bh) at level $q$ satisfies
 >
-> \\\text{FDR} = \frac{m_0}{m} q \le q.\\
+> $$\text{FDR} = \frac{m_0}{m} q \le q.$$
 
 > **NOTE:**
 >
@@ -731,7 +797,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Example 13 (FDR of the BH procedure in the simulated family)** In the simulated family of [Example 3](#exm-rejection-counts) the p-values are independent and \\m_0 / m = 0.9\\, so [Theorem 5](#thm-bh-fdr) gives \\\text{FDR} = 0.9 \times 0.05 =\\ 0.045 at \\q = 0.05\\. Repeating the simulation 2000 times with BH:
+> **Example 13 (FDR of the BH procedure in the simulated family)** In the simulated family of [Example 3](#exm-rejection-counts) the p-values are independent and $m_0 / m = 0.9$, so [Theorem 5](#thm-bh-fdr) gives $\text{FDR} = 0.9 \times 0.05 =$ 0.045 at $q = 0.05$. Repeating the simulation 2000 times with BH:
 >
 > ``` downlit
 > set.seed(576)
@@ -745,25 +811,27 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 8* (BH under dependence). Gene expression levels are usually correlated, and [Theorem 5](#thm-bh-fdr) assumes independence. Benjamini and Yekutieli [\[13\]](#ref-benjamini2001control) proved that BH still controls the FDR at level \\q\\ under a form of positive dependence among the p-values, and that the procedure run at level \\q / \sum\_{k=1}^m (1/k)\\ controls it under any dependence. James et al. [\[4, Ch. 13\]](#ref-james2021islr2e) and Efron and Hastie [\[14, Ch. 15\]](#ref-efron2016computer) discuss the procedure in practice.
+> *Remark 8* (BH under dependence). Gene expression levels are usually correlated, and [Theorem 5](#thm-bh-fdr) assumes independence. Benjamini and Yekutieli [\[13\]](#ref-benjamini2001control) proved that BH still controls the FDR at level $q$ under a form of positive dependence among the p-values, and that the procedure run at level $q / \sum_{k=1}^m (1/k)$ controls it under any dependence. James et al. [\[4, Ch. 13\]](#ref-james2021islr2e) and Efron and Hastie [\[14, Ch. 15\]](#ref-efron2016computer) discuss the procedure in practice.
 
 ## 0.6 Adjusted p-values and q-values
 
 > **NOTE:**
 >
-> **Definition 13 (Adjusted p-value)** For a multiple testing procedure that takes a level \\c\\ (\\\alpha\\ for an FWER procedure, \\q\\ for an FDR procedure), the **adjusted p-value** \\\tilde p_j\\ of \\H_j\\ is the smallest level at which the procedure rejects \\H_j\\, or \\1\\ if there is none:
+> **Definition 13 (Adjusted p-value)** For a multiple testing procedure that takes a level $c$ ($\alpha$ for an FWER procedure, $q$ for an FDR procedure), the **adjusted p-value** $\tilde p_j$ of $H_j$ is the smallest level at which the procedure rejects $H_j$, or $1$ if there is none:
 >
-> \\\tilde p_j \stackrel{\text{def}}{=}\min {\mathopen{}\left\\c \in \[0, 1\] : \text{the procedure at level } c \text{ rejects } H_j\right\\\mathclose{}}.\\
+> $$\tilde p_j \stackrel{\text{def}}{=}\min {\mathopen{}\left\{c \in [0, 1] : \text{the procedure at level } c \text{ rejects } H_j\right\}\mathclose{}}.$$
 
 > **NOTE:**
 >
-> *Remark 9* (Applying any level to adjusted p-values). If the rejection set only grows as the level grows, as it does for the procedures on this page, the procedure at level \\c\\ rejects exactly the hypotheses with \\\tilde p_j \le c\\, so a reader can apply any level to a list of adjusted p-values without redoing the procedure.
+> *Remark 9* (Applying any level to adjusted p-values). If the rejection set only grows as the level grows, as it does for the procedures on this page, the procedure at level $c$ rejects exactly the hypotheses with $\tilde p_j \le c$, so a reader can apply any level to a list of adjusted p-values without redoing the procedure.
 
 > **NOTE:**
 >
-> **Example 14 (Adjusted p-values for the Khan genes)** For the Bonferroni correction, \\H_j\\ is rejected at level \\c\\ exactly when \\m p_j \le c\\, so \\\tilde p_j = \min{\mathopen{}\left\\1, m p_j\right\\\mathclose{}}\\. For Holm’s procedure and BH the adjusted p-values are
+> **Example 14 (Adjusted p-values for the Khan genes)** For the Bonferroni correction, $H_j$ is rejected at level $c$ exactly when $m p_j \le c$, so $\tilde p_j = \min{\mathopen{}\left\{1, m p_j\right\}\mathclose{}}$. For Holm’s procedure and BH the adjusted p-values are
 >
-> \\ \tilde p\_{(i)}^{\text{Holm}} = \max\_{k \le i} \min{\mathopen{}\left\\1, (m - k + 1)\\ p\_{(k)}\right\\\mathclose{}}, \qquad \tilde p\_{(i)}^{\text{BH}} = \min\_{k \ge i} \min{\mathopen{}\left\\1, \frac{m\\ p\_{(k)}}{k}\right\\\mathclose{}}. \\
+> $$\tilde p_{(i)}^{\text{Holm}} = \max_{k \le i} \min{\mathopen{}\left\{1, (m - k + 1)\, p_{(k)}\right\}\mathclose{}},
+> \qquad
+> \tilde p_{(i)}^{\text{BH}} = \min_{k \ge i} \min{\mathopen{}\left\{1, \frac{m\, p_{(k)}}{k}\right\}\mathclose{}}.$$
 >
 > R computes all three with [`p.adjust()`](https://rdrr.io/r/stats/p.adjust.html). For the first ten genes:
 >
@@ -820,7 +888,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 10* (q-values). The BH adjusted p-value of a hypothesis is the smallest FDR level \\q\\ at which BH rejects it. Some authors call this a *q-value*. Storey [\[15\]](#ref-storey2002direct) defines the q-value with the same meaning, but estimates the fraction \\m_0 / m\\ of true null hypotheses from the p-values and multiplies by the estimate, \\\hat\pi_0\\, which is usually below 1. BH is the case \\\hat\pi_0 = 1\\, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.
+> *Remark 10* (q-values). The BH adjusted p-value of a hypothesis is the smallest FDR level $q$ at which BH rejects it. Some authors call this a *q-value*. Storey [\[15\]](#ref-storey2002direct) defines the q-value with the same meaning, but estimates the fraction $m_0 / m$ of true null hypotheses from the p-values and multiplies by the estimate, $\hat\pi_0$, which is usually below 1. BH is the case $\hat\pi_0 = 1$, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.
 
 ## 0.7 Comparing the procedures
 

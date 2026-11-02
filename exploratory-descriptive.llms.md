@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-01 01:56:06 (PDT)
+Last modified: 2026-11-02 10:03:02 (PST)
 
 ## 0.1 Introduction
 
@@ -161,19 +161,19 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 2 (Population distribution)** The **population distribution** of a variable \\X\\ is the distribution of \\X\\ for a unit [chosen at random](https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice) from a population ([Definition 1](#def-population)): the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that \\X\\ falls in a set \\A\\ is
+> **Definition 2 (Population distribution)** The **population distribution** of a variable $X$ is the distribution of $X$ for a unit [chosen at random](https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice) from a population ([Definition 1](#def-population)): the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that $X$ falls in a set $A$ is
 >
-> \\{\mathbb{P}\mathopen{}\left(A\right)\mathclose{}} \stackrel{\text{def}}{=}\Pr(X \in A),\\
+> $${\mathbb{P}\mathopen{}\left(A\right)\mathclose{}} \stackrel{\text{def}}{=}\Pr(X \in A),$$
 >
 > where the probability refers to the random choice of the unit.
 
 > **NOTE:**
 >
-> *Remark*. A population may be finite or infinite. For a finite population \\U\\ of \\N\\ units, with \\X(u)\\ the value of \\X\\ for unit \\u\\, the random choice gives each unit probability \\1/N\\, so
+> *Remark*. A population may be finite or infinite. For a finite population $U$ of $N$ units, with $X(u)$ the value of $X$ for unit $u$, the random choice gives each unit probability $1/N$, so
 >
-> \\{\mathbb{P}\mathopen{}\left(A\right)\mathclose{}} = \frac{\mathopen{}\left\|{\mathopen{}\left\\u \in U : X(u) \in A\right\\\mathclose{}}\right\|\mathclose{}}{N}.\\
+> $${\mathbb{P}\mathopen{}\left(A\right)\mathclose{}} = \frac{\mathopen{}\left|{\mathopen{}\left\{u \in U : X(u) \in A\right\}\mathclose{}}\right|\mathclose{}}{N}.$$
 >
-> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function \\{\operatorname{F}\mathopen{}\left(t\right)\mathclose{}} = {\mathbb{P}\mathopen{}\left((-\infty, t\]\right)\mathclose{}}\\ or, when it has one, by its probability mass or density function.
+> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function ${\operatorname{F}\mathopen{}\left(t\right)\mathclose{}} = {\mathbb{P}\mathopen{}\left((-\infty, t]\right)\mathclose{}}$ or, when it has one, by its probability mass or density function.
 
 > **NOTE:**
 >
@@ -185,15 +185,15 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 4 (Sample)** A **sample** of size \\n\\ is the data \\x_1, \ldots, x_n\\ observed on \\n\\ units drawn from a population ([Definition 1](#def-population)).
+> **Definition 4 (Sample)** A **sample** of size $n$ is the data $x_1, \ldots, x_n$ observed on $n$ units drawn from a population ([Definition 1](#def-population)).
 
 > **NOTE:**
 >
 > **Definition 5 (Random sample)** A sample ([Definition 4](#def-sample)) is a **random sample** when the units are chosen by a chance mechanism such that the observations are [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid) draws from the population distribution ([Definition 2](#def-population-distribution)):
 >
-> \\X_1, \ldots, X_n \operatorname{iid}\\ \mathbb{P},\\
+> $$X_1, \ldots, X_n \operatorname{iid}\ \mathbb{P},$$
 >
-> where \\\mathbb{P}\\ is the population distribution.
+> where $\mathbb{P}$ is the population distribution.
 >
 > Source: Wikipedia contributors [\[4\]](#ref-wikipedia_simple_random_sample).
 
@@ -223,9 +223,9 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 7 (Sample mean)** The **sample mean** of \\n\\ observations \\x_1, \ldots, x_n\\ is:
+> **Definition 7 (Sample mean)** The **sample mean** of $n$ observations $x_1, \ldots, x_n$ is:
 >
-> \\{\bar{x}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\
+> $${\bar{x}}\stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^nx_i$$
 
 > **NOTE:**
 >
@@ -242,10 +242,10 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 8 (Sample median)** The **sample median** is the middle value when the observations are sorted in increasing order. In terms of the [order statistics](nonparametric-models.llms.md#def-order-statistics) \\x\_{(1)} \le \cdots \le x\_{(n)}\\:
+> **Definition 8 (Sample median)** The **sample median** is the middle value when the observations are sorted in increasing order. In terms of the [order statistics](nonparametric-models.llms.md#def-order-statistics) $x_{(1)} \le \cdots \le x_{(n)}$:
 >
-> - if \\n\\ is odd, the median is \\x\_{((n+1)/2)}\\;
-> - if \\n\\ is even, the median is \\\frac{1}{2}\mathopen{}\left(x\_{(n/2)} + x\_{(n/2 + 1)}\right)\mathclose{}\\.
+> - if $n$ is odd, the median is $x_{((n+1)/2)}$;
+> - if $n$ is even, the median is $\frac{1}{2}\mathopen{}\left(x_{(n/2)} + x_{(n/2 + 1)}\right)\mathclose{}$.
 >
 > Source: Wikipedia contributors [\[5\]](#ref-wikipedia_median).
 
@@ -264,9 +264,9 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 9 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is:
+> **Definition 9 (Sample variance)** The **sample variance** of $n \ge 2$ observations is:
 >
-> \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(x_i- {\bar{x}})^2\\
+> $$s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum_{i=1}^n(x_i- {\bar{x}})^2$$
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_variance).
 
@@ -274,7 +274,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 10 (Sample standard deviation)** The **sample standard deviation** is the square root of the [sample variance](#def-sample-variance):
 >
-> \\s \stackrel{\text{def}}{=}\sqrt{s^2}\\
+> $$s \stackrel{\text{def}}{=}\sqrt{s^2}$$
 >
 > Source: Wikipedia contributors [\[7\]](#ref-wikipedia_standard_deviation).
 
@@ -297,7 +297,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 11 (Quartiles (first quartile, third quartile, 25th percentile, 75th percentile))** The **quartiles** are the **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\, the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)). The first quartile is also called the **25th percentile**, and the third quartile is also called the **75th percentile**.
+> **Definition 11 (Quartiles (first quartile, third quartile, 25th percentile, 75th percentile))** The **quartiles** are the **first quartile** $Q_1$ and the **third quartile** $Q_3$, the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)). The first quartile is also called the **25th percentile**, and the third quartile is also called the **75th percentile**.
 >
 > Source: Wikipedia contributors [\[8\]](#ref-wikipedia_quartile).
 
@@ -309,7 +309,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 12 (Interquartile range)** The **interquartile range** (IQR) is the difference between the third and first [quartiles](#def-quartiles):
 >
-> \\\text{IQR} \stackrel{\text{def}}{=}Q_3 - Q_1\\
+> $$\text{IQR} \stackrel{\text{def}}{=}Q_3 - Q_1$$
 >
 > Source: Wikipedia contributors [\[9\]](#ref-wikipedia_interquartile_range).
 
@@ -372,9 +372,9 @@ For a formatted table of several variables at once, [`gtsummary::tbl_summary()`]
 >
 > **Definition 13 (Sample proportion)** For a binary variable with values coded 1 (“success”) and 0, the **sample proportion** of successes is:
 >
-> \\\hat{p} \stackrel{\text{def}}{=}\frac{k}{n}\\
+> $$\hat{p} \stackrel{\text{def}}{=}\frac{k}{n}$$
 >
-> where \\k\\ is the number of successes and \\n\\ is the number of observations.
+> where $k$ is the number of successes and $n$ is the number of observations.
 
 > **NOTE:**
 >
@@ -478,14 +478,14 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 >
 > - the box spans the first to the third [quartile](#def-quartiles), so its length is the [IQR](#def-IQR);
 > - a line inside the box marks the [median](#def-sample-median);
-> - the whiskers extend from the box to the most extreme observations within \\1.5 \times \text{IQR}\\ of the box;
+> - the whiskers extend from the box to the most extreme observations within $1.5 \times \text{IQR}$ of the box;
 > - observations beyond the whiskers are plotted individually, as potential outliers.
 >
 > Source: Wikipedia contributors [\[14\]](#ref-wikipedia_box_plot).
 
 > **NOTE:**
 >
-> *Remark 4* (Whisker rules). The \\1.5 \times \text{IQR}\\ whisker rule is the default in R’s [`boxplot()`](https://rdrr.io/r/graphics/boxplot.html) and [`ggplot2::geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html); other software and authors use other rules, such as whiskers that run to the minimum and maximum.
+> *Remark 4* (Whisker rules). The $1.5 \times \text{IQR}$ whisker rule is the default in R’s [`boxplot()`](https://rdrr.io/r/graphics/boxplot.html) and [`ggplot2::geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html); other software and authors use other rules, such as whiskers that run to the minimum and maximum.
 
 > **NOTE:**
 >
@@ -596,9 +596,10 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> **Definition 21 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is:
+> **Definition 21 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of $n$ paired observations $(x_1, y_1), \ldots, (x_n, y_n)$ is:
 >
-> \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}})} {\sqrt{\sum\_{i=1}^n(x_i- {\bar{x}})^2} \sqrt{\sum\_{i=1}^n(y_i- {\bar{y}})^2}}\\
+> $$r \stackrel{\text{def}}{=}\frac{\sum_{i=1}^n(x_i- {\bar{x}})(y_i- {\bar{y}})}
+> {\sqrt{\sum_{i=1}^n(x_i- {\bar{x}})^2} \sqrt{\sum_{i=1}^n(y_i- {\bar{y}})^2}}$$
 >
 > It is defined when neither variable is constant, so that both sums of squares are positive.
 >
@@ -610,13 +611,13 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> **Theorem 1 (Range of the correlation coefficient)** The Pearson correlation coefficient satisfies \\-1 \le r \le 1\\. Moreover, \\r = 1\\ if and only if the points \\(x_i, y_i)\\ lie on a straight line with positive slope, and \\r = -1\\ if and only if they lie on a straight line with negative slope.
+> **Theorem 1 (Range of the correlation coefficient)** The Pearson correlation coefficient satisfies $-1 \le r \le 1$. Moreover, $r = 1$ if and only if the points $(x_i, y_i)$ lie on a straight line with positive slope, and $r = -1$ if and only if they lie on a straight line with negative slope.
 
 > **NOTE:**
 >
-> *Proof*. Write \\a_i \stackrel{\text{def}}{=}x_i- \bar x\\ and \\b_i \stackrel{\text{def}}{=}y_i- \bar y\\, so that \\r = \sum_i a_i b_i / \mathopen{}\left(\sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}\right)\mathclose{}\\. The Cauchy–Schwarz inequality states that \\\mathopen{}\left\|\sum_i a_i b_i\right\|\mathclose{} \le \sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}\\, with equality if and only if one of the vectors \\(a_1, \ldots, a_n)\\ and \\(b_1, \ldots, b_n)\\ is a scalar multiple of the other. Dividing both sides by the (positive) right-hand side gives \\\mathopen{}\left\|r\right\|\mathclose{} \le 1\\.
+> *Proof*. Write $a_i \stackrel{\text{def}}{=}x_i- \bar x$ and $b_i \stackrel{\text{def}}{=}y_i- \bar y$, so that $r = \sum_i a_i b_i / \mathopen{}\left(\sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}\right)\mathclose{}$. The Cauchy–Schwarz inequality states that $\mathopen{}\left|\sum_i a_i b_i\right|\mathclose{} \le \sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}$, with equality if and only if one of the vectors $(a_1, \ldots, a_n)$ and $(b_1, \ldots, b_n)$ is a scalar multiple of the other. Dividing both sides by the (positive) right-hand side gives $\mathopen{}\left|r\right|\mathclose{} \le 1$.
 >
-> Equality \\\mathopen{}\left\|r\right\|\mathclose{} = 1\\ therefore holds if and only if \\b_i = c \\ a_i\\ for some constant \\c \ne 0\\ and every \\i\\, that is, \\y_i= \bar y + c(x_i- \bar x)\\: the points lie on a line with slope \\c\\. Then \\\sum_i a_i b_i = c \sum_i a_i^2\\ has the sign of \\c\\, so \\r = 1\\ when \\c \> 0\\ and \\r = -1\\ when \\c \< 0\\.
+> Equality $\mathopen{}\left|r\right|\mathclose{} = 1$ therefore holds if and only if $b_i = c \, a_i$ for some constant $c \ne 0$ and every $i$, that is, $y_i= \bar y + c(x_i- \bar x)$: the points lie on a line with slope $c$. Then $\sum_i a_i b_i = c \sum_i a_i^2$ has the sign of $c$, so $r = 1$ when $c > 0$ and $r = -1$ when $c < 0$.
 
 > **NOTE:**
 >
@@ -631,7 +632,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **CAUTION:**
 >
-> Two variables can be strongly related and still have a correlation near zero, if the relationship is not linear. For example, if \\y_i= x_i^2\\, the \\x_i\\ are symmetric around 0, and the \\\mathopen{}\left\|x_i\right\|\mathclose{}\\ are not all equal, then \\r = 0\\, although \\y\\ is a function of \\x\\. Correlation also does not imply causation.
+> Two variables can be strongly related and still have a correlation near zero, if the relationship is not linear. For example, if $y_i= x_i^2$, the $x_i$ are symmetric around 0, and the $\mathopen{}\left|x_i\right|\mathclose{}$ are not all equal, then $r = 0$, although $y$ is a function of $x$. Correlation also does not imply causation.
 
 > **NOTE:**
 >
@@ -703,13 +704,13 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 
 > **NOTE:**
 >
-> **Definition 22 (Contingency table (cross-tabulation))** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two [categorical variables](data.llms.md#def-categorical-var): each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
+> **Definition 22 (Contingency table (cross-tabulation))** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two [categorical variables](data.llms.md#def-categorical-var): each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a $2 \times 2$ table with cells $a$, $b$, $c$, and $d$:
 >
-> |              | Outcome = 1 | Outcome = 0 |   Total   |
-> |--------------|:-----------:|:-----------:|:---------:|
-> | Exposure = 1 |    \\a\\    |    \\b\\    | \\a + b\\ |
-> | Exposure = 0 |    \\c\\    |    \\d\\    | \\c + d\\ |
-> | Total        |  \\a + c\\  |  \\b + d\\  |   \\n\\   |
+> |              | Outcome = 1 | Outcome = 0 |  Total  |
+> |--------------|:-----------:|:-----------:|:-------:|
+> | Exposure = 1 |     $a$     |     $b$     | $a + b$ |
+> | Exposure = 0 |     $c$     |     $d$     | $c + d$ |
+> | Total        |   $a + c$   |   $b + d$   |   $n$   |
 >
 > Source: Wikipedia contributors [\[19\]](#ref-wikipedia_contingency_table).
 
@@ -755,12 +756,12 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 
 ## 0.5 Data transformations
 
-When a continuous variable has a right-skewed distribution (a longer tail to the right than to the left), a logarithmic transformation often makes the distribution more symmetric. A log-transformed variable also has a multiplicative interpretation: an increase of 1 in \\\log(x)\\ corresponds to multiplying \\x\\ by \\e \approx 2.72\\, because \\\log(x) + 1 = \log(e \cdot x)\\.
+When a continuous variable has a right-skewed distribution (a longer tail to the right than to the left), a logarithmic transformation often makes the distribution more symmetric. A log-transformed variable also has a multiplicative interpretation: an increase of 1 in $\log(x)$ corresponds to multiplying $x$ by $e \approx 2.72$, because $\log(x) + 1 = \log(e \cdot x)$.
 
 The WCGS dataset already contains log-transformed versions of two variables:
 
-- `lnsbp`: \\\log(\text{SBP})\\;
-- `lnwght`: \\\log(\text{weight})\\.
+- `lnsbp`: $\log(\text{SBP})$;
+- `lnwght`: $\log(\text{weight})$.
 
 > **NOTE:**
 >
@@ -839,15 +840,15 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 >
 > 1.  The sample mean is 226.4 mg/dL and the sample standard deviation is 43.4 mg/dL.
 >
-> 2.  \\(250 - \bar x) / s\\ is 0.54: his cholesterol is 0.54 standard deviations above the sample mean.
+> 2.  $(250 - \bar x) / s$ is 0.54: his cholesterol is 0.54 standard deviations above the sample mean.
 >
 > 3.  The numerator is in mg/dL and the denominator is in mg/dL, so the answer has no units.
 
 > **NOTE:**
 >
-> **Definition 23 (Standardization (z-scoring, standard scaling))** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
+> **Definition 23 (Standardization (z-scoring, standard scaling))** Let $x_1, \ldots, x_n$ be $n \ge 2$ observations of a variable with [sample mean](#def-sample-mean) $\bar x$ and [sample standard deviation](#def-sample-sd) $s > 0$. The **standardized value** of $x_i$ is
 >
-> \\z_i \stackrel{\text{def}}{=}\frac{x_i- \bar x}{s}\\
+> $$z_i \stackrel{\text{def}}{=}\frac{x_i- \bar x}{s}$$
 >
 > Standardization is also called **z-scoring** or **standard scaling**.
 >
@@ -863,11 +864,21 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Theorem 2 (Standardized values have sample mean 0 and sample standard deviation 1)** For \\n \ge 2\\ observations with \\s \> 0\\, the [standardized values](#def-standardization) \\z_1, \ldots, z_n\\ have sample mean \\0\\ and sample standard deviation \\1\\.
+> **Theorem 2 (Standardized values have sample mean 0 and sample standard deviation 1)** For $n \ge 2$ observations with $s > 0$, the [standardized values](#def-standardization) $z_1, \ldots, z_n$ have sample mean $0$ and sample standard deviation $1$.
 
 > **NOTE:**
 >
-> *Proof*. The sample mean of the \\z_i\\ is \\ \begin{aligned} \frac{1}{n}\sum\_{i=1}^n\frac{x_i- \bar x}{s} &= \frac{1}{s} \mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nx_i- \bar x\right)\mathclose{}\\ &= \frac{1}{s} (\bar x - \bar x)\\ &= 0. \end{aligned} \\ Since the sample mean of the \\z_i\\ is \\0\\, their sample variance is \\ \begin{aligned} \frac{1}{n-1} \sum\_{i=1}^nz_i^2 &= \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n(x_i- \bar x)^2\\ &= \frac{s^2}{s^2}\\ &= 1, \end{aligned} \\ so their sample standard deviation is \\\sqrt{1} = 1\\.
+> *Proof*. The sample mean of the $z_i$ is $$\begin{aligned}
+> \frac{1}{n}\sum_{i=1}^n\frac{x_i- \bar x}{s}
+> &= \frac{1}{s} \mathopen{}\left(\frac{1}{n}\sum_{i=1}^nx_i- \bar x\right)\mathclose{}\\
+> &= \frac{1}{s} (\bar x - \bar x)\\
+> &= 0.
+> \end{aligned}$$ Since the sample mean of the $z_i$ is $0$, their sample variance is $$\begin{aligned}
+> \frac{1}{n-1} \sum_{i=1}^nz_i^2
+> &= \frac{1}{s^2} \cdot \frac{1}{n-1} \sum_{i=1}^n(x_i- \bar x)^2\\
+> &= \frac{s^2}{s^2}\\
+> &= 1,
+> \end{aligned}$$ so their sample standard deviation is $\sqrt{1} = 1$.
 
 > **NOTE:**
 >
@@ -885,21 +896,21 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > #> [1] 1
 > ```
 >
-> The sample mean is \\0\\ up to rounding error, and the sample standard deviation is \\1\\, as [Theorem 2](#thm-standardized-mean-sd) says. The `na.rm = TRUE` is needed because 12 of the cholesterol values are missing.
+> The sample mean is $0$ up to rounding error, and the sample standard deviation is $1$, as [Theorem 2](#thm-standardized-mean-sd) says. The `na.rm = TRUE` is needed because 12 of the cholesterol values are missing.
 
 > **NOTE:**
 >
-> **Definition 24 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
+> **Definition 24 (Min-max scaling)** Let $x_1, \ldots, x_n$ be observations of a variable with minimum $x_{\min}$ and maximum $x_{\max} > x_{\min}$. The **min-max scaled value** of $x_i$ is
 >
-> \\\frac{x_i- x\_{\min}}{x\_{\max} - x\_{\min}}\\
+> $$\frac{x_i- x_{\min}}{x_{\max} - x_{\min}}$$
 >
 > Source: Géron [\[22, Ch. 2\]](#ref-geron2017hands); Wikipedia contributors [\[23\]](#ref-wikipedia_feature_scaling).
 
 > **NOTE:**
 >
-> *Remark 9* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
+> *Remark 9* (Min-max scaling and outliers). Every min-max scaled value lies in $[0, 1]$: the minimum maps to $0$ and the maximum maps to $1$. For example, if median incomes range from 0 to 15, an income of 0 maps to $0$, and an income of 15 maps to $1$.
 >
-> Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less [\[22, Ch. 2\]](#ref-geron2017hands), “Feature Scaling”.
+> Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into $[0, 0.15]$. [Standardization](#def-standardization) changes them much less [\[22, Ch. 2\]](#ref-geron2017hands), “Feature Scaling”.
 
 > **NOTE:**
 >

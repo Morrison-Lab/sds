@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-01 01:56:06 (PDT)
+Last modified: 2026-11-02 10:03:02 (PST)
 
 ## 0.1 Inference
 
@@ -34,69 +34,69 @@ There are two predominant paradigms for statistical inference:
 
 > **NOTE:**
 >
-> **Definition 2 (Null hypothesis)** The **null hypothesis**, written \\H_0\\, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data.
+> **Definition 2 (Null hypothesis)** The **null hypothesis**, written $H_0$, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data.
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_statistical_hypothesis_test).
 
 > **NOTE:**
 >
-> **Definition 3 (Alternative hypothesis)** The **alternative hypothesis**, written \\H_1\\ or \\H_A\\, is the claim that a hypothesis test weighs the data as evidence *for*, against the [null hypothesis](#def-null-hypothesis).
+> **Definition 3 (Alternative hypothesis)** The **alternative hypothesis**, written $H_1$ or $H_A$, is the claim that a hypothesis test weighs the data as evidence *for*, against the [null hypothesis](#def-null-hypothesis).
 
 > **NOTE:**
 >
-> **Definition 4 (Two-sided alternative)** For a null hypothesis that a parameter equals a value, such as \\H_0: \theta= \theta_0\\, the **two-sided alternative** is that the parameter differs from that value in either direction: \\H_1: \theta\ne \theta_0\\.
+> **Definition 4 (Two-sided alternative)** For a null hypothesis that a parameter equals a value, such as $H_0: \theta= \theta_0$, the **two-sided alternative** is that the parameter differs from that value in either direction: $H_1: \theta\ne \theta_0$.
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_one_and_two_tailed_tests).
 
 > **NOTE:**
 >
-> **Example 2 (Cholesterol and CHD in the WCGS)** Let \\\mu_1\\ and \\\mu_0\\ be the population mean cholesterol of men who do and do not have a CHD event by 1969, in the population the WCGS sampled. A comparison of the two groups tests the null hypothesis that the population means are equal against the [two-sided alternative](#def-two-sided-alternative) that they differ:
+> **Example 2 (Cholesterol and CHD in the WCGS)** Let $\mu_1$ and $\mu_0$ be the population mean cholesterol of men who do and do not have a CHD event by 1969, in the population the WCGS sampled. A comparison of the two groups tests the null hypothesis that the population means are equal against the [two-sided alternative](#def-two-sided-alternative) that they differ:
 >
-> \\H_0: \mu_1 = \mu_0 \qquad H_1: \mu_1 \ne \mu_0\\
+> $$H_0: \mu_1 = \mu_0 \qquad H_1: \mu_1 \ne \mu_0$$
 
 ### 0.2.2 p-values
 
 > **NOTE:**
 >
-> **Definition 5 (Test statistic)** A **test statistic** \\T\\ is a function of the data whose distribution under the [null hypothesis](#def-null-hypothesis) is known, exactly or approximately, and whose larger values are more extreme, meaning less consistent with \\H_0\\ and more consistent with \\H_1\\.
+> **Definition 5 (Test statistic)** A **test statistic** $T$ is a function of the data whose distribution under the [null hypothesis](#def-null-hypothesis) is known, exactly or approximately, and whose larger values are more extreme, meaning less consistent with $H_0$ and more consistent with $H_1$.
 >
 > Source: Wikipedia contributors [\[4\]](#ref-wikipedia_test_statistic).
 
 > **NOTE:**
 >
-> **Definition 6 (p-value)** Given a [test statistic](#def-test-statistic) \\T\\ whose observed value is \\t\\, the **p-value** is the probability that \\T\\ is at least as extreme as the value observed, computed with the data distributed as the [null hypothesis](#def-null-hypothesis) specifies:
+> **Definition 6 (p-value)** Given a [test statistic](#def-test-statistic) $T$ whose observed value is $t$, the **p-value** is the probability that $T$ is at least as extreme as the value observed, computed with the data distributed as the [null hypothesis](#def-null-hypothesis) specifies:
 >
-> \\p \stackrel{\text{def}}{=}\Pr\_{H_0}(T \ge t)\\
+> $$p \stackrel{\text{def}}{=}\Pr_{H_0}(T \ge t)$$
 >
-> If the null hypothesis allows more than one distribution (a *composite* null hypothesis, such as \\H_0: \mu_1 = \mu_0\\ with unknown variances), the p-value is the largest such probability over those distributions, or an approximation to it.
+> If the null hypothesis allows more than one distribution (a *composite* null hypothesis, such as $H_0: \mu_1 = \mu_0$ with unknown variances), the p-value is the largest such probability over those distributions, or an approximation to it.
 >
 > Source: Wikipedia contributors [\[5\]](#ref-wikipedia_p_value).
 
 > **NOTE:**
 >
-> *Remark 1* (A p-value is not the probability that the null hypothesis is true). A p-value is computed assuming \\H_0\\ is true, so it is not the probability that \\H_0\\ is true given the data.
+> *Remark 1* (A p-value is not the probability that the null hypothesis is true). A p-value is computed assuming $H_0$ is true, so it is not the probability that $H_0$ is true given the data.
 
 > **NOTE:**
 >
-> **Definition 7 (Significance level)** A hypothesis test with **significance level** \\\alpha\\ rejects the [null hypothesis](#def-null-hypothesis) when the [p-value](#def-p-value) is at most \\\alpha\\.
+> **Definition 7 (Significance level)** A hypothesis test with **significance level** $\alpha$ rejects the [null hypothesis](#def-null-hypothesis) when the [p-value](#def-p-value) is at most $\alpha$.
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_statistical_significance).
 
 > **NOTE:**
 >
-> *Remark 2* (Choosing a significance level). \\\alpha= 0.05\\ is a common convention, not a rule. When \\H_0\\ is true and the p-value is computed exactly, a test with significance level \\\alpha\\ rejects \\H_0\\ with probability at most \\\alpha\\; for a test based on an approximate p-value, such as a large-sample test, this holds only approximately.
+> *Remark 2* (Choosing a significance level). $\alpha= 0.05$ is a common convention, not a rule. When $H_0$ is true and the p-value is computed exactly, a test with significance level $\alpha$ rejects $H_0$ with probability at most $\alpha$; for a test based on an approximate p-value, such as a large-sample test, this holds only approximately.
 
 > **NOTE:**
 >
-> **Definition 8 (Statistically significant)** A result is **statistically significant** at level \\\alpha\\ if it leads a test with [significance level](#def-significance-level) \\\alpha\\ to reject the null hypothesis.
+> **Definition 8 (Statistically significant)** A result is **statistically significant** at level $\alpha$ if it leads a test with [significance level](#def-significance-level) $\alpha$ to reject the null hypothesis.
 
 > **NOTE:**
 >
-> **Example 3 (Testing whether population mean cholesterol differs by CHD status)** Continuing [Example 2](#exm-hypotheses-wcgs), let \\\bar x_1\\ and \\\bar x_0\\ be the two groups’ sample mean cholesterol, with sample variances \\s_1^2\\ and \\s_0^2\\ and sample sizes \\n_1\\ and \\n_0\\. By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), when \\H_0\\ holds and the samples are large, the statistic
+> **Example 3 (Testing whether population mean cholesterol differs by CHD status)** Continuing [Example 2](#exm-hypotheses-wcgs), let $\bar x_1$ and $\bar x_0$ be the two groups’ sample mean cholesterol, with sample variances $s_1^2$ and $s_0^2$ and sample sizes $n_1$ and $n_0$. By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), when $H_0$ holds and the samples are large, the statistic
 >
-> \\Z \stackrel{\text{def}}{=}\frac{\bar x_1 - \bar x_0}{\sqrt{s_1^2/n_1 + s_0^2/n_0}}\\
+> $$Z \stackrel{\text{def}}{=}\frac{\bar x_1 - \bar x_0}{\sqrt{s_1^2/n_1 + s_0^2/n_0}}$$
 >
-> has approximately a standard Gaussian distribution. Extreme values in either direction are evidence for the two-sided \\H_1\\, so the test statistic is \\T = \mathopen{}\left\|Z\right\|\mathclose{}\\, and the p-value is \\\Pr(\mathopen{}\left\|Z\right\|\mathclose{} \ge \mathopen{}\left\|z\right\|\mathclose{}) = 2\Phi(-\mathopen{}\left\|z\right\|\mathclose{})\\, where \\\Phi\\ is the standard Gaussian CDF.
+> has approximately a standard Gaussian distribution. Extreme values in either direction are evidence for the two-sided $H_1$, so the test statistic is $T = \mathopen{}\left|Z\right|\mathclose{}$, and the p-value is $\Pr(\mathopen{}\left|Z\right|\mathclose{} \ge \mathopen{}\left|z\right|\mathclose{}) = 2\Phi(-\mathopen{}\left|z\right|\mathclose{})$, where $\Phi$ is the standard Gaussian CDF.
 >
 > ``` downlit
 > chol_by_chd <- split(wcgs$chol, wcgs$chd69) |>
@@ -112,7 +112,7 @@ There are two predominant paradigms for statistical inference:
 > #> 2.58087e+01 3.17988e+00 8.11626e+00 4.80780e-16
 > ```
 >
-> The p-value is far below 0.05, so at significance level 0.05 the test rejects \\H_0\\: the data provide [statistically significant](#def-statistically-significant) evidence that population mean cholesterol differs between the two groups.
+> The p-value is far below 0.05, so at significance level 0.05 the test rejects $H_0$: the data provide [statistically significant](#def-statistically-significant) evidence that population mean cholesterol differs between the two groups.
 
 > **NOTE:**
 >
@@ -131,13 +131,13 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 9 (Chi-square distribution)** Let \\Z_1, \ldots, Z_k\\ be independent random variables, each with the standard Gaussian distribution. The distribution of \\\sum\_{j=1}^{k} Z_j^2\\ is the **chi-square distribution with \\k\\ degrees of freedom**, written \\\chi^2_k\\.
+> **Definition 9 (Chi-square distribution)** Let $Z_1, \ldots, Z_k$ be independent random variables, each with the standard Gaussian distribution. The distribution of $\sum_{j=1}^{k} Z_j^2$ is the **chi-square distribution with** $k$ degrees of freedom, written $\chi^2_k$.
 >
 > Source: Wikipedia contributors [\[11\]](#ref-wikipedia_chi_squared_distribution).
 
 > **NOTE:**
 >
-> **Example 4 (The 0.95 quantile of \\\chi^2_1\\)** By [Definition 9](#def-chi-square-dist), a \\\chi^2_1\\ random variable is \\Z^2\\ for a standard Gaussian \\Z\\. So \\\Pr(Z^2 \le c) = \Pr(-\sqrt{c} \le Z \le \sqrt{c})\\, and the 0.95 quantile of \\\chi^2_1\\ is the square of the 0.975 quantile of the standard Gaussian distribution:
+> **Example 4 (The 0.95 quantile of** $\chi^2_1$) By [Definition 9](#def-chi-square-dist), a $\chi^2_1$ random variable is $Z^2$ for a standard Gaussian $Z$. So $\Pr(Z^2 \le c) = \Pr(-\sqrt{c} \le Z \le \sqrt{c})$, and the 0.95 quantile of $\chi^2_1$ is the square of the 0.975 quantile of the standard Gaussian distribution:
 >
 > ``` downlit
 > c(chisq = qchisq(0.95, df = 1), gaussian_squared = qnorm(0.975)^2)
@@ -147,15 +147,15 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 10 (t-distribution (Student’s t-distribution))** Let \\Z\\ have the standard Gaussian distribution, let \\V\\ have the \\\chi^2_k\\ distribution ([Definition 9](#def-chi-square-dist)), and let \\Z\\ and \\V\\ be independent. The distribution of
+> **Definition 10 (t-distribution (Student’s t-distribution))** Let $Z$ have the standard Gaussian distribution, let $V$ have the $\chi^2_k$ distribution ([Definition 9](#def-chi-square-dist)), and let $Z$ and $V$ be independent. The distribution of
 >
-> \\\frac{Z}{\sqrt{V/k}}\\
+> $$\frac{Z}{\sqrt{V/k}}$$
 >
-> is the **t-distribution with \\k\\ degrees of freedom** (or **Student’s t-distribution**), written \\t_k\\ [\[12\]](#ref-wikipedia_students_t_distribution).
+> is the **t-distribution with** $k$ degrees of freedom (or **Student’s t-distribution**), written $t_k$ [\[12\]](#ref-wikipedia_students_t_distribution).
 
 > **NOTE:**
 >
-> **Example 5 (t quantiles approach Gaussian quantiles)** The 0.975 quantile of \\t_k\\ is larger than the standard Gaussian’s 0.975 quantile, 1.96, and approaches it as \\k\\ grows:
+> **Example 5 (t quantiles approach Gaussian quantiles)** The 0.975 quantile of $t_k$ is larger than the standard Gaussian’s 0.975 quantile, 1.96, and approaches it as $k$ grows:
 >
 > ``` downlit
 > k <- c(4, 9, 29, 99, 2760)
@@ -166,19 +166,19 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 11 (F-distribution)** Let \\U\\ have the \\\chi^2\_{k_1}\\ distribution, let \\V\\ have the \\\chi^2\_{k_2}\\ distribution, and let \\U\\ and \\V\\ be independent. The distribution of
+> **Definition 11 (F-distribution)** Let $U$ have the $\chi^2_{k_1}$ distribution, let $V$ have the $\chi^2_{k_2}$ distribution, and let $U$ and $V$ be independent. The distribution of
 >
-> \\\frac{U / k_1}{V / k_2}\\
+> $$\frac{U / k_1}{V / k_2}$$
 >
-> is the **F-distribution with \\k_1\\ and \\k_2\\ degrees of freedom**, written \\F\_{k_1, k_2}\\.
+> is the **F-distribution with** $k_1$ and $k_2$ degrees of freedom, written $F_{k_1, k_2}$.
 
 > **NOTE:**
 >
-> **Example 6 (A squared t random variable has an F-distribution)** Let \\T = Z / \sqrt{V/k}\\ as in [Definition 10](#def-t-dist). Then
+> **Example 6 (A squared t random variable has an F-distribution)** Let $T = Z / \sqrt{V/k}$ as in [Definition 10](#def-t-dist). Then
 >
-> \\T^2 = \frac{Z^2 / 1}{V / k},\\
+> $$T^2 = \frac{Z^2 / 1}{V / k},$$
 >
-> where \\Z^2\\ has the \\\chi^2_1\\ distribution ([Definition 9](#def-chi-square-dist)) and is independent of \\V\\. So \\T^2\\ has the \\F\_{1, k}\\ distribution ([Definition 11](#def-f-dist)), and the 0.95 quantile of \\F\_{1, k}\\ is the square of the 0.975 quantile of \\t_k\\:
+> where $Z^2$ has the $\chi^2_1$ distribution ([Definition 9](#def-chi-square-dist)) and is independent of $V$. So $T^2$ has the $F_{1, k}$ distribution ([Definition 11](#def-f-dist)), and the 0.95 quantile of $F_{1, k}$ is the square of the 0.975 quantile of $t_k$:
 >
 > ``` downlit
 > c(f = qf(0.95, df1 = 1, df2 = 9), t_squared = qt(0.975, df = 9)^2)
@@ -190,39 +190,39 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 12 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a random [closed interval](https://morrison-lab.github.io/mds/sets.html#def-closed-interval) \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ whose endpoints \\{L\mathopen{}\left(X\right)\mathclose{}} \le {U\mathopen{}\left(X\right)\mathclose{}}\\ are [statistics](sufficiency.llms.md#def-statistic) computed from the data \\X\\, such that for every possible value of \\\theta\\:
+> **Definition 12 (Confidence interval)** A $100(1-\alpha)\%$ **confidence interval** for a parameter $\theta$ is a random [closed interval](https://morrison-lab.github.io/mds/sets.html#def-closed-interval) ${\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}$ whose endpoints ${L\mathopen{}\left(X\right)\mathclose{}} \le {U\mathopen{}\left(X\right)\mathclose{}}$ are [statistics](sufficiency.llms.md#def-statistic) computed from the data $X$, such that for every possible value of $\theta$:
 >
-> \\{\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}} \ge 1 - \alpha\\
+> $${\Pr_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\right)\mathclose{}} \ge 1 - \alpha$$
 >
-> The probability is over repeated samples from the data-generating process, with \\\theta\\ held fixed. The interval is random and \\\theta\\ is not.
+> The probability is over repeated samples from the data-generating process, with $\theta$ held fixed. The interval is random and $\theta$ is not.
 >
 > Source: [\[9\]](#ref-CaseBerg01), Definitions 9.1.1, 9.1.4 and 9.1.5.
 
 > **NOTE:**
 >
-> **Definition 13 (Coverage probability)** The **coverage probability** of an interval \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ for a parameter \\\theta\\ is \\{\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}}\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability at least \\1 - \alpha\\ for every \\\theta\\.
+> **Definition 13 (Coverage probability)** The **coverage probability** of an interval ${\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}$ for a parameter $\theta$ is ${\Pr_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\right)\mathclose{}}$, computed over repeated samples with $\theta$ held fixed. A $100(1-\alpha)\%$ [confidence interval](#def-confidence-interval) has coverage probability at least $1 - \alpha$ for every $\theta$.
 >
 > Source: [\[9\]](#ref-CaseBerg01), Definition 9.1.4.
 
 > **NOTE:**
 >
-> **Definition 14 (Confidence coefficient)** The **confidence coefficient** of an interval \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ for a parameter \\\theta\\ is the infimum over \\\theta\\ of its [coverage probability](#def-coverage-probability), \\\inf\_{\theta} {\Pr\_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\right)\mathclose{}}\\.
+> **Definition 14 (Confidence coefficient)** The **confidence coefficient** of an interval ${\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}$ for a parameter $\theta$ is the infimum over $\theta$ of its [coverage probability](#def-coverage-probability), $\inf_{\theta} {\Pr_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\right)\mathclose{}}$.
 >
 > Source: [\[9\]](#ref-CaseBerg01), Definition 9.1.5.
 
 > **NOTE:**
 >
-> **Definition 15 (Exact confidence interval)** A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ is **exact** when its [coverage probability](#def-coverage-probability) equals \\1 - \alpha\\ for every possible value of \\\theta\\.
+> **Definition 15 (Exact confidence interval)** A $100(1-\alpha)\%$ [confidence interval](#def-confidence-interval) ${\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}$ is **exact** when its [coverage probability](#def-coverage-probability) equals $1 - \alpha$ for every possible value of $\theta$.
 
 > **NOTE:**
 >
-> **Definition 16 (Conservative confidence interval)** A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ is **conservative** when its [coverage probability](#def-coverage-probability) is at least \\1 - \alpha\\ for every possible value of \\\theta\\ and larger than \\1 - \alpha\\ for some possible value of \\\theta\\.
+> **Definition 16 (Conservative confidence interval)** A $100(1-\alpha)\%$ [confidence interval](#def-confidence-interval) ${\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}$ is **conservative** when its [coverage probability](#def-coverage-probability) is at least $1 - \alpha$ for every possible value of $\theta$ and larger than $1 - \alpha$ for some possible value of $\theta$.
 
 > **NOTE:**
 >
-> **Definition 17 (Confidence set)** A \\100(1-\alpha)\\\\ **confidence set** for a parameter \\\theta\\ is a random subset \\C(X)\\ of the [parameter space](bayesian-inference.llms.md#def-parameter-space), computed from the data \\X\\, such that for every possible value of \\\theta\\:
+> **Definition 17 (Confidence set)** A $100(1-\alpha)\%$ **confidence set** for a parameter $\theta$ is a random subset $C(X)$ of the [parameter space](bayesian-inference.llms.md#def-parameter-space), computed from the data $X$, such that for every possible value of $\theta$:
 >
-> \\{\Pr\_{\theta}\mathopen{}\left(\theta\in C(X)\right)\mathclose{}} \ge 1 - \alpha\\
+> $${\Pr_{\theta}\mathopen{}\left(\theta\in C(X)\right)\mathclose{}} \ge 1 - \alpha$$
 >
 > A [confidence interval](#def-confidence-interval) is a confidence set whose values are [closed intervals](https://morrison-lab.github.io/mds/sets.html#def-closed-interval).
 >
@@ -230,7 +230,7 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Example 7 (A conservative interval for a binomial proportion)** Let \\X \sim \text{Bin}(n, p)\\ with \\n = 20\\, and let \\{\mathopen{}\left\[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right\]\mathclose{}}\\ be the Clopper-Pearson 95% interval returned by [`binom.test()`](https://rdrr.io/r/stats/binom.test.html). Its [coverage probability](#def-coverage-probability) at each \\p\\ is the sum of the binomial [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of the values \\x\\ of \\X\\ for which \\{\mathopen{}\left\[{L\mathopen{}\left(x\right)\mathclose{}}, {U\mathopen{}\left(x\right)\mathclose{}}\right\]\mathclose{}}\\ contains \\p\\:
+> **Example 7 (A conservative interval for a binomial proportion)** Let $X \sim \text{Bin}(n, p)$ with $n = 20$, and let ${\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}$ be the Clopper-Pearson 95% interval returned by [`binom.test()`](https://rdrr.io/r/stats/binom.test.html). Its [coverage probability](#def-coverage-probability) at each $p$ is the sum of the binomial [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of the values $x$ of $X$ for which ${\mathopen{}\left[{L\mathopen{}\left(x\right)\mathclose{}}, {U\mathopen{}\left(x\right)\mathclose{}}\right]\mathclose{}}$ contains $p$:
 >
 > ``` downlit
 > n <- 20
@@ -244,19 +244,19 @@ The tests on this page compare a test statistic with one of three families of di
 > #> [1] 0.958611 0.994366
 > ```
 >
-> The smallest coverage probability on this grid is 0.959, and the largest is 0.994. The grid is coarse and the coverage probability jumps at the interval endpoints, so the smallest grid value is only an [upper bound](https://morrison-lab.github.io/mds/sets.html#def-bound) for the [confidence coefficient](#def-confidence-coefficient). The Clopper-Pearson interval is built to have coverage probability at least 0.95 at every \\p\\, and here it is above 0.95 at all 99 grid values of \\p\\, so it is [conservative](#def-conservative-confidence-interval).
+> The smallest coverage probability on this grid is 0.959, and the largest is 0.994. The grid is coarse and the coverage probability jumps at the interval endpoints, so the smallest grid value is only an [upper bound](https://morrison-lab.github.io/mds/sets.html#def-bound) for the [confidence coefficient](#def-confidence-coefficient). The Clopper-Pearson interval is built to have coverage probability at least 0.95 at every $p$, and here it is above 0.95 at all 99 grid values of $p$, so it is [conservative](#def-conservative-confidence-interval).
 
 > **NOTE:**
 >
-> *Remark 3* (Why most intervals are conservative). [Definition 12](#def-confidence-interval) requires the [coverage probability](#def-coverage-probability) to be at least \\1 - \alpha\\ at every \\\theta\\, which is the same as requiring the [confidence coefficient](#def-confidence-coefficient) to be at least \\1 - \alpha\\. The coverage probability can depend on \\\theta\\, and the confidence coefficient is its greatest [lower bound](https://morrison-lab.github.io/mds/sets.html#def-bound), which the coverage probability need not attain at any \\\theta\\. An [exact](#def-exact-confidence-interval) interval has the same coverage probability at every \\\theta\\. [Discrete](data.llms.md#def-discrete-var) data take only countably many values, so they usually allow only a [conservative](#def-conservative-confidence-interval) interval, as [Example 7](#exm-conservative-interval) shows. A [confidence set](#def-confidence-set) drops the requirement that the region be an interval.
+> *Remark 3* (Why most intervals are conservative). [Definition 12](#def-confidence-interval) requires the [coverage probability](#def-coverage-probability) to be at least $1 - \alpha$ at every $\theta$, which is the same as requiring the [confidence coefficient](#def-confidence-coefficient) to be at least $1 - \alpha$. The coverage probability can depend on $\theta$, and the confidence coefficient is its greatest [lower bound](https://morrison-lab.github.io/mds/sets.html#def-bound), which the coverage probability need not attain at any $\theta$. An [exact](#def-exact-confidence-interval) interval has the same coverage probability at every $\theta$. [Discrete](data.llms.md#def-discrete-var) data take only countably many values, so they usually allow only a [conservative](#def-conservative-confidence-interval) interval, as [Example 7](#exm-conservative-interval) shows. A [confidence set](#def-confidence-set) drops the requirement that the region be an interval.
 
 > **NOTE:**
 >
-> **Definition 18 (Approximate confidence interval)** An **approximate** \\100(1-\alpha)\\\\ confidence interval is an interval whose [coverage probability](#def-coverage-probability) is approximately \\1 - \alpha\\, for example only in large samples.
+> **Definition 18 (Approximate confidence interval)** An **approximate** $100(1-\alpha)\%$ confidence interval is an interval whose [coverage probability](#def-coverage-probability) is approximately $1 - \alpha$, for example only in large samples.
 
 > **NOTE:**
 >
-> **Example 8 (Confidence interval for population mean cholesterol in the WCGS)** By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), the sample mean \\\bar X\\ of a large sample has approximately a Gaussian distribution with mean \\\mu\\ and [standard error](estimation.llms.md#def-SE) \\\sigma/\sqrt{n}\\, which we estimate by \\s/\sqrt{n}\\. So \\\bar x \pm z\_{0.975} \\ s/\sqrt{n}\\, where \\z\_{0.975} \approx 1.96\\ is the 0.975 quantile of the standard Gaussian distribution, is an [approximate](#def-approximate-ci) 95% confidence interval for \\\mu\\:
+> **Example 8 (Confidence interval for population mean cholesterol in the WCGS)** By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), the sample mean $\bar X$ of a large sample has approximately a Gaussian distribution with mean $\mu$ and [standard error](estimation.llms.md#def-SE) $\sigma/\sqrt{n}$, which we estimate by $s/\sqrt{n}$. So $\bar x \pm z_{0.975} \, s/\sqrt{n}$, where $z_{0.975} \approx 1.96$ is the 0.975 quantile of the standard Gaussian distribution, is an [approximate](#def-approximate-ci) 95% confidence interval for $\mu$:
 >
 > ``` downlit
 > chol <- wcgs$chol[!is.na(wcgs$chol)]
@@ -274,7 +274,7 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Example 9 (Margin of error for population mean cholesterol)** In [Example 8](#exm-confidence-interval-wcgs), the margin of error is \\z\_{0.975} \times s/\sqrt{n} \approx\\ 1.52 mg/dL.
+> **Example 9 (Margin of error for population mean cholesterol)** In [Example 8](#exm-confidence-interval-wcgs), the margin of error is $z_{0.975} \times s/\sqrt{n} \approx$ 1.52 mg/dL.
 
 > **NOTE:**
 >
@@ -298,7 +298,7 @@ For more on confidence intervals:
 
 ## 0.6 Interpretation of negative findings
 
-If a confidence interval includes the null value, or a hypothesis test fails to reject the null hypothesis, that result does not *necessarily* mean that the null hypothesis is true. (When the interval and the test are built from the same statistic, with coverage \\1 - \alpha\\ and significance level \\\alpha\\, the two results coincide.) So we should not interpret such results as “the odds (or risks, hazards, or means) are not significantly different”. Instead, we should write something like “the data do not provide statistically significant *evidence* that the odds (or risks, hazards, or means) differ”. Statistical significance is a property of evidence, not of the estimands.
+If a confidence interval includes the null value, or a hypothesis test fails to reject the null hypothesis, that result does not *necessarily* mean that the null hypothesis is true. (When the interval and the test are built from the same statistic, with coverage $1 - \alpha$ and significance level $\alpha$, the two results coincide.) So we should not interpret such results as “the odds (or risks, hazards, or means) are not significantly different”. Instead, we should write something like “the data do not provide statistically significant *evidence* that the odds (or risks, hazards, or means) differ”. Statistical significance is a property of evidence, not of the estimands.
 
 P-values do not distinguish between absence of evidence and evidence of absence. Confidence intervals do:
 

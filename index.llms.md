@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-01 01:56:06 (PDT)
+Last modified: 2026-11-02 10:03:02 (PST)
 
 These notes collect the statistics that data science courses assume.
 
@@ -21,7 +21,7 @@ Describing data:
 Inference:
 
 - [Estimation](estimation.llms.md): estimands, estimators, bias, mean squared error, and standard error;
-- [Statistical inference](inference.llms.md): hypothesis tests, p-values, the \\t\\, chi-square, and \\F\\ distributions, confidence intervals, and how to interpret negative findings;
+- [Statistical inference](inference.llms.md): hypothesis tests, p-values, the $t$, chi-square, and $F$ distributions, confidence intervals, and how to interpret negative findings;
 - [Maximum likelihood inference](intro-MLEs.llms.md): likelihood, score, information, the asymptotic distribution of MLEs, Wald and likelihood ratio tests, and Newton-Raphson, with worked examples;
 - [Properties of estimators](estimator-properties.llms.md): consistency, relative efficiency, and the Cramér–Rao lower bound.
 - [Sufficiency and the Rao–Blackwell theorem](sufficiency.llms.md): sufficient statistics, the factorization theorem, and improving an unbiased estimator.
@@ -34,7 +34,7 @@ Methods:
 - [The bootstrap](bootstrap.llms.md);
 - [Permutation tests](permutation-tests.llms.md): exchangeability, the permutation distribution, and exact and Monte Carlo permutation p-values;
 - [Multiple testing](multiple-testing.llms.md): the family-wise error rate, the false discovery rate, the Bonferroni, Holm, and Benjamini–Hochberg procedures, and adjusted p-values;
-- [Validating predictions](model-validation.llms.md): overfitting, generalization error, training/validation/test splits, \\k\\-fold and leave-one-out cross-validation, and choosing a model by cross-validation;
+- [Validating predictions](model-validation.llms.md): overfitting, generalization error, training/validation/test splits, $k$-fold and leave-one-out cross-validation, and choosing a model by cross-validation;
 - [Classification and diagnostic tests](classification.llms.md): sensitivity, specificity, prevalence, and positive and negative predictive values.
 
 Bayesian:

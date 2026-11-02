@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-01 01:56:06 (PDT)
+Last modified: 2026-11-02 10:03:02 (PST)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models [\[1, Ch. 12\]](#ref-dobson4e). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -24,35 +24,38 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Definition 1 (Frequentist paradigm)** In the **frequentist** paradigm of statistical inference, an unknown parameter \\\theta\\ is a fixed constant, probability describes long-run frequencies over repetitions of the data-generating process, and uncertainty about \\\theta\\ is quantified by the [sampling distribution](estimation.llms.md#def-sampling-distribution) of an estimator \\\hat{\theta}\\.
+> **Definition 1 (Frequentist paradigm)** In the **frequentist** paradigm of statistical inference, an unknown parameter $\theta$ is a fixed constant, probability describes long-run frequencies over repetitions of the data-generating process, and uncertainty about $\theta$ is quantified by the [sampling distribution](estimation.llms.md#def-sampling-distribution) of an estimator $\hat{\theta}$.
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_frequentist_inference).
 
 > **NOTE:**
 >
-> **Definition 2 (Bayesian paradigm)** In the **Bayesian** paradigm of statistical inference, an unknown parameter \\\theta\\ is a random variable with its own probability distribution, and probability measures degree of belief [\[1, Ch. 12\]](#ref-dobson4e), p. 272.
+> **Definition 2 (Bayesian paradigm)** In the **Bayesian** paradigm of statistical inference, an unknown parameter $\theta$ is a random variable with its own probability distribution, and probability measures degree of belief [\[1, Ch. 12\]](#ref-dobson4e), p. 272.
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_bayesian_statistics).
 
 > **NOTE:**
 >
-> **Example 1 (Two views of a success probability)** Suppose 55 of 91 independent trials succeed. A frequentist treats the success probability \\\pi\\ as a fixed number, estimates it by \\\hat{\pi}= 55/91 \approx 0.60\\, and describes uncertainty by how much \\\hat{\pi}\\ would vary over repeated sets of 91 trials, for example with a confidence interval. A Bayesian gives \\\pi\\ a probability distribution before seeing the trials, such as the uniform distribution on \\(0, 1)\\, and describes uncertainty by the distribution of \\\pi\\ given the 55 successes.
+> **Example 1 (Two views of a success probability)** Suppose 55 of 91 independent trials succeed. A frequentist treats the success probability $\pi$ as a fixed number, estimates it by $\hat{\pi}= 55/91 \approx 0.60$, and describes uncertainty by how much $\hat{\pi}$ would vary over repeated sets of 91 trials, for example with a confidence interval. A Bayesian gives $\pi$ a probability distribution before seeing the trials, such as the uniform distribution on $(0, 1)$, and describes uncertainty by the distribution of $\pi$ given the 55 successes.
 
 > **NOTE:**
 >
-> **Definition 3 (Prior distribution)** The **prior distribution** of a parameter \\\theta\\, with density or probability mass function \\\operatorname{p}(\theta)\\, is the probability distribution that describes what is believed about \\\theta\\ before the data are observed.
+> **Definition 3 (Prior distribution)** The **prior distribution** of a parameter $\theta$, with density or probability mass function $\operatorname{p}(\theta)$, is the probability distribution that describes what is believed about $\theta$ before the data are observed.
 >
 > Source: Wikipedia contributors [\[4\]](#ref-wikipedia_prior_probability).
 
 > **NOTE:**
 >
-> **Example 2 (A uniform prior for a probability)** Let \\\pi\\ be the probability that a randomly chosen adult in some population smokes. Before collecting any data, an analyst who considers every value of \\\pi\\ in \\(0, 1)\\ equally plausible could use the uniform prior
+> **Example 2 (A uniform prior for a probability)** Let $\pi$ be the probability that a randomly chosen adult in some population smokes. Before collecting any data, an analyst who considers every value of $\pi$ in $(0, 1)$ equally plausible could use the uniform prior
 >
-> \\\operatorname{p}(\pi) = 1, \quad \pi\in (0, 1).\\
+> $$\operatorname{p}(\pi) = 1, \quad \pi\in (0, 1).$$
 >
 > Under this prior, the prior probability that fewer than 10% of adults smoke is
 >
-> \\ \begin{aligned} \Pr(\pi\< 0.1) &= \int_0^{0.1} 1 \\ d\pi\\ &= 0.1. \end{aligned} \\
+> $$\begin{aligned}
+>   \Pr(\pi< 0.1) &= \int_0^{0.1} 1 \, d\pi\\
+>   &= 0.1.
+> \end{aligned}$$
 
 > **NOTE:**
 >
@@ -62,119 +65,255 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Definition 4 (Posterior distribution)** The **posterior distribution** of a parameter \\\theta\\, given observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\, is the [conditional distribution](https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf) of \\\theta\\ given \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\. Its density or probability mass function is written \\\operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\.
+> **Definition 4 (Posterior distribution)** The **posterior distribution** of a parameter $\theta$, given observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$, is the [conditional distribution](https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf) of $\theta$ given $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$. Its density or probability mass function is written $\operatorname{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$.
 >
 > Source: Wikipedia contributors [\[5\]](#ref-wikipedia_posterior_probability).
 
 > **NOTE:**
 >
-> **Example 3 (Posterior probability that a coin is biased)** A coin is either fair (\\\theta= 0.5\\) or biased toward heads (\\\theta= 0.8\\), where \\\theta\\ is its probability of heads, with prior probabilities \\\operatorname{p}(0.5) = 0.9\\ and \\\operatorname{p}(0.8) = 0.1\\. After three tosses that all land heads, the posterior distribution of \\\theta\\ is its conditional distribution given those tosses. Its probabilities are computed in [Example 4](#exm-marginal-likelihood).
+> **Example 3 (Posterior probability that a coin is biased)** A coin is either fair ($\theta= 0.5$) or biased toward heads ($\theta= 0.8$), where $\theta$ is its probability of heads, with prior probabilities $\operatorname{p}(0.5) = 0.9$ and $\operatorname{p}(0.8) = 0.1$. After three tosses that all land heads, the posterior distribution of $\theta$ is its conditional distribution given those tosses. Its probabilities are computed in [Example 4](#exm-marginal-likelihood).
 
 > **NOTE:**
 >
-> **Definition 5 (Marginal likelihood (evidence))** Given a prior \\\operatorname{p}(\theta)\\ and a model \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\ for the data given \\\theta\\, the **marginal likelihood** (also called the **evidence**) of observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\ is
+> **Definition 5 (Marginal likelihood (evidence))** Given a prior $\operatorname{p}(\theta)$ and a model $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)$ for the data given $\theta$, the **marginal likelihood** (also called the **evidence**) of observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$ is
 >
-> \\ \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \stackrel{\text{def}}{=}\int \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\ \operatorname{p}(\theta)\\ d\theta, \\
+> $$\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \stackrel{\text{def}}{=}\int \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\, \operatorname{p}(\theta)\, d\theta,$$
 >
-> with the integral replaced by a sum over the possible values of \\\theta\\ when \\\theta\\ is discrete.
+> with the integral replaced by a sum over the possible values of $\theta$ when $\theta$ is discrete.
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_marginal_likelihood).
 
 > **NOTE:**
 >
-> **Theorem 1 (Bayes’ theorem for parameters)** If \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \> 0\\, then
+> **Theorem 1 (Bayes’ theorem for parameters)** If $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) > 0$, then
 >
-> \\ \operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \frac{\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\ \operatorname{p}(\theta)}{\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})}. \tag{1}\\
+> $$\operatorname{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})
+> =
+> \frac{\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\, \operatorname{p}(\theta)}{\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})}.
+> \tag{1}$$
 
 > **NOTE:**
 >
-> *Proof*. By the definition of a conditional density, \\\operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \operatorname{p}(\theta, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) / \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ and \\\operatorname{p}(\theta, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\ \operatorname{p}(\theta)\\, where \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ is the marginal density of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}\\ at \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\. That marginal density is
+> *Proof*. By the definition of a conditional density, $\operatorname{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \operatorname{p}(\theta, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) / \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ and $\operatorname{p}(\theta, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\, \operatorname{p}(\theta)$, where $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ is the marginal density of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}$ at $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$. That marginal density is
 >
-> \\ \begin{aligned} \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) &= \int \operatorname{p}(\theta, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\theta && \text{(marginalizing over \$\theta\$)}\\ &= \int \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\ \operatorname{p}(\theta)\\ d\theta && \text{(substituting the factorization of \$\operatorname{p}(\theta, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\$)}, \end{aligned} \\
+> $$\begin{aligned}
+> \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})
+> &= \int \operatorname{p}(\theta, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\, d\theta
+> && \text{(marginalizing over $\theta$)}\\
+> &= \int \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\, \operatorname{p}(\theta)\, d\theta
+> && \text{(substituting the factorization of $\operatorname{p}(\theta, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$)},
+> \end{aligned}$$
 >
-> which is the [marginal likelihood](#def-marginal-likelihood). Substituting the factorization into the numerator of \\\operatorname{p}(\theta, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) / \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ gives [Equation 1](#eq-bayes-posterior).
+> which is the [marginal likelihood](#def-marginal-likelihood). Substituting the factorization into the numerator of $\operatorname{p}(\theta, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) / \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ gives [Equation 1](#eq-bayes-posterior).
 
 > **NOTE:**
 >
-> **Example 4 (Posterior probability that a coin is biased, computed)** Continuing [Example 3](#exm-posterior), let \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\ be the three heads, so \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta) = \theta^3\\. The [marginal likelihood](#def-marginal-likelihood) sums over the two possible values of \\\theta\\:
+> **Example 4 (Posterior probability that a coin is biased, computed)** Continuing [Example 3](#exm-posterior), let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$ be the three heads, so $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta) = \theta^3$. The [marginal likelihood](#def-marginal-likelihood) sums over the two possible values of $\theta$:
 >
-> \\ \begin{aligned} \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) &= \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid 0.5)\\ \operatorname{p}(0.5) + \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid 0.8)\\ \operatorname{p}(0.8)\\ &= 0.5^3 \cdot 0.9 + 0.8^3 \cdot 0.1\\ &= 0.1125 + 0.0512\\ &= 0.1637. \end{aligned} \\
+> $$\begin{aligned}
+> \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})
+> &= \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid 0.5)\, \operatorname{p}(0.5) + \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid 0.8)\, \operatorname{p}(0.8)\\
+> &= 0.5^3 \cdot 0.9 + 0.8^3 \cdot 0.1\\
+> &= 0.1125 + 0.0512\\
+> &= 0.1637.
+> \end{aligned}$$
 >
 > By [Theorem 1](#thm-bayes-posterior),
 >
-> \\ \begin{aligned} \operatorname{p}(0.8 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) &= \frac{\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid 0.8)\\ \operatorname{p}(0.8)}{\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})}\\ &= \frac{0.0512}{0.1637}\\ &\approx 0.313, \end{aligned} \\
+> $$\begin{aligned}
+> \operatorname{p}(0.8 \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})
+> &= \frac{\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid 0.8)\, \operatorname{p}(0.8)}{\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})}\\
+> &= \frac{0.0512}{0.1637}\\
+> &\approx 0.313,
+> \end{aligned}$$
 >
-> and \\\operatorname{p}(0.5 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = 0.1125 / 0.1637 \approx 0.687\\. Three heads in a row raise the probability that the coin is biased from \\0.1\\ to about \\0.31\\.
+> and $\operatorname{p}(0.5 \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = 0.1125 / 0.1637 \approx 0.687$. Three heads in a row raise the probability that the coin is biased from $0.1$ to about $0.31$.
 
 > **NOTE:**
 >
-> **Example 5 (Posterior for a coin’s probability of heads under a uniform prior)** As in [Example 3](#exm-posterior), let \\\theta\\ be a coin’s probability of heads, now allowed to take any value in \\(0, 1)\\, with the uniform prior density \\\operatorname{p}(\theta) = 1\\ for \\\theta\in (0, 1)\\. One toss lands heads; call that observation \\y = 1\\, so
+> **Example 5 (Posterior for a coin’s probability of heads under a uniform prior)** As in [Example 3](#exm-posterior), let $\theta$ be a coin’s probability of heads, now allowed to take any value in $(0, 1)$, with the uniform prior density $\operatorname{p}(\theta) = 1$ for $\theta\in (0, 1)$. One toss lands heads; call that observation $y = 1$, so
 >
-> \\ \operatorname{p}(y = 1 \mid \theta) = \theta. \\
+> $$\operatorname{p}(y = 1 \mid \theta) = \theta.$$
 >
-> The [marginal likelihood](#def-marginal-likelihood) is an integral over \\\theta\\:
+> The [marginal likelihood](#def-marginal-likelihood) is an integral over $\theta$:
 >
-> \\ \begin{aligned} \operatorname{p}(y = 1) &= \int_0^1 \operatorname{p}(y = 1 \mid \theta)\\ \operatorname{p}(\theta)\\ d\theta && \text{(definition of the marginal likelihood)}\\ &= \int_0^1 \theta\cdot 1\\ d\theta && \text{(substituting the likelihood and the prior)}\\ &= \int_0^1 \theta\\ d\theta && \text{(\$\theta\cdot 1 = \theta\$)}\\ &= \mathopen{}\left\[\frac{\theta^2}{2}\right\]\mathclose{}\_0^1 && \text{(antiderivative of \$\theta\$)}\\ &= \frac{1^2}{2} - \frac{0^2}{2} && \text{(evaluating at the limits)}\\ &= \frac{1}{2} && \text{(arithmetic)}. \end{aligned} \tag{2}\\
+> $$\begin{aligned}
+> \operatorname{p}(y = 1)
+> &= \int_0^1 \operatorname{p}(y = 1 \mid \theta)\, \operatorname{p}(\theta)\, d\theta
+> && \text{(definition of the marginal likelihood)}\\
+> &= \int_0^1 \theta\cdot 1\, d\theta
+> && \text{(substituting the likelihood and the prior)}\\
+> &= \int_0^1 \theta\, d\theta
+> && \text{($\theta\cdot 1 = \theta$)}\\
+> &= \mathopen{}\left[\frac{\theta^2}{2}\right]\mathclose{}_0^1
+> && \text{(antiderivative of $\theta$)}\\
+> &= \frac{1^2}{2} - \frac{0^2}{2}
+> && \text{(evaluating at the limits)}\\
+> &= \frac{1}{2}
+> && \text{(arithmetic)}.
+> \end{aligned}
+> \tag{2}$$
 >
-> By [Theorem 1](#thm-bayes-posterior), for \\\theta\in (0, 1)\\:
+> By [Theorem 1](#thm-bayes-posterior), for $\theta\in (0, 1)$:
 >
-> \\ \begin{aligned} \operatorname{p}(\theta\mid y = 1) &= \frac{\operatorname{p}(y = 1 \mid \theta)\\ \operatorname{p}(\theta)}{\operatorname{p}(y = 1)} && \text{(Bayes' theorem for parameters)}\\ &= \frac{\theta\cdot 1}{1/2} && \text{(substituting the likelihood, prior, and marginal likelihood)}\\ &= \frac{\theta}{1/2} && \text{(\$\theta\cdot 1 = \theta\$)}\\ &= 2\theta && \text{(dividing by \$1/2\$ is multiplying by 2)}. \end{aligned} \tag{3}\\
+> $$\begin{aligned}
+> \operatorname{p}(\theta\mid y = 1)
+> &= \frac{\operatorname{p}(y = 1 \mid \theta)\, \operatorname{p}(\theta)}{\operatorname{p}(y = 1)}
+> && \text{(Bayes' theorem for parameters)}\\
+> &= \frac{\theta\cdot 1}{1/2}
+> && \text{(substituting the likelihood, prior, and marginal likelihood)}\\
+> &= \frac{\theta}{1/2}
+> && \text{($\theta\cdot 1 = \theta$)}\\
+> &= 2\theta
+> && \text{(dividing by $1/2$ is multiplying by 2)}.
+> \end{aligned}
+> \tag{3}$$
 >
-> One head moves the posterior density toward large values of \\\theta\\. The posterior mean is
+> One head moves the posterior density toward large values of $\theta$. The posterior mean is
 >
-> \\ \begin{aligned} {\mathbb{E}\mathopen{}\left\[\theta\mid y = 1\right\]\mathclose{}} &= \int_0^1 \theta\cdot \operatorname{p}(\theta\mid y = 1)\\ d\theta && \text{(expectation under the posterior density)}\\ &= \int_0^1 \theta\cdot 2\theta\\ d\theta && \text{(substituting the posterior density)}\\ &= \int_0^1 2\theta^2\\ d\theta && \text{(\$\theta\cdot \theta= \theta^2\$)}\\ &= \mathopen{}\left\[\frac{2\theta^3}{3}\right\]\mathclose{}\_0^1 && \text{(antiderivative of \$2\theta^2\$)}\\ &= \frac{2 \cdot 1^3}{3} - \frac{2 \cdot 0^3}{3} && \text{(evaluating at the limits)}\\ &= \frac{2}{3} && \text{(arithmetic)}, \end{aligned} \tag{4}\\
+> $$\begin{aligned}
+> {\mathbb{E}\mathopen{}\left[\theta\mid y = 1\right]\mathclose{}}
+> &= \int_0^1 \theta\cdot \operatorname{p}(\theta\mid y = 1)\, d\theta
+> && \text{(expectation under the posterior density)}\\
+> &= \int_0^1 \theta\cdot 2\theta\, d\theta
+> && \text{(substituting the posterior density)}\\
+> &= \int_0^1 2\theta^2\, d\theta
+> && \text{($\theta\cdot \theta= \theta^2$)}\\
+> &= \mathopen{}\left[\frac{2\theta^3}{3}\right]\mathclose{}_0^1
+> && \text{(antiderivative of $2\theta^2$)}\\
+> &= \frac{2 \cdot 1^3}{3} - \frac{2 \cdot 0^3}{3}
+> && \text{(evaluating at the limits)}\\
+> &= \frac{2}{3}
+> && \text{(arithmetic)},
+> \end{aligned}
+> \tag{4}$$
 >
-> up from the prior mean of \\1/2\\.
+> up from the prior mean of $1/2$.
 
 > **NOTE:**
 >
-> **Corollary 1 (The posterior is proportional to likelihood times prior)** As a function of \\\theta\\, with the data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\ held fixed,
+> **Corollary 1 (The posterior is proportional to likelihood times prior)** As a function of $\theta$, with the data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$ held fixed,
 >
-> \\ \underbrace{\operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})}\_{\text{posterior}} \\\propto\\ \underbrace{\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)}\_{\text{likelihood}} \cdot \underbrace{\operatorname{p}(\theta)}\_{\text{prior}}. \tag{5}\\
+> $$\underbrace{\operatorname{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})}_{\text{posterior}}
+> \;\propto\;
+> \underbrace{\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)}_{\text{likelihood}}
+> \cdot
+> \underbrace{\operatorname{p}(\theta)}_{\text{prior}}.
+> \tag{5}$$
 
 > **NOTE:**
 >
-> *Proof*. In [Equation 1](#eq-bayes-posterior), the denominator \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ does not depend on \\\theta\\.
+> *Proof*. In [Equation 1](#eq-bayes-posterior), the denominator $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ does not depend on $\theta$.
 
-[Theorem 1](#thm-bayes-posterior) is [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes) for events, restated for densities [\[7\]](#ref-wikipedia_bayes_theorem). Here \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\, viewed as a function of \\\theta\\, is the [likelihood](intro-MLEs.llms.md#def-lik) \\\mathcal{L}(\theta)\\. [Corollary 1](#cor-bayes-proportional) is the workhorse of applied Bayesian analysis: it identifies the posterior from the shape of likelihood times prior, without computing the integral \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\, and it is what makes the simulation methods of Markov chain Monte Carlo possible [\[1, Ch. 12\]](#ref-dobson4e), p. 272.
+[Theorem 1](#thm-bayes-posterior) is [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes) for events, restated for densities [\[7\]](#ref-wikipedia_bayes_theorem). Here $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)$, viewed as a function of $\theta$, is the [likelihood](intro-MLEs.llms.md#def-lik) $\mathcal{L}(\theta)$. [Corollary 1](#cor-bayes-proportional) is the workhorse of applied Bayesian analysis: it identifies the posterior from the shape of likelihood times prior, without computing the integral $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$, and it is what makes the simulation methods of Markov chain Monte Carlo possible [\[1, Ch. 12\]](#ref-dobson4e), p. 272.
 
 ### 0.2.1 A Gaussian mean with a Gaussian prior
 
 > **NOTE:**
 >
-> **Example 6 (Posterior for a Gaussian mean)** Suppose that, given the mean \\\mu\\, \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ {\operatorname{N}\mathopen{}\left(\mu, 1\right)\mathclose{}}\\, so the variance is known, and that the prior for \\\mu\\ is \\{\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}\\. Let \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\\ be the observed data, with sample mean \\\bar x\\.
+> **Example 6 (Posterior for a Gaussian mean)** Suppose that, given the mean $\mu$, $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ {\operatorname{N}\mathopen{}\left(\mu, 1\right)\mathclose{}}$, so the variance is known, and that the prior for $\mu$ is ${\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}$. Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)$ be the observed data, with sample mean $\bar x$.
 >
 > The likelihood is
 >
-> \\ \begin{aligned} \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \mu) &= \prod\_{i=1}^n(2\pi)^{-1/2} {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}(x_i- \mu)^2\right\\\mathclose{}} && \text{(independent Gaussian observations)}\\ &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\sum\_{i=1}^n(x_i- \mu)^2\right\\\mathclose{}} && \text{(combining the exponents)}\\ &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\sum\_{i=1}^n\mathopen{}\left(x_i^2 - 2 \mu x_i+ \mu^2\right)\mathclose{}\right\\\mathclose{}} && \text{(expanding each square)}\\ &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(\sum\_{i=1}^nx_i^2 - \sum\_{i=1}^n2 \mu x_i+ \sum\_{i=1}^n\mu^2\right)\mathclose{}\right\\\mathclose{}} && \text{(splitting the sum)}\\ &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(\sum\_{i=1}^nx_i^2 - 2 \mu\sum\_{i=1}^nx_i+ \sum\_{i=1}^n\mu^2\right)\mathclose{}\right\\\mathclose{}} && \text{(factoring the constant \$2 \mu\$ out of the middle sum)}\\ &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(\sum\_{i=1}^nx_i^2 - 2 \mu\sum\_{i=1}^nx_i+ n \mu^2\right)\mathclose{}\right\\\mathclose{}} && \text{(summing the constant \$\mu^2\$ over \$n\$ terms)}\\ &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(\sum\_{i=1}^nx_i^2 - 2 \mu n \bar x + n \mu^2\right)\mathclose{}\right\\\mathclose{}} && \text{(substituting \$\sum\_{i=1}^nx_i= n \bar x\$)}\\ &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(\sum\_{i=1}^nx_i^2 + \mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right)\mathclose{}\right\\\mathclose{}} && \text{(reordering and grouping the terms that involve \$\mu\$)}\\ &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\sum\_{i=1}^nx_i^2 - \frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{}} && \text{(distributing \$-\tfrac{1}{2}\$)}\\ &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\sum\_{i=1}^nx_i^2\right\\\mathclose{}} \cdot {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{}} && \text{(writing the exponential of a sum as a product of exponentials)}\\ &\propto {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{}} && \text{(dropping factors that do not involve \$\mu\$)}, \end{aligned} \tag{6}\\
+> $$\begin{aligned}
+> \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \mu)
+> &= \prod_{i=1}^n(2\pi)^{-1/2} {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}(x_i- \mu)^2\right\}\mathclose{}}
+> && \text{(independent Gaussian observations)}\\
+> &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\sum_{i=1}^n(x_i- \mu)^2\right\}\mathclose{}}
+> && \text{(combining the exponents)}\\
+> &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\sum_{i=1}^n\mathopen{}\left(x_i^2 - 2 \mu x_i+ \mu^2\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(expanding each square)}\\
+> &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 - \sum_{i=1}^n2 \mu x_i+ \sum_{i=1}^n\mu^2\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(splitting the sum)}\\
+> &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 - 2 \mu\sum_{i=1}^nx_i+ \sum_{i=1}^n\mu^2\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(factoring the constant $2 \mu$ out of the middle sum)}\\
+> &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 - 2 \mu\sum_{i=1}^nx_i+ n \mu^2\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(summing the constant $\mu^2$ over $n$ terms)}\\
+> &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 - 2 \mu n \bar x + n \mu^2\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(substituting $\sum_{i=1}^nx_i= n \bar x$)}\\
+> &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 + \mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(reordering and grouping the terms that involve $\mu$)}\\
+> &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\sum_{i=1}^nx_i^2 - \frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(distributing $-\tfrac{1}{2}$)}\\
+> &= (2\pi)^{-n/2} {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\sum_{i=1}^nx_i^2\right\}\mathclose{}}
+>   \cdot {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(writing the exponential of a sum as a product of exponentials)}\\
+> &\propto {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(dropping factors that do not involve $\mu$)},
+> \end{aligned}
+> \tag{6}$$
 >
-> and the prior density is \\\operatorname{p}(\mu) \propto {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mu^2\right\\\mathclose{}}\\. Let \\m \stackrel{\text{def}}{=}\frac{n}{n+1} \bar x\\. By [Corollary 1](#cor-bayes-proportional),
+> and the prior density is $\operatorname{p}(\mu) \propto {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mu^2\right\}\mathclose{}}$. Let $m \stackrel{\text{def}}{=}\frac{n}{n+1} \bar x$. By [Corollary 1](#cor-bayes-proportional),
 >
-> \\ \begin{aligned} \operatorname{p}(\mu\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &\propto \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \mu)\\ \operatorname{p}(\mu) && \text{(posterior is proportional to likelihood times prior)}\\ &\propto {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{}} \cdot {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mu^2\right\\\mathclose{}} && \text{(substituting likelihood and prior)}\\ &= {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{} - \frac{1}{2}\mu^2\right\\\mathclose{}} && \text{(writing a product of exponentials as the exponential of a sum)}\\ &= {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x + \mu^2\right)\mathclose{}\right\\\mathclose{}} && \text{(factoring out \$-\tfrac{1}{2}\$)}\\ &= {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n \mu^2 + \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{}} && \text{(reordering the terms)}\\ &= {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left((n+1)\mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{}} && \text{(collecting the \$\mu^2\$ terms)}\\ &= {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}(n+1)\mathopen{}\left(\mu^2 - 2 \mu\frac{n}{n+1} \bar x\right)\mathclose{}\right\\\mathclose{}} && \text{(factoring out \$n+1\$)}\\ &= {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}(n+1)\mathopen{}\left(\mu^2 - 2 \mu m\right)\mathclose{}\right\\\mathclose{}} && \text{(definition of \$m\$)}\\ &= {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}(n+1)\mathopen{}\left((\mu- m)^2 - m^2\right)\mathclose{}\right\\\mathclose{}} && \text{(completing the square)}\\ &\propto {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}(n+1)(\mu- m)^2\right\\\mathclose{}} && \text{(dropping the factor \${\operatorname{exp}\mathopen{}\left\\\tfrac{1}{2}(n+1)m^2\right\\\mathclose{}}\$)}. \end{aligned} \tag{7}\\
+> $$\begin{aligned}
+> \operatorname{p}(\mu\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})
+> &\propto \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \mu)\, \operatorname{p}(\mu)
+> && \text{(posterior is proportional to likelihood times prior)}\\
+> &\propto {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\}\mathclose{}}
+>   \cdot {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mu^2\right\}\mathclose{}}
+> && \text{(substituting likelihood and prior)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{} - \frac{1}{2}\mu^2\right\}\mathclose{}}
+> && \text{(writing a product of exponentials as the exponential of a sum)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x + \mu^2\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(factoring out $-\tfrac{1}{2}$)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(n \mu^2 + \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(reordering the terms)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left((n+1)\mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(collecting the $\mu^2$ terms)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}(n+1)\mathopen{}\left(\mu^2 - 2 \mu\frac{n}{n+1} \bar x\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(factoring out $n+1$)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}(n+1)\mathopen{}\left(\mu^2 - 2 \mu m\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(definition of $m$)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}(n+1)\mathopen{}\left((\mu- m)^2 - m^2\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(completing the square)}\\
+> &\propto {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}(n+1)(\mu- m)^2\right\}\mathclose{}}
+> && \text{(dropping the factor ${\operatorname{exp}\mathopen{}\left\{\tfrac{1}{2}(n+1)m^2\right\}\mathclose{}}$)}.
+> \end{aligned}
+> \tag{7}$$
 >
-> The last line is, up to a constant, the density of a Gaussian distribution with mean \\m\\ and variance \\1/(n+1)\\, so the posterior is
+> The last line is, up to a constant, the density of a Gaussian distribution with mean $m$ and variance $1/(n+1)$, so the posterior is
 >
-> \\ \mu\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\\sim\\ {\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}},\\ \frac{1}{n+1}\right)\mathclose{}}. \tag{8}\\
+> $$\mu\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\;\sim\; {\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}},\; \frac{1}{n+1}\right)\mathclose{}}.
+> \tag{8}$$
 >
-> The posterior mean \\\frac{n}{n+1}{\bar{x}}\\ is the sample mean shrunk toward the prior mean \\0\\, and the shrinkage factor \\\frac{n}{n+1}\\ approaches \\1\\ as \\n \to \infty\\.
+> The posterior mean $\frac{n}{n+1}{\bar{x}}$ is the sample mean shrunk toward the prior mean $0$, and the shrinkage factor $\frac{n}{n+1}$ approaches $1$ as $n \to \infty$.
 
 ### 0.2.2 The posterior mode
 
 > **NOTE:**
 >
-> **Definition 6 (Maximum a posteriori estimate)** The **maximum a posteriori** (MAP) estimate of a parameter \\\theta\\, given observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\, written \\\hat{\theta}\_{\text{MAP}}\\, is the value of \\\theta\\ that maximizes the [posterior density](#def-posterior):
+> **Definition 6 (Maximum a posteriori estimate)** The **maximum a posteriori** (MAP) estimate of a parameter $\theta$, given observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$, written $\hat{\theta}_{\text{MAP}}$, is the value of $\theta$ that maximizes the [posterior density](#def-posterior):
 >
-> \\\hat{\theta}\_{\text{MAP}} \stackrel{\text{def}}{=}\arg \max\_\theta\operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \tag{9}\\
+> $$\hat{\theta}_{\text{MAP}} \stackrel{\text{def}}{=}\arg \max_\theta\operatorname{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \tag{9}$$
 >
 > Source: Wikipedia contributors [\[8\]](#ref-wikipedia_maximum_a_posteriori_estimation).
 
 > **NOTE:**
 >
-> **Example 7 (The MAP estimate of a proportion)** In [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), the posterior of \\\pi\\ after \\r\\ successes in \\n\\ trials is \\\operatorname{Beta}(a + r,\\ b + n - r)\\. Write \\\alpha= a + r\\ and \\\beta= b + n - r\\ for its two parameters. For \\\alpha, \beta\> 1\\, the log of the posterior density, up to a constant, is \\(\alpha- 1)\log \pi+ (\beta- 1)\log(1 - \pi)\\. Setting its derivative with respect to \\\pi\\ to zero gives
+> **Example 7 (The MAP estimate of a proportion)** In [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), the posterior of $\pi$ after $r$ successes in $n$ trials is $\operatorname{Beta}(a + r,\; b + n - r)$. Write $\alpha= a + r$ and $\beta= b + n - r$ for its two parameters. For $\alpha, \beta> 1$, the log of the posterior density, up to a constant, is $(\alpha- 1)\log \pi+ (\beta- 1)\log(1 - \pi)$. Setting its derivative with respect to $\pi$ to zero gives
 >
-> \\ \begin{aligned} 0 &= \frac{\alpha- 1}{\pi} - \frac{\beta- 1}{1 - \pi} && \text{(derivative of the log density)}\\ 0 &= (\alpha- 1)(1 - \pi) - (\beta- 1)\pi && \text{(multiplying by \$\pi(1-\pi)\$)}\\ (\alpha- 1)(1 - \pi) &= (\beta- 1)\pi && \text{(adding \$(\beta- 1)\pi\$ to both sides)}\\ (\alpha- 1) - (\alpha- 1)\pi &= (\beta- 1)\pi && \text{(expanding the product on the left)}\\ \alpha- 1 &= (\alpha- 1)\pi+ (\beta- 1)\pi && \text{(adding \$(\alpha- 1)\pi\$ to both sides)}\\ \alpha- 1 &= (\alpha+ \beta- 2)\pi && \text{(collecting the terms in \$\pi\$)}, \end{aligned} \\
+> $$\begin{aligned}
+> 0
+> &= \frac{\alpha- 1}{\pi} - \frac{\beta- 1}{1 - \pi}
+> && \text{(derivative of the log density)}\\
+> 0
+> &= (\alpha- 1)(1 - \pi) - (\beta- 1)\pi
+> && \text{(multiplying by $\pi(1-\pi)$)}\\
+> (\alpha- 1)(1 - \pi)
+> &= (\beta- 1)\pi
+> && \text{(adding $(\beta- 1)\pi$ to both sides)}\\
+> (\alpha- 1) - (\alpha- 1)\pi
+> &= (\beta- 1)\pi
+> && \text{(expanding the product on the left)}\\
+> \alpha- 1
+> &= (\alpha- 1)\pi+ (\beta- 1)\pi
+> && \text{(adding $(\alpha- 1)\pi$ to both sides)}\\
+> \alpha- 1
+> &= (\alpha+ \beta- 2)\pi
+> && \text{(collecting the terms in $\pi$)},
+> \end{aligned}$$
 >
-> so \\\hat{\theta}\_{\text{MAP}} = \frac{\alpha- 1}{\alpha+ \beta- 2}\\. With the uniform prior \\\operatorname{Beta}(1, 1)\\, \\r = 55\\ successes and \\n = 91\\ trials, the posterior is \\\operatorname{Beta}(56, 37)\\. Its mode and its mean are:
+> so $\hat{\theta}_{\text{MAP}} = \frac{\alpha- 1}{\alpha+ \beta- 2}$. With the uniform prior $\operatorname{Beta}(1, 1)$, $r = 55$ successes and $n = 91$ trials, the posterior is $\operatorname{Beta}(56, 37)$. Its mode and its mean are:
 >
 > ``` downlit
 > a_post <- 1 + 55
@@ -188,7 +327,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 > #> 0.604 0.602
 > ```
 >
-> The mode equals the sample proportion \\r / n\\, because the uniform prior adds no pseudo-counts that pull it away. The mean is a little closer to \\\frac{1}{2}\\.
+> The mode equals the sample proportion $r / n$, because the uniform prior adds no pseudo-counts that pull it away. The mean is a little closer to $\frac{1}{2}$.
 
 > **NOTE:**
 >
@@ -198,31 +337,42 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > **Corollary 2 (The MAP estimate minimizes the negative log-likelihood plus a penalty)** The [MAP estimate](#def-map) satisfies
 >
-> \\ \hat{\theta}\_{\text{MAP}} = \arg \min\_\theta\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\right\\\mathclose{}} - {\operatorname{log}\mathopen{}\left\\\operatorname{p}(\theta)\right\\\mathclose{}}\right)\mathclose{}. \tag{10}\\
+> $$\hat{\theta}_{\text{MAP}}
+> = \arg \min_\theta\mathopen{}\left(-{\operatorname{log}\mathopen{}\left\{\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{\operatorname{p}(\theta)\right\}\mathclose{}}\right)\mathclose{}.
+> \tag{10}$$
 >
-> The first term is the negative log-likelihood. The second term, \\-{\operatorname{log}\mathopen{}\left\\\operatorname{p}(\theta)\right\\\mathclose{}}\\, is the penalty that the prior adds.
+> The first term is the negative log-likelihood. The second term, $-{\operatorname{log}\mathopen{}\left\{\operatorname{p}(\theta)\right\}\mathclose{}}$, is the penalty that the prior adds.
 
 > **NOTE:**
 >
-> *Proof*. By [Corollary 1](#cor-bayes-proportional), \\\operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \propto \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\ \operatorname{p}(\theta)\\, and a positive constant does not change where a function is maximized. The logarithm is an increasing function, so it does not change where a positive function is maximized either. Therefore
+> *Proof*. By [Corollary 1](#cor-bayes-proportional), $\operatorname{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \propto \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\, \operatorname{p}(\theta)$, and a positive constant does not change where a function is maximized. The logarithm is an increasing function, so it does not change where a positive function is maximized either. Therefore
 >
-> \\ \arg \max\_\theta\operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \arg \max\_\theta\mathopen{}\left({\operatorname{log}\mathopen{}\left\\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\right\\\mathclose{}} + {\operatorname{log}\mathopen{}\left\\\operatorname{p}(\theta)\right\\\mathclose{}}\right)\mathclose{}. \\
+> $$\arg \max_\theta\operatorname{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})
+> = \arg \max_\theta\mathopen{}\left({\operatorname{log}\mathopen{}\left\{\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\right\}\mathclose{}} + {\operatorname{log}\mathopen{}\left\{\operatorname{p}(\theta)\right\}\mathclose{}}\right)\mathclose{}.$$
 >
 > Maximizing a function is the same as minimizing its negative.
 
 > **NOTE:**
 >
-> **Example 8 (The MAP estimate of a Gaussian mean)** In [Example 6](#exm-normal-normal), the posterior is \\{\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}}, \frac{1}{n+1}\right)\mathclose{}}\\. A Gaussian density is largest at its mean, so
+> **Example 8 (The MAP estimate of a Gaussian mean)** In [Example 6](#exm-normal-normal), the posterior is ${\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}}, \frac{1}{n+1}\right)\mathclose{}}$. A Gaussian density is largest at its mean, so
 >
-> \\\hat{\theta}\_{\text{MAP}} = \frac{n}{n+1}{\bar{x}}.\\
+> $$\hat{\theta}_{\text{MAP}} = \frac{n}{n+1}{\bar{x}}.$$
 >
-> [Corollary 2](#cor-map-penalized) gives the same answer from the penalized form. Up to terms that do not involve \\\mu\\, the negative log-likelihood is \\\frac{1}{2}\sum\_{i=1}^n(x_i- \mu)^2\\ and the penalty is \\\frac{1}{2}\mu^2\\. Setting the derivative of their sum to zero gives
+> [Corollary 2](#cor-map-penalized) gives the same answer from the penalized form. Up to terms that do not involve $\mu$, the negative log-likelihood is $\frac{1}{2}\sum_{i=1}^n(x_i- \mu)^2$ and the penalty is $\frac{1}{2}\mu^2$. Setting the derivative of their sum to zero gives
 >
-> \\ \begin{aligned} 0 &= -\sum\_{i=1}^n(x_i- \mu) + \mu && \text{(derivative of the sum with respect to \$\mu\$)}\\ &= -n{\bar{x}}+ n\mu+ \mu && \text{(\$\sum_i x_i= n{\bar{x}}\$)}\\ &= (n+1)\mu- n{\bar{x}}, && \text{(collecting the terms in \$\mu\$)} \end{aligned} \\
+> $$\begin{aligned}
+> 0
+> &= -\sum_{i=1}^n(x_i- \mu) + \mu
+> && \text{(derivative of the sum with respect to $\mu$)}\\
+> &= -n{\bar{x}}+ n\mu+ \mu
+> && \text{($\sum_i x_i= n{\bar{x}}$)}\\
+> &= (n+1)\mu- n{\bar{x}},
+> && \text{(collecting the terms in $\mu$)}
+> \end{aligned}$$
 >
-> so \\\mu= \frac{n}{n+1}{\bar{x}}\\. The penalty \\\frac{1}{2}\mu^2\\ pulls the estimate toward the prior mean \\0\\, and its pull weakens relative to the data as \\n\\ grows.
+> so $\mu= \frac{n}{n+1}{\bar{x}}$. The penalty $\frac{1}{2}\mu^2$ pulls the estimate toward the prior mean $0$, and its pull weakens relative to the data as $n$ grows.
 >
-> [Figure 1](#fig-map-penalized) shows the penalized form for simulated data (\\n = 20\\, true mean \\2\\). The penalty is a parabola centered at the prior mean \\0\\. Adding it to the negative log-likelihood moves the minimizer from the sample mean toward \\0\\.
+> [Figure 1](#fig-map-penalized) shows the penalized form for simulated data ($n = 20$, true mean $2$). The penalty is a parabola centered at the prior mean $0$. Adding it to the negative log-likelihood moves the minimizer from the sample mean toward $0$.
 >
 > > **NOTE:**
 > >
@@ -257,29 +407,29 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 ### 0.2.3 Two readings of an interval estimate
 
-The two paradigms differ most visibly in how they interpret an interval estimate [\[1, Ch. 12\]](#ref-dobson4e), p. 272. A frequentist 95% [confidence interval](inference.llms.md#def-confidence-interval) is a random interval whose coverage probability, over repeated samples with \\\theta\\ held fixed, is 0.95. Any one realized interval either contains \\\theta\\ or does not; the 0.95 describes the procedure, not that interval. A Bayesian interval estimate instead makes a probability statement about \\\theta\\ itself, given the data actually observed.
+The two paradigms differ most visibly in how they interpret an interval estimate [\[1, Ch. 12\]](#ref-dobson4e), p. 272. A frequentist 95% [confidence interval](inference.llms.md#def-confidence-interval) is a random interval whose coverage probability, over repeated samples with $\theta$ held fixed, is 0.95. Any one realized interval either contains $\theta$ or does not; the 0.95 describes the procedure, not that interval. A Bayesian interval estimate instead makes a probability statement about $\theta$ itself, given the data actually observed.
 
 > **NOTE:**
 >
-> **Definition 7 (Credible interval)** A \\100(1-\alpha)\\\\ **credible interval** for a parameter \\\theta\\, given observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\, is an interval \\\mathopen{}\left\[l(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}),\\ r(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\right\]\mathclose{}\\ whose [posterior](#def-posterior) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is \\1 - \alpha\\:
+> **Definition 7 (Credible interval)** A $100(1-\alpha)\%$ **credible interval** for a parameter $\theta$, given observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$, is an interval $\mathopen{}\left[l(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}),\, r(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\right]\mathclose{}$ whose [posterior](#def-posterior) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $1 - \alpha$:
 >
-> \\ {\Pr\mathopen{}\left(l(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \le \theta\le r(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right)\mathclose{}} = 1 - \alpha. \\
+> $${\Pr\mathopen{}\left(l(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \le \theta\le r(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = 1 - \alpha.$$
 >
 > Source: Wikipedia contributors [\[9\]](#ref-wikipedia_credible_interval).
 
-In a credible interval, the data are fixed at their observed values and \\\theta\\ is random, so the probability statement is about \\\theta\\ directly. Many intervals have posterior probability \\1 - \alpha\\; the usual choice, and the one used on this page, is the equal-tailed interval.
+In a credible interval, the data are fixed at their observed values and $\theta$ is random, so the probability statement is about $\theta$ directly. Many intervals have posterior probability $1 - \alpha$; the usual choice, and the one used on this page, is the equal-tailed interval.
 
 > **NOTE:**
 >
-> **Definition 8 (Equal-tailed credible interval)** The \\100(1-\alpha)\\\\ **equal-tailed credible interval** for \\\theta\\ runs from the \\\alpha/2\\ quantile to the \\1 - \alpha/2\\ quantile of the posterior distribution of \\\theta\\.
+> **Definition 8 (Equal-tailed credible interval)** The $100(1-\alpha)\%$ **equal-tailed credible interval** for $\theta$ runs from the $\alpha/2$ quantile to the $1 - \alpha/2$ quantile of the posterior distribution of $\theta$.
 
 > **NOTE:**
 >
-> **Example 9 (Equal-tailed interval for a Gaussian posterior)** In [Example 6](#exm-normal-normal), the posterior of \\\mu\\ is Gaussian with mean \\\frac{n}{n+1}\bar x\\ and standard deviation \\1/\sqrt{n+1}\\, so the 95% equal-tailed credible interval is \\\frac{n}{n+1}\bar x \pm 1.96/\sqrt{n+1}\\. With \\n = 20\\, the interval’s half-width is \\1.96/\sqrt{21} \approx 0.43\\.
+> **Example 9 (Equal-tailed interval for a Gaussian posterior)** In [Example 6](#exm-normal-normal), the posterior of $\mu$ is Gaussian with mean $\frac{n}{n+1}\bar x$ and standard deviation $1/\sqrt{n+1}$, so the 95% equal-tailed credible interval is $\frac{n}{n+1}\bar x \pm 1.96/\sqrt{n+1}$. With $n = 20$, the interval’s half-width is $1.96/\sqrt{21} \approx 0.43$.
 
 > **NOTE:**
 >
-> **Example 10 (Credible and confidence intervals for a Gaussian mean)** We simulate \\n = 20\\ observations from the model of [Example 6](#exm-normal-normal), with true mean \\\mu= 2\\, and compute both a 95% confidence interval, \\\bar x \pm 1.96 / \sqrt{n}\\ (the variance is known to be 1), and the equal-tailed 95% credible interval from the \\{\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}},\\ \frac{1}{n+1}\right)\mathclose{}}\\ posterior:
+> **Example 10 (Credible and confidence intervals for a Gaussian mean)** We simulate $n = 20$ observations from the model of [Example 6](#exm-normal-normal), with true mean $\mu= 2$, and compute both a 95% confidence interval, $\bar x \pm 1.96 / \sqrt{n}$ (the variance is known to be 1), and the equal-tailed 95% credible interval from the ${\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}},\, \frac{1}{n+1}\right)\mathclose{}}$ posterior:
 >
 > ``` downlit
 > set.seed(1)
@@ -299,9 +449,9 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 > #> credible   1.659 2.514
 > ```
 >
-> The sample mean is \\\bar x = 2.191\\. The credible interval is slightly narrower than the confidence interval, because the prior adds information, and shifted toward the prior mean \\0\\.
+> The sample mean is $\bar x = 2.191$. The credible interval is slightly narrower than the confidence interval, because the prior adds information, and shifted toward the prior mean $0$.
 >
-> [Figure 2](#fig-normal-prior-lik-post) shows how the posterior combines prior and data. Completing the square in the likelihood of [Example 6](#exm-normal-normal) as a function of \\\mu\\ alone shows that the likelihood is proportional to a \\{\operatorname{N}\mathopen{}\left(\bar x, 1/n\right)\mathclose{}}\\ density, which is the curve drawn for it.
+> [Figure 2](#fig-normal-prior-lik-post) shows how the posterior combines prior and data. Completing the square in the likelihood of [Example 6](#exm-normal-normal) as a function of $\mu$ alone shows that the likelihood is proportional to a ${\operatorname{N}\mathopen{}\left(\bar x, 1/n\right)\mathclose{}}$ density, which is the curve drawn for it.
 >
 > > **NOTE:**
 > >
@@ -326,9 +476,9 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 > >
 > > [![Three bell-shaped curves over the mean mu: a wide prior centered at 0, a narrow likelihood centered near 2.2, and a posterior just as narrow, centered slightly closer to 0 than the likelihood.](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png "Figure 2: The {\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}} prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \mu, for the data of Example 10.")
 > >
-> > Figure 2: The \\{\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}\\ prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \\\mu\\, for the data of [Example 10](#exm-normal-credible-vs-confidence).
+> > Figure 2: The ${\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}$ prior, the likelihood (scaled to integrate to 1), and the posterior for the mean $\mu$, for the data of [Example 10](#exm-normal-credible-vs-confidence).
 >
-> Because \\\mu\\ has a distribution, the Bayesian can also compute the posterior probability that \\\mu\\ lies in the realized *confidence* interval:
+> Because $\mu$ has a distribution, the Bayesian can also compute the posterior probability that $\mu$ lies in the realized *confidence* interval:
 >
 > ``` downlit
 > pr_in_ci <- stats::pnorm(ci_freq, mean = post_mean, sd = post_sd) |> diff()
@@ -336,19 +486,21 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 > #> [1] 0.931
 > ```
 >
-> That probability is 0.931, not 0.95: under this prior, the confidence interval sits slightly too far from \\0\\. A frequentist cannot assign any probability to the event that \\\mu\\ lies in one realized interval, since both are fixed.
+> That probability is 0.931, not 0.95: under this prior, the confidence interval sits slightly too far from $0$. A frequentist cannot assign any probability to the event that $\mu$ lies in one realized interval, since both are fixed.
 
 > **NOTE:**
 >
-> **Example 11 (A discrete prior on a grid: 8 successes in 10 trials)** Suppose \\\pi\\ can take only the eleven values \\0, 0.1, 0.2, \ldots, 1\\, and we give them equal prior probability, \\\operatorname{p}(\pi) = 1/11\\. We observe \\x = 8\\ successes in \\n = 10\\ independent trials, so that given \\\pi\\ the count is \\\operatorname{Binomial}(10, \pi)\\:
+> **Example 11 (A discrete prior on a grid: 8 successes in 10 trials)** Suppose $\pi$ can take only the eleven values $0, 0.1, 0.2, \ldots, 1$, and we give them equal prior probability, $\operatorname{p}(\pi) = 1/11$. We observe $x = 8$ successes in $n = 10$ independent trials, so that given $\pi$ the count is $\operatorname{Binomial}(10, \pi)$:
 >
-> \\ \operatorname{p}(x \mid \pi) = \binom{10}{x}\pi^{x}(1-\pi)^{10-x}. \\
+> $$\operatorname{p}(x \mid \pi) = \binom{10}{x}\pi^{x}(1-\pi)^{10-x}.$$
 >
-> Because \\\pi\\ is discrete, the [marginal likelihood](#def-marginal-likelihood) is a sum over the grid rather than an integral, and [Theorem 1](#thm-bayes-posterior) gives
+> Because $\pi$ is discrete, the [marginal likelihood](#def-marginal-likelihood) is a sum over the grid rather than an integral, and [Theorem 1](#thm-bayes-posterior) gives
 >
-> \\ \operatorname{p}(\pi\mid x = 8) = \frac{\operatorname{p}(x = 8 \mid \pi)\\ \operatorname{p}(\pi)} {\sum\_{\pi'} \operatorname{p}(x = 8 \mid \pi')\\ \operatorname{p}(\pi')}, \\
+> $$\operatorname{p}(\pi\mid x = 8)
+> = \frac{\operatorname{p}(x = 8 \mid \pi)\, \operatorname{p}(\pi)}
+> {\sum_{\pi'} \operatorname{p}(x = 8 \mid \pi')\, \operatorname{p}(\pi')},$$
 >
-> where the sum runs over the eleven grid values \\\pi'\\. The table builds the posterior one column at a time: the prior, the likelihood of the observed count, their product, and the product divided by its sum.
+> where the sum runs over the eleven grid values $\pi'$. The table builds the posterior one column at a time: the prior, the likelihood of the observed count, their product, and the product divided by its sum.
 >
 > ``` downlit
 > n_trials <- 10
@@ -417,7 +569,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 > >
 > > Figure 3: Prior and posterior probabilities on the grid of values of the success probability, after 8 successes in 10 trials.
 >
-> To get an interval, accumulate the posterior probabilities from the bottom of the grid. For each grid value \\\pi_j\\, the upper-tail probability \\\Pr(\pi\> \pi_j \mid x = 8)\\ is one minus the cumulative probability up to and including \\\pi_j\\.
+> To get an interval, accumulate the posterior probabilities from the bottom of the grid. For each grid value $\pi_j$, the upper-tail probability $\Pr(\pi> \pi_j \mid x = 8)$ is one minus the cumulative probability up to and including $\pi_j$.
 >
 > ``` downlit
 > discrete_post$cum_posterior <- cumsum(discrete_post$posterior)
@@ -446,9 +598,9 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 > |  0.9 |    0.2138 |        1.0000 |     0.0000 |
 > |  1.0 |    0.0000 |        1.0000 |     0.0000 |
 >
-> The largest grid value whose upper-tail probability is still at least 0.95 is \\\pi=\\ 0.4. So \\\Pr(\pi\> 0.4 \mid x = 8) =\\ 0.9866, and the one-sided 95% [credible interval](#def-credible-interval) for \\\pi\\ is \\(0.4, 1\]\\: given 8 successes in 10 trials and this prior, the probability that \\\pi\\ exceeds 0.4 is at least 0.95.
+> The largest grid value whose upper-tail probability is still at least 0.95 is $\pi=$ 0.4. So $\Pr(\pi> 0.4 \mid x = 8) =$ 0.9866, and the one-sided 95% [credible interval](#def-credible-interval) for $\pi$ is $(0.4, 1]$: given 8 successes in 10 trials and this prior, the probability that $\pi$ exceeds 0.4 is at least 0.95.
 >
-> Unlike a continuous posterior, a discrete posterior can rarely reach a probability of exactly 0.95, because its probability comes in lumps. [Definition 7](#def-credible-interval) asks for probability exactly \\1 - \alpha\\; on a grid we ask for probability *at least* \\1 - \alpha\\, and take the largest lower endpoint that achieves it. That makes the interval conservative: here its posterior probability is 0.9866, not 0.95.
+> Unlike a continuous posterior, a discrete posterior can rarely reach a probability of exactly 0.95, because its probability comes in lumps. [Definition 7](#def-credible-interval) asks for probability exactly $1 - \alpha$; on a grid we ask for probability *at least* $1 - \alpha$, and take the largest lower endpoint that achieves it. That makes the interval conservative: here its posterior probability is 0.9866, not 0.95.
 
 > **NOTE:**
 >
@@ -458,29 +610,29 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 
 > **NOTE:**
 >
-> **Definition 9 (Parameter space)** The **parameter space** \\\Theta\\ of a model is the set of values that its parameter \\\theta\\ can take.
+> **Definition 9 (Parameter space)** The **parameter space** $\Theta$ of a model is the set of values that its parameter $\theta$ can take.
 
-Because the Bayesian treats \\\theta\\ as random, the prior and posterior are distributions over the parameter space [\[1, Ch. 12\]](#ref-dobson4e), p. 273, and the prior has to respect it.
+Because the Bayesian treats $\theta$ as random, the prior and posterior are distributions over the parameter space [\[1, Ch. 12\]](#ref-dobson4e), p. 273, and the prior has to respect it.
 
 > **NOTE:**
 >
 > **Example 12 (Parameter spaces and priors that respect them)**  
 >
-> - A probability \\\pi\\ has parameter space \\(0, 1)\\, so its prior should be a distribution on the unit interval, such as the uniform prior of [Example 2](#exm-prior).
-> - A variance \\\sigma^2\\ has parameter space \\(0, \infty)\\, so its prior should be a distribution on the positive half-line.
-> - A vector of \\p\\ regression coefficients has parameter space \\\mathbb{R}^p\\, so its prior should be a distribution on \\\mathbb{R}^p\\.
+> - A probability $\pi$ has parameter space $(0, 1)$, so its prior should be a distribution on the unit interval, such as the uniform prior of [Example 2](#exm-prior).
+> - A variance $\sigma^2$ has parameter space $(0, \infty)$, so its prior should be a distribution on the positive half-line.
+> - A vector of $p$ regression coefficients has parameter space $\mathbb{R}^p$, so its prior should be a distribution on $\mathbb{R}^p$.
 
 > **NOTE:**
 >
-> **Corollary 3 (The posterior cannot put probability where the prior puts none)** If \\\operatorname{p}(\theta) = 0\\ for every \\\theta\\ in a set \\A \subset \Theta\\, then \\\operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = 0\\ for every \\\theta\in A\\, whatever the data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\.
+> **Corollary 3 (The posterior cannot put probability where the prior puts none)** If $\operatorname{p}(\theta) = 0$ for every $\theta$ in a set $A \subset \Theta$, then $\operatorname{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = 0$ for every $\theta\in A$, whatever the data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$.
 
 > **NOTE:**
 >
-> *Proof*. For \\\theta\in A\\, the numerator of [Equation 1](#eq-bayes-posterior) is \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta) \cdot 0 = 0\\.
+> *Proof*. For $\theta\in A$, the numerator of [Equation 1](#eq-bayes-posterior) is $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta) \cdot 0 = 0$.
 
 > **NOTE:**
 >
-> **Example 13 (A prior that rules out the truth)** An analyst sure that fewer than half of adults smoke might put a uniform prior on \\(0, 0.5)\\ for the smoking probability \\\pi\\. By [Corollary 3](#cor-prior-support), the posterior then gives probability 0 to \\\pi\> 0.5\\, even if 90 of 100 sampled adults smoke. The support of the prior is itself a modeling assumption, and one that no amount of data can correct.
+> **Example 13 (A prior that rules out the truth)** An analyst sure that fewer than half of adults smoke might put a uniform prior on $(0, 0.5)$ for the smoking probability $\pi$. By [Corollary 3](#cor-prior-support), the posterior then gives probability 0 to $\pi> 0.5$, even if 90 of 100 sampled adults smoke. The support of the prior is itself a modeling assumption, and one that no amount of data can correct.
 
 > **NOTE:**
 >
@@ -490,7 +642,7 @@ Because the Bayesian treats \\\theta\\ as random, the prior and posterior are di
 
 ## 0.3 Priors
 
-The [prior](#def-prior) encodes what is known about \\\theta\\ before the current data are seen. Choosing it is the step that most distinguishes Bayesian practice from frequentist practice, and it is where most of the controversy and most of the craft lie [\[1, Ch. 12\]](#ref-dobson4e), p. 276.
+The [prior](#def-prior) encodes what is known about $\theta$ before the current data are seen. Choosing it is the step that most distinguishes Bayesian practice from frequentist practice, and it is where most of the controversy and most of the craft lie [\[1, Ch. 12\]](#ref-dobson4e), p. 276.
 
 ### 0.3.1 Conjugate priors
 
@@ -504,17 +656,31 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 
 > **NOTE:**
 >
-> **Example 14 (Beta-Bernoulli updating)** Let \\Y_1, \ldots, Y_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Bernoulli}(\pi)\\ given \\\pi\\, with \\r = \sum\_{i=1}^ny_i\\ successes, and let the prior for \\\pi\\ be a \\\operatorname{Beta}(a, b)\\ distribution, whose density is proportional to \\\pi^{a-1}(1-\pi)^{b-1}\\ on \\(0, 1)\\. The likelihood is
+> **Example 14 (Beta-Bernoulli updating)** Let $Y_1, \ldots, Y_n \ \sim_{\operatorname{iid}}\ \operatorname{Bernoulli}(\pi)$ given $\pi$, with $r = \sum_{i=1}^ny_i$ successes, and let the prior for $\pi$ be a $\operatorname{Beta}(a, b)$ distribution, whose density is proportional to $\pi^{a-1}(1-\pi)^{b-1}$ on $(0, 1)$. The likelihood is
 >
-> \\ \begin{aligned} \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \pi) &= \prod\_{i=1}^n\pi^{y_i}(1-\pi)^{1-y_i} && \text{(independent Bernoulli observations)}\\ &= \pi^{\sum_i y_i}(1-\pi)^{n - \sum_i y_i} && \text{(adding exponents)}\\ &= \pi^{r}(1-\pi)^{n-r} && \text{(definition of \$r\$)}. \end{aligned} \\
+> $$\begin{aligned}
+> \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \pi)
+> &= \prod_{i=1}^n\pi^{y_i}(1-\pi)^{1-y_i}
+> && \text{(independent Bernoulli observations)}\\
+> &= \pi^{\sum_i y_i}(1-\pi)^{n - \sum_i y_i}
+> && \text{(adding exponents)}\\
+> &= \pi^{r}(1-\pi)^{n-r}
+> && \text{(definition of $r$)}.
+> \end{aligned}$$
 >
 > By [Corollary 1](#cor-bayes-proportional),
 >
-> \\ \begin{aligned} \operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) &\propto \pi^{r}(1-\pi)^{n-r} \cdot \pi^{a-1}(1-\pi)^{b-1} && \text{(likelihood times prior)}\\ &= \pi^{a + r - 1}(1-\pi)^{b + n - r - 1} && \text{(adding exponents)}, \end{aligned} \\
+> $$\begin{aligned}
+> \operatorname{p}(\pi\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})
+> &\propto \pi^{r}(1-\pi)^{n-r} \cdot \pi^{a-1}(1-\pi)^{b-1}
+> && \text{(likelihood times prior)}\\
+> &= \pi^{a + r - 1}(1-\pi)^{b + n - r - 1}
+> && \text{(adding exponents)},
+> \end{aligned}$$
 >
-> which is proportional to the \\\operatorname{Beta}(a + r,\\ b + n - r)\\ density. So the Beta family is conjugate to the Bernoulli likelihood. The prior parameters \\a\\ and \\b\\ act as *pseudo-counts* of prior successes and failures: the posterior adds the \\r\\ observed successes and \\n - r\\ observed failures to them.
+> which is proportional to the $\operatorname{Beta}(a + r,\; b + n - r)$ density. So the Beta family is conjugate to the Bernoulli likelihood. The prior parameters $a$ and $b$ act as *pseudo-counts* of prior successes and failures: the posterior adds the $r$ observed successes and $n - r$ observed failures to them.
 >
-> The uniform prior of [Example 2](#exm-prior) is \\\operatorname{Beta}(1, 1)\\. With that prior and \\r = 55\\ successes in \\n = 91\\ trials, the posterior is \\\operatorname{Beta}(56, 37)\\, with this mean and equal-tailed 95% [credible interval](#def-credible-interval):
+> The uniform prior of [Example 2](#exm-prior) is $\operatorname{Beta}(1, 1)$. With that prior and $r = 55$ successes in $n = 91$ trials, the posterior is $\operatorname{Beta}(56, 37)$, with this mean and equal-tailed 95% [credible interval](#def-credible-interval):
 >
 > ``` downlit
 > a_post <- 1 + 55
@@ -530,14 +696,14 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 > #> 0.602 0.501 0.699
 > ```
 >
-> The mean uses the \\\operatorname{Beta}(a, b)\\ mean \\a / (a + b)\\ [\[10, Sec. 3.3\]](#ref-CaseBerg01), p. 107. By [Definition 7](#def-credible-interval), the interval is read as a probability statement about \\\pi\\ itself: given these 91 trials, the posterior probability that \\\pi\\ lies between 0.501 and 0.699 is 0.95 (approximately, since those endpoints are rounded to three decimals). A 95% confidence interval computed from the same data supports no such statement, as [Section 0.2.3](#sec-bayes-interval-interp) explains: its 0.95 describes the procedure over repeated samples, and the realized interval either contains \\\pi\\ or does not.
+> The mean uses the $\operatorname{Beta}(a, b)$ mean $a / (a + b)$ [\[10, Sec. 3.3\]](#ref-CaseBerg01), p. 107. By [Definition 7](#def-credible-interval), the interval is read as a probability statement about $\pi$ itself: given these 91 trials, the posterior probability that $\pi$ lies between 0.501 and 0.699 is 0.95 (approximately, since those endpoints are rounded to three decimals). A 95% confidence interval computed from the same data supports no such statement, as [Section 0.2.3](#sec-bayes-interval-interp) explains: its 0.95 describes the procedure over repeated samples, and the realized interval either contains $\pi$ or does not.
 
 > **NOTE:**
 >
-> **Example 15 (Prior and posterior, with and without a known truth)** Plotting the prior and posterior densities together shows how much the data moved our beliefs. We use the Beta-Bernoulli model of [Example 14](#exm-beta-bernoulli) with the uniform \\{\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}}\\ prior of [Example 2](#exm-prior) on two data sets:
+> **Example 15 (Prior and posterior, with and without a known truth)** Plotting the prior and posterior densities together shows how much the data moved our beliefs. We use the Beta-Bernoulli model of [Example 14](#exm-beta-bernoulli) with the uniform ${\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}}$ prior of [Example 2](#exm-prior) on two data sets:
 >
-> - **Simulated data.** We choose the true value of \\\pi\\ ourselves, draw Bernoulli observations with that probability, and then check where the posterior puts the truth.
-> - **Real data.** We use the `birthwt` data on 189 births at Baystate Medical Center in Springfield, Massachusetts, in 1986 [\[14\]](#ref-hosmer1989applied), [\[15, Sec. 7.2\]](#ref-venables2002modern). Here \\\pi\\ is the probability that a mother in this population smoked during pregnancy, and its true value is unknown. The data ship with R’s `MASS` package as [`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html); the Python code reads [`data/birthwt.csv`](data/birthwt.csv), a copy of the same table on this site, which is also posted as a CSV file by the [Rdatasets project](https://vincentarelbundock.github.io/Rdatasets/csv/MASS/birthwt.csv).
+> - **Simulated data.** We choose the true value of $\pi$ ourselves, draw Bernoulli observations with that probability, and then check where the posterior puts the truth.
+> - **Real data.** We use the `birthwt` data on 189 births at Baystate Medical Center in Springfield, Massachusetts, in 1986 [\[14\]](#ref-hosmer1989applied), [\[15, Sec. 7.2\]](#ref-venables2002modern). Here $\pi$ is the probability that a mother in this population smoked during pregnancy, and its true value is unknown. The data ship with R’s `MASS` package as [`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html); the Python code reads [`data/birthwt.csv`](data/birthwt.csv), a copy of the same table on this site, which is also posted as a CSV file by the [Rdatasets project](https://vincentarelbundock.github.io/Rdatasets/csv/MASS/birthwt.csv).
 >
 > ## R
 >
@@ -706,17 +872,17 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 > >
 > > [![Two side-by-side panels of densities for the probability of a success, each on the interval from 0 to 1. In both panels the uniform prior is a flat line, and the posterior is a hump. In the left panel (simulated data) a dotted vertical line marks the true value. In the right panel (real birthwt data) the posterior hump is narrower, and no true value is marked.](bayesian-inference_files/figure-html/prior-posterior-plot-py-1.png)](bayesian-inference_files/figure-html/prior-posterior-plot-py-1.png "Figure 4: Prior and posterior densities of \pi under a uniform {\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}} prior. Left: 50 simulated Bernoulli observations, drawn with true \pi= 0.3 (vertical line). Right: whether each of the 189 mothers in the birthwt data smoked during pregnancy; the true \pi is unknown.")
 > >
-> > Figure 4: Prior and posterior densities of \\\pi\\ under a uniform \\{\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}}\\ prior. Left: 50 simulated Bernoulli observations, drawn with true \\\pi= 0.3\\ (vertical line). Right: whether each of the 189 mothers in the `birthwt` data smoked during pregnancy; the true \\\pi\\ is unknown.
+> > Figure 4: Prior and posterior densities of $\pi$ under a uniform ${\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}}$ prior. Left: 50 simulated Bernoulli observations, drawn with true $\pi= 0.3$ (vertical line). Right: whether each of the 189 mothers in the `birthwt` data smoked during pregnancy; the true $\pi$ is unknown.
 >
-> In the simulated panel, 16 of the 50 draws were successes, so the posterior is \\{\operatorname{Beta}\mathopen{}\left(17, 35\right)\mathclose{}}\\. Its mean is 0.327, and its equal-tailed 95% [credible interval](#def-credible-interval) runs from 0.208 to 0.459, which contains the true value 0.3. Because we chose the truth, we can check the posterior against it.
+> In the simulated panel, 16 of the 50 draws were successes, so the posterior is ${\operatorname{Beta}\mathopen{}\left(17, 35\right)\mathclose{}}$. Its mean is 0.327, and its equal-tailed 95% [credible interval](#def-credible-interval) runs from 0.208 to 0.459, which contains the true value 0.3. Because we chose the truth, we can check the posterior against it.
 >
-> In the real panel, 74 of the 189 mothers smoked, so the posterior is \\{\operatorname{Beta}\mathopen{}\left(75, 116\right)\mathclose{}}\\, with mean 0.393 and 95% credible interval from 0.325 to 0.463. No true value is available to check it against: the posterior is all we have to describe what the data say about \\\pi\\.
+> In the real panel, 74 of the 189 mothers smoked, so the posterior is ${\operatorname{Beta}\mathopen{}\left(75, 116\right)\mathclose{}}$, with mean 0.393 and 95% credible interval from 0.325 to 0.463. No true value is available to check it against: the posterior is all we have to describe what the data say about $\pi$.
 >
 > In both panels, the posterior is much narrower than the flat prior, and the real-data posterior, based on more observations, is the narrower of the two.
 
 ### 0.3.2 Informative, weakly informative, and flat priors
 
-Priors range along a spectrum of how strongly they constrain \\\theta\\ [\[1, Ch. 12\]](#ref-dobson4e), p. 276.
+Priors range along a spectrum of how strongly they constrain $\theta$ [\[1, Ch. 12\]](#ref-dobson4e), p. 276.
 
 > **NOTE:**
 >
@@ -728,25 +894,25 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ [\[1, Ch
 
 > **NOTE:**
 >
-> **Definition 12 (Weakly informative prior)** A **weakly informative prior** is a [prior](#def-prior) that gives little probability to implausible values of \\\theta\\, while spreading its probability nearly evenly across the range of scientifically plausible values.
+> **Definition 12 (Weakly informative prior)** A **weakly informative prior** is a [prior](#def-prior) that gives little probability to implausible values of $\theta$, while spreading its probability nearly evenly across the range of scientifically plausible values.
 
 > **NOTE:**
 >
-> **Definition 13 (Flat prior (uniform prior))** A **flat prior**, also called a **uniform prior**, is a [prior](#def-prior) whose density is constant on the parameter space: \\\operatorname{p}(\theta) \propto 1\\ for \\\theta\in \Theta\\.
+> **Definition 13 (Flat prior (uniform prior))** A **flat prior**, also called a **uniform prior**, is a [prior](#def-prior) whose density is constant on the parameter space: $\operatorname{p}(\theta) \propto 1$ for $\theta\in \Theta$.
 
 A flat prior is a common choice of noninformative prior, but “noninformative prior” is the broader idea: other noninformative priors, such as Jeffreys priors, are not flat.
 
 > **NOTE:**
 >
-> **Definition 14 (Improper prior)** An **improper prior** is a nonnegative function \\\operatorname{p}(\theta)\\, used in place of a prior density, whose integral over the parameter space is infinite, so that it is not a probability density.
+> **Definition 14 (Improper prior)** An **improper prior** is a nonnegative function $\operatorname{p}(\theta)$, used in place of a prior density, whose integral over the parameter space is infinite, so that it is not a probability density.
 
 > **NOTE:**
 >
-> **Example 16 (Three priors for a log odds ratio)** Let \\\beta\\ be the log odds ratio of disease for exposed versus unexposed people, so the odds ratio is \\e^\beta\\, and \\\beta\\ can be any real number.
+> **Example 16 (Three priors for a log odds ratio)** Let $\beta$ be the log odds ratio of disease for exposed versus unexposed people, so the odds ratio is $e^\beta$, and $\beta$ can be any real number.
 >
-> - [Informative](#def-informative-prior): a previous study estimated the odds ratio as 1.5, with a standard error of 0.2 for its logarithm, so an analyst adopts the prior \\\beta\sim {\operatorname{N}\mathopen{}\left(\log 1.5,\\ 0.2^2\right)\mathclose{}}\\.
-> - [Weakly informative](#def-weakly-informative-prior): an analyst with no previous study, who nonetheless regards odds ratios above 100 as implausible, adopts \\\beta\sim {\operatorname{N}\mathopen{}\left(0,\\ 2.5^2\right)\mathclose{}}\\.
-> - [Flat](#def-flat-prior): \\\operatorname{p}(\beta) \propto 1\\ on the whole real line. This prior is [improper](#def-improper-prior), since \\\int\_{-\infty}^{\infty} 1 \\ d\beta= \infty\\; it gives an odds ratio of \\10^6\\ the same density as an odds ratio of \\1\\.
+> - [Informative](#def-informative-prior): a previous study estimated the odds ratio as 1.5, with a standard error of 0.2 for its logarithm, so an analyst adopts the prior $\beta\sim {\operatorname{N}\mathopen{}\left(\log 1.5,\; 0.2^2\right)\mathclose{}}$.
+> - [Weakly informative](#def-weakly-informative-prior): an analyst with no previous study, who nonetheless regards odds ratios above 100 as implausible, adopts $\beta\sim {\operatorname{N}\mathopen{}\left(0,\; 2.5^2\right)\mathclose{}}$.
+> - [Flat](#def-flat-prior): $\operatorname{p}(\beta) \propto 1$ on the whole real line. This prior is [improper](#def-improper-prior), since $\int_{-\infty}^{\infty} 1 \, d\beta= \infty$; it gives an odds ratio of $10^6$ the same density as an odds ratio of $1$.
 >
 > The two proper priors’ probabilities for large odds ratios:
 >
@@ -767,47 +933,69 @@ A flat prior is a common choice of noninformative prior, but “noninformative p
 > #> weakly_informative     1.8e-01      3.3e-02      1.6e-08
 > ```
 >
-> The informative prior all but rules out an odds ratio of 10; the weakly informative prior leaves a few percent of its probability above 100, and effectively none above \\10^6\\.
+> The informative prior all but rules out an odds ratio of 10; the weakly informative prior leaves a few percent of its probability above 100, and effectively none above $10^6$.
 
 > **NOTE:**
 >
-> **Example 17 (A flat prior on a probability is not flat on its log-odds)** A [flat prior](#def-flat-prior) is flat only on the scale on which it is stated. Let \\\pi\\ have the uniform prior of [Example 2](#exm-prior), and let \\\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\\ be its log-odds, so that
+> **Example 17 (A flat prior on a probability is not flat on its log-odds)** A [flat prior](#def-flat-prior) is flat only on the scale on which it is stated. Let $\pi$ have the uniform prior of [Example 2](#exm-prior), and let $\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)$ be its log-odds, so that
 >
-> \\ \begin{aligned} \pi&= \operatorname{expit}(\eta) \\ &= 1 / (1 + e^{-\eta}). \end{aligned} \\
+> $$\begin{aligned}
+>   \pi&= \operatorname{expit}(\eta) \\
+>   &= 1 / (1 + e^{-\eta}).
+> \end{aligned}$$
 >
-> The derivative of \\\operatorname{expit}\\ is
+> The derivative of $\operatorname{expit}$ is
 >
-> \\ \begin{aligned} \frac{d}{d\eta} \operatorname{expit}(\eta) &= \frac{d}{d\eta} (1 + e^{-\eta})^{-1}\\ &= -(1 + e^{-\eta})^{-2} \cdot (-e^{-\eta}) && \text{(chain rule)}\\ &= \frac{1}{1 + e^{-\eta}} \cdot \frac{e^{-\eta}}{1 + e^{-\eta}} && \text{(splitting the fraction)}\\ &= \operatorname{expit}(\eta)\\ \mathopen{}\left(1 - \operatorname{expit}(\eta)\right)\mathclose{} && \text{(\$\tfrac{e^{-\eta}}{1 + e^{-\eta}} = 1 - \tfrac{1}{1 + e^{-\eta}}\$)}. \end{aligned} \\
+> $$\begin{aligned}
+> \frac{d}{d\eta} \operatorname{expit}(\eta)
+> &= \frac{d}{d\eta} (1 + e^{-\eta})^{-1}\\
+> &= -(1 + e^{-\eta})^{-2} \cdot (-e^{-\eta})
+> && \text{(chain rule)}\\
+> &= \frac{1}{1 + e^{-\eta}} \cdot \frac{e^{-\eta}}{1 + e^{-\eta}}
+> && \text{(splitting the fraction)}\\
+> &= \operatorname{expit}(\eta)\, \mathopen{}\left(1 - \operatorname{expit}(\eta)\right)\mathclose{}
+> && \text{($\tfrac{e^{-\eta}}{1 + e^{-\eta}} = 1 - \tfrac{1}{1 + e^{-\eta}}$)}.
+> \end{aligned}$$
 >
-> By the change-of-variables formula for densities [\[10\]](#ref-CaseBerg01), Theorem 2.1.5, the prior density of \\\eta\\ is
+> By the change-of-variables formula for densities [\[10\]](#ref-CaseBerg01), Theorem 2.1.5, the prior density of $\eta$ is
 >
-> \\ \begin{aligned} \operatorname{p}\_\eta(\eta) &= \operatorname{p}\_\pi\mathopen{}\left(\operatorname{expit}(\eta)\right)\mathclose{} \cdot \mathopen{}\left\|\frac{d}{d\eta} \operatorname{expit}(\eta)\right\|\mathclose{} && \text{(change of variables)}\\ &= 1 \cdot \operatorname{expit}(\eta)\\ \mathopen{}\left(1 - \operatorname{expit}(\eta)\right)\mathclose{} && \text{(uniform density of \$\pi\$; derivative of \$\operatorname{expit}\$)}, \end{aligned} \\
+> $$\begin{aligned}
+> \operatorname{p}_\eta(\eta)
+> &= \operatorname{p}_\pi\mathopen{}\left(\operatorname{expit}(\eta)\right)\mathclose{} \cdot \mathopen{}\left|\frac{d}{d\eta} \operatorname{expit}(\eta)\right|\mathclose{}
+> && \text{(change of variables)}\\
+> &= 1 \cdot \operatorname{expit}(\eta)\, \mathopen{}\left(1 - \operatorname{expit}(\eta)\right)\mathclose{}
+> && \text{(uniform density of $\pi$; derivative of $\operatorname{expit}$)},
+> \end{aligned}$$
 >
-> the standard logistic density, which peaks at \\\eta= 0\\ and decays in both directions. Under this prior, \\\Pr(-1 \< \eta\< 1) = \operatorname{expit}(1) - \operatorname{expit}(-1) \approx 0.46\\, whereas a flat prior on \\\eta\\ would make every interval of length 2 equally likely. “Noninformative” therefore depends on the parameterization.
+> the standard logistic density, which peaks at $\eta= 0$ and decays in both directions. Under this prior, $\Pr(-1 < \eta< 1) = \operatorname{expit}(1) - \operatorname{expit}(-1) \approx 0.46$, whereas a flat prior on $\eta$ would make every interval of length 2 equally likely. “Noninformative” therefore depends on the parameterization.
 
 > **NOTE:**
 >
-> **Corollary 4 (Under a flat prior, the posterior is proportional to the likelihood)** If the prior is [flat](#def-flat-prior) on a parameter space \\\Theta\\ of finite length (or volume), then, as a function of \\\theta\in \Theta\\,
+> **Corollary 4 (Under a flat prior, the posterior is proportional to the likelihood)** If the prior is [flat](#def-flat-prior) on a parameter space $\Theta$ of finite length (or volume), then, as a function of $\theta\in \Theta$,
 >
-> \\ \operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \propto \mathcal{L}(\theta), \\
+> $$\operatorname{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \propto \mathcal{L}(\theta),$$
 >
-> where \\\mathcal{L}\\ is the [likelihood](intro-MLEs.llms.md#def-lik), and any value of \\\theta\\ that maximizes the posterior density is a [maximum likelihood estimate](intro-MLEs.llms.md#def-mle).
+> where $\mathcal{L}$ is the [likelihood](intro-MLEs.llms.md#def-lik), and any value of $\theta$ that maximizes the posterior density is a [maximum likelihood estimate](intro-MLEs.llms.md#def-mle).
 
 > **NOTE:**
 >
-> *Proof*. By [Corollary 1](#cor-bayes-proportional), \\\operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \propto \mathcal{L}(\theta)\\ \operatorname{p}(\theta)\\, and \\\operatorname{p}(\theta)\\ is the same constant for every \\\theta\in \Theta\\. Multiplying a function by a positive constant does not change where it is maximized.
+> *Proof*. By [Corollary 1](#cor-bayes-proportional), $\operatorname{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \propto \mathcal{L}(\theta)\, \operatorname{p}(\theta)$, and $\operatorname{p}(\theta)$ is the same constant for every $\theta\in \Theta$. Multiplying a function by a positive constant does not change where it is maximized.
 
 > **NOTE:**
 >
-> *Remark 4* (Flat priors can be improper). A flat prior on an unbounded parameter space, such as \\\mathbb{R}\\, is [improper](#def-improper-prior), so it does not define a joint distribution of \\\theta\\ and \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}\\, and [Definition 4](#def-posterior) does not apply directly. In practice the posterior is then *defined* as likelihood times prior, normalized to integrate to 1, which is possible only when that product has a finite integral; the posterior is again proportional to the likelihood.
+> *Remark 4* (Flat priors can be improper). A flat prior on an unbounded parameter space, such as $\mathbb{R}$, is [improper](#def-improper-prior), so it does not define a joint distribution of $\theta$ and $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}$, and [Definition 4](#def-posterior) does not apply directly. In practice the posterior is then *defined* as likelihood times prior, normalized to integrate to 1, which is possible only when that product has a finite integral; the posterior is again proportional to the likelihood.
 
 > **NOTE:**
 >
-> **Example 18 (Posterior mode and maximum likelihood estimate for a probability)** In [Example 14](#exm-beta-bernoulli) the prior is uniform on \\(0, 1)\\, so by [Corollary 4](#cor-flat-prior-posterior) the posterior density, proportional to \\\pi^{55}(1-\pi)^{36}\\, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood \\r \log \pi+ (n - r)\log(1 - \pi)\\, which is \\r/\pi- (n - r)/(1 - \pi)\\, to zero gives
+> **Example 18 (Posterior mode and maximum likelihood estimate for a probability)** In [Example 14](#exm-beta-bernoulli) the prior is uniform on $(0, 1)$, so by [Corollary 4](#cor-flat-prior-posterior) the posterior density, proportional to $\pi^{55}(1-\pi)^{36}$, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood $r \log \pi+ (n - r)\log(1 - \pi)$, which is $r/\pi- (n - r)/(1 - \pi)$, to zero gives
 >
-> \\ \begin{aligned} \hat{\pi}&= r/n \\ &= 55/91 \\ &\approx 0.604. \end{aligned} \\
+> $$\begin{aligned}
+>   \hat{\pi}&= r/n \\
+>   &= 55/91 \\
+>   &\approx 0.604.
+> \end{aligned}$$
 >
-> The posterior *mean*, \\56/93 \approx 0.602\\, is not the maximum likelihood estimate: [Corollary 4](#cor-flat-prior-posterior) concerns the posterior’s shape, and so its mode, but a mean depends on the whole distribution.
+> The posterior *mean*, $56/93 \approx 0.602$, is not the maximum likelihood estimate: [Corollary 4](#cor-flat-prior-posterior) concerns the posterior’s shape, and so its mode, but a mean depends on the whole distribution.
 
 ### 0.3.3 A skeptical prior
 
@@ -821,15 +1009,28 @@ A flat prior is a common choice of noninformative prior, but “noninformative p
 
 > **NOTE:**
 >
-> **Example 19 (A skeptical prior for a Gaussian mean)** In the model of [Example 6](#exm-normal-normal), replace the \\{\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}\\ prior by the [skeptical prior](#def-skeptical-prior) \\\mu\sim {\operatorname{N}\mathopen{}\left(0, \tau^2\right)\mathclose{}}\\, whose standard deviation \\\tau\\ sets how skeptical it is. Its density is proportional to \\{\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mu^2/\tau^2\right\\\mathclose{}}\\. Let \\m\_\tau\stackrel{\text{def}}{=}\frac{n \bar x}{n + 1/\tau^2}\\. Reusing the likelihood from [Example 6](#exm-normal-normal):
+> **Example 19 (A skeptical prior for a Gaussian mean)** In the model of [Example 6](#exm-normal-normal), replace the ${\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}$ prior by the [skeptical prior](#def-skeptical-prior) $\mu\sim {\operatorname{N}\mathopen{}\left(0, \tau^2\right)\mathclose{}}$, whose standard deviation $\tau$ sets how skeptical it is. Its density is proportional to ${\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mu^2/\tau^2\right\}\mathclose{}}$. Let $m_\tau\stackrel{\text{def}}{=}\frac{n \bar x}{n + 1/\tau^2}$. Reusing the likelihood from [Example 6](#exm-normal-normal):
 >
-> \\ \begin{aligned} \operatorname{p}(\mu\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) &\propto {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{}} \cdot {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\frac{\mu^2}{\tau^2}\right\\\mathclose{}} && \text{(likelihood times prior)}\\ &= {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}\mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{}} && \text{(adding exponents)}\\ &= {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}\mathopen{}\left(\mu^2 - 2 \mu m\_\tau\right)\mathclose{}\right\\\mathclose{}} && \text{(factoring; definition of \$m\_\tau\$)}\\ &= {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}\mathopen{}\left((\mu- m\_\tau)^2 - m\_\tau^2\right)\mathclose{}\right\\\mathclose{}} && \text{(completing the square)}\\ &\propto {\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}(\mu- m\_\tau)^2\right\\\mathclose{}} && \text{(dropping a factor that does not involve \$\mu\$)}. \end{aligned} \\
+> $$\begin{aligned}
+> \operatorname{p}(\mu\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})
+> &\propto {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\}\mathclose{}}
+>   \cdot {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\frac{\mu^2}{\tau^2}\right\}\mathclose{}}
+> && \text{(likelihood times prior)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}\mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(adding exponents)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}\mathopen{}\left(\mu^2 - 2 \mu m_\tau\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(factoring; definition of $m_\tau$)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}\mathopen{}\left((\mu- m_\tau)^2 - m_\tau^2\right)\mathclose{}\right\}\mathclose{}}
+> && \text{(completing the square)}\\
+> &\propto {\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}(\mu- m_\tau)^2\right\}\mathclose{}}
+> && \text{(dropping a factor that does not involve $\mu$)}.
+> \end{aligned}$$
 >
-> So \\\mu\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\sim {\operatorname{N}\mathopen{}\left(m\_\tau,\\ 1 / (n + 1/\tau^2)\right)\mathclose{}}\\, and \\\tau= 1\\ recovers [Example 6](#exm-normal-normal). The posterior mean
+> So $\mu\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\sim {\operatorname{N}\mathopen{}\left(m_\tau,\; 1 / (n + 1/\tau^2)\right)\mathclose{}}$, and $\tau= 1$ recovers [Example 6](#exm-normal-normal). The posterior mean
 >
-> \\ m\_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}} \\
+> $$m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}$$
 >
-> is a weighted average of the sample mean and the prior mean \\0\\, weighted by the precision \\n\\ of the data and the precision \\1/\tau^2\\ of the prior (a precision is a reciprocal variance). The more skeptical the prior (the smaller \\\tau\\), the more the posterior mean shrinks toward \\0\\. With \\\bar x = 2\\ and \\n = 20\\ held fixed:
+> is a weighted average of the sample mean and the prior mean $0$, weighted by the precision $n$ of the data and the precision $1/\tau^2$ of the prior (a precision is a reciprocal variance). The more skeptical the prior (the smaller $\tau$), the more the posterior mean shrinks toward $0$. With $\bar x = 2$ and $n = 20$ held fixed:
 >
 > ``` downlit
 > xbar <- 2
@@ -839,7 +1040,7 @@ A flat prior is a common choice of noninformative prior, but “noninformative p
 >   round(3)
 > ```
 >
-> The most skeptical prior (\\\tau= 0.1\\) pulls the posterior mean down to one sixth of the sample mean, while the most diffuse (\\\tau= 10\\) leaves it essentially at \\\bar x\\.
+> The most skeptical prior ($\tau= 0.1$) pulls the posterior mean down to one sixth of the sample mean, while the most diffuse ($\tau= 10$) leaves it essentially at $\bar x$.
 
 ## 0.4 Predictive checks
 
@@ -847,17 +1048,29 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Definition 16 (Prior predictive distribution)** The **prior predictive distribution** of the data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}\\ is the distribution of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}\\ implied by the [prior](#def-prior) \\\operatorname{p}(\theta)\\ and the model \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\, before any data are observed [\[16, Sec. 1.3\]](#ref-gelman2013bda), p. 7, eq. 1.3:
+> **Definition 16 (Prior predictive distribution)** The **prior predictive distribution** of the data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}$ is the distribution of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}$ implied by the [prior](#def-prior) $\operatorname{p}(\theta)$ and the model $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)$, before any data are observed [\[16, Sec. 1.3\]](#ref-gelman2013bda), p. 7, eq. 1.3:
 >
-> \\ \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \int \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\ \operatorname{p}(\theta)\\ d\theta. \\
+> $$\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \int \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\, \operatorname{p}(\theta)\, d\theta.$$
 
 > **NOTE:**
 >
-> **Example 20 (Prior predictive distribution of a count)** In the Beta-Bernoulli model of [Example 14](#exm-beta-bernoulli), the number of successes \\R = \sum\_{i=1}^nY_i\\ given \\\pi\\ is \\\operatorname{Binomial}(n, \pi)\\. Under the uniform \\{\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}}\\ prior, its prior predictive probabilities are
+> **Example 20 (Prior predictive distribution of a count)** In the Beta-Bernoulli model of [Example 14](#exm-beta-bernoulli), the number of successes $R = \sum_{i=1}^nY_i$ given $\pi$ is $\operatorname{Binomial}(n, \pi)$. Under the uniform ${\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}}$ prior, its prior predictive probabilities are
 >
-> \\ \begin{aligned} {\Pr\mathopen{}\left(R = r\right)\mathclose{}} &= \int_0^1 \binom{n}{r} \pi^{r} (1 - \pi)^{n - r} \cdot 1 \\ d\pi && \text{(definition of the prior predictive distribution)}\\ &= \binom{n}{r} \frac{r!\\(n - r)!}{(n + 1)!} && \text{(the Beta integral)}\\ &= \frac{n!}{r!\\(n - r)!} \cdot \frac{r!\\(n - r)!}{(n + 1)!} && \text{(definition of the binomial coefficient)}\\ &= \frac{n!}{(n + 1)!} && \text{(the factor \$r!\\(n - r)!\$ appears above and below)}\\ &= \frac{1}{n + 1} && \text{(\$(n + 1)! = (n + 1) \cdot n!\$)}, \end{aligned} \\
+> $$\begin{aligned}
+> {\Pr\mathopen{}\left(R = r\right)\mathclose{}}
+> &= \int_0^1 \binom{n}{r} \pi^{r} (1 - \pi)^{n - r} \cdot 1 \, d\pi
+> && \text{(definition of the prior predictive distribution)}\\
+> &= \binom{n}{r} \frac{r!\,(n - r)!}{(n + 1)!}
+> && \text{(the Beta integral)}\\
+> &= \frac{n!}{r!\,(n - r)!} \cdot \frac{r!\,(n - r)!}{(n + 1)!}
+> && \text{(definition of the binomial coefficient)}\\
+> &= \frac{n!}{(n + 1)!}
+> && \text{(the factor $r!\,(n - r)!$ appears above and below)}\\
+> &= \frac{1}{n + 1}
+> && \text{($(n + 1)! = (n + 1) \cdot n!$)},
+> \end{aligned}$$
 >
-> for \\r = 0, 1, \ldots, n\\. So the uniform prior says that, before seeing the data, every count of successes is equally likely [\[16, Sec. 2.4\]](#ref-gelman2013bda), p. 34. For the 189 mothers in the `birthwt` data, the code below computes these probabilities from the Beta-binomial probability mass function:
+> for $r = 0, 1, \ldots, n$. So the uniform prior says that, before seeing the data, every count of successes is equally likely [\[16, Sec. 2.4\]](#ref-gelman2013bda), p. 34. For the 189 mothers in the `birthwt` data, the code below computes these probabilities from the Beta-binomial probability mass function:
 >
 > ## R
 >
@@ -899,25 +1112,33 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Definition 17 (Posterior predictive distribution)** The **posterior predictive distribution** of a new observation \\Y^{\mathrm{new}}\\, given observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\, is the distribution of \\Y^{\mathrm{new}}\\ implied by the [posterior](#def-posterior) \\\operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ and the model \\\operatorname{p}(y^{\mathrm{new}} \mid \theta)\\:
+> **Definition 17 (Posterior predictive distribution)** The **posterior predictive distribution** of a new observation $Y^{\mathrm{new}}$, given observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$, is the distribution of $Y^{\mathrm{new}}$ implied by the [posterior](#def-posterior) $\operatorname{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ and the model $\operatorname{p}(y^{\mathrm{new}} \mid \theta)$:
 >
-> \\ \operatorname{p}(y^{\mathrm{new}} \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \int \operatorname{p}(y^{\mathrm{new}} \mid \theta)\\ \operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\theta, \\
+> $$\operatorname{p}(y^{\mathrm{new}} \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \int \operatorname{p}(y^{\mathrm{new}} \mid \theta)\, \operatorname{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\, d\theta,$$
 >
-> where \\Y^{\mathrm{new}}\\ and \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}\\ are independent given \\\theta\\ [\[16, Sec. 1.3\]](#ref-gelman2013bda), p. 7, eq. 1.4. The same formula, with \\y^{\mathrm{new}}\\ replaced by a whole replicated data set \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}^{\mathrm{rep}}\\ of the same size as \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\, gives the posterior predictive distribution of replicated data.
+> where $Y^{\mathrm{new}}$ and $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}$ are independent given $\theta$ [\[16, Sec. 1.3\]](#ref-gelman2013bda), p. 7, eq. 1.4. The same formula, with $y^{\mathrm{new}}$ replaced by a whole replicated data set $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}^{\mathrm{rep}}$ of the same size as $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$, gives the posterior predictive distribution of replicated data.
 >
 > Source: Wikipedia contributors [\[18\]](#ref-wikipedia_posterior_predictive_distribution).
 
 > **NOTE:**
 >
-> **Example 21 (Will the next mother smoke?)** Let \\Y^{\mathrm{new}} = 1\\ if one more mother from the `birthwt` population smoked during pregnancy, and \\Y^{\mathrm{new}} = 0\\ if she did not. Given \\\pi\\,
+> **Example 21 (Will the next mother smoke?)** Let $Y^{\mathrm{new}} = 1$ if one more mother from the `birthwt` population smoked during pregnancy, and $Y^{\mathrm{new}} = 0$ if she did not. Given $\pi$,
 >
-> \\ {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{}} = \pi. \\
+> $${\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{}} = \pi.$$
 >
-> With the posterior \\\operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of [Example 15](#exm-prior-posterior-figure),
+> With the posterior $\operatorname{p}(\pi\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ of [Example 15](#exm-prior-posterior-figure),
 >
-> \\ \begin{aligned} {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right)\mathclose{}} &= \int_0^1 {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{}}\\ \operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\pi && \text{(definition of the posterior predictive distribution)}\\ &= \int_0^1 \pi\\ \operatorname{p}(\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\pi && \text{(Bernoulli model)}\\ &= {\mathbb{E}\mathopen{}\left\[\pi\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}} && \text{(definition of the posterior mean)}. \end{aligned} \\
+> $$\begin{aligned}
+> {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}}
+> &= \int_0^1 {\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{}}\, \operatorname{p}(\pi\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\, d\pi
+> && \text{(definition of the posterior predictive distribution)}\\
+> &= \int_0^1 \pi\, \operatorname{p}(\pi\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\, d\pi
+> && \text{(Bernoulli model)}\\
+> &= {\mathbb{E}\mathopen{}\left[\pi\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right]\mathclose{}}
+> && \text{(definition of the posterior mean)}.
+> \end{aligned}$$
 >
-> So the posterior predictive probability that the next mother smoked is the posterior mean of \\\pi\\, 0.393. The code below checks this by simulation: draw \\\pi\\ from its posterior, then draw \\Y^{\mathrm{new}}\\ given that \\\pi\\.
+> So the posterior predictive probability that the next mother smoked is the posterior mean of $\pi$, 0.393. The code below checks this by simulation: draw $\pi$ from its posterior, then draw $Y^{\mathrm{new}}$ given that $\pi$.
 >
 > ## R
 >
@@ -956,16 +1177,16 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Definition 18 (Test quantity)** A **test quantity** \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ is a number computed from a data set that summarizes an aspect of the data we want the model to reproduce [\[16, Sec. 6.3\]](#ref-gelman2013bda), p. 145.
+> **Definition 18 (Test quantity)** A **test quantity** $T(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ is a number computed from a data set that summarizes an aspect of the data we want the model to reproduce [\[16, Sec. 6.3\]](#ref-gelman2013bda), p. 145.
 
 > **NOTE:**
 >
-> **Example 22 (Two test quantities for the smoking data)** The `birthwt` data also record each mother’s race, coded as white, Black, or other. The Beta-Bernoulli model gives every mother the same probability \\\pi\\ of smoking, whatever her race. Two test quantities for these data are:
+> **Example 22 (Two test quantities for the smoking data)** The `birthwt` data also record each mother’s race, coded as white, Black, or other. The Beta-Bernoulli model gives every mother the same probability $\pi$ of smoking, whatever her race. Two test quantities for these data are:
 >
-> - the number of mothers who smoked, \\T_1(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \sum\_{i=1}^ny_i\\;
-> - the spread of the smoking proportions across the three race groups, \\T_2(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \max_g {\bar{y}}\_g - \min_g {\bar{y}}\_g\\, where \\{\bar{y}}\_g\\ is the proportion of mothers in group \\g\\ who smoked.
+> - the number of mothers who smoked, $T_1(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \sum_{i=1}^ny_i$;
+> - the spread of the smoking proportions across the three race groups, $T_2(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \max_g {\bar{y}}_g - \min_g {\bar{y}}_g$, where ${\bar{y}}_g$ is the proportion of mothers in group $g$ who smoked.
 >
-> The model can match \\T_1\\ by choosing \\\pi\\, but it predicts that \\T_2\\ is small, because it gives every group the same \\\pi\\. Their observed values are:
+> The model can match $T_1$ by choosing $\pi$, but it predicts that $T_2$ is small, because it gives every group the same $\pi$. Their observed values are:
 >
 > ## R
 >
@@ -1016,16 +1237,16 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Definition 19 (Prior predictive check)** A **prior predictive check** compares a [test quantity](#def-test-quantity) \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of the observed data with the distribution of \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}})\\ under the [prior predictive distribution](#def-prior-predictive). If the observed value would be very unlikely under that distribution, the prior and the data disagree [\[17, Sec. 4.3.2\]](#ref-statrethink2e), pp. 82-83.
+> **Definition 19 (Prior predictive check)** A **prior predictive check** compares a [test quantity](#def-test-quantity) $T(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ of the observed data with the distribution of $T(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}})$ under the [prior predictive distribution](#def-prior-predictive). If the observed value would be very unlikely under that distribution, the prior and the data disagree [\[17, Sec. 4.3.2\]](#ref-statrethink2e), pp. 82-83.
 
 > **NOTE:**
 >
-> **Example 23 (Checking two priors for the smoking probability)** We compare two priors for \\\pi\\ in the `birthwt` data:
+> **Example 23 (Checking two priors for the smoking probability)** We compare two priors for $\pi$ in the `birthwt` data:
 >
-> - the uniform \\{\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}}\\ prior of [Example 2](#exm-prior);
-> - a \\{\operatorname{Beta}\mathopen{}\left(1, 19\right)\mathclose{}}\\ prior, with prior mean \\1 / (1 + 19) = 0.05\\, which an analyst might choose if they believed that smoking during pregnancy was rare.
+> - the uniform ${\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}}$ prior of [Example 2](#exm-prior);
+> - a ${\operatorname{Beta}\mathopen{}\left(1, 19\right)\mathclose{}}$ prior, with prior mean $1 / (1 + 19) = 0.05$, which an analyst might choose if they believed that smoking during pregnancy was rare.
 >
-> For each prior, we draw \\\pi\\ from the prior, then draw a count of smokers \\T_1(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}})\\ among 189 mothers given that \\\pi\\.
+> For each prior, we draw $\pi$ from the prior, then draw a count of smokers $T_1(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}})$ among 189 mothers given that $\pi$.
 >
 > ## R
 >
@@ -1123,20 +1344,20 @@ A Bayesian model makes predictions about data, both before and after the data ar
 > >
 > > Figure 5: Prior predictive distributions of the number of smokers among the 189 mothers in the `birthwt` data, from 4000 simulations under each prior. The dashed line is the observed count, 74.
 >
-> Under the uniform prior, 0.611 of the simulated counts are at least as large as the observed count, so the data are unsurprising under that prior. Under the \\{\operatorname{Beta}\mathopen{}\left(1, 19\right)\mathclose{}}\\ prior, 2 of the 4000 simulated counts are: that prior and the data disagree, and the analyst should rethink the prior before trusting a posterior built on it.
+> Under the uniform prior, 0.611 of the simulated counts are at least as large as the observed count, so the data are unsurprising under that prior. Under the ${\operatorname{Beta}\mathopen{}\left(1, 19\right)\mathclose{}}$ prior, 2 of the 4000 simulated counts are: that prior and the data disagree, and the analyst should rethink the prior before trusting a posterior built on it.
 
 > **NOTE:**
 >
-> **Definition 20 (Posterior predictive check)** A **posterior predictive check** compares a [test quantity](#def-test-quantity) \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of the observed data with the distribution of \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}})\\, where \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}\\ is a replicated data set drawn from the [posterior predictive distribution](#def-posterior-predictive). If the model fits, replicated data should look like the observed data, so a systematic difference points to a way the model fails [\[16, Sec. 6.3\]](#ref-gelman2013bda), pp. 143-145.
+> **Definition 20 (Posterior predictive check)** A **posterior predictive check** compares a [test quantity](#def-test-quantity) $T(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ of the observed data with the distribution of $T(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}^{\mathrm{rep}})$, where $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}$ is a replicated data set drawn from the [posterior predictive distribution](#def-posterior-predictive). If the model fits, replicated data should look like the observed data, so a systematic difference points to a way the model fails [\[16, Sec. 6.3\]](#ref-gelman2013bda), pp. 143-145.
 
 > **NOTE:**
 >
-> **Example 24 (Does one smoking probability fit every group?)** We check the Beta-Bernoulli model with the race-spread test quantity \\T_2\\ of [Example 22](#exm-test-quantity), on two data sets:
+> **Example 24 (Does one smoking probability fit every group?)** We check the Beta-Bernoulli model with the race-spread test quantity $T_2$ of [Example 22](#exm-test-quantity), on two data sets:
 >
-> - **Simulated data.** We draw 189 Bernoulli observations with the same true \\\pi= 0.3\\ for every mother, and attach the race labels of the `birthwt` mothers. The model is true for these data.
+> - **Simulated data.** We draw 189 Bernoulli observations with the same true $\pi= 0.3$ for every mother, and attach the race labels of the `birthwt` mothers. The model is true for these data.
 > - **Real data.** The smoking indicators of the `birthwt` mothers.
 >
-> For each data set, we draw \\\pi\\ from its posterior under the uniform prior, draw a replicated data set \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}\\ of the same size given that \\\pi\\, and compute \\T_2(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}})\\, 4000 times.
+> For each data set, we draw $\pi$ from its posterior under the uniform prior, draw a replicated data set $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}$ of the same size given that $\pi$, and compute $T_2(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}^{\mathrm{rep}})$, 4000 times.
 >
 > ## R
 >
@@ -1204,7 +1425,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 > #> {'simulated': np.float64(0.13168532338308458), 'real (birthwt)': np.float64(0.36256218905472637)}
 > ```
 >
-> [Figure 6](#fig-posterior-predictive-check) compares the replicated and observed values of \\T_2\\.
+> [Figure 6](#fig-posterior-predictive-check) compares the replicated and observed values of $T_2$.
 >
 > > **NOTE:**
 > >
@@ -1249,17 +1470,17 @@ A Bayesian model makes predictions about data, both before and after the data ar
 > >
 > > [![Two side-by-side histograms of the spread in smoking proportions across race groups, in data sets replicated from the posterior. In each panel a dashed vertical line marks the observed spread. In the left panel (simulated data) it falls inside the histogram; in the right panel (real birthwt data) it lies to the right of nearly all the replicated values.](bayesian-inference_files/figure-html/posterior-predictive-check-plot-py-1.png)](bayesian-inference_files/figure-html/posterior-predictive-check-plot-py-1.png "Figure 6: Posterior predictive distributions of T_2, the spread of the smoking proportions across the three race groups, from 4000 replicated data sets under the Beta-Bernoulli model with a uniform prior. The dashed lines are the observed values. Left: 189 simulated observations with the same true \pi= 0.3 for every mother. Right: the birthwt data.")
 > >
-> > Figure 6: Posterior predictive distributions of \\T_2\\, the spread of the smoking proportions across the three race groups, from 4000 replicated data sets under the Beta-Bernoulli model with a uniform prior. The dashed lines are the observed values. Left: 189 simulated observations with the same true \\\pi= 0.3\\ for every mother. Right: the `birthwt` data.
+> > Figure 6: Posterior predictive distributions of $T_2$, the spread of the smoking proportions across the three race groups, from 4000 replicated data sets under the Beta-Bernoulli model with a uniform prior. The dashed lines are the observed values. Left: 189 simulated observations with the same true $\pi= 0.3$ for every mother. Right: the `birthwt` data.
 >
-> For the simulated data, the observed spread looks like the replicated spreads, as it should, because the model generated those data. For the real data, the observed spread is larger than almost every replicated spread: the smoking proportion really does differ by race in these data, and a model with one \\\pi\\ for everyone cannot reproduce that.
+> For the simulated data, the observed spread looks like the replicated spreads, as it should, because the model generated those data. For the real data, the observed spread is larger than almost every replicated spread: the smoking proportion really does differ by race in these data, and a model with one $\pi$ for everyone cannot reproduce that.
 
 > **NOTE:**
 >
-> **Definition 21 (Posterior predictive p-value)** The **posterior predictive p-value** of a [test quantity](#def-test-quantity) \\T\\ is the posterior probability that a replicated data set gives a value of \\T\\ at least as large as the observed data do:
+> **Definition 21 (Posterior predictive p-value)** The **posterior predictive p-value** of a [test quantity](#def-test-quantity) $T$ is the posterior probability that a replicated data set gives a value of $T$ at least as large as the observed data do:
 >
-> \\ p_B = {\Pr\mathopen{}\left(T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}) \ge T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right)\mathclose{}}, \\
+> $$p_B = {\Pr\mathopen{}\left(T(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}) \ge T(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}},$$
 >
-> where the probability is over \\\theta\\ drawn from its [posterior](#def-posterior) and \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}\\ drawn from the model given \\\theta\\ [\[16, Sec. 6.3\]](#ref-gelman2013bda), p. 146.
+> where the probability is over $\theta$ drawn from its [posterior](#def-posterior) and $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}$ drawn from the model given $\theta$ [\[16, Sec. 6.3\]](#ref-gelman2013bda), p. 146.
 
 > **NOTE:**
 >
@@ -1285,11 +1506,11 @@ A Bayesian model makes predictions about data, both before and after the data ar
 > #> {'simulated': np.float64(0.3545), 'real (birthwt)': np.float64(0.00125)}
 > ```
 >
-> R and Python draw different random numbers, so their p-values differ a little; the text uses the R results. For the simulated data, \\p_B\\ is 0.367, so the model passes this check. For the real data, \\p_B\\ is 0.002, so the model fails it. The next step would be a model that lets the smoking probability depend on race, such as the [Bayesian logistic regression](bayesian-examples.llms.md#exm-bayes-logistic) fitted on the companion page.
+> R and Python draw different random numbers, so their p-values differ a little; the text uses the R results. For the simulated data, $p_B$ is 0.367, so the model passes this check. For the real data, $p_B$ is 0.002, so the model fails it. The next step would be a model that lets the smoking probability depend on race, such as the [Bayesian logistic regression](bayesian-examples.llms.md#exm-bayes-logistic) fitted on the companion page.
 
 > **NOTE:**
 >
-> *Remark 7* (Estimating and interpreting the posterior predictive p-value). With simulations from a [posterior predictive check](#def-posterior-predictive-check), \\p_B\\ is estimated by the proportion of replicated values at least as large as the observed value. A value near 0 or 1 means the observed data are unusual under the model.
+> *Remark 7* (Estimating and interpreting the posterior predictive p-value). With simulations from a [posterior predictive check](#def-posterior-predictive-check), $p_B$ is estimated by the proportion of replicated values at least as large as the observed value. A value near 0 or 1 means the observed data are unusual under the model.
 
 ## 0.5 Distributions and hierarchies
 
@@ -1315,13 +1536,18 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Example 26 (A two-level Gaussian model)** Observations \\Y\_{ij}\\ come from groups \\j = 1, \ldots, J\\, and each group has its own mean \\\theta_j\\. A two-level model specifies
+> **Example 26 (A two-level Gaussian model)** Observations $Y_{ij}$ come from groups $j = 1, \ldots, J$, and each group has its own mean $\theta_j$. A two-level model specifies
 >
-> \\ \begin{aligned} Y\_{ij} \mid \theta_j &\sim {\operatorname{N}\mathopen{}\left(\theta_j,\\ \sigma^2\right)\mathclose{}} && \text{(data given group means)}\\ \theta_j \mid \mu, \tau&\sim {\operatorname{N}\mathopen{}\left(\mu,\\ \tau^2\right)\mathclose{}} && \text{(group means given hyperparameters)}. \end{aligned} \\
+> $$\begin{aligned}
+> Y_{ij} \mid \theta_j &\sim {\operatorname{N}\mathopen{}\left(\theta_j,\, \sigma^2\right)\mathclose{}}
+> && \text{(data given group means)}\\
+> \theta_j \mid \mu, \tau&\sim {\operatorname{N}\mathopen{}\left(\mu,\, \tau^2\right)\mathclose{}}
+> && \text{(group means given hyperparameters)}.
+> \end{aligned}$$
 >
-> The group means \\\theta_j\\ are the group-level parameters, and \\\mu\\ and \\\tau\\ are the [hyperparameters](#def-hyperparameter). To fit this model by Bayesian inference, we add a [hyperprior](#def-hyperprior) for \\(\mu, \tau)\\ and a prior for the within-group standard deviation \\\sigma\\.
+> The group means $\theta_j$ are the group-level parameters, and $\mu$ and $\tau$ are the [hyperparameters](#def-hyperparameter). To fit this model by Bayesian inference, we add a [hyperprior](#def-hyperprior) for $(\mu, \tau)$ and a prior for the within-group standard deviation $\sigma$.
 
-The middle level lets the groups *borrow strength* from one another: the posterior for each \\\theta_j\\ is pulled toward the overall mean \\\mu\\, by an amount that depends on the between-group standard deviation \\\tau\\, which the data themselves inform [\[1, Ch. 12\]](#ref-dobson4e), p. 281. This random-effects *model structure* is the one fit by maximum likelihood in [\[1, Ch. 11\]](#ref-dobson4e) and in [an introduction to multilevel models](https://morrison-lab.github.io/rme/chapters/intro-multilevel-models.html). The Bayesian *inference method* differs only in placing a hyperprior on \\\mu\\ and \\\tau\\ and returning a full posterior for them, rather than point estimates of the variance components. For a video introduction, see Richard McElreath’s lecture [*Multilevel Models*](https://www.youtube.com/watch?v=jh3RltVrQ-Q) (Statistical Rethinking 2026, Lecture B01).
+The middle level lets the groups *borrow strength* from one another: the posterior for each $\theta_j$ is pulled toward the overall mean $\mu$, by an amount that depends on the between-group standard deviation $\tau$, which the data themselves inform [\[1, Ch. 12\]](#ref-dobson4e), p. 281. This random-effects *model structure* is the one fit by maximum likelihood in [\[1, Ch. 11\]](#ref-dobson4e) and in [an introduction to multilevel models](https://morrison-lab.github.io/rme/chapters/intro-multilevel-models.html). The Bayesian *inference method* differs only in placing a hyperprior on $\mu$ and $\tau$ and returning a full posterior for them, rather than point estimates of the variance components. For a video introduction, see Richard McElreath’s lecture [*Multilevel Models*](https://www.youtube.com/watch?v=jh3RltVrQ-Q) (Statistical Rethinking 2026, Lecture B01).
 
 ## 0.6 Further reading
 
