@@ -4,6 +4,7 @@ format:
   html: default
   revealjs:
     output-file: exponential-families-slides.html
+    shift-heading-level-by: 1
   pdf:
     output-file: exponential-families-handout.pdf
   docx:
