@@ -20,7 +20,7 @@ resources:
 reticulate::py_require(c("numpy", "pandas"))
 ```
 
-## Predictions, fitted values, residuals, and prediction errors {#sec-predictions}
+# Predictions, fitted values, residuals, and prediction errors {#sec-predictions}
 
 <!-- No slidebreak here: the heading shares its slide with the def-prediction div. -->
 
@@ -72,7 +72,7 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
-## Sample mean squared error of predictions {#sec-prediction-mse}
+# Sample mean squared error of predictions {#sec-prediction-mse}
 
 <!-- No slidebreak here: the heading shares its slide with the def-prediction-mse div. -->
 
@@ -88,14 +88,14 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
-## Estimation versus prediction {#sec-estimation-vs-prediction}
+# Estimation versus prediction {#sec-estimation-vs-prediction}
 
 <!-- No slidebreak here: the heading shares its slide with the remark. -->
 
 {{< include sds/_subfiles/prediction/_rem-estimation-vs-prediction.qmd >}}
 
 
-## References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::

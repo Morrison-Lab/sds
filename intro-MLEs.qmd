@@ -10,7 +10,7 @@ format:
     output-file: intro-MLEs-handout.docx
 ---
 
-## Overview of maximum likelihood estimation {#sec-intro-MLEs}
+# Overview of maximum likelihood estimation {#sec-intro-MLEs}
 
 {{< include sds/_subfiles/shared-config.qmd >}}
 
@@ -19,7 +19,7 @@ These notes are derived primarily from [@dobson4e, Chapters 1--5],
 with some material from [@mclachlan2007em] and [@CaseBerg01].
 :::
 
-### The likelihood function
+## The likelihood function
 
 <!-- No slidebreak here: the heading shares its slide with the def-lik-obs div. -->
 
@@ -57,7 +57,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< slidebreak >}}
 
-### The maximum likelihood estimate
+## The maximum likelihood estimate
 
 <!-- No slidebreak here: the heading shares its slide with the def-mle div. -->
 
@@ -81,7 +81,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-### Finding the maximum of a function
+## Finding the maximum of a function
 
 <!-- No slidebreak here: the heading shares its slide with the def-critical-point div. -->
 
@@ -91,13 +91,13 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-### Directly maximizing the likelihood function for independent data
+## Directly maximizing the likelihood function for independent data
 
 {{< include sds/_subfiles/intro-MLEs/_sec_mle_no_log.qmd >}}
 
 {{< slidebreak >}}
 
-### The log-likelihood function
+## The log-likelihood function
 
 <!-- No slidebreak here: the heading shares its slide with the def-loglik div. -->
 
@@ -133,7 +133,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-### The score function
+## The score function
 
 <!-- No slidebreak here: the heading shares its slide with the def-score div. -->
 
@@ -171,7 +171,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-### Information matrices
+## Information matrices
 
 <!-- No slidebreak here: the heading shares its slide with the def-hessian div. -->
 
@@ -283,7 +283,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-### Asymptotic distribution of the maximum likelihood estimate
+## Asymptotic distribution of the maximum likelihood estimate
 
 <!-- No slidebreak here: the heading shares its slide with the thm-dist-mle div. -->
 
@@ -304,9 +304,9 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-### Quantifying uncertainty about MLEs
+## Quantifying uncertainty about MLEs
 
-#### Confidence intervals for MLEs
+### Confidence intervals for MLEs
 
 <!-- No slidebreak here: the heading shares its slide with the def-wald-ci div. -->
 
@@ -321,7 +321,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-#### Wald tests
+### Wald tests
 
 <!-- No slidebreak here: the heading shares its slide with the def-wald-test div. -->
 
@@ -341,7 +341,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-#### Likelihood ratio tests for MLEs {#sec-lrt-mles}
+### Likelihood ratio tests for MLEs {#sec-lrt-mles}
 
 <!-- No slidebreak here: the heading shares its slide with the def-lrt-stat div. -->
 
@@ -394,13 +394,13 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-#### Exact and approximate tests
+### Exact and approximate tests
 
 {{< include sds/_subfiles/intro-MLEs/_tbl_gaussian_vs_mle_tests.qmd >}}
 
 {{< slidebreak >}}
 
-#### Prediction intervals
+### Prediction intervals
 
 <!-- No slidebreak here: the heading shares its slide with the def-prediction-interval div. -->
 
@@ -412,13 +412,13 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< include sds/_subfiles/intro-MLEs/_rem-prediction-vs-confidence-interval.qmd >}}
 
-## Example: maximum likelihood for tropical cyclones in Australia
+# Example: maximum likelihood for tropical cyclones in Australia
 
 {{< include sds/_subfiles/dobson-cyclone-example.qmd >}}
 
-## Maximum likelihood for a Bernoulli model without covariates {#sec-bernoulli-mle}
+# Maximum likelihood for a Bernoulli model without covariates {#sec-bernoulli-mle}
 
-### The likelihood
+## The likelihood
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-likelihood-one-group.qmd >}}
 
@@ -428,7 +428,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### Log-likelihood contributions
+## Log-likelihood contributions
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-contribution.qmd >}}
 
@@ -446,7 +446,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### The log-likelihood of the sample
+## The log-likelihood of the sample
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-one-group.qmd >}}
 
@@ -456,7 +456,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### Score contributions
+## Score contributions
 
 {{< include sds/_subfiles/intro-MLEs/_exm-precision-bernoulli.qmd >}}
 
@@ -510,7 +510,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### The score function of the sample
+## The score function of the sample
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-sample-mean-deviation.qmd >}}
 
@@ -524,7 +524,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### Solving the score equation
+## Solving the score equation
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score-equation.qmd >}}
 
@@ -538,7 +538,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### Hessian contributions
+## Hessian contributions
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-contribution.qmd >}}
 
@@ -572,7 +572,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### The Hessian of the sample
+## The Hessian of the sample
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-sum.qmd >}}
 
@@ -582,7 +582,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### Checking that the Hessian is negative definite
+## Checking that the Hessian is negative definite
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-hessian-nd.qmd >}}
 
@@ -592,7 +592,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### The maximum likelihood estimate
+## The maximum likelihood estimate
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-mle.qmd >}}
 
@@ -602,25 +602,25 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-## Maximum likelihood for univariate Gaussian models {#sec-gaussian-mle}
+# Maximum likelihood for univariate Gaussian models {#sec-gaussian-mle}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-setup.qmd >}}
 
 {{< slidebreak >}}
 
-### The score function
+## The score function
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-score.qmd >}}
 
 {{< slidebreak >}}
 
-### MLE of $\mean$
+## MLE of $\mean$
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-mu.qmd >}}
 
 {{< slidebreak >}}
 
-### The profile log-likelihood
+## The profile log-likelihood
 
 {{< include sds/_subfiles/intro-MLEs/_def-profile-loglik.qmd >}}
 
@@ -628,27 +628,27 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< include sds/_subfiles/intro-MLEs/_exm-profile-loglik.qmd >}}
 
-### MLE of $\varpar$ {#sec-gaussian-mle-sigma}
+## MLE of $\varpar$ {#sec-gaussian-mle-sigma}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-sigma.qmd >}}
 
 {{< slidebreak >}}
 
-### Second derivatives
+## Second derivatives
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-hessian.qmd >}}
 
 {{< slidebreak >}}
 
-### Information matrix and standard errors {#sec-covariance-matrix}
+## Information matrix and standard errors {#sec-covariance-matrix}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-information.qmd >}}
 
-## Example: hormone therapy study {#sec-hers-mle-example}
+# Example: hormone therapy study {#sec-hers-mle-example}
 
 {{< include sds/_subfiles/HERS-example.qmd >}}
 
-## Practice exercises {#sec-mle-practice}
+# Practice exercises {#sec-mle-practice}
 
 {{< include sds/_subfiles/intro-MLEs/_exr-prac-binom-lik.qmd >}}
 
@@ -729,7 +729,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 {{< include sds/_subfiles/intro-MLEs/_sol-prac-exp-mle-ci.qmd >}}
 
 
-## References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::
