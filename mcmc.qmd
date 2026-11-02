@@ -14,7 +14,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_prose-mcmc-overview.qmd >}}
 
-## Foundations of MCMC {#sec-foundations}
+# Foundations of MCMC {#sec-foundations}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-mcmc-intro.qmd >}}
 
@@ -28,13 +28,13 @@ format:
 
 {{< slidebreak >}}
 
-### Why the normalizing constant is hard to compute
+## Why the normalizing constant is hard to compute
 
 {{< include sds/_subfiles/bayesian-inference/_prose-normalizing-constant.qmd >}}
 
 {{< slidebreak >}}
 
-### Monte Carlo integration
+## Monte Carlo integration
 
 <!-- No slidebreak here: the heading shares its slide with the def-monte-carlo-estimate div. -->
 
@@ -50,7 +50,7 @@ format:
 
 {{< slidebreak >}}
 
-### Markov chains
+## Markov chains
 
 <!-- No slidebreak here: the heading shares its slide with the def-markov-chain div. -->
 
@@ -80,9 +80,9 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_prose-mcmc-target.qmd >}}
 
-## MCMC samplers {#sec-samplers}
+# MCMC samplers {#sec-samplers}
 
-### The Metropolis--Hastings algorithm
+## The Metropolis--Hastings algorithm
 
 <!-- No slidebreak here: the heading shares its slide with the def-proposal-distribution div. -->
 
@@ -118,7 +118,7 @@ format:
 
 {{< slidebreak >}}
 
-### Trace plots and burn-in {#sec-burnin}
+## Trace plots and burn-in {#sec-burnin}
 
 <!-- No slidebreak here: the heading shares its slide with the def-trace-plot div. -->
 
@@ -138,7 +138,7 @@ format:
 
 {{< slidebreak >}}
 
-### The Gibbs sampler
+## The Gibbs sampler
 
 <!-- No slidebreak here: the heading shares its slide with the def-full-conditional div. -->
 
@@ -156,7 +156,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-gibbs-bivariate-normal.qmd >}}
 
-## Checking and improving MCMC {#sec-diagnostics}
+# Checking and improving MCMC {#sec-diagnostics}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-diagnostics.qmd >}}
 
@@ -174,7 +174,7 @@ format:
 
 {{< slidebreak >}}
 
-### Comparing MCMC estimates to maximum likelihood {#sec-mcmc-vs-mle}
+## Comparing MCMC estimates to maximum likelihood {#sec-mcmc-vs-mle}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-mcmc-vs-mle.qmd >}}
 
@@ -188,11 +188,11 @@ format:
 
 {{< slidebreak >}}
 
-### The importance of parameterization {#sec-mcmc-parameterization}
+## The importance of parameterization {#sec-mcmc-parameterization}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-parameterization.qmd >}}
 
-## Deviance information criterion {#sec-dic}
+# Deviance information criterion {#sec-dic}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-dic-intro.qmd >}}
 
@@ -225,7 +225,7 @@ format:
 {{< include sds/_subfiles/bayesian-inference/_note-dic-caveats.qmd >}}
 
 
-## References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::
