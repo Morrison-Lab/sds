@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-02 11:26:46 (PST)
+Last modified: 2026-11-02 11:49:25 (PST)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the $t$ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 

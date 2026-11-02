@@ -353,14 +353,13 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-02 11:26:46 (PST)</p>
+  <p class="date">Last modified: 2026-11-02 11:49:25 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
-</style></section><section><section id="introduction" class="title-slide slide level1 center" data-number="1"><h1>
-<span class="header-section-number">1</span> Introduction</h1>
-
+</style></section><section id="introduction" class="slide level2" data-number="1"><h2>
+<span class="header-section-number">1</span> Introduction</h2>
 </section><section class="slide level2"><p>Logistic regression models a binary outcome, such as whether a patient recovers, from one or more predictors. Its fitted coefficients are maximum likelihood estimates, so the likelihood theory of <a href="./intro-MLEs.html#sec-intro-MLEs">Introduction to maximum likelihood</a> gives them standard errors, confidence intervals and tests. This page specializes that theory to the logistic model and introduces the deviance, the measure of fit that the likelihood ratio test of a logistic model is built from <span class="citation" data-cites="wikipedia_likelihood_ratio_test"><a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>.</p>
 </section><section class="slide level2"><div id="def-logistic-regression" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Logistic regression)</strong></span> A <strong>logistic regression</strong> model for binary outcomes <span class="math inline">\(y_1, \dots, y_n \in {\mathopen{}\left\{0, 1\right\}\mathclose{}}\)</span> with predictor vectors <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_1, \dots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_n\)</span> says that the outcomes are <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> and that</p>
@@ -388,9 +387,8 @@ text-align: center;
 </div>
 <p>The fitted slope is <span class="math inline">\(\hat{\beta}_{1} = 0.693\)</span>. The control group recovered at rate <span class="math inline">\(1/3\)</span> and the treatment group at <span class="math inline">\(2/3\)</span>, so the model fits both group proportions exactly.</p>
 </div>
-</section></section><section><section id="fitting-by-iteratively-reweighted-least-squares" class="title-slide slide level1 center" data-number="2"><h1>
-<span class="header-section-number">2</span> Fitting by iteratively reweighted least squares</h1>
-
+</section><section id="fitting-by-iteratively-reweighted-least-squares" class="slide level2" data-number="2"><h2>
+<span class="header-section-number">2</span> Fitting by iteratively reweighted least squares</h2>
 </section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the source note. --><div id="rem-source-irls" class="callout callout-note callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
@@ -523,9 +521,8 @@ text-align: center;
 </div>
 <p>The first step moves the <a href="./correlation-regression.html#def-slr-slope">slope</a> to <span class="math inline">\(0.6667\)</span>, which is <span class="math inline">\(2/3\)</span> (<a href="#/exr-irls-step">the hand computation</a>). After six steps the slope is <span class="math inline">\(0.693147\)</span>, and <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> reports <span class="math inline">\(0.693147\)</span>. The slope settles at <span class="math inline">\(\ln 2 = 0.693147\)</span>, half the natural logarithm of the <a href="./basic-statistical-methods.html#def-odds-ratio">odds ratio</a> between the treatment group (recovery <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-odds">odds</a> <span class="math inline">\(2\)</span>) and the other group (recovery odds <span class="math inline">\(1/2\)</span>), since the groups are coded <span class="math inline">\(\pm 1\)</span>.</p>
 </div>
-</section></section><section><section id="deviance" class="title-slide slide level1 center" data-number="3"><h1>
-<span class="header-section-number">3</span> Deviance</h1>
-
+</section><section id="deviance" class="slide level2" data-number="3"><h2>
+<span class="header-section-number">3</span> Deviance</h2>
 </section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the def-deviance div. --><div id="def-deviance" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Deviance)</strong></span> The <strong>deviance</strong> of a fitted logistic regression with labels <span class="math inline">\(y_i\in {\mathopen{}\left\{0, 1\right\}\mathclose{}}\)</span> is minus twice its maximized log-likelihood:</p>
 <p><span id="eq-deviance"><span class="math display">\[
@@ -624,9 +621,8 @@ text-align: center;
 </div>
 <p>The p-value is <span class="math inline">\(0.41\)</span>, so six patients give no evidence of a treatment effect.</p>
 </div>
-</section></section><section><section id="covariate-patterns-and-the-saturated-model" class="title-slide slide level1 center" data-number="4"><h1>
-<span class="header-section-number">4</span> Covariate patterns and the saturated model</h1>
-
+</section><section id="covariate-patterns-and-the-saturated-model" class="slide level2" data-number="4"><h2>
+<span class="header-section-number">4</span> Covariate patterns and the saturated model</h2>
 </section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the def-covariate-pattern div. --><div id="def-covariate-pattern" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Covariate pattern)</strong></span> A <strong>covariate pattern</strong> is a distinct value of the predictor vector among the observations <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_1, \dots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_n\)</span>. The <span class="math inline">\(K\)</span> distinct values are written <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(1)}, \dots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(K)}\)</span>, so <span class="math inline">\(K\le n\)</span>.</p>
 </div>
@@ -806,9 +802,8 @@ s_k = \sum_{i:\, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$
 <span id="cb11-16"><a aria-label="16"></a><span class="co">#&gt;            216.818            216.818</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-</section></section><section><section id="confidence-intervals-for-the-coefficients" class="title-slide slide level1 center" data-number="5"><h1>
-<span class="header-section-number">5</span> Confidence intervals for the coefficients</h1>
-
+</section><section id="confidence-intervals-for-the-coefficients" class="slide level2" data-number="5"><h2>
+<span class="header-section-number">5</span> Confidence intervals for the coefficients</h2>
 </section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the theorem. --><div id="thm-logistic-mle-distribution" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 5 (Approximate distribution of the fitted coefficients)</strong></span> Suppose the outcomes follow the <a href="#/def-logistic-regression">logistic regression model</a>. Let <span class="math inline">\(X\)</span> be the matrix whose rows are <span class="math inline">\({\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i}^{\top}\)</span>, and let <span class="math inline">\(W\)</span> be the diagonal matrix with entries <span class="math inline">\(\pi_i \mathopen{}\left(1 - \pi_i\right)\mathclose{}\)</span>. Under regularity conditions, for a large sample the fitted coefficients are approximately Gaussian,</p>
 <p><span id="eq-logistic-mle-distribution"><span class="math display">\[
@@ -859,14 +854,12 @@ s_k = \sum_{i:\, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$
 </div>
 <p>The fitted odds of recovery in the treatment group are <span class="math inline">\(4\)</span> times those in the control group, with interval <span class="math inline">\((0.13, 119.2)\)</span>. The interval runs from a strong harm to a large benefit. Its width shows how little information six observations carry about the slope.</p>
 </div>
-</section></section><section><section id="sec-logistic-inference-reading" class="title-slide slide level1 center" data-number="6"><h1>
-<span class="header-section-number">6</span> Further reading</h1>
-
+</section><section id="sec-logistic-inference-reading" class="slide level2" data-number="6"><h2>
+<span class="header-section-number">6</span> Further reading</h2>
 </section><section class="slide level2"><ul>
 <li>
 <a href="https://hua-zhou.github.io/">Hua Zhou</a>’s <a href="https://ucla-biostat-257.github.io/2025spring/">course page for “UCLA Biostat 257 - Statistical Computing” (2025 Spring)</a> has lectures on fitting generalized linear models and on quasi-Newton optimization. Its source is <a href="https://github.com/ucla-biostat-257/2025spring">on GitHub</a> under the MIT License.</li>
-</ul></section></section><section><section id="references" class="title-slide slide level1 unnumbered center"><h1>References</h1>
-
+</ul></section><section id="references" class="slide level2 unnumbered"><h2>References</h2>
 </section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-wikipedia_likelihood_ratio_test" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
@@ -1102,7 +1095,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     initRevealJsHtmlLink();
   }
 })();
-</script></section></section>
+</script></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
