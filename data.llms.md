@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-02 11:49:25 (PST)
+Last modified: 2026-11-02 12:05:58 (PST)
 
 Before summarizing data, it helps to identify the **type** of each variable, since the appropriate descriptive methods depend on the type. Variables are broadly classified as either **numerical** or **categorical**, and within each class there are important subtypes.
 
@@ -95,7 +95,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > **Example 9 (Binary variables in the WCGS)** Coronary heart disease event status (`chd69`, yes/no) and current smoking status (`smoke`, yes/no) are binary variables.
 
-## 0.1 Coding a categorical variable with numbers
+# 1 Coding a categorical variable with numbers
 
 > **NOTE:**
 >
@@ -154,7 +154,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > *Remark 6* (Any category can be the reference level). The choice of reference level changes how we code the categories. It does not change what the data say. For example, in [Example 12](#exm-reference-level-sex), we could instead use “male” as the reference level and the indicator variable $F$ for “female”. Both choices describe the same two groups.
 
-## 0.2 Taxonomy of variable types
+# 2 Taxonomy of variable types
 
 [Figure 1](#fig-var-taxonomy) illustrates the relationships among these variable types.
 
@@ -246,7 +246,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > The continuous/discrete distinction cuts across the numerical/categorical distinction. Continuous variables are always numerical. Discrete variables include both numerical types (such as count variables) and categorical types (such as binary, nominal, and ordinal variables).
 
-## 0.3 Variables in the WCGS dataset
+# 3 Variables in the WCGS dataset
 
 [Table 1](#tbl-wcgs-vartypes) shows selected variables from the Western Collaborative Group Study (WCGS) dataset and their types.
 
@@ -294,9 +294,9 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > Table 1: Selected WCGS variables and their types
 
-## 0.4 Random variables
+# 4 Random variables
 
-### 0.4.1 Binary variables
+## 4.1 Binary variables
 
 > **NOTE:**
 >
@@ -317,7 +317,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 > - return to hospital (returned vs not returned)
 > - vital status (dead vs alive)
 
-### 0.4.2 Count variables
+## 4.2 Count variables
 
 > **NOTE:**
 >
@@ -340,18 +340,12 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 > - visits to an emergency room per person-month
 > - car accidents per 1,000 miles driven
 
-#### 0.4.2.1 Probability distributions for count outcomes
+#### 4.2.0.1 Probability distributions for count outcomes
 
 Standard probability distributions for count outcomes include:
 
 - [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#sec-poisson-dist)
 - [Negative binomial distribution](https://morrison-lab.github.io/pds/distributions.html#sec-nb-dist)
-
-## References
-
-\[1\]
-
-A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
 
 # Definitions on this page
 
@@ -369,5 +363,11 @@ A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 
 - [Definition 12 (Reference level)](#def-reference-level)
 - [Definition 13 (Binary random variable)](#def-binary)
 - [Definition 14 (Count variable)](#def-count)
+
+# References
+
+\[1\]
+
+A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
 
 Back to top

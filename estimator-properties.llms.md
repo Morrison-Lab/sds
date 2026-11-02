@@ -14,11 +14,11 @@ Code
 
 Published
 
-Last modified: 2026-11-02 11:49:25 (PST)
+Last modified: 2026-11-02 12:05:58 (PST)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and population mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
-## 0.1 Consistency
+# 1 Consistency
 
 > **NOTE:**
 >
@@ -158,7 +158,7 @@ Last modified: 2026-11-02 11:49:25 (PST)
 >
 > The simulated probability shrinks toward zero as $n$ grows, as consistency says it must, and it lies below the bound at every sample size here, which is loose for small $n$ but follows the same $1/n$ decay.
 
-## 0.2 Efficiency
+# 2 Efficiency
 
 > **NOTE:**
 >
@@ -200,7 +200,7 @@ Last modified: 2026-11-02 11:49:25 (PST)
 >
 > Casella and Berger [\[1, Sec. 10.1\]](#ref-CaseBerg01), pp. 467–480 covers point estimation, including consistency, efficiency and bootstrap standard errors.
 
-## 0.3 The Cramér–Rao lower bound
+# 3 The Cramér–Rao lower bound
 
 > **NOTE:**
 >
@@ -317,7 +317,13 @@ Last modified: 2026-11-02 11:49:25 (PST)
 > - Rice [\[9, Sec. 8.5.2\]](#ref-rice2007mathematical), pp. 274–278 covers large-sample theory for maximum likelihood estimators.
 > - Rice [\[9, Sec. 8.7\]](#ref-rice2007mathematical), pp. 298–304 covers efficiency and the Cramér–Rao lower bound.
 
-## References
+# Definitions on this page
+
+- [Definition 1 (Consistent estimator)](#def-consistent)
+- [Definition 2 (Relative efficiency)](#def-relative-efficiency)
+- [Definition 3 (Efficient estimator)](#def-efficient)
+
+# References
 
 \[1\]
 
@@ -354,11 +360,5 @@ R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical infer
 \[9\]
 
 J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
-
-# Definitions on this page
-
-- [Definition 1 (Consistent estimator)](#def-consistent)
-- [Definition 2 (Relative efficiency)](#def-relative-efficiency)
-- [Definition 3 (Efficient estimator)](#def-efficient)
 
 Back to top

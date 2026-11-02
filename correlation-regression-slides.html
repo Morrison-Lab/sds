@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-02 11:49:25 (PST)</p>
+  <p class="date">Last modified: 2026-11-02 12:05:58 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -365,7 +365,7 @@ text-align: center;
 <p>This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the <span class="math inline">\(t\)</span> reference distribution defined on the <a href="./inference.html#sec-reference-distributions">Statistical Inference</a> page. This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 3.</p>
 </section><section id="the-hers-data" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> The HERS data</h2>
-<p>The examples on this page use the HERS data, which the <a href="./basic-statistical-methods.html#sec-hers-intro">Comparing Means</a> page describes. The <code>rmb</code> R package includes the dataset; <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts its Stata value labels to factors:</p>
+</section><section class="slide level2"><p>The examples on this page use the HERS data, which the <a href="./basic-statistical-methods.html#sec-hers-intro">Comparing Means</a> page describes. The <code>rmb</code> R package includes the dataset; <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts its Stata value labels to factors:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>hers <span class="ot">&lt;-</span> rmb<span class="sc">::</span>hers <span class="sc">|&gt;</span> haven<span class="sc">::</span><span class="fu">as_factor</span>()</span>
 <span id="cb1-2"><a aria-label="2"></a>hers <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -379,7 +379,7 @@ text-align: center;
 </div>
 </section><section id="sec-correlation" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Correlation</h2>
-<h3 data-number="2.1" id="sec-pearson">
+</section><section class="slide level2"><h3 data-number="2.1" id="sec-pearson">
 <span class="header-section-number">2.1</span> Testing the Pearson correlation</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-population-correlation div. -->
 <div id="def-population-correlation" class="theorem definition">
@@ -501,7 +501,7 @@ r_S \stackrel{\text{def}}{=}r\mathopen{}\left((u_1, v_1), \ldots, (u_n, v_n)\rig
 </div>
 </section><section id="sec-simple-linear-regression" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Simple linear regression</h2>
-<h3 data-number="3.1" id="sec-slr-model">
+</section><section class="slide level2"><h3 data-number="3.1" id="sec-slr-model">
 <span class="header-section-number">3.1</span> Model specification</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-cond-gaussian div. -->
 <div id="def-cond-gaussian" class="theorem definition">
@@ -2295,8 +2295,8 @@ F \stackrel{\text{def}}{=}\frac{(\text{RSS}_0 - \text{RSS}_1) / q}{\text{RSS}_1 
 </section><section class="slide level2"><h3 data-number="3.6" id="further-reading">
 <span class="header-section-number">3.6</span> Further reading</h3>
 <p><a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html">Linear Models Overview</a> covers linear regression in depth, including inference for the coefficients and multiple predictors. <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span> cover linear regression in Chapter 4.</p>
-</section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+</section><section id="references" class="slide level2 unnumbered"><h2>References</h2>
+</section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
 <div class="csl-right-inline">E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, <em>Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models</em>, 2nd ed. Springer, 2012. doi: <a href="https://doi.org/10.1007/978-1-4614-1353-0">10.1007/978-1-4614-1353-0</a>.</div>

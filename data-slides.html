@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-02 11:49:25 (PST)</p>
+  <p class="date">Last modified: 2026-11-02 12:05:58 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -431,9 +431,9 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-binary-var" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9 (Binary variables in the WCGS)</strong></span> Coronary heart disease event status (<code>chd69</code>, yes/no) and current smoking status (<code>smoke</code>, yes/no) are binary variables.</p>
 </div>
-</section><section id="sec-dummy-coding" class="slide level2 scrollable" data-number="1"><h2>
+</section><section id="sec-dummy-coding" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Coding a categorical variable with numbers</h2>
-<div id="exr-dummy-coding" class="theorem exercise">
+</section><section class="slide level2 scrollable"><div id="exr-dummy-coding" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1 (Dummy coding)</strong></span> The Western Collaborative Group Study (WCGS) variable <code>behpat</code> (behavioral pattern) has four categories: A1, A2, B3, and B4.</p>
 <ol type="a">
 <li>How many indicator variables are needed to represent <code>behpat</code> if A1 is the reference level?</li>
@@ -487,7 +487,7 @@ The one-sentence definition is written for this page.
 </div>
 </section><section id="taxonomy-of-variable-types" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Taxonomy of variable types</h2>
-<p><a href="#/fig-var-taxonomy" class="quarto-xref">Figure&nbsp;1</a> illustrates the relationships among these variable types.</p>
+</section><section class="slide level2"><p><a href="#/fig-var-taxonomy" class="quarto-xref">Figure&nbsp;1</a> illustrates the relationships among these variable types.</p>
 <details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>nodes <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
 <span id="cb1-2"><a aria-label="2"></a>  <span class="sc">~</span>id,   <span class="sc">~</span>x,    <span class="sc">~</span>y,   <span class="sc">~</span>label,</span>
 <span id="cb1-3"><a aria-label="3"></a>  <span class="st">"V"</span>,    <span class="dv">5</span>,    <span class="fl">4.5</span>,  <span class="st">"Variables"</span>,</span>
@@ -591,7 +591,7 @@ Figure&nbsp;1: Taxonomy of variable types. Count variables are discrete and nume
 </div>
 </section><section id="variables-in-the-wcgs-dataset" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Variables in the WCGS dataset</h2>
-<p><a href="#/tbl-wcgs-vartypes" class="quarto-xref">Table&nbsp;1</a> shows selected variables from the Western Collaborative Group Study (WCGS) dataset and their types.</p>
+</section><section class="slide level2"><p><a href="#/tbl-wcgs-vartypes" class="quarto-xref">Table&nbsp;1</a> shows selected variables from the Western Collaborative Group Study (WCGS) dataset and their types.</p>
 <details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
 <span id="cb2-2"><a aria-label="2"></a>  <span class="sc">~</span>Variable, <span class="sc">~</span>Description, <span class="sc">~</span>Type, <span class="sc">~</span>Scale,</span>
 <span id="cb2-3"><a aria-label="3"></a>  <span class="st">"`age`"</span>, <span class="st">"Age (years)"</span>, <span class="st">"Continuous"</span>, <span class="st">"Ratio"</span>,</span>
@@ -717,7 +717,7 @@ Table&nbsp;1: Selected WCGS variables and their types
 </div>
 </section><section id="random-variables" class="slide level2" data-number="4"><h2>
 <span class="header-section-number">4</span> Random variables</h2>
-<h3 data-number="4.1" id="sec-binary-vars">
+</section><section class="slide level2"><h3 data-number="4.1" id="sec-binary-vars">
 <span class="header-section-number">4.1</span> Binary variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-binary div. -->
 <div id="def-binary" class="theorem definition">
@@ -758,13 +758,13 @@ Table&nbsp;1: Selected WCGS variables and their types
 <li>car accidents per 1,000 miles driven</li>
 </ul>
 </div>
-</section><section class="slide level2"><h4 id="probability-distributions-for-count-outcomes">Probability distributions for count outcomes</h4>
+</section><section class="slide level2"><h5 id="probability-distributions-for-count-outcomes">Probability distributions for count outcomes</h5>
 <p>Standard probability distributions for count outcomes include:</p>
 <ul>
 <li><a href="https://morrison-lab.github.io/pds/distributions.html#sec-poisson-dist">Poisson distribution</a></li>
 <li><a href="https://morrison-lab.github.io/pds/distributions.html#sec-nb-dist">Negative binomial distribution</a></li>
-</ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+</ul></section><section id="references" class="slide level2 unnumbered"><h2>References</h2>
+</section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-dobson4e" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
 <div class="csl-right-inline">A. J. Dobson and A. G. Barnett, <em>An introduction to generalized linear models</em>, 4th ed. CRC press, 2018. doi: <a href="https://doi.org/10.1201/9781315182780">10.1201/9781315182780</a>.</div>
