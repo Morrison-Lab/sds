@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-02 10:03:02 (PST)
+Last modified: 2026-11-02 11:09:15 (PST)
 
 ## 0.1 Introduction
 
@@ -44,25 +44,33 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 4 (Binary classification)** A **binary classification problem** is a [classification problem](#def-classification) whose set of [classes](#def-class) $\mathcal{C}$ consists of $K = 2$ distinct categories, one representing the presence of a condition of interest ($k_1$) and the other representing its absence ($k_0$):
+> **Definition 4 (Predicted probability)** The **predicted probability** of [class](#def-class) $k$ at [features](model-validation.llms.md#def-feature) $x$ is the [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) of that class given those features, under a model:
 >
-> $$\mathcal{C}= {\mathopen{}\left\{k_1, k_0\right\}\mathclose{}}, \quad \mathopen{}\left|\mathcal{C}\right|\mathclose{} = 2 \tag{2}$$
+> $$\mathop{\hat{\operatorname{p}}}\nolimits_k(x) \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(Y= k \mid x\right)\mathclose{}} \tag{2}$$
+>
+> When the model is [fitted](model-validation.llms.md#def-fitted-model), the predicted probability is an [estimate](estimation.llms.md#def-estimate) of the true conditional probability. The two can differ, by the [estimation error](estimation.llms.md#def-estimation-error).
+
+> **NOTE:**
+>
+> **Definition 5 (Binary classification)** A **binary classification problem** is a [classification problem](#def-classification) whose set of [classes](#def-class) $\mathcal{C}$ consists of $K = 2$ distinct categories, one representing the presence of a condition of interest ($k_1$) and the other representing its absence ($k_0$):
+>
+> $$\mathcal{C}= {\mathopen{}\left\{k_1, k_0\right\}\mathclose{}}, \quad \mathopen{}\left|\mathcal{C}\right|\mathclose{} = 2 \tag{3}$$
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_statistical_classification).
 
 > **NOTE:**
 >
-> **Definition 5 (Positive classification)** In a [binary classification problem](#def-binary-classification) with $\mathcal{C}= {\mathopen{}\left\{k_1, k_0\right\}\mathclose{}}$, for an observation drawn from a [population](exploratory-descriptive.llms.md#def-population) and assigned [class](#def-class) $Y \in \mathcal{C}$ (for example, $Y = c(X)$ when a [classification rule](#def-classification-rule) $c$ classifies the observation from its feature $X$), a **positive classification** (also called **positive**, and written ${+}$) is the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the observation is assigned to $k_1$:
+> **Definition 6 (Positive classification)** In a [binary classification problem](#def-binary-classification) with $\mathcal{C}= {\mathopen{}\left\{k_1, k_0\right\}\mathclose{}}$, for an observation drawn from a [population](exploratory-descriptive.llms.md#def-population) and assigned [class](#def-class) $Y \in \mathcal{C}$ (for example, $Y = c(X)$ when a [classification rule](#def-classification-rule) $c$ classifies the observation from its feature $X$), a **positive classification** (also called **positive**, and written ${+}$) is the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the observation is assigned to $k_1$:
 >
-> $${+}\stackrel{\text{def}}{=}{\mathopen{}\left\{Y = k_1\right\}\mathclose{}} \tag{3}$$
+> $${+}\stackrel{\text{def}}{=}{\mathopen{}\left\{Y = k_1\right\}\mathclose{}} \tag{4}$$
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_statistical_classification); Wikipedia contributors [\[3\]](#ref-wikipedia_sensitivity_and_specificity).
 
 > **NOTE:**
 >
-> **Definition 6 (Negative classification)** In a [binary classification problem](#def-binary-classification) with $\mathcal{C}= {\mathopen{}\left\{k_1, k_0\right\}\mathclose{}}$, for an observation drawn from a [population](exploratory-descriptive.llms.md#def-population) and assigned [class](#def-class) $Y \in \mathcal{C}$ (for example, $Y = c(X)$ when a [classification rule](#def-classification-rule) $c$ classifies the observation from its feature $X$), a **negative classification** (also called **negative**, and written ${-}$) is the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the observation is assigned to $k_0$:
+> **Definition 7 (Negative classification)** In a [binary classification problem](#def-binary-classification) with $\mathcal{C}= {\mathopen{}\left\{k_1, k_0\right\}\mathclose{}}$, for an observation drawn from a [population](exploratory-descriptive.llms.md#def-population) and assigned [class](#def-class) $Y \in \mathcal{C}$ (for example, $Y = c(X)$ when a [classification rule](#def-classification-rule) $c$ classifies the observation from its feature $X$), a **negative classification** (also called **negative**, and written ${-}$) is the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the observation is assigned to $k_0$:
 >
-> $${-}\stackrel{\text{def}}{=}{\mathopen{}\left\{Y = k_0\right\}\mathclose{}} \tag{4}$$
+> $${-}\stackrel{\text{def}}{=}{\mathopen{}\left\{Y = k_0\right\}\mathclose{}} \tag{5}$$
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_statistical_classification); Wikipedia contributors [\[3\]](#ref-wikipedia_sensitivity_and_specificity).
 
@@ -72,7 +80,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> *Solution 1*. Because $\mathcal{C}= {\mathopen{}\left\{k_1, k_0\right\}\mathclose{}}$ with $\mathopen{}\left|\mathcal{C}\right|\mathclose{} = 2$ ([Definition 4](#def-binary-classification)), the [classes](#def-class) $k_1$ and $k_0$ are distinct, so $Y \in \mathcal{C}$ equals $k_0$ if and only if $Y \neq k_1$:
+> *Solution 1*. Because $\mathcal{C}= {\mathopen{}\left\{k_1, k_0\right\}\mathclose{}}$ with $\mathopen{}\left|\mathcal{C}\right|\mathclose{} = 2$ ([Definition 5](#def-binary-classification)), the [classes](#def-class) $k_1$ and $k_0$ are distinct, so $Y \in \mathcal{C}$ equals $k_0$ if and only if $Y \neq k_1$:
 >
 > $$\begin{aligned}
 > {-}
@@ -85,13 +93,13 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > &= \neg {+}
 > && \text{(definition of positive classification)}
 > \end{aligned}
-> \tag{5}$$
+> \tag{6}$$
 
 > **NOTE:**
 >
 > **Theorem 1 (Negative classification is the complement of positive classification)** In a [binary classification problem](#def-binary-classification) with $\mathcal{C}= {\mathopen{}\left\{k_1, k_0\right\}\mathclose{}}$, when each observation is assigned a [class](#def-class) $Y \in \mathcal{C}$, the [negative classification](#def-negative-classification) [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) ${-}$ is the [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement) of the [positive classification](#def-positive-classification) event ${+}$:
 >
-> $${-}= \neg {+} \tag{6}$$
+> $${-}= \neg {+} \tag{7}$$
 
 > **NOTE:**
 >
@@ -106,7 +114,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > \text{has COVID-19} & \text{if } x = \text{positive} \\
 > \text{does not have COVID-19} & \text{if } x = \text{negative}
 > \end{cases}
-> \tag{7}$$
+> \tag{8}$$
 >
 > For a person drawn from a [population](exploratory-descriptive.llms.md#def-population) with test result $X$, the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the test is positive is ${+}= {\mathopen{}\left\{c(X) = \text{has COVID-19}\right\}\mathclose{}}$, and the event that the test is negative is ${-}= {\mathopen{}\left\{c(X) = \text{does not have COVID-19}\right\}\mathclose{}}$.
 
@@ -118,31 +126,31 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 7 (Sensitivity)** The **sensitivity** of a diagnostic test is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that the test is [positive](#def-positive-classification) (${+}$), given that the person tested has the disease ($D$):
+> **Definition 8 (Sensitivity)** The **sensitivity** of a diagnostic test is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that the test is [positive](#def-positive-classification) (${+}$), given that the person tested has the disease ($D$):
 >
-> $$\text{sensitivity} \stackrel{\text{def}}{=}\Pr({+}\mid D) \tag{8}$$
->
-> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_sensitivity_and_specificity).
-
-> **NOTE:**
->
-> **Example 2 (Sensitivity of a COVID-19 test)** Suppose a COVID-19 test is [positive](#def-positive-classification) for 99% of the people who have COVID-19. Let $D$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) “the person has COVID-19” and ${+}$ the event “the test is positive”. Then the test’s sensitivity ([Definition 7](#def-sensitivity)) is:
->
-> $$\Pr({+}\mid D) = 0.99 \tag{9}$$
-
-> **NOTE:**
->
-> **Definition 8 (Specificity)** The **specificity** of a diagnostic test is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that the test is [negative](#def-negative-classification) (${-}$), given that the person tested does not have the disease ($\neg D$):
->
-> $$\text{specificity} \stackrel{\text{def}}{=}\Pr({-}\mid \neg D) \tag{10}$$
+> $$\text{sensitivity} \stackrel{\text{def}}{=}\Pr({+}\mid D) \tag{9}$$
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_sensitivity_and_specificity).
 
 > **NOTE:**
 >
-> **Example 3 (Specificity of a COVID-19 test)** Suppose the COVID-19 test of [Example 2](#exm-sensitivity) is [negative](#def-negative-classification) for 99% of the people who do not have COVID-19. Then its specificity ([Definition 8](#def-specificity)) is:
+> **Example 2 (Sensitivity of a COVID-19 test)** Suppose a COVID-19 test is [positive](#def-positive-classification) for 99% of the people who have COVID-19. Let $D$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) “the person has COVID-19” and ${+}$ the event “the test is positive”. Then the test’s sensitivity ([Definition 8](#def-sensitivity)) is:
 >
-> $$\Pr({-}\mid \neg D) = 0.99 \tag{11}$$
+> $$\Pr({+}\mid D) = 0.99 \tag{10}$$
+
+> **NOTE:**
+>
+> **Definition 9 (Specificity)** The **specificity** of a diagnostic test is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that the test is [negative](#def-negative-classification) (${-}$), given that the person tested does not have the disease ($\neg D$):
+>
+> $$\text{specificity} \stackrel{\text{def}}{=}\Pr({-}\mid \neg D) \tag{11}$$
+>
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_sensitivity_and_specificity).
+
+> **NOTE:**
+>
+> **Example 3 (Specificity of a COVID-19 test)** Suppose the COVID-19 test of [Example 2](#exm-sensitivity) is [negative](#def-negative-classification) for 99% of the people who do not have COVID-19. Then its specificity ([Definition 9](#def-specificity)) is:
+>
+> $$\Pr({-}\mid \neg D) = 0.99 \tag{12}$$
 >
 > By the [complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0) and [Theorem 1](#thm-negative-classification-complement), its false positive rate is:
 >
@@ -157,21 +165,21 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > &= 0.01
 > && \text{(subtract)}
 > \end{aligned}
-> \tag{12}$$
+> \tag{13}$$
 
 > **NOTE:**
 >
-> **Definition 9 (Prevalence)** The **prevalence** of a disease in a population is the probability that a person drawn from that population has the disease ($D$):
+> **Definition 10 (Prevalence)** The **prevalence** of a disease in a population is the probability that a person drawn from that population has the disease ($D$):
 >
-> $$\text{prevalence} \stackrel{\text{def}}{=}\Pr(D) \tag{13}$$
+> $$\text{prevalence} \stackrel{\text{def}}{=}\Pr(D) \tag{14}$$
 >
 > Source: Wikipedia contributors [\[4\]](#ref-wikipedia_prevalence).
 
 > **NOTE:**
 >
-> **Example 4 (Prevalence of COVID-19)** Suppose 7% of the population being tested with the COVID-19 test of [Example 2](#exm-sensitivity) has COVID-19. Then the prevalence ([Definition 9](#def-prevalence)) is:
+> **Example 4 (Prevalence of COVID-19)** Suppose 7% of the population being tested with the COVID-19 test of [Example 2](#exm-sensitivity) has COVID-19. Then the prevalence ([Definition 10](#def-prevalence)) is:
 >
-> $$\Pr(D) = 0.07 \tag{14}$$
+> $$\Pr(D) = 0.07 \tag{15}$$
 >
 > and, by the [complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0), the probability that a person drawn from that population does not have COVID-19 is:
 >
@@ -184,37 +192,45 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > &= 0.93
 > && \text{(subtract)}
 > \end{aligned}
-> \tag{15}$$
+> \tag{16}$$
 
 ## 0.3 Predictive values
 
 > **NOTE:**
 >
-> **Definition 10 (Positive predictive value (PPV))** The **positive predictive value** of a diagnostic test is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that the person tested has the disease ($D$), given that the test is [positive](#def-positive-classification) (${+}$):
+> **Definition 11 (Positive predictive value (PPV))** The **positive predictive value** of a diagnostic test is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that the person tested has the disease ($D$), given that the test is [positive](#def-positive-classification) (${+}$):
 >
-> $$\text{PPV} \stackrel{\text{def}}{=}\Pr(D \mid {+}) \tag{16}$$
+> $$\text{PPV} \stackrel{\text{def}}{=}\Pr(D \mid {+}) \tag{17}$$
 >
 > Source: Wikipedia contributors [\[5\]](#ref-wikipedia_positive_and_negative_predictive_values).
 
 > **NOTE:**
 >
-> **Example 5 (PPV of a COVID-19 test)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity), used in the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#exm-bayes) gives the positive predictive value ([Definition 10](#def-ppv)):
+> **Example 5 (PPV of a COVID-19 test)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity), used in the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#exm-bayes) gives the positive predictive value ([Definition 11](#def-ppv)):
 >
-> $$\Pr(D \mid {+}) \approx 0.88 \tag{17}$$
+> $$\Pr(D \mid {+}) \approx 0.88 \tag{18}$$
 >
 > Even with a highly accurate test (99% sensitive and 99% specific), only about 88% of the people who test [positive](#def-positive-classification) have COVID-19, because the [prevalence](#def-prevalence) (7%) is low enough that false positives make up a meaningful fraction of all positive tests.
 
 > **NOTE:**
 >
-> **Definition 11 (Negative predictive value (NPV))** The **negative predictive value** of a diagnostic test is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that the person tested does not have the disease ($\neg D$), given that the test is [negative](#def-negative-classification) (${-}$):
+> **Example 6 (Predicted probability of COVID-19 after a positive test)** Consider the model that gives every person with a [positive](#def-positive-classification) test ($x= {+}$) the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of having COVID-19 that [Example 5](#exm-ppv) computes. That probability is the [positive predictive value](#def-ppv), which is the predicted probability ([Definition 4](#def-predicted-probability)) of the [class](#def-class) “has COVID-19” ($k = 1$):
 >
-> $$\text{NPV} \stackrel{\text{def}}{=}\Pr(\neg D \mid {-}) \tag{18}$$
+> $$\mathop{\hat{\operatorname{p}}}\nolimits_1({+}) \approx 0.88 \tag{19}$$
+>
+> The [classification rule](#def-classification-rule) of [Example 1](#exm-classification) [predicts](prediction.llms.md#def-prediction) “has COVID-19” for this person, and the predicted probability says how sure that [prediction](prediction.llms.md#def-prediction) is: about 88%, not 100%.
+
+> **NOTE:**
+>
+> **Definition 12 (Negative predictive value (NPV))** The **negative predictive value** of a diagnostic test is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that the person tested does not have the disease ($\neg D$), given that the test is [negative](#def-negative-classification) (${-}$):
+>
+> $$\text{NPV} \stackrel{\text{def}}{=}\Pr(\neg D \mid {-}) \tag{20}$$
 >
 > Source: Wikipedia contributors [\[5\]](#ref-wikipedia_positive_and_negative_predictive_values).
 
 > **NOTE:**
 >
-> **Example 6 (NPV of a COVID-19 test)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity), used in the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a [negative](#def-negative-classification) test for a person with COVID-19 is, by the [complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0) and [Theorem 1](#thm-negative-classification-complement):
+> **Example 7 (NPV of a COVID-19 test)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity), used in the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a [negative](#def-negative-classification) test for a person with COVID-19 is, by the [complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0) and [Theorem 1](#thm-negative-classification-complement):
 >
 > $$\begin{aligned}
 > \Pr({-}\mid D)
@@ -227,9 +243,9 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > &= 0.01
 > && \text{(subtract)}
 > \end{aligned}
-> \tag{19}$$
+> \tag{21}$$
 >
-> By [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes), with the denominator expanded by the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) over the partition ${\mathopen{}\left\{D, \neg D\right\}\mathclose{}}$, the negative predictive value ([Definition 11](#def-npv)) is:
+> By [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes), with the denominator expanded by the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) over the partition ${\mathopen{}\left\{D, \neg D\right\}\mathclose{}}$, the negative predictive value ([Definition 12](#def-npv)) is:
 >
 > $$\begin{aligned}
 > \Pr(\neg D \mid {-})
@@ -246,7 +262,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > &\approx 0.9992
 > && \text{(divide)}
 > \end{aligned}
-> \tag{20}$$
+> \tag{22}$$
 >
 > A negative result from this test is very reliable: only about 8 in 10,000 people who test negative have COVID-19.
 
@@ -283,7 +299,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > &= \text{sensitivity} \cdot\text{prevalence} + \mathopen{}\left(1 - \text{specificity}\right)\mathclose{} \cdot\mathopen{}\left(1 - \text{prevalence}\right)\mathclose{}
 > && \text{(definition of prevalence)}
 > \end{aligned}
-> \tag{21}$$
+> \tag{23}$$
 
 > **NOTE:**
 >
@@ -292,7 +308,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > $$\Pr({+}) =
 > \text{sens} \cdot\pi
 > + \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}
-> \tag{22}$$
+> \tag{24}$$
 
 > **NOTE:**
 >
@@ -323,7 +339,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > &= \frac{\text{sens} \cdot\pi}{\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}}
 > && \text{(probability of a positive test)}
 > \end{aligned}
-> \tag{23}$$
+> \tag{25}$$
 
 > **NOTE:**
 >
@@ -332,7 +348,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > $$\text{PPV} =
 > \frac{\text{sens} \cdot\pi}
 > {\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}}
-> \tag{24}$$
+> \tag{26}$$
 >
 > Source: Wikipedia contributors [\[1\]](#ref-wikipedia_bayes_theorem).
 
@@ -363,7 +379,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > &= \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cdot\frac{1 - \pi}{\pi}}
 > && \text{(a quotient of products is the product of the quotients)}
 > \end{aligned}
-> \tag{25}$$
+> \tag{27}$$
 
 > **NOTE:**
 >
@@ -376,7 +392,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > $$\text{PPV} =
 > \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cdot\frac{1 - \pi}{\pi}}
-> \tag{26}$$
+> \tag{28}$$
 
 > **NOTE:**
 >
@@ -384,7 +400,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Example 7 (PPV of a COVID-19 test, from the two ratios)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity), used in the population of [Example 4](#exm-prevalence), [Theorem 4](#thm-ppv-sens-spec-prev) gives:
+> **Example 8 (PPV of a COVID-19 test, from the two ratios)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity), used in the population of [Example 4](#exm-prevalence), [Theorem 4](#thm-ppv-sens-spec-prev) gives:
 >
 > $$\begin{aligned}
 > \text{PPV}
@@ -403,7 +419,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > &\approx 0.88
 > && \text{(divide)}
 > \end{aligned}
-> \tag{27}$$
+> \tag{29}$$
 >
 > This value matches [Example 5](#exm-ppv).
 >
@@ -422,13 +438,13 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > &\approx 0.09
 > && \text{(divide)}
 > \end{aligned}
-> \tag{28}$$
+> \tag{30}$$
 >
 > so about 9 in 10 positive results would be false positives.
 
 > **NOTE:**
 >
-> *Remark 2* (The PPV depends on the population, not only on the test). The sensitivity and specificity describe the test’s performance in a specified setting, and may differ across settings (for example, with the case mix of the people tested or the threshold used to call a result positive), but the ratio $\frac{1 - \pi}{\pi}$ in [Theorem 4](#thm-ppv-sens-spec-prev) describes the population being tested. When the disease is rare, that ratio is large, so even a small false positive rate can make the PPV low, as [Example 7](#exm-ppv-sens-spec-prev) shows.
+> *Remark 2* (The PPV depends on the population, not only on the test). The sensitivity and specificity describe the test’s performance in a specified setting, and may differ across settings (for example, with the case mix of the people tested or the threshold used to call a result positive), but the ratio $\frac{1 - \pi}{\pi}$ in [Theorem 4](#thm-ppv-sens-spec-prev) describes the population being tested. When the disease is rare, that ratio is large, so even a small false positive rate can make the PPV low, as [Example 8](#exm-ppv-sens-spec-prev) shows.
 
 ## 0.5 Agreement between two classifiers
 
@@ -436,7 +452,7 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 12 (Agreement table)** For $n$ observations that an agent and a reference each classify as [positive](#def-positive-classification) or [negative](#def-negative-classification), the **agreement table** counts the four combinations:
+> **Definition 13 (Agreement table)** For $n$ observations that an agent and a reference each classify as [positive](#def-positive-classification) or [negative](#def-negative-classification), the **agreement table** counts the four combinations:
 >
 > |                    | Reference positive | Reference negative |   Total |
 > |--------------------|-------------------:|-------------------:|--------:|
@@ -446,13 +462,13 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > The cells $a$ and $d$ count agreements, the cells $b$ and $c$ count disagreements, and the four cells together count every observation:
 >
-> $$n \stackrel{\text{def}}{=}a + b + c + d \tag{29}$$
+> $$n \stackrel{\text{def}}{=}a + b + c + d \tag{31}$$
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_confusion_matrix).
 
 > **NOTE:**
 >
-> **Example 8 (Agreement table for a COVID-19 test)** Apply the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) to $n = 10{,}000$ people from the population of [Example 4](#exm-prevalence), with the true disease status as the reference. With 7% prevalence, $0.07 \times 10{,}000 = 700$ people have COVID-19 and $10{,}000 - 700 = 9{,}300$ do not. With 99% sensitivity, the test is positive for $0.99 \times 700 = 693$ of the 700; with 99% specificity, it is negative for $0.99 \times 9{,}300 = 9{,}207$ of the 9,300. So the test is positive for $9{,}300 - 9{,}207 = 93$ people without COVID-19 and negative for $700 - 693 = 7$ people with it. The agreement table ([Definition 12](#def-agreement-table)) is:
+> **Example 9 (Agreement table for a COVID-19 test)** Apply the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) to $n = 10{,}000$ people from the population of [Example 4](#exm-prevalence), with the true disease status as the reference. With 7% prevalence, $0.07 \times 10{,}000 = 700$ people have COVID-19 and $10{,}000 - 700 = 9{,}300$ do not. With 99% sensitivity, the test is positive for $0.99 \times 700 = 693$ of the 700; with 99% specificity, it is negative for $0.99 \times 9{,}300 = 9{,}207$ of the 9,300. So the test is positive for $9{,}300 - 9{,}207 = 93$ people without COVID-19 and negative for $700 - 693 = 7$ people with it. The agreement table ([Definition 13](#def-agreement-table)) is:
 >
 > |                   |  COVID-19 |   No COVID-19 |      Total |
 > |-------------------|----------:|--------------:|-----------:|
@@ -473,20 +489,20 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 13 (Overall agreement)** Let:
+> **Definition 14 (Overall agreement)** Let:
 >
 > - $A$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the agent makes a [positive classification](#def-positive-classification) for an observation drawn from a [population](exploratory-descriptive.llms.md#def-population), with [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement) $\neg A$.
 > - $R$ be the event that the reference makes a positive classification for the same observation, with complement $\neg R$.
 >
 > The **overall agreement** of the agent and the reference on that population is the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that they assign the same class to the observation:
 >
-> $$p_o \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(A \cap R\right)\mathclose{}} + {\Pr\mathopen{}\left(\neg A \cap \neg R\right)\mathclose{}} \tag{30}$$
+> $$p_o \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(A \cap R\right)\mathclose{}} + {\Pr\mathopen{}\left(\neg A \cap \neg R\right)\mathclose{}} \tag{32}$$
 >
 > Source: Cohen [\[7\]](#ref-cohen1960coefficient).
 
 > **NOTE:**
 >
-> **Example 9 (Overall agreement for the COVID-19 test)** Apply the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) to the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), with the test as the agent ($A = {+}$) and the disease status as the reference ($R = D$). By the [multiplication rule for conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-law-conditional-prob), with [sensitivity](#def-sensitivity) ${\Pr\mathopen{}\left({+}\mid D\right)\mathclose{}} = 0.99$, [specificity](#def-specificity) ${\Pr\mathopen{}\left({-}\mid \neg D\right)\mathclose{}} = 0.99$, [prevalence](#def-prevalence) ${\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07$, and ${\Pr\mathopen{}\left(\neg D\right)\mathclose{}} = 0.93$ ([Example 4](#exm-prevalence)), the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a person has COVID-19 and tests [positive](#def-positive-classification) is:
+> **Example 10 (Overall agreement for the COVID-19 test)** Apply the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) to the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), with the test as the agent ($A = {+}$) and the disease status as the reference ($R = D$). By the [multiplication rule for conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-law-conditional-prob), with [sensitivity](#def-sensitivity) ${\Pr\mathopen{}\left({+}\mid D\right)\mathclose{}} = 0.99$, [specificity](#def-specificity) ${\Pr\mathopen{}\left({-}\mid \neg D\right)\mathclose{}} = 0.99$, [prevalence](#def-prevalence) ${\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07$, and ${\Pr\mathopen{}\left(\neg D\right)\mathclose{}} = 0.93$ ([Example 4](#exm-prevalence)), the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that a person has COVID-19 and tests [positive](#def-positive-classification) is:
 >
 > $$\begin{aligned}
 > {\Pr\mathopen{}\left({+}\cap D\right)\mathclose{}}
@@ -497,7 +513,7 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.0693
 > && \text{(multiply)}
 > \end{aligned}
-> \tag{31}$$
+> \tag{33}$$
 >
 > and the probability that a person does not have COVID-19 and tests [negative](#def-negative-classification) is:
 >
@@ -510,7 +526,7 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.9207
 > && \text{(multiply)}
 > \end{aligned}
-> \tag{32}$$
+> \tag{34}$$
 >
 > Then the [overall agreement](#def-overall-agreement) is:
 >
@@ -523,19 +539,19 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.99
 > && \text{(add)}
 > \end{aligned}
-> \tag{33}$$
+> \tag{35}$$
 
 > **NOTE:**
 >
-> **Definition 14 (Estimated overall agreement)** The **estimated overall agreement** of an [agreement table](#def-agreement-table) is the [sample proportion](exploratory-descriptive.llms.md#def-sample-proportion) of observations on which the agent and the reference assign the same [class](#def-class), which [estimates](estimation.llms.md#def-estimate) the [overall agreement](#def-overall-agreement) $p_o$:
+> **Definition 15 (Estimated overall agreement)** The **estimated overall agreement** of an [agreement table](#def-agreement-table) is the [sample proportion](exploratory-descriptive.llms.md#def-sample-proportion) of observations on which the agent and the reference assign the same [class](#def-class), which [estimates](estimation.llms.md#def-estimate) the [overall agreement](#def-overall-agreement) $p_o$:
 >
-> $$\widehat{p}_o \stackrel{\text{def}}{=}\frac{a + d}{n} \tag{34}$$
+> $$\widehat{p}_o \stackrel{\text{def}}{=}\frac{a + d}{n} \tag{36}$$
 >
 > Source: Cohen [\[7\]](#ref-cohen1960coefficient).
 
 > **NOTE:**
 >
-> **Example 10 (Estimated overall agreement for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 8](#exm-agreement-table-covid), the [estimated overall agreement](#def-estimated-overall-agreement) is:
+> **Example 11 (Estimated overall agreement for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 9](#exm-agreement-table-covid), the [estimated overall agreement](#def-estimated-overall-agreement) is:
 >
 > $$\begin{aligned}
 > \widehat{p}_o
@@ -546,21 +562,21 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.99
 > && \text{(divide)}
 > \end{aligned}
-> \tag{35}$$
+> \tag{37}$$
 >
-> This [estimate](estimation.llms.md#def-estimate) equals the [overall agreement](#def-overall-agreement) $p_o = 0.99$ of [Example 9](#exm-overall-agreement), because the table’s cell [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) $a / n = 0.0693$ and $d / n = 0.9207$ equal the joint [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\Pr\mathopen{}\left({+}\cap D\right)\mathclose{}}$ and ${\Pr\mathopen{}\left({-}\cap \neg D\right)\mathclose{}}$.
+> This [estimate](estimation.llms.md#def-estimate) equals the [overall agreement](#def-overall-agreement) $p_o = 0.99$ of [Example 10](#exm-overall-agreement), because the table’s cell [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) $a / n = 0.0693$ and $d / n = 0.9207$ equal the joint [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\Pr\mathopen{}\left({+}\cap D\right)\mathclose{}}$ and ${\Pr\mathopen{}\left({-}\cap \neg D\right)\mathclose{}}$.
 
 > **NOTE:**
 >
-> **Definition 15 (Positive agreement)** The **positive agreement** (also called the *average positive agreement*) of an agreement table ([Definition 12](#def-agreement-table)) with $2a + b + c > 0$ is the number of [positive classifications](#def-positive-classification) the agent and the reference share, counted once for each classifier, as a proportion of all their positive classifications:
+> **Definition 16 (Positive agreement)** The **positive agreement** (also called the *average positive agreement*) of an agreement table ([Definition 13](#def-agreement-table)) with $2a + b + c > 0$ is the number of [positive classifications](#def-positive-classification) the agent and the reference share, counted once for each classifier, as a proportion of all their positive classifications:
 >
-> $$p_{\text{pos}} \stackrel{\text{def}}{=}\frac{2a}{2a + b + c} \tag{36}$$
+> $$p_{\text{pos}} \stackrel{\text{def}}{=}\frac{2a}{2a + b + c} \tag{38}$$
 >
 > Source: Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high).
 
 > **NOTE:**
 >
-> **Example 11 (Positive agreement for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), the positive agreement ([Definition 15](#def-positive-agreement)) is:
+> **Example 12 (Positive agreement for the COVID-19 test)** For the agreement table of [Example 9](#exm-agreement-table-covid), the positive agreement ([Definition 16](#def-positive-agreement)) is:
 >
 > $$\begin{aligned}
 > p_{\text{pos}}
@@ -573,21 +589,21 @@ So far, we have compared a test with the true disease status. The same tools app
 > &\approx 0.933
 > && \text{(divide)}
 > \end{aligned}
-> \tag{37}$$
+> \tag{39}$$
 >
-> The positive agreement is lower than the overall agreement ([Example 9](#exm-overall-agreement)), because the 93 false positives are large relative to the 693 true positives.
+> The positive agreement is lower than the overall agreement ([Example 10](#exm-overall-agreement)), because the 93 false positives are large relative to the 693 true positives.
 
 > **NOTE:**
 >
-> **Definition 16 (Negative agreement)** The **negative agreement** (also called the *average negative agreement*) of an agreement table ([Definition 12](#def-agreement-table)) with $2d + b + c > 0$ is the number of [negative classifications](#def-negative-classification) the agent and the reference share, counted once for each classifier, as a proportion of all their negative classifications:
+> **Definition 17 (Negative agreement)** The **negative agreement** (also called the *average negative agreement*) of an agreement table ([Definition 13](#def-agreement-table)) with $2d + b + c > 0$ is the number of [negative classifications](#def-negative-classification) the agent and the reference share, counted once for each classifier, as a proportion of all their negative classifications:
 >
-> $$p_{\text{neg}} \stackrel{\text{def}}{=}\frac{2d}{2d + b + c} \tag{38}$$
+> $$p_{\text{neg}} \stackrel{\text{def}}{=}\frac{2d}{2d + b + c} \tag{40}$$
 >
 > Source: Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high).
 
 > **NOTE:**
 >
-> **Example 12 (Negative agreement for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), the negative agreement ([Definition 16](#def-negative-agreement)) is:
+> **Example 13 (Negative agreement for the COVID-19 test)** For the agreement table of [Example 9](#exm-agreement-table-covid), the negative agreement ([Definition 17](#def-negative-agreement)) is:
 >
 > $$\begin{aligned}
 > p_{\text{neg}}
@@ -600,19 +616,19 @@ So far, we have compared a test with the true disease status. The same tools app
 > &\approx 0.995
 > && \text{(divide)}
 > \end{aligned}
-> \tag{39}$$
+> \tag{41}$$
 >
-> The negative agreement is even higher than the overall agreement ([Example 9](#exm-overall-agreement)), because the 100 disagreements are small relative to the 9,207 shared negative calls.
+> The negative agreement is even higher than the overall agreement ([Example 10](#exm-overall-agreement)), because the 100 disagreements are small relative to the 9,207 shared negative calls.
 
 > **NOTE:**
 >
-> **Definition 17 (Agent-only rate)** The **agent-only rate** of an agreement table ([Definition 12](#def-agreement-table)) is the proportion of observations that the agent calls positive and the reference calls negative:
+> **Definition 18 (Agent-only rate)** The **agent-only rate** of an agreement table ([Definition 13](#def-agreement-table)) is the proportion of observations that the agent calls positive and the reference calls negative:
 >
-> $$p_{\text{agent}} \stackrel{\text{def}}{=}\frac{b}{n} \tag{40}$$
+> $$p_{\text{agent}} \stackrel{\text{def}}{=}\frac{b}{n} \tag{42}$$
 
 > **NOTE:**
 >
-> **Example 13 (Agent-only rate for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), the agent-only rate ([Definition 17](#def-agent-only-rate)) is:
+> **Example 14 (Agent-only rate for the COVID-19 test)** For the agreement table of [Example 9](#exm-agreement-table-covid), the agent-only rate ([Definition 18](#def-agent-only-rate)) is:
 >
 > $$\begin{aligned}
 > p_{\text{agent}}
@@ -621,13 +637,13 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.0093
 > && \text{(divide)}
 > \end{aligned}
-> \tag{41}$$
+> \tag{43}$$
 >
 > so about 9 of every 1,000 people tested are called positive by the test and negative by the reference.
 
 > **NOTE:**
 >
-> **Definition 18 (Test measures estimated from an agreement table)** Treating the reference as the truth, an agreement table ([Definition 12](#def-agreement-table)) estimates four measures of the agent:
+> **Definition 19 (Test measures estimated from an agreement table)** Treating the reference as the truth, an agreement table ([Definition 13](#def-agreement-table)) estimates four measures of the agent:
 >
 > - its [sensitivity](#def-sensitivity);
 > - its [specificity](#def-specificity);
@@ -645,11 +661,11 @@ So far, we have compared a test with the true disease status. The same tools app
 > \\
 > \widehat{\text{NPV}} &\stackrel{\text{def}}{=}\frac{d}{c + d}.
 > \end{aligned}
-> \tag{42}$$
+> \tag{44}$$
 
 > **NOTE:**
 >
-> **Example 14 (Test measures for the COVID-19 test)** For the agreement table of [Example 8](#exm-agreement-table-covid), [Definition 18](#def-agreement-test-measures) gives:
+> **Example 15 (Test measures for the COVID-19 test)** For the agreement table of [Example 9](#exm-agreement-table-covid), [Definition 19](#def-agreement-test-measures) gives:
 >
 > ``` downlit
 > test_measures <- with(as.list(agree_covid), c(
@@ -663,21 +679,21 @@ So far, we have compared a test with the true disease status. The same tools app
 > #>      0.9900      0.9900      0.8817      0.9992
 > ```
 >
-> These estimates match the test’s sensitivity (0.99) and specificity (0.99), its positive predictive value (about 0.88, [Example 5](#exm-ppv)), and its negative predictive value (about 0.999, [Example 6](#exm-npv)), because the table’s counts are the expected counts for those values.
+> These estimates match the test’s sensitivity (0.99) and specificity (0.99), its positive predictive value (about 0.88, [Example 5](#exm-ppv)), and its negative predictive value (about 0.999, [Example 7](#exm-npv)), because the table’s counts are the expected counts for those values.
 
 ## 0.7 Positive and negative agreement as harmonic means
 
 > **NOTE:**
 >
-> **Definition 19 (Harmonic mean)** The **harmonic mean** of two positive numbers $x$ and $y$ is the reciprocal of the average of their reciprocals:
+> **Definition 20 (Harmonic mean)** The **harmonic mean** of two positive numbers $x$ and $y$ is the reciprocal of the average of their reciprocals:
 >
-> $$H(x, y) \stackrel{\text{def}}{=}\frac{2}{\frac{1}{x} + \frac{1}{y}} \tag{43}$$
+> $$H(x, y) \stackrel{\text{def}}{=}\frac{2}{\frac{1}{x} + \frac{1}{y}} \tag{45}$$
 >
 > Source: Wikipedia contributors [\[9\]](#ref-wikipedia_harmonic_mean).
 
 > **NOTE:**
 >
-> **Example 15 (Harmonic mean of 0.5 and 1)** By [Definition 19](#def-harmonic-mean):
+> **Example 16 (Harmonic mean of 0.5 and 1)** By [Definition 20](#def-harmonic-mean):
 >
 > $$\begin{aligned}
 > H(0.5, 1)
@@ -690,13 +706,13 @@ So far, we have compared a test with the true disease status. The same tools app
 > &\approx 0.667
 > && \text{(divide)}
 > \end{aligned}
-> \tag{44}$$
+> \tag{46}$$
 >
 > The ordinary average of 0.5 and 1 is 0.75; the harmonic mean sits closer to the smaller number.
 
 > **NOTE:**
 >
-> **Exercise 5 (Positive agreement from PPV and sensitivity)** For an agreement table ([Definition 12](#def-agreement-table)) with $a > 0$, write the [harmonic mean](#def-harmonic-mean) of the estimated positive predictive value and sensitivity ([Definition 18](#def-agreement-test-measures)) in terms of the table’s cells.
+> **Exercise 5 (Positive agreement from PPV and sensitivity)** For an agreement table ([Definition 13](#def-agreement-table)) with $a > 0$, write the [harmonic mean](#def-harmonic-mean) of the estimated positive predictive value and sensitivity ([Definition 19](#def-agreement-test-measures)) in terms of the table’s cells.
 
 > **NOTE:**
 >
@@ -727,22 +743,22 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= \frac{2a}{2a + b + c}
 > && \text{(multiply)}
 > \end{aligned}
-> \tag{45}$$
+> \tag{47}$$
 
 > **NOTE:**
 >
-> **Theorem 5 (Positive agreement is a harmonic mean)** For an agreement table with $a > 0$, the positive agreement ([Definition 15](#def-positive-agreement)) is the harmonic mean ([Definition 19](#def-harmonic-mean)) of the estimated positive predictive value and sensitivity ([Definition 18](#def-agreement-test-measures)):
+> **Theorem 5 (Positive agreement is a harmonic mean)** For an agreement table with $a > 0$, the positive agreement ([Definition 16](#def-positive-agreement)) is the harmonic mean ([Definition 20](#def-harmonic-mean)) of the estimated positive predictive value and sensitivity ([Definition 19](#def-agreement-test-measures)):
 >
 > $$p_{\text{pos}} = H\mathopen{}\left(\widehat{\text{PPV}}, \widehat{\text{sensitivity}}\right)\mathclose{}
-> \tag{46}$$
+> \tag{48}$$
 
 > **NOTE:**
 >
-> *Proof*. By [Exercise 5](#exr-pos-agreement-harmonic), the harmonic mean equals $2a / (2a + b + c)$, which is $p_{\text{pos}}$ by [Definition 15](#def-positive-agreement).
+> *Proof*. By [Exercise 5](#exr-pos-agreement-harmonic), the harmonic mean equals $2a / (2a + b + c)$, which is $p_{\text{pos}}$ by [Definition 16](#def-positive-agreement).
 
 > **NOTE:**
 >
-> **Example 16 (Positive agreement of the COVID-19 test as a harmonic mean)** For the agreement table of [Example 8](#exm-agreement-table-covid), the estimated positive predictive value is $693 / 786$ and the estimated sensitivity is $693 / 700$ ([Example 14](#exm-agreement-test-measures)). [Theorem 5](#thm-pos-agreement-harmonic) gives:
+> **Example 17 (Positive agreement of the COVID-19 test as a harmonic mean)** For the agreement table of [Example 9](#exm-agreement-table-covid), the estimated positive predictive value is $693 / 786$ and the estimated sensitivity is $693 / 700$ ([Example 15](#exm-agreement-test-measures)). [Theorem 5](#thm-pos-agreement-harmonic) gives:
 >
 > $$\begin{aligned}
 > p_{\text{pos}}
@@ -761,13 +777,13 @@ So far, we have compared a test with the true disease status. The same tools app
 > &\approx 0.933
 > && \text{(divide)}
 > \end{aligned}
-> \tag{47}$$
+> \tag{49}$$
 >
-> which matches [Example 11](#exm-positive-agreement). The lower positive predictive value (about 0.88) pulls the positive agreement down from the sensitivity (0.99), as in [Example 15](#exm-harmonic-mean).
+> which matches [Example 12](#exm-positive-agreement). The lower positive predictive value (about 0.88) pulls the positive agreement down from the sensitivity (0.99), as in [Example 16](#exm-harmonic-mean).
 
 > **NOTE:**
 >
-> **Exercise 6 (Negative agreement from NPV and specificity)** For an agreement table ([Definition 12](#def-agreement-table)) with $d > 0$, write the [harmonic mean](#def-harmonic-mean) of the estimated negative predictive value and specificity ([Definition 18](#def-agreement-test-measures)) in terms of the table’s cells.
+> **Exercise 6 (Negative agreement from NPV and specificity)** For an agreement table ([Definition 13](#def-agreement-table)) with $d > 0$, write the [harmonic mean](#def-harmonic-mean) of the estimated negative predictive value and specificity ([Definition 19](#def-agreement-test-measures)) in terms of the table’s cells.
 
 > **NOTE:**
 >
@@ -798,22 +814,22 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= \frac{2d}{2d + b + c}
 > && \text{(multiply)}
 > \end{aligned}
-> \tag{48}$$
+> \tag{50}$$
 
 > **NOTE:**
 >
-> **Theorem 6 (Negative agreement is a harmonic mean)** For an agreement table with $d > 0$, the negative agreement ([Definition 16](#def-negative-agreement)) is the harmonic mean ([Definition 19](#def-harmonic-mean)) of the estimated negative predictive value and specificity ([Definition 18](#def-agreement-test-measures)):
+> **Theorem 6 (Negative agreement is a harmonic mean)** For an agreement table with $d > 0$, the negative agreement ([Definition 17](#def-negative-agreement)) is the harmonic mean ([Definition 20](#def-harmonic-mean)) of the estimated negative predictive value and specificity ([Definition 19](#def-agreement-test-measures)):
 >
 > $$p_{\text{neg}} = H\mathopen{}\left(\widehat{\text{NPV}}, \widehat{\text{specificity}}\right)\mathclose{}
-> \tag{49}$$
+> \tag{51}$$
 
 > **NOTE:**
 >
-> *Proof*. By [Exercise 6](#exr-neg-agreement-harmonic), the harmonic mean equals $2d / (2d + b + c)$, which is $p_{\text{neg}}$ by [Definition 16](#def-negative-agreement).
+> *Proof*. By [Exercise 6](#exr-neg-agreement-harmonic), the harmonic mean equals $2d / (2d + b + c)$, which is $p_{\text{neg}}$ by [Definition 17](#def-negative-agreement).
 
 > **NOTE:**
 >
-> **Example 17 (Negative agreement of the COVID-19 test as a harmonic mean)** For the agreement table of [Example 8](#exm-agreement-table-covid), the estimated negative predictive value is $9{,}207 / 9{,}214$ and the estimated specificity is $9{,}207 / 9{,}300$ ([Example 14](#exm-agreement-test-measures)). [Theorem 6](#thm-neg-agreement-harmonic) gives:
+> **Example 18 (Negative agreement of the COVID-19 test as a harmonic mean)** For the agreement table of [Example 9](#exm-agreement-table-covid), the estimated negative predictive value is $9{,}207 / 9{,}214$ and the estimated specificity is $9{,}207 / 9{,}300$ ([Example 15](#exm-agreement-test-measures)). [Theorem 6](#thm-neg-agreement-harmonic) gives:
 >
 > $$\begin{aligned}
 > p_{\text{neg}}
@@ -832,28 +848,28 @@ So far, we have compared a test with the true disease status. The same tools app
 > &\approx 0.995
 > && \text{(divide)}
 > \end{aligned}
-> \tag{50}$$
+> \tag{52}$$
 >
-> which matches [Example 12](#exm-negative-agreement).
+> which matches [Example 13](#exm-negative-agreement).
 
 ## 0.8 Cohen’s kappa
 
 > **NOTE:**
 >
-> **Definition 20 (Chance agreement)** Let:
+> **Definition 21 (Chance agreement)** Let:
 >
 > - $A$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the agent makes a [positive classification](#def-positive-classification) for an observation drawn from a [population](exploratory-descriptive.llms.md#def-population), with [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement) $\neg A$.
 > - $R$ be the event that the reference makes a positive classification for the same observation, with complement $\neg R$.
 >
 > The **chance agreement** of the agent and the reference on that population is the [overall agreement](#def-overall-agreement) they would have if $A$ and $R$ were [statistically independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) with their marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\Pr\mathopen{}\left(A\right)\mathclose{}}$ and ${\Pr\mathopen{}\left(R\right)\mathclose{}}$:
 >
-> $$p_e \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(A\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(R\right)\mathclose{}} + {\Pr\mathopen{}\left(\neg A\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(\neg R\right)\mathclose{}} \tag{51}$$
+> $$p_e \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(A\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(R\right)\mathclose{}} + {\Pr\mathopen{}\left(\neg A\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(\neg R\right)\mathclose{}} \tag{53}$$
 >
 > Source: Cohen [\[7\]](#ref-cohen1960coefficient).
 
 > **NOTE:**
 >
-> **Example 18 (Chance agreement for the COVID-19 test)** Apply the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) to the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), with the test as the agent ($A = {+}$) and the disease status as the reference ($R = D$). By [Theorem 2](#thm-prob-positive), with [sensitivity](#def-sensitivity) $\text{sens} = 0.99$, [specificity](#def-specificity) $\text{spec} = 0.99$, and [prevalence](#def-prevalence) $\pi= {\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07$, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a [positive](#def-positive-classification) test is:
+> **Example 19 (Chance agreement for the COVID-19 test)** Apply the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) to the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), with the test as the agent ($A = {+}$) and the disease status as the reference ($R = D$). By [Theorem 2](#thm-prob-positive), with [sensitivity](#def-sensitivity) $\text{sens} = 0.99$, [specificity](#def-specificity) $\text{spec} = 0.99$, and [prevalence](#def-prevalence) $\pi= {\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07$, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a [positive](#def-positive-classification) test is:
 >
 > $$\begin{aligned}
 > {\Pr\mathopen{}\left({+}\right)\mathclose{}}
@@ -868,7 +884,7 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.0786
 > && \text{(add)}
 > \end{aligned}
-> \tag{52}$$
+> \tag{54}$$
 >
 > By the [complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0) and [Theorem 1](#thm-negative-classification-complement), the probability of a [negative](#def-negative-classification) test is:
 >
@@ -883,7 +899,7 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.9214
 > && \text{(subtract)}
 > \end{aligned}
-> \tag{53}$$
+> \tag{55}$$
 >
 > With ${\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07$ and ${\Pr\mathopen{}\left(\neg D\right)\mathclose{}} = 0.93$ ([Example 4](#exm-prevalence)), the [chance agreement](#def-chance-agreement) is:
 >
@@ -898,21 +914,21 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.862404
 > && \text{(add)}
 > \end{aligned}
-> \tag{54}$$
+> \tag{56}$$
 >
 > Because nearly everyone tests negative and does not have COVID-19, two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) classifiers with ${\Pr\mathopen{}\left({+}\right)\mathclose{}} = 0.0786$ and ${\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07$ would agree on about 86% of people by chance alone.
 
 > **NOTE:**
 >
-> **Definition 21 (Estimated chance agreement)** The **estimated chance agreement** of an [agreement table](#def-agreement-table) [estimates](estimation.llms.md#def-estimate) the [chance agreement](#def-chance-agreement) $p_e$ by replacing the marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\Pr\mathopen{}\left(A\right)\mathclose{}}$, ${\Pr\mathopen{}\left(R\right)\mathclose{}}$, ${\Pr\mathopen{}\left(\neg A\right)\mathclose{}}$, and ${\Pr\mathopen{}\left(\neg R\right)\mathclose{}}$ with the table’s marginal [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) $(a + b) / n$, $(a + c) / n$, $(c + d) / n$, and $(b + d) / n$:
+> **Definition 22 (Estimated chance agreement)** The **estimated chance agreement** of an [agreement table](#def-agreement-table) [estimates](estimation.llms.md#def-estimate) the [chance agreement](#def-chance-agreement) $p_e$ by replacing the marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\Pr\mathopen{}\left(A\right)\mathclose{}}$, ${\Pr\mathopen{}\left(R\right)\mathclose{}}$, ${\Pr\mathopen{}\left(\neg A\right)\mathclose{}}$, and ${\Pr\mathopen{}\left(\neg R\right)\mathclose{}}$ with the table’s marginal [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) $(a + b) / n$, $(a + c) / n$, $(c + d) / n$, and $(b + d) / n$:
 >
-> $$\widehat{p}_e \stackrel{\text{def}}{=}\frac{(a + b)(a + c) + (c + d)(b + d)}{n^2} \tag{55}$$
+> $$\widehat{p}_e \stackrel{\text{def}}{=}\frac{(a + b)(a + c) + (c + d)(b + d)}{n^2} \tag{57}$$
 >
 > Source: Cohen [\[7\]](#ref-cohen1960coefficient).
 
 > **NOTE:**
 >
-> **Example 19 (Estimated chance agreement for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 8](#exm-agreement-table-covid), the [estimated chance agreement](#def-estimated-chance-agreement) is:
+> **Example 20 (Estimated chance agreement for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 9](#exm-agreement-table-covid), the [estimated chance agreement](#def-estimated-chance-agreement) is:
 >
 > $$\begin{aligned}
 > \widehat{p}_e
@@ -927,21 +943,21 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.862404
 > && \text{(divide)}
 > \end{aligned}
-> \tag{56}$$
+> \tag{58}$$
 >
-> This [estimate](estimation.llms.md#def-estimate) equals the [chance agreement](#def-chance-agreement) $p_e = 0.862404$ of [Example 18](#exm-chance-agreement), because the table’s marginal [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) equal the marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\Pr\mathopen{}\left({+}\right)\mathclose{}}$, ${\Pr\mathopen{}\left(D\right)\mathclose{}}$, ${\Pr\mathopen{}\left({-}\right)\mathclose{}}$, and ${\Pr\mathopen{}\left(\neg D\right)\mathclose{}}$.
+> This [estimate](estimation.llms.md#def-estimate) equals the [chance agreement](#def-chance-agreement) $p_e = 0.862404$ of [Example 19](#exm-chance-agreement), because the table’s marginal [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) equal the marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\Pr\mathopen{}\left({+}\right)\mathclose{}}$, ${\Pr\mathopen{}\left(D\right)\mathclose{}}$, ${\Pr\mathopen{}\left({-}\right)\mathclose{}}$, and ${\Pr\mathopen{}\left(\neg D\right)\mathclose{}}$.
 
 > **NOTE:**
 >
-> **Definition 22 (Cohen’s kappa)** For an agent and a reference with [chance agreement](#def-chance-agreement) $p_e < 1$, **Cohen’s kappa** is the agreement beyond chance, as a fraction of the largest possible agreement beyond chance, built from the [overall agreement](#def-overall-agreement) $p_o$ and the chance agreement $p_e$:
+> **Definition 23 (Cohen’s kappa)** For an agent and a reference with [chance agreement](#def-chance-agreement) $p_e < 1$, **Cohen’s kappa** is the agreement beyond chance, as a fraction of the largest possible agreement beyond chance, built from the [overall agreement](#def-overall-agreement) $p_o$ and the chance agreement $p_e$:
 >
-> $$\kappa \stackrel{\text{def}}{=}\frac{p_o - p_e}{1 - p_e} \tag{57}$$
+> $$\kappa \stackrel{\text{def}}{=}\frac{p_o - p_e}{1 - p_e} \tag{59}$$
 >
 > Source: Cohen [\[7\]](#ref-cohen1960coefficient); Wikipedia contributors [\[10\]](#ref-wikipedia_cohens_kappa).
 
 > **NOTE:**
 >
-> **Example 20 (Cohen’s kappa for the COVID-19 test)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) in the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), the [overall agreement](#def-overall-agreement) is $p_o = 0.99$ ([Example 9](#exm-overall-agreement)) and the [chance agreement](#def-chance-agreement) is $p_e = 0.862404$ ([Example 18](#exm-chance-agreement)), so [Cohen’s kappa](#def-cohen-kappa) is:
+> **Example 21 (Cohen’s kappa for the COVID-19 test)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) in the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), the [overall agreement](#def-overall-agreement) is $p_o = 0.99$ ([Example 10](#exm-overall-agreement)) and the [chance agreement](#def-chance-agreement) is $p_e = 0.862404$ ([Example 19](#exm-chance-agreement)), so [Cohen’s kappa](#def-cohen-kappa) is:
 >
 > $$\begin{aligned}
 > \kappa
@@ -954,19 +970,19 @@ So far, we have compared a test with the true disease status. The same tools app
 > &\approx 0.927
 > && \text{(divide)}
 > \end{aligned}
-> \tag{58}$$
+> \tag{60}$$
 
 > **NOTE:**
 >
-> **Definition 23 (Estimated Cohen’s kappa)** For an [agreement table](#def-agreement-table) with [estimated chance agreement](#def-estimated-chance-agreement) $\widehat{p}_e < 1$, the **estimated Cohen’s kappa** [estimates](estimation.llms.md#def-estimate) [Cohen’s kappa](#def-cohen-kappa) $\kappa$ from the [estimated overall agreement](#def-estimated-overall-agreement) $\widehat{p}_o$ and the estimated chance agreement $\widehat{p}_e$:
+> **Definition 24 (Estimated Cohen’s kappa)** For an [agreement table](#def-agreement-table) with [estimated chance agreement](#def-estimated-chance-agreement) $\widehat{p}_e < 1$, the **estimated Cohen’s kappa** [estimates](estimation.llms.md#def-estimate) [Cohen’s kappa](#def-cohen-kappa) $\kappa$ from the [estimated overall agreement](#def-estimated-overall-agreement) $\widehat{p}_o$ and the estimated chance agreement $\widehat{p}_e$:
 >
-> $$\hat{\kappa}\stackrel{\text{def}}{=}\frac{\widehat{p}_o - \widehat{p}_e}{1 - \widehat{p}_e} \tag{59}$$
+> $$\hat{\kappa}\stackrel{\text{def}}{=}\frac{\widehat{p}_o - \widehat{p}_e}{1 - \widehat{p}_e} \tag{61}$$
 >
 > Source: Cohen [\[7\]](#ref-cohen1960coefficient); Wikipedia contributors [\[10\]](#ref-wikipedia_cohens_kappa).
 
 > **NOTE:**
 >
-> **Example 21 (Estimated Cohen’s kappa for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 8](#exm-agreement-table-covid), the [estimated overall agreement](#def-estimated-overall-agreement) is $\widehat{p}_o = 0.99$ ([Example 10](#exm-estimated-overall-agreement)) and the [estimated chance agreement](#def-estimated-chance-agreement) is $\widehat{p}_e = 0.862404$ ([Example 19](#exm-estimated-chance-agreement)), so the [estimated Cohen’s kappa](#def-estimated-cohen-kappa) is:
+> **Example 22 (Estimated Cohen’s kappa for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 9](#exm-agreement-table-covid), the [estimated overall agreement](#def-estimated-overall-agreement) is $\widehat{p}_o = 0.99$ ([Example 11](#exm-estimated-overall-agreement)) and the [estimated chance agreement](#def-estimated-chance-agreement) is $\widehat{p}_e = 0.862404$ ([Example 20](#exm-estimated-chance-agreement)), so the [estimated Cohen’s kappa](#def-estimated-cohen-kappa) is:
 >
 > $$\begin{aligned}
 > \hat{\kappa}
@@ -979,7 +995,7 @@ So far, we have compared a test with the true disease status. The same tools app
 > &\approx 0.927
 > && \text{(divide)}
 > \end{aligned}
-> \tag{60}$$
+> \tag{62}$$
 >
 > ``` downlit
 > kappa_from_table <- function(a, b, c, d) {
@@ -992,11 +1008,11 @@ So far, we have compared a test with the true disease status. The same tools app
 > #> [1] 0.927323
 > ```
 >
-> This [estimate](estimation.llms.md#def-estimate) equals [Cohen’s kappa](#def-cohen-kappa) $\kappa \approx 0.927$ of [Example 20](#exm-cohen-kappa-covid), because $\widehat{p}_o = p_o$ and $\widehat{p}_e = p_e$.
+> This [estimate](estimation.llms.md#def-estimate) equals [Cohen’s kappa](#def-cohen-kappa) $\kappa \approx 0.927$ of [Example 21](#exm-cohen-kappa-covid), because $\widehat{p}_o = p_o$ and $\widehat{p}_e = p_e$.
 
 > **NOTE:**
 >
-> **Example 22 (High agreement but low kappa)** Now apply the same test to $n = 100{,}000$ people in a [population](exploratory-descriptive.llms.md#def-population) where the [prevalence](#def-prevalence) is only 0.5%. Then:
+> **Example 23 (High agreement but low kappa)** Now apply the same test to $n = 100{,}000$ people in a [population](exploratory-descriptive.llms.md#def-population) where the [prevalence](#def-prevalence) is only 0.5%. Then:
 >
 > - $0.005 \times 100{,}000 = 500$ people have COVID-19 and $100{,}000 - 500 = 99{,}500$ do not;
 > - with 99% [sensitivity](#def-sensitivity), the test is positive for $a = 0.99 \times 500 = 495$ people with COVID-19 and negative for $c = 500 - 495 = 5$;
@@ -1021,7 +1037,7 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> *Remark 3* (Kappa depends on prevalence). When both classifiers call one [class](#def-class) rarely, the [chance agreement](#def-chance-agreement) $p_e$ is close to 1, so the same [overall agreement](#def-overall-agreement) leaves little room for agreement beyond chance, and [Cohen’s kappa](#def-cohen-kappa) can be low even when the overall agreement is high, as [Example 22](#exm-kappa-paradox) shows. Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high) recommend reporting the [positive agreement](#def-positive-agreement) and [negative agreement](#def-negative-agreement) alongside Cohen’s kappa, so that poor agreement on the rarer class is not hidden.
+> *Remark 3* (Kappa depends on prevalence). When both classifiers call one [class](#def-class) rarely, the [chance agreement](#def-chance-agreement) $p_e$ is close to 1, so the same [overall agreement](#def-overall-agreement) leaves little room for agreement beyond chance, and [Cohen’s kappa](#def-cohen-kappa) can be low even when the overall agreement is high, as [Example 23](#exm-kappa-paradox) shows. Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high) recommend reporting the [positive agreement](#def-positive-agreement) and [negative agreement](#def-negative-agreement) alongside Cohen’s kappa, so that poor agreement on the rarer class is not hidden.
 >
 > Source: Feinstein and Cicchetti [\[11\]](#ref-feinstein1990high); Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high).
 
@@ -1076,25 +1092,26 @@ A. R. Feinstein and D. V. Cicchetti, “High agreement but low kappa: I. The pro
 - [Definition 1 (Classification)](#def-classification)
 - [Definition 2 (Class)](#def-class)
 - [Definition 3 (Classification rule)](#def-classification-rule)
-- [Definition 4 (Binary classification)](#def-binary-classification)
-- [Definition 5 (Positive classification)](#def-positive-classification)
-- [Definition 6 (Negative classification)](#def-negative-classification)
-- [Definition 7 (Sensitivity)](#def-sensitivity)
-- [Definition 8 (Specificity)](#def-specificity)
-- [Definition 9 (Prevalence)](#def-prevalence)
-- [Definition 10 (Positive predictive value (PPV))](#def-ppv)
-- [Definition 11 (Negative predictive value (NPV))](#def-npv)
-- [Definition 12 (Agreement table)](#def-agreement-table)
-- [Definition 13 (Overall agreement)](#def-overall-agreement)
-- [Definition 14 (Estimated overall agreement)](#def-estimated-overall-agreement)
-- [Definition 15 (Positive agreement)](#def-positive-agreement)
-- [Definition 16 (Negative agreement)](#def-negative-agreement)
-- [Definition 17 (Agent-only rate)](#def-agent-only-rate)
-- [Definition 18 (Test measures estimated from an agreement table)](#def-agreement-test-measures)
-- [Definition 19 (Harmonic mean)](#def-harmonic-mean)
-- [Definition 20 (Chance agreement)](#def-chance-agreement)
-- [Definition 21 (Estimated chance agreement)](#def-estimated-chance-agreement)
-- [Definition 22 (Cohen’s kappa)](#def-cohen-kappa)
-- [Definition 23 (Estimated Cohen’s kappa)](#def-estimated-cohen-kappa)
+- [Definition 4 (Predicted probability)](#def-predicted-probability)
+- [Definition 5 (Binary classification)](#def-binary-classification)
+- [Definition 6 (Positive classification)](#def-positive-classification)
+- [Definition 7 (Negative classification)](#def-negative-classification)
+- [Definition 8 (Sensitivity)](#def-sensitivity)
+- [Definition 9 (Specificity)](#def-specificity)
+- [Definition 10 (Prevalence)](#def-prevalence)
+- [Definition 11 (Positive predictive value (PPV))](#def-ppv)
+- [Definition 12 (Negative predictive value (NPV))](#def-npv)
+- [Definition 13 (Agreement table)](#def-agreement-table)
+- [Definition 14 (Overall agreement)](#def-overall-agreement)
+- [Definition 15 (Estimated overall agreement)](#def-estimated-overall-agreement)
+- [Definition 16 (Positive agreement)](#def-positive-agreement)
+- [Definition 17 (Negative agreement)](#def-negative-agreement)
+- [Definition 18 (Agent-only rate)](#def-agent-only-rate)
+- [Definition 19 (Test measures estimated from an agreement table)](#def-agreement-test-measures)
+- [Definition 20 (Harmonic mean)](#def-harmonic-mean)
+- [Definition 21 (Chance agreement)](#def-chance-agreement)
+- [Definition 22 (Estimated chance agreement)](#def-estimated-chance-agreement)
+- [Definition 23 (Cohen’s kappa)](#def-cohen-kappa)
+- [Definition 24 (Estimated Cohen’s kappa)](#def-estimated-cohen-kappa)
 
 Back to top
