@@ -7,8 +7,8 @@
    levels each way, with arrows pointing from what is used to what uses it. */
 (function () {
   "use strict";
-  var DEPTH = 2, PER_ROW = 4, NS = "http://www.w3.org/2000/svg";
-  var W = 200, H = 34, GX = 16, GY = 36;
+  var DEPTH = 2, PER_ROW = 12, NS = "http://www.w3.org/2000/svg";
+  var W = 24, H = 24, GX = 8, GY = 22;
   /* The div colors of the notes (custom-callout in _quarto-website.yml); a theorem shares a lemma's blue. */
   var COLOR = { def: "#1B5E20", thm: "#1565C0", lem: "#1565C0", cor: "#00838F", prp: "#827717" };
   var NAME = { def: "Definition", thm: "Theorem", lem: "Lemma", cor: "Corollary", prp: "Proposition" };
@@ -26,7 +26,6 @@
     if (n.url) return n.url;
     return (n.page === page ? "" : n.page + ".html") + "#" + n.div;
   }
-  function clip(s) { return s.length > 30 ? s.slice(0, 29) + "…" : s; }
 
   /* Draw `levels` (top to bottom; arrays of nodes) with `edges` ([prereq, dependent] key pairs).
      A level wider than PER_ROW wraps onto further rows. */
@@ -62,11 +61,11 @@
         var attrs = { x: p.x, y: p.y, width: W, height: H, rx: 6, fill: COLOR[n.kind] || "#555",
           stroke: n.id === focus ? "#000" : "#fff", "stroke-width": n.id === focus ? 3 : 1 };
         if (n.external) attrs["stroke-dasharray"] = "4 2";
-        var rect = el("rect", attrs, a);
-        el("title", {}, rect).textContent = (NAME[n.kind] || n.kind) + ": " + n.title +
-          (n.external ? " (another site)" : "");
-        var t = el("text", { x: p.x + 8, y: p.y + H / 2 + 4, "font-size": 12, fill: "#fff" }, a);
-        t.textContent = clip(n.title);
+        el("rect", attrs, a);
+        /* No text on the graph: the name and kind show as hovertext. */
+        var tip = (NAME[n.kind] || n.kind) + ": " + n.title + (n.external ? " (another site)" : "");
+        el("title", {}, a).textContent = tip;
+        a.setAttribute("aria-label", tip);
       });
     });
     return svg;
@@ -117,7 +116,7 @@
       });
       var note = document.createElement("span");
       note.style.cssText = "display:block;margin-top:0.2em";
-      note.textContent = "Arrows point from what is used to what uses it. A dashed box is on another site.";
+      note.textContent = "Hover a box for its name. Arrows point from what is used to what uses it. A dashed box is on another site.";
       legend.appendChild(note);
       det.appendChild(legend);
       var drawn = false;
