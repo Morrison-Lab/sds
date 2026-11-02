@@ -1,0 +1,23 @@
+# Flags words and phrases a style source advises against on lines a PR adds:
+# "above"/"below" for a place in the document, "just"/"easy", time-relative words,
+# generic placeholders, and a back-reference such as "the setup of Exercise 1"
+# that does not name what it reuses (psw#442).
+# Fix the wording, or put `<!-- check-avoided-words: allow -->` on the line.
+# Warn-only here; where annotation-gate runs, its warning fails the run.
+# No push trigger: a push run has no base to diff against and would report
+# success having checked nothing. A manual run scans the whole tree.
+name: Check avoided words
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-avoided-words.yml@v3
+    with:
+      fail: false
+      whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
+      paths-ignore: '_extensions/**,**/outtakes/**,latex-macros/**'
