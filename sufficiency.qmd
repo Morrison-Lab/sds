@@ -20,7 +20,7 @@ This page defines such summaries, called sufficient statistics,
 and shows how to use one to improve an estimator
 without making it more biased.
 
-## Sufficient statistics {#sec-sufficiency}
+# Sufficient statistics {#sec-sufficiency}
 
 {{< include sds/_subfiles/sufficiency/_def-statistic.qmd >}}
 
@@ -44,7 +44,7 @@ without making it more biased.
 
 {{< include sds/_subfiles/sufficiency/_exm-poisson-sufficient.qmd >}}
 
-## The Rao--Blackwell theorem {#sec-rao-blackwell}
+# The Rao--Blackwell theorem {#sec-rao-blackwell}
 
 {{< include sds/_subfiles/sufficiency/_def-rao-blackwellized.qmd >}}
 
@@ -76,12 +76,12 @@ without making it more biased.
 
 {{< include sds/_subfiles/sufficiency/_rem-rb-insufficient.qmd >}}
 
-## Further reading {#sec-sufficiency-reading}
+# Further reading {#sec-sufficiency-reading}
 
 - The [Fall 2024 course site for UC Berkeley's Stat 210A, *Theoretical Statistics*](https://stat210a.berkeley.edu/fall-2024/) (Will Fithian) has a course reader on exponential families, sufficiency, completeness and unbiased estimation.
 
 
-## References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::
