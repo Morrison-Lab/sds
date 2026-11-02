@@ -356,14 +356,13 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-02 10:55:56 (PST)</p>
+  <p class="date">Last modified: 2026-11-02 11:15:32 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
-</style></section><section><section id="sec-predictions" class="title-slide slide level1 center" data-number="1"><h1>
-<span class="header-section-number">1</span> Predictions, fitted values, residuals, and prediction errors</h1>
-
+</style></section><section id="sec-predictions" class="slide level2" data-number="1"><h2>
+<span class="header-section-number">1</span> Predictions, fitted values, residuals, and prediction errors</h2>
 </section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the def-prediction div. --><div id="def-prediction" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Prediction (predicted value))</strong></span> A <strong>prediction</strong> (or <strong>predicted value</strong>) <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> of an outcome <span class="math inline">\(Y\)</span> with covariate value <span class="math inline">\(X = x\)</span> is a number computed from <span class="math inline">\(x\)</span> and from data <span class="math inline">\((x_1, y_1), \ldots, (x_n, y_n)\)</span> by a rule <span class="math inline">\(g\)</span>, and used as a guess of <span class="math inline">\(Y\)</span>:</p>
 <p><span class="math display">\[{\hat y\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.\]</span></p>
@@ -501,9 +500,8 @@ text-align: center;
 \]</span></p>
 <p>For a fitted value, the prediction error is the negative of the residual (<a href="#/thm-prediction-error-residual" class="quarto-xref">Theorem&nbsp;1</a>), so the two differ only in orientation.</p>
 </div>
-</section><section class="slide level2"></section></section><section><section id="sec-prediction-mse" class="title-slide slide level1 center" data-number="2"><h1>
-<span class="header-section-number">2</span> Sample mean squared error of predictions</h1>
-
+</section><section id="sec-prediction-mse" class="slide level2" data-number="2"><h2>
+<span class="header-section-number">2</span> Sample mean squared error of predictions</h2>
 </section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the def-prediction-mse div. --><div id="def-prediction-mse" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Mean squared error of predictions)</strong></span> The <strong>sample mean squared error (sMSE)</strong> of predictions, also called their <strong>mean squared error</strong>, <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the mean of their squared <a href="#/def-prediction-error">prediction errors</a>:</p>
 <p><span class="math display">\[{\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n{\varepsilon_{\text{pred}}}_i^2.\]</span></p>
@@ -601,9 +599,8 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 \]</span></p>
 <p>the residual sum of squares, <span class="math inline">\(0.25\)</span>, divided by <span class="math inline">\(n = 3\)</span>.</p>
 </div>
-</section><section class="slide level2"></section></section><section><section id="sec-estimation-vs-prediction" class="title-slide slide level1 center" data-number="3"><h1>
-<span class="header-section-number">3</span> Estimation versus prediction</h1>
-
+</section><section id="sec-estimation-vs-prediction" class="slide level2" data-number="3"><h2>
+<span class="header-section-number">3</span> Estimation versus prediction</h2>
 </section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the remark. --><div id="rem-estimation-vs-prediction" class="proof remark">
 <p><span class="proof-title"><em>Remark 5</em> (Estimation versus prediction). </span>Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error (a pMSE for an estimator, an sMSE for predictions), but they aim at different targets:</p>
 <ul>
@@ -618,8 +615,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </ul>
 <p><a href="./model-validation.html">Validating Predictions</a> estimates the prediction error on new observations.</p>
 </div>
-</section></section><section><section id="references" class="title-slide slide level1 unnumbered center"><h1>References</h1>
-
+</section><section id="references" class="slide level2 unnumbered"><h2>References</h2>
 </section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-hastie2009elements" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
@@ -828,7 +824,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     initRevealJsHtmlLink();
   }
 })();
-</script></section></section>
+</script></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

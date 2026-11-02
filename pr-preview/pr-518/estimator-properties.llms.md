@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-02 10:55:56 (PST)
+Last modified: 2026-11-02 11:15:32 (PST)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and population mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 

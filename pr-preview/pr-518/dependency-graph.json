@@ -153,6 +153,16 @@
    "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-complement"
   },
   {
+   "id": "pds/probability-basics#def-conditional-prob",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-conditional-prob",
+   "kind": "def",
+   "title": "conditional prob",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob"
+  },
+  {
    "id": "pds/probability-basics#def-event",
    "site": "pds",
    "page": "probability-basics",
@@ -1120,6 +1130,15 @@
    "div": "def-ppv",
    "kind": "def",
    "title": "Positive predictive value (PPV)",
+   "external": false
+  },
+  {
+   "id": "sds/classification#def-predicted-probability",
+   "site": "sds",
+   "page": "classification",
+   "div": "def-predicted-probability",
+   "kind": "def",
+   "title": "Predicted probability",
    "external": false
   },
   {
@@ -5016,6 +5035,30 @@
   [
    "sds/classification#def-ppv",
    "sds/classification#def-positive-classification"
+  ],
+  [
+   "sds/classification#def-predicted-probability",
+   "pds/probability-basics#def-conditional-prob"
+  ],
+  [
+   "sds/classification#def-predicted-probability",
+   "sds/classification#def-class"
+  ],
+  [
+   "sds/classification#def-predicted-probability",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/classification#def-predicted-probability",
+   "sds/estimation#def-estimation-error"
+  ],
+  [
+   "sds/classification#def-predicted-probability",
+   "sds/model-validation#def-feature"
+  ],
+  [
+   "sds/classification#def-predicted-probability",
+   "sds/model-validation#def-fitted-model"
   ],
   [
    "sds/classification#def-sensitivity",

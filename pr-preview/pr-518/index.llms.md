@@ -4,11 +4,11 @@ Code
 
 Published
 
-Last modified: 2026-11-02 10:55:56 (PST)
+Last modified: 2026-11-02 11:15:32 (PST)
 
 These notes collect the statistics that data science courses assume.
 
-## 1 Topics
+# 1 Topics
 
 The notes are organized in four groups of pages.
 
@@ -43,7 +43,7 @@ Bayesian:
 - [Markov chain Monte Carlo](mcmc.llms.md): Monte Carlo integration, the Metropolis–Hastings and Gibbs samplers, convergence diagnostics, and the deviance information criterion;
 - [Fitting models by Bayesian inference with JAGS](bayesian-examples.llms.md): a proportion, logistic regression, survival, random effects, and Bayesian model averaging.
 
-## Comparable courses
+# Comparable courses
 
 Stanford’s statistics department posts the materials of several courses that cover the same inference topics at a more mathematical level:
 
@@ -52,7 +52,7 @@ Stanford’s statistics department posts the materials of several courses that c
 - **STATS 300B**, [*Theory of Statistics II*](https://web.stanford.edu/class/stats300b/lectures.html) (John Duchi, Winter 2021): slides on asymptotic statistics and concentration.
 - **STATS 305B**, [*Methods for Applied Statistics*](https://web.stanford.edu/class/stats305b/) (Jonathan Taylor): contingency tables, logistic regression and generalized linear models.
 
-## 2 Origin
+# 2 Origin
 
 These notes began as the statistics appendices of [*Regression Models for Epidemiology*](https://morrison-lab.github.io/rme/), and keep those chapters’ file names, except that two long chapters are now split into several pages. Most results keep their rme `#id` anchors on the same page; the exceptions are:
 
@@ -64,7 +64,7 @@ These notes began as the statistics appendices of [*Regression Models for Epidem
 
 Where these notes rely on probability or calculus, they link to the lab’s notes on [probability](https://morrison-lab.github.io/pds/) and [mathematics](https://morrison-lab.github.io/mds/) for data science, which are the canonical home for the probability and mathematics appendices of rme.
 
-## 3 Using these notes in another site
+# 3 Using these notes in another site
 
 Course sites link to these pages by URL; they do not include this repository as a git submodule. A host site that keeps a copy of this repository at its root, named `sds`, can still include fragments with paths that start with `sds/`, for example `{{< include sds/_subfiles/intro-MLEs/_def_mle.qmd >}}`. This site includes its own fragments the same way, through an `sds` symlink that points at the repository root.
 
