@@ -10,7 +10,7 @@ format:
     output-file: exploratory-descriptive-handout.docx
 ---
 
-## Introduction
+# Introduction
 
 {{< include sds/_subfiles/shared-config.qmd >}}
 
@@ -18,7 +18,7 @@ format:
 
 {{< slidebreak >}}
 
-### The WCGS data {#sec-wcgs-data}
+## The WCGS data {#sec-wcgs-data}
 
 {{< include sds/_subfiles/exploratory-descriptive/_wcgs-intro.qmd >}}
 
@@ -32,17 +32,17 @@ format:
 
 {{< slidebreak >}}
 
-### Study design
+## Study design
 
 {{< include sds/_subfiles/exploratory-descriptive/_wcgs-design.qmd >}}
 
 {{< slidebreak >}}
 
-### Loading the data {#sec-load-wcgs}
+## Loading the data {#sec-load-wcgs}
 
 {{< include sds/_subfiles/exploratory-descriptive/_load-wcgs.qmd >}}
 
-### Populations and samples {#sec-populations-samples}
+## Populations and samples {#sec-populations-samples}
 
 <!-- No slidebreak here: the heading shares its slide with the def-population div. -->
 
@@ -84,9 +84,9 @@ format:
 
 {{< include sds/_subfiles/exploratory-descriptive/_rem-population-parameter.qmd >}}
 
-## Summarizing a single variable
+# Summarizing a single variable
 
-### Measures of center
+## Measures of center
 
 <!-- No slidebreak here: the heading shares its slide with the def-sample-mean div. -->
 
@@ -110,7 +110,7 @@ format:
 
 {{< slidebreak >}}
 
-### Measures of spread
+## Measures of spread
 
 <!-- No slidebreak here: the heading shares its slide with the def-sample-variance div. -->
 
@@ -138,13 +138,13 @@ format:
 
 {{< slidebreak >}}
 
-### Summary statistics in R
+## Summary statistics in R
 
 {{< include sds/_subfiles/exploratory-descriptive/_prose-summary-R.qmd >}}
 
 {{< slidebreak >}}
 
-### Binary and categorical variables
+## Binary and categorical variables
 
 <!-- No slidebreak here: the heading shares its slide with the def-sample-proportion div. -->
 
@@ -163,7 +163,7 @@ format:
 - @rice2007mathematical [Secs. 10.4--10.5, pp. 392--401] covers measures of location and dispersion.
 :::
 
-## Graphical methods
+# Graphical methods
 
 Graphs can reveal features of a distribution
 that summary statistics miss,
@@ -172,7 +172,7 @@ Different types of graph suit different types of variable.
 
 {{< slidebreak >}}
 
-### Histograms
+## Histograms
 
 <!-- No slidebreak here: the heading shares its slide with the def-histogram div. -->
 
@@ -184,7 +184,7 @@ Different types of graph suit different types of variable.
 
 {{< slidebreak >}}
 
-### Density plots
+## Density plots
 
 <!-- No slidebreak here: the heading shares its slide with the def-density-plot div. -->
 
@@ -196,7 +196,7 @@ Different types of graph suit different types of variable.
 
 {{< slidebreak >}}
 
-### Box plots
+## Box plots
 
 <!-- No slidebreak here: the heading shares its slide with the def-boxplot div. -->
 
@@ -208,7 +208,7 @@ Different types of graph suit different types of variable.
 
 {{< slidebreak >}}
 
-### Bar charts
+## Bar charts
 
 <!-- No slidebreak here: the heading shares its slide with the def-bar-chart div. -->
 
@@ -220,7 +220,7 @@ Different types of graph suit different types of variable.
 
 {{< slidebreak >}}
 
-### Normal quantile-quantile plots
+## Normal quantile-quantile plots
 
 <!-- No slidebreak here: the heading shares its slide with the def-qq-plot div. -->
 
@@ -237,9 +237,9 @@ Different types of graph suit different types of variable.
 - @rice2007mathematical [Sec. 10.6, pp. 402--403] covers boxplots.
 :::
 
-## Bivariate relationships
+# Bivariate relationships
 
-### Two continuous variables
+## Two continuous variables
 
 <!-- No slidebreak here: the heading shares its slide with the def-scatterplot div. -->
 
@@ -273,7 +273,7 @@ Different types of graph suit different types of variable.
 
 {{< slidebreak >}}
 
-### A continuous variable by a categorical variable
+## A continuous variable by a categorical variable
 
 Side-by-side [box plots](#def-boxplot) compare the distribution of a
 continuous variable across the groups defined by a categorical variable
@@ -287,7 +287,7 @@ continuous variable across the groups defined by a categorical variable
 
 {{< slidebreak >}}
 
-### Two categorical variables
+## Two categorical variables
 
 <!-- No slidebreak here: the heading shares its slide with the def-contingency-table div. -->
 
@@ -297,11 +297,11 @@ continuous variable across the groups defined by a categorical variable
 
 {{< include sds/_subfiles/exploratory-descriptive/_exm-contingency-table.qmd >}}
 
-## Data transformations
+# Data transformations
 
 {{< include sds/_subfiles/exploratory-descriptive/_prose-transformations.qmd >}}
 
-### Rescaling a variable {#sec-rescaling}
+## Rescaling a variable {#sec-rescaling}
 
 {{< include sds/_subfiles/exploratory-descriptive/_exr-standardize.qmd >}}
 
@@ -325,16 +325,16 @@ continuous variable across the groups defined by a categorical variable
 
 {{< include sds/_subfiles/exploratory-descriptive/_exm-min-max-wcgs.qmd >}}
 
-## An exploratory data analysis workflow
+# An exploratory data analysis workflow
 
 {{< include sds/_subfiles/exploratory-descriptive/_prose-workflow.qmd >}}
 
-## Further reading
+# Further reading
 
 {{< include sds/_subfiles/exploratory-descriptive/_prose-further-reading.qmd >}}
 
 
-## References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::

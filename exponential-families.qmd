@@ -30,7 +30,7 @@ and they share properties that make estimation easier.
 This page defines the form and its [natural parameter](#def-natural-parameter),
 and checks the form for the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) on data.
 
-## The exponential family form {#sec-exponential-family}
+# The exponential family form {#sec-exponential-family}
 
 {{< include sds/_subfiles/exponential-families/_def-exponential-family.qmd >}}
 
@@ -46,11 +46,11 @@ and checks the form for the [Poisson distribution](https://morrison-lab.github.i
 
 {{< include sds/_subfiles/exponential-families/_exm-poisson-natural-parameter.qmd >}}
 
-## Further reading {#sec-exponential-families-reading}
+# Further reading {#sec-exponential-families-reading}
 
 - The [Fall 2024 course site for UC Berkeley's Stat 210A, *Theoretical Statistics*](https://stat210a.berkeley.edu/fall-2024/) (Will Fithian) has a course reader on exponential families, sufficiency, completeness and [unbiased](estimation.qmd#def-unbiased) estimation.
 
-## References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::
