@@ -1,0 +1,9 @@
+:::{#def-predicted-probability}
+#### Predicted probability
+
+The **predicted probability** of [class](#def-class) $k$ at features $x$ is
+a fitted model's estimate of the conditional probability of that class given those features:
+
+$$\est{\Pr}\paren{Y = k \given x} \eqdef \text{the model's estimate of } \Pr\paren{Y = k \given x}$$ {#eq-predicted-probability}
+
+:::
