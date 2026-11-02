@@ -7,6 +7,7 @@ the [conditional probability](https://morrison-lab.github.io/pds/probability-bas
 $$\ep_k(\predvar) \eqdef \Prf{\Outvar = k \given \predvar}$$ {#eq-predicted-probability}
 
 When the model is [fitted](model-validation.qmd#def-fitted-model),
-the predicted probability is an [estimate](estimation.qmd#def-estimate) of the true conditional probability, which the model does not claim to equal.
+the predicted probability is an [estimate](estimation.qmd#def-estimate) of the true conditional probability,
+and an estimate need not equal what it estimates.
 
 :::
