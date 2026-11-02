@@ -8,6 +8,6 @@ $$\ep_k(\predvar) \eqdef \Prf{\Outvar = k \given \predvar}$$ {#eq-predicted-prob
 
 When the model is [fitted](model-validation.qmd#def-fitted-model),
 the predicted probability is an [estimate](estimation.qmd#def-estimate) of the true conditional probability.
-The two can differ, because estimation error remains.
+The two can differ, by the [estimation error](estimation.qmd#def-estimation-error).
 
 :::
