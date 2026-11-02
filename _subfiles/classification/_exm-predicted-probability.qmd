@@ -1,0 +1,16 @@
+:::{#exm-predicted-probability}
+#### Predicted probability of COVID-19 after a positive test
+
+Consider the model that gives every person with a [positive](#def-positive-classification) test ($\predvar = \posclass$) the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of having COVID-19 that @exm-ppv computes.
+That probability is the [positive predictive value](#def-ppv),
+which is the predicted probability (@def-predicted-probability) of the [class](#def-class) "has COVID-19" ($k = 1$):
+
+$$\ep_1(\posclass) \approx 0.88$$ {#eq-predicted-probability-exm}
+
+The [classification rule](#def-classification-rule) of @exm-classification [predicts](prediction.qmd#def-prediction) "has COVID-19" for this person,
+and the predicted probability says how sure that [prediction](prediction.qmd#def-prediction) is:
+about 88%, not 100%.
+
+<!-- no-figure: a single number reused from the PPV example -->
+
+:::
