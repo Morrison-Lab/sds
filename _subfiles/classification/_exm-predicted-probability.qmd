@@ -1,13 +1,13 @@
 :::{#exm-predicted-probability}
 #### Predicted probability of COVID-19 after a positive test
 
-The [classification rule](#def-classification-rule) of @exm-classification has one [feature](model-validation.qmd#def-feature), the test result.
+The model of @exm-ppv gives each person tested a probability of having COVID-19 from the test result alone.
 For a person whose test is [positive](#def-positive-classification) ($\predvar = \posclass$),
-the [positive predictive value](#def-ppv) of @exm-ppv is the predicted probability (@def-predicted-probability) of the [class](#def-class) "has COVID-19":
+that probability is the [positive predictive value](#def-ppv), the predicted probability (@def-predicted-probability) of the [class](#def-class) "has COVID-19" ($\Outvar = 1$):
 
-$$\hat{p}_{\text{has COVID-19}}(\posclass) \approx 0.88$$ {#eq-predicted-probability-exm}
+$$\est{p}(\posclass) \approx 0.88$$ {#eq-predicted-probability-exm}
 
-The rule [predicts](prediction.qmd#def-prediction) "has COVID-19" for this person,
+The [classification rule](#def-classification-rule) of @exm-classification [predicts](prediction.qmd#def-prediction) "has COVID-19" for this person,
 and the predicted probability says how sure that [prediction](prediction.qmd#def-prediction) is:
 about 88%, not 100%.
 
