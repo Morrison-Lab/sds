@@ -4,6 +4,7 @@ format:
   html: default
   revealjs:
     output-file: inference-slides.html
+    shift-heading-level-by: 1
   pdf:
     output-file: inference-handout.pdf
   docx:

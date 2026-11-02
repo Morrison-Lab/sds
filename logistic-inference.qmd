@@ -4,6 +4,7 @@ format:
   html: default
   revealjs:
     output-file: logistic-inference-slides.html
+    shift-heading-level-by: 1
   pdf:
     output-file: logistic-inference-handout.pdf
   docx:
