@@ -356,15 +356,14 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-02 11:15:31 (PST)</p>
+  <p class="date">Last modified: 2026-11-02 11:44:16 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
 </style></section><section id="sec-predictions" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Predictions, fitted values, residuals, and prediction errors</h2>
-<!-- No slidebreak here: the heading shares its slide with the def-prediction div. -->
-<div id="def-prediction" class="theorem definition">
+</section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the def-prediction div. --><div id="def-prediction" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Prediction (predicted value))</strong></span> A <strong>prediction</strong> (or <strong>predicted value</strong>) <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> of an outcome <span class="math inline">\(Y\)</span> with covariate value <span class="math inline">\(X = x\)</span> is a number computed from <span class="math inline">\(x\)</span> and from data <span class="math inline">\((x_1, y_1), \ldots, (x_n, y_n)\)</span> by a rule <span class="math inline">\(g\)</span>, and used as a guess of <span class="math inline">\(Y\)</span>:</p>
 <p><span class="math display">\[{\hat y\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.\]</span></p>
 </div>
@@ -503,8 +502,7 @@ text-align: center;
 </div>
 </section><section id="sec-prediction-mse" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Sample mean squared error of predictions</h2>
-<!-- No slidebreak here: the heading shares its slide with the def-prediction-mse div. -->
-<div id="def-prediction-mse" class="theorem definition">
+</section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the def-prediction-mse div. --><div id="def-prediction-mse" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Mean squared error of predictions)</strong></span> The <strong>sample mean squared error (sMSE)</strong> of predictions, also called their <strong>mean squared error</strong>, <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the mean of their squared <a href="#/def-prediction-error">prediction errors</a>:</p>
 <p><span class="math display">\[{\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n{\varepsilon_{\text{pred}}}_i^2.\]</span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_mean_squared_prediction_error">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
@@ -603,8 +601,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </section><section id="sec-estimation-vs-prediction" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Estimation versus prediction</h2>
-<!-- No slidebreak here: the heading shares its slide with the remark. -->
-<div id="rem-estimation-vs-prediction" class="proof remark">
+</section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the remark. --><div id="rem-estimation-vs-prediction" class="proof remark">
 <p><span class="proof-title"><em>Remark 5</em> (Estimation versus prediction). </span>Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error (a pMSE for an estimator, an sMSE for predictions), but they aim at different targets:</p>
 <ul>
 <li>
@@ -618,8 +615,8 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </ul>
 <p><a href="./model-validation.html">Validating Predictions</a> estimates the prediction error on new observations.</p>
 </div>
-</section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+</section><section id="references" class="slide level2 unnumbered"><h2>References</h2>
+</section><section class="slide level2 smaller scrollable" id="references"><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-hastie2009elements" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
 <div class="csl-right-inline">T. Hastie, R. Tibshirani, and J. Friedman, <em>The elements of statistical learning: Data mining, inference, and prediction</em>, 2nd ed. Springer, 2009. doi: <a href="https://doi.org/10.1007/978-0-387-84858-7">10.1007/978-0-387-84858-7</a>.</div>
