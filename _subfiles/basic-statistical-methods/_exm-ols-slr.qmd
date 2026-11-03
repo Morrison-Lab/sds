@@ -48,4 +48,7 @@ The dot marks the OLS estimates;
 the cross marks the line of @exm-rss.
 
 :::
+
+{{< include sds/_subfiles/basic-statistical-methods/_fig-rss-surface-3d.qmd >}}
+
 :::
