@@ -31,8 +31,8 @@
     return e;
   }
   function href(n, g) {
-    if (n.url) return n.url;
     if (n.site !== g.site && g.bases && g.bases[n.site]) return g.bases[n.site] + n.page + ".html#" + n.div;
+    if (n.url) return n.url;
     return (n.page === page ? "" : n.page + ".html") + "#" + n.div;
   }
   function clip(s) { return s.length > 30 ? s.slice(0, 29) + "…" : s; }
@@ -245,8 +245,7 @@
       var keys = Object.keys(nodes);
       if (!keys.length) return;
       edges.forEach(function (e) { (uses[e[0]] = uses[e[0]] || []).push(e[1]); });
-      keys.forEach(function (k) { delete nodes[k].url; });
-      tree(host, { site: "", edges: edges, bases: bases }, nodes, uses, keys.filter(function (k) { return nodes[k]; }));
+      tree(host, { site: "", edges: edges, bases: bases }, nodes, uses, keys);
     });
   }
 
