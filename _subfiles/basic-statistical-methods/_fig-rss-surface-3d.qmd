@@ -79,8 +79,7 @@ cat(
 )
 ```
 
-The surface whose contours are in @fig-rss-surface:
-$\text{RSS}(\intcoef, \coef{x})$ for the three points of @exm-rss.
+Surface of $\RSS(\intcoef, \coef{x})$ for the three points of @exm-rss.
 The dot at the bottom of the bowl marks the [OLS estimates](#def-ols);
 the cross marks the line of @exm-rss.
 
