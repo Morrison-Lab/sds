@@ -1,0 +1,21 @@
+# Flags a contour or level-curve plot with no 3D surface plot of the same function
+# when a PR adds a line to its code chunk.
+# Add a sibling <name>-3d.qmd subfile, or `<!-- no-3d: reason -->` in the file.
+# Warn-only while the existing contour plots are backfilled.
+name: Check contour 3D plots
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-contour-3d.yml@v3
+    with:
+      fail: false
+      paths-ignore: '_extensions/**,**/outtakes/**'
