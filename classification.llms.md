@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-04 10:29:05 (PST)
+Last modified: 2026-11-04 10:46:13 (PST)
 
 # 1 Introduction
 
@@ -46,7 +46,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > **Definition 4 (Predicted probability)** The **predicted probability** of [class](#def-class) $k$ at [features](model-validation.llms.md#def-feature) $x$ is the [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) of that class given those features, under a model:
 >
-> $$\mathop{\hat{\operatorname{p}}}\nolimits_k(x) \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(Y= k \mid x\right)\mathclose{}} \tag{2}$$
+> $$\mathop{\hat{\mathbb{p}}}\nolimits_k(x) \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(Y= k \mid x\right)\mathclose{}} \tag{2}$$
 >
 > When the model is [fitted](model-validation.llms.md#def-fitted-model), the predicted probability is an [estimate](estimation.llms.md#def-estimate) of the true conditional probability. The two can differ, by the [estimation error](estimation.llms.md#def-estimation-error).
 
@@ -216,7 +216,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > **Example 6 (Predicted probability of COVID-19 after a positive test)** Consider the model that gives every person with a [positive](#def-positive-classification) test ($x= {+}$) the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of having COVID-19 that [Example 5](#exm-ppv) computes. That probability is the [positive predictive value](#def-ppv), which is the predicted probability ([Definition 4](#def-predicted-probability)) of the [class](#def-class) “has COVID-19” ($k = 1$):
 >
-> $$\mathop{\hat{\operatorname{p}}}\nolimits_1({+}) \approx 0.88 \tag{19}$$
+> $$\mathop{\hat{\mathbb{p}}}\nolimits_1({+}) \approx 0.88 \tag{19}$$
 >
 > The [classification rule](#def-classification-rule) of [Example 1](#exm-classification) [predicts](prediction.llms.md#def-prediction) “has COVID-19” for this person, and the predicted probability says how sure that [prediction](prediction.llms.md#def-prediction) is: about 88%, not 100%.
 

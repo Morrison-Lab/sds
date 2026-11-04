@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-04 10:29:05 (PST)
+Last modified: 2026-11-04 10:46:13 (PST)
 
 # 1 Data sets, input matrices and outcome vectors
 
@@ -884,8 +884,8 @@ Last modified: 2026-11-04 10:29:05 (PST)
 >
 > $${\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}
 > = \int \cdots \int
-> \mathopen{}\left(\int \mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}} - y\right)\mathclose{} \operatorname{p}(Y_{*}= y\mid X_{*}= x) \, dy\right)\mathclose{}
-> \prod_{i= 1}^{n} \operatorname{p}(X_i= x_i,\, Y_i= y_i)
+> \mathopen{}\left(\int \mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}} - y\right)\mathclose{} \mathbb{p}(Y_{*}= y\mid X_{*}= x) \, dy\right)\mathclose{}
+> \prod_{i= 1}^{n} \mathbb{p}(X_i= x_i,\, Y_i= y_i)
 > \, dx_1 \, dy_1 \cdots dx_n\, dy_n.
 > \tag{33}$$
 >
@@ -2350,11 +2350,11 @@ Last modified: 2026-11-04 10:29:05 (PST)
 
 > **NOTE:**
 >
-> *Remark 33* (Cross-product matrix as a matrix product). Let $D$ be the matrix whose rows are the transposed [term vectors](#def-term-vector) ${\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}}^{\top}$, $i\in I$. The cross-product matrix then equals the matrix product
+> *Remark 33* (Cross-product matrix as a matrix product). Let $\mathbf{D}$ be the matrix whose rows are the transposed [term vectors](#def-term-vector) ${\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}}^{\top}$, $i\in I$. The cross-product matrix then equals the matrix product
 >
-> $$A= {D}^{\top} D.$$
+> $$A= {\mathbf{D}}^{\top} \mathbf{D}.$$
 >
-> Its diagonal entries are sums of squares of one term over the training set. Its off-diagonal entries are sums of cross-products of two different terms. Statisticians therefore call $A$ the sum-of-squares and cross-products (SSCP) matrix of the terms. When every column of $D$ has mean zero, $A/ (\mathopen{}\left|I\right|\mathclose{} - 1)$ is the sample covariance matrix of the terms.
+> Its diagonal entries are sums of squares of one term over the training set. Its off-diagonal entries are sums of cross-products of two different terms. Statisticians therefore call $A$ the sum-of-squares and cross-products (SSCP) matrix of the terms. When every column of $\mathbf{D}$ has mean zero, $A/ (\mathopen{}\left|I\right|\mathclose{} - 1)$ is the sample covariance matrix of the terms.
 >
 > > **NOTE:**
 > >

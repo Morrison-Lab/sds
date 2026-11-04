@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-04 10:29:05 (PST)</p>
+  <p class="date">Last modified: 2026-11-04 10:46:13 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -380,7 +380,7 @@ text-align: center;
 </div>
 </section><section class="slide level2"><div id="def-predicted-probability" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Predicted probability)</strong></span> The <strong>predicted probability</strong> of <a href="#/def-class">class</a> <span class="math inline">\(k\)</span> at <a href="./model-validation.html#def-feature">features</a> <span class="math inline">\(x\)</span> is the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob">conditional probability</a> of that class given those features, under a model:</p>
-<p><span id="eq-predicted-probability"><span class="math display">\[\mathop{\hat{\operatorname{p}}}\nolimits_k(x) \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(Y= k \mid x\right)\mathclose{}} \tag{2}\]</span></span></p>
+<p><span id="eq-predicted-probability"><span class="math display">\[\mathop{\hat{\mathbb{p}}}\nolimits_k(x) \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(Y= k \mid x\right)\mathclose{}} \tag{2}\]</span></span></p>
 <p>When the model is <a href="./model-validation.html#def-fitted-model">fitted</a>, the predicted probability is an <a href="./estimation.html#def-estimate">estimate</a> of the true conditional probability. The two can differ, by the <a href="./estimation.html#def-estimation-error">estimation error</a>.</p>
 </div>
 </section><section class="slide level2"><div id="def-binary-classification" class="theorem definition">
@@ -507,7 +507,7 @@ c(x) \stackrel{\text{def}}{=}
 </div>
 </section><section class="slide level2"><div id="exm-predicted-probability" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Predicted probability of COVID-19 after a positive test)</strong></span> Consider the model that gives every person with a <a href="#/def-positive-classification">positive</a> test (<span class="math inline">\(x= {+}\)</span>) the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> of having COVID-19 that <a href="#/exm-ppv" class="quarto-xref">Example&nbsp;5</a> computes. That probability is the <a href="#/def-ppv">positive predictive value</a>, which is the predicted probability (<a href="#/def-predicted-probability" class="quarto-xref">Definition&nbsp;4</a>) of the <a href="#/def-class">class</a> “has COVID-19” (<span class="math inline">\(k = 1\)</span>):</p>
-<p><span id="eq-predicted-probability-exm"><span class="math display">\[\mathop{\hat{\operatorname{p}}}\nolimits_1({+}) \approx 0.88 \tag{19}\]</span></span></p>
+<p><span id="eq-predicted-probability-exm"><span class="math display">\[\mathop{\hat{\mathbb{p}}}\nolimits_1({+}) \approx 0.88 \tag{19}\]</span></span></p>
 <p>The <a href="#/def-classification-rule">classification rule</a> of <a href="#/exm-classification" class="quarto-xref">Example&nbsp;1</a> <a href="./prediction.html#def-prediction">predicts</a> “has COVID-19” for this person, and the predicted probability says how sure that <a href="./prediction.html#def-prediction">prediction</a> is: about 88%, not 100%.</p>
 <!-- no-figure: a single number reused from the PPV example -->
 </div>

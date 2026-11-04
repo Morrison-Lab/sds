@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-04 10:29:05 (PST)
+Last modified: 2026-11-04 10:46:13 (PST)
 
 # 1 Overview of maximum likelihood estimation
 
@@ -24,9 +24,9 @@ These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with s
 
 > **NOTE:**
 >
-> **Definition 1 (Likelihood of a single observation)** Let $X$ be a random variable, with observed value $x$, and let $\operatorname{p}_{\Theta}(X = x)$ be a probability model for the distribution of $X$, with parameter vector $\Theta$. The **likelihood** of the parameter value $\theta$, for model $\operatorname{p}_{\Theta}(X = x)$ and data $X = x$, is the probability of the event $X = x$ when $\Theta= \theta$:
+> **Definition 1 (Likelihood of a single observation)** Let $X$ be a random variable, with observed value $x$, and let $\mathbb{p}_{\Theta}(X = x)$ be a probability model for the distribution of $X$, with parameter vector $\Theta$. The **likelihood** of the parameter value $\theta$, for model $\mathbb{p}_{\Theta}(X = x)$ and data $X = x$, is the probability of the event $X = x$ when $\Theta= \theta$:
 >
-> $$\mathcal{L}(\theta) \stackrel{\text{def}}{=}\operatorname{p}_{\theta}(X = x)$$
+> $$\mathcal{L}(\theta) \stackrel{\text{def}}{=}\mathbb{p}_{\theta}(X = x)$$
 >
 > For a continuous random variable, the likelihood is the probability density of $X$ at $x$ instead.
 
@@ -34,18 +34,18 @@ These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with s
 >
 > **Example 1 (Likelihood of one Bernoulli observation)** If $X$ is a [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) variable, $X \sim \operatorname{Ber}(\pi)$, then
 >
-> $$\operatorname{p}_{\pi}(X = x) = \pi^x (1 - \pi)^{1 - x}$$
+> $$\mathbb{p}_{\pi}(X = x) = \pi^x (1 - \pi)^{1 - x}$$
 >
 > for $x \in \mathopen{}\left\{0, 1\right\}\mathclose{}$. If we observe $x = 1$, the likelihood is $\mathcal{L}(\pi) = \pi$: for example, $\mathcal{L}(0.2) = 0.2$ and $\mathcal{L}(0.7) = 0.7$, so the observation $x = 1$ is more likely under $\pi= 0.7$ than under $\pi= 0.2$.
 
 > **NOTE:**
 >
-> **Definition 2 (Likelihood of a dataset)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\stackrel{\text{def}}{=}x_1, \ldots, x_n$ be a dataset with corresponding random vector $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$, and let $\operatorname{p}_{\Theta}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})$ be a probability model for the distribution of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$, with unknown parameter vector $\Theta$. The **likelihood** of the parameter value $\theta$, for model $\operatorname{p}_{\Theta}$ and data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$, is the *joint probability* (or joint density) of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ when $\Theta= \theta$:
+> **Definition 2 (Likelihood of a dataset)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\stackrel{\text{def}}{=}x_1, \ldots, x_n$ be a dataset with corresponding random vector $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$, and let $\mathbb{p}_{\Theta}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})$ be a probability model for the distribution of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$, with unknown parameter vector $\Theta$. The **likelihood** of the parameter value $\theta$, for model $\mathbb{p}_{\Theta}$ and data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$, is the *joint probability* (or joint density) of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ when $\Theta= \theta$:
 >
 > $$\begin{aligned}
-> \mathcal{L}(\theta) &\stackrel{\text{def}}{=}\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \Theta= \theta)
+> \mathcal{L}(\theta) &\stackrel{\text{def}}{=}\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \Theta= \theta)
 > && \text{(definition of the likelihood)}\\
-> &= \operatorname{p}(X_1 = x_1, \ldots, X_n = x_n \mid \Theta= \theta)
+> &= \mathbb{p}(X_1 = x_1, \ldots, X_n = x_n \mid \Theta= \theta)
 > && \text{(write $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ componentwise)}
 > \end{aligned}$$
 >
@@ -63,9 +63,9 @@ These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with s
 >
 > *Solution 1*. $$\begin{aligned}
 > \mathcal{L}(\theta)
-> &\stackrel{\text{def}}{=}\operatorname{p}(X_1 = x_1, \ldots, X_n = x_n \mid \theta)
+> &\stackrel{\text{def}}{=}\mathbb{p}(X_1 = x_1, \ldots, X_n = x_n \mid \theta)
 > && \text{(definition of likelihood)}\\
-> &= \prod_{i=1}^n\operatorname{p}(X_i= x_i\mid \theta)
+> &= \prod_{i=1}^n\mathbb{p}(X_i= x_i\mid \theta)
 > && \text{(definition of mutual independence)}
 > \end{aligned}$$
 
@@ -73,7 +73,7 @@ These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with s
 >
 > **Theorem 1 (Likelihood of an independent sample)** For [mutually independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) data $X_1, \ldots, X_n$:
 >
-> $$\mathcal{L}(\theta) = \prod_{i=1}^n\operatorname{p}(X_i= x_i\mid \theta) \tag{1}$$
+> $$\mathcal{L}(\theta) = \prod_{i=1}^n\mathbb{p}(X_i= x_i\mid \theta) \tag{1}$$
 
 > **NOTE:**
 >
@@ -83,7 +83,7 @@ These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with s
 >
 > **Definition 3 (Likelihood component (likelihood factor))** For a dataset $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ of mutually independent observations, the **likelihood component** (or **likelihood factor**) of observation $X_i= x_i$ is the likelihood of that observation alone:
 >
-> $$\mathcal{L}_i(\theta) \stackrel{\text{def}}{=}\operatorname{p}(X_i= x_i\mid \theta)$$
+> $$\mathcal{L}_i(\theta) \stackrel{\text{def}}{=}\mathbb{p}(X_i= x_i\mid \theta)$$
 
 > **NOTE:**
 >
@@ -93,7 +93,7 @@ These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with s
 >
 > *Solution 2*. $$\begin{aligned}
 > \mathcal{L}(\theta)
-> &= \prod_{i=1}^n\operatorname{p}(X_i= x_i\mid \theta)
+> &= \prod_{i=1}^n\mathbb{p}(X_i= x_i\mid \theta)
 > && \text{(likelihood of an independent sample)}\\
 > &= \prod_{i=1}^n\mathcal{L}_i(\theta)
 > && \text{(definition of likelihood components)}
@@ -156,7 +156,7 @@ $$\begin{aligned}
 \mathcal{L}'(\theta)
 &= \frac{\partial}{\partial \theta} \mathcal{L}(\theta)
 && \text{(notation for the derivative)}\\
-&= \frac{\partial}{\partial \theta} \prod_{i=1}^n\operatorname{p}(X_i= x_i\mid \theta)
+&= \frac{\partial}{\partial \theta} \prod_{i=1}^n\mathbb{p}(X_i= x_i\mid \theta)
 && \text{(likelihood of mutually independent data)}
 \end{aligned}
 \tag{3}$$
@@ -167,7 +167,7 @@ $$\begin{aligned}
 
 > **NOTE:**
 >
-> **Definition 6 (Log-likelihood)** The **log-likelihood** of parameter value $\theta$, for model $\operatorname{p}_{\Theta}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}})$ and data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$, is the natural logarithm of the likelihood:
+> **Definition 6 (Log-likelihood)** The **log-likelihood** of parameter value $\theta$, for model $\mathbb{p}_{\Theta}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}})$ and data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$, is the natural logarithm of the likelihood:
 >
 > $$\ell\stackrel{\text{def}}{=}{\operatorname{log}\mathopen{}\left\{\mathcal{L}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}|\theta)\right\}\mathclose{}} \tag{4}$$
 
@@ -195,7 +195,7 @@ $$\begin{aligned}
 
 > **NOTE:**
 >
-> **Exercise 4 (Log-likelihood of an independent sample)** For mutually independent data $X_1, \ldots, X_n$, use [Theorem 1](#thm-lik-iid) to write the [log-likelihood](#def-loglik) $\ell(\theta)$ as a sum over the observations. What does each term become if the $X_i$ also share a common distribution $\operatorname{p}(X = x \mid \theta)$?
+> **Exercise 4 (Log-likelihood of an independent sample)** For mutually independent data $X_1, \ldots, X_n$, use [Theorem 1](#thm-lik-iid) to write the [log-likelihood](#def-loglik) $\ell(\theta)$ as a sum over the observations. What does each term become if the $X_i$ also share a common distribution $\mathbb{p}(X = x \mid \theta)$?
 
 > **NOTE:**
 >
@@ -203,25 +203,25 @@ $$\begin{aligned}
 > \ell(\theta)
 > &\stackrel{\text{def}}{=}\log{\mathcal{L}(\theta)}
 > && \text{(definition of log-likelihood)}\\
-> &= \log{\prod_{i=1}^n\operatorname{p}(X_i= x_i\mid \theta)}
+> &= \log{\prod_{i=1}^n\mathbb{p}(X_i= x_i\mid \theta)}
 > && \text{(likelihood of an independent sample)}\\
-> &= \sum_{i=1}^n\log{\operatorname{p}(X_i= x_i\mid \theta)}
+> &= \sum_{i=1}^n\log{\mathbb{p}(X_i= x_i\mid \theta)}
 > && \text{(log of a product is a sum of logs)}
 > \end{aligned}$$
 >
 > With a common distribution,
 >
-> $$\operatorname{p}(X_i= x_i\mid \theta) = \operatorname{p}(X = x_i\mid \theta),$$
+> $$\mathbb{p}(X_i= x_i\mid \theta) = \mathbb{p}(X = x_i\mid \theta),$$
 >
-> so each term is $\log{\operatorname{p}(X = x_i\mid \theta)}$.
+> so each term is $\log{\mathbb{p}(X = x_i\mid \theta)}$.
 
 > **NOTE:**
 >
 > **Theorem 4 (Log-likelihood of an independent sample)** For mutually independent data $X_1, \ldots, X_n$:
 >
-> $$\ell(\theta) = \sum_{i=1}^n\log{\operatorname{p}(X_i= x_i\mid \theta)} \tag{5}$$
+> $$\ell(\theta) = \sum_{i=1}^n\log{\mathbb{p}(X_i= x_i\mid \theta)} \tag{5}$$
 >
-> If the $X_i$ also share a common distribution $\operatorname{p}(X = x \mid \theta)$, each term is $\log{\operatorname{p}(X = x_i\mid \theta)}$.
+> If the $X_i$ also share a common distribution $\mathbb{p}(X = x \mid \theta)$, each term is $\log{\mathbb{p}(X = x_i\mid \theta)}$.
 
 > **NOTE:**
 >
@@ -237,9 +237,9 @@ $$\begin{aligned}
 > \ell'(\theta)
 > &= \frac{\partial}{\partial \theta} \ell(\theta)
 > && \text{(notation for the derivative)}\\
-> &= \frac{\partial}{\partial \theta} \sum_{i=1}^n\log{\operatorname{p}(X = x_i\mid \theta)}
+> &= \frac{\partial}{\partial \theta} \sum_{i=1}^n\log{\mathbb{p}(X = x_i\mid \theta)}
 > && \text{(log-likelihood of an $\operatorname{iid}$ sample)}\\
-> &= \sum_{i=1}^n\frac{\partial}{\partial \theta} \log{\operatorname{p}(X = x_i\mid \theta)}
+> &= \sum_{i=1}^n\frac{\partial}{\partial \theta} \log{\mathbb{p}(X = x_i\mid \theta)}
 > && \text{(derivative of a sum is the sum of derivatives)}
 > \end{aligned}$$
 >
@@ -249,7 +249,7 @@ $$\begin{aligned}
 >
 > **Theorem 5 (Derivative of the log-likelihood function for** $\operatorname{iid}$ data) For $\operatorname{iid}$ data:
 >
-> $$\ell'(\theta) = \sum_{i=1}^n\frac{\partial}{\partial \theta} \log{\operatorname{p}(X = x_i\mid \theta)} \tag{6}$$
+> $$\ell'(\theta) = \sum_{i=1}^n\frac{\partial}{\partial \theta} \log{\mathbb{p}(X = x_i\mid \theta)} \tag{6}$$
 
 > **NOTE:**
 >
@@ -259,7 +259,7 @@ $$\begin{aligned}
 
 > **NOTE:**
 >
-> **Definition 7 (Score function)** The **score function** of a statistical model $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})$ is the gradient (vector of first derivatives) of the model’s log-likelihood with respect to the parameters:
+> **Definition 7 (Score function)** The **score function** of a statistical model $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})$ is the gradient (vector of first derivatives) of the model’s log-likelihood with respect to the parameters:
 >
 > $$\ell'\stackrel{\text{def}}{=}\frac{\partial}{\partial \theta} \ell(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}|\theta) \tag{7}$$
 >
@@ -391,7 +391,7 @@ $$\begin{aligned}
 >
 > *Solution 8*. The exponential density with mean $\mu$ is
 >
-> $$\operatorname{p}(X = x) = \mu^{-1} e^{-x/\mu}$$
+> $$\mathbb{p}(X = x) = \mu^{-1} e^{-x/\mu}$$
 >
 > for $x > 0$, so $\ell= -{\operatorname{log}\mathopen{}\left\{\mu\right\}\mathclose{}} - \frac{x}{\mu}$, and:
 >
@@ -553,16 +553,16 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Exercise 11 (Derivative of a density through its logarithm)** Let $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ be a density that is positive and differentiable in a scalar parameter $\theta$. Express $\frac{\partial}{\partial \theta}\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ in terms of $\frac{\partial}{\partial \theta}\log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$.
+> **Exercise 11 (Derivative of a density through its logarithm)** Let $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ be a density that is positive and differentiable in a scalar parameter $\theta$. Express $\frac{\partial}{\partial \theta}\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ in terms of $\frac{\partial}{\partial \theta}\log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$.
 
 > **NOTE:**
 >
-> *Solution 11*. By the chain rule, with outer function $\log u$ and inner function $u = \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$:
+> *Solution 11*. By the chain rule, with outer function $\log u$ and inner function $u = \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$:
 >
-> $$\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)
-> = \left.{\mathopen{}\left(\frac{d}{du} \log u\right)\mathclose{}}\right|_{u = \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)} \frac{\partial}{\partial \theta}\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta).$$
+> $$\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)
+> = \left.{\mathopen{}\left(\frac{d}{du} \log u\right)\mathclose{}}\right|_{u = \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)} \frac{\partial}{\partial \theta}\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta).$$
 >
-> The inner derivative $\frac{\partial}{\partial \theta}\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ is the quantity we want, so only the outer derivative needs working out:
+> The inner derivative $\frac{\partial}{\partial \theta}\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ is the quantity we want, so only the outer derivative needs working out:
 >
 > $$\begin{aligned}
 > \frac{d}{du} \log u
@@ -573,19 +573,19 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 > Plugging the outer derivative back in:
 >
 > $$\begin{aligned}
-> \frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)
-> &= \frac{1}{\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)} \frac{\partial}{\partial \theta}\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)
+> \frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)
+> &= \frac{1}{\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)} \frac{\partial}{\partial \theta}\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)
 > && \text{(outer derivative is $1/u$)}\\
-> \frac{\partial}{\partial \theta}\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)
-> &= \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)
-> && \text{(multiply both sides by $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) > 0$)}
+> \frac{\partial}{\partial \theta}\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)
+> &= \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)
+> && \text{(multiply both sides by $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) > 0$)}
 > \end{aligned}$$
 
 > **NOTE:**
 >
-> **Lemma 1 (Derivative of a density through its logarithm)** Let $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ be a density that is positive and differentiable in a scalar parameter $\theta$. Then its derivative with respect to $\theta$ is the derivative of its logarithm times the density:
+> **Lemma 1 (Derivative of a density through its logarithm)** Let $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ be a density that is positive and differentiable in a scalar parameter $\theta$. Then its derivative with respect to $\theta$ is the derivative of its logarithm times the density:
 >
-> $$\frac{\partial}{\partial \theta}\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) = \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$$
+> $$\frac{\partial}{\partial \theta}\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) = \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$$
 
 > **NOTE:**
 >
@@ -593,23 +593,23 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Exercise 12 (Mean of the score)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ be continuous with density $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ for a scalar parameter $\theta$. Suppose the set of possible data values does not depend on $\theta$, and the order of differentiation with respect to $\theta$ and integration over the data can be exchanged. Find the mean of the [score](#def-score).
+> **Exercise 12 (Mean of the score)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ be continuous with density $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ for a scalar parameter $\theta$. Suppose the set of possible data values does not depend on $\theta$, and the order of differentiation with respect to $\theta$ and integration over the data can be exchanged. Find the mean of the [score](#def-score).
 
 > **NOTE:**
 >
-> *Solution 12*. The step that rewrites the derivative of $\log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ uses [Lemma 1](#lem-deriv-log-density):
+> *Solution 12*. The step that rewrites the derivative of $\log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ uses [Lemma 1](#lem-deriv-log-density):
 >
 > $$\begin{aligned}
 > {\mathbb{E}\mathopen{}\left[\ell'\right]\mathclose{}}
-> &= \int \ell'\, \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> &= \int \ell'\, \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
 > && \text{(definition of expectation)}\\
-> &= \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> &= \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
 > && \text{(definition of the score)}\\
-> &= \int \frac{\frac{\partial}{\partial \theta} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)}{\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> &= \int \frac{\frac{\partial}{\partial \theta} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)}{\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
 > && \text{(chain rule for $\log$)}\\
-> &= \int \frac{\partial}{\partial \theta} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
-> && \text{(cancel $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$)}\\
-> &= \frac{\partial}{\partial \theta} \int \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> &= \int \frac{\partial}{\partial \theta} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> && \text{(cancel $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$)}\\
+> &= \frac{\partial}{\partial \theta} \int \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
 > && \text{(exchange derivative and integral)}\\
 > &= \frac{\partial}{\partial \theta} 1
 > && \text{(a density integrates to 1)}\\
@@ -619,7 +619,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Theorem 11 (Mean of the score)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ be a continuous random vector with density $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ for a scalar parameter $\theta$. Suppose the set of possible data values does not depend on $\theta$, and the order of differentiation with respect to $\theta$ and integration over the data can be exchanged. Then the [score](#def-score) $\ell'$, the derivative of the log-likelihood with respect to $\theta$, has expectation zero:
+> **Theorem 11 (Mean of the score)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ be a continuous random vector with density $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ for a scalar parameter $\theta$. Suppose the set of possible data values does not depend on $\theta$, and the order of differentiation with respect to $\theta$ and integration over the data can be exchanged. Then the [score](#def-score) $\ell'$, the derivative of the log-likelihood with respect to $\theta$, has expectation zero:
 >
 > $${\mathbb{E}\mathopen{}\left[\ell'\right]\mathclose{}} = 0$$
 
@@ -633,32 +633,32 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> *Solution 13*. By [Theorem 11](#thm-score-mean-zero), $0 = \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ for every $\theta$. Differentiate this identity with respect to $\theta$; the step that substitutes for $\frac{\partial}{\partial \theta}\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ uses [Lemma 1](#lem-deriv-log-density):
+> *Solution 13*. By [Theorem 11](#thm-score-mean-zero), $0 = \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ for every $\theta$. Differentiate this identity with respect to $\theta$; the step that substitutes for $\frac{\partial}{\partial \theta}\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ uses [Lemma 1](#lem-deriv-log-density):
 >
 > $$\begin{aligned}
 > \frac{\partial}{\partial \theta} 0
-> &= \frac{\partial}{\partial \theta} \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> &= \frac{\partial}{\partial \theta} \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
 > && \text{(differentiate both sides)}\\
 > 0
-> &= \frac{\partial}{\partial \theta} \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> &= \frac{\partial}{\partial \theta} \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
 > && \text{(derivative of a constant)}\\
-> &= \int \frac{\partial}{\partial \theta}\mathopen{}\left[\mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right]\mathclose{} d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> &= \int \frac{\partial}{\partial \theta}\mathopen{}\left[\mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right]\mathclose{} d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
 > && \text{(exchange derivative and integral)}\\
-> &= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
-> + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \frac{\partial}{\partial \theta}\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> &= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \frac{\partial}{\partial \theta}\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
 > && \text{(product rule)}\\
-> &= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
-> + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathopen{}\left(\frac{\partial}{\partial \theta}\log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
-> && \text{($\frac{\partial}{\partial \theta}\operatorname{p}= \mathopen{}\left(\frac{\partial}{\partial \theta}\log \operatorname{p}\right)\mathclose{} \operatorname{p}$)}\\
-> &= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
-> + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{}^2 \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> &= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathopen{}\left(\frac{\partial}{\partial \theta}\log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> && \text{($\frac{\partial}{\partial \theta}\mathbb{p}= \mathopen{}\left(\frac{\partial}{\partial \theta}\log \mathbb{p}\right)\mathclose{} \mathbb{p}$)}\\
+> &= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{}^2 \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
 > && \text{(product of two equal factors is a square)}\\
-> &= {\mathbb{E}\mathopen{}\left[\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \theta)\right]\mathclose{}}
-> + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{}^2 \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> &= {\mathbb{E}\mathopen{}\left[\frac{\partial^2}{\partial \theta^2} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \theta)\right]\mathclose{}}
+> + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{}^2 \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
 > && \text{(definition of expectation)}\\
-> &= {\mathbb{E}\mathopen{}\left[\ell''\right]\mathclose{}} + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{}^2 \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
+> &= {\mathbb{E}\mathopen{}\left[\ell''\right]\mathclose{}} + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{}^2 \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}
 > && \text{(definition of the Hessian)}\\
-> &= {\mathbb{E}\mathopen{}\left[\ell''\right]\mathclose{}} + {\mathbb{E}\mathopen{}\left[\mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \theta)\right)\mathclose{}^2\right]\mathclose{}}
+> &= {\mathbb{E}\mathopen{}\left[\ell''\right]\mathclose{}} + {\mathbb{E}\mathopen{}\left[\mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \theta)\right)\mathclose{}^2\right]\mathclose{}}
 > && \text{(definition of expectation)}\\
 > &= {\mathbb{E}\mathopen{}\left[\ell''\right]\mathclose{}} + {\mathbb{E}\mathopen{}\left[\ell'^2\right]\mathclose{}}
 > && \text{(definition of the score)}
@@ -703,7 +703,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> *Proof*. We give the proof for a scalar $\theta$ and a continuous $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ with density $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$; the vector case applies the same steps to each pair of entries, and a discrete $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ replaces integrals with sums.
+> *Proof*. We give the proof for a scalar $\theta$ and a continuous $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ with density $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$; the vector case applies the same steps to each pair of entries, and a discrete $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ replaces integrals with sums.
 >
 > [Equation 12](#eq-score-mean-zero) follows from [Theorem 11](#thm-score-mean-zero). For [Equation 13](#eq-information-equality), [Theorem 12](#thm-score-second-moment) gives $\mathcal{I}(\theta) = {\mathbb{E}\mathopen{}\left[\ell'^2\right]\mathclose{}}$, and because ${\mathbb{E}\mathopen{}\left[\ell'\right]\mathclose{}} = 0$,
 >
@@ -761,18 +761,18 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> *Remark 4* (The score is the negative derivative of the surprisal). For a [continuous](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$, the [surprisal](https://morrison-lab.github.io/ids/entropy.html#def-surprisal) of the data value $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ under parameter value $\theta$ is $-\log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$, which is minus the [log-likelihood](#def-loglik) $-\ell(\theta)$. So the [score](#def-score) is minus the derivative of the surprisal with respect to $\theta$. By [Theorem 13](#thm-information-equality), the [expected information](#def-einf) is the expected squared derivative of the surprisal, with the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) taken over the data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ when the parameter is $\theta$: $\mathcal{I}(\theta) = {\mathbb{E}\mathopen{}\left[\ell'^2\right]\mathclose{}}$.
+> *Remark 4* (The score is the negative derivative of the surprisal). For a [continuous](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$, the [surprisal](https://morrison-lab.github.io/ids/entropy.html#def-surprisal) of the data value $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ under parameter value $\theta$ is $-\log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$, which is minus the [log-likelihood](#def-loglik) $-\ell(\theta)$. So the [score](#def-score) is minus the derivative of the surprisal with respect to $\theta$. By [Theorem 13](#thm-information-equality), the [expected information](#def-einf) is the expected squared derivative of the surprisal, with the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) taken over the data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ when the parameter is $\theta$: $\mathcal{I}(\theta) = {\mathbb{E}\mathopen{}\left[\ell'^2\right]\mathclose{}}$.
 
 > **NOTE:**
 >
-> **Definition 12 (Kullback–Leibler divergence between two parameter values)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ be a [continuous](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) random vector with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ for a scalar parameter $\theta$, and let $\theta_0$ be the true parameter value. The [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the model with parameter $\theta$ from the model with parameter $\theta_0$ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation), under $\theta_0$, of the logarithm of the ratio of the two densities. As a [function](https://morrison-lab.github.io/mds/functions.html#def-function) of $\theta$, it is written
+> **Definition 12 (Kullback–Leibler divergence between two parameter values)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ be a [continuous](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) random vector with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ for a scalar parameter $\theta$, and let $\theta_0$ be the true parameter value. The [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the model with parameter $\theta$ from the model with parameter $\theta_0$ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation), under $\theta_0$, of the logarithm of the ratio of the two densities. As a [function](https://morrison-lab.github.io/mds/functions.html#def-function) of $\theta$, it is written
 >
 > $${{D_{\mathrm{KL}}}\mathopen{}\left(\theta_0 \,\Vert\, \theta\right)\mathclose{}}
-> \stackrel{\text{def}}{=}\mathbb{E}_{\theta_0}\mathopen{}\left[\log \frac{\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \theta_0)}{\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \theta)}\right]\mathclose{}.$$
+> \stackrel{\text{def}}{=}\mathbb{E}_{\theta_0}\mathopen{}\left[\log \frac{\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \theta_0)}{\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \theta)}\right]\mathclose{}.$$
 
 > **NOTE:**
 >
-> **Example 7 (Divergence between two Poisson rates)** For one [observation](exploratory-descriptive.llms.md#def-observation) $X\sim \operatorname{Pois}({\lambda}_0)$, $\log \operatorname{p}(x \mid {\lambda}) = x \log {\lambda}- {\lambda}- \log x!$, so
+> **Example 7 (Divergence between two Poisson rates)** For one [observation](exploratory-descriptive.llms.md#def-observation) $X\sim \operatorname{Pois}({\lambda}_0)$, $\log \mathbb{p}(x \mid {\lambda}) = x \log {\lambda}- {\lambda}- \log x!$, so
 >
 > $$\begin{aligned}
 > {{D_{\mathrm{KL}}}\mathopen{}\left({\lambda}_0 \,\Vert\, {\lambda}\right)\mathclose{}}
@@ -790,7 +790,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> *Solution 14*. Write $\ell(\theta) = \log \operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \theta)$.
+> *Solution 14*. Write $\ell(\theta) = \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \theta)$.
 >
 > $$\begin{aligned}
 > {{D_{\mathrm{KL}}}\mathopen{}\left(\theta_0 \,\Vert\, \theta\right)\mathclose{}}
@@ -3668,7 +3668,7 @@ Changing the sample size, the true $\mu$, or $\sigma^2$ in `do_n_sims()` shows h
 >
 > **Exercise 54 (Binomial likelihood (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let $Y \sim \text{Binomial}(n, \pi)$, so that
 >
-> $$\operatorname{p}(Y = y \mid \pi) = \binom{n}{y} \pi^y (1-\pi)^{n-y},
+> $$\mathbb{p}(Y = y \mid \pi) = \binom{n}{y} \pi^y (1-\pi)^{n-y},
 > \quad y \in \{0, 1, \ldots, n\}.$$
 >
 > Assume $0 < y < n$ so the MLE lies in the interior of $(0, 1)$.
@@ -4256,7 +4256,7 @@ Changing the sample size, the true $\mu$, or $\sigma^2$ in `do_n_sims()` shows h
 
 > **NOTE:**
 >
-> **Exercise 58 (Exponential MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \text{Exponential}(\mu)$, so that $$\operatorname{p}(X = x \mid \mu) = \frac{1}{\mu} e^{-x/\mu},
+> **Exercise 58 (Exponential MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \text{Exponential}(\mu)$, so that $$\mathbb{p}(X = x \mid \mu) = \frac{1}{\mu} e^{-x/\mu},
 > \quad x > 0, \quad \mu> 0.$$
 >
 > Write the [log-likelihood](#def-loglik) $\ell(\mu; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})$ for the observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)$.

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-04 10:29:05 (PST)
+Last modified: 2026-11-04 10:46:13 (PST)
 
 # 1 Introduction
 
@@ -173,7 +173,7 @@ dplyr::glimpse(wcgs)
 >
 > $${\mathbb{P}\mathopen{}\left(A\right)\mathclose{}} = \frac{\mathopen{}\left|{\mathopen{}\left\{u \in U : X(u) \in A\right\}\mathclose{}}\right|\mathclose{}}{N}.$$
 >
-> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function ${\operatorname{F}\mathopen{}\left(t\right)\mathclose{}} = {\mathbb{P}\mathopen{}\left((-\infty, t]\right)\mathclose{}}$ or, when it has one, by its probability mass or density function.
+> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function ${\mathbb{F}\mathopen{}\left(t\right)\mathclose{}} = {\mathbb{P}\mathopen{}\left((-\infty, t]\right)\mathclose{}}$ or, when it has one, by its probability mass or density function.
 
 > **NOTE:**
 >

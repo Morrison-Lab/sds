@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-04 10:29:05 (PST)
+Last modified: 2026-11-04 10:46:13 (PST)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -57,9 +57,9 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Theorem 1 (Factorization theorem)** Let $\operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{}$ be the joint probability mass function of a discrete sample $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$. A statistic ${T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}$ is [sufficient](#def-sufficient) for $\theta$ if and only if there are nonnegative functions $g$ and $h$ such that, for every sample $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ and every $\theta$,
+> **Theorem 1 (Factorization theorem)** Let $\mathbb{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{}$ be the joint probability mass function of a discrete sample $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$. A statistic ${T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}}$ is [sufficient](#def-sufficient) for $\theta$ if and only if there are nonnegative functions $g$ and $h$ such that, for every sample $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ and every $\theta$,
 >
-> $$\operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{} = {g\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}} ; \theta\right)\mathclose{}} \, {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}
+> $$\mathbb{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{} = {g\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}} ; \theta\right)\mathclose{}} \, {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}
 > \tag{2}$$
 >
 > where ${h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}$ does not depend on $\theta$.
@@ -73,7 +73,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 > **Sufficient implies a factorization.** Define ${g\mathopen{}\left(t ; \theta\right)\mathclose{}} \stackrel{\text{def}}{=}\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}$ and let ${h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}$ be the conditional probability $\Pr_{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}$ at any $\theta$ with $\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{} > 0$. By [sufficiency](#eq-sufficient), ${h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}$ does not depend on which such $\theta$ we use. (If $\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{} = 0$ for every $\theta$, set ${h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}} \stackrel{\text{def}}{=}0$.) Both functions are nonnegative, and at a $\theta$ with $\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{} = 0$ both sides of [Equation 2](#eq-factorization) are zero, because the event $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ lies inside the event ${T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t$. At every other $\theta$,
 >
 > $$\begin{aligned}
-> \operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{}
+> \mathbb{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{}
 > &= \Pr_{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}
 > && \text{(definition of the joint mass function)}\\
 > &= \Pr_{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}},\ {T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}
@@ -89,7 +89,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > $$\begin{aligned}
 > \Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}
-> &= \sum_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}:\, {T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = t} \operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}; \theta\right)\mathclose{}
+> &= \sum_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}:\, {T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = t} \mathbb{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}; \theta\right)\mathclose{}
 > && \text{(disjoint events add)}\\
 > &= \sum_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}:\, {T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = t} {g\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} ; \theta\right)\mathclose{}} \, {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}}
 > && \text{(factorization)}\\
@@ -103,7 +103,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > $$\begin{aligned}
 > \Pr_{\theta}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid{T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}
-> &= \frac{\operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{}}{\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}}
+> &= \frac{\mathbb{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{}}{\Pr_{\theta}\mathopen{}\left({T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}} = t\right)\mathclose{}}
 > && \text{(conditional probability)}\\
 > &= \frac{{g\mathopen{}\left(t ; \theta\right)\mathclose{}} \, {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}}
 >         {{g\mathopen{}\left(t ; \theta\right)\mathclose{}} \sum_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}:\, {T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = t} {h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}}}
@@ -123,7 +123,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 > **Example 1 (The sum is sufficient for a Poisson rate)** Let $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})$ and $S \stackrel{\text{def}}{=}\sum_{i=1}^nX_i$. The joint mass function of the sample is
 >
 > $$\begin{aligned}
-> \operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; {\lambda}\right)\mathclose{}
+> \mathbb{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; {\lambda}\right)\mathclose{}
 > &= \prod_{i=1}^n \frac{e^{-{\lambda}} {\lambda}^{x_i}}{x_i!}
 > && \text{(independent Poisson mass functions)}\\
 > &= e^{-n{\lambda}} {\lambda}^{\sum_{i=1}^nx_i} \prod_{i=1}^n \frac{1}{x_i!}

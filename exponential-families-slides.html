@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-04 10:29:05 (PST)</p>
+  <p class="date">Last modified: 2026-11-04 10:46:13 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -363,9 +363,9 @@ text-align: center;
 </section><section id="sec-exponential-family" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> The exponential family form</h2>
 </section><section class="slide level2"><div id="def-exponential-family" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Exponential family)</strong></span> Let <span class="math inline">\(X\)</span> be a random variable whose distribution depends on one parameter <span class="math inline">\(\eta\)</span>, and let <span class="math inline">\(\operatorname{f}\mathopen{}\left(x; \eta\right)\mathclose{}\)</span> be its <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> or <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a>. The distributions of <span class="math inline">\(X\)</span> form an <strong>exponential family</strong> if there are a nonnegative <a href="https://morrison-lab.github.io/mds/functions.html#def-function">function</a> <span class="math inline">\(h\)</span> and a function <span class="math inline">\(T\)</span> of <span class="math inline">\(x\)</span> alone, and a function <span class="math inline">\(A\)</span> of <span class="math inline">\(\eta\)</span> alone, such that</p>
+<p><span class="theorem-title"><strong>Definition 1 (Exponential family)</strong></span> Let <span class="math inline">\(X\)</span> be a random variable whose distribution depends on one parameter <span class="math inline">\(\eta\)</span>, and let <span class="math inline">\(\mathbb{f}\mathopen{}\left(x; \eta\right)\mathclose{}\)</span> be its <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> or <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a>. The distributions of <span class="math inline">\(X\)</span> form an <strong>exponential family</strong> if there are a nonnegative <a href="https://morrison-lab.github.io/mds/functions.html#def-function">function</a> <span class="math inline">\(h\)</span> and a function <span class="math inline">\(T\)</span> of <span class="math inline">\(x\)</span> alone, and a function <span class="math inline">\(A\)</span> of <span class="math inline">\(\eta\)</span> alone, such that</p>
 <p><span id="eq-exponential-family"><span class="math display">\[
-\operatorname{f}\mathopen{}\left(x; \eta\right)\mathclose{}
+\mathbb{f}\mathopen{}\left(x; \eta\right)\mathclose{}
 = {{h\mathopen{}\left(x\right)\mathclose{}}} \, {\operatorname{exp}\mathopen{}\left\{\eta\, {T\mathopen{}\left(x\right)\mathclose{}} - {A\mathopen{}\left(\eta\right)\mathclose{}}\right\}\mathclose{}}
 \tag{1}\]</span></span></p>
 <p>for every value <span class="math inline">\(x\)</span> and every allowed <span class="math inline">\(\eta\)</span>.</p>
@@ -377,7 +377,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Example 1 (The Poisson distribution is an exponential family)</strong></span> Let <span class="math inline">\(X\sim \operatorname{Pois}({\lambda})\)</span>, the <a href="https://morrison-lab.github.io/pds/distributions.html#def-poisson">Poisson distribution</a> with rate <span class="math inline">\({\lambda}&gt; 0\)</span>. Its <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> has one factor free of <span class="math inline">\({\lambda}\)</span>, and the factors <span class="math inline">\({\lambda}^{x}\)</span> and <span class="math inline">\({\operatorname{exp}\mathopen{}\left\{-{\lambda}\right\}\mathclose{}}\)</span>. We rewrite it in the form of <a href="#/eq-exponential-family" class="quarto-xref">Equation&nbsp;1</a> by writing <span class="math inline">\({\lambda}^{x}\)</span> as an exponential of a logarithm:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\operatorname{f}\mathopen{}\left(x; {\lambda}\right)\mathclose{}
+\mathbb{f}\mathopen{}\left(x; {\lambda}\right)\mathclose{}
 &amp;= \frac{{\lambda}^{x} \, {\operatorname{exp}\mathopen{}\left\{-{\lambda}\right\}\mathclose{}}}{x!}
 &amp;&amp; \text{(Poisson mass function)}\\
 &amp;= \frac{1}{x!} \, {\operatorname{exp}\mathopen{}\left\{{\operatorname{log}\mathopen{}\left\{{\lambda}^{x}\right\}\mathclose{}}\right\}\mathclose{}} \, {\operatorname{exp}\mathopen{}\left\{-{\lambda}\right\}\mathclose{}}

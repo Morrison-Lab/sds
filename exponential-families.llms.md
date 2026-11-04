@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-04 10:29:05 (PST)
+Last modified: 2026-11-04 10:46:13 (PST)
 
 Many of the distributions in this course, such as the [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli), [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) and [Normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) distributions, share one algebraic form for their [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). Distributions with that form are called an [exponential family](#def-exponential-family), and they share properties that make estimation easier. This page defines the form and its [natural parameter](#def-natural-parameter), and checks the form for the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) on data.
 
@@ -12,9 +12,9 @@ Many of the distributions in this course, such as the [Bernoulli](https://morris
 
 > **NOTE:**
 >
-> **Definition 1 (Exponential family)** Let $X$ be a random variable whose distribution depends on one parameter $\eta$, and let $\operatorname{f}\mathopen{}\left(x; \eta\right)\mathclose{}$ be its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). The distributions of $X$ form an **exponential family** if there are a nonnegative [function](https://morrison-lab.github.io/mds/functions.html#def-function) $h$ and a function $T$ of $x$ alone, and a function $A$ of $\eta$ alone, such that
+> **Definition 1 (Exponential family)** Let $X$ be a random variable whose distribution depends on one parameter $\eta$, and let $\mathbb{f}\mathopen{}\left(x; \eta\right)\mathclose{}$ be its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). The distributions of $X$ form an **exponential family** if there are a nonnegative [function](https://morrison-lab.github.io/mds/functions.html#def-function) $h$ and a function $T$ of $x$ alone, and a function $A$ of $\eta$ alone, such that
 >
-> $$\operatorname{f}\mathopen{}\left(x; \eta\right)\mathclose{}
+> $$\mathbb{f}\mathopen{}\left(x; \eta\right)\mathclose{}
 > = {{h\mathopen{}\left(x\right)\mathclose{}}} \, {\operatorname{exp}\mathopen{}\left\{\eta\, {T\mathopen{}\left(x\right)\mathclose{}} - {A\mathopen{}\left(\eta\right)\mathclose{}}\right\}\mathclose{}}
 > \tag{1}$$
 >
@@ -29,7 +29,7 @@ Many of the distributions in this course, such as the [Bernoulli](https://morris
 > **Example 1 (The Poisson distribution is an exponential family)** Let $X\sim \operatorname{Pois}({\lambda})$, the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) with rate ${\lambda}> 0$. Its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) has one factor free of ${\lambda}$, and the factors ${\lambda}^{x}$ and ${\operatorname{exp}\mathopen{}\left\{-{\lambda}\right\}\mathclose{}}$. We rewrite it in the form of [Equation 1](#eq-exponential-family) by writing ${\lambda}^{x}$ as an exponential of a logarithm:
 >
 > $$\begin{aligned}
-> \operatorname{f}\mathopen{}\left(x; {\lambda}\right)\mathclose{}
+> \mathbb{f}\mathopen{}\left(x; {\lambda}\right)\mathclose{}
 > &= \frac{{\lambda}^{x} \, {\operatorname{exp}\mathopen{}\left\{-{\lambda}\right\}\mathclose{}}}{x!}
 > && \text{(Poisson mass function)}\\
 > &= \frac{1}{x!} \, {\operatorname{exp}\mathopen{}\left\{{\operatorname{log}\mathopen{}\left\{{\lambda}^{x}\right\}\mathclose{}}\right\}\mathclose{}} \, {\operatorname{exp}\mathopen{}\left\{-{\lambda}\right\}\mathclose{}}

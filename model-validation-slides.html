@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-04 10:29:05 (PST)</p>
+  <p class="date">Last modified: 2026-11-04 10:46:13 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -1172,8 +1172,8 @@ Figure&nbsp;1: The fitted lines of 100 of the 2000 training sets (grey), their p
 <p><span id="eq-prediction-bias-integral"><span class="math display">\[
 {\operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}
 = \int \cdots \int
-\mathopen{}\left(\int \mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}} - y\right)\mathclose{} \operatorname{p}(Y_{*}= y\mid X_{*}= x) \, dy\right)\mathclose{}
-\prod_{i= 1}^{n} \operatorname{p}(X_i= x_i,\, Y_i= y_i)
+\mathopen{}\left(\int \mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}} - y\right)\mathclose{} \mathbb{p}(Y_{*}= y\mid X_{*}= x) \, dy\right)\mathclose{}
+\prod_{i= 1}^{n} \mathbb{p}(X_i= x_i,\, Y_i= y_i)
 \, dx_1 \, dy_1 \cdots dx_n\, dy_n.
 \tag{33}\]</span></span></p>
 <p>For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete variables</a>, the integrals are sums.</p>
@@ -2671,11 +2671,11 @@ A\stackrel{\text{def}}{=}\sum_{i\in I} \mathord{\smash[b]{\underset{\raise.3ex\h
 <p><span class="proof-title"><em>Remark 32</em> (Source: Cross-product matrix (sum-of-squares and cross-products matrix)). </span>Also called a <strong>sum-of-squares and cross-products matrix</strong> <span class="citation" data-cites="sanchez2020matrix4sl"><a href="#/references" role="doc-biblioref" onclick="">[14]</a>, chap.&nbsp;“Matrix Cross-Products”</span> (see <a href="https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products">the chapter online</a>).</p>
 </div>
 </section><section class="slide level2"><div id="rem-cross-product-matrix" class="proof remark">
-<p><span class="proof-title"><em>Remark 33</em> (Cross-product matrix as a matrix product). </span>Let <span class="math inline">\(D\)</span> be the matrix whose rows are the transposed <a href="#/def-term-vector">term vectors</a> <span class="math inline">\({\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}}^{\top}\)</span>, <span class="math inline">\(i\in I\)</span>. The cross-product matrix then equals the matrix product</p>
+<p><span class="proof-title"><em>Remark 33</em> (Cross-product matrix as a matrix product). </span>Let <span class="math inline">\(\mathbf{D}\)</span> be the matrix whose rows are the transposed <a href="#/def-term-vector">term vectors</a> <span class="math inline">\({\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}}^{\top}\)</span>, <span class="math inline">\(i\in I\)</span>. The cross-product matrix then equals the matrix product</p>
 <p><span class="math display">\[
-A= {D}^{\top} D.
+A= {\mathbf{D}}^{\top} \mathbf{D}.
 \]</span></p>
-<p>Its diagonal entries are sums of squares of one term over the training set. Its off-diagonal entries are sums of cross-products of two different terms. Statisticians therefore call <span class="math inline">\(A\)</span> the sum-of-squares and cross-products (SSCP) matrix of the terms. When every column of <span class="math inline">\(D\)</span> has mean zero, <span class="math inline">\(A/ (\mathopen{}\left|I\right|\mathclose{} - 1)\)</span> is the sample covariance matrix of the terms.</p>
+<p>Its diagonal entries are sums of squares of one term over the training set. Its off-diagonal entries are sums of cross-products of two different terms. Statisticians therefore call <span class="math inline">\(A\)</span> the sum-of-squares and cross-products (SSCP) matrix of the terms. When every column of <span class="math inline">\(\mathbf{D}\)</span> has mean zero, <span class="math inline">\(A/ (\mathopen{}\left|I\right|\mathclose{} - 1)\)</span> is the sample covariance matrix of the terms.</p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
