@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-03 13:17:45 (PST)
+Last modified: 2026-11-03 16:30:15 (PST)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the $t$ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -560,6 +560,70 @@ hers |> head()
 > > [![](correlation-regression_files/figure-html/unnamed-chunk-6-1.png)](correlation-regression_files/figure-html/unnamed-chunk-6-1.png "Figure 3: Contours of \text{RSS}(\beta_{0}, \beta_{x}) for the three points of Example 4. The dot marks the OLS estimates; the cross marks the line of Example 4.")
 > >
 > > Figure 3: Contours of $\text{RSS}(\beta_{0}, \beta_{x})$ for the three points of [Example 4](#exm-rss). The dot marks the OLS estimates; the cross marks the line of [Example 4](#exm-rss).
+>
+> > **NOTE:**
+> >
+> > Show code
+> >
+> > ``` downlit
+> > rss3_b0 <- unique(rss_grid$b0)
+> > rss3_bx <- unique(rss_grid$bx)
+> > rss3_n_bx <- length(rss3_bx)
+> > rss3_z <- matrix(rss_grid$rss, nrow = rss3_n_bx, byrow = TRUE)
+> > rss3_ols_resid <- rss_points$y - ols_coefs[[1]] - ols_coefs[[2]] * rss_points$x
+> > rss3_cross_resid <- rss_points$y - 1 - 0.5 * rss_points$x
+> > rss3_marks_b0 <- c(ols_coefs[[1]], 1)
+> > rss3_marks_bx <- c(ols_coefs[[2]], 0.5)
+> > rss3_ols_rss <- sum(rss3_ols_resid^2)
+> > rss3_cross_rss <- sum(rss3_cross_resid^2)
+> > rss3_marks_rss <- c(rss3_ols_rss, rss3_cross_rss)
+> > rss3_marks_name <- c("OLS estimates", "line of the example")
+> > rss3_marks_symbol <- c("circle", "x")
+> > rss3_marks <- tibble::tibble(
+> >   b0 = rss3_marks_b0,
+> >   bx = rss3_marks_bx,
+> >   rss = rss3_marks_rss,
+> >   name = rss3_marks_name,
+> >   symbol = rss3_marks_symbol
+> > )
+> > rss3_marker <- list(color = "#D55E00", size = 6, symbol = ~symbol)
+> > rss3_stops <- c(0, 1)
+> > rss3_cols <- c("#CCE0F0", "#0072B2")
+> > rss3_scale <- list(rss3_stops, rss3_cols)
+> > rss3_eye <- list(x = 1.6, y = -1.6, z = 0.9)
+> > rss3_camera <- list(eye = rss3_eye)
+> > rss3_xaxis <- list(title = "Intercept")
+> > rss3_yaxis <- list(title = "Slope")
+> > rss3_zaxis <- list(title = "RSS")
+> > rss3_scene <- list(
+> >   xaxis = rss3_xaxis,
+> >   yaxis = rss3_yaxis,
+> >   zaxis = rss3_zaxis,
+> >   camera = rss3_camera
+> > )
+> > plotly::plot_ly() |>
+> >   plotly::add_surface(
+> >     x = rss3_b0,
+> >     y = rss3_bx,
+> >     z = rss3_z,
+> >     colorscale = rss3_scale,
+> >     showscale = FALSE,
+> >     opacity = 0.8
+> >   ) |>
+> >   plotly::add_markers(
+> >     data = rss3_marks,
+> >     x = ~b0,
+> >     y = ~bx,
+> >     z = ~rss,
+> >     text = ~name,
+> >     hoverinfo = "text",
+> >     showlegend = FALSE,
+> >     marker = rss3_marker
+> >   ) |>
+> >   plotly::layout(scene = rss3_scene)
+> > ```
+> >
+> > Figure 4: Surface of $\operatorname{RSS}(\beta_{0}, \beta_{x})$ for the three points of [Example 4](#exm-rss). The dot at the bottom of the bowl marks the [OLS estimates](#def-ols); the cross marks the line of [Example 4](#exm-rss).
 
 > **NOTE:**
 >
@@ -1660,7 +1724,7 @@ The same estimates follow from a derivation in vector notation, which treats $(\
 >
 > Indices of model performance {.caption-top .table .table-sm .table-striped .small}
 >
-> [Figure 4](#fig-hers-slr) shows the data with the fitted line.
+> [Figure 5](#fig-hers-slr) shows the data with the fitted line.
 >
 > > **NOTE:**
 > >
@@ -1677,9 +1741,9 @@ The same estimates follow from a derivation in vector notation, which treats $(\
 > >   ggplot2::labs(x = "BMI (kg/m^2)", y = "Fasting glucose (mg/dL)")
 > > ```
 > >
-> > [![](correlation-regression_files/figure-html/unnamed-chunk-9-1.png)](correlation-regression_files/figure-html/unnamed-chunk-9-1.png "Figure 4: Fasting glucose against BMI in HERS, with the OLS line")
+> > [![](correlation-regression_files/figure-html/unnamed-chunk-10-1.png)](correlation-regression_files/figure-html/unnamed-chunk-10-1.png "Figure 5: Fasting glucose against BMI in HERS, with the OLS line")
 > >
-> > Figure 4: Fasting glucose against BMI in HERS, with the OLS line
+> > Figure 5: Fasting glucose against BMI in HERS, with the OLS line
 >
 > The estimated slope is $\hat{\beta}_{\text{BMI}} = 1.82$ mg/dL per kg/m²: mean fasting glucose is about 1.8 mg/dL higher among participants whose BMI is 1 kg/m² higher. The t statistic for the slope equals the correlation test statistic of [Example 1](#exm-hers-cor).
 
