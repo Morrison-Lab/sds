@@ -5665,10 +5665,6 @@
   ],
   [
    "sds/estimation#thm-mse-bias-variance",
-   "sds/estimation#thm-bias-sq-plus-var"
-  ],
-  [
-   "sds/estimation#thm-mse-bias-variance",
    "sds/estimation#thm-mse-expand"
   ],
   [
