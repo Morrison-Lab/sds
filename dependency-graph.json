@@ -44,6 +44,16 @@
    "url": "https://morrison-lab.github.io/mds/vector-calculus.html#def-hessian"
   },
   {
+   "id": "pds/expectation#def-cond-expectation",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-cond-expectation",
+   "kind": "def",
+   "title": "cond expectation",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation"
+  },
+  {
    "id": "pds/expectation#def-cond-pdf",
    "site": "pds",
    "page": "expectation",
@@ -114,6 +124,16 @@
    "url": "https://morrison-lab.github.io/pds/expectation.html#def-risk"
   },
   {
+   "id": "pds/expectation#thm-lie",
+   "site": "pds",
+   "page": "expectation",
+   "div": "thm-lie",
+   "kind": "thm",
+   "title": "lie",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#thm-lie"
+  },
+  {
    "id": "pds/independence#def-iid",
    "site": "pds",
    "page": "independence",
@@ -142,6 +162,16 @@
    "title": "convergence in probability",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability"
+  },
+  {
+   "id": "pds/limit-theorems#thm-wlln",
+   "site": "pds",
+   "page": "limit-theorems",
+   "div": "thm-wlln",
+   "kind": "thm",
+   "title": "wlln",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/limit-theorems.html#thm-wlln"
   },
   {
    "id": "pds/probability-basics#def-complement",
@@ -274,6 +304,16 @@
    "url": "https://morrison-lab.github.io/pds/variance-covariance.html#def-cond-variance"
   },
   {
+   "id": "pds/variance-covariance#def-correlation",
+   "site": "pds",
+   "page": "variance-covariance",
+   "div": "def-correlation",
+   "kind": "def",
+   "title": "correlation",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/variance-covariance.html#def-correlation"
+  },
+  {
    "id": "pds/variance-covariance#def-cov",
    "site": "pds",
    "page": "variance-covariance",
@@ -322,6 +362,36 @@
    "title": "variance",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/variance-covariance.html#def-variance"
+  },
+  {
+   "id": "pds/variance-covariance#lem-second-moment-variance",
+   "site": "pds",
+   "page": "variance-covariance",
+   "div": "lem-second-moment-variance",
+   "kind": "lem",
+   "title": "second moment variance",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/variance-covariance.html#lem-second-moment-variance"
+  },
+  {
+   "id": "pds/variance-covariance#thm-cor-bounds",
+   "site": "pds",
+   "page": "variance-covariance",
+   "div": "thm-cor-bounds",
+   "kind": "thm",
+   "title": "cor bounds",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/variance-covariance.html#thm-cor-bounds"
+  },
+  {
+   "id": "pds/variance-covariance#thm-total-variance",
+   "site": "pds",
+   "page": "variance-covariance",
+   "div": "thm-total-variance",
+   "kind": "thm",
+   "title": "total variance",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance"
   },
   {
    "id": "sds/basic-statistical-methods#def-ci-diff-means",
@@ -4490,6 +4560,10 @@
    "sds/basic-statistical-methods#def-one-sample-t-test"
   ],
   [
+   "sds/basic-statistical-methods#thm-one-sample-t-null",
+   "sds/inference#def-t-dist"
+  ],
+  [
    "sds/basic-statistical-methods#thm-pooled-t-null",
    "sds/basic-statistical-methods#def-pooled-t-test"
   ],
@@ -4507,6 +4581,10 @@
   ],
   [
    "sds/bayesian-inference#cor-flat-prior-posterior",
+   "sds/bayesian-inference#cor-bayes-proportional"
+  ],
+  [
+   "sds/bayesian-inference#cor-flat-prior-posterior",
    "sds/bayesian-inference#def-flat-prior"
   ],
   [
@@ -4516,6 +4594,10 @@
   [
    "sds/bayesian-inference#cor-flat-prior-posterior",
    "sds/intro-MLEs#def-mle"
+  ],
+  [
+   "sds/bayesian-inference#cor-map-penalized",
+   "sds/bayesian-inference#cor-bayes-proportional"
   ],
   [
    "sds/bayesian-inference#cor-map-penalized",
@@ -4604,6 +4686,10 @@
   [
    "sds/bayesian-inference#def-weakly-informative-prior",
    "sds/bayesian-inference#def-prior"
+  ],
+  [
+   "sds/bayesian-inference#thm-bayes-posterior",
+   "sds/bayesian-inference#def-marginal-likelihood"
   ],
   [
    "sds/bootstrap#def-bootstrap-ci-bca",
@@ -4739,6 +4825,14 @@
   ],
   [
    "sds/categorical-tests#thm-conditional-odds-ratio-reversible",
+   "pds/probability-basics#def-odds"
+  ],
+  [
+   "sds/categorical-tests#thm-conditional-odds-ratio-reversible",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/categorical-tests#thm-conditional-odds-ratio-reversible",
    "sds/categorical-tests#def-odds-ratio"
   ],
   [
@@ -4748,6 +4842,18 @@
   [
    "sds/categorical-tests#thm-conditional-odds-ratio-reversible",
    "sds/data#def-binary-var"
+  ],
+  [
+   "sds/categorical-tests#thm-odds-ratio-cross-product",
+   "pds/probability-basics#def-conditional-prob"
+  ],
+  [
+   "sds/categorical-tests#thm-odds-ratio-cross-product",
+   "pds/probability-basics#def-odds"
+  ],
+  [
+   "sds/categorical-tests#thm-odds-ratio-cross-product",
+   "pds/probability-basics#def-probability"
   ],
   [
    "sds/categorical-tests#thm-odds-ratio-cross-product",
@@ -4763,7 +4869,15 @@
   ],
   [
    "sds/categorical-tests#thm-odds-ratio-reversible",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/categorical-tests#thm-odds-ratio-reversible",
    "sds/categorical-tests#def-odds-ratio"
+  ],
+  [
+   "sds/categorical-tests#thm-odds-ratio-reversible",
+   "sds/categorical-tests#thm-odds-ratio-cross-product"
   ],
   [
    "sds/categorical-tests#thm-odds-ratio-reversible",
@@ -5142,6 +5256,18 @@
    "sds/classification#def-specificity"
   ],
   [
+   "sds/classification#thm-ppv-bayes",
+   "sds/classification#thm-prob-positive"
+  ],
+  [
+   "sds/classification#thm-ppv-sens-spec-prev",
+   "sds/classification#thm-ppv-bayes"
+  ],
+  [
+   "sds/classification#thm-ppv-sens-spec-prev",
+   "sds/classification#thm-prob-positive"
+  ],
+  [
    "sds/classification#thm-prob-positive",
    "pds/probability-basics#def-probability"
   ],
@@ -5168,6 +5294,10 @@
   [
    "sds/correlation-regression#cor-homoskedastic-deviations",
    "sds/correlation-regression#def-slr-deviation"
+  ],
+  [
+   "sds/correlation-regression#cor-homoskedastic-deviations",
+   "sds/correlation-regression#thm-slr-deviation-dist"
   ],
   [
    "sds/correlation-regression#cor-ols-slope-r",
@@ -5374,12 +5504,40 @@
    "sds/correlation-regression#def-centered-sums"
   ],
   [
+   "sds/correlation-regression#thm-ols-slr",
+   "sds/correlation-regression#def-normal-equations"
+  ],
+  [
+   "sds/correlation-regression#thm-ols-slr",
+   "sds/correlation-regression#lem-rss-hessian"
+  ],
+  [
+   "sds/correlation-regression#thm-ols-slr",
+   "sds/correlation-regression#lem-solve-normal-equations"
+  ],
+  [
    "sds/correlation-regression#thm-ols-slr-vector",
    "sds/correlation-regression#def-centered-sums"
   ],
   [
    "sds/correlation-regression#thm-ols-slr-vector",
+   "sds/correlation-regression#def-normal-equations"
+  ],
+  [
+   "sds/correlation-regression#thm-ols-slr-vector",
    "sds/correlation-regression#def-ols"
+  ],
+  [
+   "sds/correlation-regression#thm-ols-slr-vector",
+   "sds/correlation-regression#lem-normal-equations-vector"
+  ],
+  [
+   "sds/correlation-regression#thm-ols-slr-vector",
+   "sds/correlation-regression#lem-rss-hessian-vector"
+  ],
+  [
+   "sds/correlation-regression#thm-ols-slr-vector",
+   "sds/correlation-regression#lem-solve-normal-equations-vector"
   ],
   [
    "sds/correlation-regression#thm-ols-slr-vector",
@@ -5408,6 +5566,10 @@
   [
    "sds/correlation-regression#thm-r-squared-slr",
    "sds/correlation-regression#def-centered-sums"
+  ],
+  [
+   "sds/correlation-regression#thm-r-squared-slr",
+   "sds/correlation-regression#lem-rss-ols-fit"
   ],
   [
    "sds/correlation-regression#thm-r-squared-slr",
@@ -5490,6 +5652,26 @@
    "sds/estimation#def-bias"
   ],
   [
+   "sds/estimation#thm-bias-sq-plus-var",
+   "sds/estimation#thm-sq-bias-expand"
+  ],
+  [
+   "sds/estimation#thm-mse-bias-variance",
+   "pds/variance-covariance#lem-second-moment-variance"
+  ],
+  [
+   "sds/estimation#thm-mse-bias-variance",
+   "sds/estimation#def-estimation-error"
+  ],
+  [
+   "sds/estimation#thm-mse-bias-variance",
+   "sds/estimation#thm-bias-sq-plus-var"
+  ],
+  [
+   "sds/estimation#thm-mse-bias-variance",
+   "sds/estimation#thm-mse-expand"
+  ],
+  [
    "sds/estimation#thm-mse-expand",
    "sds/estimation#def-mse"
   ],
@@ -5503,7 +5685,15 @@
   ],
   [
    "sds/estimator-properties#cor-sample-mean-consistent",
+   "pds/limit-theorems#thm-wlln"
+  ],
+  [
+   "sds/estimator-properties#cor-sample-mean-consistent",
    "sds/estimator-properties#def-consistent"
+  ],
+  [
+   "sds/estimator-properties#cor-sample-mean-consistent",
+   "sds/estimator-properties#thm-mse-consistent"
   ],
   [
    "sds/estimator-properties#def-consistent",
@@ -5531,11 +5721,31 @@
   ],
   [
    "sds/estimator-properties#thm-cramer-rao",
+   "pds/variance-covariance#def-correlation"
+  ],
+  [
+   "sds/estimator-properties#thm-cramer-rao",
+   "pds/variance-covariance#thm-cor-bounds"
+  ],
+  [
+   "sds/estimator-properties#thm-cramer-rao",
+   "sds/estimator-properties#lem-cov-estimator-score"
+  ],
+  [
+   "sds/estimator-properties#thm-cramer-rao",
    "sds/intro-MLEs#def-einf"
+  ],
+  [
+   "sds/estimator-properties#thm-cramer-rao",
+   "sds/intro-MLEs#thm-information-equality"
   ],
   [
    "sds/estimator-properties#thm-mse-consistent",
    "sds/estimator-properties#def-consistent"
+  ],
+  [
+   "sds/estimator-properties#thm-mse-consistent",
+   "sds/estimator-properties#lem-estimation-error-bound"
   ],
   [
    "sds/exploratory-descriptive#def-IQR",
@@ -5747,6 +5957,10 @@
   ],
   [
    "sds/intro-MLEs#cor-bernoulli-hessian-contribution-fraction",
+   "sds/intro-MLEs#cor-bernoulli-hessian-contribution-precision"
+  ],
+  [
+   "sds/intro-MLEs#cor-bernoulli-hessian-contribution-fraction",
    "sds/intro-MLEs#def-hessian"
   ],
   [
@@ -5762,12 +5976,20 @@
    "sds/intro-MLEs#def-hessian"
   ],
   [
+   "sds/intro-MLEs#cor-bernoulli-hessian-contribution-precision",
+   "sds/intro-MLEs#thm-bernoulli-hessian-contribution"
+  ],
+  [
    "sds/intro-MLEs#cor-bernoulli-loglik-contribution-logodds",
    "pds/probability-basics#def-odds"
   ],
   [
    "sds/intro-MLEs#cor-bernoulli-loglik-contribution-logodds",
    "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/intro-MLEs#cor-bernoulli-loglik-contribution-logodds",
+   "sds/intro-MLEs#thm-bernoulli-loglik-contribution"
   ],
   [
    "sds/intro-MLEs#def-einf",
@@ -5862,6 +6084,10 @@
    "sds/intro-MLEs#def-loglik"
   ],
   [
+   "sds/intro-MLEs#thm-bernoulli-hessian-nd",
+   "sds/intro-MLEs#thm-bernoulli-hessian-sum"
+  ],
+  [
    "sds/intro-MLEs#thm-bernoulli-hessian-sum",
    "sds/exploratory-descriptive#def-sample-mean"
   ],
@@ -5882,6 +6108,10 @@
    "pds/probability-basics#def-odds"
   ],
   [
+   "sds/intro-MLEs#thm-bernoulli-loglik-one-group",
+   "sds/intro-MLEs#thm-bernoulli-likelihood-one-group"
+  ],
+  [
    "sds/intro-MLEs#thm-bernoulli-mle",
    "sds/exploratory-descriptive#def-sample-mean"
   ],
@@ -5890,12 +6120,24 @@
    "sds/intro-MLEs#def-mle"
   ],
   [
+   "sds/intro-MLEs#thm-bernoulli-mle",
+   "sds/intro-MLEs#thm-bernoulli-hessian-nd"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-mle",
+   "sds/intro-MLEs#thm-bernoulli-score-equation"
+  ],
+  [
    "sds/intro-MLEs#thm-bernoulli-score",
    "pds/variance-covariance#def-deviation-pop-mean"
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score",
    "pds/variance-covariance#def-precision"
+  ],
+  [
+   "sds/intro-MLEs#thm-bernoulli-score",
+   "sds/intro-MLEs#cor-bernoulli-loglik-contribution-logodds"
   ],
   [
    "sds/intro-MLEs#thm-bernoulli-score",
@@ -5963,7 +6205,19 @@
   ],
   [
    "sds/intro-MLEs#thm-fisher-kl-curvature",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "sds/intro-MLEs#thm-fisher-kl-curvature",
    "sds/intro-MLEs#def-einf"
+  ],
+  [
+   "sds/intro-MLEs#thm-fisher-kl-curvature",
+   "sds/intro-MLEs#def-hessian"
+  ],
+  [
+   "sds/intro-MLEs#thm-fisher-kl-curvature",
+   "sds/intro-MLEs#def-loglik"
   ],
   [
    "sds/intro-MLEs#thm-fisher-kl-curvature",
@@ -5978,6 +6232,14 @@
    "sds/intro-MLEs#def-score"
   ],
   [
+   "sds/intro-MLEs#thm-information-equality",
+   "sds/intro-MLEs#thm-score-mean-zero"
+  ],
+  [
+   "sds/intro-MLEs#thm-information-equality",
+   "sds/intro-MLEs#thm-score-second-moment"
+  ],
+  [
    "sds/intro-MLEs#thm-lik-iid",
    "pds/independence#def-indpt"
   ],
@@ -5990,12 +6252,20 @@
    "sds/intro-MLEs#def-score"
   ],
   [
+   "sds/intro-MLEs#thm-score-mean-zero",
+   "sds/intro-MLEs#lem-deriv-log-density"
+  ],
+  [
    "sds/intro-MLEs#thm-score-second-moment",
    "sds/intro-MLEs#def-einf"
   ],
   [
    "sds/intro-MLEs#thm-score-second-moment",
    "sds/intro-MLEs#def-score"
+  ],
+  [
+   "sds/intro-MLEs#thm-score-second-moment",
+   "sds/intro-MLEs#lem-deriv-log-density"
   ],
   [
    "sds/intro-MLEs#thm-score-second-moment",
@@ -6007,11 +6277,23 @@
   ],
   [
    "sds/intro-MLEs#thm-wilks",
+   "sds/intro-MLEs#lem-wilks-lrt-quadratic"
+  ],
+  [
+   "sds/intro-MLEs#thm-wilks",
+   "sds/intro-MLEs#lem-wilks-std-gaussian"
+  ],
+  [
+   "sds/intro-MLEs#thm-wilks",
    "sds/intro-MLEs#thm-dist-mle"
   ],
   [
    "sds/logistic-inference#cor-deviance-drop-distribution",
    "sds/intro-MLEs#thm-wilks"
+  ],
+  [
+   "sds/logistic-inference#cor-deviance-drop-distribution",
+   "sds/logistic-inference#thm-deviance-drop"
   ],
   [
    "sds/logistic-inference#cor-deviance-shift",
@@ -6083,7 +6365,15 @@
   ],
   [
    "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-einf"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
    "sds/intro-MLEs#def-fisher-scoring"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-hessian"
   ],
   [
    "sds/logistic-inference#thm-irls-newton",
@@ -6095,6 +6385,14 @@
   ],
   [
    "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-oinf"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/intro-MLEs#def-score"
+  ],
+  [
+   "sds/logistic-inference#thm-irls-newton",
    "sds/logistic-inference#def-irls"
   ],
   [
@@ -6102,8 +6400,44 @@
    "sds/logistic-inference#def-logistic-regression"
   ],
   [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/logistic-inference#thm-logistic-mle-distribution"
+  ],
+  [
+   "sds/logistic-inference#thm-logistic-mle-distribution",
+   "sds/intro-MLEs#def-einf"
+  ],
+  [
+   "sds/logistic-inference#thm-logistic-mle-distribution",
+   "sds/intro-MLEs#def-hessian"
+  ],
+  [
+   "sds/logistic-inference#thm-logistic-mle-distribution",
+   "sds/intro-MLEs#def-oinf"
+  ],
+  [
+   "sds/logistic-inference#thm-logistic-mle-distribution",
+   "sds/intro-MLEs#thm-dist-mle"
+  ],
+  [
    "sds/logistic-inference#thm-logistic-mle-distribution",
    "sds/logistic-inference#def-logistic-regression"
+  ],
+  [
+   "sds/logistic-inference#thm-saturated-deviance",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "sds/logistic-inference#thm-saturated-deviance",
+   "sds/logistic-inference#thm-saturated-mle"
+  ],
+  [
+   "sds/logistic-inference#thm-saturated-deviance",
+   "sds/model-validation#def-fitted-model"
+  ],
+  [
+   "sds/logistic-inference#thm-saturated-mle",
+   "sds/intro-MLEs#def-loglik"
   ],
   [
    "sds/logistic-inference#thm-saturated-mle",
@@ -7027,7 +7361,23 @@
   ],
   [
    "sds/model-validation#lem-loocv-not-random",
+   "sds/model-validation#def-fitted-model"
+  ],
+  [
+   "sds/model-validation#lem-loocv-not-random",
+   "sds/model-validation#def-fitting-procedure"
+  ],
+  [
+   "sds/model-validation#lem-loocv-not-random",
    "sds/model-validation#def-fold-assignment"
+  ],
+  [
+   "sds/model-validation#lem-loocv-not-random",
+   "sds/model-validation#def-fold-out-fitted-model"
+  ],
+  [
+   "sds/model-validation#lem-loocv-not-random",
+   "sds/model-validation#def-folds"
   ],
   [
    "sds/model-validation#lem-loocv-not-random",
@@ -7051,7 +7401,23 @@
   ],
   [
    "sds/model-validation#thm-epe-decomposition",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "sds/model-validation#thm-epe-decomposition",
    "pds/variance-covariance#def-variance"
+  ],
+  [
+   "sds/model-validation#thm-epe-decomposition",
+   "sds/estimation#def-estimator"
+  ],
+  [
+   "sds/model-validation#thm-epe-decomposition",
+   "sds/estimation#def-mse"
+  ],
+  [
+   "sds/model-validation#thm-epe-decomposition",
+   "sds/model-validation#def-average-fit"
   ],
   [
    "sds/model-validation#thm-epe-decomposition",
@@ -7076,6 +7442,10 @@
   [
    "sds/model-validation#thm-epe-decomposition",
    "sds/model-validation#def-training-set"
+  ],
+  [
+   "sds/model-validation#thm-epe-decomposition",
+   "sds/model-validation#thm-epe-split-noise"
   ],
   [
    "sds/model-validation#thm-epe-decomposition",
@@ -7163,6 +7533,10 @@
   ],
   [
    "sds/model-validation#thm-loocv-shortcut",
+   "sds/model-validation#def-cross-product-matrix"
+  ],
+  [
+   "sds/model-validation#thm-loocv-shortcut",
    "sds/model-validation#def-leverage"
   ],
   [
@@ -7179,11 +7553,19 @@
   ],
   [
    "sds/model-validation#thm-noise-mean-zero",
+   "pds/expectation#def-cond-expectation"
+  ],
+  [
+   "sds/model-validation#thm-noise-mean-zero",
    "pds/expectation#def-expectation"
   ],
   [
    "sds/model-validation#thm-noise-mean-zero",
    "sds/model-validation#def-noise"
+  ],
+  [
+   "sds/model-validation#thm-prediction-bias-average-fit",
+   "pds/independence#def-indpt"
   ],
   [
    "sds/model-validation#thm-prediction-bias-average-fit",
@@ -7196,6 +7578,14 @@
   [
    "sds/model-validation#thm-prediction-bias-average-fit",
    "sds/model-validation#def-prediction-bias"
+  ],
+  [
+   "sds/model-validation#thm-prediction-bias-average-fit",
+   "sds/model-validation#def-training-set"
+  ],
+  [
+   "sds/model-validation#thm-prediction-bias-average-fit",
+   "sds/model-validation#thm-noise-mean-zero"
   ],
   [
    "sds/model-validation#thm-prediction-bias-average-fit",
@@ -7242,6 +7632,10 @@
    "sds/multiple-testing#def-valid-p-value"
   ],
   [
+   "sds/multiple-testing#lem-bonferroni-false-positive-prob",
+   "sds/multiple-testing#thm-union-bound"
+  ],
+  [
    "sds/multiple-testing#lem-holm-threshold",
    "sds/multiple-testing#def-holm"
   ],
@@ -7259,7 +7653,19 @@
   ],
   [
    "sds/multiple-testing#thm-bonferroni-fwer",
+   "sds/multiple-testing#def-fwer"
+  ],
+  [
+   "sds/multiple-testing#thm-bonferroni-fwer",
    "sds/multiple-testing#def-valid-p-value"
+  ],
+  [
+   "sds/multiple-testing#thm-bonferroni-fwer",
+   "sds/multiple-testing#lem-bonferroni-false-positive-prob"
+  ],
+  [
+   "sds/multiple-testing#thm-false-positive-prob",
+   "sds/multiple-testing#lem-no-rejection-prob"
   ],
   [
    "sds/multiple-testing#thm-holm-fwer",
@@ -7270,8 +7676,20 @@
    "sds/multiple-testing#def-valid-p-value"
   ],
   [
+   "sds/multiple-testing#thm-holm-fwer",
+   "sds/multiple-testing#lem-holm-threshold"
+  ],
+  [
+   "sds/multiple-testing#thm-holm-fwer",
+   "sds/multiple-testing#thm-union-bound"
+  ],
+  [
    "sds/multiple-testing#thm-union-bound",
    "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/multiple-testing#thm-union-bound",
+   "sds/multiple-testing#lem-indicator-union"
   ],
   [
    "sds/nonparametric-models#def-empirical-cdf",
@@ -7342,6 +7760,14 @@
    "sds/permutation-tests#def-permutation-p-value"
   ],
   [
+   "sds/permutation-tests#thm-permutation-p-valid",
+   "sds/permutation-tests#lem-relabeling-count"
+  ],
+  [
+   "sds/permutation-tests#thm-permutation-p-valid",
+   "sds/permutation-tests#lem-top-k-count"
+  ],
+  [
    "sds/prediction#cor-residual-prediction-error",
    "sds/prediction#def-fitted-value"
   ],
@@ -7352,6 +7778,10 @@
   [
    "sds/prediction#cor-residual-prediction-error",
    "sds/prediction#def-residual"
+  ],
+  [
+   "sds/prediction#cor-residual-prediction-error",
+   "sds/prediction#thm-prediction-error-residual"
   ],
   [
    "sds/prediction#def-fitted-value",
@@ -7395,6 +7825,18 @@
   ],
   [
    "sds/sufficiency#lem-rb-statistic",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/sufficiency#lem-rb-statistic",
+   "sds/data#def-discrete-var"
+  ],
+  [
+   "sds/sufficiency#lem-rb-statistic",
+   "sds/exploratory-descriptive#def-sample"
+  ],
+  [
+   "sds/sufficiency#lem-rb-statistic",
    "sds/sufficiency#def-statistic"
   ],
   [
@@ -7403,7 +7845,15 @@
   ],
   [
    "sds/sufficiency#thm-factorization",
+   "sds/exploratory-descriptive#def-sample"
+  ],
+  [
+   "sds/sufficiency#thm-factorization",
    "sds/sufficiency#def-sufficient"
+  ],
+  [
+   "sds/sufficiency#thm-rao-blackwell",
+   "pds/variance-covariance#thm-total-variance"
   ],
   [
    "sds/sufficiency#thm-rao-blackwell",
@@ -7418,6 +7868,14 @@
    "sds/sufficiency#def-sufficient"
   ],
   [
+   "sds/sufficiency#thm-rao-blackwell",
+   "sds/sufficiency#thm-rb-unbiased"
+  ],
+  [
+   "sds/sufficiency#thm-rb-unbiased",
+   "pds/expectation#thm-lie"
+  ],
+  [
    "sds/sufficiency#thm-rb-unbiased",
    "sds/estimation#def-unbiased"
   ],
@@ -7427,5 +7885,10 @@
   ]
  ],
  "cycles": [],
- "forwardReferences": []
+ "forwardReferences": [
+  [
+   "sds/logistic-inference#thm-irls-newton",
+   "sds/logistic-inference#thm-logistic-mle-distribution"
+  ]
+ ]
 }
