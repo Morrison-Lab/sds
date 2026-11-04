@@ -1,0 +1,86 @@
+::: {#fig-rss-surface-3d}
+
+```{r}
+#| label: rss-surface-3d
+#| echo: !expr knitr::is_html_output()
+#| eval: !expr knitr::is_html_output()
+#| fig-alt: >-
+#|   Surface plot of the residual sum of squares over the intercept from 0
+#|   to 2.5 and the slope from -0.5 to 1.5, a bowl-shaped surface opening
+#|   upward.
+#|   The lowest point of the bowl, at the OLS estimates, is marked by a
+#|   dot.
+#|   The line of the earlier example, with intercept 1 and slope 0.5, is
+#|   marked by a cross higher up on the side of the bowl.
+rss3_b0 <- unique(rss_grid$b0)
+rss3_bx <- unique(rss_grid$bx)
+rss3_n_bx <- length(rss3_bx)
+rss3_z <- matrix(rss_grid$rss, nrow = rss3_n_bx, byrow = TRUE)
+rss3_ols_resid <- rss_points$y - ols_coefs[[1]] - ols_coefs[[2]] * rss_points$x
+rss3_cross_resid <- rss_points$y - 1 - 0.5 * rss_points$x
+rss3_marks_b0 <- c(ols_coefs[[1]], 1)
+rss3_marks_bx <- c(ols_coefs[[2]], 0.5)
+rss3_ols_rss <- sum(rss3_ols_resid^2)
+rss3_cross_rss <- sum(rss3_cross_resid^2)
+rss3_marks_rss <- c(rss3_ols_rss, rss3_cross_rss)
+rss3_marks_name <- c("OLS estimates", "line of the example")
+rss3_marks_symbol <- c("circle", "x")
+rss3_marks <- tibble::tibble(
+  b0 = rss3_marks_b0,
+  bx = rss3_marks_bx,
+  rss = rss3_marks_rss,
+  name = rss3_marks_name,
+  symbol = rss3_marks_symbol
+)
+rss3_marker <- list(color = "#D55E00", size = 6, symbol = ~symbol)
+rss3_stops <- c(0, 1)
+rss3_cols <- c("#CCE0F0", "#0072B2")
+rss3_scale <- list(rss3_stops, rss3_cols)
+rss3_eye <- list(x = 1.6, y = -1.6, z = 0.9)
+rss3_camera <- list(eye = rss3_eye)
+rss3_xaxis <- list(title = "Intercept")
+rss3_yaxis <- list(title = "Slope")
+rss3_zaxis <- list(title = "RSS")
+rss3_scene <- list(
+  xaxis = rss3_xaxis,
+  yaxis = rss3_yaxis,
+  zaxis = rss3_zaxis,
+  camera = rss3_camera
+)
+plotly::plot_ly() |>
+  plotly::add_surface(
+    x = rss3_b0,
+    y = rss3_bx,
+    z = rss3_z,
+    colorscale = rss3_scale,
+    showscale = FALSE,
+    opacity = 0.8
+  ) |>
+  plotly::add_markers(
+    data = rss3_marks,
+    x = ~b0,
+    y = ~bx,
+    z = ~rss,
+    text = ~name,
+    hoverinfo = "text",
+    showlegend = FALSE,
+    marker = rss3_marker
+  ) |>
+  plotly::layout(scene = rss3_scene)
+```
+
+```{r}
+#| echo: false
+#| eval: !expr isFALSE(knitr::is_html_output())
+#| results: asis
+cat(
+  "*(This 3D surface is interactive; see the HTML or slide version",
+  "of this page to view it.)*"
+)
+```
+
+Surface of $\RSS(\intcoef, \coef{x})$ for the three points of @exm-rss.
+The dot at the bottom of the bowl marks the [OLS estimates](#def-ols);
+the cross marks the line of @exm-rss.
+
+:::
