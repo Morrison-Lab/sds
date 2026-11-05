@@ -1,0 +1,8 @@
+::: {#def-seed}
+#### Seed
+
+A **seed** is the integer that sets the starting state of a computer's pseudorandom number generator,
+so that rerunning a simulation with the same seed reproduces the same random draws:
+
+$$\text{seed} \mapsto U_1, U_2, \ldots$$
+:::
