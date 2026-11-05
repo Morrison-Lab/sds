@@ -9,7 +9,10 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.11.9">
 <title>Statistics for Data Science – Simulation Studies</title>
@@ -36,6 +39,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -286,14 +355,14 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-04 19:21:43 (PST)</p>
+  <p class="date">Last modified: 2026-11-04 19:39:58 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
 </style>
 <p>Theory often cannot give the <a href="./estimation.html#def-bias">bias</a>, <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> or coverage of an <a href="./estimation.html#def-estimator">estimator</a> when the estimator or the data <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">distribution</a> is complicated. A <a href="#/def-simulation-study">simulation study</a> measures the same properties for any estimator a computer can run. It generates many <a href="./model-validation.html#def-data-set">data sets</a> from a distribution whose parameters are known, applies the estimator to each, and summarizes the results.</p>
-<p>This page defines the parts of a <a href="#/def-simulation-study">simulation study</a>.</p>
+<p>This page defines the parts of a <a href="#/def-simulation-study">simulation study</a>, shows how to measure the study’s own accuracy, and works one example in R and Python whose answer is known.</p>
 </section><section id="sec-data-generating-process" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> The data-generating process</h2>
 </section><section class="slide level2"><div id="def-data-generating-process" class="theorem definition">
@@ -357,6 +426,156 @@ text-align: center;
 </div>
 </section><section class="slide level2"><div id="rem-simulation-estimate-bayesian" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Simulation estimates in Bayesian inference). </span>The <a href="./bayesian-inference.html#def-monte-carlo-estimate">Monte Carlo estimate</a> of a <a href="./bayesian-inference.html#def-posterior">posterior</a> <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> is the same <a href="https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean">average</a>, taken over draws from a <a href="./bayesian-inference.html#def-posterior">posterior distribution</a> instead of over <a href="#/def-replication">replications</a> of a <a href="#/def-data-generating-process">data-generating process</a>.</p>
+</div>
+</section><section id="sec-monte-carlo-error" class="slide level2" data-number="4"><h2>
+<span class="header-section-number">4</span> Monte Carlo error</h2>
+</section><section class="slide level2"><div id="def-monte-carlo-standard-error" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7 (Monte Carlo standard error)</strong></span> The <strong>Monte Carlo standard error (MCSE)</strong> of a <a href="#/def-simulation-estimate">simulation estimate</a> <span class="math inline">\({{\bar{T}}_{M}}\)</span> is its <a href="./estimation.html#def-SE">standard error</a> over repeated simulation studies:</p>
+<p><span class="math display">\[{\operatorname{SE}\mathopen{}\left({{\bar{T}}_{M}}\right)\mathclose{}} = {\operatorname{SD}\mathopen{}\left({{\bar{T}}_{M}}\right)\mathclose{}}.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="thm-monte-carlo-se" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Monte Carlo standard error of a simulation estimate)</strong></span> Let <span class="math inline">\(T_1, \ldots, T_M\)</span> be the <a href="./estimation.html#def-estimate">estimates</a> of <span class="math inline">\(M\)</span> <a href="#/def-replication">replications</a> of a <a href="#/def-simulation-study">simulation study</a>, which are <a href="https://morrison-lab.github.io/pds/independence.html#def-iid">IID</a> with <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> <span class="math inline">\({\mathbb{E}\mathopen{}\left[T\right]\mathclose{}}\)</span> and finite <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> <span class="math inline">\({\operatorname{Var}\mathopen{}\left(T\right)\mathclose{}}\)</span>. Then the <a href="#/def-simulation-estimate">simulation estimate</a> <span class="math inline">\({{\bar{T}}_{M}}\)</span> is <a href="./estimation.html#def-unbiased">unbiased</a> for <span class="math inline">\({\mathbb{E}\mathopen{}\left[T\right]\mathclose{}}\)</span>, and its <a href="#/def-monte-carlo-standard-error">Monte Carlo standard error</a> is</p>
+<p><span class="math display">\[{\operatorname{SE}\mathopen{}\left({{\bar{T}}_{M}}\right)\mathclose{}} = \frac{{\operatorname{SD}\mathopen{}\left(T\right)\mathclose{}}}{\sqrt{M}}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="https://morrison-lab.github.io/pds/limit-theorems.html#thm-sum-iid-moments">the mean and variance of a sum of IID random variables</a>, the sum <span class="math inline">\(S_M \stackrel{\text{def}}{=}\sum_{m=1}^{M} T_m\)</span> has <span class="math inline">\({\mathbb{E}\mathopen{}\left[S_M\right]\mathclose{}} = M\,{\mathbb{E}\mathopen{}\left[T\right]\mathclose{}}\)</span> and <span class="math inline">\({\operatorname{Var}\mathopen{}\left(S_M\right)\mathclose{}} = M\,{\operatorname{Var}\mathopen{}\left(T\right)\mathclose{}}\)</span>. Since <span class="math inline">\({{\bar{T}}_{M}} = S_M / M\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{E}\mathopen{}\left[{{\bar{T}}_{M}}\right]\mathclose{}} &amp;= \frac{{\mathbb{E}\mathopen{}\left[S_M\right]\mathclose{}}}{M} &amp;&amp; \text{(constants factor out of expectations)}\\
+&amp;= \frac{M\,{\mathbb{E}\mathopen{}\left[T\right]\mathclose{}}}{M} &amp;&amp; \text{(substitute ${\mathbb{E}\mathopen{}\left[S_M\right]\mathclose{}}$)}\\
+&amp;= \frac{M}{M}\,{\mathbb{E}\mathopen{}\left[T\right]\mathclose{}} &amp;&amp; \text{(regroup the factors)}\\
+&amp;= 1 \cdot {\mathbb{E}\mathopen{}\left[T\right]\mathclose{}} &amp;&amp; \text{($M / M = 1$)}\\
+&amp;= {\mathbb{E}\mathopen{}\left[T\right]\mathclose{}} &amp;&amp; \text{(multiplying by 1 changes nothing)}
+\end{aligned}
+\]</span></p>
+<p>For the variance:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\operatorname{Var}\mathopen{}\left({{\bar{T}}_{M}}\right)\mathclose{}} &amp;= \frac{{\operatorname{Var}\mathopen{}\left(S_M\right)\mathclose{}}}{M^2} &amp;&amp; \text{(a constant factor $c$ scales variance by $c^2$)}\\
+&amp;= \frac{M\,{\operatorname{Var}\mathopen{}\left(T\right)\mathclose{}}}{M^2} &amp;&amp; \text{(substitute ${\operatorname{Var}\mathopen{}\left(S_M\right)\mathclose{}}$)}\\
+&amp;= \frac{M\,{\operatorname{Var}\mathopen{}\left(T\right)\mathclose{}}}{M \cdot M} &amp;&amp; \text{(write $M^2$ as $M \cdot M$)}\\
+&amp;= \frac{M}{M} \cdot \frac{{\operatorname{Var}\mathopen{}\left(T\right)\mathclose{}}}{M} &amp;&amp; \text{(split the fraction into two factors)}\\
+&amp;= 1 \cdot \frac{{\operatorname{Var}\mathopen{}\left(T\right)\mathclose{}}}{M} &amp;&amp; \text{($M / M = 1$)}\\
+&amp;= \frac{{\operatorname{Var}\mathopen{}\left(T\right)\mathclose{}}}{M} &amp;&amp; \text{(multiplying by 1 changes nothing)}\\
+{\operatorname{SE}\mathopen{}\left({{\bar{T}}_{M}}\right)\mathclose{}} &amp;= \sqrt{{\operatorname{Var}\mathopen{}\left({{\bar{T}}_{M}}\right)\mathclose{}}} &amp;&amp; \text{(standard error is the standard deviation)}\\
+&amp;= \sqrt{\frac{{\operatorname{Var}\mathopen{}\left(T\right)\mathclose{}}}{M}} &amp;&amp; \text{(substitute ${\operatorname{Var}\mathopen{}\left({{\bar{T}}_{M}}\right)\mathclose{}}$)}\\
+&amp;= \frac{\sqrt{{\operatorname{Var}\mathopen{}\left(T\right)\mathclose{}}}}{\sqrt{M}} &amp;&amp; \text{(the square root of a quotient is the quotient of square roots)}\\
+&amp;= \frac{{\operatorname{SD}\mathopen{}\left(T\right)\mathclose{}}}{\sqrt{M}} &amp;&amp; \text{(the standard deviation is the square root of the variance)}
+\end{aligned}
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="rem-monte-carlo-se-estimate" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Reporting a Monte Carlo standard error). </span>The <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-sd">standard deviation</a> <span class="math inline">\({\operatorname{SD}\mathopen{}\left(T\right)\mathclose{}}\)</span> in <a href="#/thm-monte-carlo-se" class="quarto-xref">Theorem&nbsp;1</a> is unknown, so a study reports the <a href="./exploratory-descriptive.html#def-sample-sd">sample standard deviation</a> <span class="math inline">\(s_T\)</span> of the <a href="./estimation.html#def-estimate">estimates</a> <span class="math inline">\(T_1, \ldots, T_M\)</span> divided by <span class="math inline">\(\sqrt{M}\)</span> in its place. That <a href="#/def-monte-carlo-standard-error">Monte Carlo standard error</a> shrinks like <span class="math inline">\(1 / \sqrt{M}\)</span>, so quadrupling the number of <a href="#/def-replication">replications</a> halves it. A <a href="#/def-simulation-estimate">simulation estimate</a> should be reported with its Monte Carlo standard error, so a reader can tell a real difference from random variation in the simulation.</p>
+</div>
+</section><section id="sec-seeds" class="slide level2" data-number="5"><h2>
+<span class="header-section-number">5</span> Seeds</h2>
+</section><section class="slide level2"><div id="def-seed" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 8 (Seed)</strong></span> A <strong>seed</strong> is the integer that sets the starting state of a computer’s pseudorandom number generator, so that rerunning a simulation with the same seed reproduces the same random draws:</p>
+<p><span class="math display">\[\text{seed} \mapsto U_1, U_2, \ldots\]</span></p>
+</div>
+</section><section class="slide level2"><div id="rem-seed-practice" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em> (Setting seeds). </span>Set the <a href="#/def-seed">seed</a> once, at the top of the simulation, and record its value with the results. Different software uses different generators, so the same seed gives different draws in R and in Python. Both give correct <a href="#/def-simulation-estimate">simulation estimates</a>, which agree up to their <a href="#/def-monte-carlo-standard-error">Monte Carlo standard errors</a>.</p>
+</div>
+</section><section id="sec-worked-simulation" class="slide level2" data-number="6"><h2>
+<span class="header-section-number">6</span> A worked simulation study</h2>
+</section><section class="slide level2"><div id="exm-simulate-variance-bias" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7 (Simulating the bias of the divide-by-<span class="math inline">\(n\)</span> variance estimator)</strong></span> For the <a href="#/exm-data-generating-process">data-generating process</a> with <span class="math inline">\(\mu= 0\)</span>, <span class="math inline">\(\sigma^2= 4\)</span> and <span class="math inline">\(n = 10\)</span>, we simulate the <a href="./estimation.html#def-bias">bias</a> of the divide-by-<span class="math inline">\(n\)</span> <a href="./estimation.html#def-estimator">estimator</a> <span class="math inline">\(\hat{\sigma}^2\)</span> of <span class="math inline">\(\sigma^2\)</span> from <a href="./estimation.html#exm-biased-variance-mle">the example of a biased variance estimator</a>. That example shows that the bias is exactly <span class="math inline">\(-\sigma^2/ n = -0.4\)</span>, so the simulation can be checked against the known answer.</p>
+<p>Each <a href="#/def-replication">replication</a> draws <span class="math inline">\(n = 10\)</span> values and computes one <a href="./estimation.html#def-estimate">estimate</a> of <span class="math inline">\(\sigma^2\)</span>. We run <span class="math inline">\(M = 10000\)</span> <a href="#/def-replication">replications</a>, set the <a href="#/def-seed">seed</a> once at the start, and report the <a href="#/def-simulation-bias-estimate">simulation estimate of the bias</a> with its <a href="#/def-monte-carlo-standard-error">Monte Carlo standard error</a>. The choice <span class="math inline">\(M = 10000\)</span> gives a Monte Carlo standard error of about <span class="math inline">\(0.02\)</span>, small next to the bias.</p>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-1" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-1-1">R</a></li>
+<li><a href="#tabset-1-2">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb1-2"><a aria-label="2"></a>sigma_sq <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb1-3"><a aria-label="3"></a>n_reps <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb1-4"><a aria-label="4"></a>n_draws <span class="ot">&lt;-</span> n_reps <span class="sc">*</span> n</span>
+<span id="cb1-5"><a aria-label="5"></a>sigma <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(sigma_sq)</span>
+<span id="cb1-6"><a aria-label="6"></a></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="fu">set.seed</span>(<span class="dv">571</span>)</span>
+<span id="cb1-8"><a aria-label="8"></a>draws <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_draws, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> sigma)</span>
+<span id="cb1-9"><a aria-label="9"></a><span class="co"># Each row is one replication's data set.</span></span>
+<span id="cb1-10"><a aria-label="10"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(draws, <span class="at">nrow =</span> n_reps)</span>
+<span id="cb1-11"><a aria-label="11"></a></span>
+<span id="cb1-12"><a aria-label="12"></a>x_bar <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(x)</span>
+<span id="cb1-13"><a aria-label="13"></a>deviations <span class="ot">&lt;-</span> x <span class="sc">-</span> x_bar</span>
+<span id="cb1-14"><a aria-label="14"></a>squared_deviations <span class="ot">&lt;-</span> deviations<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb1-15"><a aria-label="15"></a>var_hat <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(squared_deviations)</span>
+<span id="cb1-16"><a aria-label="16"></a></span>
+<span id="cb1-17"><a aria-label="17"></a>bias_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(var_hat) <span class="sc">-</span> sigma_sq</span>
+<span id="cb1-18"><a aria-label="18"></a>mc_se <span class="ot">&lt;-</span> <span class="fu">sd</span>(var_hat) <span class="sc">/</span> <span class="fu">sqrt</span>(n_reps)</span>
+<span id="cb1-19"><a aria-label="19"></a></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="fu">c</span>(</span>
+<span id="cb1-21"><a aria-label="21"></a>  <span class="at">simulation_estimate =</span> bias_hat,</span>
+<span id="cb1-22"><a aria-label="22"></a>  <span class="at">mc_standard_error =</span> mc_se,</span>
+<span id="cb1-23"><a aria-label="23"></a>  <span class="at">known_bias =</span> <span class="sc">-</span>sigma_sq <span class="sc">/</span> n</span>
+<span id="cb1-24"><a aria-label="24"></a>)</span>
+<span id="cb1-25"><a aria-label="25"></a><span class="co">#&gt; simulation_estimate   mc_standard_error          known_bias </span></span>
+<span id="cb1-26"><a aria-label="26"></a><span class="co">#&gt;          -0.3915413           0.0169017          -0.4000000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a>n <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb2-4"><a aria-label="4"></a>sigma_sq <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb2-5"><a aria-label="5"></a>n_reps <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb2-6"><a aria-label="6"></a></span>
+<span id="cb2-7"><a aria-label="7"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">571</span>)</span>
+<span id="cb2-8"><a aria-label="8"></a><span class="co"># Each row is one replication's data set.</span></span>
+<span id="cb2-9"><a aria-label="9"></a>x <span class="op">=</span> rng.normal(loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span>np.sqrt(sigma_sq), size<span class="op">=</span>(n_reps, n))</span>
+<span id="cb2-10"><a aria-label="10"></a></span>
+<span id="cb2-11"><a aria-label="11"></a>x_bar <span class="op">=</span> x.mean(axis<span class="op">=</span><span class="dv">1</span>, keepdims<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-12"><a aria-label="12"></a>var_hat <span class="op">=</span> ((x <span class="op">-</span> x_bar) <span class="op">**</span> <span class="dv">2</span>).mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-13"><a aria-label="13"></a></span>
+<span id="cb2-14"><a aria-label="14"></a>bias_hat <span class="op">=</span> var_hat.mean() <span class="op">-</span> sigma_sq</span>
+<span id="cb2-15"><a aria-label="15"></a>mc_se <span class="op">=</span> var_hat.std(ddof<span class="op">=</span><span class="dv">1</span>) <span class="op">/</span> np.sqrt(n_reps)</span>
+<span id="cb2-16"><a aria-label="16"></a></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="bu">print</span>(<span class="ss">f"simulation estimate: </span><span class="sc">{</span>bias_hat<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb2-18"><a aria-label="18"></a><span class="co">#&gt; simulation estimate: -0.390</span></span>
+<span id="cb2-19"><a aria-label="19"></a><span class="bu">print</span>(<span class="ss">f"mc standard error:   </span><span class="sc">{</span>mc_se<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb2-20"><a aria-label="20"></a><span class="co">#&gt; mc standard error:   0.017</span></span>
+<span id="cb2-21"><a aria-label="21"></a><span class="bu">print</span>(<span class="ss">f"known bias:          </span><span class="sc">{</span><span class="op">-</span>sigma_sq <span class="op">/</span> n<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb2-22"><a aria-label="22"></a><span class="co">#&gt; known bias:          -0.400</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<p>The R <a href="#/def-simulation-bias-estimate">simulation estimate of the bias</a> is -0.392, with a <a href="#/def-monte-carlo-standard-error">Monte Carlo standard error</a> of 0.017. It is within 0.5 <a href="#/def-monte-carlo-standard-error">Monte Carlo standard errors</a> of the known <a href="./estimation.html#def-bias">bias</a> -0.4. The Python run uses a different random number generator, so its <a href="./estimation.html#def-estimate">estimate</a> differs slightly, but it too agrees with -0.4 up to its Monte Carlo standard error.</p>
+<p><a href="#/fig-simulate-variance-bias" class="quarto-xref">Figure&nbsp;1</a> shows the <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> of <span class="math inline">\(\hat{\sigma}^2\)</span> that the <a href="#/def-replication">replications</a> trace out. Its <a href="./exploratory-descriptive.html#def-histogram">histogram</a> uses 40 equal-width <a href="./exploratory-descriptive.html#def-bin">bins</a>, which put about 250 of the 10^{4} <a href="./estimation.html#def-estimate">estimates</a> in the <a href="https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean">average</a> <a href="./exploratory-descriptive.html#def-bin">bin</a>. Fewer bins, such as 10, would hide the right skew of the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">distribution</a> in a few wide bars. More bins, such as 200, would leave about 50 estimates per bin on average, and random bar-to-bar variation would hide the shape. The bin count changes only the picture, not any number reported above.</p>
+<div class="cell">
+<details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>estimates <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">var_hat =</span> var_hat)</span>
+<span id="cb3-2"><a aria-label="2"></a>mean_var_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(var_hat)</span>
+<span id="cb3-3"><a aria-label="3"></a>line_values <span class="ot">&lt;-</span> <span class="fu">c</span>(sigma_sq, mean_var_hat)</span>
+<span id="cb3-4"><a aria-label="4"></a>line_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"True variance"</span>, <span class="st">"Average estimate"</span>)</span>
+<span id="cb3-5"><a aria-label="5"></a>means <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">value =</span> line_values, <span class="at">line =</span> line_labels)</span>
+<span id="cb3-6"><a aria-label="6"></a></span>
+<span id="cb3-7"><a aria-label="7"></a>estimates <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a aria-label="8"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-9"><a aria-label="9"></a>  <span class="fu">aes</span>(<span class="at">x =</span> var_hat) <span class="sc">+</span></span>
+<span id="cb3-10"><a aria-label="10"></a>  <span class="co"># check-unexplained-choices: allow</span></span>
+<span id="cb3-11"><a aria-label="11"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">40</span>, <span class="at">fill =</span> <span class="st">"grey80"</span>, <span class="at">color =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
+<span id="cb3-12"><a aria-label="12"></a>  <span class="fu">geom_vline</span>(</span>
+<span id="cb3-13"><a aria-label="13"></a>    <span class="at">data =</span> means,</span>
+<span id="cb3-14"><a aria-label="14"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">xintercept =</span> value, <span class="at">linetype =</span> line)</span>
+<span id="cb3-15"><a aria-label="15"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-16"><a aria-label="16"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Estimate of the variance"</span>, <span class="at">y =</span> <span class="st">"Replications"</span>, <span class="at">linetype =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div id="fig-simulate-variance-bias" class="quarto-float quarto-figure quarto-figure-center" alt="A histogram of 10,000 divide-by-n variance estimates, right-skewed, with one vertical line at the true variance 4 and a second, slightly to its left, at the average estimate.">
+<figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-simulate-variance-bias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Estimates of the variance from 10,000 replications. The vertical lines mark the true variance 4 and the average estimate, which falls below it by the bias.
+</figcaption><div aria-describedby="fig-simulate-variance-bias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="simulation-studies_files/figure-html/fig-simulate-variance-bias-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Estimates of the variance from 10,000 replications. The vertical lines mark the true variance 4 and the average estimate, which falls below it by the bias."><img data-src="simulation-studies_files/figure-html/fig-simulate-variance-bias-1.png" alt="A histogram of 10,000 divide-by-n variance estimates, right-skewed, with one vertical line at the true variance 4 and a second, slightly to its left, at the average estimate." width="672"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>The distribution is right-skewed, and its average sits below the true <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>, which is the bias.</p>
 </div>
 </section><section id="references" class="slide level2 unnumbered"><h2>References</h2>
 </section><section class="slide level2 smaller scrollable" id="references"><div id="refs" role="list">
@@ -1023,7 +1242,38 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
           }
         }
       });
-      </script>
+      </script><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
 
 
 </body></html>

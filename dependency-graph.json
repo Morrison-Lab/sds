@@ -174,6 +174,16 @@
    "url": "https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability"
   },
   {
+   "id": "pds/limit-theorems#thm-sum-iid-moments",
+   "site": "pds",
+   "page": "limit-theorems",
+   "div": "thm-sum-iid-moments",
+   "kind": "thm",
+   "title": "sum iid moments",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/limit-theorems.html#thm-sum-iid-moments"
+  },
+  {
    "id": "pds/limit-theorems#thm-wlln",
    "site": "pds",
    "page": "limit-theorems",
@@ -4455,12 +4465,30 @@
    "external": false
   },
   {
+   "id": "sds/simulation-studies#def-monte-carlo-standard-error",
+   "site": "sds",
+   "page": "simulation-studies",
+   "div": "def-monte-carlo-standard-error",
+   "kind": "def",
+   "title": "Monte Carlo standard error",
+   "external": false
+  },
+  {
    "id": "sds/simulation-studies#def-replication",
    "site": "sds",
    "page": "simulation-studies",
    "div": "def-replication",
    "kind": "def",
    "title": "Replication",
+   "external": false
+  },
+  {
+   "id": "sds/simulation-studies#def-seed",
+   "site": "sds",
+   "page": "simulation-studies",
+   "div": "def-seed",
+   "kind": "def",
+   "title": "Seed",
    "external": false
   },
   {
@@ -4497,6 +4525,15 @@
    "div": "def-simulation-study",
    "kind": "def",
    "title": "Simulation study",
+   "external": false
+  },
+  {
+   "id": "sds/simulation-studies#thm-monte-carlo-se",
+   "site": "sds",
+   "page": "simulation-studies",
+   "div": "thm-monte-carlo-se",
+   "kind": "thm",
+   "title": "Monte Carlo standard error of a simulation estimate",
    "external": false
   },
   {
@@ -7890,6 +7927,14 @@
    "sds/exploratory-descriptive#def-observation"
   ],
   [
+   "sds/simulation-studies#def-monte-carlo-standard-error",
+   "sds/estimation#def-SE"
+  ],
+  [
+   "sds/simulation-studies#def-monte-carlo-standard-error",
+   "sds/simulation-studies#def-simulation-estimate"
+  ],
+  [
    "sds/simulation-studies#def-replication",
    "sds/estimation#def-estimate"
   ],
@@ -7992,6 +8037,46 @@
   [
    "sds/simulation-studies#def-simulation-study",
    "sds/simulation-studies#def-replication"
+  ],
+  [
+   "sds/simulation-studies#thm-monte-carlo-se",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "sds/simulation-studies#thm-monte-carlo-se",
+   "pds/independence#def-iid"
+  ],
+  [
+   "sds/simulation-studies#thm-monte-carlo-se",
+   "pds/limit-theorems#thm-sum-iid-moments"
+  ],
+  [
+   "sds/simulation-studies#thm-monte-carlo-se",
+   "pds/variance-covariance#def-variance"
+  ],
+  [
+   "sds/simulation-studies#thm-monte-carlo-se",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/simulation-studies#thm-monte-carlo-se",
+   "sds/estimation#def-unbiased"
+  ],
+  [
+   "sds/simulation-studies#thm-monte-carlo-se",
+   "sds/simulation-studies#def-monte-carlo-standard-error"
+  ],
+  [
+   "sds/simulation-studies#thm-monte-carlo-se",
+   "sds/simulation-studies#def-replication"
+  ],
+  [
+   "sds/simulation-studies#thm-monte-carlo-se",
+   "sds/simulation-studies#def-simulation-estimate"
+  ],
+  [
+   "sds/simulation-studies#thm-monte-carlo-se",
+   "sds/simulation-studies#def-simulation-study"
   ],
   [
    "sds/sufficiency#def-rao-blackwellized",
