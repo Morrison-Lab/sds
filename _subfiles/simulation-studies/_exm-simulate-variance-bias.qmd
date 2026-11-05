@@ -25,9 +25,10 @@ n <- 10
 sigma_sq <- 4
 n_reps <- 10000
 n_draws <- n_reps * n
+sigma <- sqrt(sigma_sq)
 
 set.seed(571)
-draws <- rnorm(n_draws, mean = 0, sd = sqrt(sigma_sq))
+draws <- rnorm(n_draws, mean = 0, sd = sigma)
 # Each row is one replication's data set.
 x <- matrix(draws, nrow = n_reps)
 
@@ -100,13 +101,14 @@ The bin count changes only the picture, not any number reported above.
 #|   with one vertical line at the true variance 4
 #|   and a second, slightly to its left, at the average estimate.
 #| code-fold: true
-estimates <- data.frame(var_hat = var_hat)
-means <- data.frame(
-  value = c(sigma_sq, mean(var_hat)),
-  line = c("True variance", "Average estimate")
-)
+estimates <- tibble::tibble(var_hat = var_hat)
+mean_var_hat <- mean(var_hat)
+line_values <- c(sigma_sq, mean_var_hat)
+line_labels <- c("True variance", "Average estimate")
+means <- tibble::tibble(value = line_values, line = line_labels)
 
-ggplot(estimates) +
+estimates |>
+  ggplot() +
   aes(x = var_hat) +
   # check-unexplained-choices: allow
   geom_histogram(bins = 40, fill = "grey80", color = "grey40") +
