@@ -4,7 +4,7 @@
 <!-- no-figure: the example describes the design of a study -->
 
 For the [normal data-generating process](#exm-data-generating-process),
-a [simulation study](#def-simulation-study) of one [estimator](estimation.qmd#def-estimator) of the variance $\varpar$
+a [simulation study](#def-simulation-study) of one [estimator](estimation.qmd#def-estimator) of the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar$
 runs $M$ [replications](#exm-replication) of that process and that estimator.
-The $M$ [estimates](estimation.qmd#def-estimate) $T_1, \ldots, T_M$ then show how the estimator behaves across repeated data sets.
+The $M$ [estimates](estimation.qmd#def-estimate) $T_1, \ldots, T_M$ then show how the estimator behaves across repeated [data sets](model-validation.qmd#def-data-set).
 :::
