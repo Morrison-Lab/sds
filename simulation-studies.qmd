@@ -1,0 +1,45 @@
+---
+title: "Simulation Studies"
+format:
+  html: default
+  revealjs:
+    output-file: simulation-studies-slides.html
+    shift-heading-level-by: 1
+  pdf:
+    output-file: simulation-studies-handout.pdf
+  docx:
+    output-file: simulation-studies-handout.docx
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+{{< include sds/_subfiles/simulation-studies/_prose-intro.qmd >}}
+
+# The data-generating process {#sec-data-generating-process}
+
+{{< include sds/_subfiles/simulation-studies/_def-data-generating-process.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_exm-data-generating-process.qmd >}}
+
+# Replications and simulation studies {#sec-replications}
+
+{{< include sds/_subfiles/simulation-studies/_def-replication.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_exm-replication.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_def-simulation-study.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_exm-simulation-study.qmd >}}
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
