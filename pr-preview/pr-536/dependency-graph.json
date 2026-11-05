@@ -14,6 +14,16 @@
    "url": "https://morrison-lab.github.io/mds/functions.html#def-function"
   },
   {
+   "id": "mds/linear-algebra-vectors#def-mean",
+   "site": "mds",
+   "page": "linear-algebra-vectors",
+   "div": "def-mean",
+   "kind": "def",
+   "title": "mean",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean"
+  },
+  {
    "id": "mds/optimization#def-optimization-algorithm",
    "site": "mds",
    "page": "optimization",
@@ -7921,6 +7931,10 @@
   ],
   [
    "sds/simulation-studies#def-simulation-estimate",
+   "mds/linear-algebra-vectors#def-mean"
+  ],
+  [
+   "sds/simulation-studies#def-simulation-estimate",
    "pds/expectation#def-expectation"
   ],
   [
@@ -7930,6 +7944,10 @@
   [
    "sds/simulation-studies#def-simulation-estimate",
    "sds/simulation-studies#def-replication"
+  ],
+  [
+   "sds/simulation-studies#def-simulation-mse-estimate",
+   "mds/linear-algebra-vectors#def-mean"
   ],
   [
    "sds/simulation-studies#def-simulation-mse-estimate",

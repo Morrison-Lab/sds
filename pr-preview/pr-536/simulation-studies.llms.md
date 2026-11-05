@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-11-04 17:53:38 (PST)
+Last modified: 2026-11-04 18:26:58 (PST)
 
-Theory often cannot give the [bias](estimation.llms.md#def-bias), [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) or coverage of an [estimator](estimation.llms.md#def-estimator) when the estimator or the data distribution is complicated. A [simulation study](#def-simulation-study) measures the same properties for any estimator a computer can run. It generates many [data sets](model-validation.llms.md#def-data-set) from a distribution whose parameters are known, applies the estimator to each, and summarizes the results.
+Theory often cannot give the [bias](estimation.llms.md#def-bias), [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) or coverage of an [estimator](estimation.llms.md#def-estimator) when the estimator or the data [distribution](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) is complicated. A [simulation study](#def-simulation-study) measures the same properties for any estimator a computer can run. It generates many [data sets](model-validation.llms.md#def-data-set) from a distribution whose parameters are known, applies the estimator to each, and summarizes the results.
 
 This page defines the parts of a [simulation study](#def-simulation-study).
 
@@ -22,7 +22,7 @@ This page defines the parts of a [simulation study](#def-simulation-study).
 >
 > **Example 1 (A normal data-generating process)**  
 >
-> Let $X_1, \ldots, X_n$ be [IID](https://morrison-lab.github.io/pds/independence.html#def-iid) [normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) random variables with [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\mu= 0$ and [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\sigma^2= 4$, with $n = 10$. The distribution of these variables is a [data-generating process](#def-data-generating-process), and the [estimand](estimation.llms.md#def-estimand) $\sigma^2= 4$ is known exactly, so the error of any [estimator](estimation.llms.md#def-estimator) of $\sigma^2$ can be computed.
+> Let $X_1, \ldots, X_n$ be [IID](https://morrison-lab.github.io/pds/independence.html#def-iid) [normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) [random variables](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) with [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\mu= 0$ and [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\sigma^2= 4$, with $n = 10$. The [distribution](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) of these variables is a [data-generating process](#def-data-generating-process), and the [estimand](estimation.llms.md#def-estimand) $\sigma^2= 4$ is known exactly, so the error of any [estimator](estimation.llms.md#def-estimator) of $\sigma^2$ can be computed.
 
 # 2 Replications and simulation studies
 
@@ -50,7 +50,7 @@ This page defines the parts of a [simulation study](#def-simulation-study).
 
 > **NOTE:**
 >
-> **Definition 4 (Simulation estimate)** A **simulation estimate** of the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) ${\mathbb{E}\mathopen{}\left[T\right]\mathclose{}}$ of an [estimate](estimation.llms.md#def-estimate) $T$ is the average of the [replications](#def-replication)’ [estimates](estimation.llms.md#def-estimate) $T_1, \ldots, T_M$:
+> **Definition 4 (Simulation estimate)** A **simulation estimate** of the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) ${\mathbb{E}\mathopen{}\left[T\right]\mathclose{}}$ of an [estimate](estimation.llms.md#def-estimate) $T$ is the [average](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean) of the [replications](#def-replication)’ [estimates](estimation.llms.md#def-estimate) $T_1, \ldots, T_M$:
 >
 > $${{\bar{T}}_{M}} \stackrel{\text{def}}{=}\frac{1}{M}\sum_{m=1}^{M} T_m.$$
 
@@ -78,7 +78,7 @@ This page defines the parts of a [simulation study](#def-simulation-study).
 
 > **NOTE:**
 >
-> **Definition 6 (Simulation estimate of the mean squared error)** Let $\theta$ be an [estimand](estimation.llms.md#def-estimand), let $\hat{\theta}$ be an [estimator](estimation.llms.md#def-estimator), and let $T_1, \ldots, T_M$ be its [estimates](estimation.llms.md#def-estimate) from $M$ [replications](#def-replication). The **[simulation estimate](#def-simulation-estimate) of the [mean squared error](estimation.llms.md#def-mse)** of $\hat{\theta}$ is the average of the squared differences $\mathopen{}\left(T_m - \theta\right)\mathclose{}^2$:
+> **Definition 6 (Simulation estimate of the mean squared error)** Let $\theta$ be an [estimand](estimation.llms.md#def-estimand), let $\hat{\theta}$ be an [estimator](estimation.llms.md#def-estimator), and let $T_1, \ldots, T_M$ be its [estimates](estimation.llms.md#def-estimate) from $M$ [replications](#def-replication). The **[simulation estimate](#def-simulation-estimate) of the [mean squared error](estimation.llms.md#def-mse)** of $\hat{\theta}$ is the [average](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean) of the squared differences $\mathopen{}\left(T_m - \theta\right)\mathclose{}^2$:
 >
 > $$\frac{1}{M}\sum_{m=1}^{M} \mathopen{}\left(T_m - \theta\right)\mathclose{}^2.$$
 
@@ -92,7 +92,7 @@ This page defines the parts of a [simulation study](#def-simulation-study).
 
 > **NOTE:**
 >
-> *Remark 1* (Simulation estimates in Bayesian inference). The [Monte Carlo estimate](bayesian-inference.llms.md#def-monte-carlo-estimate) of a [posterior](bayesian-inference.llms.md#def-posterior) [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) is the same average, taken over draws from a [posterior distribution](bayesian-inference.llms.md#def-posterior) instead of over [replications](#def-replication) of a [data-generating process](#def-data-generating-process).
+> *Remark 1* (Simulation estimates in Bayesian inference). The [Monte Carlo estimate](bayesian-inference.llms.md#def-monte-carlo-estimate) of a [posterior](bayesian-inference.llms.md#def-posterior) [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) is the same [average](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean), taken over draws from a [posterior distribution](bayesian-inference.llms.md#def-posterior) instead of over [replications](#def-replication) of a [data-generating process](#def-data-generating-process).
 
 # Definitions on this page
 
