@@ -284,6 +284,16 @@
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-pmf"
   },
   {
+   "id": "pds/random-variables#def-random-variable",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-random-variable",
+   "kind": "def",
+   "title": "random variable",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-random-variable"
+  },
+  {
    "id": "pds/random-variables#def-realization",
    "site": "pds",
    "page": "random-variables",
@@ -4426,6 +4436,33 @@
    "external": false
   },
   {
+   "id": "sds/simulation-studies#def-data-generating-process",
+   "site": "sds",
+   "page": "simulation-studies",
+   "div": "def-data-generating-process",
+   "kind": "def",
+   "title": "Data-generating process",
+   "external": false
+  },
+  {
+   "id": "sds/simulation-studies#def-replication",
+   "site": "sds",
+   "page": "simulation-studies",
+   "div": "def-replication",
+   "kind": "def",
+   "title": "Replication",
+   "external": false
+  },
+  {
+   "id": "sds/simulation-studies#def-simulation-study",
+   "site": "sds",
+   "page": "simulation-studies",
+   "div": "def-simulation-study",
+   "kind": "def",
+   "title": "Simulation study",
+   "external": false
+  },
+  {
    "id": "sds/sufficiency#def-rao-blackwellized",
    "site": "sds",
    "page": "sufficiency",
@@ -7806,6 +7843,50 @@
   [
    "sds/prediction#thm-prediction-error-residual",
    "sds/prediction#def-residual"
+  ],
+  [
+   "sds/simulation-studies#def-data-generating-process",
+   "pds/random-variables#def-random-variable"
+  ],
+  [
+   "sds/simulation-studies#def-data-generating-process",
+   "sds/exploratory-descriptive#def-observation"
+  ],
+  [
+   "sds/simulation-studies#def-replication",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/simulation-studies#def-replication",
+   "sds/estimation#def-estimator"
+  ],
+  [
+   "sds/simulation-studies#def-replication",
+   "sds/model-validation#def-data-set"
+  ],
+  [
+   "sds/simulation-studies#def-replication",
+   "sds/simulation-studies#def-data-generating-process"
+  ],
+  [
+   "sds/simulation-studies#def-simulation-study",
+   "sds/estimation#def-estimate"
+  ],
+  [
+   "sds/simulation-studies#def-simulation-study",
+   "sds/estimation#def-estimator"
+  ],
+  [
+   "sds/simulation-studies#def-simulation-study",
+   "sds/estimation#def-sampling-distribution"
+  ],
+  [
+   "sds/simulation-studies#def-simulation-study",
+   "sds/simulation-studies#def-data-generating-process"
+  ],
+  [
+   "sds/simulation-studies#def-simulation-study",
+   "sds/simulation-studies#def-replication"
   ],
   [
    "sds/sufficiency#def-rao-blackwellized",
