@@ -4,5 +4,5 @@
 A **simulation estimate** of the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\E{T}$ of an [estimate](estimation.qmd#def-estimate) $T$
 is the average of the [replications](#def-replication)' [estimates](estimation.qmd#def-estimate) $T_1, \ldots, T_M$:
 
-$$\bar T_M \eqdef \frac{1}{M} \sumto{m}{M} T_m.$$
+$$\samplemean{T}{M} \eqdef \avgto{m}{M} T_m.$$
 :::
