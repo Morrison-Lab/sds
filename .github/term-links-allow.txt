@@ -1,4 +1,5 @@
 error
+finite
 measure
 measures
 negative
