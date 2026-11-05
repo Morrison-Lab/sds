@@ -17,12 +17,27 @@ Since $\bar T_M = S_M / M$:
 $$
 \begin{aligned}
 \E{\bar T_M} &= \frac{\E{S_M}}{M} && \text{(constants factor out of expectations)}\\
-&= \E{T} && \text{(substitute $\E{S_M}$ and cancel $M$)}\\
+&= \frac{M\,\E{T}}{M} && \text{(substitute $\E{S_M}$)}\\
+&= \frac{M}{M}\,\E{T} && \text{(regroup the factors)}\\
+&= 1 \cdot \E{T} && \text{($M / M = 1$)}\\
+&= \E{T} && \text{(multiplying by 1 changes nothing)}
+\end{aligned}
+$$
+
+For the variance:
+
+$$
+\begin{aligned}
 \Var{\bar T_M} &= \frac{\Var{S_M}}{M^2} && \text{(a constant factor $c$ scales variance by $c^2$)}\\
 &= \frac{M\,\Var{T}}{M^2} && \text{(substitute $\Var{S_M}$)}\\
-&= \frac{\Var{T}}{M} && \text{(cancel one factor of $M$)}\\
+&= \frac{M\,\Var{T}}{M \cdot M} && \text{(write $M^2$ as $M \cdot M$)}\\
+&= \frac{M}{M} \cdot \frac{\Var{T}}{M} && \text{(split the fraction into two factors)}\\
+&= 1 \cdot \frac{\Var{T}}{M} && \text{($M / M = 1$)}\\
+&= \frac{\Var{T}}{M} && \text{(multiplying by 1 changes nothing)}\\
 \SE{\bar T_M} &= \sqrt{\Var{\bar T_M}} && \text{(standard error is the standard deviation)}\\
-&= \frac{\SD{T}}{\sqrt{M}} && \text{(take the square root)}
+&= \sqrt{\frac{\Var{T}}{M}} && \text{(substitute $\Var{\bar T_M}$)}\\
+&= \frac{\sqrt{\Var{T}}}{\sqrt{M}} && \text{(the square root of a quotient is the quotient of square roots)}\\
+&= \frac{\SD{T}}{\sqrt{M}} && \text{(the standard deviation is the square root of the variance)}
 \end{aligned}
 $$
 :::

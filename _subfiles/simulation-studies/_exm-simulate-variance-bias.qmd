@@ -76,14 +76,14 @@ print(f"known bias:          {-sigma_sq / n:.3f}")
 
 The R [simulation estimate](#def-simulation-estimate) of the [bias](estimation.qmd#def-bias) is `r round(bias_hat, 3)`,
 with a [Monte Carlo standard error](#def-monte-carlo-standard-error) of `r round(mc_se, 3)`.
-It is within `r round(abs(bias_hat - (-sigma_sq / n)) / mc_se, 1)` [Monte Carlo standard errors](#def-monte-carlo-standard-error) of the known bias $-0.4$.
+It is within `r round(abs(bias_hat - (-sigma_sq / n)) / mc_se, 1)` [Monte Carlo standard errors](#def-monte-carlo-standard-error) of the known bias `r -sigma_sq / n`.
 The Python run uses a different random number generator,
 so its [estimate](estimation.qmd#def-estimate) differs slightly,
-but it too agrees with $-0.4$ up to its Monte Carlo standard error.
+but it too agrees with `r -sigma_sq / n` up to its Monte Carlo standard error.
 
 @fig-simulate-variance-bias shows the [sampling distribution](estimation.qmd#def-sampling-distribution) of $\hvarpar$ that the [replications](#def-replication) trace out.
 Its [histogram](exploratory-descriptive.qmd#def-histogram) uses 40 equal-width [bins](exploratory-descriptive.qmd#def-bin),
-which put about 250 of the 10000 [estimates](estimation.qmd#def-estimate) in the average [bin](exploratory-descriptive.qmd#def-bin).
+which put about `r n_reps / 40` of the `r n_reps` [estimates](estimation.qmd#def-estimate) in the average [bin](exploratory-descriptive.qmd#def-bin).
 Fewer bins, such as 10, would hide the right skew of the distribution in a few wide bars.
 More bins, such as 200, would leave about 50 estimates per bin on average,
 and random bar-to-bar variation would hide the shape.
