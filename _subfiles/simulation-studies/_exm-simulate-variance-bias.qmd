@@ -1,0 +1,116 @@
+::: {#exm-simulate-variance-bias}
+#### Simulating the bias of the divide-by-$n$ variance estimator
+
+For the [data-generating process](#exm-data-generating-process) with $\mean = 0$, $\varpar = 4$ and $n = 10$,
+we estimate the [bias](estimation.qmd#def-bias) of the divide-by-$n$ estimator $\hvarpar$ of $\varpar$
+from [the example of a biased variance estimator](estimation.qmd#exm-biased-variance-mle).
+That example shows that the bias is exactly $-\varpar / n = -0.4$,
+so the simulation can be checked against the exact answer.
+
+Each [replication](#def-replication) draws $n = 10$ values and computes one estimate of $\varpar$.
+We run $M = 10000$ replications,
+set the [seed](#def-seed) once at the start,
+and report the [simulation estimate](#def-simulation-estimate) of the bias with its [Monte Carlo standard error](#def-monte-carlo-standard-error).
+The choice $M = 10000$ gives a Monte Carlo standard error of about $0.02$,
+small next to the bias being estimated.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: simulate-variance-bias-r
+#| code-fold: false
+n <- 10
+sigma_sq <- 4
+n_reps <- 10000
+n_draws <- n_reps * n
+
+set.seed(571)
+draws <- rnorm(n_draws, mean = 0, sd = sqrt(sigma_sq))
+# Each row is one replication's data set.
+x <- matrix(draws, nrow = n_reps)
+
+x_bar <- rowMeans(x)
+deviations <- x - x_bar
+squared_deviations <- deviations^2
+var_hat <- rowMeans(squared_deviations)
+
+bias_hat <- mean(var_hat) - sigma_sq
+mc_se <- sd(var_hat) / sqrt(n_reps)
+
+c(
+  simulation_estimate = bias_hat,
+  mc_standard_error = mc_se,
+  exact = -sigma_sq / n
+)
+```
+
+##### Python
+
+```{python}
+#| label: simulate-variance-bias-py
+#| code-fold: false
+import numpy as np
+
+n = 10
+sigma_sq = 4
+n_reps = 10000
+
+rng = np.random.default_rng(571)
+# Each row is one replication's data set.
+x = rng.normal(loc=0, scale=np.sqrt(sigma_sq), size=(n_reps, n))
+
+x_bar = x.mean(axis=1, keepdims=True)
+var_hat = ((x - x_bar) ** 2).mean(axis=1)
+
+bias_hat = var_hat.mean() - sigma_sq
+mc_se = var_hat.std(ddof=1) / np.sqrt(n_reps)
+
+print(f"simulation estimate: {bias_hat:.3f}")
+print(f"mc standard error:   {mc_se:.3f}")
+print(f"exact:               {-sigma_sq / n:.3f}")
+```
+
+:::
+
+The R simulation estimate of the bias is `r round(bias_hat, 3)`,
+with a Monte Carlo standard error of `r round(mc_se, 3)`.
+It is within `r round(abs(bias_hat - (-sigma_sq / n)) / mc_se, 1)` Monte Carlo standard errors of the exact bias $-0.4$.
+The Python run uses a different random number generator,
+so its estimate differs slightly,
+but it too agrees with $-0.4$ up to its Monte Carlo standard error.
+
+@fig-simulate-variance-bias shows the sampling distribution of $\hvarpar$ that the replications trace out.
+Its histogram uses 40 equal-width bins,
+which put about 250 of the 10000 estimates in the average bin.
+Fewer bins, such as 10, would hide the right skew of the distribution in a few wide bars.
+More bins, such as 200, would leave about 50 estimates per bin on average,
+and random bar-to-bar variation would hide the shape.
+The bin count changes only the picture, not any number reported above.
+
+```{r}
+#| label: fig-simulate-variance-bias
+#| fig-cap: "Estimates of the variance from 10,000 replications. The vertical lines mark the true variance 4 and the average estimate, which falls below it by the bias."
+#| fig-alt: "A histogram of 10,000 divide-by-n variance estimates, right-skewed, with one vertical line at the true variance 4 and a second, slightly to its left, at the average estimate."
+#| code-fold: true
+estimates <- data.frame(var_hat = var_hat)
+means <- data.frame(
+  value = c(sigma_sq, mean(var_hat)),
+  line = c("True variance", "Average estimate")
+)
+
+ggplot(estimates) +
+  aes(x = var_hat) +
+  geom_histogram(bins = 40, fill = "grey80", color = "grey40") + # check-unexplained-choices: allow
+  geom_vline(
+    data = means,
+    mapping = aes(xintercept = value, linetype = line)
+  ) +
+  labs(x = "Estimate of the variance", y = "Replications", linetype = NULL)
+```
+
+The distribution is right-skewed,
+and its average sits below the true variance,
+which is the negative bias.
+:::

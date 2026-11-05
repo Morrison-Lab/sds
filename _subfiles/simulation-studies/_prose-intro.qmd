@@ -1,0 +1,10 @@
+Theory gives the bias, variance and coverage of an estimator
+only for simple estimators and simple data distributions.
+A simulation study estimates the same properties for any estimator a computer can run.
+It generates many data sets from a distribution whose parameters are known,
+applies the estimator to each,
+and summarizes the results.
+
+This page defines the parts of a simulation study,
+shows how to measure the study's own accuracy,
+and works one example in R and Python whose exact answer is known.

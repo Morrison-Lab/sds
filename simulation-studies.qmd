@@ -1,0 +1,75 @@
+---
+title: "Simulation Studies"
+format:
+  html: default
+  revealjs:
+    output-file: simulation-studies-slides.html
+    shift-heading-level-by: 1
+  pdf:
+    output-file: simulation-studies-handout.pdf
+  docx:
+    output-file: simulation-studies-handout.docx
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+```{r}
+#| include: false
+# The Python chunks on this page import numpy; reticulate provisions it.
+reticulate::py_require("numpy")
+```
+
+{{< include sds/_subfiles/simulation-studies/_prose-intro.qmd >}}
+
+# The data-generating process {#sec-data-generating-process}
+
+{{< include sds/_subfiles/simulation-studies/_def-data-generating-process.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_exm-data-generating-process.qmd >}}
+
+# Replications and simulation estimates {#sec-replications}
+
+{{< include sds/_subfiles/simulation-studies/_def-replication.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_def-simulation-study.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_def-simulation-estimate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_rem-simulation-estimate-bayesian.qmd >}}
+
+# Monte Carlo error {#sec-monte-carlo-error}
+
+{{< include sds/_subfiles/simulation-studies/_def-monte-carlo-standard-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_thm-monte-carlo-se.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_rem-monte-carlo-se-estimate.qmd >}}
+
+# Seeds {#sec-seeds}
+
+{{< include sds/_subfiles/simulation-studies/_def-seed.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_rem-seed-practice.qmd >}}
+
+# A worked simulation study {#sec-worked-simulation}
+
+{{< include sds/_subfiles/simulation-studies/_exm-simulate-variance-bias.qmd >}}
+
+# References {.unnumbered}
+
+::: {#refs}
+:::

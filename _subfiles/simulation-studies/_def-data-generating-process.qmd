@@ -1,0 +1,10 @@
+::: {#def-data-generating-process}
+#### Data-generating process
+
+The **data-generating process (DGP)** of a simulation
+is the joint [probability distribution](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) $F_{\param_0}$
+from which it draws its data $\dsn{X}$,
+with the sample size $n$ and the parameter value $\param_0$ fixed and known:
+
+$$\dsn{X} \sim F_{\param_0}.$$
+:::

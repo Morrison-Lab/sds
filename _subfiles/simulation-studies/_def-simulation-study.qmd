@@ -1,0 +1,9 @@
+::: {#def-simulation-study}
+#### Simulation study
+
+A **simulation study** runs $M$ [replications](#def-replication)
+of one [data-generating process](#def-data-generating-process)
+and one [estimator](estimation.qmd#def-estimator),
+then summarizes the estimates $T_1, \ldots, T_M$
+to learn the estimator's [sampling distribution](estimation.qmd#def-sampling-distribution).
+:::
