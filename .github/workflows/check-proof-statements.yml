@@ -1,0 +1,20 @@
+# Flags reasoning words ("so", "because", "hence") on a line a PR adds inside a
+# theorem-type statement, outside its proof.
+# Fails the run on a finding: checks fail rather than warn (Ezra).
+# No push trigger: a push run has no base to diff against and would report
+# success having checked nothing. A manual run scans the whole tree.
+name: Check proof statements
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-proof-statements.yml@v3
+    with:
+      fail: true
+      whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
+      paths-ignore: '_extensions/**,**/outtakes/**,latex-macros/**'
