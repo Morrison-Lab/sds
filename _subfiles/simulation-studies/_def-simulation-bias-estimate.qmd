@@ -5,5 +5,5 @@ For an [estimand](estimation.qmd#def-estimand) $\param$ and an [estimator](estim
 the **simulation estimate of the [bias](estimation.qmd#def-bias)** of $\hparam$
 is the [simulation estimate](#def-simulation-estimate) of $\E{\hparam}$, minus $\param$:
 
-$$\bar T_M - \param.$$
+$$\samplemean{T}{M} - \param.$$
 :::

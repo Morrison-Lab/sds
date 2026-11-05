@@ -6,5 +6,5 @@
 Continue the [three replications](#exm-simulation-estimate), and let the [estimand](estimation.qmd#def-estimand) be $\param = 5$.
 Then the [simulation estimate of the bias](#def-simulation-bias-estimate) is
 
-$$\bar T_3 - \param = 4 - 5 = -1.$$
+$$\samplemean{T}{3} - \param = 4 - 5 = -1.$$
 :::

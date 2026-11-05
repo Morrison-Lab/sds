@@ -5,5 +5,5 @@ For an [estimand](estimation.qmd#def-estimand) $\param$ and an [estimator](estim
 the **[simulation estimate](#def-simulation-estimate) of the [mean squared error](estimation.qmd#def-mse)** of $\hparam$
 is the average of the squared differences between the [estimates](estimation.qmd#def-estimate) and $\param$:
 
-$$\frac{1}{M} \sumto{m}{M} \paren{T_m - \param}^2.$$
+$$\avgto{m}{M} \paren{T_m - \param}\sq.$$
 :::
