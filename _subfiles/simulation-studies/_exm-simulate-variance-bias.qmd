@@ -10,7 +10,7 @@ so the simulation can be checked against the known answer.
 Each [replication](#def-replication) draws $n = 10$ values and computes one [estimate](estimation.qmd#def-estimate) of $\varpar$.
 We run $M = 10000$ [replications](#def-replication),
 set the [seed](#def-seed) once at the start,
-and report the [simulation estimate](#def-simulation-estimate) of the bias with its [Monte Carlo standard error](#def-monte-carlo-standard-error).
+and report the [simulation estimate of the bias](#def-simulation-bias-estimate) with its [Monte Carlo standard error](#def-monte-carlo-standard-error).
 The choice $M = 10000$ gives a Monte Carlo standard error of about $0.02$,
 small next to the bias.
 
@@ -74,9 +74,9 @@ print(f"known bias:          {-sigma_sq / n:.3f}")
 
 :::
 
-The R [simulation estimate](#def-simulation-estimate) of the [bias](estimation.qmd#def-bias) is `r round(bias_hat, 3)`,
+The R [simulation estimate of the bias](#def-simulation-bias-estimate) is `r round(bias_hat, 3)`,
 with a [Monte Carlo standard error](#def-monte-carlo-standard-error) of `r round(mc_se, 3)`.
-It is within `r round(abs(bias_hat - (-sigma_sq / n)) / mc_se, 1)` [Monte Carlo standard errors](#def-monte-carlo-standard-error) of the known bias `r -sigma_sq / n`.
+It is within `r round(abs(bias_hat - (-sigma_sq / n)) / mc_se, 1)` [Monte Carlo standard errors](#def-monte-carlo-standard-error) of the known [bias](estimation.qmd#def-bias) `r -sigma_sq / n`.
 The Python run uses a different random number generator,
 so its [estimate](estimation.qmd#def-estimate) differs slightly,
 but it too agrees with `r -sigma_sq / n` up to its Monte Carlo standard error.
