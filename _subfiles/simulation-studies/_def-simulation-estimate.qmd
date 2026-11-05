@@ -7,6 +7,6 @@ is the average of the [replications](#def-replication)' [estimates](estimation.q
 $$\bar T_M \eqdef \frac{1}{M} \sumto{m}{M} T_m.$$
 
 For an [estimand](estimation.qmd#def-estimand) $\param$,
-the simulation estimate of the [bias](estimation.qmd#def-bias) of $\hparam$ is $\bar T_M - \param$,
-and the simulation estimate of its [mean squared error](estimation.qmd#def-mse) is the average of $(T_m - \param)^2$.
+the simulation estimate of the [bias](estimation.qmd#def-bias) of $\hparam$ is $\bar T_M - \param$.
+The simulation estimate of its [mean squared error](estimation.qmd#def-mse) is the average of $(T_m - \param)^2$.
 :::
