@@ -23,15 +23,23 @@ format:
 
 {{< include sds/_subfiles/simulation-studies/_exm-data-generating-process.qmd >}}
 
-# Replications and simulation estimates {#sec-replications}
+# Replications and simulation studies {#sec-replications}
 
 {{< include sds/_subfiles/simulation-studies/_def-replication.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_exm-replication.qmd >}}
 
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/simulation-studies/_def-simulation-study.qmd >}}
 
 {{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_exm-simulation-study.qmd >}}
+
+# Simulation estimates {#sec-simulation-estimates}
 
 {{< include sds/_subfiles/simulation-studies/_def-simulation-estimate.qmd >}}
 
