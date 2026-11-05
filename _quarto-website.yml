@@ -65,6 +65,8 @@ website:
             href: intro-MLEs.qmd
           - text: "Properties of Estimators"
             href: estimator-properties.qmd
+          - text: "Simulation Studies"
+            href: simulation-studies.qmd
           - text: "Sufficiency"
             href: sufficiency.qmd
           - text: "Exponential Families"
@@ -132,6 +134,8 @@ website:
             href: intro-MLEs.qmd
           - text: "Properties of Estimators"
             href: estimator-properties.qmd
+          - text: "Simulation Studies"
+            href: simulation-studies.qmd
           - text: "Sufficiency"
             href: sufficiency.qmd
           - text: "Exponential Families"

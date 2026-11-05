@@ -1,0 +1,10 @@
+Theory gives the [bias](estimation.qmd#def-bias), [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) and coverage of an [estimator](estimation.qmd#def-estimator)
+only when the estimator and the data distribution are simple.
+A [simulation study](#def-simulation-study) measures the same properties for any estimator a computer can run.
+It generates many [data sets](model-validation.qmd#def-data-set) from a distribution whose parameters are known,
+applies the estimator to each,
+and summarizes the results.
+
+This page defines the parts of a [simulation study](#def-simulation-study),
+shows how to measure the study's own accuracy,
+and works one example in R and Python whose exact answer is known.
