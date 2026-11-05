@@ -347,14 +347,6 @@
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
-<!-- gha-preview-page-banner:start -->
-<div class="preview-page-changes-banner" style="background: #f8f9fa; border-left: 4px solid #0d6efd; padding: 10px 15px; margin: 15px 0; border-radius: 4px;">
-    <p style="margin: 0;">
-        <strong>📝 Preview:</strong> This is a new page added in this pull request.
-    </p>
-</div>
-<!-- gha-preview-page-banner:end -->
-
   <div class="reveal">
     <div class="slides">
 
@@ -363,13 +355,13 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-04 17:53:05 (PST)</p>
+  <p class="date">Last modified: 2026-11-04 19:22:41 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
 </style>
-<p>Theory often cannot give the <a href="./estimation.html#def-bias">bias</a>, <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> or coverage of an <a href="./estimation.html#def-estimator">estimator</a> when the estimator or the data distribution is complicated. A <a href="#/def-simulation-study">simulation study</a> measures the same properties for any estimator a computer can run. It generates many <a href="./model-validation.html#def-data-set">data sets</a> from a distribution whose parameters are known, applies the estimator to each, and summarizes the results.</p>
+<p>Theory often cannot give the <a href="./estimation.html#def-bias">bias</a>, <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> or coverage of an <a href="./estimation.html#def-estimator">estimator</a> when the estimator or the data <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">distribution</a> is complicated. A <a href="#/def-simulation-study">simulation study</a> measures the same properties for any estimator a computer can run. It generates many <a href="./model-validation.html#def-data-set">data sets</a> from a distribution whose parameters are known, applies the estimator to each, and summarizes the results.</p>
 <p>This page defines the parts of a <a href="#/def-simulation-study">simulation study</a>, shows how to measure the study’s own accuracy, and works one example in R and Python whose answer is known.</p>
 </section><section id="sec-data-generating-process" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> The data-generating process</h2>
@@ -380,7 +372,7 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-data-generating-process" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (A normal data-generating process)</strong></span> &nbsp;</p>
 <!-- no-figure: the example only fixes a distribution and its parameters -->
-<p>Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be <a href="https://morrison-lab.github.io/pds/independence.html#def-iid">IID</a> <a href="https://morrison-lab.github.io/pds/random-variables.html#def-normal">normal</a> random variables with <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> <span class="math inline">\(\mu= 0\)</span> and <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> <span class="math inline">\(\sigma^2= 4\)</span>, with <span class="math inline">\(n = 10\)</span>. The distribution of these variables is a <a href="#/def-data-generating-process">data-generating process</a>, and the <a href="./estimation.html#def-estimand">estimand</a> <span class="math inline">\(\sigma^2= 4\)</span> is known exactly, so the error of any <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\sigma^2\)</span> can be computed.</p>
+<p>Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be <a href="https://morrison-lab.github.io/pds/independence.html#def-iid">IID</a> <a href="https://morrison-lab.github.io/pds/random-variables.html#def-normal">normal</a> <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">random variables</a> with <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> <span class="math inline">\(\mu= 0\)</span> and <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> <span class="math inline">\(\sigma^2= 4\)</span>, with <span class="math inline">\(n = 10\)</span>. The <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">distribution</a> of these variables is a <a href="#/def-data-generating-process">data-generating process</a>, and the <a href="./estimation.html#def-estimand">estimand</a> <span class="math inline">\(\sigma^2= 4\)</span> is known exactly, so the error of any <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\sigma^2\)</span> can be computed.</p>
 </div>
 </section><section id="sec-replications" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Replications and simulation studies</h2>
@@ -403,7 +395,7 @@ text-align: center;
 </section><section id="sec-simulation-estimates" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Simulation estimates</h2>
 </section><section class="slide level2"><div id="def-simulation-estimate" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Simulation estimate)</strong></span> A <strong>simulation estimate</strong> of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> <span class="math inline">\({\mathbb{E}\mathopen{}\left[T\right]\mathclose{}}\)</span> of an <a href="./estimation.html#def-estimate">estimate</a> <span class="math inline">\(T\)</span> is the average of the <a href="#/def-replication">replications</a>’ <a href="./estimation.html#def-estimate">estimates</a> <span class="math inline">\(T_1, \ldots, T_M\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 4 (Simulation estimate)</strong></span> A <strong>simulation estimate</strong> of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> <span class="math inline">\({\mathbb{E}\mathopen{}\left[T\right]\mathclose{}}\)</span> of an <a href="./estimation.html#def-estimate">estimate</a> <span class="math inline">\(T\)</span> is the <a href="https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean">average</a> of the <a href="#/def-replication">replications</a>’ <a href="./estimation.html#def-estimate">estimates</a> <span class="math inline">\(T_1, \ldots, T_M\)</span>:</p>
 <p><span class="math display">\[{{\bar{T}}_{M}} \stackrel{\text{def}}{=}\frac{1}{M}\sum_{m=1}^{M} T_m.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-simulation-estimate" class="theorem example">
@@ -423,7 +415,7 @@ text-align: center;
 <p><span class="math display">\[{{\bar{T}}_{3}} - \theta= 4 - 5 = -1.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-simulation-mse-estimate" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Simulation estimate of the mean squared error)</strong></span> Let <span class="math inline">\(\theta\)</span> be an <a href="./estimation.html#def-estimand">estimand</a>, let <span class="math inline">\(\hat{\theta}\)</span> be an <a href="./estimation.html#def-estimator">estimator</a>, and let <span class="math inline">\(T_1, \ldots, T_M\)</span> be its <a href="./estimation.html#def-estimate">estimates</a> from <span class="math inline">\(M\)</span> <a href="#/def-replication">replications</a>. The <strong><a href="#/def-simulation-estimate">simulation estimate</a> of the <a href="./estimation.html#def-mse">mean squared error</a></strong> of <span class="math inline">\(\hat{\theta}\)</span> is the average of the squared differences <span class="math inline">\(\mathopen{}\left(T_m - \theta\right)\mathclose{}^2\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 6 (Simulation estimate of the mean squared error)</strong></span> Let <span class="math inline">\(\theta\)</span> be an <a href="./estimation.html#def-estimand">estimand</a>, let <span class="math inline">\(\hat{\theta}\)</span> be an <a href="./estimation.html#def-estimator">estimator</a>, and let <span class="math inline">\(T_1, \ldots, T_M\)</span> be its <a href="./estimation.html#def-estimate">estimates</a> from <span class="math inline">\(M\)</span> <a href="#/def-replication">replications</a>. The <strong><a href="#/def-simulation-estimate">simulation estimate</a> of the <a href="./estimation.html#def-mse">mean squared error</a></strong> of <span class="math inline">\(\hat{\theta}\)</span> is the <a href="https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean">average</a> of the squared differences <span class="math inline">\(\mathopen{}\left(T_m - \theta\right)\mathclose{}^2\)</span>:</p>
 <p><span class="math display">\[\frac{1}{M}\sum_{m=1}^{M} \mathopen{}\left(T_m - \theta\right)\mathclose{}^2.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-simulation-mse-estimate" class="theorem example">
@@ -433,7 +425,7 @@ text-align: center;
 <p><span class="math display">\[\frac{4 + 0 + 1}{3} = \frac{5}{3}.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-simulation-estimate-bayesian" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Simulation estimates in Bayesian inference). </span>The <a href="./bayesian-inference.html#def-monte-carlo-estimate">Monte Carlo estimate</a> of a <a href="./bayesian-inference.html#def-posterior">posterior</a> <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> is the same average, taken over draws from a <a href="./bayesian-inference.html#def-posterior">posterior distribution</a> instead of over <a href="#/def-replication">replications</a> of a <a href="#/def-data-generating-process">data-generating process</a>.</p>
+<p><span class="proof-title"><em>Remark 1</em> (Simulation estimates in Bayesian inference). </span>The <a href="./bayesian-inference.html#def-monte-carlo-estimate">Monte Carlo estimate</a> of a <a href="./bayesian-inference.html#def-posterior">posterior</a> <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> is the same <a href="https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean">average</a>, taken over draws from a <a href="./bayesian-inference.html#def-posterior">posterior distribution</a> instead of over <a href="#/def-replication">replications</a> of a <a href="#/def-data-generating-process">data-generating process</a>.</p>
 </div>
 </section><section id="sec-monte-carlo-error" class="slide level2" data-number="4"><h2>
 <span class="header-section-number">4</span> Monte Carlo error</h2>
@@ -554,7 +546,7 @@ text-align: center;
 </div>
 </div>
 <p>The R <a href="#/def-simulation-bias-estimate">simulation estimate of the bias</a> is -0.392, with a <a href="#/def-monte-carlo-standard-error">Monte Carlo standard error</a> of 0.017. It is within 0.5 <a href="#/def-monte-carlo-standard-error">Monte Carlo standard errors</a> of the known <a href="./estimation.html#def-bias">bias</a> -0.4. The Python run uses a different random number generator, so its <a href="./estimation.html#def-estimate">estimate</a> differs slightly, but it too agrees with -0.4 up to its Monte Carlo standard error.</p>
-<p><a href="#/fig-simulate-variance-bias" class="quarto-xref">Figure&nbsp;1</a> shows the <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> of <span class="math inline">\(\hat{\sigma}^2\)</span> that the <a href="#/def-replication">replications</a> trace out. Its <a href="./exploratory-descriptive.html#def-histogram">histogram</a> uses 40 equal-width <a href="./exploratory-descriptive.html#def-bin">bins</a>, which put about 250 of the 10^{4} <a href="./estimation.html#def-estimate">estimates</a> in the average <a href="./exploratory-descriptive.html#def-bin">bin</a>. Fewer bins, such as 10, would hide the right skew of the distribution in a few wide bars. More bins, such as 200, would leave about 50 estimates per bin on average, and random bar-to-bar variation would hide the shape. The bin count changes only the picture, not any number reported above.</p>
+<p><a href="#/fig-simulate-variance-bias" class="quarto-xref">Figure&nbsp;1</a> shows the <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> of <span class="math inline">\(\hat{\sigma}^2\)</span> that the <a href="#/def-replication">replications</a> trace out. Its <a href="./exploratory-descriptive.html#def-histogram">histogram</a> uses 40 equal-width <a href="./exploratory-descriptive.html#def-bin">bins</a>, which put about 250 of the 10^{4} <a href="./estimation.html#def-estimate">estimates</a> in the <a href="https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean">average</a> <a href="./exploratory-descriptive.html#def-bin">bin</a>. Fewer bins, such as 10, would hide the right skew of the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">distribution</a> in a few wide bars. More bins, such as 200, would leave about 50 estimates per bin on average, and random bar-to-bar variation would hide the shape. The bin count changes only the picture, not any number reported above.</p>
 <div class="cell">
 <details class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>estimates <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">var_hat =</span> var_hat)</span>
 <span id="cb3-2"><a aria-label="2"></a>mean_var_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(var_hat)</span>
