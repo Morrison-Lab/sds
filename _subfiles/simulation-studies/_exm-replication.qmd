@@ -1,0 +1,10 @@
+::: {#exm-replication}
+#### A replication of the normal data-generating process
+
+<!-- no-figure: the example describes the steps of one replication -->
+
+For the [normal data-generating process](#exm-data-generating-process),
+one [replication](#def-replication) draws $n = 10$ values from the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) with [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $0$ and [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $4$.
+It then computes the [estimate](estimation.qmd#def-estimate) $T_m$ of the variance $\varpar$ from those 10 values.
+A second replication draws 10 new values, independently of the first, and computes $T_{m + 1}$.
+:::
