@@ -1,0 +1,9 @@
+::: {#def-simulation-bias-estimate}
+#### Simulation estimate of the bias
+
+For an [estimand](estimation.qmd#def-estimand) $\param$ and an [estimator](estimation.qmd#def-estimator) $\hparam$,
+the **simulation estimate of the [bias](estimation.qmd#def-bias)** of $\hparam$
+is the [simulation estimate](#def-simulation-estimate) of $\E{\hparam}$, minus $\param$:
+
+$$\bar T_M - \param.$$
+:::

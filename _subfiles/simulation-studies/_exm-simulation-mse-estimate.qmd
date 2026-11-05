@@ -1,0 +1,11 @@
+::: {#exm-simulation-mse-estimate}
+#### A simulation estimate of the mean squared error from three replications
+
+<!-- no-figure: the example is a hand calculation with three numbers -->
+
+Continue the [three replications](#exm-simulation-estimate) with $\param = 5$.
+The squared differences are $(3 - 5)^2 = 4$, $(5 - 5)^2 = 0$ and $(4 - 5)^2 = 1$,
+so the [simulation estimate of the mean squared error](#def-simulation-mse-estimate) is
+
+$$\frac{4 + 0 + 1}{3} = \frac{5}{3}.$$
+:::

@@ -1,0 +1,10 @@
+::: {#exm-simulation-estimate}
+#### A simulation estimate from three replications
+
+<!-- no-figure: the example is a hand calculation with three numbers -->
+
+Suppose $M = 3$ [replications](#def-replication) give the [estimates](estimation.qmd#def-estimate) $T_1 = 3$, $T_2 = 5$ and $T_3 = 4$.
+Then the [simulation estimate](#def-simulation-estimate) of $\E{T}$ is
+
+$$\bar T_3 = \frac{3 + 5 + 4}{3} = 4.$$
+:::
