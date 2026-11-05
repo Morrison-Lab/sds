@@ -1,0 +1,11 @@
+::: {#def-simulation-mse-estimate}
+#### Simulation estimate of the mean squared error
+
+Let $\param$ be an [estimand](estimation.qmd#def-estimand),
+let $\hparam$ be an [estimator](estimation.qmd#def-estimator),
+and let $T_1, \ldots, T_M$ be its [estimates](estimation.qmd#def-estimate) from $M$ [replications](#def-replication).
+The **[simulation estimate](#def-simulation-estimate) of the [mean squared error](estimation.qmd#def-mse)** of $\hparam$
+is the [average](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean) of the squared differences $\paren{T_m - \param}\sq$:
+
+$$\avgto{m}{M} \paren{T_m - \param}\sq.$$
+:::

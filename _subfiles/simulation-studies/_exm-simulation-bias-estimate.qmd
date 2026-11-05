@@ -1,0 +1,11 @@
+::: {#exm-simulation-bias-estimate}
+#### A simulation estimate of the bias from three replications
+
+<!-- no-figure: the example is a hand calculation with three numbers -->
+
+Continue the [three replications](#exm-simulation-estimate),
+and let the [estimand](estimation.qmd#def-estimand) be $\param = 5$.
+Then the [simulation estimate of the bias](#def-simulation-bias-estimate) is
+
+$$\samplemean{T}{3} - \param = 4 - 5 = -1.$$
+:::

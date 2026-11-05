@@ -1,0 +1,11 @@
+::: {#def-simulation-bias-estimate}
+#### Simulation estimate of the bias
+
+Let $\param$ be an [estimand](estimation.qmd#def-estimand),
+let $\hparam$ be an [estimator](estimation.qmd#def-estimator),
+and let $T_1, \ldots, T_M$ be its [estimates](estimation.qmd#def-estimate) from $M$ [replications](#def-replication).
+The **simulation estimate of the [bias](estimation.qmd#def-bias)** of $\hparam$
+is the [simulation estimate](#def-simulation-estimate) $\samplemean{T}{M}$ of $\E{\hparam}$, minus $\param$:
+
+$$\samplemean{T}{M} - \param.$$
+:::

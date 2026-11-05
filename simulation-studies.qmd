@@ -39,6 +39,34 @@ format:
 
 {{< include sds/_subfiles/simulation-studies/_exm-simulation-study.qmd >}}
 
+# Simulation estimates {#sec-simulation-estimates}
+
+{{< include sds/_subfiles/simulation-studies/_def-simulation-estimate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_exm-simulation-estimate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_def-simulation-bias-estimate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_exm-simulation-bias-estimate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_def-simulation-mse-estimate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_exm-simulation-mse-estimate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/simulation-studies/_rem-simulation-estimate-bayesian.qmd >}}
+
 # References {.unnumbered}
 
 ::: {#refs}
