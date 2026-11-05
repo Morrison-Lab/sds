@@ -91,8 +91,14 @@ The bin count changes only the picture, not any number reported above.
 
 ```{r}
 #| label: fig-simulate-variance-bias
-#| fig-cap: "Estimates of the variance from 10,000 replications. The vertical lines mark the true variance 4 and the average estimate, which falls below it by the bias."
-#| fig-alt: "A histogram of 10,000 divide-by-n variance estimates, right-skewed, with one vertical line at the true variance 4 and a second, slightly to its left, at the average estimate."
+#| fig-cap: >-
+#|   Estimates of the variance from 10,000 replications.
+#|   The vertical lines mark the true variance 4
+#|   and the average estimate, which falls below it by the bias.
+#| fig-alt: >-
+#|   A histogram of 10,000 divide-by-n variance estimates, right-skewed,
+#|   with one vertical line at the true variance 4
+#|   and a second, slightly to its left, at the average estimate.
 #| code-fold: true
 estimates <- data.frame(var_hat = var_hat)
 means <- data.frame(
@@ -102,7 +108,8 @@ means <- data.frame(
 
 ggplot(estimates) +
   aes(x = var_hat) +
-  geom_histogram(bins = 40, fill = "grey80", color = "grey40") + # check-unexplained-choices: allow
+  # check-unexplained-choices: allow
+  geom_histogram(bins = 40, fill = "grey80", color = "grey40") +
   geom_vline(
     data = means,
     mapping = aes(xintercept = value, linetype = line)
