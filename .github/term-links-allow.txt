@@ -1,5 +1,7 @@
 error
+measure
 measures
 positive
+result
 results
 steps
