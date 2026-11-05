@@ -1,11 +1,11 @@
 ::: {#rem-monte-carlo-se-estimate}
 #### Reporting a Monte Carlo standard error
 
-The standard deviation $\SD{T}$ in @thm-monte-carlo-se is unknown,
-so a study reports the [sample standard deviation](exploratory-descriptive.qmd#def-sample-sd) $s_T$ of the estimates $T_1, \ldots, T_M$
+The [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd) $\SD{T}$ in @thm-monte-carlo-se is unknown,
+so a study reports the [sample standard deviation](exploratory-descriptive.qmd#def-sample-sd) $s_T$ of the [estimates](estimation.qmd#def-estimate) $T_1, \ldots, T_M$
 divided by $\sqrt{M}$ in its place.
-The Monte Carlo standard error shrinks like $1 / \sqrt{M}$,
-so quadrupling the number of replications halves it.
-A simulation estimate should be reported with its Monte Carlo standard error,
-so a reader can tell a real difference from simulation noise.
+That [Monte Carlo standard error](#def-monte-carlo-standard-error) shrinks like $1 / \sqrt{M}$,
+so quadrupling the number of [replications](#def-replication) halves it.
+A [simulation estimate](#def-simulation-estimate) should be reported with its Monte Carlo standard error,
+so a reader can tell a real difference from random variation in the simulation.
 :::

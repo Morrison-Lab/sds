@@ -1,6 +1,7 @@
 ::: {#rem-simulation-estimate-bayesian}
 #### Simulation estimates in Bayesian inference
 
-The [Monte Carlo estimate](bayesian-inference.qmd#def-monte-carlo-estimate) of a posterior expectation
-is the same average, taken over draws from a posterior distribution instead of over replications of a data-generating process.
+The [Monte Carlo estimate](bayesian-inference.qmd#def-monte-carlo-estimate) of a [posterior](bayesian-inference.qmd#def-posterior) [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation)
+is the same average, taken over draws from a [posterior distribution](bayesian-inference.qmd#def-posterior)
+instead of over [replications](#def-replication) of a [data-generating process](#def-data-generating-process).
 :::

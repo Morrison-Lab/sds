@@ -1,8 +1,9 @@
 ::: {#rem-seed-practice}
 #### Setting seeds
 
-Set the seed once, at the top of the simulation, and record its value with the results.
+Set the [seed](#def-seed) once, at the top of the simulation, and record its value with the results.
 Different software uses different generators,
 so the same seed gives different draws in R and in Python.
-Both give valid simulation estimates, which agree up to their Monte Carlo standard errors.
+Both give correct [simulation estimates](#def-simulation-estimate),
+which agree up to their [Monte Carlo standard errors](#def-monte-carlo-standard-error).
 :::

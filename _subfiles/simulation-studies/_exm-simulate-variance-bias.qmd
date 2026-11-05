@@ -2,17 +2,17 @@
 #### Simulating the bias of the divide-by-$n$ variance estimator
 
 For the [data-generating process](#exm-data-generating-process) with $\mean = 0$, $\varpar = 4$ and $n = 10$,
-we estimate the [bias](estimation.qmd#def-bias) of the divide-by-$n$ estimator $\hvarpar$ of $\varpar$
+we simulate the [bias](estimation.qmd#def-bias) of the divide-by-$n$ [estimator](estimation.qmd#def-estimator) $\hvarpar$ of $\varpar$
 from [the example of a biased variance estimator](estimation.qmd#exm-biased-variance-mle).
 That example shows that the bias is exactly $-\varpar / n = -0.4$,
-so the simulation can be checked against the exact answer.
+so the simulation can be checked against the known answer.
 
-Each [replication](#def-replication) draws $n = 10$ values and computes one estimate of $\varpar$.
-We run $M = 10000$ replications,
+Each [replication](#def-replication) draws $n = 10$ values and computes one [estimate](estimation.qmd#def-estimate) of $\varpar$.
+We run $M = 10000$ [replications](#def-replication),
 set the [seed](#def-seed) once at the start,
 and report the [simulation estimate](#def-simulation-estimate) of the bias with its [Monte Carlo standard error](#def-monte-carlo-standard-error).
 The choice $M = 10000$ gives a Monte Carlo standard error of about $0.02$,
-small next to the bias being estimated.
+small next to the bias.
 
 ::: {.panel-tabset group="language"}
 
@@ -42,7 +42,7 @@ mc_se <- sd(var_hat) / sqrt(n_reps)
 c(
   simulation_estimate = bias_hat,
   mc_standard_error = mc_se,
-  exact = -sigma_sq / n
+  known_bias = -sigma_sq / n
 )
 ```
 
@@ -69,21 +69,21 @@ mc_se = var_hat.std(ddof=1) / np.sqrt(n_reps)
 
 print(f"simulation estimate: {bias_hat:.3f}")
 print(f"mc standard error:   {mc_se:.3f}")
-print(f"exact:               {-sigma_sq / n:.3f}")
+print(f"known bias:          {-sigma_sq / n:.3f}")
 ```
 
 :::
 
-The R simulation estimate of the bias is `r round(bias_hat, 3)`,
-with a Monte Carlo standard error of `r round(mc_se, 3)`.
-It is within `r round(abs(bias_hat - (-sigma_sq / n)) / mc_se, 1)` Monte Carlo standard errors of the exact bias $-0.4$.
+The R [simulation estimate](#def-simulation-estimate) of the [bias](estimation.qmd#def-bias) is `r round(bias_hat, 3)`,
+with a [Monte Carlo standard error](#def-monte-carlo-standard-error) of `r round(mc_se, 3)`.
+It is within `r round(abs(bias_hat - (-sigma_sq / n)) / mc_se, 1)` [Monte Carlo standard errors](#def-monte-carlo-standard-error) of the known bias $-0.4$.
 The Python run uses a different random number generator,
-so its estimate differs slightly,
+so its [estimate](estimation.qmd#def-estimate) differs slightly,
 but it too agrees with $-0.4$ up to its Monte Carlo standard error.
 
-@fig-simulate-variance-bias shows the sampling distribution of $\hvarpar$ that the replications trace out.
-Its histogram uses 40 equal-width bins,
-which put about 250 of the 10000 estimates in the average bin.
+@fig-simulate-variance-bias shows the [sampling distribution](estimation.qmd#def-sampling-distribution) of $\hvarpar$ that the [replications](#def-replication) trace out.
+Its [histogram](exploratory-descriptive.qmd#def-histogram) uses 40 equal-width [bins](exploratory-descriptive.qmd#def-bin),
+which put about 250 of the 10000 [estimates](estimation.qmd#def-estimate) in the average [bin](exploratory-descriptive.qmd#def-bin).
 Fewer bins, such as 10, would hide the right skew of the distribution in a few wide bars.
 More bins, such as 200, would leave about 50 estimates per bin on average,
 and random bar-to-bar variation would hide the shape.
@@ -111,6 +111,6 @@ ggplot(estimates) +
 ```
 
 The distribution is right-skewed,
-and its average sits below the true variance,
-which is the negative bias.
+and its average sits below the true [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),
+which is the bias.
 :::

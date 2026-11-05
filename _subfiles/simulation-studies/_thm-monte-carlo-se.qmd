@@ -1,8 +1,8 @@
 ::: {#thm-monte-carlo-se}
 #### Monte Carlo standard error of a simulation estimate
 
-Let $T_1, \ldots, T_M$ be the estimates of $M$ [replications](#def-replication) of a [simulation study](#def-simulation-study),
-which are [IID](https://morrison-lab.github.io/pds/independence.html#def-iid) with expectation $\E{T}$ and finite variance $\Var{T}$.
+Let $T_1, \ldots, T_M$ be the [estimates](estimation.qmd#def-estimate) of $M$ [replications](#def-replication) of a [simulation study](#def-simulation-study),
+which are [IID](https://morrison-lab.github.io/pds/independence.html#def-iid) with [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\E{T}$ and finite [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\Var{T}$.
 Then the [simulation estimate](#def-simulation-estimate) $\bar T_M$ is [unbiased](estimation.qmd#def-unbiased) for $\E{T}$,
 and its [Monte Carlo standard error](#def-monte-carlo-standard-error) is
 
