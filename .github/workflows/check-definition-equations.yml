@@ -1,0 +1,21 @@
+# Flags a definition div (#def-) that a PR edits and that shows more than the
+# equation linking the defined symbol to its definitional expression.
+# `<!-- def-equiv-ok: reason -->` exempts one.
+# Fails the run on a finding: checks fail rather than warn (Ezra).
+# No push trigger: a push run has no base to diff against and would report
+# success having checked nothing. A manual run scans the whole tree.
+name: Check definition equations
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-definition-equations.yml@v3
+    with:
+      fail: true
+      whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
+      paths-ignore: '_extensions/**,**/outtakes/**,latex-macros/**'
