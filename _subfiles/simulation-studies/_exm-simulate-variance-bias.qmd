@@ -84,9 +84,9 @@ but it too agrees with `r -sigma_sq / n` up to its Monte Carlo standard error.
 
 @fig-simulate-variance-bias shows the [sampling distribution](estimation.qmd#def-sampling-distribution) of $\hvarpar$ that the [replications](#def-replication) trace out.
 Its [histogram](exploratory-descriptive.qmd#def-histogram) uses 40 equal-width [bins](exploratory-descriptive.qmd#def-bin),
-which put about `r n_reps / 40` of the `r n_reps` [estimates](estimation.qmd#def-estimate) in the average [bin](exploratory-descriptive.qmd#def-bin).
+which put about `r n_reps / 40` of the `r n_reps` [estimates](estimation.qmd#def-estimate) in the [average](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean) [bin](exploratory-descriptive.qmd#def-bin).
 Fewer bins, such as 10, would hide the right skew of the [distribution](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) in a few wide bars.
-More bins, such as 200, would leave about 50 estimates per bin on [average](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean),
+More bins, such as 200, would leave about 50 estimates per bin on average,
 and random bar-to-bar variation would hide the shape.
 The bin count changes only the picture, not any number reported above.
 
