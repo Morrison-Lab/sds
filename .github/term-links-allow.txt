@@ -1,9 +1,15 @@
 error
 finite
+integer
 measure
 measures
 negative
 positive
+random
+real
 result
 results
+set
+sets
 steps
+trace
