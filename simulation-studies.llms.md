@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-04 19:04:52 (PST)
+Last modified: 2026-11-04 19:21:43 (PST)
 
 Theory often cannot give the [bias](estimation.llms.md#def-bias), [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) or coverage of an [estimator](estimation.llms.md#def-estimator) when the estimator or the data [distribution](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) is complicated. A [simulation study](#def-simulation-study) measures the same properties for any estimator a computer can run. It generates many [data sets](model-validation.llms.md#def-data-set) from a distribution whose parameters are known, applies the estimator to each, and summarizes the results.
 
@@ -46,11 +46,62 @@ This page defines the parts of a [simulation study](#def-simulation-study).
 >
 > For the [normal data-generating process](#exm-data-generating-process), a [simulation study](#def-simulation-study) of one [estimator](estimation.llms.md#def-estimator) of the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\sigma^2$ runs $M$ [replications](#exm-replication) of that process and that estimator. The $M$ [estimates](estimation.llms.md#def-estimate) $T_1, \ldots, T_M$ then show how the estimator behaves across repeated [data sets](model-validation.llms.md#def-data-set).
 
+# 3 Simulation estimates
+
+> **NOTE:**
+>
+> **Definition 4 (Simulation estimate)** A **simulation estimate** of the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) ${\mathbb{E}\mathopen{}\left[T\right]\mathclose{}}$ of an [estimate](estimation.llms.md#def-estimate) $T$ is the [average](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean) of the [replications](#def-replication)’ [estimates](estimation.llms.md#def-estimate) $T_1, \ldots, T_M$:
+>
+> $${{\bar{T}}_{M}} \stackrel{\text{def}}{=}\frac{1}{M}\sum_{m=1}^{M} T_m.$$
+
+> **NOTE:**
+>
+> **Example 4 (A simulation estimate from three replications)**  
+>
+> Suppose $M = 3$ [replications](#def-replication) give the [estimates](estimation.llms.md#def-estimate) $T_1 = 3$, $T_2 = 5$ and $T_3 = 4$. Then the [simulation estimate](#def-simulation-estimate) of ${\mathbb{E}\mathopen{}\left[T\right]\mathclose{}}$ is
+>
+> $${{\bar{T}}_{3}} = \frac{3 + 5 + 4}{3} = 4.$$
+
+> **NOTE:**
+>
+> **Definition 5 (Simulation estimate of the bias)** Let $\theta$ be an [estimand](estimation.llms.md#def-estimand), let $\hat{\theta}$ be an [estimator](estimation.llms.md#def-estimator), and let $T_1, \ldots, T_M$ be its [estimates](estimation.llms.md#def-estimate) from $M$ [replications](#def-replication). The **simulation estimate of the [bias](estimation.llms.md#def-bias)** of $\hat{\theta}$ is the [simulation estimate](#def-simulation-estimate) ${{\bar{T}}_{M}}$ of ${\mathbb{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}}$, minus $\theta$:
+>
+> $${{\bar{T}}_{M}} - \theta.$$
+
+> **NOTE:**
+>
+> **Example 5 (A simulation estimate of the bias from three replications)**  
+>
+> Continue the [three replications](#exm-simulation-estimate), and let the [estimand](estimation.llms.md#def-estimand) be $\theta= 5$. Then the [simulation estimate of the bias](#def-simulation-bias-estimate) is
+>
+> $${{\bar{T}}_{3}} - \theta= 4 - 5 = -1.$$
+
+> **NOTE:**
+>
+> **Definition 6 (Simulation estimate of the mean squared error)** Let $\theta$ be an [estimand](estimation.llms.md#def-estimand), let $\hat{\theta}$ be an [estimator](estimation.llms.md#def-estimator), and let $T_1, \ldots, T_M$ be its [estimates](estimation.llms.md#def-estimate) from $M$ [replications](#def-replication). The **[simulation estimate](#def-simulation-estimate) of the [mean squared error](estimation.llms.md#def-mse)** of $\hat{\theta}$ is the [average](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean) of the squared differences $\mathopen{}\left(T_m - \theta\right)\mathclose{}^2$:
+>
+> $$\frac{1}{M}\sum_{m=1}^{M} \mathopen{}\left(T_m - \theta\right)\mathclose{}^2.$$
+
+> **NOTE:**
+>
+> **Example 6 (A simulation estimate of the mean squared error from three replications)**  
+>
+> Continue the [three replications](#exm-simulation-estimate) with $\theta= 5$. The squared differences are $\mathopen{}\left(3 - 5\right)\mathclose{}^2= 4$, $\mathopen{}\left(5 - 5\right)\mathclose{}^2= 0$ and $\mathopen{}\left(4 - 5\right)\mathclose{}^2= 1$, so the [simulation estimate of the mean squared error](#def-simulation-mse-estimate) is
+>
+> $$\frac{4 + 0 + 1}{3} = \frac{5}{3}.$$
+
+> **NOTE:**
+>
+> *Remark 1* (Simulation estimates in Bayesian inference). The [Monte Carlo estimate](bayesian-inference.llms.md#def-monte-carlo-estimate) of a [posterior](bayesian-inference.llms.md#def-posterior) [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) is the same [average](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean), taken over draws from a [posterior distribution](bayesian-inference.llms.md#def-posterior) instead of over [replications](#def-replication) of a [data-generating process](#def-data-generating-process).
+
 # Definitions on this page
 
 - [Definition 1 (Data-generating process)](#def-data-generating-process)
 - [Definition 2 (Replication)](#def-replication)
 - [Definition 3 (Simulation study)](#def-simulation-study)
+- [Definition 4 (Simulation estimate)](#def-simulation-estimate)
+- [Definition 5 (Simulation estimate of the bias)](#def-simulation-bias-estimate)
+- [Definition 6 (Simulation estimate of the mean squared error)](#def-simulation-mse-estimate)
 
 # References
 

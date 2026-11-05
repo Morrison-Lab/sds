@@ -286,7 +286,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-04 19:04:52 (PST)</p>
+  <p class="date">Last modified: 2026-11-04 19:21:43 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -322,6 +322,41 @@ text-align: center;
 <p><span class="theorem-title"><strong>Example 3 (A simulation study of a variance estimator)</strong></span> &nbsp;</p>
 <!-- no-figure: the example describes the design of a study -->
 <p>For the <a href="#/exm-data-generating-process">normal data-generating process</a>, a <a href="#/def-simulation-study">simulation study</a> of one <a href="./estimation.html#def-estimator">estimator</a> of the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> <span class="math inline">\(\sigma^2\)</span> runs <span class="math inline">\(M\)</span> <a href="#/exm-replication">replications</a> of that process and that estimator. The <span class="math inline">\(M\)</span> <a href="./estimation.html#def-estimate">estimates</a> <span class="math inline">\(T_1, \ldots, T_M\)</span> then show how the estimator behaves across repeated <a href="./model-validation.html#def-data-set">data sets</a>.</p>
+</div>
+</section><section id="sec-simulation-estimates" class="slide level2" data-number="3"><h2>
+<span class="header-section-number">3</span> Simulation estimates</h2>
+</section><section class="slide level2"><div id="def-simulation-estimate" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Simulation estimate)</strong></span> A <strong>simulation estimate</strong> of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> <span class="math inline">\({\mathbb{E}\mathopen{}\left[T\right]\mathclose{}}\)</span> of an <a href="./estimation.html#def-estimate">estimate</a> <span class="math inline">\(T\)</span> is the <a href="https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean">average</a> of the <a href="#/def-replication">replications</a>’ <a href="./estimation.html#def-estimate">estimates</a> <span class="math inline">\(T_1, \ldots, T_M\)</span>:</p>
+<p><span class="math display">\[{{\bar{T}}_{M}} \stackrel{\text{def}}{=}\frac{1}{M}\sum_{m=1}^{M} T_m.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="exm-simulation-estimate" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (A simulation estimate from three replications)</strong></span> &nbsp;</p>
+<!-- no-figure: the example is a hand calculation with three numbers -->
+<p>Suppose <span class="math inline">\(M = 3\)</span> <a href="#/def-replication">replications</a> give the <a href="./estimation.html#def-estimate">estimates</a> <span class="math inline">\(T_1 = 3\)</span>, <span class="math inline">\(T_2 = 5\)</span> and <span class="math inline">\(T_3 = 4\)</span>. Then the <a href="#/def-simulation-estimate">simulation estimate</a> of <span class="math inline">\({\mathbb{E}\mathopen{}\left[T\right]\mathclose{}}\)</span> is</p>
+<p><span class="math display">\[{{\bar{T}}_{3}} = \frac{3 + 5 + 4}{3} = 4.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="def-simulation-bias-estimate" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5 (Simulation estimate of the bias)</strong></span> Let <span class="math inline">\(\theta\)</span> be an <a href="./estimation.html#def-estimand">estimand</a>, let <span class="math inline">\(\hat{\theta}\)</span> be an <a href="./estimation.html#def-estimator">estimator</a>, and let <span class="math inline">\(T_1, \ldots, T_M\)</span> be its <a href="./estimation.html#def-estimate">estimates</a> from <span class="math inline">\(M\)</span> <a href="#/def-replication">replications</a>. The <strong>simulation estimate of the <a href="./estimation.html#def-bias">bias</a></strong> of <span class="math inline">\(\hat{\theta}\)</span> is the <a href="#/def-simulation-estimate">simulation estimate</a> <span class="math inline">\({{\bar{T}}_{M}}\)</span> of <span class="math inline">\({\mathbb{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}}\)</span>, minus <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="math display">\[{{\bar{T}}_{M}} - \theta.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="exm-simulation-bias-estimate" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5 (A simulation estimate of the bias from three replications)</strong></span> &nbsp;</p>
+<!-- no-figure: the example is a hand calculation with three numbers -->
+<p>Continue the <a href="#/exm-simulation-estimate">three replications</a>, and let the <a href="./estimation.html#def-estimand">estimand</a> be <span class="math inline">\(\theta= 5\)</span>. Then the <a href="#/def-simulation-bias-estimate">simulation estimate of the bias</a> is</p>
+<p><span class="math display">\[{{\bar{T}}_{3}} - \theta= 4 - 5 = -1.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="def-simulation-mse-estimate" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6 (Simulation estimate of the mean squared error)</strong></span> Let <span class="math inline">\(\theta\)</span> be an <a href="./estimation.html#def-estimand">estimand</a>, let <span class="math inline">\(\hat{\theta}\)</span> be an <a href="./estimation.html#def-estimator">estimator</a>, and let <span class="math inline">\(T_1, \ldots, T_M\)</span> be its <a href="./estimation.html#def-estimate">estimates</a> from <span class="math inline">\(M\)</span> <a href="#/def-replication">replications</a>. The <strong><a href="#/def-simulation-estimate">simulation estimate</a> of the <a href="./estimation.html#def-mse">mean squared error</a></strong> of <span class="math inline">\(\hat{\theta}\)</span> is the <a href="https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean">average</a> of the squared differences <span class="math inline">\(\mathopen{}\left(T_m - \theta\right)\mathclose{}^2\)</span>:</p>
+<p><span class="math display">\[\frac{1}{M}\sum_{m=1}^{M} \mathopen{}\left(T_m - \theta\right)\mathclose{}^2.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="exm-simulation-mse-estimate" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6 (A simulation estimate of the mean squared error from three replications)</strong></span> &nbsp;</p>
+<!-- no-figure: the example is a hand calculation with three numbers -->
+<p>Continue the <a href="#/exm-simulation-estimate">three replications</a> with <span class="math inline">\(\theta= 5\)</span>. The squared differences are <span class="math inline">\(\mathopen{}\left(3 - 5\right)\mathclose{}^2= 4\)</span>, <span class="math inline">\(\mathopen{}\left(5 - 5\right)\mathclose{}^2= 0\)</span> and <span class="math inline">\(\mathopen{}\left(4 - 5\right)\mathclose{}^2= 1\)</span>, so the <a href="#/def-simulation-mse-estimate">simulation estimate of the mean squared error</a> is</p>
+<p><span class="math display">\[\frac{4 + 0 + 1}{3} = \frac{5}{3}.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="rem-simulation-estimate-bayesian" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Simulation estimates in Bayesian inference). </span>The <a href="./bayesian-inference.html#def-monte-carlo-estimate">Monte Carlo estimate</a> of a <a href="./bayesian-inference.html#def-posterior">posterior</a> <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> is the same <a href="https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-mean">average</a>, taken over draws from a <a href="./bayesian-inference.html#def-posterior">posterior distribution</a> instead of over <a href="#/def-replication">replications</a> of a <a href="#/def-data-generating-process">data-generating process</a>.</p>
 </div>
 </section><section id="references" class="slide level2 unnumbered"><h2>References</h2>
 </section><section class="slide level2 smaller scrollable" id="references"><div id="refs" role="list">
