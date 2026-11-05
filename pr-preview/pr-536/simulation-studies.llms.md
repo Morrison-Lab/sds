@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-04 18:26:58 (PST)
+Last modified: 2026-11-04 19:05:24 (PST)
 
 Theory often cannot give the [bias](estimation.llms.md#def-bias), [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) or coverage of an [estimator](estimation.llms.md#def-estimator) when the estimator or the data [distribution](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) is complicated. A [simulation study](#def-simulation-study) measures the same properties for any estimator a computer can run. It generates many [data sets](model-validation.llms.md#def-data-set) from a distribution whose parameters are known, applies the estimator to each, and summarizes the results.
 
