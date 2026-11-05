@@ -3,20 +3,20 @@
 
 Let $T_1, \ldots, T_M$ be the [estimates](estimation.qmd#def-estimate) of $M$ [replications](#def-replication) of a [simulation study](#def-simulation-study),
 which are [IID](https://morrison-lab.github.io/pds/independence.html#def-iid) with [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\E{T}$ and finite [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\Var{T}$.
-Then the [simulation estimate](#def-simulation-estimate) $\bar T_M$ is [unbiased](estimation.qmd#def-unbiased) for $\E{T}$,
+Then the [simulation estimate](#def-simulation-estimate) $\samplemean{T}{M}$ is [unbiased](estimation.qmd#def-unbiased) for $\E{T}$,
 and its [Monte Carlo standard error](#def-monte-carlo-standard-error) is
 
-$$\SE{\bar T_M} = \frac{\SD{T}}{\sqrt{M}}.$$
+$$\SE{\samplemean{T}{M}} = \frac{\SD{T}}{\sqrt{M}}.$$
 :::
 
 ::: proof
 By [the mean and variance of a sum of IID random variables](https://morrison-lab.github.io/pds/limit-theorems.html#thm-sum-iid-moments),
 the sum $S_M \eqdef \sumto{m}{M} T_m$ has $\E{S_M} = M\,\E{T}$ and $\Var{S_M} = M\,\Var{T}$.
-Since $\bar T_M = S_M / M$:
+Since $\samplemean{T}{M} = S_M / M$:
 
 $$
 \begin{aligned}
-\E{\bar T_M} &= \frac{\E{S_M}}{M} && \text{(constants factor out of expectations)}\\
+\E{\samplemean{T}{M}} &= \frac{\E{S_M}}{M} && \text{(constants factor out of expectations)}\\
 &= \frac{M\,\E{T}}{M} && \text{(substitute $\E{S_M}$)}\\
 &= \frac{M}{M}\,\E{T} && \text{(regroup the factors)}\\
 &= 1 \cdot \E{T} && \text{($M / M = 1$)}\\
@@ -28,14 +28,14 @@ For the variance:
 
 $$
 \begin{aligned}
-\Var{\bar T_M} &= \frac{\Var{S_M}}{M^2} && \text{(a constant factor $c$ scales variance by $c^2$)}\\
+\Var{\samplemean{T}{M}} &= \frac{\Var{S_M}}{M^2} && \text{(a constant factor $c$ scales variance by $c^2$)}\\
 &= \frac{M\,\Var{T}}{M^2} && \text{(substitute $\Var{S_M}$)}\\
 &= \frac{M\,\Var{T}}{M \cdot M} && \text{(write $M^2$ as $M \cdot M$)}\\
 &= \frac{M}{M} \cdot \frac{\Var{T}}{M} && \text{(split the fraction into two factors)}\\
 &= 1 \cdot \frac{\Var{T}}{M} && \text{($M / M = 1$)}\\
 &= \frac{\Var{T}}{M} && \text{(multiplying by 1 changes nothing)}\\
-\SE{\bar T_M} &= \sqrt{\Var{\bar T_M}} && \text{(standard error is the standard deviation)}\\
-&= \sqrt{\frac{\Var{T}}{M}} && \text{(substitute $\Var{\bar T_M}$)}\\
+\SE{\samplemean{T}{M}} &= \sqrt{\Var{\samplemean{T}{M}}} && \text{(standard error is the standard deviation)}\\
+&= \sqrt{\frac{\Var{T}}{M}} && \text{(substitute $\Var{\samplemean{T}{M}}$)}\\
 &= \frac{\sqrt{\Var{T}}}{\sqrt{M}} && \text{(the square root of a quotient is the quotient of square roots)}\\
 &= \frac{\SD{T}}{\sqrt{M}} && \text{(the standard deviation is the square root of the variance)}
 \end{aligned}

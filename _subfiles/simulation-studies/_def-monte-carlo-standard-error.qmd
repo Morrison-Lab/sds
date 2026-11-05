@@ -1,8 +1,8 @@
 ::: {#def-monte-carlo-standard-error}
 #### Monte Carlo standard error
 
-The **Monte Carlo standard error (MCSE)** of a [simulation estimate](#def-simulation-estimate) $\bar T_M$
+The **Monte Carlo standard error (MCSE)** of a [simulation estimate](#def-simulation-estimate) $\samplemean{T}{M}$
 is its [standard error](estimation.qmd#def-SE) over repeated simulation studies:
 
-$$\SE{\bar T_M} = \SD{\bar T_M}.$$
+$$\SE{\samplemean{T}{M}} = \SD{\samplemean{T}{M}}.$$
 :::
