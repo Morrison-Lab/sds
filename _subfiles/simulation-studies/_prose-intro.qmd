@@ -7,4 +7,4 @@ and summarizes the results.
 
 This page defines the parts of a [simulation study](#def-simulation-study),
 shows how to measure the study's own accuracy,
-and works one example in R and Python whose exact answer is known.
+and works one example in R and Python whose answer is known.
