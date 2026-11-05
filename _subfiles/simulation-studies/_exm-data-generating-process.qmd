@@ -3,10 +3,10 @@
 
 <!-- no-figure: the example only fixes a distribution and its parameters -->
 
-Let $\dsn{X}$ be [IID](https://morrison-lab.github.io/pds/independence.html#def-iid) [normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) random variables
+Let $\dsn{X}$ be [IID](https://morrison-lab.github.io/pds/independence.html#def-iid) [normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) [random variables](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable)
 with [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\mean = 0$ and [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar = 4$,
 with $n = 10$.
-The distribution of these variables is a [data-generating process](#def-data-generating-process),
+The [distribution](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) of these variables is a [data-generating process](#def-data-generating-process),
 and the [estimand](estimation.qmd#def-estimand) $\varpar = 4$ is known exactly,
 so the error of any [estimator](estimation.qmd#def-estimator) of $\varpar$ can be computed.
 :::
