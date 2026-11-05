@@ -3,8 +3,8 @@
 
 A **replication** of a simulation is one run of its steps:
 draw a [data set](model-validation.qmd#def-data-set) $\dsn{X}^{(m)}$ from the [data-generating process](#def-data-generating-process),
-then compute the [estimate](estimation.qmd#def-estimate) $T_m \eqdef \hparam\paren{\dsn{X}^{(m)}}$
-of an [estimator](estimation.qmd#def-estimator) $\hparam$,
+then compute the [estimate](estimation.qmd#def-estimate) $T_m \eqdef \hparam\paren{\dsn{X}^{(m)}}$,
+where $\hparam$ is an [estimator](estimation.qmd#def-estimator),
 for $m = 1, \ldots, M$.
 Different replications draw their [data sets](model-validation.qmd#def-data-set) independently.
 :::
