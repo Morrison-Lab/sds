@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-11-04 17:44:12 (PST)
+Last modified: 2026-11-04 18:23:45 (PST)
 
-Theory often cannot give the [bias](estimation.llms.md#def-bias), [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) or coverage of an [estimator](estimation.llms.md#def-estimator) when the estimator or the data distribution is complicated. A [simulation study](#def-simulation-study) measures the same properties for any estimator a computer can run. It generates many [data sets](model-validation.llms.md#def-data-set) from a distribution whose parameters are known, applies the estimator to each, and summarizes the results.
+Theory often cannot give the [bias](estimation.llms.md#def-bias), [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) or coverage of an [estimator](estimation.llms.md#def-estimator) when the estimator or the data [distribution](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) is complicated. A [simulation study](#def-simulation-study) measures the same properties for any estimator a computer can run. It generates many [data sets](model-validation.llms.md#def-data-set) from a distribution whose parameters are known, applies the estimator to each, and summarizes the results.
 
 This page defines the parts of a [simulation study](#def-simulation-study).
 
@@ -22,7 +22,7 @@ This page defines the parts of a [simulation study](#def-simulation-study).
 >
 > **Example 1 (A normal data-generating process)**  
 >
-> Let $X_1, \ldots, X_n$ be [IID](https://morrison-lab.github.io/pds/independence.html#def-iid) [normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) random variables with [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\mu= 0$ and [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\sigma^2= 4$, with $n = 10$. The distribution of these variables is a [data-generating process](#def-data-generating-process), and the [estimand](estimation.llms.md#def-estimand) $\sigma^2= 4$ is known exactly, so the error of any [estimator](estimation.llms.md#def-estimator) of $\sigma^2$ can be computed.
+> Let $X_1, \ldots, X_n$ be [IID](https://morrison-lab.github.io/pds/independence.html#def-iid) [normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) [random variables](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) with [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\mu= 0$ and [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\sigma^2= 4$, with $n = 10$. The [distribution](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) of these variables is a [data-generating process](#def-data-generating-process), and the [estimand](estimation.llms.md#def-estimand) $\sigma^2= 4$ is known exactly, so the error of any [estimator](estimation.llms.md#def-estimator) of $\sigma^2$ can be computed.
 
 # 2 Replications and simulation studies
 

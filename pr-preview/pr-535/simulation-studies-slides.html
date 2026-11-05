@@ -294,13 +294,13 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-04 17:44:12 (PST)</p>
+  <p class="date">Last modified: 2026-11-04 18:23:45 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
 </style>
-<p>Theory often cannot give the <a href="./estimation.html#def-bias">bias</a>, <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> or coverage of an <a href="./estimation.html#def-estimator">estimator</a> when the estimator or the data distribution is complicated. A <a href="#/def-simulation-study">simulation study</a> measures the same properties for any estimator a computer can run. It generates many <a href="./model-validation.html#def-data-set">data sets</a> from a distribution whose parameters are known, applies the estimator to each, and summarizes the results.</p>
+<p>Theory often cannot give the <a href="./estimation.html#def-bias">bias</a>, <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> or coverage of an <a href="./estimation.html#def-estimator">estimator</a> when the estimator or the data <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">distribution</a> is complicated. A <a href="#/def-simulation-study">simulation study</a> measures the same properties for any estimator a computer can run. It generates many <a href="./model-validation.html#def-data-set">data sets</a> from a distribution whose parameters are known, applies the estimator to each, and summarizes the results.</p>
 <p>This page defines the parts of a <a href="#/def-simulation-study">simulation study</a>.</p>
 </section><section id="sec-data-generating-process" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> The data-generating process</h2>
@@ -311,7 +311,7 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-data-generating-process" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (A normal data-generating process)</strong></span> &nbsp;</p>
 <!-- no-figure: the example only fixes a distribution and its parameters -->
-<p>Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be <a href="https://morrison-lab.github.io/pds/independence.html#def-iid">IID</a> <a href="https://morrison-lab.github.io/pds/random-variables.html#def-normal">normal</a> random variables with <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> <span class="math inline">\(\mu= 0\)</span> and <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> <span class="math inline">\(\sigma^2= 4\)</span>, with <span class="math inline">\(n = 10\)</span>. The distribution of these variables is a <a href="#/def-data-generating-process">data-generating process</a>, and the <a href="./estimation.html#def-estimand">estimand</a> <span class="math inline">\(\sigma^2= 4\)</span> is known exactly, so the error of any <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\sigma^2\)</span> can be computed.</p>
+<p>Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be <a href="https://morrison-lab.github.io/pds/independence.html#def-iid">IID</a> <a href="https://morrison-lab.github.io/pds/random-variables.html#def-normal">normal</a> <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">random variables</a> with <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> <span class="math inline">\(\mu= 0\)</span> and <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> <span class="math inline">\(\sigma^2= 4\)</span>, with <span class="math inline">\(n = 10\)</span>. The <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">distribution</a> of these variables is a <a href="#/def-data-generating-process">data-generating process</a>, and the <a href="./estimation.html#def-estimand">estimand</a> <span class="math inline">\(\sigma^2= 4\)</span> is known exactly, so the error of any <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\sigma^2\)</span> can be computed.</p>
 </div>
 </section><section id="sec-replications" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Replications and simulation studies</h2>
