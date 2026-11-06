@@ -1,7 +1,7 @@
 :::{#def-poisson-regression}
 #### Poisson regression model
 
-Let $Y$ be a count [outcome](https://morrison-lab.github.io/sds/model-validation.html#def-outcome-vector),
+Let $Y$ be a count [outcome](model-validation.qmd#def-outcome-vector),
 $\vX$ a [covariate vector](correlation-regression.qmd#def-slr-covariate-vector),
 and $T$ the [exposure magnitude](https://morrison-lab.github.io/pds/distributions.html#def-exposure)
 over which the [events](https://morrison-lab.github.io/pds/probability-basics.html#def-event) in $Y$ are counted.
