@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-05 23:51:14 (PST)
+Last modified: 2026-11-06 00:59:39 (PST)
 
 Many of the distributions in this course, such as the [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli), [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) and [Normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) distributions, share one algebraic form for their [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). Distributions with that form are called an [exponential family](#def-exponential-family), and they share properties that make estimation easier. This page defines the form and its [natural parameter](#def-natural-parameter), and checks the form for the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) on data.
 
@@ -12,7 +12,7 @@ Many of the distributions in this course, such as the [Bernoulli](https://morris
 
 > **NOTE:**
 >
-> **Definition 1 (Exponential family)** Let $X$ be a random variable whose distribution depends on one parameter $\eta$, and let $\mathbb{f}\mathopen{}\left(x; \eta\right)\mathclose{}$ be its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). The distributions of $X$ form an **exponential family** if there are a nonnegative [function](https://morrison-lab.github.io/mds/functions.html#def-function) $h$ and a function $T$ of $x$ alone, and a function $A$ of $\eta$ alone, such that
+> **Definition 1 (Exponential family)** Let $X$ be a random variable whose distribution depends on one parameter $\eta$, and let $\mathbb{f}\mathopen{}\left(x; \eta\right)\mathclose{}$ be its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). The distributions of $X$ form an **exponential family** if there are a nonnegative [function](https://morrison-lab.github.io/mcs/functions.html#def-function) $h$ and a function $T$ of $x$ alone, and a function $A$ of $\eta$ alone, such that
 >
 > $$\mathbb{f}\mathopen{}\left(x; \eta\right)\mathclose{}
 > = {{h\mathopen{}\left(x\right)\mathclose{}}} \, {\operatorname{exp}\mathopen{}\left\{\eta\, {T\mathopen{}\left(x\right)\mathclose{}} - {A\mathopen{}\left(\eta\right)\mathclose{}}\right\}\mathclose{}}
@@ -22,7 +22,7 @@ Many of the distributions in this course, such as the [Bernoulli](https://morris
 
 > **NOTE:**
 >
-> *Remark 1* (Source: Exponential family). Casella and Berger [\[1, Sec. 3.4\]](#ref-CaseBerg01), Eq. 3.4.1 write the family as a sum of $k$ terms inside the exponential, each a [function](https://morrison-lab.github.io/mds/functions.html#def-function) of the parameter times a function of $x$; Dobson and Barnett [\[2, Sec. 3.2\]](#ref-dobson4e), Eq. 3.3 write it in the form ${\operatorname{exp}\mathopen{}\left\{a(y) b(\theta) + c(\theta) + d(y)\right\}\mathclose{}}$. [Equation 1](#eq-exponential-family) is the case of one term. It is Dobson and Barnett’s canonical form when ${T\mathopen{}\left(x\right)\mathclose{}} = x$, and the [natural parameter](#def-natural-parameter) $\eta$ plays the role of their $b(\theta)$. See the [notation choices](https://morrison-lab.github.io/macros/notation-choices.html#sec-exponential-family-notation) for how the symbols line up.
+> *Remark 1* (Source: Exponential family). Casella and Berger [\[1, Sec. 3.4\]](#ref-CaseBerg01), Eq. 3.4.1 write the family as a sum of $k$ terms inside the exponential, each a [function](https://morrison-lab.github.io/mcs/functions.html#def-function) of the parameter times a function of $x$; Dobson and Barnett [\[2, Sec. 3.2\]](#ref-dobson4e), Eq. 3.3 write it in the form ${\operatorname{exp}\mathopen{}\left\{a(y) b(\theta) + c(\theta) + d(y)\right\}\mathclose{}}$. [Equation 1](#eq-exponential-family) is the case of one term. It is Dobson and Barnett’s canonical form when ${T\mathopen{}\left(x\right)\mathclose{}} = x$, and the [natural parameter](#def-natural-parameter) $\eta$ plays the role of their $b(\theta)$. See the [notation choices](https://morrison-lab.github.io/macros/notation-choices.html#sec-exponential-family-notation) for how the symbols line up.
 
 > **NOTE:**
 >

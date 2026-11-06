@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-05 23:51:14 (PST)
+Last modified: 2026-11-06 00:59:39 (PST)
 
 # 1 Empirical distribution
 
@@ -30,7 +30,7 @@ Last modified: 2026-11-05 23:51:14 (PST)
 
 > **NOTE:**
 >
-> **Definition 2 (Empirical CDF)** For observed values $x_1, \ldots, x_n$, the **empirical cumulative distribution function** (**empirical CDF**) is the [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) of the [empirical distribution](#def-empirical-distribution), the [function](https://morrison-lab.github.io/mds/functions.html#def-function)
+> **Definition 2 (Empirical CDF)** For observed values $x_1, \ldots, x_n$, the **empirical cumulative distribution function** (**empirical CDF**) is the [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) of the [empirical distribution](#def-empirical-distribution), the [function](https://morrison-lab.github.io/mcs/functions.html#def-function)
 >
 > $${\mathop{\hat{\mathbb{F}}}\nolimits\mathopen{}\left(t\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{j=1}^nI(x_j \le t), \quad t \in \mathbb{R},$$
 >

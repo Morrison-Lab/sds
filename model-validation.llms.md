@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-05 23:51:14 (PST)
+Last modified: 2026-11-06 00:59:39 (PST)
 
 # 1 Data sets, input matrices and outcome vectors
 
@@ -172,7 +172,7 @@ Last modified: 2026-11-05 23:51:14 (PST)
 
 > **NOTE:**
 >
-> **Definition 14 (Fitting procedure)** A **fitting procedure** $g$ is a [function](https://morrison-lab.github.io/mds/functions.html#def-function) that, given any [data set](#def-data-set) $\mathcal{D}$, produces the [fitted model](#def-fitted-model) $\hat{h}= {g\mathopen{}\left(\mathcal{D}\right)\mathclose{}}$:
+> **Definition 14 (Fitting procedure)** A **fitting procedure** $g$ is a [function](https://morrison-lab.github.io/mcs/functions.html#def-function) that, given any [data set](#def-data-set) $\mathcal{D}$, produces the [fitted model](#def-fitted-model) $\hat{h}= {g\mathopen{}\left(\mathcal{D}\right)\mathclose{}}$:
 >
 > $$\mathcal{D}
 > \mapsto
@@ -1272,7 +1272,7 @@ Last modified: 2026-11-05 23:51:14 (PST)
 
 > **NOTE:**
 >
-> **Definition 39 (Flexibility)** Let $g_{1}$ and $g_{2}$ be [fitting procedures](#def-fitting-procedure) that each choose, by least squares, a [fitted model](#def-fitted-model) from a set of candidate [functions](https://morrison-lab.github.io/mds/functions.html#def-function), $\mathcal{G}_{1}$ and $\mathcal{G}_{2}$ respectively. The procedure $g_{2}$ is **at least as flexible** as $g_{1}$ if every candidate of $g_{1}$ is also a candidate of $g_{2}$:
+> **Definition 39 (Flexibility)** Let $g_{1}$ and $g_{2}$ be [fitting procedures](#def-fitting-procedure) that each choose, by least squares, a [fitted model](#def-fitted-model) from a set of candidate [functions](https://morrison-lab.github.io/mcs/functions.html#def-function), $\mathcal{G}_{1}$ and $\mathcal{G}_{2}$ respectively. The procedure $g_{2}$ is **at least as flexible** as $g_{1}$ if every candidate of $g_{1}$ is also a candidate of $g_{2}$:
 >
 > $$\mathcal{G}_{1} \subseteq \mathcal{G}_{2}.
 > \tag{40}$$

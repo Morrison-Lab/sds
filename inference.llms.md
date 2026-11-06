@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-05 23:51:14 (PST)
+Last modified: 2026-11-06 00:59:39 (PST)
 
 # 1 Inference
 
@@ -190,7 +190,7 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 12 (Confidence interval)** A $100(1-\alpha)\%$ **confidence interval** for a parameter $\theta$ is a random [closed interval](https://morrison-lab.github.io/mds/sets.html#def-closed-interval) ${\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}$ whose endpoints ${L\mathopen{}\left(X\right)\mathclose{}} \le {U\mathopen{}\left(X\right)\mathclose{}}$ are [statistics](sufficiency.llms.md#def-statistic) computed from the data $X$, such that for every possible value of $\theta$:
+> **Definition 12 (Confidence interval)** A $100(1-\alpha)\%$ **confidence interval** for a parameter $\theta$ is a random [closed interval](https://morrison-lab.github.io/mcs/sets.html#def-closed-interval) ${\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}$ whose endpoints ${L\mathopen{}\left(X\right)\mathclose{}} \le {U\mathopen{}\left(X\right)\mathclose{}}$ are [statistics](sufficiency.llms.md#def-statistic) computed from the data $X$, such that for every possible value of $\theta$:
 >
 > $${\Pr_{\theta}\mathopen{}\left(\theta\in {\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}\right)\mathclose{}} \ge 1 - \alpha$$
 >
@@ -224,7 +224,7 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > $${\Pr_{\theta}\mathopen{}\left(\theta\in C(X)\right)\mathclose{}} \ge 1 - \alpha$$
 >
-> A [confidence interval](#def-confidence-interval) is a confidence set whose values are [closed intervals](https://morrison-lab.github.io/mds/sets.html#def-closed-interval).
+> A [confidence interval](#def-confidence-interval) is a confidence set whose values are [closed intervals](https://morrison-lab.github.io/mcs/sets.html#def-closed-interval).
 >
 > Source: [\[9, Sec. 9.1\]](#ref-CaseBerg01).
 
@@ -244,11 +244,11 @@ The tests on this page compare a test statistic with one of three families of di
 > #> [1] 0.958611 0.994366
 > ```
 >
-> The smallest coverage probability on this grid is 0.959, and the largest is 0.994. The grid is coarse and the coverage probability jumps at the interval endpoints, so the smallest grid value is only an [upper bound](https://morrison-lab.github.io/mds/sets.html#def-bound) for the [confidence coefficient](#def-confidence-coefficient). The Clopper-Pearson interval is built to have coverage probability at least 0.95 at every $p$, and here it is above 0.95 at all 99 grid values of $p$, so it is [conservative](#def-conservative-confidence-interval).
+> The smallest coverage probability on this grid is 0.959, and the largest is 0.994. The grid is coarse and the coverage probability jumps at the interval endpoints, so the smallest grid value is only an [upper bound](https://morrison-lab.github.io/mcs/sets.html#def-bound) for the [confidence coefficient](#def-confidence-coefficient). The Clopper-Pearson interval is built to have coverage probability at least 0.95 at every $p$, and here it is above 0.95 at all 99 grid values of $p$, so it is [conservative](#def-conservative-confidence-interval).
 
 > **NOTE:**
 >
-> *Remark 3* (Why most intervals are conservative). [Definition 12](#def-confidence-interval) requires the [coverage probability](#def-coverage-probability) to be at least $1 - \alpha$ at every $\theta$, which is the same as requiring the [confidence coefficient](#def-confidence-coefficient) to be at least $1 - \alpha$. The coverage probability can depend on $\theta$, and the confidence coefficient is its greatest [lower bound](https://morrison-lab.github.io/mds/sets.html#def-bound), which the coverage probability need not attain at any $\theta$. An [exact](#def-exact-confidence-interval) interval has the same coverage probability at every $\theta$. [Discrete](data.llms.md#def-discrete-var) data take only countably many values, so they usually allow only a [conservative](#def-conservative-confidence-interval) interval, as [Example 7](#exm-conservative-interval) shows. A [confidence set](#def-confidence-set) drops the requirement that the region be an interval.
+> *Remark 3* (Why most intervals are conservative). [Definition 12](#def-confidence-interval) requires the [coverage probability](#def-coverage-probability) to be at least $1 - \alpha$ at every $\theta$, which is the same as requiring the [confidence coefficient](#def-confidence-coefficient) to be at least $1 - \alpha$. The coverage probability can depend on $\theta$, and the confidence coefficient is its greatest [lower bound](https://morrison-lab.github.io/mcs/sets.html#def-bound), which the coverage probability need not attain at any $\theta$. An [exact](#def-exact-confidence-interval) interval has the same coverage probability at every $\theta$. [Discrete](data.llms.md#def-discrete-var) data take only countably many values, so they usually allow only a [conservative](#def-conservative-confidence-interval) interval, as [Example 7](#exm-conservative-interval) shows. A [confidence set](#def-confidence-set) drops the requirement that the region be an interval.
 
 > **NOTE:**
 >
