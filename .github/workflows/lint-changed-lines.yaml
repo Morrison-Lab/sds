@@ -15,4 +15,4 @@ jobs:
     uses: Morrison-Lab/gha/.github/workflows/lint-changed-lines.yml@v3
     with:
       file-pattern: '[.]([Rr]|[Rr]md|[Qq]md)$'
-      lms-ref: 1b311601ef3f8226072ec6b660b045f749c916ae
+      lms-ref: db62d0af4b618da4691ffa5d97d2656c4b286dd9
