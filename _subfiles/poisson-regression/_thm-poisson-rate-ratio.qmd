@@ -1,0 +1,68 @@
+:::{#thm-poisson-rate-ratio}
+#### Rate ratios in Poisson regression
+
+In a [Poisson regression model](poisson-regression.qmd#def-poisson-regression),
+suppose [covariate](model-validation.qmd#def-covariate) $x_j$ enters the [linear function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function) $\lnf{\lambda(\vx)}$
+only through the single [term](https://morrison-lab.github.io/mds/algebra-sums.html#def-term) $\b_j x_j$
+(no interactions or transformations involving $x_j$).
+Let $\vx$ and $\vxs$ be two [covariate patterns](logistic-inference.qmd#def-covariate-pattern)
+that are identical except that $x_j = a$ and $x^*_j = b$.
+Then
+
+$$\rateratio(\vx : \vxs) = \expf{\b_j (a - b)}$$ {#eq-poisson-rate-ratio}
+
+and for any common [exposure magnitude](https://morrison-lab.github.io/pds/distributions.html#def-exposure) $t > 0$,
+the [ratio](https://morrison-lab.github.io/mds/algebra-sums.html#def-ratio) of the [means](https://morrison-lab.github.io/pds/expectation.html#def-expectation) is the same [rate ratio](poisson-regression.qmd#def-rate-ratio):
+
+$$\frac{\mu(\vx, t)}{\mu(\vxs, t)} = \rateratio(\vx : \vxs)$$
+
+:::
+
+::: proof
+Because $\vx$ and $\vxs$ agree on every [covariate](model-validation.qmd#def-covariate) except $x_j$,
+every [term](https://morrison-lab.github.io/mds/algebra-sums.html#def-term) of $\lnf{\lambda(\vx)}$ except $\b_j x_j$ is shared with $\lnf{\lambda(\vxs)}$:
+
+$$
+\ba
+\lnf{\lambda(\vx)} - \lnf{\lambda(\vxs)}
+&= \paren{\b_0 + \b_1 x_1 + \lds + \red{\b_j a} + \lds + \b_p x_p} \\
+&\phantom{={}} - \paren{\b_0 + \b_1 x_1 + \lds + \red{\b_j b} + \lds + \b_p x_p}
+&& \text{(substitute the linear function)} \\
+&= \red{\b_j a} - \red{\b_j b}
+&& \text{(cancel the shared terms)} \\
+&= \red{\b_j (a - b)}
+&& \text{(factor out } \b_j \text{)}
+\ea
+$$
+
+Then the [rate ratio](poisson-regression.qmd#def-rate-ratio) is:
+
+$$
+\ba
+\rateratio(\vx : \vxs)
+&= \frac{\lambda(\vx)}{\lambda(\vxs)}
+&& \text{(definition of rate ratio)} \\
+&= \frac{\expf{\lnf{\lambda(\vx)}}}{\expf{\lnf{\lambda(\vxs)}}}
+&& \text{(exponential undoes the log)} \\
+&= \expf{\lnf{\lambda(\vx)} - \lnf{\lambda(\vxs)}}
+&& \text{(quotient rule for exponentials)} \\
+&= \expf{\b_j (a - b)}
+&& \text{(substitute the difference of linear functions)}
+\ea
+$$
+
+For the [means](https://morrison-lab.github.io/pds/expectation.html#def-expectation) at a common exposure $t > 0$:
+
+$$
+\ba
+\frac{\mu(\vx, t)}{\mu(\vxs, t)}
+&= \frac{\lambda(\vx) \cdot t}{\lambda(\vxs) \cdot t}
+&& \text{(Poisson regression mean function)} \\
+&= \frac{\lambda(\vx)}{\lambda(\vxs)}
+&& \text{(cancel } t > 0 \text{)} \\
+&= \rateratio(\vx : \vxs)
+&& \text{(definition of rate ratio)}
+\ea
+$$
+
+:::

@@ -1,0 +1,20 @@
+:::{#def-poisson-regression}
+#### Poisson regression model
+
+Let $Y$ be a count [outcome](model-validation.qmd#def-outcome-vector),
+$\vX$ a [covariate vector](correlation-regression.qmd#def-slr-covariate-vector),
+and $T$ the [exposure magnitude](https://morrison-lab.github.io/pds/distributions.html#def-exposure)
+over which the [events](https://morrison-lab.github.io/pds/probability-basics.html#def-event) in $Y$ are counted.
+A **Poisson regression model** assumes that,
+given $\vX = \vx$ and $T = t$,
+$Y$ has a [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson)
+with [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\mu(\vx, t) = \lambda(\vx) \cdot t$,
+where the [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) $\lambda(\vx)$
+has a [log](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log)
+that is a [linear function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function) of the [covariates](model-validation.qmd#def-covariate):
+
+$$
+\lnf{\lambda(\vx)} = \b_0 + \b_1 x_1 + \lds + \b_p x_p.
+$$
+
+:::

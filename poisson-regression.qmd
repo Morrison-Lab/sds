@@ -1,0 +1,41 @@
+---
+title: "Poisson Regression"
+format:
+  html: default
+  revealjs:
+    output-file: poisson-regression-slides.html
+    shift-heading-level-by: 1
+  pdf:
+    output-file: poisson-regression-handout.pdf
+  docx:
+    output-file: poisson-regression-handout.docx
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+# The model
+
+A count [outcome](model-validation.qmd#def-outcome-vector),
+such as the number of bike rentals in an hour,
+is not well described by a [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal)
+when the counts are small,
+since the normal distribution puts [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) below zero,
+and a count is never below zero.
+A [Poisson regression model](poisson-regression.qmd#def-poisson-regression) takes the [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate)
+to be the [exponential function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function) of a [linear function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function) of the [covariates](model-validation.qmd#def-covariate).
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_def-poisson-regression.qmd >}}
+
+# Rate ratios
+
+{{< include sds/_subfiles/poisson-regression/_def-rate-ratio.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_thm-poisson-rate-ratio.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_exm-poisson-rate-ratio.qmd >}}
