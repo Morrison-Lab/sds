@@ -10,10 +10,11 @@ given $\vX = \vx$ and $T = t$,
 $Y$ has a [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson)
 with [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\mu(\vx, t) = \lambda(\vx) \cdot t$,
 where the [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) $\lambda(\vx)$
-has a [log](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log) that is a [linear function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function) of the [covariates](model-validation.qmd#def-covariate):
+has a [log](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log)
+that is a [linear function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function) of the [covariates](model-validation.qmd#def-covariate):
 
 $$
-\lnf{\lambda(\vx)} = \beta_0 + \beta_1 x_1 + \dots + \beta_p x_p.
+\lnf{\lambda(\vx)} = \b_0 + \b_1 x_1 + \lds + \b_p x_p.
 $$
 
 :::

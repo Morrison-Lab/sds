@@ -16,8 +16,9 @@ format:
 # The model
 
 A count [outcome](https://morrison-lab.github.io/sds/model-validation.html#def-outcome-vector), such as the number of bike rentals in an hour,
-cannot be modeled well by a [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal)
-when the counts are small.
+is not well described by a [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal)
+when the counts are small,
+since the normal distribution puts [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) below zero and a count is never below zero.
 A [Poisson regression model](poisson-regression.qmd#def-poisson-regression) takes the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) count
 to be the [exponential function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function) of a [linear function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function) of the [covariates](model-validation.qmd#def-covariate).
 
