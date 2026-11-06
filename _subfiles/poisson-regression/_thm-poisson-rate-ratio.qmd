@@ -12,7 +12,7 @@ Then
 $$\rateratio(\vx : \vxs) = \expf{\b_j (a - b)}$$ {#eq-poisson-rate-ratio}
 
 and for any common [exposure magnitude](https://morrison-lab.github.io/pds/distributions.html#def-exposure) $t > 0$,
-the [ratio](https://morrison-lab.github.io/mds/algebra-sums.html#def-ratio) of [expected counts](basic-statistical-methods.qmd#def-expected-count) equals the same [rate ratio](poisson-regression.qmd#def-rate-ratio):
+the [ratio](https://morrison-lab.github.io/mds/algebra-sums.html#def-ratio) of [expected counts](basic-statistical-methods.qmd#def-expected-count) is the same [rate ratio](poisson-regression.qmd#def-rate-ratio):
 
 $$\frac{\mu(\vx, t)}{\mu(\vxs, t)} = \rateratio(\vx : \vxs)$$
 
