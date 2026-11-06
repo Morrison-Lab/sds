@@ -24,6 +24,46 @@
    "url": "https://morrison-lab.github.io/mcs/sets.html#def-closed-interval"
   },
   {
+   "id": "mds/algebra-exponentials#def-linear-function",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-linear-function",
+   "kind": "def",
+   "title": "linear function",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function"
+  },
+  {
+   "id": "mds/algebra-exponentials#def-natural-log",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-natural-log",
+   "kind": "def",
+   "title": "natural log",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log"
+  },
+  {
+   "id": "mds/algebra-sums#def-ratio",
+   "site": "mds",
+   "page": "algebra-sums",
+   "div": "def-ratio",
+   "kind": "def",
+   "title": "ratio",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-ratio"
+  },
+  {
+   "id": "mds/algebra-sums#def-term",
+   "site": "mds",
+   "page": "algebra-sums",
+   "div": "def-term",
+   "kind": "def",
+   "title": "term",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-term"
+  },
+  {
    "id": "mds/linear-algebra-vectors#def-mean",
    "site": "mds",
    "page": "linear-algebra-vectors",
@@ -52,6 +92,36 @@
    "title": "hessian",
    "external": true,
    "url": "https://morrison-lab.github.io/mds/vector-calculus.html#def-hessian"
+  },
+  {
+   "id": "pds/distributions#def-event-rate",
+   "site": "pds",
+   "page": "distributions",
+   "div": "def-event-rate",
+   "kind": "def",
+   "title": "event rate",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/distributions.html#def-event-rate"
+  },
+  {
+   "id": "pds/distributions#def-exposure",
+   "site": "pds",
+   "page": "distributions",
+   "div": "def-exposure",
+   "kind": "def",
+   "title": "exposure",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/distributions.html#def-exposure"
+  },
+  {
+   "id": "pds/distributions#def-poisson",
+   "site": "pds",
+   "page": "distributions",
+   "div": "def-poisson",
+   "kind": "def",
+   "title": "poisson",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/distributions.html#def-poisson"
   },
   {
    "id": "pds/expectation#def-cond-expectation",
@@ -4393,6 +4463,33 @@
    "external": false
   },
   {
+   "id": "sds/poisson-regression#def-poisson-regression",
+   "site": "sds",
+   "page": "poisson-regression",
+   "div": "def-poisson-regression",
+   "kind": "def",
+   "title": "Poisson regression model",
+   "external": false
+  },
+  {
+   "id": "sds/poisson-regression#def-rate-ratio",
+   "site": "sds",
+   "page": "poisson-regression",
+   "div": "def-rate-ratio",
+   "kind": "def",
+   "title": "Rate ratio",
+   "external": false
+  },
+  {
+   "id": "sds/poisson-regression#thm-poisson-rate-ratio",
+   "site": "sds",
+   "page": "poisson-regression",
+   "div": "thm-poisson-rate-ratio",
+   "kind": "thm",
+   "title": "Rate ratios in Poisson regression",
+   "external": false
+  },
+  {
    "id": "sds/prediction#cor-residual-prediction-error",
    "site": "sds",
    "page": "prediction",
@@ -7873,6 +7970,98 @@
   [
    "sds/permutation-tests#thm-permutation-p-valid",
    "sds/permutation-tests#lem-top-k-count"
+  ],
+  [
+   "sds/poisson-regression#def-poisson-regression",
+   "mds/algebra-exponentials#def-linear-function"
+  ],
+  [
+   "sds/poisson-regression#def-poisson-regression",
+   "mds/algebra-exponentials#def-natural-log"
+  ],
+  [
+   "sds/poisson-regression#def-poisson-regression",
+   "pds/distributions#def-event-rate"
+  ],
+  [
+   "sds/poisson-regression#def-poisson-regression",
+   "pds/distributions#def-exposure"
+  ],
+  [
+   "sds/poisson-regression#def-poisson-regression",
+   "pds/distributions#def-poisson"
+  ],
+  [
+   "sds/poisson-regression#def-poisson-regression",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "sds/poisson-regression#def-poisson-regression",
+   "pds/probability-basics#def-event"
+  ],
+  [
+   "sds/poisson-regression#def-poisson-regression",
+   "sds/correlation-regression#def-slr-covariate-vector"
+  ],
+  [
+   "sds/poisson-regression#def-poisson-regression",
+   "sds/model-validation#def-covariate"
+  ],
+  [
+   "sds/poisson-regression#def-poisson-regression",
+   "sds/model-validation#def-outcome-vector"
+  ],
+  [
+   "sds/poisson-regression#def-rate-ratio",
+   "mds/algebra-sums#def-ratio"
+  ],
+  [
+   "sds/poisson-regression#def-rate-ratio",
+   "pds/distributions#def-event-rate"
+  ],
+  [
+   "sds/poisson-regression#def-rate-ratio",
+   "sds/logistic-inference#def-covariate-pattern"
+  ],
+  [
+   "sds/poisson-regression#def-rate-ratio",
+   "sds/poisson-regression#def-poisson-regression"
+  ],
+  [
+   "sds/poisson-regression#thm-poisson-rate-ratio",
+   "mds/algebra-exponentials#def-linear-function"
+  ],
+  [
+   "sds/poisson-regression#thm-poisson-rate-ratio",
+   "mds/algebra-sums#def-ratio"
+  ],
+  [
+   "sds/poisson-regression#thm-poisson-rate-ratio",
+   "mds/algebra-sums#def-term"
+  ],
+  [
+   "sds/poisson-regression#thm-poisson-rate-ratio",
+   "pds/distributions#def-exposure"
+  ],
+  [
+   "sds/poisson-regression#thm-poisson-rate-ratio",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "sds/poisson-regression#thm-poisson-rate-ratio",
+   "sds/logistic-inference#def-covariate-pattern"
+  ],
+  [
+   "sds/poisson-regression#thm-poisson-rate-ratio",
+   "sds/model-validation#def-covariate"
+  ],
+  [
+   "sds/poisson-regression#thm-poisson-rate-ratio",
+   "sds/poisson-regression#def-poisson-regression"
+  ],
+  [
+   "sds/poisson-regression#thm-poisson-rate-ratio",
+   "sds/poisson-regression#def-rate-ratio"
   ],
   [
    "sds/prediction#cor-residual-prediction-error",
