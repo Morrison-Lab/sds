@@ -9,7 +9,7 @@ The
 [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
 of the model with parameter $\param$ from the model with parameter $\param_0$
 is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation), under $\param_0$, of the logarithm of the ratio of the two densities.
-As a [function](https://morrison-lab.github.io/mds/functions.html#def-function) of $\param$, it is written
+As a [function](https://morrison-lab.github.io/mcs/functions.html#def-function) of $\param$, it is written
 
 $$
 \kldivf{\param_0}{\param}

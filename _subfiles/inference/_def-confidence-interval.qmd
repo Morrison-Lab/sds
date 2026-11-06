@@ -2,7 +2,7 @@
 #### Confidence interval
 
 A $100(1-\siglevel)\%$ **confidence interval** for a parameter $\param$
-is a random [closed interval](https://morrison-lab.github.io/mds/sets.html#def-closed-interval)
+is a random [closed interval](https://morrison-lab.github.io/mcs/sets.html#def-closed-interval) <!-- check-term-links: allow -->
 $\cintf{X}$
 whose endpoints $\cilof{X} \le \ciupf{X}$
 are [statistics](sufficiency.qmd#def-statistic) computed from the data $X$,

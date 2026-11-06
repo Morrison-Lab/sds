@@ -1,7 +1,7 @@
 :::{#def-fitting-procedure}
 #### Fitting procedure
 
-A **fitting procedure** $\fitproc$ is a [function](https://morrison-lab.github.io/mds/functions.html#def-function) that,
+A **fitting procedure** $\fitproc$ is a [function](https://morrison-lab.github.io/mcs/functions.html#def-function) that,
 given any [data set](#def-data-set) $\dataset$,
 produces the [fitted model](#def-fitted-model) $\emodmem = \fitprocf{\dataset}$:
 

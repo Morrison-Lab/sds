@@ -9,7 +9,7 @@ such that for every possible value of $\param$:
 $$\Prunder{\param}{\param \in C(X)} \ge 1 - \siglevel$$
 
 A [confidence interval](#def-confidence-interval) is a confidence set
-whose values are [closed intervals](https://morrison-lab.github.io/mds/sets.html#def-closed-interval).
+whose values are [closed intervals](https://morrison-lab.github.io/mcs/sets.html#def-closed-interval).
 
 Source: [@CaseBerg01, Section 9.1].
 :::
