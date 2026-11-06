@@ -2,24 +2,24 @@
 #### Rate ratios in Poisson regression
 
 In a Poisson regression model (@def-poisson-regression),
-suppose covariate $x_j$ enters the linear function $\eta(\vx)$
+suppose [covariate](model-validation.qmd#def-covariate) $x_j$ enters the linear [function](https://morrison-lab.github.io/mds/functions.html#def-function) $\eta(\vx)$
 only through the single term $\b_j x_j$
 (no interactions or transformations involving $x_j$).
-Let $\vx$ and $\vxs$ be two covariate patterns
+Let $\vx$ and $\vxs$ be two [covariate patterns](logistic-inference.qmd#def-covariate-pattern)
 that are identical except that $x_j = a$ and $x^*_j = b$.
 Then
 
 $$\rateratio(\vx : \vxs) = \expf{\b_j (a - b)}$$ {#eq-poisson-rate-ratio}
 
-and for any common exposure magnitude $t > 0$,
-the ratio of expected counts equals the same rate ratio:
+and for any common [exposure magnitude](https://morrison-lab.github.io/pds/distributions.html#def-exposure) $t > 0$,
+the ratio of [expected counts](basic-statistical-methods.qmd#def-expected-count) equals the same [rate ratio](poisson-regression.qmd#def-rate-ratio):
 
 $$\frac{\mu(\vx, t)}{\mu(\vxs, t)} = \rateratio(\vx : \vxs)$$
 
 :::
 
 ::: proof
-Because $\vx$ and $\vxs$ agree on every covariate except $x_j$,
+Because $\vx$ and $\vxs$ agree on every [covariate](model-validation.qmd#def-covariate) except $x_j$,
 every term of $\eta(\vx)$ except $\b_j x_j$ is shared with $\eta(\vxs)$:
 
 $$
@@ -35,7 +35,7 @@ $$
 \ea
 $$
 
-Then the rate ratio is:
+Then the [rate ratio](poisson-regression.qmd#def-rate-ratio) is:
 
 $$
 \ba
@@ -51,7 +51,7 @@ $$
 \ea
 $$
 
-For the expected counts at a common exposure $t > 0$:
+For the [expected counts](basic-statistical-methods.qmd#def-expected-count) at a common exposure $t > 0$:
 
 $$
 \ba

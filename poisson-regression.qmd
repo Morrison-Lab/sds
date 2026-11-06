@@ -16,10 +16,10 @@ format:
 # The model
 
 A count outcome, such as the number of bike rentals in an hour,
-cannot be modeled well by a normal distribution
+cannot be modeled well by a [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal)
 when the counts are small.
-Poisson regression models the mean count
-as the exponential of a linear function of the covariates.
+[Poisson regression](poisson-regression.qmd#def-poisson-regression) models the mean count
+as the exponential of a linear [function](https://morrison-lab.github.io/mds/functions.html#def-function) of the [covariates](model-validation.qmd#def-covariate).
 
 {{< slidebreak >}}
 

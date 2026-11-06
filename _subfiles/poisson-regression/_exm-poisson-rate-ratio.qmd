@@ -3,13 +3,13 @@
 
 <!-- no-figure: a single number computed from one coefficient -->
 
-Suppose a Poisson regression model for emergency-room visits
+Suppose a [Poisson regression model](poisson-regression.qmd#def-poisson-regression) for emergency-room visits
 includes age in years, $x_1$,
 with coefficient $\b_1 = 0.03$
 and no interactions involving age.
 By @thm-poisson-rate-ratio with $a = 60$ and $b = 50$,
-the rate ratio comparing a 60-year-old to a 50-year-old
-with the same values of every other covariate is:
+the [rate ratio](poisson-regression.qmd#def-rate-ratio) comparing a 60-year-old to a 50-year-old
+with the same values of every other [covariate](model-validation.qmd#def-covariate) is:
 
 $$
 \ba
