@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-06 00:58:48 (PST)
+Last modified: 2026-11-06 01:45:13 (PST)
 
 # 1 Overview of maximum likelihood estimation
 
@@ -765,7 +765,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Definition 12 (Kullback–Leibler divergence between two parameter values)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ be a [continuous](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) random vector with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ for a scalar parameter $\theta$, and let $\theta_0$ be the true parameter value. The [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the model with parameter $\theta$ from the model with parameter $\theta_0$ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation), under $\theta_0$, of the logarithm of the ratio of the two densities. As a [function](https://morrison-lab.github.io/mds/functions.html#def-function) of $\theta$, it is written
+> **Definition 12 (Kullback–Leibler divergence between two parameter values)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ be a [continuous](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) random vector with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ for a scalar parameter $\theta$, and let $\theta_0$ be the true parameter value. The [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the model with parameter $\theta$ from the model with parameter $\theta_0$ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation), under $\theta_0$, of the logarithm of the ratio of the two densities. As a [function](https://morrison-lab.github.io/mcs/functions.html#def-function) of $\theta$, it is written
 >
 > $${{D_{\mathrm{KL}}}\mathopen{}\left(\theta_0 \,\Vert\, \theta\right)\mathclose{}}
 > \stackrel{\text{def}}{=}\mathbb{E}_{\theta_0}\mathopen{}\left[\log \frac{\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \theta_0)}{\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \theta)}\right]\mathclose{}.$$
@@ -2846,7 +2846,7 @@ $$\ell'= \frac{x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}}}{{\operator
 
 > **NOTE:**
 >
-> *Solution 53*. By [Theorem 26](#thm-bernoulli-hessian-nd), $\ell$ is strictly concave on $(0, 1)$. A strictly concave [function](https://morrison-lab.github.io/mds/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else. With ${\bar{y}}\in (0, 1)$, [Theorem 23](#thm-bernoulli-score-equation) says the only critical point of $\ell$ in $(0, 1)$ is ${\bar{y}}$. So $\ell$ is maximized at $\pi= {\bar{y}}$.
+> *Solution 53*. By [Theorem 26](#thm-bernoulli-hessian-nd), $\ell$ is strictly concave on $(0, 1)$. A strictly concave [function](https://morrison-lab.github.io/mcs/functions.html#def-function) that has a [critical point](#def-critical-point) is maximized there, and nowhere else. With ${\bar{y}}\in (0, 1)$, [Theorem 23](#thm-bernoulli-score-equation) says the only critical point of $\ell$ in $(0, 1)$ is ${\bar{y}}$. So $\ell$ is maximized at $\pi= {\bar{y}}$.
 
 > **NOTE:**
 >

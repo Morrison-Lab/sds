@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-06 00:58:48 (PST)
+Last modified: 2026-11-06 01:45:13 (PST)
 
 # 1 Data sets, input matrices and outcome vectors
 
@@ -172,7 +172,7 @@ Last modified: 2026-11-06 00:58:48 (PST)
 
 > **NOTE:**
 >
-> **Definition 14 (Fitting procedure)** A **fitting procedure** $g$ is a [function](https://morrison-lab.github.io/mds/functions.html#def-function) that, given any [data set](#def-data-set) $\mathcal{D}$, produces the [fitted model](#def-fitted-model) $\hat{h}= {g\mathopen{}\left(\mathcal{D}\right)\mathclose{}}$:
+> **Definition 14 (Fitting procedure)** A **fitting procedure** $g$ is a [function](https://morrison-lab.github.io/mcs/functions.html#def-function) that, given any [data set](#def-data-set) $\mathcal{D}$, produces the [fitted model](#def-fitted-model) $\hat{h}= {g\mathopen{}\left(\mathcal{D}\right)\mathclose{}}$:
 >
 > $$\mathcal{D}
 > \mapsto
@@ -394,7 +394,7 @@ Last modified: 2026-11-06 00:58:48 (PST)
 >     "held_out": empirical_risk(birthwt[is_held_out]),
 > }
 > empirical_risks
-> #> {'training': np.float64(488364.9956483022), 'held_out': np.float64(503648.75351911323)}
+> #> {'training': np.float64(488364.99564830225), 'held_out': np.float64(503648.7535191132)}
 > ```
 >
 > Of the 189 babies, 126 are in the [training set](#def-training-set). The [fitted model](#def-fitted-model) has an [empirical risk](#def-empirical-risk) of 488,365 squared grams on the training set and 503,649 squared grams on the [held-out set](#def-held-out-set). Its square root, 699 grams, is the typical [prediction error](prediction.llms.md#def-prediction-error) on the training set.
@@ -1272,7 +1272,7 @@ Last modified: 2026-11-06 00:58:48 (PST)
 
 > **NOTE:**
 >
-> **Definition 39 (Flexibility)** Let $g_{1}$ and $g_{2}$ be [fitting procedures](#def-fitting-procedure) that each choose, by least squares, a [fitted model](#def-fitted-model) from a set of candidate [functions](https://morrison-lab.github.io/mds/functions.html#def-function), $\mathcal{G}_{1}$ and $\mathcal{G}_{2}$ respectively. The procedure $g_{2}$ is **at least as flexible** as $g_{1}$ if every candidate of $g_{1}$ is also a candidate of $g_{2}$:
+> **Definition 39 (Flexibility)** Let $g_{1}$ and $g_{2}$ be [fitting procedures](#def-fitting-procedure) that each choose, by least squares, a [fitted model](#def-fitted-model) from a set of candidate [functions](https://morrison-lab.github.io/mcs/functions.html#def-function), $\mathcal{G}_{1}$ and $\mathcal{G}_{2}$ respectively. The procedure $g_{2}$ is **at least as flexible** as $g_{1}$ if every candidate of $g_{1}$ is also a candidate of $g_{2}$:
 >
 > $$\mathcal{G}_{1} \subseteq \mathcal{G}_{2}.
 > \tag{40}$$
@@ -2423,10 +2423,10 @@ Last modified: 2026-11-06 00:58:48 (PST)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    8.88178e-15    2.00000e+00
+> #>    7.10543e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >

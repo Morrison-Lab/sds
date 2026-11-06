@@ -4,6 +4,26 @@
  "meaning": "edge [A, B] means A uses B: B is a prerequisite of A, A a postrequisite of B",
  "nodes": [
   {
+   "id": "mcs/functions#def-function",
+   "site": "mcs",
+   "page": "functions",
+   "div": "def-function",
+   "kind": "def",
+   "title": "function",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/functions.html#def-function"
+  },
+  {
+   "id": "mcs/sets#def-closed-interval",
+   "site": "mcs",
+   "page": "sets",
+   "div": "def-closed-interval",
+   "kind": "def",
+   "title": "closed interval",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/sets.html#def-closed-interval"
+  },
+  {
    "id": "mds/algebra-exponentials#def-linear-function",
    "site": "mds",
    "page": "algebra-exponentials",
@@ -44,16 +64,6 @@
    "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-term"
   },
   {
-   "id": "mds/functions#def-function",
-   "site": "mds",
-   "page": "functions",
-   "div": "def-function",
-   "kind": "def",
-   "title": "function",
-   "external": true,
-   "url": "https://morrison-lab.github.io/mds/functions.html#def-function"
-  },
-  {
    "id": "mds/linear-algebra-vectors#def-mean",
    "site": "mds",
    "page": "linear-algebra-vectors",
@@ -72,16 +82,6 @@
    "title": "optimization algorithm",
    "external": true,
    "url": "https://morrison-lab.github.io/mds/optimization.html#def-optimization-algorithm"
-  },
-  {
-   "id": "mds/sets#def-closed-interval",
-   "site": "mds",
-   "page": "sets",
-   "div": "def-closed-interval",
-   "kind": "def",
-   "title": "closed interval",
-   "external": true,
-   "url": "https://morrison-lab.github.io/mds/sets.html#def-closed-interval"
   },
   {
    "id": "mds/vector-calculus#def-hessian",
@@ -6049,7 +6049,7 @@
   ],
   [
    "sds/exponential-families#def-exponential-family",
-   "mds/functions#def-function"
+   "mcs/functions#def-function"
   ],
   [
    "sds/exponential-families#def-exponential-family",
@@ -6081,7 +6081,7 @@
   ],
   [
    "sds/inference#def-confidence-interval",
-   "mds/sets#def-closed-interval"
+   "mcs/sets#def-closed-interval"
   ],
   [
    "sds/inference#def-confidence-interval",
@@ -6089,7 +6089,7 @@
   ],
   [
    "sds/inference#def-confidence-set",
-   "mds/sets#def-closed-interval"
+   "mcs/sets#def-closed-interval"
   ],
   [
    "sds/inference#def-confidence-set",
@@ -6217,7 +6217,7 @@
   ],
   [
    "sds/intro-MLEs#def-model-kl-divergence",
-   "mds/functions#def-function"
+   "mcs/functions#def-function"
   ],
   [
    "sds/intro-MLEs#def-model-kl-divergence",
@@ -6997,7 +6997,7 @@
   ],
   [
    "sds/model-validation#def-fitting-procedure",
-   "mds/functions#def-function"
+   "mcs/functions#def-function"
   ],
   [
    "sds/model-validation#def-fitting-procedure",
@@ -7033,7 +7033,7 @@
   ],
   [
    "sds/model-validation#def-flexibility",
-   "mds/functions#def-function"
+   "mcs/functions#def-function"
   ],
   [
    "sds/model-validation#def-flexibility",
@@ -7897,7 +7897,7 @@
   ],
   [
    "sds/nonparametric-models#def-empirical-cdf",
-   "mds/functions#def-function"
+   "mcs/functions#def-function"
   ],
   [
    "sds/nonparametric-models#def-empirical-cdf",
