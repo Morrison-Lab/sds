@@ -1,26 +1,19 @@
 :::{#def-poisson-regression}
 #### Poisson regression model
 
-Let $Y$ be a count outcome,
+Let $Y$ be a count [outcome](https://morrison-lab.github.io/sds/model-validation.html#def-outcome-vector),
 $\vX$ a [covariate vector](correlation-regression.qmd#def-slr-covariate-vector),
 and $T$ the [exposure magnitude](https://morrison-lab.github.io/pds/distributions.html#def-exposure)
 over which the [events](https://morrison-lab.github.io/pds/probability-basics.html#def-event) in $Y$ are counted.
 A **Poisson regression model** assumes that,
 given $\vX = \vx$ and $T = t$,
 $Y$ has a [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson)
-
-$$Y \mid \vX = \vx, T = t \sim \Pois(\mu(\vx, t))$$
-
-whose mean is the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) rate $\lambda(\vx)$ multiplied by the exposure,
-with the [log](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log) of the event rate equal to a linear [function](https://morrison-lab.github.io/mds/functions.html#def-function) of the [covariates](model-validation.qmd#def-covariate):
+with [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\mu(\vx, t) = \lambda(\vx) \cdot t$,
+where the [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) $\lambda(\vx)$
+has a [log](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log) that is a [linear function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function) of the [covariates](model-validation.qmd#def-covariate):
 
 $$
-\ba
-\E{Y \mid \vX = \vx, T = t} &= \mu(\vx,t) \\
-\mu(\vx,t) &\eqdef \lambda(\vx)\cdot t \\
-\lambda(\vx) &\eqdef \exp{\eta(\vx)} \\
-\eta(\vx) &\eqdef \beta_0 + \beta_1 x_1 + \dots + \beta_p x_p
-\ea
-$${#eq-mean-poisson}
+\lnf{\lambda(\vx)} = \beta_0 + \beta_1 x_1 + \dots + \beta_p x_p.
+$$
 
 :::

@@ -27,7 +27,7 @@ $$
 
 A one-year age difference instead gives
 $\expf{0.03} \approx 1.030$,
-a 3% higher rate per year of age.
+a 3% higher [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) per year of age.
 The ten-year rate ratio is not ten times the one-year excess:
 $\expf{0.3} = \paren{\expf{0.03}}^{10}$,
 because rate ratios multiply across successive one-year steps.

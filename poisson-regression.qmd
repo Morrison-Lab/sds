@@ -15,10 +15,10 @@ format:
 
 # The model
 
-A count outcome, such as the number of bike rentals in an hour,
+A count [outcome](https://morrison-lab.github.io/sds/model-validation.html#def-outcome-vector), such as the number of bike rentals in an hour,
 cannot be modeled well by a [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal)
 when the counts are small.
-A [Poisson regression model](poisson-regression.qmd#def-poisson-regression) takes the mean count
+A [Poisson regression model](poisson-regression.qmd#def-poisson-regression) takes the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) count
 to be the exponential of a linear [function](https://morrison-lab.github.io/mds/functions.html#def-function) of the [covariates](model-validation.qmd#def-covariate).
 
 {{< slidebreak >}}
