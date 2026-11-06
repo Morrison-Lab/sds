@@ -1,0 +1,38 @@
+---
+title: "Poisson Regression"
+format:
+  html: default
+  revealjs:
+    output-file: poisson-regression-slides.html
+    shift-heading-level-by: 1
+  pdf:
+    output-file: poisson-regression-handout.pdf
+  docx:
+    output-file: poisson-regression-handout.docx
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+# The model
+
+A count outcome, such as the number of bike rentals in an hour,
+cannot be modeled well by a normal distribution
+when the counts are small.
+Poisson regression models the mean count
+as the exponential of a linear function of the covariates.
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_def-poisson-regression.qmd >}}
+
+# Rate ratios
+
+{{< include sds/_subfiles/poisson-regression/_def-rate-ratio.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_thm-poisson-rate-ratio.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_exm-poisson-rate-ratio.qmd >}}

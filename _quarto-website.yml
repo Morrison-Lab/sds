@@ -87,6 +87,8 @@ website:
             href: classification.qmd
           - text: "Logistic Regression Inference"
             href: logistic-inference.qmd
+          - text: "Poisson Regression"
+            href: poisson-regression.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
           - text: "Permutation Tests"
@@ -156,6 +158,8 @@ website:
             href: classification.qmd
           - text: "Logistic Regression Inference"
             href: logistic-inference.qmd
+          - text: "Poisson Regression"
+            href: poisson-regression.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
           - text: "Permutation Tests"
