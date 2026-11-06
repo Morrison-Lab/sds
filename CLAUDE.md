@@ -124,13 +124,15 @@ The lab's course sites form a prerequisite sequence
 (canonical copy: `shared/writing/course-sequence.md` in [`Morrison-Lab/ai-config`](https://github.com/Morrison-Lab/ai-config), added by [Morrison-Lab/ai-config#4277](https://github.com/Morrison-Lab/ai-config/pull/4277)):
 
 ```
-mds -> pds -> sds -+-> lds  (prediction-focused statistics)
-                   +-> rme  (model-inference-focused statistics) <-- win, cie (causal inference)
+mcs -> mds -> pds -> sds -+-> lds  (prediction-focused statistics)
+                          +-> rme  (model-inference-focused statistics) <-- win, cie (causal inference)
 ```
 
 - sds is the shared trunk for lds and rme:
   material both branches need belongs here, not duplicated in either.
-- sds may rely on mds and pds for content.
+- sds may rely on mcs, mds and pds for content.
+- The shared math basics (logic and proof writing, sets, functions, number systems, relations, induction, growth rates, expressions and algorithms, notation) live in [mcs](https://morrison-lab.github.io/mcs/);
+  link to the mcs page, not to the mds stub that redirects there (Morrison-Lab/mcs#60).
 - sds may link to lds, rme, win or cie only as further reading on advanced topics,
   never to define or explain something an sds page needs.
 
