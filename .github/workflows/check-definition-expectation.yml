@@ -1,0 +1,19 @@
+# Flags a definition div (#def-) that a PR edits that writes a probability-weighted sum or integral with no expectation operator. <!-- check-definition-expectation: allow --> exempts one.
+# Warn-only heuristic: reports findings as annotations and does not fail the run.
+# No push trigger: a push run has no base to diff against.
+# A manual run scans the whole tree.
+name: Check definition expectation
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-definition-expectation.yml@v3
+    with:
+      fail: false
+      whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
+      paths-ignore: '_extensions/**,**/outtakes/**,latex-macros/**'
