@@ -12,11 +12,11 @@ as the linkage parameter varies,
 which is the score function of these notes
 [@wikipedia_informant_function].
 For [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) [observations](exploratory-descriptive.qmd#def-observation),
-the [log-likelihood](#def-loglik) is a [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) with one contribution per [observation](exploratory-descriptive.qmd#def-observation),
+the [log-likelihood](#def-loglik) is a [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) with one contribution from each of them,
 so its derivative is also a sum.
 @rao1948large, who had worked on estimating linkage parameters in Fisher's genetics laboratory,
-based a test on these "scores",
-the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative)s of the log-likelihood,
+based a test on the score function,
+with one score for each parameter,
 and called it a score test [@bera2024score].
 The name then spread to the derivative itself.
 
