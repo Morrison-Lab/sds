@@ -1,7 +1,7 @@
 ::: {#rem-score-name}
 #### Why the score function is called "score"
 
-The name of the [score function](#def-score) comes from genetics.
+Statisticians call the [score function](#def-score) a "score" because of its origin in genetics.
 @fisher1935linkage gave each family in a study of linkage a "[score](#def-score)",
 which summarized what the family showed about the linkage parameter.
 He compared that scoring rule with an "ideal score",
