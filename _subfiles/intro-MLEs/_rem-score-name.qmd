@@ -11,8 +11,11 @@ which is the [score function](#def-score) of these notes
 For independent observations,
 the [log-likelihood](#def-loglik) is a sum over observations,
 so its derivative is also a sum, of one contribution per observation.
-@rao1948large called the test built on this derivative a score test,
-and the name then spread to the derivative itself.
+@rao1948large, who had worked on estimating linkage parameters in Fisher's genetics laboratory,
+based a test on these "scores",
+the derivatives of the log-likelihood,
+and called it a score test [@bera2024score].
+The name then spread to the derivative itself.
 
 The word "score" has other meanings in statistics and machine learning.
 In particular, these notes call a classifier's raw output the log-odds or linear predictor, never a "score",
