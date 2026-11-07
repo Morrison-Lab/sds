@@ -3,18 +3,19 @@
 
 Statisticians call the [score function](#def-score) by that name
 because of its origin in genetics.
-@fisher1935linkage gave each family in a study of linkage a "[score](#def-score)",
+@fisher1935linkage gave each family in a study of linkage a "score", <!-- check-term-links: allow -->
 which summarized what the family showed about the linkage parameter.
 He compared that scoring rule with an "ideal score",
-the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) of the [log](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the sampling [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf),
+the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) with respect to the linkage parameter
+of the [log](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the probability of the data,
 which is the score function of these notes
 [@wikipedia_informant_function].
-For [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) [observation](exploratory-descriptive.qmd#def-observation)s,
-the [log-likelihood](#def-loglik) is a [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) over [observations](exploratory-descriptive.qmd#def-observation),
-so its derivative is also a sum, of one contribution per observation.
+For [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) [observations](exploratory-descriptive.qmd#def-observation),
+the [log-likelihood](#def-loglik) is a [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) with one term per observation,
+so its derivative is also a sum.
 @rao1948large, who had worked on estimating linkage parameters in Fisher's genetics laboratory,
 based a test on these "scores",
-the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative)s of the log-likelihood,
+the derivatives of the log-likelihood,
 and called it a score test [@bera2024score].
 The name then spread to the derivative itself.
 
