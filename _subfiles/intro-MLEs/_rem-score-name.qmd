@@ -9,7 +9,7 @@ the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#de
 which is the score function of these notes
 [@wikipedia_informant_function].
 For [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) [observation](exploratory-descriptive.qmd#def-observation)s,
-the [log-likelihood](#def-loglik) is a [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) over observations,
+the [log-likelihood](#def-loglik) is a [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) over [observations](exploratory-descriptive.qmd#def-observation),
 so its derivative is also a sum, of one contribution per observation.
 @rao1948large, who had worked on estimating linkage parameters in Fisher's genetics laboratory,
 based a test on these "scores",
