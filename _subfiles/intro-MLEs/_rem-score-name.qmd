@@ -2,22 +2,22 @@
 #### Why the score function is called "score"
 
 The name comes from genetics.
-@fisher1935linkage assigned each family in a study of linkage a numerical "score",
-the evidence from that family about the linkage parameter.
+@fisher1935linkage assigned each family in a study of linkage a "score",
+which measured the family's evidence about the linkage parameter.
 He compared that scoring rule with an "ideal score",
-the derivative of the log of the sampling density,
-which is the [score function](#def-score) of these notes
-[@wikipedia_informant_function].
-For independent observations,
+the derivative of the log of the sampling [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf),
+which is the [score](#def-score) function of these notes
+[@wikipedia_informant_function]. <!-- check-term-links: allow -->
+For [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) [observations](exploratory-descriptive.qmd#def-observation),
 the [log-likelihood](#def-loglik) is a sum over observations,
-so its derivative is also a sum, of one contribution per observation.
+so its derivative is also a sum, of one contribution per observation. <!-- check-term-links: allow -->
 @rao1948large, who had worked on estimating linkage parameters in Fisher's genetics laboratory,
 based a test on these "scores",
 the derivatives of the log-likelihood,
-and called it a score test [@bera2024score].
+and called it a score test [@bera2024score]. <!-- check-term-links: allow -->
 The name then spread to the derivative itself.
 
-The word "score" has other meanings in statistics and machine learning.
-In particular, these notes call a classifier's raw output the log-odds or linear predictor, never a "score",
-so that "score" always means the derivative of the log-likelihood.
+In other settings, "score" means a different quantity.
+These notes call a classifier's raw output the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) or linear predictor, never a "score",
+so that "score" always means the derivative of the log-likelihood. <!-- check-term-links: allow -->
 :::
