@@ -1,0 +1,20 @@
+::: {#rem-score-name}
+#### Why the score function is called "score"
+
+The name comes from genetics.
+@fisher1935linkage assigned each family in a study of linkage a numerical "score",
+the evidence from that family about the linkage parameter.
+He compared that scoring rule with an "ideal score",
+the derivative of the log of the sampling density,
+which is the [score function](#def-score) of these notes
+[@wikipedia_informant_function].
+For independent observations,
+the [log-likelihood](#def-loglik) is a sum over observations,
+so its derivative is also a sum, of one contribution per observation.
+@rao1948large called the test built on this derivative a score test,
+and the name then spread to the derivative itself.
+
+The word "score" has other meanings in statistics and machine learning.
+In particular, these notes call a classifier's raw output the log-odds or linear predictor, never a "score",
+so that "score" always means the derivative of the log-likelihood.
+:::
