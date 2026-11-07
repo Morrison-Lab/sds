@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-06 18:57:42 (PST)
+Last modified: 2026-11-06 19:12:50 (PST)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models [\[1, Ch. 14\]](#ref-dobson4e). After the first example, the page compares JAGS with Stan on the same model. It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
