@@ -1,0 +1,26 @@
+::: {#rem-score-name}
+#### Why the score function is called "score"
+
+Statisticians call the [score function](#def-score) by that name
+because of its origin in genetics.
+@fisher1935linkage gave each family in a study of linkage a "score", <!-- check-term-links: allow -->
+which summarized what the family showed about the linkage parameter.
+He compared that scoring rule with an "ideal score",
+the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative)
+of the [log](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of the data
+as the linkage parameter varies,
+which is the score function of these notes
+[@wikipedia_informant_function].
+For [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) [observations](exploratory-descriptive.qmd#def-observation),
+the [log-likelihood](#def-loglik) is a [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) with one contribution from each of them,
+so its derivative is also a sum.
+@rao1948large, who had worked on estimating linkage parameters in Fisher's genetics laboratory,
+based a test on the score function,
+with one score for each parameter,
+and called it a score test [@bera2024score].
+The name then spread to the derivative itself.
+
+In other settings, "score" refers to a different quantity.
+These notes call a classifier's raw output the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds), never a "score",
+so that "score" always refers to the derivative of the log-likelihood.
+:::
