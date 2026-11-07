@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-06 18:19:53 (PST)
+Last modified: 2026-11-06 18:57:42 (PST)
 
 # 1 Overview of maximum likelihood estimation
 
@@ -271,6 +271,12 @@ $$\begin{aligned}
 
 > **NOTE:**
 >
+> *Remark 2* (Why the score function is called “score”). Statisticians call the [score function](#def-score) by that name because of its origin in genetics. Fisher [\[11\]](#ref-fisher1935linkage) gave each family in a study of linkage a “score”, which summarized what the family showed about the linkage parameter. He compared that scoring rule with an “ideal score”, the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) of the [log](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of the data as the linkage parameter varies, which is the score function of these notes [\[10\]](#ref-wikipedia_informant_function). For [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) [observations](exploratory-descriptive.llms.md#def-observation), the [log-likelihood](#def-loglik) is a [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) with one contribution from each of them, so its derivative is also a sum. Rao [\[12\]](#ref-rao1948large), who had worked on estimating linkage parameters in Fisher’s genetics laboratory, based a test on the score function, with one score for each parameter, and called it a score test [\[13\]](#ref-bera2024score). The name then spread to the derivative itself.
+>
+> In other settings, “score” refers to a different quantity. These notes call a classifier’s raw output the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds), never a “score”, so that “score” always refers to the derivative of the log-likelihood.
+
+> **NOTE:**
+>
 > **Exercise 6 (Score function of a Poisson variable)** Derive the score function for a single Poisson random variable $X$, with respect to its mean parameter ${\lambda}$.
 
 > **NOTE:**
@@ -454,7 +460,7 @@ The score equation is one example of an **estimating equation**, an equation who
 > $$\ell''\stackrel{\text{def}}{=}\frac{\partial}{\partial \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\frac{\partial}{\partial \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{\top}} \ell(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}| \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})
 > \tag{8}$$
 >
-> Source: Wikipedia contributors [\[11\]](#ref-wikipedia_hessian_matrix).
+> Source: Wikipedia contributors [\[14\]](#ref-wikipedia_hessian_matrix).
 
 The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.org/wiki/Otto_Hesse).
 
@@ -508,7 +514,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > $$\mathcal{I}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[-\ell''(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\right]\mathclose{}} \tag{10}$$
 >
-> Source: Wikipedia contributors [\[12\]](#ref-wikipedia_fisher_information).
+> Source: Wikipedia contributors [\[15\]](#ref-wikipedia_fisher_information).
 
 > **NOTE:**
 >
@@ -518,11 +524,11 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> *Remark 2* (The expected information is a function of the parameter alone). The expected information is a function of the parameter alone, so it is the quantity that the [observed information](#def-oinf) estimates from one data set.
+> *Remark 3* (The expected information is a function of the parameter alone). The expected information is a function of the parameter alone, so it is the quantity that the [observed information](#def-oinf) estimates from one data set.
 
 > **NOTE:**
 >
-> *Remark 3* (The observed information is the sample counterpart of the expected information). The observed information matrix is the sample counterpart of the [expected information](#def-einf), which averages the same quantity over possible data sets.
+> *Remark 4* (The observed information is the sample counterpart of the expected information). The observed information matrix is the sample counterpart of the [expected information](#def-einf), which averages the same quantity over possible data sets.
 
 > **NOTE:**
 >
@@ -761,7 +767,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> *Remark 4* (The score is the negative derivative of the surprisal). For a [continuous](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$, the [surprisal](https://morrison-lab.github.io/ids/entropy.html#def-surprisal) of the data value $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ under parameter value $\theta$ is $-\log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$, which is minus the [log-likelihood](#def-loglik) $-\ell(\theta)$. So the [score](#def-score) is minus the derivative of the surprisal with respect to $\theta$. By [Theorem 13](#thm-information-equality), the [expected information](#def-einf) is the expected squared derivative of the surprisal, with the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) taken over the data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ when the parameter is $\theta$: $\mathcal{I}(\theta) = {\mathbb{E}\mathopen{}\left[\ell'^2\right]\mathclose{}}$.
+> *Remark 5* (The score is the negative derivative of the surprisal). For a [continuous](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$, the [surprisal](https://morrison-lab.github.io/ids/entropy.html#def-surprisal) of the data value $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ under parameter value $\theta$ is $-\log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$, which is minus the [log-likelihood](#def-loglik) $-\ell(\theta)$. So the [score](#def-score) is minus the derivative of the surprisal with respect to $\theta$. By [Theorem 13](#thm-information-equality), the [expected information](#def-einf) is the expected squared derivative of the surprisal, with the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) taken over the data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ when the parameter is $\theta$: $\mathcal{I}(\theta) = {\mathbb{E}\mathopen{}\left[\ell'^2\right]\mathclose{}}$.
 
 > **NOTE:**
 >
@@ -878,11 +884,11 @@ These notes write the [observed information](intro-MLEs.llms.md#def-oinf) as $I$
 
 > **NOTE:**
 >
-> *Proof*. The proof is beyond the scope of these notes; see [\[13\]](#ref-lehmannELST), Theorem 7.5.2, p. 501 and [\[14\]](#ref-newey1994large).
+> *Proof*. The proof is beyond the scope of these notes; see [\[16\]](#ref-lehmannELST), Theorem 7.5.2, p. 501 and [\[17\]](#ref-newey1994large).
 
 > **NOTE:**
 >
-> *Remark 5* (Consistent roots and global maximizers). These conditions guarantee a consistent root of the score equation; that root is the global maximizer of the likelihood under further conditions, for example when the log-likelihood is strictly concave, as for Poisson data, whose Hessian is negative for every ${\lambda}$ ([Example 4](#exm-information-poisson)).
+> *Remark 6* (Consistent roots and global maximizers). These conditions guarantee a consistent root of the score equation; that root is the global maximizer of the likelihood under further conditions, for example when the log-likelihood is strictly concave, as for Poisson data, whose Hessian is negative for every ${\lambda}$ ([Example 4](#exm-information-poisson)).
 
 > **NOTE:**
 >
@@ -900,7 +906,7 @@ where $\hat{\mathcal{I}}$ is whichever estimate of $\mathcal{I}(\mathord{\smash[
 
 > **NOTE:**
 >
-> *Remark 6* (Observed versus expected information). Using the observed information is often more convenient, and there are settings where it is provably better by some criteria [\[15\]](#ref-efron1978assessing).
+> *Remark 7* (Observed versus expected information). Using the observed information is often more convenient, and there are settings where it is provably better by some criteria [\[18\]](#ref-efron1978assessing).
 
 > **NOTE:**
 >
@@ -934,7 +940,7 @@ By [Theorem 15](#thm-dist-mle), $(\hat{\theta}_k - \theta_k)/{\mathop{\widehat{
 >
 > $$Z \stackrel{\text{def}}{=}\frac{\hat{\theta}_k - \theta_{k,0}}{{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}_k\right)\mathclose{}}}.$$
 >
-> Source: Wikipedia contributors [\[16\]](#ref-wikipedia_wald_test).
+> Source: Wikipedia contributors [\[19\]](#ref-wikipedia_wald_test).
 
 > **NOTE:**
 >
@@ -961,7 +967,7 @@ By [Theorem 15](#thm-dist-mle), $(\hat{\theta}_k - \theta_k)/{\mathop{\widehat{
 
 > **NOTE:**
 >
-> *Remark 7* (Null distributions of the Wald statistics). By [Theorem 15](#thm-dist-mle), the statistic $Z$ of the [Wald test](#def-wald-test) has approximately a standard Gaussian distribution under $H_0$ in large samples. The Wald statistic for $q$ constraints ([Definition 15](#def-wald-statistic-q)) has approximately a $\chi^2_q$ distribution under $H_0$.
+> *Remark 8* (Null distributions of the Wald statistics). By [Theorem 15](#thm-dist-mle), the statistic $Z$ of the [Wald test](#def-wald-test) has approximately a standard Gaussian distribution under $H_0$ in large samples. The Wald statistic for $q$ constraints ([Definition 15](#def-wald-statistic-q)) has approximately a $\chi^2_q$ distribution under $H_0$.
 
 ### 1.9.3 Likelihood ratio tests for MLEs
 
@@ -971,7 +977,7 @@ By [Theorem 15](#thm-dist-mle), $(\hat{\theta}_k - \theta_k)/{\mathop{\widehat{
 >
 > $$\Lambda\stackrel{\text{def}}{=}2\mathopen{}\left(\ell(\hat\theta_{\text{ML}}) - \ell(\hat{\theta}_0)\right)\mathclose{}$$
 >
-> Source: Wikipedia contributors [\[17\]](#ref-wikipedia_likelihood_ratio_test).
+> Source: Wikipedia contributors [\[20\]](#ref-wikipedia_likelihood_ratio_test).
 
 > **NOTE:**
 >
@@ -1099,11 +1105,11 @@ By [Theorem 15](#thm-dist-mle), $(\hat{\theta}_k - \theta_k)/{\mathop{\widehat{
 > \overset{d}{\to}
 > \chi^2_q$$
 >
-> Source: Wikipedia contributors [\[18\]](#ref-wikipedia_wilks_theorem).
+> Source: Wikipedia contributors [\[21\]](#ref-wikipedia_wilks_theorem).
 
 > **NOTE:**
 >
-> *Proof*. We sketch the argument for a scalar parameter and the point null hypothesis $H_0: \theta= \theta_0$, which imposes $q = 1$ constraint. For the full proof, see [\[19\]](#ref-wilks1938) or [\[1, Sec. 5.7\]](#ref-dobson4e).
+> *Proof*. We sketch the argument for a scalar parameter and the point null hypothesis $H_0: \theta= \theta_0$, which imposes $q = 1$ constraint. For the full proof, see [\[22\]](#ref-wilks1938) or [\[1, Sec. 5.7\]](#ref-dobson4e).
 >
 > By [Lemma 3](#lem-wilks-lrt-quadratic), $\Lambda\approx I(\hat\theta_{\text{ML}})(\hat\theta_{\text{ML}}- \theta_0)^2$. Under the regularity conditions, $I(\hat\theta_{\text{ML}})/\mathcal{I}(\theta_0) \to 1$ in probability, by the law of large numbers and the consistency of $\hat\theta_{\text{ML}}$; this sketch assumes that step rather than proving it. So, with $Z$ as in [Lemma 4](#lem-wilks-std-gaussian):
 >
@@ -1125,7 +1131,7 @@ By [Theorem 15](#thm-dist-mle), $(\hat{\theta}_k - \theta_k)/{\mathop{\widehat{
 
 > **NOTE:**
 >
-> *Remark 8* (Wilks’ theorem for nested models). Equivalently, in terms of nested models: if a full model $M_1$ has $p$ free parameters, and a nested model $M_0 \subset M_1$, obtained by imposing $q$ constraints on $M_1$, has $p_0 = p - q$ free parameters, then when $M_0$ is true, $\Lambda= 2\mathopen{}\left(\ell_{M_1}(\hat\theta_{\text{ML}}) - \ell_{M_0}(\hat{\theta}_0)\right)\mathclose{}$ converges in distribution to $\chi^2_q$.
+> *Remark 9* (Wilks’ theorem for nested models). Equivalently, in terms of nested models: if a full model $M_1$ has $p$ free parameters, and a nested model $M_0 \subset M_1$, obtained by imposing $q$ constraints on $M_1$, has $p_0 = p - q$ free parameters, then when $M_0$ is true, $\Lambda= 2\mathopen{}\left(\ell_{M_1}(\hat\theta_{\text{ML}}) - \ell_{M_0}(\hat{\theta}_0)\right)\mathclose{}$ converges in distribution to $\chi^2_q$.
 
 > **NOTE:**
 >
@@ -1193,7 +1199,7 @@ See also [\[1, Sec. 5.7\]](#ref-dobson4e) and <https://online.stat.psu.edu/stat5
 
 > **NOTE:**
 >
-> *Remark 9* (Exact and approximate tests). The $t$ and $F$ distributions are defined in [Statistical Inference](inference.llms.md#sec-reference-distributions). The exact tests assume $Y_i\ \sim_{\perp\!\!\!\perp}\ N(\mu_i, \sigma^2)$, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of [Theorem 15](#thm-dist-mle), Gaussian or not.
+> *Remark 10* (Exact and approximate tests). The $t$ and $F$ distributions are defined in [Statistical Inference](inference.llms.md#sec-reference-distributions). The exact tests assume $Y_i\ \sim_{\perp\!\!\!\perp}\ N(\mu_i, \sigma^2)$, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of [Theorem 15](#thm-dist-mle), Gaussian or not.
 
 ### 1.9.5 Prediction intervals
 
@@ -1203,7 +1209,7 @@ See also [\[1, Sec. 5.7\]](#ref-dobson4e) and <https://online.stat.psu.edu/stat5
 >
 > $${\Pr\mathopen{}\left(L \le Y^* \le U\right)\mathclose{}} = 1 - \alpha$$
 >
-> Source: Wikipedia contributors [\[20\]](#ref-wikipedia_prediction_interval).
+> Source: Wikipedia contributors [\[23\]](#ref-wikipedia_prediction_interval).
 
 Suppose $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ {\operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}}$ with $\sigma^2$ known, and we want to predict the sample mean $\bar X^*$ of $m$ new observations from the same distribution, independent of the first $n$. The MLE of $\mu$ is $\hat{\mu}= \bar X$, and the difference $\bar X^* - \hat{\mu}$ (the negative of the [prediction error](prediction.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
 
@@ -1223,7 +1229,7 @@ Usually $m = 1$. The term $1/n$ accounts for the uncertainty in $\hat{\mu}$, and
 
 > **NOTE:**
 >
-> *Remark 10* (Prediction intervals versus confidence intervals). A [confidence interval](inference.llms.md#def-confidence-interval) covers a fixed parameter, such as the population mean $\mu$. A prediction interval ([Definition 17](#def-prediction-interval)) covers a random quantity, such as a new outcome, or, in the example above, the sample mean $\bar X^*$ of $m$ new observations. Its probability accounts for the randomness of the new observations, not only of the observed data.
+> *Remark 11* (Prediction intervals versus confidence intervals). A [confidence interval](inference.llms.md#def-confidence-interval) covers a fixed parameter, such as the population mean $\mu$. A prediction interval ([Definition 17](#def-prediction-interval)) covers a random quantity, such as a new outcome, or, in the example above, the sample mean $\bar X^*$ of $m$ new observations. Its probability accounts for the randomness of the new observations, not only of the observed data.
 >
 > In the Gaussian example above, the standard error of $\hat{\mu}= \bar X$ is $\sigma/ \sqrt{n}$, so the two intervals, the [Wald confidence interval](#def-wald-ci) for $\mu$ and the prediction interval for $\bar X^*$, are
 >
@@ -2395,7 +2401,7 @@ $$\ell'= \frac{x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}}}{{\operator
 
 > **NOTE:**
 >
-> *Remark 11* (The score function in natural exponential families). This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in $x$; for every such family, the score with respect to the mean is $(x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}})/{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}$. Other members of the broader [exponential family](https://en.wikipedia.org/wiki/Exponential_family), such as the Weibull distribution with known shape $k \ne 1$, do not have this form. Exponential-family distributions share many special properties [\[1, Ch. 3\]](#ref-dobson4e), [\[7, Sec. 6.7\]](#ref-hoggtanis2015).
+> *Remark 12* (The score function in natural exponential families). This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in $x$; for every such family, the score with respect to the mean is $(x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}})/{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}$. Other members of the broader [exponential family](https://en.wikipedia.org/wiki/Exponential_family), such as the Weibull distribution with known shape $k \ne 1$, do not have this form. Exponential-family distributions share many special properties [\[1, Ch. 3\]](#ref-dobson4e), [\[7, Sec. 6.7\]](#ref-hoggtanis2015).
 
 > **NOTE:**
 >
@@ -3088,11 +3094,11 @@ The profile log-likelihood, $\ell_p(\sigma^2) = -\frac{n}{2}{\operatorname{log}\
 
 > **NOTE:**
 >
-> *Remark 12* (Differentiating with respect to the variance or the precision). Differentiating with respect to $\sigma^2$ as a single variable, rather than with respect to $\sigma$, keeps the algebra short. Replacing $\sigma^2$ with the precision $\tau\stackrel{\text{def}}{=}1/\sigma^2$ and differentiating with respect to $\tau$ can be shorter still, because $\tau$ enters the log-likelihood as $\frac{n}{2}\log\tau- \frac{\tau}{2}\sum_{i=1}^n(x_i- \mu)^2$. By the invariance of maximum likelihood estimates, $\hat{\tau}_{\text{ML}} = 1/\hat{\sigma}^2_{\text{ML}}$.
+> *Remark 13* (Differentiating with respect to the variance or the precision). Differentiating with respect to $\sigma^2$ as a single variable, rather than with respect to $\sigma$, keeps the algebra short. Replacing $\sigma^2$ with the precision $\tau\stackrel{\text{def}}{=}1/\sigma^2$ and differentiating with respect to $\tau$ can be shorter still, because $\tau$ enters the log-likelihood as $\frac{n}{2}\log\tau- \frac{\tau}{2}\sum_{i=1}^n(x_i- \mu)^2$. By the invariance of maximum likelihood estimates, $\hat{\tau}_{\text{ML}} = 1/\hat{\sigma}^2_{\text{ML}}$.
 
 > **NOTE:**
 >
-> *Remark 13* (The Gaussian variance MLE is biased). This MLE divides by $n$, so it is a biased estimator of $\sigma^2$ ([bias of the divide-by-](estimation.llms.md#exm-biased-variance-mle)$n$ estimator).
+> *Remark 14* (The Gaussian variance MLE is biased). This MLE divides by $n$, so it is a biased estimator of $\sigma^2$ ([bias of the divide-by-](estimation.llms.md#exm-biased-variance-mle)$n$ estimator).
 
 ## 4.5 Second derivatives
 
@@ -3196,15 +3202,15 @@ This example fits a Gaussian model to real data by maximum likelihood, and then 
 
 ### 5.0.1 Data
 
-The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) [\[21\]](#ref-HulleyStephen1998RToE).
+The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) [\[24\]](#ref-HulleyStephen1998RToE).
 
-The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo [\[21\]](#ref-HulleyStephen1998RToE). Women were followed for an average of 4.1 years [\[21\]](#ref-HulleyStephen1998RToE).
+The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo [\[24\]](#ref-HulleyStephen1998RToE). Women were followed for an average of 4.1 years [\[24\]](#ref-HulleyStephen1998RToE).
 
-The primary outcome was nonfatal myocardial infarction or CHD death [\[21\]](#ref-HulleyStephen1998RToE).
+The primary outcome was nonfatal myocardial infarction or CHD death [\[24\]](#ref-HulleyStephen1998RToE).
 
 We model the distribution of fasting glucose among HERS participants who do not have diabetes and do not exercise.
 
-The HERS data are distributed with Vittinghoff et al. [\[22\]](#ref-vittinghoff2e) on the book’s companion website:
+The HERS data are distributed with Vittinghoff et al. [\[25\]](#ref-vittinghoff2e) on the book’s companion website:
 
 ``` downlit
 # one unbroken string, so that link checkers test the whole URL:
@@ -3542,7 +3548,7 @@ power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 
 > **NOTE:**
 >
-> *Remark 14* (Choosing the alternative, and observed power). The alternative $\mu_1$ should be chosen before seeing the data, as a difference worth detecting. Power computed at $\mu_1 = \hat{\mu}$ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed [\[23\]](#ref-hoenig2001abuse).
+> *Remark 15* (Choosing the alternative, and observed power). The alternative $\mu_1$ should be chosen before seeing the data, as a difference worth detecting. Power computed at $\mu_1 = \hat{\mu}$ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed [\[26\]](#ref-hoenig2001abuse).
 
 ### 5.0.7 Simulation
 
@@ -3822,7 +3828,7 @@ Changing the sample size, the true $\mu$, or $\sigma^2$ in `do_n_sims()` shows h
 
 > **NOTE:**
 >
-> **Exercise 55 (Gaussian log-likelihood (adapted from Kleinbaum et al. [\[24\]](#ref-kleinbaum2014applied), Chapter 5))** Let $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}(\mu, \sigma^2)$.
+> **Exercise 55 (Gaussian log-likelihood (adapted from Kleinbaum et al. [\[27\]](#ref-kleinbaum2014applied), Chapter 5))** Let $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}(\mu, \sigma^2)$.
 >
 > **(a)** Write the likelihood $\mathcal{L}(\mu, \sigma^2; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})$ for the observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)$.
 >
@@ -4541,57 +4547,69 @@ Wikipedia contributors, “Informant function — Wikipedia, the free encycloped
 
 \[11\]
 
-Wikipedia contributors, “Hessian matrix — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Hessian_matrix>
+R. A. Fisher, “The detection of linkage with ‘dominant’ abnormalities,” *Annals of Eugenics*, vol. 6, no. 2, pp. 187–201, 1935, doi: [10.1111/j.1469-1809.1935.tb02227.x](https://doi.org/10.1111/j.1469-1809.1935.tb02227.x).
 
 \[12\]
 
-Wikipedia contributors, “Fisher information — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Fisher_information>
+C. R. Rao, “Large sample tests of statistical hypotheses concerning several parameters with applications to problems of estimation,” *Mathematical Proceedings of the Cambridge Philosophical Society*, vol. 44, no. 1, pp. 50–57, 1948, doi: [10.1017/S0305004100023987](https://doi.org/10.1017/S0305004100023987).
 
 \[13\]
 
-E. L. Lehmann, *Elements of large-sample theory*. in Springer texts in statistics. New York: Springer, 1999. doi: [10.1007/b98855](https://doi.org/10.1007/b98855).
+A. K. Bera and Y. Bilias, “Three score and 15 years (1948–2023) of Rao’s score test: A brief history.” arXiv:2406.19956, 2024. doi: [10.48550/arXiv.2406.19956](https://doi.org/10.48550/arXiv.2406.19956).
 
 \[14\]
 
-W. K. Newey and D. McFadden, “Large sample estimation and hypothesis testing,” in *Handbook of econometrics*, vol. 4, R. Engle and D. McFadden, Eds., Elsevier, 1994, pp. 2111–2245. doi: [10.1016/S1573-4412(05)80005-4](https://doi.org/10.1016/S1573-4412(05)80005-4).
+Wikipedia contributors, “Hessian matrix — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Hessian_matrix>
 
 \[15\]
 
-B. Efron and D. V. Hinkley, “Assessing the accuracy of the maximum likelihood estimator: Observed versus expected Fisher information,” *Biometrika*, vol. 65, no. 3, pp. 457–483, 1978, doi: [10.1093/biomet/65.3.457](https://doi.org/10.1093/biomet/65.3.457).
+Wikipedia contributors, “Fisher information — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Fisher_information>
 
 \[16\]
 
-Wikipedia contributors, “Wald test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wald_test>
+E. L. Lehmann, *Elements of large-sample theory*. in Springer texts in statistics. New York: Springer, 1999. doi: [10.1007/b98855](https://doi.org/10.1007/b98855).
 
 \[17\]
 
-Wikipedia contributors, “Likelihood-ratio test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Likelihood-ratio_test>
+W. K. Newey and D. McFadden, “Large sample estimation and hypothesis testing,” in *Handbook of econometrics*, vol. 4, R. Engle and D. McFadden, Eds., Elsevier, 1994, pp. 2111–2245. doi: [10.1016/S1573-4412(05)80005-4](https://doi.org/10.1016/S1573-4412(05)80005-4).
 
 \[18\]
 
-Wikipedia contributors, “Wilks’ theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wilks%27_theorem>
+B. Efron and D. V. Hinkley, “Assessing the accuracy of the maximum likelihood estimator: Observed versus expected Fisher information,” *Biometrika*, vol. 65, no. 3, pp. 457–483, 1978, doi: [10.1093/biomet/65.3.457](https://doi.org/10.1093/biomet/65.3.457).
 
 \[19\]
 
-S. S. Wilks, “The large-sample distribution of the likelihood ratio for testing composite hypotheses,” *The Annals of Mathematical Statistics*, vol. 9, no. 1, pp. 60–62, 1938, doi: [10.1214/aoms/1177732360](https://doi.org/10.1214/aoms/1177732360).
+Wikipedia contributors, “Wald test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wald_test>
 
 \[20\]
 
-Wikipedia contributors, “Prediction interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Prediction_interval>
+Wikipedia contributors, “Likelihood-ratio test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Likelihood-ratio_test>
 
 \[21\]
 
-S. Hulley *et al.*, “Randomized trial of estrogen plus progestin for secondary prevention of coronary heart disease in postmenopausal women,” *JAMA : the journal of the American Medical Association*, vol. 280, no. 7, pp. 605–613, 1998, doi: [10.1001/jama.280.7.605](https://doi.org/10.1001/jama.280.7.605).
+Wikipedia contributors, “Wilks’ theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wilks%27_theorem>
 
 \[22\]
 
-E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
+S. S. Wilks, “The large-sample distribution of the likelihood ratio for testing composite hypotheses,” *The Annals of Mathematical Statistics*, vol. 9, no. 1, pp. 60–62, 1938, doi: [10.1214/aoms/1177732360](https://doi.org/10.1214/aoms/1177732360).
 
 \[23\]
 
-J. M. Hoenig and D. M. Heisey, “The abuse of power: The pervasive fallacy of power calculations for data analysis,” *The American Statistician*, vol. 55, no. 1, pp. 19–24, 2001, doi: [10.1198/000313001300339897](https://doi.org/10.1198/000313001300339897).
+Wikipedia contributors, “Prediction interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Prediction_interval>
 
 \[24\]
+
+S. Hulley *et al.*, “Randomized trial of estrogen plus progestin for secondary prevention of coronary heart disease in postmenopausal women,” *JAMA : the journal of the American Medical Association*, vol. 280, no. 7, pp. 605–613, 1998, doi: [10.1001/jama.280.7.605](https://doi.org/10.1001/jama.280.7.605).
+
+\[25\]
+
+E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
+
+\[26\]
+
+J. M. Hoenig and D. M. Heisey, “The abuse of power: The pervasive fallacy of power calculations for data analysis,” *The American Statistician*, vol. 55, no. 1, pp. 19–24, 2001, doi: [10.1198/000313001300339897](https://doi.org/10.1198/000313001300339897).
+
+\[27\]
 
 D. G. Kleinbaum, L. L. Kupper, A. Nizam, K. Muller, and E. Rosenberg, *Applied regression analysis and other multivariable methods*, 5th ed. Cengage Learning, 2014. Available: <https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/>
 
