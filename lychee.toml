@@ -42,6 +42,9 @@ exclude = [
   # The wmed.edu "Anatomy of a confidence interval" PDF timed out from CI runners
   # on four consecutive runs on 2026-10-21 (sds#415)
   "https://wmed.edu/sites/default/files/ANATOMY.*",
+  # The free PDF page of The Elements of Statistical Learning times out from CI runners
+  # (every run on 2026-11-06, sds#544), although it answers 200 in under a second elsewhere
+  "https://hastie.su.domains/ElemStatLearn/",
 ]
 
 # `sds` is a symlink to the repository root, so include paths read
