@@ -1,0 +1,20 @@
+# Flags a stated gradient ("the gradient is ...") on a line a PR adds when the
+# equation has no gradient symbol on its left-hand side (psw#488, gha#1538).
+# Warns rather than fails: the check is a heuristic. Set `fail: true` once
+# sampled hits across the notes repos are all real.
+# No push trigger: a push run has no base to diff against and would report
+# success having checked nothing. A manual run scans the whole tree.
+name: Check gradient left-hand sides
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-gradient-lhs.yml@v3
+    with:
+      whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
+      paths-ignore: '_extensions/**,**/outtakes/**,latex-macros/**'
