@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-09 07:59:00 (PST)</p>
+  <p class="date">Last modified: 2026-11-09 08:26:23 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -1084,7 +1084,9 @@ Figure&nbsp;3: Prior and posterior probabilities on the grid of values of the su
 </div>
 </section><section class="slide level2"><p>A conjugate prior gives the posterior in closed form: updating the prior only changes the family’s parameters. In <a href="#/exm-normal-normal" class="quarto-xref">Example&nbsp;6</a>, a Gaussian prior for a Gaussian mean gave a Gaussian posterior. For a related video lecture, see Richard McElreath’s <a href="https://www.youtube.com/watch?v=pGVkCWlXnlg"><em>Garden of Forking Data</em></a> (Statistical Rethinking 2026, Lecture A02).</p>
 </section><section class="slide level2"><div id="exm-beta-bernoulli" class="theorem example">
-<p><span class="theorem-title"><strong>Example 14 (Beta-Bernoulli updating)</strong></span> Let <span class="math inline">\(Y_1, \ldots, Y_n \ \sim_{\operatorname{iid}}\ \operatorname{Bernoulli}(\pi)\)</span> given <span class="math inline">\(\pi\)</span>, with <span class="math inline">\(r = \sum_{i=1}^ny_i\)</span> successes, and let the prior for <span class="math inline">\(\pi\)</span> be a <span class="math inline">\(\operatorname{Beta}(a, b)\)</span> distribution, whose density is proportional to <span class="math inline">\(\pi^{a-1}(1-\pi)^{b-1}\)</span> on <span class="math inline">\((0, 1)\)</span>. The likelihood is</p>
+<p><span class="theorem-title"><strong>Example 14 (Beta-Bernoulli updating)</strong></span> &nbsp;</p>
+<!-- no-figure: the example is a hand derivation of a posterior -->
+<p>Let <span class="math inline">\(Y_1, \ldots, Y_n \ \sim_{\operatorname{iid}}\ \operatorname{Bernoulli}(\pi)\)</span> given <span class="math inline">\(\pi\)</span>, with <span class="math inline">\(r = \sum_{i=1}^ny_i\)</span> successes, and let the prior for <span class="math inline">\(\pi\)</span> be a <span class="math inline">\(\operatorname{Beta}(a, b)\)</span> distribution, whose density is proportional to <span class="math inline">\(\pi^{a-1}(1-\pi)^{b-1}\)</span> on <span class="math inline">\((0, 1)\)</span>. The likelihood is</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \pi)

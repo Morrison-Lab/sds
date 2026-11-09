@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 07:59:00 (PST)
+Last modified: 2026-11-09 08:26:23 (PST)
 
 # 1 Overview of maximum likelihood estimation
 
@@ -1135,7 +1135,9 @@ By [Theorem 15](#thm-dist-mle), $(\hat{\theta}_k - \theta_k)/{\mathop{\widehat{
 
 > **NOTE:**
 >
-> **Example 11 (Likelihood ratio test for a Poisson rate)** For $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})$ and $H_0: {\lambda}= {\lambda}_0$, the [log-likelihood](intro-MLEs.llms.md#def-loglik) is $\ell({\lambda}) = n\bar x \log{\lambda}- n{\lambda}- \sum_{i=1}^n\log x_i!$ and $\hat{{\lambda}}_{\text{ML}} = \bar x$, so:
+> **Example 11 (Likelihood ratio test for a Poisson rate)**  
+>
+> For $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})$ and $H_0: {\lambda}= {\lambda}_0$, the [log-likelihood](intro-MLEs.llms.md#def-loglik) is $\ell({\lambda}) = n\bar x \log{\lambda}- n{\lambda}- \sum_{i=1}^n\log x_i!$ and $\hat{{\lambda}}_{\text{ML}} = \bar x$, so:
 >
 > $$\begin{aligned}
 > \Lambda
@@ -2552,7 +2554,9 @@ $$\ell'= \frac{x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}}}{{\operator
 
 > **NOTE:**
 >
-> **Example 16 (Score equation of a Bernoulli sample)** For $n$ [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) [observations](exploratory-descriptive.llms.md#def-observation) with $r = \sum_{i=1}^ny_i$ successes, the score is $\sum_{i=1}^n(y_i- \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}$ (summing [Bernoulli score](#thm-bernoulli-score) over the observations), so for $0 < r < n$ the score equation $(r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0$ has the single solution $\pi= r/n$.
+> **Example 16 (Score equation of a Bernoulli sample)**  
+>
+> For $n$ [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) [observations](exploratory-descriptive.llms.md#def-observation) with $r = \sum_{i=1}^ny_i$ successes, the score is $\sum_{i=1}^n(y_i- \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}$ (summing [Bernoulli score](#thm-bernoulli-score) over the observations), so for $0 < r < n$ the score equation $(r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0$ has the single solution $\pi= r/n$.
 
 ## 3.7 Hessian contributions
 

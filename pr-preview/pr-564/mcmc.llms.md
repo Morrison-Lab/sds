@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 07:59:00 (PST)
+Last modified: 2026-11-09 08:26:23 (PST)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models [\[1, Ch. 13\]](#ref-dobson4e). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -453,7 +453,9 @@ If the chains have all converged to the posterior, $\hat V$ estimates the poster
 
 > **NOTE:**
 >
-> **Example 10 (Potential scale reduction factor for the Bernoulli sampler)** Continuing [Example 8](#exm-burnin), we compute $\hat{R}$ for the two chains, first over their first 50 iterations, which include the burn-in, and then over iterations 501 to 5,000:
+> **Example 10 (Potential scale reduction factor for the Bernoulli sampler)**  
+>
+> Continuing [Example 8](#exm-burnin), we compute $\hat{R}$ for the two chains, first over their first 50 iterations, which include the burn-in, and then over iterations 501 to 5,000:
 >
 > ``` downlit
 > psrf <- function(chains) {
