@@ -20,7 +20,7 @@ $$
 &= -\sumin (\rvar_\iobs - \mean) + \mean
 && \text{(derivative of the sum with respect to $\mean$)}\\
 &= -n\rvarbar + n\mean + \mean
-&& \text{($\sum_i \rvar_\iobs = n\rvarbar$)}\\
+&& \text{($\sumin \rvar_\iobs = n\rvarbar$)}\\
 &= (n+1)\mean - n\rvarbar,
 && \text{(collecting the terms in $\mean$)}
 \ea

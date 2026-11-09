@@ -12,7 +12,7 @@ $$
 \p(\vy \mid \prob)
 &= \prodin \prob^{\outvar_\iobs}(1-\prob)^{1-\outvar_\iobs}
 && \text{(independent Bernoulli observations)}\\
-&= \prob^{\sum_i \outvar_\iobs}(1-\prob)^{n - \sum_i \outvar_\iobs}
+&= \prob^{\sumin \outvar_\iobs}(1-\prob)^{n - \sumin \outvar_\iobs}
 && \text{(adding exponents)}\\
 &= \prob^{r}(1-\prob)^{n-r}
 && \text{(definition of $r$)}.

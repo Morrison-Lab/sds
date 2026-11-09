@@ -10,9 +10,9 @@ and $r = -1$ if and only if they lie on a straight line with negative slope.
 ::: proof
 
 Write $a_i \eqdef \rvar_\iobs - \bar x$ and $b_i \eqdef \outvar_\iobs - \bar y$,
-so that $r = \sum_i a_i b_i / \paren{\sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}}$.
+so that $r = \sumin a_i b_i / \paren{\sqrt{\sumin a_i^2} \sqrt{\sumin b_i^2}}$.
 The Cauchy--Schwarz inequality states that
-$\abs{\sum_i a_i b_i} \le \sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}$,
+$\abs{\sumin a_i b_i} \le \sqrt{\sumin a_i^2} \sqrt{\sumin b_i^2}$,
 with equality if and only if one of the vectors
 $(\dsn{a})$ and $(\dsn{b})$
 is a scalar multiple of the other.
@@ -22,7 +22,7 @@ Equality $\abs{r} = 1$ therefore holds
 if and only if $b_i = c \, a_i$ for some constant $c \ne 0$ and every $i$,
 that is, $\outvar_\iobs = \bar y + c(\rvar_\iobs - \bar x)$:
 the points lie on a line with slope $c$.
-Then $\sum_i a_i b_i = c \sum_i a_i^2$ has the sign of $c$,
+Then $\sumin a_i b_i = c \sumin a_i^2$ has the sign of $c$,
 so $r = 1$ when $c > 0$ and $r = -1$ when $c < 0$.
 
 :::
