@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 11:10:41 (PST)
+Last modified: 2026-11-09 13:11:53 (PST)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and population mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
@@ -316,6 +316,10 @@ Last modified: 2026-11-09 11:10:41 (PST)
 > - Casella and Berger [\[1, Sec. 7.3.2\]](#ref-CaseBerg01), pp. 334–341 covers best unbiased estimators and the Cramér–Rao bound.
 > - Rice [\[9, Sec. 8.5.2\]](#ref-rice2007mathematical), pp. 274–278 covers large-sample theory for maximum likelihood estimators.
 > - Rice [\[9, Sec. 8.7\]](#ref-rice2007mathematical), pp. 298–304 covers efficiency and the Cramér–Rao lower bound.
+
+# 4 Further reading
+
+- The [Spring 2023 course page for Duke’s STA 211, *The Mathematics of Regression*](https://www2.stat.duke.edu/courses/Spring23/sta211.01/) covers properties of [estimators](estimation.llms.md#def-estimator), the Gauss–Markov [theorem](https://morrison-lab.github.io/mcs/proof-writing.html#def-theorem) and [maximum likelihood](intro-MLEs.llms.md#def-mle).
 
 # Definitions on this page
 
