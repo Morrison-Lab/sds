@@ -1,9 +1,10 @@
 :::{#exm-wilks-poisson}
 #### Likelihood ratio test for a Poisson rate
 
+<!-- no-figure: the example is a hand derivation with no data to plot -->
 For $\dsn{X} \siid \Pois(\rate)$
 and $H_0: \rate = \rate_0$,
-the log-likelihood is $\llik(\rate) = n\bar x \log\rate - n\rate - \sum_i \log \rvar_\iobs!$
+the [log-likelihood](intro-MLEs.qmd#def-loglik) is $\llik(\rate) = n\bar x \log\rate - n\rate - \sumin \log \rvar_\iobs!$
 and $\hrate_{\text{ML}} = \bar x$, so:
 
 $$
@@ -11,11 +12,11 @@ $$
 \lrstat
 &= 2\paren{\llik(\bar x) - \llik(\rate_0)}
 && \text{(definition of $\lrstat$)}\\
-&= 2\paren{\paren{n\bar x \log \bar x - n\bar x - \sum_i \log \rvar_\iobs!}
- - \paren{n\bar x \log\rate_0 - n\rate_0 - \sum_i \log \rvar_\iobs!}}
+&= 2\paren{\paren{n\bar x \log \bar x - n\bar x - \sumin \log \rvar_\iobs!}
+ - \paren{n\bar x \log\rate_0 - n\rate_0 - \sumin \log \rvar_\iobs!}}
 && \text{(substitute $\llik(\bar x)$ and $\llik(\rate_0)$)}\\
-&= 2\paren{n\bar x \log \bar x - n\bar x - \sum_i \log \rvar_\iobs!
- - n\bar x \log\rate_0 + n\rate_0 + \sum_i \log \rvar_\iobs!}
+&= 2\paren{n\bar x \log \bar x - n\bar x - \sumin \log \rvar_\iobs!
+ - n\bar x \log\rate_0 + n\rate_0 + \sumin \log \rvar_\iobs!}
 && \text{(distribute the minus sign)}\\
 &= 2\paren{n\bar x \log \bar x - n\bar x - n\bar x \log\rate_0 + n\rate_0}
 && \text{(the $\log \rvar_\iobs!$ terms cancel)}\\

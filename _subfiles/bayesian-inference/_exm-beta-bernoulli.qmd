@@ -1,6 +1,7 @@
 ::: {#exm-beta-bernoulli}
 #### Beta-Bernoulli updating
 
+<!-- no-figure: the example is a hand derivation of a posterior -->
 Let $\dsn{Y} \siid \Bernoulli(\prob)$ given $\prob$,
 with $r = \sumin \outvar_\iobs$ successes,
 and let the prior for $\prob$ be a $\operatorname{Beta}(a, b)$ distribution,
@@ -12,7 +13,7 @@ $$
 \p(\vy \mid \prob)
 &= \prodin \prob^{\outvar_\iobs}(1-\prob)^{1-\outvar_\iobs}
 && \text{(independent Bernoulli observations)}\\
-&= \prob^{\sum_i \outvar_\iobs}(1-\prob)^{n - \sum_i \outvar_\iobs}
+&= \prob^{\sumin \outvar_\iobs}(1-\prob)^{n - \sumin \outvar_\iobs}
 && \text{(adding exponents)}\\
 &= \prob^{r}(1-\prob)^{n-r}
 && \text{(definition of $r$)}.
