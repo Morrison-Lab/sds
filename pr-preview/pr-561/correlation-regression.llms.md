@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 06:02:40 (PST)
+Last modified: 2026-11-09 06:36:44 (PST)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the $t$ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -1276,7 +1276,9 @@ The same estimates follow from a derivation in vector notation, which treats $(\
 
 > **NOTE:**
 >
-> *Solution 15*. Distribute the sum in the gradient from [Exercise 14](#exr-rss-gradient-vector):
+> *Solution 15*.
+>
+> Distribute the sum in the gradient from [Exercise 14](#exr-rss-gradient-vector):
 >
 > $$\begin{aligned}
 > \nabla_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}} \text{RSS}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}})
