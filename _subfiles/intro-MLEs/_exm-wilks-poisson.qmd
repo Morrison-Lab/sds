@@ -1,6 +1,7 @@
 :::{#exm-wilks-poisson}
 #### Likelihood ratio test for a Poisson rate
 
+<!-- no-figure: the example is a hand derivation with no data to plot -->
 For $\dsn{X} \siid \Pois(\rate)$
 and $H_0: \rate = \rate_0$,
 the [log-likelihood](intro-MLEs.qmd#def-loglik) is $\llik(\rate) = n\bar x \log\rate - n\rate - \sumin \log \rvar_\iobs!$

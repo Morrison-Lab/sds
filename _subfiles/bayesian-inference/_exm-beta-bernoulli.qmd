@@ -1,6 +1,7 @@
 ::: {#exm-beta-bernoulli}
 #### Beta-Bernoulli updating
 
+<!-- no-figure: the example is a hand derivation of a posterior -->
 Let $\dsn{Y} \siid \Bernoulli(\prob)$ given $\prob$,
 with $r = \sumin \outvar_\iobs$ successes,
 and let the prior for $\prob$ be a $\operatorname{Beta}(a, b)$ distribution,

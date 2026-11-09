@@ -1,6 +1,7 @@
 :::{#exm-score-equation}
 #### Score equation of a Bernoulli sample
 
+<!-- no-figure: the example is a hand derivation of one equation -->
 For $n$ [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt)
 [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli)
 [observations](exploratory-descriptive.qmd#def-observation) with $r = \sumin \outvar_\iobs$ successes,

@@ -1,6 +1,7 @@
 ::: {#exm-psrf}
 #### Potential scale reduction factor for the Bernoulli sampler
 
+<!-- no-figure: the example reports one diagnostic number from the sampler -->
 Continuing @exm-burnin,
 we compute $\hR$ for the two chains,
 first over their first 50 iterations, which include the burn-in,
