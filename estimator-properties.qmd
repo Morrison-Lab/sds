@@ -93,6 +93,11 @@ and how small can the variance of an unbiased estimator be?
 :::
 
 
+# Further reading {#sec-estimator-properties-reading}
+
+- The [Spring 2023 course page for Duke's STA 211, *The Mathematics of Regression*](https://www2.stat.duke.edu/courses/Spring23/sta211.01/) covers properties of estimators, the Gauss--Markov theorem and maximum likelihood.
+
+
 # References {.unnumbered}
 
 ::: {#refs}
