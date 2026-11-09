@@ -18,6 +18,8 @@ can be written as $A \vcoef = \v{c}$.
 
 :::{#sol-normal-equations-vector}
 
+<!-- restated-ok: @lem-normal-equations-vector restates this result right after the solution -->
+
 Distribute the sum in the gradient from @exr-rss-gradient-vector:
 
 $$
