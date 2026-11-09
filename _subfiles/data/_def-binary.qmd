@@ -1,7 +1,8 @@
 ::: {#def-binary}
 #### Binary random variable
 
-A **binary variable** is a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable)
-which has only two possible values in its [range](https://morrison-lab.github.io/pds/random-variables.html#def-range),
-which are usually coded as $0$ and $1$, so that $\rangef{X} = \{0, 1\}$.
+A **binary variable** is a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) $X$
+that has only two possible values in its [range](https://morrison-lab.github.io/pds/random-variables.html#def-range).
+The two values are usually coded as $0$ and $1$,
+so that $\rangef{X} = \{0, 1\}$.
 :::
