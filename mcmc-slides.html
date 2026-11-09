@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-09 10:57:54 (PST)</p>
+  <p class="date">Last modified: 2026-11-09 11:10:41 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -660,7 +660,7 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 <p><span class="theorem-title"><strong>Definition 9 (Trace plot)</strong></span> A <strong>trace plot</strong> of an MCMC chain plots each sampled value of a parameter against its iteration number.</p>
 </div>
 </section><section class="slide level2"><div id="def-burnin" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10 (Burn-in)</strong></span> The <strong>burn-in</strong> period is the initial segment of an MCMC chain that is discarded before posterior summaries are computed <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[1, Ch. 13]</a>, p.&nbsp;301</span>.</p>
+<p><span class="theorem-title"><strong>Definition 10 (Burn-in)</strong></span> The <strong>burn-in</strong> period is the initial segment of an MCMC chain that is discarded before posterior summaries are computed <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[1, Ch. 13]</a>, p.&nbsp;301</span>. For a chain <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(1)}, \ldots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(T)}\)</span> and a burn-in of <span class="math inline">\(B\)</span> draws, the summaries use only the remaining draws <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(B+1)}, \ldots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(T)}\)</span>.</p>
 </div>
 </section><section class="slide level2"><p>A chain started far from where the posterior puts its probability takes some iterations to get there, and until it does, its values are not draws from the posterior. Burn-in removes those iterations. Its length is chosen by inspecting <a href="#/def-trace-plot">trace plots</a> of chains started from different values: the burn-in should end after the chains have stopped drifting and are moving around the same region.</p>
 </section><section class="slide level2"><div id="exm-burnin" class="theorem example">
@@ -772,7 +772,9 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^{m} \mathopen{}\left(\
 </div>
 </section><section class="slide level2"><p>If the chains have all converged to the posterior, <span class="math inline">\(\hat V\)</span> estimates the posterior variance and <span class="math inline">\(W\)</span> approaches it as <span class="math inline">\(n\)</span> grows, so <span class="math inline">\(\hat{R}\)</span> is close to 1. If the chains are still exploring different regions, the chain means differ, <span class="math inline">\(B\)</span> is large, and <span class="math inline">\(\hat{R}\)</span> exceeds 1 <span class="citation" data-cites="gelman2013bda"><a href="#/references" role="doc-biblioref" onclick="">[7, Sec. 11.4]</a>, pp.&nbsp;283-285</span>. <a href="#/def-psrf" class="quarto-xref">Definition&nbsp;13</a> follows <span class="citation" data-cites="gelman2013bda">Gelman et al. <a href="#/references" role="doc-biblioref" onclick="">[7, Sec. 11.4]</a>, pp.&nbsp;284-285</span>, except that they first split each chain in half and compute <span class="math inline">\(\hat{R}\)</span> over the half-chains, so that <span class="math inline">\(\hat{R}\)</span> also checks each chain for stationarity <span class="citation" data-cites="gelman2013bda"><a href="#/references" role="doc-biblioref" onclick="">[7, Sec. 11.4]</a>, p.&nbsp;285, footnote 2</span>. The statistic <span class="math inline">\(\hat{R}\)</span> is also called the <strong>Gelman–Rubin statistic</strong>; it formally assesses whether several chains have converged <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[1, Ch. 13]</a>, p.&nbsp;306</span>. Software reports <span class="math inline">\(\hat{R}\)</span> as <code>psrf</code> or <code>Rhat</code>; <code><a href="https://rdrr.io/pkg/coda/man/gelman.diag.html">coda::gelman.diag()</a></code> also applies a small-sample correction, so its value differs slightly from <a href="#/def-psrf" class="quarto-xref">Definition&nbsp;13</a>’s. A value of <span class="math inline">\(\hat{R}\)</span> near 1 does not prove convergence: chains that are all stuck in the same wrong region also agree.</p>
 </section><section class="slide level2"><div id="exm-psrf" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10 (Potential scale reduction factor for the Bernoulli sampler)</strong></span> Continuing <a href="#/exm-burnin" class="quarto-xref">Example&nbsp;8</a>, we compute <span class="math inline">\(\hat{R}\)</span> for the two chains, first over their first 50 iterations, which include the burn-in, and then over iterations 501 to 5,000:</p>
+<p><span class="theorem-title"><strong>Example 10 (Potential scale reduction factor for the Bernoulli sampler)</strong></span> &nbsp;</p>
+<!-- no-figure: the example reports one diagnostic number from the sampler -->
+<p>Continuing <a href="#/exm-burnin" class="quarto-xref">Example&nbsp;8</a>, we compute <span class="math inline">\(\hat{R}\)</span> for the two chains, first over their first 50 iterations, which include the burn-in, and then over iterations 501 to 5,000:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>psrf <span class="ot">&lt;-</span> <span class="cf">function</span>(chains) {</span>
 <span id="cb7-2"><a aria-label="2"></a>  n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(chains)</span>
@@ -790,7 +792,7 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^{m} \mathopen{}\left(\
 <span id="cb7-14"><a aria-label="14"></a><span class="co">#&gt;     first_50 after_burnin </span></span>
 <span id="cb7-15"><a aria-label="15"></a><span class="co">#&gt;        1.648        1.001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Here <code>stats::var(colMeans(chains))</code> is <span class="math inline">\(\frac{1}{m-1}\sum_j (\bar\theta_j - \bar\theta)^2\)</span>, so <code>b</code> is <span class="math inline">\(B\)</span>. While the chains are still approaching the posterior from opposite ends, <span class="math inline">\(\hat{R}\)</span> is well above 1; after burn-in it is essentially 1.</p>
+<p>Here <code>stats::var(colMeans(chains))</code> is <span class="math inline">\(\frac{1}{m-1}\sum_{j=1}^m (\bar\theta_j - \bar\theta)^2\)</span>, so <code>b</code> is <span class="math inline">\(B\)</span>. While the chains are still approaching the posterior from opposite ends, <span class="math inline">\(\hat{R}\)</span> is well above 1; after burn-in it is essentially 1.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.1" id="sec-mcmc-vs-mle">
 <span class="header-section-number">3.1</span> Comparing MCMC estimates to maximum likelihood</h3>

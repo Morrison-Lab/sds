@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 10:57:54 (PST)
+Last modified: 2026-11-09 11:10:41 (PST)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models [\[1, Ch. 12\]](#ref-dobson4e). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -365,7 +365,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 > &= -\sum_{i=1}^n(x_i- \mu) + \mu
 > && \text{(derivative of the sum with respect to $\mu$)}\\
 > &= -n{\bar{x}}+ n\mu+ \mu
-> && \text{($\sum_i x_i= n{\bar{x}}$)}\\
+> && \text{($\sum_{i=1}^nx_i= n{\bar{x}}$)}\\
 > &= (n+1)\mu- n{\bar{x}},
 > && \text{(collecting the terms in $\mu$)}
 > \end{aligned}$$
@@ -656,13 +656,15 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 
 > **NOTE:**
 >
-> **Example 14 (Beta-Bernoulli updating)** Let $Y_1, \ldots, Y_n \ \sim_{\operatorname{iid}}\ \operatorname{Bernoulli}(\pi)$ given $\pi$, with $r = \sum_{i=1}^ny_i$ successes, and let the prior for $\pi$ be a $\operatorname{Beta}(a, b)$ distribution, whose density is proportional to $\pi^{a-1}(1-\pi)^{b-1}$ on $(0, 1)$. The likelihood is
+> **Example 14 (Beta-Bernoulli updating)**  
+>
+> Let $Y_1, \ldots, Y_n \ \sim_{\operatorname{iid}}\ \operatorname{Bernoulli}(\pi)$ given $\pi$, with $r = \sum_{i=1}^ny_i$ successes, and let the prior for $\pi$ be a $\operatorname{Beta}(a, b)$ distribution, whose density is proportional to $\pi^{a-1}(1-\pi)^{b-1}$ on $(0, 1)$. The likelihood is
 >
 > $$\begin{aligned}
 > \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \pi)
 > &= \prod_{i=1}^n\pi^{y_i}(1-\pi)^{1-y_i}
 > && \text{(independent Bernoulli observations)}\\
-> &= \pi^{\sum_i y_i}(1-\pi)^{n - \sum_i y_i}
+> &= \pi^{\sum_{i=1}^ny_i}(1-\pi)^{n - \sum_{i=1}^ny_i}
 > && \text{(adding exponents)}\\
 > &= \pi^{r}(1-\pi)^{n-r}
 > && \text{(definition of $r$)}.

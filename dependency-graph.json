@@ -384,6 +384,16 @@
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-random-variable"
   },
   {
+   "id": "pds/random-variables#def-range",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-range",
+   "kind": "def",
+   "title": "range",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-range"
+  },
+  {
    "id": "pds/random-variables#def-realization",
    "site": "pds",
    "page": "random-variables",
@@ -5798,6 +5808,14 @@
   [
    "sds/correlation-regression#thm-slr-deviation-dist",
    "sds/correlation-regression#def-slr-deviation"
+  ],
+  [
+   "sds/data#def-binary",
+   "pds/random-variables#def-random-variable"
+  ],
+  [
+   "sds/data#def-binary",
+   "pds/random-variables#def-range"
   ],
   [
    "sds/data#def-indicator-variable",

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 10:57:54 (PST)
+Last modified: 2026-11-09 11:10:41 (PST)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the $t$ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -1349,7 +1349,9 @@ The same estimates follow from a derivation in vector notation, which treats $(\
 
 > **NOTE:**
 >
-> *Solution 16*. Write out the entries of each term of $A$ and $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}$, then add them up:
+> *Solution 16*.
+>
+> Write out the entries of each term of $A$ and $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{c}}\vphantom{c}}$, then add them up:
 >
 > $$\begin{aligned}
 > A

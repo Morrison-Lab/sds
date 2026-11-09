@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 10:57:54 (PST)
+Last modified: 2026-11-09 11:10:41 (PST)
 
 Before summarizing data, it helps to identify the **type** of each variable, since the appropriate descriptive methods depend on the type. Variables are broadly classified as either **numerical** or **categorical**, and within each class there are important subtypes.
 
@@ -300,7 +300,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Definition 13 (Binary random variable)** A **binary variable** is a random variable which has only two possible values in its range.
+> **Definition 13 (Binary random variable)** A **binary variable** is a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) $X$ that has only two possible values in its [range](https://morrison-lab.github.io/pds/random-variables.html#def-range). The two values are usually coded as $0$ and $1$, so that $\mathcal{R}(X) = \{0, 1\}$.
 
 > **NOTE:**
 >

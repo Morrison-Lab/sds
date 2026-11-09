@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-09 10:57:54 (PST)</p>
+  <p class="date">Last modified: 2026-11-09 11:10:41 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -668,7 +668,7 @@ text-align: center;
 &amp;= -\sum_{i=1}^n(x_i- \mu) + \mu
 &amp;&amp; \text{(derivative of the sum with respect to $\mu$)}\\
 &amp;= -n{\bar{x}}+ n\mu+ \mu
-&amp;&amp; \text{($\sum_i x_i= n{\bar{x}}$)}\\
+&amp;&amp; \text{($\sum_{i=1}^nx_i= n{\bar{x}}$)}\\
 &amp;= (n+1)\mu- n{\bar{x}},
 &amp;&amp; \text{(collecting the terms in $\mu$)}
 \end{aligned}
@@ -1084,13 +1084,15 @@ Figure&nbsp;3: Prior and posterior probabilities on the grid of values of the su
 </div>
 </section><section class="slide level2"><p>A conjugate prior gives the posterior in closed form: updating the prior only changes the family’s parameters. In <a href="#/exm-normal-normal" class="quarto-xref">Example&nbsp;6</a>, a Gaussian prior for a Gaussian mean gave a Gaussian posterior. For a related video lecture, see Richard McElreath’s <a href="https://www.youtube.com/watch?v=pGVkCWlXnlg"><em>Garden of Forking Data</em></a> (Statistical Rethinking 2026, Lecture A02).</p>
 </section><section class="slide level2"><div id="exm-beta-bernoulli" class="theorem example">
-<p><span class="theorem-title"><strong>Example 14 (Beta-Bernoulli updating)</strong></span> Let <span class="math inline">\(Y_1, \ldots, Y_n \ \sim_{\operatorname{iid}}\ \operatorname{Bernoulli}(\pi)\)</span> given <span class="math inline">\(\pi\)</span>, with <span class="math inline">\(r = \sum_{i=1}^ny_i\)</span> successes, and let the prior for <span class="math inline">\(\pi\)</span> be a <span class="math inline">\(\operatorname{Beta}(a, b)\)</span> distribution, whose density is proportional to <span class="math inline">\(\pi^{a-1}(1-\pi)^{b-1}\)</span> on <span class="math inline">\((0, 1)\)</span>. The likelihood is</p>
+<p><span class="theorem-title"><strong>Example 14 (Beta-Bernoulli updating)</strong></span> &nbsp;</p>
+<!-- no-figure: the example is a hand derivation of a posterior -->
+<p>Let <span class="math inline">\(Y_1, \ldots, Y_n \ \sim_{\operatorname{iid}}\ \operatorname{Bernoulli}(\pi)\)</span> given <span class="math inline">\(\pi\)</span>, with <span class="math inline">\(r = \sum_{i=1}^ny_i\)</span> successes, and let the prior for <span class="math inline">\(\pi\)</span> be a <span class="math inline">\(\operatorname{Beta}(a, b)\)</span> distribution, whose density is proportional to <span class="math inline">\(\pi^{a-1}(1-\pi)^{b-1}\)</span> on <span class="math inline">\((0, 1)\)</span>. The likelihood is</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \pi)
 &amp;= \prod_{i=1}^n\pi^{y_i}(1-\pi)^{1-y_i}
 &amp;&amp; \text{(independent Bernoulli observations)}\\
-&amp;= \pi^{\sum_i y_i}(1-\pi)^{n - \sum_i y_i}
+&amp;= \pi^{\sum_{i=1}^ny_i}(1-\pi)^{n - \sum_{i=1}^ny_i}
 &amp;&amp; \text{(adding exponents)}\\
 &amp;= \pi^{r}(1-\pi)^{n-r}
 &amp;&amp; \text{(definition of $r$)}.

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 10:57:54 (PST)
+Last modified: 2026-11-09 11:10:41 (PST)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models [\[1, Ch. 13\]](#ref-dobson4e). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -333,7 +333,7 @@ The first factor of $\alpha$ is the ratio $\mathbb{p}(\mathord{\smash[b]{\unders
 
 > **NOTE:**
 >
-> **Definition 10 (Burn-in)** The **burn-in** period is the initial segment of an MCMC chain that is discarded before posterior summaries are computed [\[1, Ch. 13\]](#ref-dobson4e), p. 301.
+> **Definition 10 (Burn-in)** The **burn-in** period is the initial segment of an MCMC chain that is discarded before posterior summaries are computed [\[1, Ch. 13\]](#ref-dobson4e), p. 301. For a chain $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(1)}, \ldots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(T)}$ and a burn-in of $B$ draws, the summaries use only the remaining draws $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(B+1)}, \ldots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{(T)}$.
 
 A chain started far from where the posterior puts its probability takes some iterations to get there, and until it does, its values are not draws from the posterior. Burn-in removes those iterations. Its length is chosen by inspecting [trace plots](#def-trace-plot) of chains started from different values: the burn-in should end after the chains have stopped drifting and are moving around the same region.
 
@@ -453,7 +453,9 @@ If the chains have all converged to the posterior, $\hat V$ estimates the poster
 
 > **NOTE:**
 >
-> **Example 10 (Potential scale reduction factor for the Bernoulli sampler)** Continuing [Example 8](#exm-burnin), we compute $\hat{R}$ for the two chains, first over their first 50 iterations, which include the burn-in, and then over iterations 501 to 5,000:
+> **Example 10 (Potential scale reduction factor for the Bernoulli sampler)**  
+>
+> Continuing [Example 8](#exm-burnin), we compute $\hat{R}$ for the two chains, first over their first 50 iterations, which include the burn-in, and then over iterations 501 to 5,000:
 >
 > ``` downlit
 > psrf <- function(chains) {
@@ -473,7 +475,7 @@ If the chains have all converged to the posterior, $\hat V$ estimates the poster
 > #>        1.648        1.001
 > ```
 >
-> Here `stats::var(colMeans(chains))` is $\frac{1}{m-1}\sum_j (\bar\theta_j - \bar\theta)^2$, so `b` is $B$. While the chains are still approaching the posterior from opposite ends, $\hat{R}$ is well above 1; after burn-in it is essentially 1.
+> Here `stats::var(colMeans(chains))` is $\frac{1}{m-1}\sum_{j=1}^m (\bar\theta_j - \bar\theta)^2$, so `b` is $B$. While the chains are still approaching the posterior from opposite ends, $\hat{R}$ is well above 1; after burn-in it is essentially 1.
 
 ## 3.1 Comparing MCMC estimates to maximum likelihood
 

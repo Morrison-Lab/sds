@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 10:57:54 (PST)
+Last modified: 2026-11-09 11:10:41 (PST)
 
 # 1 Introduction
 
@@ -615,9 +615,9 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> *Proof*. Write $a_i \stackrel{\text{def}}{=}x_i- \bar x$ and $b_i \stackrel{\text{def}}{=}y_i- \bar y$, so that $r = \sum_i a_i b_i / \mathopen{}\left(\sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}\right)\mathclose{}$. The Cauchy–Schwarz inequality states that $\mathopen{}\left|\sum_i a_i b_i\right|\mathclose{} \le \sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}$, with equality if and only if one of the vectors $(a_1, \ldots, a_n)$ and $(b_1, \ldots, b_n)$ is a scalar multiple of the other. Dividing both sides by the (positive) right-hand side gives $\mathopen{}\left|r\right|\mathclose{} \le 1$.
+> *Proof*. Write $a_i \stackrel{\text{def}}{=}x_i- \bar x$ and $b_i \stackrel{\text{def}}{=}y_i- \bar y$, so that $r = \sum_{i=1}^na_i b_i / \mathopen{}\left(\sqrt{\sum_{i=1}^na_i^2} \sqrt{\sum_{i=1}^nb_i^2}\right)\mathclose{}$. The Cauchy–Schwarz inequality states that $\mathopen{}\left|\sum_{i=1}^na_i b_i\right|\mathclose{} \le \sqrt{\sum_{i=1}^na_i^2} \sqrt{\sum_{i=1}^nb_i^2}$, with equality if and only if one of the vectors $(a_1, \ldots, a_n)$ and $(b_1, \ldots, b_n)$ is a scalar multiple of the other. Dividing both sides by the (positive) right-hand side gives $\mathopen{}\left|r\right|\mathclose{} \le 1$.
 >
-> Equality $\mathopen{}\left|r\right|\mathclose{} = 1$ therefore holds if and only if $b_i = c \, a_i$ for some constant $c \ne 0$ and every $i$, that is, $y_i= \bar y + c(x_i- \bar x)$: the points lie on a line with slope $c$. Then $\sum_i a_i b_i = c \sum_i a_i^2$ has the sign of $c$, so $r = 1$ when $c > 0$ and $r = -1$ when $c < 0$.
+> Equality $\mathopen{}\left|r\right|\mathclose{} = 1$ therefore holds if and only if $b_i = c \, a_i$ for some constant $c \ne 0$ and every $i$, that is, $y_i= \bar y + c(x_i- \bar x)$: the points lie on a line with slope $c$. Then $\sum_{i=1}^na_i b_i = c \sum_{i=1}^na_i^2$ has the sign of $c$, so $r = 1$ when $c > 0$ and $r = -1$ when $c < 0$.
 
 > **NOTE:**
 >

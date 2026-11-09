@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 10:57:54 (PST)
+Last modified: 2026-11-09 11:10:41 (PST)
 
 # 1 Overview of maximum likelihood estimation
 
@@ -1135,17 +1135,19 @@ By [Theorem 15](#thm-dist-mle), $(\hat{\theta}_k - \theta_k)/{\mathop{\widehat{
 
 > **NOTE:**
 >
-> **Example 11 (Likelihood ratio test for a Poisson rate)** For $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})$ and $H_0: {\lambda}= {\lambda}_0$, the log-likelihood is $\ell({\lambda}) = n\bar x \log{\lambda}- n{\lambda}- \sum_i \log x_i!$ and $\hat{{\lambda}}_{\text{ML}} = \bar x$, so:
+> **Example 11 (Likelihood ratio test for a Poisson rate)**  
+>
+> For $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})$ and $H_0: {\lambda}= {\lambda}_0$, the [log-likelihood](intro-MLEs.llms.md#def-loglik) is $\ell({\lambda}) = n\bar x \log{\lambda}- n{\lambda}- \sum_{i=1}^n\log x_i!$ and $\hat{{\lambda}}_{\text{ML}} = \bar x$, so:
 >
 > $$\begin{aligned}
 > \Lambda
 > &= 2\mathopen{}\left(\ell(\bar x) - \ell({\lambda}_0)\right)\mathclose{}
 > && \text{(definition of $\Lambda$)}\\
-> &= 2\mathopen{}\left(\mathopen{}\left(n\bar x \log \bar x - n\bar x - \sum_i \log x_i!\right)\mathclose{}
-> - \mathopen{}\left(n\bar x \log{\lambda}_0 - n{\lambda}_0 - \sum_i \log x_i!\right)\mathclose{}\right)\mathclose{}
+> &= 2\mathopen{}\left(\mathopen{}\left(n\bar x \log \bar x - n\bar x - \sum_{i=1}^n\log x_i!\right)\mathclose{}
+> - \mathopen{}\left(n\bar x \log{\lambda}_0 - n{\lambda}_0 - \sum_{i=1}^n\log x_i!\right)\mathclose{}\right)\mathclose{}
 > && \text{(substitute $\ell(\bar x)$ and $\ell({\lambda}_0)$)}\\
-> &= 2\mathopen{}\left(n\bar x \log \bar x - n\bar x - \sum_i \log x_i!
-> - n\bar x \log{\lambda}_0 + n{\lambda}_0 + \sum_i \log x_i!\right)\mathclose{}
+> &= 2\mathopen{}\left(n\bar x \log \bar x - n\bar x - \sum_{i=1}^n\log x_i!
+> - n\bar x \log{\lambda}_0 + n{\lambda}_0 + \sum_{i=1}^n\log x_i!\right)\mathclose{}
 > && \text{(distribute the minus sign)}\\
 > &= 2\mathopen{}\left(n\bar x \log \bar x - n\bar x - n\bar x \log{\lambda}_0 + n{\lambda}_0\right)\mathclose{}
 > && \text{(the $\log x_i!$ terms cancel)}\\
@@ -2552,7 +2554,9 @@ $$\ell'= \frac{x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}}}{{\operator
 
 > **NOTE:**
 >
-> **Example 16 (Score equation of a Bernoulli sample)** For $n$ independent Bernoulli observations with $r = \sum_i y_i$ successes, the score is $\sum_{i=1}^n(y_i- \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}$ (summing [Bernoulli score](#thm-bernoulli-score) over the observations), so for $0 < r < n$ the score equation $(r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0$ has the single solution $\pi= r/n$.
+> **Example 16 (Score equation of a Bernoulli sample)**  
+>
+> For $n$ [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) [observations](exploratory-descriptive.llms.md#def-observation) with $r = \sum_{i=1}^ny_i$ successes, the score is $\sum_{i=1}^n(y_i- \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}$ (summing [Bernoulli score](#thm-bernoulli-score) over the observations), so for $0 < r < n$ the score equation $(r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0$ has the single solution $\pi= r/n$.
 
 ## 3.7 Hessian contributions
 
@@ -3277,7 +3281,7 @@ The histogram is irregular, as histograms of 100 observations often are, with a 
 
 ### 5.0.2 Maximum likelihood estimates
 
-By the [Gaussian MLEs](#sec-gaussian-mle), $\hat{\mu}_{\text{ML}} = \bar x$ and $\hat{\sigma}^2_{\text{ML}} = \frac{1}{n}\sum_i (x_i- \bar x)^2$:
+By the [Gaussian MLEs](#sec-gaussian-mle), $\hat{\mu}_{\text{ML}} = \bar x$ and $\hat{\sigma}^2_{\text{ML}} = \frac{1}{n}\sum_{i=1}^n(x_i- \bar x)^2$:
 
 ``` downlit
 mu_hat <- mean(glucose_data)

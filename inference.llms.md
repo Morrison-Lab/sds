@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 10:57:54 (PST)
+Last modified: 2026-11-09 11:10:41 (PST)
 
 # 1 Inference
 
@@ -268,7 +268,9 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 19 (Margin of error (radius))** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
+> **Definition 19 (Margin of error (radius))** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) ${\mathopen{}\left[{L\mathopen{}\left(X\right)\mathclose{}}, {U\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}$ is half its width:
+>
+> $$\text{margin of error} = \frac{{U\mathopen{}\left(X\right)\mathclose{}} - {L\mathopen{}\left(X\right)\mathclose{}}}{2}.$$
 >
 > Source: Wikipedia contributors [\[13\]](#ref-wikipedia_margin_of_error).
 
