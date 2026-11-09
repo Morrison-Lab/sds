@@ -22,7 +22,7 @@ Distribute the sum in the gradient from @exr-rss-gradient-vector:
 
 $$
 \begin{aligned}
-\deriv{\vcoef} \text{RSS}(\vcoef)
+\gradwrt{\vcoef}{\text{RSS}(\vcoef)}
 &= -2 \sumin \vxi \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}}
 && \text{(gradient of RSS)}\\
 &= -2 \sumin \paren{\vxi \outvar_\iobs - \vxi \paren{\dprod{\vxi}{\vcoef}}}
@@ -44,11 +44,11 @@ $$
 \end{aligned}
 $$
 
-So the gradient is
+Substituting the regrouped sums gives
 
 $$
 \begin{aligned}
-\deriv{\vcoef} \text{RSS}(\vcoef)
+\gradwrt{\vcoef}{\text{RSS}(\vcoef)}
 &= -2 \paren{\v{c} - \sumin \vxi \paren{\dprod{\vxi}{\vcoef}}}
 && \text{(definition of $\v{c}$)}\\
 &= -2 \paren{\v{c} - \sumin \paren{\soprod{\vxi}} \vcoef}
