@@ -2,8 +2,10 @@
 #### Margin of error (radius)
 
 The **margin of error** (or **radius**) of a
-[confidence interval](#def-confidence-interval)
-is half the interval's width.
+[confidence interval](#def-confidence-interval) $\cintf{X}$
+is half its width:
+
+$$\text{margin of error} = \frac{\ciupf{X} - \cilof{X}}{2}.$$
 
 Source: @wikipedia_margin_of_error.
 :::
