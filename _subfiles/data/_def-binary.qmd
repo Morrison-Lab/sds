@@ -1,5 +1,6 @@
 ::: {#def-binary}
 #### Binary random variable
 
-A **binary variable** is a random variable which has only two possible values in its range.
+A **binary variable** is a random variable which has only two possible values in its range,
+which are usually coded as $0$ and $1$, so that $\rangef{X} = \{0, 1\}$.
 :::
