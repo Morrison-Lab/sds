@@ -10,6 +10,7 @@ and compare the result with @exr-solve-normal-equations.
 {{< slidebreak >}}
 
 :::{#sol-solve-normal-equations-vector}
+<!-- restated-ok: lem-solve-normal-equations-vector restates this result right after the exercise on the page; the check reads this file alone, without that lemma -->
 
 Write out the entries of each term of $A$ and $\v{c}$, then add them up:
 
