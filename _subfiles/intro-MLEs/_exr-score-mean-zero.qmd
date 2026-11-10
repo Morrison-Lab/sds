@@ -3,7 +3,8 @@
 
 Let $\vX$ be continuous with density $\p(\vx \mid \param)$
 for a scalar parameter $\param$.
-Suppose the set of possible data values does not depend on $\param$,
+Suppose that $\vX$ has a [range](https://morrison-lab.github.io/pds/random-variables.html#def-range) $\rangef{\vX}$
+that does not depend on $\param$,
 and the order of differentiation with respect to $\param$
 and integration over the data can be exchanged.
 Find the mean of the [score](#def-score).
@@ -18,15 +19,15 @@ The step that rewrites the derivative of $\log \p(\vx \mid \param)$ uses @lem-de
 $$
 \begin{aligned}
 \E{\score}
-&= \int \score \, \p(\vx \mid \param) \, d\vx
+&= \int_{\rangef{\vX}} \score \, \p(\vx \mid \param) \, d\vx
 && \text{(definition of expectation)}\\
-&= \int \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
+&= \int_{\rangef{\vX}} \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
 && \text{(definition of the score)}\\
-&= \int \frac{\deriv{\param} \p(\vx \mid \param)}{\p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
+&= \int_{\rangef{\vX}} \frac{\deriv{\param} \p(\vx \mid \param)}{\p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
 && \text{(chain rule for $\log$)}\\
-&= \int \deriv{\param} \p(\vx \mid \param) \, d\vx
+&= \int_{\rangef{\vX}} \deriv{\param} \p(\vx \mid \param) \, d\vx
 && \text{(cancel $\p(\vx \mid \param)$)}\\
-&= \deriv{\param} \int \p(\vx \mid \param) \, d\vx
+&= \deriv{\param} \int_{\rangef{\vX}} \p(\vx \mid \param) \, d\vx
 && \text{(exchange derivative and integral)}\\
 &= \deriv{\param} 1
 && \text{(a density integrates to 1)}\\
