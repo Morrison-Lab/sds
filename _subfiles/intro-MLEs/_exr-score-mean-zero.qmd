@@ -3,8 +3,8 @@
 
 Let $\vX$ be continuous with density $\p(\vx \mid \param)$
 for a scalar parameter $\param$.
-Suppose the [range](https://morrison-lab.github.io/pds/random-variables.html#def-range) $\rangef{\vX}$ of $\vX$
-does not depend on $\param$,
+Suppose that $\vX$ has a [range](https://morrison-lab.github.io/pds/random-variables.html#def-range) $\rangef{\vX}$
+that does not depend on $\param$,
 and the order of differentiation with respect to $\param$
 and integration over the data can be exchanged.
 Find the mean of the [score](#def-score).
