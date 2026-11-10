@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 23:36:03 (PST)
+Last modified: 2026-11-10 02:48:46 (PST)
 
 # 1 Overview of maximum likelihood estimation
 
@@ -599,7 +599,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Exercise 12 (Mean of the score)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ be continuous with density $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ for a scalar parameter $\theta$. Suppose the [range](https://morrison-lab.github.io/pds/random-variables.html#def-range) $\mathcal{R}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}})$ of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ does not depend on $\theta$, and the order of differentiation with respect to $\theta$ and integration over the data can be exchanged. Find the mean of the [score](#def-score).
+> **Exercise 12 (Mean of the score)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ be continuous with density $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ for a scalar parameter $\theta$. Suppose that $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}$ has a [range](https://morrison-lab.github.io/pds/random-variables.html#def-range) $\mathcal{R}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}})$ that does not depend on $\theta$, and the order of differentiation with respect to $\theta$ and integration over the data can be exchanged. Find the mean of the [score](#def-score).
 
 > **NOTE:**
 >
