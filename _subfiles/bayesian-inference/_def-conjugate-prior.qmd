@@ -1,7 +1,7 @@
 ::: {#def-conjugate-prior}
 #### Conjugate prior
 
-A family $\mathcal{F}$ of [prior](#def-prior) distributions is **conjugate**
+A family $\mathcal{F}$ of [prior distributions](#def-prior) is **conjugate**
 to a [likelihood](intro-MLEs.qmd#def-lik)
 if, for every [prior](#def-prior) $\p(\param)$ in the family
 and every possible [data set](model-validation.qmd#def-data-set) $\vy$,
