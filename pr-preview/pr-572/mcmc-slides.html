@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-09 21:01:39 (PST)</p>
+  <p class="date">Last modified: 2026-11-09 23:36:03 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -375,8 +375,8 @@ text-align: center;
 </div>
 </section><section class="slide level2"><h3 data-number="1.1" id="why-the-normalizing-constant-is-hard-to-compute">
 <span class="header-section-number">1.1</span> Why the normalizing constant is hard to compute</h3>
-<p>With a parameter vector <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>, the normalizing constant of the posterior is</p>
-<p><span class="math display">\[\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \int \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\, \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}},\]</span></p>
+<p>With a parameter vector <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> in the <a href="./bayesian-inference.html#def-parameter-space">parameter space</a> <span class="math inline">\(\Theta\)</span>, the normalizing constant of the posterior is</p>
+<p><span class="math display">\[\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \int_{\Theta} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\, \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}},\]</span></p>
 <p>an integral over every dimension of <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> that typically has no closed form. Computing it numerically becomes infeasible as the dimension of <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> grows <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[1, Ch. 13]</a>, p.&nbsp;287</span>. MCMC sidesteps the problem: MCMC samplers use the posterior only through ratios <span class="math inline">\(\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^* \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) / \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\)</span>, in which the normalizing constant cancels.</p>
 </section><section class="slide level2"><h3 data-number="1.2" id="monte-carlo-integration">
 <span class="header-section-number">1.2</span> Monte Carlo integration</h3>

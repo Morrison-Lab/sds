@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 21:01:39 (PST)
+Last modified: 2026-11-09 23:36:03 (PST)
 
 # 1 Overview of maximum likelihood estimation
 
@@ -639,7 +639,9 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> *Solution 13*. By [Theorem 11](#thm-score-mean-zero), $0 = \int_{\mathcal{R}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}})} \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ for every $\theta$. Differentiate this identity with respect to $\theta$; the step that substitutes for $\frac{\partial}{\partial \theta}\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ uses [Lemma 1](#lem-deriv-log-density):
+> *Solution 13*.
+>
+> By [Theorem 11](#thm-score-mean-zero), $0 = \int_{\mathcal{R}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}})} \mathopen{}\left(\frac{\partial}{\partial \theta} \log \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)\right)\mathclose{} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \, d\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ for every $\theta$. Differentiate this identity with respect to $\theta$; the step that substitutes for $\frac{\partial}{\partial \theta}\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta)$ uses [Lemma 1](#lem-deriv-log-density):
 >
 > $$\begin{aligned}
 > \frac{\partial}{\partial \theta} 0

@@ -4896,6 +4896,10 @@
    "sds/bayesian-inference#def-posterior"
   ],
   [
+   "sds/bayesian-inference#def-marginal-likelihood",
+   "sds/bayesian-inference#def-parameter-space"
+  ],
+  [
    "sds/bayesian-inference#def-posterior",
    "pds/expectation#def-cond-pdf"
   ],
@@ -4942,6 +4946,10 @@
   [
    "sds/bayesian-inference#thm-bayes-posterior",
    "sds/bayesian-inference#def-marginal-likelihood"
+  ],
+  [
+   "sds/bayesian-inference#thm-bayes-posterior",
+   "sds/bayesian-inference#def-parameter-space"
   ],
   [
    "sds/bootstrap#def-bootstrap-ci-bca",
