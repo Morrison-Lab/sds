@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-09 21:00:24 (PST)</p>
+  <p class="date">Last modified: 2026-11-09 21:22:58 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -814,7 +814,10 @@ e^{-\phi_i}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-pip" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Posterior inclusion probability)</strong></span> When the candidate models of <a href="#/def-bma" class="quarto-xref">Definition&nbsp;2</a> differ in which predictors they include, the <strong>posterior inclusion probability</strong> of a predictor is the total posterior probability of the models that include it.</p>
+<p><span class="theorem-title"><strong>Definition 3 (Posterior inclusion probability)</strong></span> When the candidate models <span class="math inline">\(M_1, \ldots, M_K\)</span> of <a href="#/def-bma" class="quarto-xref">Definition&nbsp;2</a> differ in which <a href="./model-validation.html#def-covariate">predictors</a> they include, the <strong>posterior inclusion probability</strong> of a predictor <span class="math inline">\(x_j\)</span> is the <a href="https://morrison-lab.github.io/mds/algebra-sums.html#def-summation">sum</a> of the <a href="#/def-posterior-model-probability">posterior model probabilities</a> of the models that include it:</p>
+<p><span class="math display">\[
+\text{PIP}_j \stackrel{\text{def}}{=}\sum_{k:\, x_j \in M_k} \mathbb{p}(M_k \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}).
+\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-bayes-bma" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (A BIC approximation to Bayesian model averaging)</strong></span> Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the <a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic">Bayesian information criterion</a> gives a large-sample approximation to the posterior model probabilities <span class="citation" data-cites="schwarz1978estimating"><a href="#/references" role="doc-biblioref" onclick="">[8]</a></span> <span class="citation" data-cites="wikipedia_bayesian_information_criterion"><a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>:</p>

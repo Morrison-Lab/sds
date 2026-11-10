@@ -54,6 +54,16 @@
    "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-ratio"
   },
   {
+   "id": "mds/algebra-sums#def-summation",
+   "site": "mds",
+   "page": "algebra-sums",
+   "div": "def-summation",
+   "kind": "def",
+   "title": "summation",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-summation"
+  },
+  {
    "id": "mds/algebra-sums#def-term",
    "site": "mds",
    "page": "algebra-sums",
@@ -4791,7 +4801,19 @@
   ],
   [
    "sds/bayesian-examples#def-pip",
+   "mds/algebra-sums#def-summation"
+  ],
+  [
+   "sds/bayesian-examples#def-pip",
    "sds/bayesian-examples#def-bma"
+  ],
+  [
+   "sds/bayesian-examples#def-pip",
+   "sds/bayesian-examples#def-posterior-model-probability"
+  ],
+  [
+   "sds/bayesian-examples#def-pip",
+   "sds/model-validation#def-covariate"
   ],
   [
    "sds/bayesian-examples#def-posterior-model-probability",
@@ -4824,6 +4846,18 @@
   [
    "sds/bayesian-inference#def-conjugate-prior",
    "sds/bayesian-inference#def-posterior"
+  ],
+  [
+   "sds/bayesian-inference#def-conjugate-prior",
+   "sds/bayesian-inference#def-prior"
+  ],
+  [
+   "sds/bayesian-inference#def-conjugate-prior",
+   "sds/intro-MLEs#def-lik"
+  ],
+  [
+   "sds/bayesian-inference#def-conjugate-prior",
+   "sds/model-validation#def-data-set"
   ],
   [
    "sds/bayesian-inference#def-credible-interval",
@@ -4860,6 +4894,10 @@
   [
    "sds/bayesian-inference#def-map",
    "sds/bayesian-inference#def-posterior"
+  ],
+  [
+   "sds/bayesian-inference#def-marginal-likelihood",
+   "sds/bayesian-inference#def-parameter-space"
   ],
   [
    "sds/bayesian-inference#def-posterior",
@@ -4908,6 +4946,10 @@
   [
    "sds/bayesian-inference#thm-bayes-posterior",
    "sds/bayesian-inference#def-marginal-likelihood"
+  ],
+  [
+   "sds/bayesian-inference#thm-bayes-posterior",
+   "sds/bayesian-inference#def-parameter-space"
   ],
   [
    "sds/bootstrap#def-bootstrap-ci-bca",

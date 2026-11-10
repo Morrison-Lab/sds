@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 21:00:24 (PST)
+Last modified: 2026-11-09 21:22:58 (PST)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models [\[1, Ch. 14\]](#ref-dobson4e). After the first example, the page compares JAGS with Stan on the same model. It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -408,7 +408,9 @@ When several candidate models are plausible, committing to a single “best” o
 
 > **NOTE:**
 >
-> **Definition 3 (Posterior inclusion probability)** When the candidate models of [Definition 2](#def-bma) differ in which predictors they include, the **posterior inclusion probability** of a predictor is the total posterior probability of the models that include it.
+> **Definition 3 (Posterior inclusion probability)** When the candidate models $M_1, \ldots, M_K$ of [Definition 2](#def-bma) differ in which [predictors](model-validation.llms.md#def-covariate) they include, the **posterior inclusion probability** of a predictor $x_j$ is the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) of the [posterior model probabilities](#def-posterior-model-probability) of the models that include it:
+>
+> $$\text{PIP}_j \stackrel{\text{def}}{=}\sum_{k:\, x_j \in M_k} \mathbb{p}(M_k \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}).$$
 
 > **NOTE:**
 >

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 21:00:24 (PST)
+Last modified: 2026-11-09 21:22:58 (PST)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models [\[1, Ch. 12\]](#ref-dobson4e). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -61,25 +61,41 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > *Remark 1* (Two paradigms, two questions). The two paradigms answer different questions. A frequentist asks, “for which parameter values would these data be unsurprising?”; a Bayesian asks, “given these data, what should I now believe about the parameter?”. Neither question is wrong, and they call for different machinery.
 
+## 1.1 The parameter space
+
+> **NOTE:**
+>
+> **Definition 4 (Parameter space)** The **parameter space** $\Theta$ of a model is the set of values that its parameter $\theta$ can take.
+
+Because the Bayesian treats $\theta$ as random, the prior and posterior are distributions over the parameter space [\[1, Ch. 12\]](#ref-dobson4e), p. 273, and the prior has to respect it.
+
+> **NOTE:**
+>
+> **Example 3 (Parameter spaces and priors that respect them)**  
+>
+> - A probability $\pi$ has parameter space $(0, 1)$, so its prior should be a distribution on the unit interval, such as the uniform prior of [Example 2](#exm-prior).
+> - A variance $\sigma^2$ has parameter space $(0, \infty)$, so its prior should be a distribution on the positive half-line.
+> - A vector of $p$ regression coefficients has parameter space $\mathbb{R}^p$, so its prior should be a distribution on $\mathbb{R}^p$.
+
 # 2 Bayes’ theorem for parameters
 
 > **NOTE:**
 >
-> **Definition 4 (Posterior distribution)** The **posterior distribution** of a parameter $\theta$, given observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$, is the [conditional distribution](https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf) of $\theta$ given $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$. Its density or probability mass function is written $\mathbb{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$.
+> **Definition 5 (Posterior distribution)** The **posterior distribution** of a parameter $\theta$, given observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$, is the [conditional distribution](https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf) of $\theta$ given $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$. Its density or probability mass function is written $\mathbb{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$.
 >
 > Source: Wikipedia contributors [\[5\]](#ref-wikipedia_posterior_probability).
 
 > **NOTE:**
 >
-> **Example 3 (Posterior probability that a coin is biased)** A coin is either fair ($\theta= 0.5$) or biased toward heads ($\theta= 0.8$), where $\theta$ is its probability of heads, with prior probabilities $\mathbb{p}(0.5) = 0.9$ and $\mathbb{p}(0.8) = 0.1$. After three tosses that all land heads, the posterior distribution of $\theta$ is its conditional distribution given those tosses. Its probabilities are computed in [Example 4](#exm-marginal-likelihood).
+> **Example 4 (Posterior probability that a coin is biased)** A coin is either fair ($\theta= 0.5$) or biased toward heads ($\theta= 0.8$), where $\theta$ is its probability of heads, with prior probabilities $\mathbb{p}(0.5) = 0.9$ and $\mathbb{p}(0.8) = 0.1$. After three tosses that all land heads, the posterior distribution of $\theta$ is its conditional distribution given those tosses. Its probabilities are computed in [Example 5](#exm-marginal-likelihood).
 
 > **NOTE:**
 >
-> **Definition 5 (Marginal likelihood (evidence))** Given a prior $\mathbb{p}(\theta)$ and a model $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)$ for the data given $\theta$, the **marginal likelihood** (also called the **evidence**) of observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$ is
+> **Definition 6 (Marginal likelihood (evidence))** Given a prior $\mathbb{p}(\theta)$ and a model $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)$ for the data given $\theta$, the **marginal likelihood** (also called the **evidence**) of observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$ is
 >
-> $$\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \stackrel{\text{def}}{=}\int \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\, \mathbb{p}(\theta)\, d\theta,$$
+> $$\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \stackrel{\text{def}}{=}\int_{\Theta} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\, \mathbb{p}(\theta)\, d\theta,$$
 >
-> with the integral replaced by a sum over the possible values of $\theta$ when $\theta$ is discrete.
+> where $\Theta$ is the [parameter space](#def-parameter-space), with the integral replaced by a sum over the possible values of $\theta$ when $\theta$ is discrete.
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_marginal_likelihood).
 
@@ -94,13 +110,13 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> *Proof*. By the definition of a conditional density, $\mathbb{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \mathbb{p}(\theta, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) / \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ and $\mathbb{p}(\theta, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\, \mathbb{p}(\theta)$, where $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ is the marginal density of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}$ at $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$. That marginal density is
+> *Proof*. By the definition of a conditional density, $\mathbb{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \mathbb{p}(\theta, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) / \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ and $\mathbb{p}(\theta, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) = \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\, \mathbb{p}(\theta)$, where $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$ is the marginal density of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}$ at $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$. With $\Theta$ the [parameter space](#def-parameter-space), that marginal density is
 >
 > $$\begin{aligned}
 > \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})
-> &= \int \mathbb{p}(\theta, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\, d\theta
+> &= \int_{\Theta} \mathbb{p}(\theta, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\, d\theta
 > && \text{(marginalizing over $\theta$)}\\
-> &= \int \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\, \mathbb{p}(\theta)\, d\theta
+> &= \int_{\Theta} \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta)\, \mathbb{p}(\theta)\, d\theta
 > && \text{(substituting the factorization of $\mathbb{p}(\theta, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})$)},
 > \end{aligned}$$
 >
@@ -108,7 +124,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Example 4 (Posterior probability that a coin is biased, computed)** Continuing [Example 3](#exm-posterior), let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$ be the three heads, so $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta) = \theta^3$. The [marginal likelihood](#def-marginal-likelihood) sums over the two possible values of $\theta$:
+> **Example 5 (Posterior probability that a coin is biased, computed)** Continuing [Example 4](#exm-posterior), let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$ be the three heads, so $\mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\mid \theta) = \theta^3$. The [marginal likelihood](#def-marginal-likelihood) sums over the two possible values of $\theta$:
 >
 > $$\begin{aligned}
 > \mathbb{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})
@@ -131,7 +147,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Example 5 (Posterior for a coin’s probability of heads under a uniform prior)** As in [Example 3](#exm-posterior), let $\theta$ be a coin’s probability of heads, now allowed to take any value in $(0, 1)$, with the uniform prior density $\mathbb{p}(\theta) = 1$ for $\theta\in (0, 1)$. One toss lands heads; call that observation $y = 1$, so
+> **Example 6 (Posterior for a coin’s probability of heads under a uniform prior)** As in [Example 4](#exm-posterior), let $\theta$ be a coin’s probability of heads, now allowed to take any value in $(0, 1)$, with the uniform prior density $\mathbb{p}(\theta) = 1$ for $\theta\in (0, 1)$. One toss lands heads; call that observation $y = 1$, so
 >
 > $$\mathbb{p}(y = 1 \mid \theta) = \theta.$$
 >
@@ -211,7 +227,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Example 6 (Posterior for a Gaussian mean)** Suppose that, given the mean $\mu$, $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ {\operatorname{N}\mathopen{}\left(\mu, 1\right)\mathclose{}}$, so the variance is known, and that the prior for $\mu$ is ${\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}$. Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)$ be the observed data, with sample mean $\bar x$.
+> **Example 7 (Posterior for a Gaussian mean)** Suppose that, given the mean $\mu$, $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ {\operatorname{N}\mathopen{}\left(\mu, 1\right)\mathclose{}}$, so the variance is known, and that the prior for $\mu$ is ${\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}$. Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)$ be the observed data, with sample mean $\bar x$.
 >
 > The likelihood is
 >
@@ -282,7 +298,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Definition 6 (Maximum a posteriori estimate)** The **maximum a posteriori** (MAP) estimate of a parameter $\theta$, given observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$, written $\hat{\theta}_{\text{MAP}}$, is the value of $\theta$ that maximizes the [posterior density](#def-posterior):
+> **Definition 7 (Maximum a posteriori estimate)** The **maximum a posteriori** (MAP) estimate of a parameter $\theta$, given observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$, written $\hat{\theta}_{\text{MAP}}$, is the value of $\theta$ that maximizes the [posterior density](#def-posterior):
 >
 > $$\hat{\theta}_{\text{MAP}} \stackrel{\text{def}}{=}\arg \max_\theta\mathbb{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \tag{9}$$
 >
@@ -290,7 +306,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Example 7 (The MAP estimate of a proportion)** In [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), the posterior of $\pi$ after $r$ successes in $n$ trials is $\operatorname{Beta}(a + r,\; b + n - r)$. Write $\alpha= a + r$ and $\beta= b + n - r$ for its two parameters. For $\alpha, \beta> 1$, the log of the posterior density, up to a constant, is $(\alpha- 1)\log \pi+ (\beta- 1)\log(1 - \pi)$. Setting its derivative with respect to $\pi$ to zero gives
+> **Example 8 (The MAP estimate of a proportion)** In [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), the posterior of $\pi$ after $r$ successes in $n$ trials is $\operatorname{Beta}(a + r,\; b + n - r)$. Write $\alpha= a + r$ and $\beta= b + n - r$ for its two parameters. For $\alpha, \beta> 1$, the log of the posterior density, up to a constant, is $(\alpha- 1)\log \pi+ (\beta- 1)\log(1 - \pi)$. Setting its derivative with respect to $\pi$ to zero gives
 >
 > $$\begin{aligned}
 > 0
@@ -354,7 +370,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Example 8 (The MAP estimate of a Gaussian mean)** In [Example 6](#exm-normal-normal), the posterior is ${\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}}, \frac{1}{n+1}\right)\mathclose{}}$. A Gaussian density is largest at its mean, so
+> **Example 9 (The MAP estimate of a Gaussian mean)** In [Example 7](#exm-normal-normal), the posterior is ${\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}}, \frac{1}{n+1}\right)\mathclose{}}$. A Gaussian density is largest at its mean, so
 >
 > $$\hat{\theta}_{\text{MAP}} = \frac{n}{n+1}{\bar{x}}.$$
 >
@@ -411,7 +427,7 @@ The two paradigms differ most visibly in how they interpret an interval estimate
 
 > **NOTE:**
 >
-> **Definition 7 (Credible interval)** A $100(1-\alpha)\%$ **credible interval** for a parameter $\theta$, given observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$, is an interval $\mathopen{}\left[l(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}),\, r(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\right]\mathclose{}$ whose [posterior](#def-posterior) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $1 - \alpha$:
+> **Definition 8 (Credible interval)** A $100(1-\alpha)\%$ **credible interval** for a parameter $\theta$, given observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$, is an interval $\mathopen{}\left[l(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}),\, r(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}})\right]\mathclose{}$ whose [posterior](#def-posterior) [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $1 - \alpha$:
 >
 > $${\Pr\mathopen{}\left(l(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \le \theta\le r(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}\right)\mathclose{}} = 1 - \alpha.$$
 >
@@ -421,15 +437,15 @@ In a credible interval, the data are fixed at their observed values and $\theta$
 
 > **NOTE:**
 >
-> **Definition 8 (Equal-tailed credible interval)** The $100(1-\alpha)\%$ **equal-tailed credible interval** for $\theta$ runs from the $\alpha/2$ quantile to the $1 - \alpha/2$ quantile of the posterior distribution of $\theta$.
+> **Definition 9 (Equal-tailed credible interval)** The $100(1-\alpha)\%$ **equal-tailed credible interval** for $\theta$ runs from the $\alpha/2$ quantile to the $1 - \alpha/2$ quantile of the posterior distribution of $\theta$.
 
 > **NOTE:**
 >
-> **Example 9 (Equal-tailed interval for a Gaussian posterior)** In [Example 6](#exm-normal-normal), the posterior of $\mu$ is Gaussian with mean $\frac{n}{n+1}\bar x$ and standard deviation $1/\sqrt{n+1}$, so the 95% equal-tailed credible interval is $\frac{n}{n+1}\bar x \pm 1.96/\sqrt{n+1}$. With $n = 20$, the interval’s half-width is $1.96/\sqrt{21} \approx 0.43$.
+> **Example 10 (Equal-tailed interval for a Gaussian posterior)** In [Example 7](#exm-normal-normal), the posterior of $\mu$ is Gaussian with mean $\frac{n}{n+1}\bar x$ and standard deviation $1/\sqrt{n+1}$, so the 95% equal-tailed credible interval is $\frac{n}{n+1}\bar x \pm 1.96/\sqrt{n+1}$. With $n = 20$, the interval’s half-width is $1.96/\sqrt{21} \approx 0.43$.
 
 > **NOTE:**
 >
-> **Example 10 (Credible and confidence intervals for a Gaussian mean)** We simulate $n = 20$ observations from the model of [Example 6](#exm-normal-normal), with true mean $\mu= 2$, and compute both a 95% confidence interval, $\bar x \pm 1.96 / \sqrt{n}$ (the variance is known to be 1), and the equal-tailed 95% credible interval from the ${\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}},\, \frac{1}{n+1}\right)\mathclose{}}$ posterior:
+> **Example 11 (Credible and confidence intervals for a Gaussian mean)** We simulate $n = 20$ observations from the model of [Example 7](#exm-normal-normal), with true mean $\mu= 2$, and compute both a 95% confidence interval, $\bar x \pm 1.96 / \sqrt{n}$ (the variance is known to be 1), and the equal-tailed 95% credible interval from the ${\operatorname{N}\mathopen{}\left(\frac{n}{n+1}{\bar{x}},\, \frac{1}{n+1}\right)\mathclose{}}$ posterior:
 >
 > ``` downlit
 > set.seed(1)
@@ -451,7 +467,7 @@ In a credible interval, the data are fixed at their observed values and $\theta$
 >
 > The sample mean is $\bar x = 2.191$. The credible interval is slightly narrower than the confidence interval, because the prior adds information, and shifted toward the prior mean $0$.
 >
-> [Figure 2](#fig-normal-prior-lik-post) shows how the posterior combines prior and data. Completing the square in the likelihood of [Example 6](#exm-normal-normal) as a function of $\mu$ alone shows that the likelihood is proportional to a ${\operatorname{N}\mathopen{}\left(\bar x, 1/n\right)\mathclose{}}$ density, which is the curve drawn for it.
+> [Figure 2](#fig-normal-prior-lik-post) shows how the posterior combines prior and data. Completing the square in the likelihood of [Example 7](#exm-normal-normal) as a function of $\mu$ alone shows that the likelihood is proportional to a ${\operatorname{N}\mathopen{}\left(\bar x, 1/n\right)\mathclose{}}$ density, which is the curve drawn for it.
 >
 > > **NOTE:**
 > >
@@ -474,9 +490,9 @@ In a credible interval, the data are fixed at their observed values and $\theta$
 > >   ggplot2::labs(x = expression("Mean, " * mu), y = "density", colour = NULL)
 > > ```
 > >
-> > [![Three bell-shaped curves over the mean mu: a wide prior centered at 0, a narrow likelihood centered near 2.2, and a posterior just as narrow, centered slightly closer to 0 than the likelihood.](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png "Figure 2: The {\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}} prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \mu, for the data of Example 10.")
+> > [![Three bell-shaped curves over the mean mu: a wide prior centered at 0, a narrow likelihood centered near 2.2, and a posterior just as narrow, centered slightly closer to 0 than the likelihood.](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png "Figure 2: The {\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}} prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \mu, for the data of Example 11.")
 > >
-> > Figure 2: The ${\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}$ prior, the likelihood (scaled to integrate to 1), and the posterior for the mean $\mu$, for the data of [Example 10](#exm-normal-credible-vs-confidence).
+> > Figure 2: The ${\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}$ prior, the likelihood (scaled to integrate to 1), and the posterior for the mean $\mu$, for the data of [Example 11](#exm-normal-credible-vs-confidence).
 >
 > Because $\mu$ has a distribution, the Bayesian can also compute the posterior probability that $\mu$ lies in the realized *confidence* interval:
 >
@@ -490,7 +506,7 @@ In a credible interval, the data are fixed at their observed values and $\theta$
 
 > **NOTE:**
 >
-> **Example 11 (A discrete prior on a grid: 8 successes in 10 trials)** Suppose $\pi$ can take only the eleven values $0, 0.1, 0.2, \ldots, 1$, and we give them equal prior probability, $\mathbb{p}(\pi) = 1/11$. We observe $x = 8$ successes in $n = 10$ independent trials, so that given $\pi$ the count is $\operatorname{Binomial}(10, \pi)$:
+> **Example 12 (A discrete prior on a grid: 8 successes in 10 trials)** Suppose $\pi$ can take only the eleven values $0, 0.1, 0.2, \ldots, 1$, and we give them equal prior probability, $\mathbb{p}(\pi) = 1/11$. We observe $x = 8$ successes in $n = 10$ independent trials, so that given $\pi$ the count is $\operatorname{Binomial}(10, \pi)$:
 >
 > $$\mathbb{p}(x \mid \pi) = \binom{10}{x}\pi^{x}(1-\pi)^{10-x}.$$
 >
@@ -600,27 +616,13 @@ In a credible interval, the data are fixed at their observed values and $\theta$
 >
 > The largest grid value whose upper-tail probability is still at least 0.95 is $\pi=$ 0.4. So $\Pr(\pi> 0.4 \mid x = 8) =$ 0.9866, and the one-sided 95% [credible interval](#def-credible-interval) for $\pi$ is $(0.4, 1]$: given 8 successes in 10 trials and this prior, the probability that $\pi$ exceeds 0.4 is at least 0.95.
 >
-> Unlike a continuous posterior, a discrete posterior can rarely reach a probability of exactly 0.95, because its probability comes in lumps. [Definition 7](#def-credible-interval) asks for probability exactly $1 - \alpha$; on a grid we ask for probability *at least* $1 - \alpha$, and take the largest lower endpoint that achieves it. That makes the interval conservative: here its posterior probability is 0.9866, not 0.95.
+> Unlike a continuous posterior, a discrete posterior can rarely reach a probability of exactly 0.95, because its probability comes in lumps. [Definition 8](#def-credible-interval) asks for probability exactly $1 - \alpha$; on a grid we ask for probability *at least* $1 - \alpha$, and take the largest lower endpoint that achieves it. That makes the interval conservative: here its posterior probability is 0.9866, not 0.95.
 
 > **NOTE:**
 >
 > Casella and Berger [\[10, Sec. 9.2.4\]](#ref-CaseBerg01), pp. 435–439 covers Bayesian intervals.
 
-## 2.4 The parameter space
-
-> **NOTE:**
->
-> **Definition 9 (Parameter space)** The **parameter space** $\Theta$ of a model is the set of values that its parameter $\theta$ can take.
-
-Because the Bayesian treats $\theta$ as random, the prior and posterior are distributions over the parameter space [\[1, Ch. 12\]](#ref-dobson4e), p. 273, and the prior has to respect it.
-
-> **NOTE:**
->
-> **Example 12 (Parameter spaces and priors that respect them)**  
->
-> - A probability $\pi$ has parameter space $(0, 1)$, so its prior should be a distribution on the unit interval, such as the uniform prior of [Example 2](#exm-prior).
-> - A variance $\sigma^2$ has parameter space $(0, \infty)$, so its prior should be a distribution on the positive half-line.
-> - A vector of $p$ regression coefficients has parameter space $\mathbb{R}^p$, so its prior should be a distribution on $\mathbb{R}^p$.
+## 2.4 Prior support
 
 > **NOTE:**
 >
@@ -648,11 +650,13 @@ The [prior](#def-prior) encodes what is known about $\theta$ before the current 
 
 > **NOTE:**
 >
-> **Definition 10 (Conjugate prior)** A family of prior distributions is **conjugate** to a likelihood if, for every prior in the family and every possible data set, the [posterior](#def-posterior) is also in the family.
+> **Definition 10 (Conjugate prior)** A family $\mathcal{P}$ of [prior distributions](#def-prior) is **conjugate** to a [likelihood](intro-MLEs.llms.md#def-lik) if, for every [prior](#def-prior) $\mathbb{p}(\theta)$ in the family and every possible [data set](model-validation.llms.md#def-data-set) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}$, the [posterior](#def-posterior) is also in the family:
+>
+> $$\mathbb{p}(\theta) \in \mathcal{P}\implies \mathbb{p}(\theta\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}) \in \mathcal{P}.$$
 >
 > Source: Wikipedia contributors [\[13\]](#ref-wikipedia_conjugate_prior).
 
-A conjugate prior gives the posterior in closed form: updating the prior only changes the family’s parameters. In [Example 6](#exm-normal-normal), a Gaussian prior for a Gaussian mean gave a Gaussian posterior. For a related video lecture, see Richard McElreath’s [*Garden of Forking Data*](https://www.youtube.com/watch?v=pGVkCWlXnlg) (Statistical Rethinking 2026, Lecture A02).
+A conjugate prior gives the posterior in closed form: updating the prior only changes the family’s parameters. In [Example 7](#exm-normal-normal), a Gaussian prior for a Gaussian mean gave a Gaussian posterior. For a related video lecture, see Richard McElreath’s [*Garden of Forking Data*](https://www.youtube.com/watch?v=pGVkCWlXnlg) (Statistical Rethinking 2026, Lecture A02).
 
 > **NOTE:**
 >
@@ -698,7 +702,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 > #> 0.602 0.501 0.699
 > ```
 >
-> The mean uses the $\operatorname{Beta}(a, b)$ mean $a / (a + b)$ [\[10, Sec. 3.3\]](#ref-CaseBerg01), p. 107. By [Definition 7](#def-credible-interval), the interval is read as a probability statement about $\pi$ itself: given these 91 trials, the posterior probability that $\pi$ lies between 0.501 and 0.699 is 0.95 (approximately, since those endpoints are rounded to three decimals). A 95% confidence interval computed from the same data supports no such statement, as [Section 2.3](#sec-bayes-interval-interp) explains: its 0.95 describes the procedure over repeated samples, and the realized interval either contains $\pi$ or does not.
+> The mean uses the $\operatorname{Beta}(a, b)$ mean $a / (a + b)$ [\[10, Sec. 3.3\]](#ref-CaseBerg01), p. 107. By [Definition 8](#def-credible-interval), the interval is read as a probability statement about $\pi$ itself: given these 91 trials, the posterior probability that $\pi$ lies between 0.501 and 0.699 is 0.95 (approximately, since those endpoints are rounded to three decimals). A 95% confidence interval computed from the same data supports no such statement, as [Section 2.3](#sec-bayes-interval-interp) explains: its 0.95 describes the procedure over repeated samples, and the realized interval either contains $\pi$ or does not.
 
 > **NOTE:**
 >
@@ -985,7 +989,7 @@ A flat prior is a common choice of noninformative prior, but “noninformative p
 
 > **NOTE:**
 >
-> *Remark 4* (Flat priors can be improper). A flat prior on an unbounded parameter space, such as $\mathbb{R}$, is [improper](#def-improper-prior), so it does not define a joint distribution of $\theta$ and $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}$, and [Definition 4](#def-posterior) does not apply directly. In practice the posterior is then *defined* as likelihood times prior, normalized to integrate to 1, which is possible only when that product has a finite integral; the posterior is again proportional to the likelihood.
+> *Remark 4* (Flat priors can be improper). A flat prior on an unbounded parameter space, such as $\mathbb{R}$, is [improper](#def-improper-prior), so it does not define a joint distribution of $\theta$ and $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{Y}}\vphantom{Y}}$, and [Definition 5](#def-posterior) does not apply directly. In practice the posterior is then *defined* as likelihood times prior, normalized to integrate to 1, which is possible only when that product has a finite integral; the posterior is again proportional to the likelihood.
 
 > **NOTE:**
 >
@@ -1011,7 +1015,7 @@ A flat prior is a common choice of noninformative prior, but “noninformative p
 
 > **NOTE:**
 >
-> **Example 19 (A skeptical prior for a Gaussian mean)** In the model of [Example 6](#exm-normal-normal), replace the ${\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}$ prior by the [skeptical prior](#def-skeptical-prior) $\mu\sim {\operatorname{N}\mathopen{}\left(0, \tau^2\right)\mathclose{}}$, whose standard deviation $\tau$ sets how skeptical it is. Its density is proportional to ${\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mu^2/\tau^2\right\}\mathclose{}}$. Let $m_\tau\stackrel{\text{def}}{=}\frac{n \bar x}{n + 1/\tau^2}$. Reusing the likelihood from [Example 6](#exm-normal-normal):
+> **Example 19 (A skeptical prior for a Gaussian mean)** In the model of [Example 7](#exm-normal-normal), replace the ${\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}}$ prior by the [skeptical prior](#def-skeptical-prior) $\mu\sim {\operatorname{N}\mathopen{}\left(0, \tau^2\right)\mathclose{}}$, whose standard deviation $\tau$ sets how skeptical it is. Its density is proportional to ${\operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mu^2/\tau^2\right\}\mathclose{}}$. Let $m_\tau\stackrel{\text{def}}{=}\frac{n \bar x}{n + 1/\tau^2}$. Reusing the likelihood from [Example 7](#exm-normal-normal):
 >
 > $$\begin{aligned}
 > \mathbb{p}(\mu\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})
@@ -1028,7 +1032,7 @@ A flat prior is a common choice of noninformative prior, but “noninformative p
 > && \text{(dropping a factor that does not involve $\mu$)}.
 > \end{aligned}$$
 >
-> So $\mu\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\sim {\operatorname{N}\mathopen{}\left(m_\tau,\; 1 / (n + 1/\tau^2)\right)\mathclose{}}$, and $\tau= 1$ recovers [Example 6](#exm-normal-normal). The posterior mean
+> So $\mu\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\sim {\operatorname{N}\mathopen{}\left(m_\tau,\; 1 / (n + 1/\tau^2)\right)\mathclose{}}$, and $\tau= 1$ recovers [Example 7](#exm-normal-normal). The posterior mean
 >
 > $$m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}$$
 >
@@ -1582,12 +1586,12 @@ The following resources cover Bayesian inference in more depth.
 - [Definition 1 (Frequentist paradigm)](#def-frequentist-paradigm)
 - [Definition 2 (Bayesian paradigm)](#def-bayesian-paradigm)
 - [Definition 3 (Prior distribution)](#def-prior)
-- [Definition 4 (Posterior distribution)](#def-posterior)
-- [Definition 5 (Marginal likelihood (evidence))](#def-marginal-likelihood)
-- [Definition 6 (Maximum a posteriori estimate)](#def-map)
-- [Definition 7 (Credible interval)](#def-credible-interval)
-- [Definition 8 (Equal-tailed credible interval)](#def-equal-tailed-interval)
-- [Definition 9 (Parameter space)](#def-parameter-space)
+- [Definition 4 (Parameter space)](#def-parameter-space)
+- [Definition 5 (Posterior distribution)](#def-posterior)
+- [Definition 6 (Marginal likelihood (evidence))](#def-marginal-likelihood)
+- [Definition 7 (Maximum a posteriori estimate)](#def-map)
+- [Definition 8 (Credible interval)](#def-credible-interval)
+- [Definition 9 (Equal-tailed credible interval)](#def-equal-tailed-interval)
 - [Definition 10 (Conjugate prior)](#def-conjugate-prior)
 - [Definition 11 (Informative prior)](#def-informative-prior)
 - [Definition 12 (Weakly informative prior)](#def-weakly-informative-prior)
