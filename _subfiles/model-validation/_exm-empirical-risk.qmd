@@ -62,7 +62,8 @@ Of the `r nrow(birthwt)` babies, `r sum(!is_held_out)` are in the [training set]
 The [fitted model](#def-fitted-model) has an [empirical risk](#def-empirical-risk) of
 `r format(round(empirical_risks[["training"]]), big.mark = ",")` squared grams on the training set
 and `r format(round(empirical_risks[["held_out"]]), big.mark = ",")` squared grams on the [held-out set](#def-held-out-set).
-The square root of the training empirical risk, `r round(sqrt(empirical_risks[["training"]]))` grams,
-is the [root mean squared error](#def-prediction-rmse) on the training set.
+On the training set, the [root mean squared error](#def-prediction-rmse) is
+`r round(sqrt(empirical_risks[["training"]]))` grams,
+the root of the training empirical risk.
 
 :::
