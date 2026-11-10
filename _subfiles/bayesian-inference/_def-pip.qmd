@@ -1,9 +1,9 @@
 ::: {#def-pip}
 #### Posterior inclusion probability
 
-When the candidate models $M_1, \ldots, M_K$ of @def-bma differ in which predictors they include,
+When the candidate models $M_1, \ldots, M_K$ of @def-bma differ in which [predictors](model-validation.qmd#def-covariate) they include,
 the **posterior inclusion probability** of a predictor $\predvar_j$
-is the total [posterior model probability](#def-posterior-model-probability)
+is the sum of the [posterior model probabilities](#def-posterior-model-probability)
 of the models that include it:
 
 $$
