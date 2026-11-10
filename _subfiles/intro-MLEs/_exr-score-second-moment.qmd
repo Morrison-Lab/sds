@@ -9,6 +9,7 @@ the [expected information](#def-einf).
 {{< slidebreak >}}
 
 :::{#sol-score-second-moment}
+<!-- restated-ok: thm-score-second-moment restates this result right after the exercise on the page; the check reads this file alone, without that theorem -->
 
 By @thm-score-mean-zero,
 $0 = \int_{\rangef{\vX}} \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx$
