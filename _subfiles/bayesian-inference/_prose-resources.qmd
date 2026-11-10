@@ -38,3 +38,5 @@ The following resources cover Bayesian inference in more depth.
 - @kery-bayes-pop
 - @HobbsN.Thompson2015Bmas,
   which has been used in [PLS 207](https://catalog.ucdavis.edu/search/?q=PLS+207)
+- @evans2024probability,
+  whose Chapter 7 covers Bayesian inference

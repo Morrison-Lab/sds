@@ -298,6 +298,14 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 {{< include sds/_subfiles/estimation/_cor-se-rmse-unbiased.qmd >}}
 
 
+# Further reading
+
+::: {.callout-tip title="Another explanation"}
+Evans and Rosenthal's free textbook [@evans2024probability] covers statistical inference in Chapter 5
+and likelihood inference in Chapter 6.
+:::
+
+
 # References {.unnumbered}
 
 ::: {#refs}
