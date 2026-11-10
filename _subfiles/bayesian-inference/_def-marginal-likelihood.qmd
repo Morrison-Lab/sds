@@ -7,9 +7,10 @@ the **marginal likelihood** (also called the **evidence**)
 of observed data $\vy$ is
 
 $$
-\p(\vy) \eqdef \int \p(\vy \mid \param)\, \p(\param)\, d\param,
+\p(\vy) \eqdef \int_{\Paramspace} \p(\vy \mid \param)\, \p(\param)\, d\param,
 $$
 
+where $\Paramspace$ is the [parameter space](#def-parameter-space),
 with the integral replaced by a sum over the possible values of $\param$
 when $\param$ is discrete.
 
