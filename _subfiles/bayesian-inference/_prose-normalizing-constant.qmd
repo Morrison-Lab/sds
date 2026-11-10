@@ -1,7 +1,7 @@
-With a parameter vector $\vparam$,
+With a parameter vector $\vparam$ in the [parameter space](bayesian-inference.qmd#def-parameter-space) $\Paramspace$,
 the normalizing constant of the posterior is
 
-$$\p(\vy) = \int \p(\vy \mid \vparam)\, \p(\vparam)\, d\vparam,$$
+$$\p(\vy) = \int_{\Paramspace} \p(\vy \mid \vparam)\, \p(\vparam)\, d\vparam,$$
 
 an integral over every dimension of $\vparam$
 that typically has no closed form.
