@@ -1,9 +1,9 @@
 ::: {#def-estimation-error}
 #### Estimation error
 
-The **estimation error** of an estimate $\hparam$ of a true value $\param$
+The **estimation error** of an [estimate](#def-estimate) $\eparam$ of a true value $\param$
 is the difference between
 the estimate and the estimand $\param$:
 
-$$\erf{\hparam} \eqdef \hparam - \param$$
+$$\erf{\eparam} \eqdef \eparam - \param$$
 :::
