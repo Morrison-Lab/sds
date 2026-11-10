@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-10 10:09:42 (PST)
+Last modified: 2026-11-10 11:32:32 (PST)
 
 # 1 Scientific models
 
@@ -144,7 +144,7 @@ To determine which estimator is best, we need to define *best*. Accuracy is usua
 
 > **NOTE:**
 >
-> **Definition 6 (Estimation error)** The **estimation error** of an estimate $\hat{\theta}$ of a true value $\theta$ is the difference between the estimate and the estimand $\theta$:
+> **Definition 6 (Estimation error)** The **estimation error** of an [estimate](#def-estimate) $\hat{\theta}$ of a true value $\theta$ is the difference between the estimate and the estimand $\theta$:
 >
 > $${\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}} \stackrel{\text{def}}{=}\hat{\theta}- \theta$$
 

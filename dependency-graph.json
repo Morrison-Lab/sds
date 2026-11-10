@@ -5892,6 +5892,10 @@
    "sds/estimation#def-estimand"
   ],
   [
+   "sds/estimation#def-estimation-error",
+   "sds/estimation#def-estimate"
+  ],
+  [
    "sds/estimation#def-estimator",
    "sds/estimation#def-estimate"
   ],
