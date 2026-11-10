@@ -14,6 +14,7 @@ can be taken inside the integral.
 {{< slidebreak >}}
 
 :::{#sol-cov-estimator-score}
+<!-- restated-ok: lem-cov-estimator-score restates this result right after the exercise on the page; the check reads this file alone, without that lemma -->
 
 The score has mean zero by [the exercise on the mean of the score](intro-MLEs.qmd#exr-score-mean-zero).
 The step that rewrites the product of the score and the density uses [the exercise on the derivative of a density](intro-MLEs.qmd#exr-deriv-log-density):
@@ -29,13 +30,13 @@ $$
 && \text{($b \cdot 0 = 0$)}\\
 &= \E{\hparam \score}
 && \text{($a - 0 = a$)}\\
-&= \int \hparam(\vx) \, \score(\vx \mid \param) \, \p(\vx \mid \param) \, d\vx
+&= \int_{\rangef{\vX}} \hparam(\vx) \, \score(\vx \mid \param) \, \p(\vx \mid \param) \, d\vx
 && \text{(definition of expectation)}\\
-&= \int \hparam(\vx) \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
+&= \int_{\rangef{\vX}} \hparam(\vx) \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
 && \text{(definition of the score)}\\
-&= \int \hparam(\vx) \, \deriv{\param} \p(\vx \mid \param) \, d\vx
+&= \int_{\rangef{\vX}} \hparam(\vx) \, \deriv{\param} \p(\vx \mid \param) \, d\vx
 && \text{(derivative of a log density)}\\
-&= \deriv{\param} \int \hparam(\vx) \, \p(\vx \mid \param) \, d\vx
+&= \deriv{\param} \int_{\rangef{\vX}} \hparam(\vx) \, \p(\vx \mid \param) \, d\vx
 && \text{(exchange derivative and integral)}\\
 &= \deriv{\param} \E{\hparam}
 && \text{(definition of expectation)}\\
