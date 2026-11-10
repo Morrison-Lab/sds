@@ -1,0 +1,27 @@
+# Thin caller of Morrison-Lab/gha's reusable definition-commentary check.
+# It flags commentary written inside a `#def-` div ("It is not ...",
+# "Note that ...", "Unlike ..."). A definition holds the definition, its
+# notation and its display equation only; commentary goes in a `#rem-` div.
+# Blocking and diff-scoped: it fails a PR only for lines the PR adds.
+# No `push` trigger: with no PR base to diff against, the reusable workflow
+# skips, so a push run would report success, having checked nothing.
+
+name: Check definition divs for commentary
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-def-commentary.yml@v3
+    with:
+      # `**`, not `*`: gha's matcher stops a single `*` at a `/`.
+      # `_extensions/` holds vendored Quarto extensions;
+      # `latex-macros/` is the shared macros submodule.
+      paths-ignore: '_extensions/**,latex-macros/**'
+      # A manual run has no PR to diff against and would otherwise skip,
+      # having examined nothing; make it report the whole tree instead.
+      whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
