@@ -15,7 +15,8 @@ By the definition of a conditional density,
 $\p(\param \mid \vy) = \p(\param, \vy) / \p(\vy)$
 and $\p(\param, \vy) = \p(\vy \mid \param)\, \p(\param)$,
 where $\p(\vy)$ is the marginal density of $\vY$ at $\vy$.
-That marginal density, with each integral over the [parameter space](#def-parameter-space) $\Paramspace$, is
+With $\Paramspace$ the [parameter space](#def-parameter-space),
+that marginal density is
 
 $$
 \ba

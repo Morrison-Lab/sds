@@ -1,10 +1,9 @@
-With a parameter vector $\vparam$,
+With a parameter vector $\vparam$ in the [parameter space](#def-parameter-space) $\Paramspace$,
 the normalizing constant of the posterior is
 
 $$\p(\vy) = \int_{\Paramspace} \p(\vy \mid \vparam)\, \p(\vparam)\, d\vparam,$$
 
-an integral over the [parameter space](#def-parameter-space) $\Paramspace$,
-which spans every dimension of $\vparam$,
+an integral over every dimension of $\vparam$
 that typically has no closed form.
 Computing it numerically becomes infeasible as the dimension of $\vparam$ grows
 [@dobson4e, Chapter 13, p. 287].
