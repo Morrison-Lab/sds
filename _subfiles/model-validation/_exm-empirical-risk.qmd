@@ -1,6 +1,8 @@
 :::{#exm-empirical-risk}
 #### Empirical risk of a birth-weight model under squared error
 
+<!-- no-figure: the example reports two empirical risks as numbers -->
+
 The `birthwt` data record the birth weight in grams of babies born at Baystate Medical Center in Springfield, Massachusetts [@hosmer1989applied],
 as distributed in R's `MASS` package [@venables2002modern].
 We fit a [linear regression](basic-statistical-methods.qmd#def-linear-regression) of birth weight on the mother's weight at her last menstrual period and her smoking status.
