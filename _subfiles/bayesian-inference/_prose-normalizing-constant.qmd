@@ -1,4 +1,4 @@
-With a parameter vector $\vparam$ in the [parameter space](#def-parameter-space) $\Paramspace$,
+With a parameter vector $\vparam$ in the [parameter space](bayesian-inference.qmd#def-parameter-space) $\Paramspace$,
 the normalizing constant of the posterior is
 
 $$\p(\vy) = \int_{\Paramspace} \p(\vy \mid \vparam)\, \p(\vparam)\, d\vparam,$$

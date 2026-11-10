@@ -49,6 +49,20 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 
 {{< include sds/_subfiles/bayesian-inference/_note-paradigms.qmd >}}
 
+## The parameter space {#sec-bayes-parameter-space}
+
+<!-- No slidebreak here: the heading shares its slide with the def-parameter-space div. -->
+
+{{< include sds/_subfiles/bayesian-inference/_def-parameter-space.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-parameter-space.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-parameter-space.qmd >}}
+
 # Bayes' theorem for parameters {#sec-bayes-equation}
 
 <!-- No slidebreak here: the heading shares its slide with the def-posterior div. -->
@@ -151,21 +165,9 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 
 {{< slidebreak >}}
 
-## The parameter space {#sec-bayes-parameter-space}
+## Prior support {#sec-bayes-prior-support}
 
-<!-- No slidebreak here: the heading shares its slide with the def-parameter-space div. -->
-
-{{< include sds/_subfiles/bayesian-inference/_def-parameter-space.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/bayesian-inference/_prose-parameter-space.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/bayesian-inference/_exm-parameter-space.qmd >}}
-
-{{< slidebreak >}}
+<!-- No slidebreak here: the heading shares its slide with the cor-prior-support div. -->
 
 {{< include sds/_subfiles/bayesian-inference/_cor-prior-support.qmd >}}
 
