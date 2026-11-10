@@ -301,7 +301,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 # Further reading
 
 ::: {.callout-tip title="Another explanation"}
-Evans and Rosenthal's free textbook [@evans2024probability] covers [statistical inference](inference.qmd#def-inference) in Chapter 5
+Evans and Rosenthal's free textbook [@evans2010probability] covers [statistical inference](inference.qmd#def-inference) in Chapter 5
 and [likelihood](intro-MLEs.qmd#def-lik) inference in Chapter 6.
 :::
 
