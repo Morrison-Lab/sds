@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 13:11:53 (PST)
+Last modified: 2026-11-09 21:00:24 (PST)
 
 # 1 Scientific models
 
@@ -770,6 +770,12 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > *Proof*. This is the solution to [Exercise 9](#exr-se-rmse-unbiased).
 
+# 4 Further reading
+
+> **TIP:**
+>
+> Evans and Rosenthal’s free textbook [\[18\]](#ref-evans2010probability) covers [statistical inference](inference.llms.md#def-inference) in Chapter 5 and [likelihood](intro-MLEs.llms.md#def-lik) inference in Chapter 6.
+
 # Definitions on this page
 
 - [Definition 1 (Scientific models)](#def-scientific-model)
@@ -855,5 +861,9 @@ Wikipedia contributors, “Mean absolute error — Wikipedia, the free encyclope
 \[17\]
 
 Wikipedia contributors, “Standard error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Standard_error>
+
+\[18\]
+
+M. J. Evans and J. S. Rosenthal, *Probability and statistics: The science of uncertainty*, 2nd ed. Freeman, 2010. Available: <https://utstat.utoronto.ca/mikevans/jeffrosenthal/>
 
 Back to top

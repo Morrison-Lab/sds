@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 13:11:53 (PST)
+Last modified: 2026-11-09 21:00:24 (PST)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models [\[1, Ch. 12\]](#ref-dobson4e). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -1575,6 +1575,7 @@ The following resources cover Bayesian inference in more depth.
 - Cowles [\[24\]](#ref-CowlesMaryKathryn2013ABSW)
 - Kéry et al. [\[25\]](#ref-kery-bayes-pop)
 - Hobbs and Hooten [\[26\]](#ref-HobbsN.Thompson2015Bmas), which has been used in [PLS 207](https://catalog.ucdavis.edu/search/?q=PLS+207)
+- Evans and Rosenthal [\[27\]](#ref-evans2010probability), whose Chapter 7 covers Bayesian inference
 
 # Definitions on this page
 
@@ -1708,5 +1709,9 @@ Marc. Kéry, Michael. Schaub, and S. R. Beissinger, *Bayesian population analysi
 \[26\]
 
 N. T. Hobbs and M. B. Hooten, *Bayesian models: A statistical primer for ecologists*, STU - Student edition. Princeton: Princeton University Press, 2015.
+
+\[27\]
+
+M. J. Evans and J. S. Rosenthal, *Probability and statistics: The science of uncertainty*, 2nd ed. Freeman, 2010. Available: <https://utstat.utoronto.ca/mikevans/jeffrosenthal/>
 
 Back to top
