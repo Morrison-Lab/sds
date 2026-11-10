@@ -1,0 +1,19 @@
+# Flags a result div (#thm-, #lem-, #cor-, #prp-) that a PR edits and that links no definition (an @def- cross-reference or a link to a #def- anchor). <!-- check-result-definition-links: allow: reason --> exempts one.
+# Warn-only: reports findings as annotations and does not fail the run.
+# No push trigger: a push run has no base to diff against.
+# A manual run scans the whole tree.
+name: Check result definition links
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-result-definition-links.yml@v3
+    with:
+      fail: false
+      whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
+      paths-ignore: '_extensions/**,**/outtakes/**,latex-macros/**'
