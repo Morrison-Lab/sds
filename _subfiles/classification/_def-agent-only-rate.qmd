@@ -3,7 +3,8 @@
 
 The **agent-only rate** of an agreement table (@def-agreement-table)
 is the proportion of observations
-that the agent calls positive and the reference calls negative:
+that the agent assigns a [positive classification](#def-positive-classification)
+and the reference assigns a [negative classification](#def-negative-classification):
 
 $$p_{\text{agent}} \eqdef \frac{b}{n}$$ {#eq-agent-only-rate}
 
