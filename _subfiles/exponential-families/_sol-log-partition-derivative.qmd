@@ -1,0 +1,59 @@
+:::{#sol-log-partition-derivative}
+
+The left side of @exr-log-partition-normalization is a function of $\natparam$ alone,
+and its [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) is
+
+$$
+\begin{aligned}
+\dif{\expf{\logpartitionf{\natparam}}}{\natparam}
+&= \expf{\logpartitionf{\natparam}} \, \dif{\logpartitionf{\natparam}}{\natparam}
+&& \text{(chain rule)}
+\end{aligned}
+$$
+
+The derivative of the right side moves inside the [integral](https://morrison-lab.github.io/mds/measures-integrals.html#def-integral),
+where only the [exponential function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function) depends on $\natparam$:
+
+$$
+\begin{aligned}
+\dif{}{\natparam} \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar
+&= \int \basemeasuref{\rvar} \, \dif{\expf{\natparam \, \statf{\rvar}}}{\natparam} \, d\rvar
+&& \text{(the derivative of the integral is the integral of the derivative)}\\
+&= \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, \statf{\rvar} \, d\rvar
+&& \text{(chain rule)}\\
+&= \int \statf{\rvar} \, \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar
+&& \text{(multiplication is commutative)}
+\end{aligned}
+$$
+
+The two derivatives are equal,
+because the two sides of @exr-log-partition-normalization are equal:
+
+$$
+\expf{\logpartitionf{\natparam}} \, \dif{\logpartitionf{\natparam}}{\natparam}
+= \int \statf{\rvar} \, \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar.
+$$
+
+Solving for the derivative of the log-partition function:
+
+$$
+\begin{aligned}
+\dif{\logpartitionf{\natparam}}{\natparam}
+&= \frac{1}{\expf{\logpartitionf{\natparam}}} \int \statf{\rvar} \, \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar
+&& \text{(divide both sides by } \expf{\logpartitionf{\natparam}} \text{)}\\
+&= \expf{-\logpartitionf{\natparam}} \int \statf{\rvar} \, \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar
+&& \text{(the reciprocal of an exponential is the exponential of the negative)}\\
+&= \int \expf{-\logpartitionf{\natparam}} \, \statf{\rvar} \, \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar
+&& \text{(a factor free of the integration variable moves into the integral)}\\
+&= \int \statf{\rvar} \, \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, \expf{-\logpartitionf{\natparam}} \, d\rvar
+&& \text{(multiplication is commutative)}\\
+&= \int \statf{\rvar} \, \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar} - \logpartitionf{\natparam}} \, d\rvar
+&& \text{(the product of exponentials is the exponential of the sum)}\\
+&= \int \statf{\rvar} \, \pdf\paren{\rvar ; \natparam} \, d\rvar
+&& \text{(definition of an exponential family)}\\
+&= \E{\statf{\Rvar}}
+&& \text{(definition of the expectation)}
+\end{aligned}
+$$
+
+:::

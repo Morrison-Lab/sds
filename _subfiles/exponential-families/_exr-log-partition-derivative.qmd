@@ -1,0 +1,22 @@
+:::{#exr-log-partition-derivative}
+#### The derivative of the log-partition function is the mean of the statistic
+
+In the setting of @exr-log-partition-normalization,
+differentiate both sides of
+
+$$
+\expf{\logpartitionf{\natparam}}
+= \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar
+$$
+
+with respect to $\natparam$.
+Assume that the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) of the
+[integral](https://morrison-lab.github.io/mds/measures-integrals.html#def-integral)
+is the integral of the derivative.
+Show that
+
+$$
+\dif{\logpartitionf{\natparam}}{\natparam} = \E{\statf{\Rvar}}.
+$$
+
+:::
