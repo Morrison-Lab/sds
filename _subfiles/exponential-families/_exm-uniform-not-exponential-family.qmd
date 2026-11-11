@@ -1,0 +1,35 @@
+:::{#exm-uniform-not-exponential-family}
+#### The uniform distribution on $[0, \highend]$ is not an exponential family
+
+<!-- no-figure: the example compares two density values at one point -->
+
+Let $\Rvar \sim \text{Uniform}(0, \highend)$,
+the [uniform distribution](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on the interval from $0$ to $\highend > 0$.
+Its [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) is
+
+$$
+\pdf\paren{\rvar ; \highend}
+= \begin{cases}
+\dfrac{1}{\highend}, & 0 \le \rvar \le \highend \\
+0, & \text{otherwise.}
+\end{cases}
+$$
+
+Suppose these distributions were an [exponential family](#def-exponential-family),
+indexed by some parameter $\natparam$ that determines $\highend$.
+Then @eq-exponential-family would give
+
+$$
+\pdf\paren{\rvar ; \natparam}
+= \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar} - \logpartitionf{\natparam}}.
+$$
+
+The exponential is positive for every $\natparam$ and every $\rvar$,
+so $\pdf\paren{\rvar ; \natparam} > 0$ exactly when $\basemeasuref{\rvar} > 0$.
+Whether the density is positive at a value $\rvar$ would then not depend on the parameter.
+
+The uniform density does depend on it.
+At $\rvar = 3/2$, the density is $1/2$ when $\highend = 2$ and $0$ when $\highend = 1$.
+So the uniform distributions on $[0, \highend]$ are not an exponential family.
+The values of $\rvar$ where the density is positive depend on the parameter, which the form of @eq-exponential-family does not allow.
+:::
