@@ -1,7 +1,7 @@
 :::{#sol-log-partition-derivative}
 
 The left side of @exr-log-partition-normalization is a function of $\natparam$ alone,
-and its derivative is
+and its [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) is
 
 $$
 \begin{aligned}
@@ -11,8 +11,8 @@ $$
 \end{aligned}
 $$
 
-The derivative of the right side moves inside the integral,
-where only the exponential depends on $\natparam$:
+The derivative of the right side moves inside the [integral](https://morrison-lab.github.io/mds/measures-integrals.html#def-integral),
+where only the [exponential function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function) depends on $\natparam$:
 
 $$
 \begin{aligned}

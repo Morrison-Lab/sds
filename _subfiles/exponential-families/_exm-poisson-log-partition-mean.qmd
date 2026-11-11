@@ -3,10 +3,10 @@
 :::{#exm-poisson-log-partition-mean}
 #### The mean of the Poisson distribution from its log-partition function
 
-<!-- no-figure: the example compares two numbers computed from the same rate -->
+<!-- no-figure: the example compares two numbers computed from the same data -->
 
 In @exm-poisson-exponential-family,
-the statistic is $\statf{\rvar} = \rvar$
+the [statistic](sufficiency.qmd#def-statistic) is $\statf{\rvar} = \rvar$
 and the log-partition function is $\logpartitionf{\natparam} = \expf{\natparam}$.
 By @thm-log-partition-mean,
 
@@ -18,8 +18,10 @@ $$
 $$
 
 Since $\expf{\natparam} = \rate$,
-this is the mean of the Poisson distribution, $\rate$.
-For the cyclone data, the derivative at the natural parameter $\natparam = `r round(natural_parameter, 3)`$ is
+this is the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the
+[Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson), $\rate$.
+For the cyclone data, the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) at the
+[natural parameter](#def-natural-parameter) $\natparam = `r round(natural_parameter, 3)`$ is
 $\expf{\natparam} = `r round(exp(natural_parameter), 3)`$,
-which equals the rate set to the sample mean, `r round(rate, 3)`.
+which equals the [sample mean](exploratory-descriptive.qmd#def-sample-mean) $\rate = `r round(rate, 3)`$.
 :::

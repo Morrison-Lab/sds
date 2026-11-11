@@ -1,6 +1,6 @@
 :::{#sol-log-partition-normalization}
 
-We start from the fact that the density integrates to one,
+We start from the fact that the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) integrates to one,
 and isolate the factor $\expf{-\logpartitionf{\natparam}}$ that does not depend on $\rvar$:
 
 $$

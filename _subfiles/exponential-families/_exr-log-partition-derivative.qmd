@@ -10,7 +10,9 @@ $$
 $$
 
 with respect to $\natparam$.
-Assume that the derivative of the integral is the integral of the derivative.
+Assume that the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) of the
+[integral](https://morrison-lab.github.io/mds/measures-integrals.html#def-integral)
+is the integral of the derivative.
 Show that
 
 $$
