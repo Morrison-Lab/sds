@@ -1,0 +1,22 @@
+# Flags a definition div (#def-) of a function of one or two inputs with no graph
+# inside it, when a PR adds a line to the div (psw#575).
+# Add a 2D graph (one input) or 3D graph (two inputs) inside the div, after the
+# defining equation, or `<!-- no-graph: reason -->` inside the div.
+# Warn-only while the existing definitions are backfilled.
+name: Check function graphs
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-function-graphs.yml@v3
+    with:
+      fail: false
+      paths-ignore: '_extensions/**,**/outtakes/**'
