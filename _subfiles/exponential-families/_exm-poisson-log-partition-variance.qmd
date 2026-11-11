@@ -4,7 +4,8 @@
 <!-- no-figure: the example compares two numbers computed from the same data -->
 
 In @exm-poisson-log-partition-mean,
-the log-partition function is $\logpartitionf{\natparam} = \expf{\natparam}$ and the [statistic](sufficiency.qmd#def-statistic) is $\statf{\rvar} = \rvar$.
+the log-partition function is $\logpartitionf{\natparam} = \expf{\natparam}$,
+and the [statistic](sufficiency.qmd#def-statistic) is $\statf{\rvar} = \rvar$.
 By @thm-log-partition-variance,
 
 $$
@@ -22,7 +23,7 @@ of the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.h
 To check @thm-log-partition-variance on data,
 we compute its two sides separately for the cyclone counts of @exm-poisson-exponential-family,
 with $\rate$ set to the [sample mean](exploratory-descriptive.qmd#def-sample-mean).
-The left side adds $\paren{\rvar - \rate}^2 \, \pdf\paren{\rvar ; \rate}$ over the counts from 0 to 100,
+The left side adds $\sqf{\rvar - \rate} \, \pdf\paren{\rvar ; \rate}$ over the counts from 0 to 100,
 and the right side is a second central difference of $\logpartitionf{\natparam}$ at $\natparam = \logf{\rate}$.
 
 ::: {.panel-tabset group="language"}
@@ -77,12 +78,18 @@ log_partition_down = log_partition(natural_parameter - step)
 second_diff = log_partition_up - 2 * log_partition_mid + log_partition_down
 second_derivative = second_diff / step**2
 
-pd.DataFrame({"variance_statistic": [variance_statistic], "second_derivative": [second_derivative]})
+pd.DataFrame(
+    {
+        "variance_statistic": [variance_statistic],
+        "second_derivative": [second_derivative],
+    }
+)
 ```
 
 :::
 
 The two sides agree at `r round(variance_statistic, 3)`,
 and differ by `r format(abs(variance_statistic - second_derivative), digits = 2)`.
-That difference is numerical error.
+That difference is numerical error,
+from truncating the sum at 100 and from the finite step of the second difference.
 :::
