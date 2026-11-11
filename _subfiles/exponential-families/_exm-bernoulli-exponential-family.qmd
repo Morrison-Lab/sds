@@ -54,19 +54,23 @@ and evaluate both sides of @eq-exponential-family at the two possible values of 
 ```{r}
 #| label: bernoulli-exponential-family-r
 #| code-fold: false
-birthwt <- read.csv("data/birthwt.csv")
-prob <- mean(birthwt$low)
+low <- MASS::birthwt$low
+prob <- mean(low)
 
 natural_parameter <- log(prob / (1 - prob))
-log_partition <- function(eta) log(1 + exp(eta))
+exp_natural_parameter <- exp(natural_parameter)
+log_partition <- log(1 + exp_natural_parameter)
 
 x <- c(0, 1)
-exponent <- natural_parameter * x - log_partition(natural_parameter)
+exponent <- natural_parameter * x - log_partition
 exponential_form <- exp(exponent)
 bernoulli <- dbinom(x, size = 1, prob = prob)
 
-data.frame(x, bernoulli, exponential_form)
-max(abs(bernoulli - exponential_form))
+abs_difference <- abs(bernoulli - exponential_form)
+max_difference <- max(abs_difference)
+
+tibble::tibble(x, bernoulli, exponential_form)
+max_difference
 ```
 
 ##### Python
@@ -103,5 +107,5 @@ print(np.max(np.abs(bernoulli.pmf(x, prob) - exponential_form)))
 The value of `prob` is `r round(prob, 3)`,
 so the natural parameter is $\natparam = `r round(natural_parameter, 3)`$.
 The two columns agree to within rounding error:
-the largest difference is `r format(max(abs(bernoulli - exponential_form)), digits = 2)`.
+the largest difference is `r format(max_difference, digits = 2)`.
 :::
