@@ -16,7 +16,7 @@ $$
 
 ::: proof
 
-This is the solution to @exr-log-partition-derivative,
+The theorem is the solution to @exr-log-partition-derivative,
 worked in @sol-log-partition-derivative,
 which uses the solution to @exr-log-partition-normalization,
 worked in @sol-log-partition-normalization.
