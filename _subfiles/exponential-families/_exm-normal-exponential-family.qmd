@@ -104,8 +104,7 @@ print(np.max(np.abs(normal - exponential_form) / normal))
 
 :::
 
-The data give $\mean = `r round(mean_bwt)`$ grams and $\varpar = `r format(round(variance), big.mark = ",")`$ squared grams,
-so $\natparam = `r signif(natural_parameter, 3)`$ per gram.
+For these data, $\natparam = `r signif(natural_parameter, 3)`$ per gram.
 The two columns agree to within rounding error:
 the largest relative difference is `r format(max_relative_difference, digits = 2)`.
 :::
