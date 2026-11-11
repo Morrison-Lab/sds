@@ -1,0 +1,106 @@
+:::{#exm-bernoulli-exponential-family}
+#### The Bernoulli distribution is an exponential family
+
+<!-- no-figure: the example checks an algebraic identity at two values of x -->
+
+Let $\Rvar \sim \Bernoulli(\prob)$,
+the [Bernoulli distribution](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) with success probability $\prob \in (0, 1)$.
+Its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) is $\prob^{\rvar} \paren{1 - \prob}^{1 - \rvar}$ for $\rvar \in \set{0, 1}$.
+We rewrite it in the form of @eq-exponential-family
+by writing the powers of $\prob$ and $1 - \prob$ as one power of their ratio:
+
+$$
+\begin{aligned}
+\pdf\paren{\rvar ; \prob}
+&= \prob^{\rvar} \paren{1 - \prob}^{1 - \rvar}
+&& \text{(Bernoulli mass function)}\\
+&= \prob^{\rvar} \paren{1 - \prob}^{-\rvar} \paren{1 - \prob}
+&& \text{(a power with a sum of exponents is the product of the powers)}\\
+&= \paren{\frac{\prob}{1 - \prob}}^{\rvar} \paren{1 - \prob}
+&& \text{(powers with the same exponent combine)}\\
+&= \expf{\logf{\paren{\frac{\prob}{1 - \prob}}^{\rvar}}} \paren{1 - \prob}
+&& \text{(a positive number is the exponential of its logarithm)}\\
+&= \expf{\rvar \, \logf{\frac{\prob}{1 - \prob}}} \paren{1 - \prob}
+&& \text{(the logarithm of a power is the exponent times the logarithm)}\\
+&= \expf{\rvar \, \logf{\frac{\prob}{1 - \prob}}} \expf{\logf{1 - \prob}}
+&& \text{(a positive number is the exponential of its logarithm)}\\
+&= \expf{\rvar \, \logf{\frac{\prob}{1 - \prob}} + \logf{1 - \prob}}
+&& \text{(the product of exponentials is the exponential of the sum)}
+\end{aligned}
+$$
+
+The statistic is $\statf{\rvar} = \rvar$ and the base measure is $\basemeasuref{\rvar} = 1$.
+The [natural parameter](#def-natural-parameter) is the log odds,
+$\natparam = \logf{\prob / \paren{1 - \prob}}$.
+Inverting it gives $\prob = \expf{\natparam} / \paren{1 + \expf{\natparam}}$,
+so $1 - \prob = 1 / \paren{1 + \expf{\natparam}}$,
+and the last term in the exponential is $\logf{1 - \prob} = -\logf{1 + \expf{\natparam}}$.
+Hence the Bernoulli distributions are an [exponential family](#def-exponential-family) with
+$\logpartitionf{\natparam} = \logf{1 + \expf{\natparam}}$.
+
+To check the algebra on data,
+we use the `birthwt` data,
+which record the birth weight of babies born at Baystate Medical Center in Springfield, Massachusetts [@hosmer1989applied],
+as distributed in R's `MASS` package [@venables2002modern].
+The variable `low` is 1 for a baby with low birth weight and 0 otherwise.
+We set the success probability to the [sample mean](exploratory-descriptive.qmd#def-sample-mean) of `low`,
+and evaluate both sides of @eq-exponential-family at the two possible values of $\rvar$.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: bernoulli-exponential-family-r
+#| code-fold: false
+birthwt <- read.csv("data/birthwt.csv")
+prob <- mean(birthwt$low)
+
+natural_parameter <- log(prob / (1 - prob))
+log_partition <- function(eta) log(1 + exp(eta))
+
+x <- c(0, 1)
+exponent <- natural_parameter * x - log_partition(natural_parameter)
+exponential_form <- exp(exponent)
+bernoulli <- dbinom(x, size = 1, prob = prob)
+
+data.frame(x, bernoulli, exponential_form)
+max(abs(bernoulli - exponential_form))
+```
+
+##### Python
+
+```{python}
+#| label: bernoulli-exponential-family-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+from scipy.stats import bernoulli
+
+birthwt = pd.read_csv("data/birthwt.csv")
+prob = birthwt["low"].mean()
+
+natural_parameter = np.log(prob / (1 - prob))
+log_partition = np.log(1 + np.exp(natural_parameter))
+
+x = np.array([0, 1])
+exponential_form = np.exp(natural_parameter * x - log_partition)
+
+table = pd.DataFrame(
+    {
+        "x": x,
+        "bernoulli": bernoulli.pmf(x, prob),
+        "exponential_form": exponential_form,
+    }
+)
+print(table)
+print(np.max(np.abs(bernoulli.pmf(x, prob) - exponential_form)))
+```
+
+:::
+
+The sample mean of `low` is `r round(prob, 3)`,
+so the natural parameter is $\natparam = `r round(natural_parameter, 3)`$.
+The two columns agree to within rounding error:
+the largest difference is `r format(max(abs(bernoulli - exponential_form)), digits = 2)`.
+:::
