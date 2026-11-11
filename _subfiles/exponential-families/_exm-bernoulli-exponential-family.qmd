@@ -29,7 +29,8 @@ $$
 \end{aligned}
 $$
 
-The [statistic](sufficiency.qmd#def-statistic) is $\statf{\rvar} = \rvar$, and $\basemeasuref{\rvar} = 1$.
+The [statistic](sufficiency.qmd#def-statistic) is $\statf{\rvar} = \rvar$,
+and $\basemeasuref{\rvar} = 1$.
 The [natural parameter](#def-natural-parameter) is the [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds),
 $\natparam = \logf{\prob / \paren{1 - \prob}}$.
 Inverting it gives $\prob = \expf{\natparam} / \paren{1 + \expf{\natparam}}$,
