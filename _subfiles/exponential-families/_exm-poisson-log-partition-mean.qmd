@@ -1,0 +1,25 @@
+<!-- Reads rate and natural_parameter from the R chunk in _exm-poisson-exponential-family.qmd, so include that file first. -->
+
+:::{#exm-poisson-log-partition-mean}
+#### The mean of the Poisson distribution from its log-partition function
+
+<!-- no-figure: the example compares two numbers computed from the same rate -->
+
+In @exm-poisson-exponential-family,
+the statistic is $\statf{\rvar} = \rvar$
+and the log-partition function is $\logpartitionf{\natparam} = \expf{\natparam}$.
+By @thm-log-partition-mean,
+
+$$
+\E{\Rvar}
+= \E{\statf{\Rvar}}
+= \dif{\logpartitionf{\natparam}}{\natparam}
+= \expf{\natparam}.
+$$
+
+Since $\expf{\natparam} = \rate$,
+this is the mean of the Poisson distribution, $\rate$.
+For the cyclone data, the derivative at the natural parameter $\natparam = `r round(natural_parameter, 3)`$ is
+$\expf{\natparam} = `r round(exp(natural_parameter), 3)`$,
+which equals the rate set to the sample mean, `r round(rate, 3)`.
+:::

@@ -1,0 +1,24 @@
+:::{#thm-log-partition-mean}
+#### The mean of the statistic is the derivative of the log-partition function
+
+Let $\Rvar$ have a distribution in an [exponential family](#def-exponential-family)
+with [natural parameter](#def-natural-parameter) $\natparam$,
+[statistic](sufficiency.qmd#def-statistic) $\stat$,
+and log-partition function $\logpartition$,
+and let $\natparam$ be in the interior of the allowed values.
+Then
+
+$$
+\E{\statf{\Rvar}} = \dif{\logpartitionf{\natparam}}{\natparam}.
+$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-log-partition-derivative,
+worked in @sol-log-partition-derivative,
+which uses the solution to @exr-log-partition-normalization,
+worked in @sol-log-partition-normalization.
+
+:::

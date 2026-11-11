@@ -1,0 +1,36 @@
+:::{#sol-log-partition-normalization}
+
+We start from the fact that the density integrates to one,
+and isolate the factor $\expf{-\logpartitionf{\natparam}}$ that does not depend on $\rvar$:
+
+$$
+\begin{aligned}
+1
+&= \int \pdf\paren{\rvar ; \natparam} \, d\rvar
+&& \text{(a density integrates to one)}\\
+&= \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar} - \logpartitionf{\natparam}} \, d\rvar
+&& \text{(@eq-exponential-family)}\\
+&= \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, \expf{-\logpartitionf{\natparam}} \, d\rvar
+&& \text{(the exponential of a sum is the product of the exponentials)}\\
+&= \expf{-\logpartitionf{\natparam}} \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar
+&& \text{(a factor free of the integration variable moves out of the integral)}
+\end{aligned}
+$$
+
+Multiplying both sides by $\expf{\logpartitionf{\natparam}}$ gives
+
+$$
+\begin{aligned}
+\expf{\logpartitionf{\natparam}}
+&= \expf{\logpartitionf{\natparam}} \, \expf{-\logpartitionf{\natparam}} \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar
+&& \text{(multiply both sides by } \expf{\logpartitionf{\natparam}} \text{)}\\
+&= \expf{\logpartitionf{\natparam} - \logpartitionf{\natparam}} \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar
+&& \text{(the product of exponentials is the exponential of the sum)}\\
+&= \expf{0} \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar
+&& \text{(a number minus itself is zero)}\\
+&= \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar
+&& \text{(the exponential of zero is one)}
+\end{aligned}
+$$
+
+:::

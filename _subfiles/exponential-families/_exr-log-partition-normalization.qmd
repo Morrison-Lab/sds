@@ -1,0 +1,16 @@
+:::{#exr-log-partition-normalization}
+#### The exponential of the log-partition function is a normalizing integral
+
+Let $\Rvar$ be a continuous random variable
+whose [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) has the form of @eq-exponential-family.
+Use the fact that a density integrates to one
+to show that
+
+$$
+\expf{\logpartitionf{\natparam}}
+= \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar.
+$$
+
+For a discrete random variable, replace the integral with a sum over the possible values.
+
+:::
