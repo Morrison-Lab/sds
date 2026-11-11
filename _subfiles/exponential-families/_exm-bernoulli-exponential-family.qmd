@@ -4,10 +4,10 @@
 <!-- no-figure: the example checks an algebraic identity at two values of x -->
 
 Let $\Rvar \sim \Bernoulli(\prob)$,
-the [Bernoulli distribution](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) with success probability $\prob \in (0, 1)$.
+the [Bernoulli distribution](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) with success [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\prob \in (0, 1)$.
 Its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) is $\prob^{\rvar} \paren{1 - \prob}^{1 - \rvar}$ for $\rvar \in \set{0, 1}$.
 We rewrite it in the form of @eq-exponential-family
-by writing the powers of $\prob$ and $1 - \prob$ as one power of their ratio:
+by collecting the factors that have the exponent $\rvar$:
 
 $$
 \begin{aligned}
@@ -29,18 +29,18 @@ $$
 \end{aligned}
 $$
 
-The statistic is $\statf{\rvar} = \rvar$ and the base measure is $\basemeasuref{\rvar} = 1$.
-The [natural parameter](#def-natural-parameter) is the log odds,
+The [statistic](sufficiency.qmd#def-statistic) is $\statf{\rvar} = \rvar$, and $\basemeasuref{\rvar} = 1$.
+The [natural parameter](#def-natural-parameter) is the [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds),
 $\natparam = \logf{\prob / \paren{1 - \prob}}$.
 Inverting it gives $\prob = \expf{\natparam} / \paren{1 + \expf{\natparam}}$,
 so $1 - \prob = 1 / \paren{1 + \expf{\natparam}}$,
-and the last term in the exponential is $\logf{1 - \prob} = -\logf{1 + \expf{\natparam}}$.
+and the last term in the exponent is $\logf{1 - \prob} = -\logf{1 + \expf{\natparam}}$.
 Hence the Bernoulli distributions are an [exponential family](#def-exponential-family) with
 $\logpartitionf{\natparam} = \logf{1 + \expf{\natparam}}$.
 
 To check the algebra on data,
 we use the `birthwt` data,
-which record the birth weight of babies born at Baystate Medical Center in Springfield, Massachusetts [@hosmer1989applied],
+which record the birth weight of babies born at Baystate Medical Center in Springfield, Massachusetts [@hosmer1989applied], <!-- check-term-links: allow: "weight" here is body weight, not the weight of a matrix or model -->
 as distributed in R's `MASS` package [@venables2002modern].
 The variable `low` is 1 for a baby with low birth weight and 0 otherwise.
 We set the success probability to the [sample mean](exploratory-descriptive.qmd#def-sample-mean) of `low`,
@@ -99,7 +99,7 @@ print(np.max(np.abs(bernoulli.pmf(x, prob) - exponential_form)))
 
 :::
 
-The sample mean of `low` is `r round(prob, 3)`,
+The value of `prob` is `r round(prob, 3)`,
 so the natural parameter is $\natparam = `r round(natural_parameter, 3)`$.
 The two columns agree to within rounding error:
 the largest difference is `r format(max(abs(bernoulli - exponential_form)), digits = 2)`.
