@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-10 18:13:30 (PST)
+Last modified: 2026-11-10 21:56:00 (PST)
 
 Many of the distributions in this course, such as the [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli), [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) and [Normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) distributions, share one algebraic form for their [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). Distributions with that form are called an [exponential family](#def-exponential-family), and they share properties that make estimation easier. This page defines the form and its [natural parameter](#def-natural-parameter), and checks the form for the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) on data.
 
@@ -127,6 +127,93 @@ Many of the distributions in this course, such as the [Bernoulli](https://morris
 >
 > For the cyclone data, the rate set to the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) is 5.538 cyclones per season, so the natural parameter is $\eta= 1.712$. The natural parameter can be any real number, while the rate must be greater than zero.
 
+> **NOTE:**
+>
+> **Example 3 (The Bernoulli distribution is an exponential family)**  
+>
+> Let $X\sim \operatorname{Bernoulli}(\pi)$, the [Bernoulli distribution](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) with success [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\pi\in (0, 1)$. Its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) is $\pi^{x} \mathopen{}\left(1 - \pi\right)\mathclose{}^{1 - x}$ for $x\in {\mathopen{}\left\{0, 1\right\}\mathclose{}}$. We rewrite it in the form of [Equation 1](#eq-exponential-family) by collecting the factors that have the [exponent](https://morrison-lab.github.io/mds/algebra-basics.html#def-power-exponent) $x$:
+>
+> $$\begin{aligned}
+> \mathbb{f}\mathopen{}\left(x; \pi\right)\mathclose{}
+> &= \pi^{x} \mathopen{}\left(1 - \pi\right)\mathclose{}^{1 - x}
+> && \text{(Bernoulli mass function)}\\
+> &= \pi^{x} \mathopen{}\left(1 - \pi\right)\mathclose{}^{-x} \mathopen{}\left(1 - \pi\right)\mathclose{}
+> && \text{(a power with a sum of exponents is the product of the powers)}\\
+> &= \mathopen{}\left(\frac{\pi}{1 - \pi}\right)\mathclose{}^{x} \mathopen{}\left(1 - \pi\right)\mathclose{}
+> && \text{(powers with the same exponent combine)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{{\operatorname{log}\mathopen{}\left\{\mathopen{}\left(\frac{\pi}{1 - \pi}\right)\mathclose{}^{x}\right\}\mathclose{}}\right\}\mathclose{}} \mathopen{}\left(1 - \pi\right)\mathclose{}
+> && \text{(a positive number is the exponential of its logarithm)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{x\, {\operatorname{log}\mathopen{}\left\{\frac{\pi}{1 - \pi}\right\}\mathclose{}}\right\}\mathclose{}} \mathopen{}\left(1 - \pi\right)\mathclose{}
+> && \text{(the logarithm of a power is the exponent times the logarithm)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{x\, {\operatorname{log}\mathopen{}\left\{\frac{\pi}{1 - \pi}\right\}\mathclose{}}\right\}\mathclose{}} {\operatorname{exp}\mathopen{}\left\{{\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}}\right\}\mathclose{}}
+> && \text{(a positive number is the exponential of its logarithm)}\\
+> &= {\operatorname{exp}\mathopen{}\left\{x\, {\operatorname{log}\mathopen{}\left\{\frac{\pi}{1 - \pi}\right\}\mathclose{}} + {\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}}\right\}\mathclose{}}
+> && \text{(the product of exponentials is the exponential of the sum)}
+> \end{aligned}$$
+>
+> The [statistic](sufficiency.llms.md#def-statistic) is ${T\mathopen{}\left(x\right)\mathclose{}} = x$, and ${{h\mathopen{}\left(x\right)\mathclose{}}} = 1$. The [natural parameter](#def-natural-parameter) is the [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds), $\eta= {\operatorname{log}\mathopen{}\left\{\pi/ \mathopen{}\left(1 - \pi\right)\mathclose{}\right\}\mathclose{}}$. Inverting it gives $\pi= {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}} / \mathopen{}\left(1 + {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}}\right)\mathclose{}$, so $1 - \pi= 1 / \mathopen{}\left(1 + {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}}\right)\mathclose{}$, and the last term in the exponent is ${\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}} = -{\operatorname{log}\mathopen{}\left\{1 + {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}}\right\}\mathclose{}}$. Hence the Bernoulli distributions are an [exponential family](#def-exponential-family) with ${A\mathopen{}\left(\eta\right)\mathclose{}} = {\operatorname{log}\mathopen{}\left\{1 + {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}}\right\}\mathclose{}}$.
+>
+> To check the algebra on data, we use the `birthwt` data, which record the birth weight of babies born at Baystate Medical Center in Springfield, Massachusetts [\[3\]](#ref-hosmer1989applied), as distributed in R’s `MASS` package [\[4\]](#ref-venables2002modern). The variable `low` is 1 for a baby with low birth weight and 0 otherwise. We set the success probability to the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of `low`, and evaluate both sides of [Equation 1](#eq-exponential-family) at the two possible values of $x$.
+>
+> ## R
+>
+> ``` downlit
+> low <- MASS::birthwt$low
+> prob <- mean(low)
+>
+> natural_parameter <- log(prob / (1 - prob))
+> exp_natural_parameter <- exp(natural_parameter)
+> log_partition <- log(1 + exp_natural_parameter)
+>
+> x <- c(0, 1)
+> exponent <- natural_parameter * x - log_partition
+> exponential_form <- exp(exponent)
+> bernoulli <- dbinom(x, size = 1, prob = prob)
+>
+> abs_difference <- abs(bernoulli - exponential_form)
+> max_difference <- max(abs_difference)
+>
+> tibble::tibble(x, bernoulli, exponential_form)
+> ```
+>
+> ``` downlit
+> max_difference
+> #> [1] 1.11022e-16
+> ```
+>
+> ## Python
+>
+> ``` python
+> import numpy as np
+> import pandas as pd
+> from scipy.stats import bernoulli
+>
+> birthwt = pd.read_csv("data/birthwt.csv")
+> prob = birthwt["low"].mean()
+>
+> natural_parameter = np.log(prob / (1 - prob))
+> log_partition = np.log(1 + np.exp(natural_parameter))
+>
+> x = np.array([0, 1])
+> exponential_form = np.exp(natural_parameter * x - log_partition)
+>
+> table = pd.DataFrame(
+>     {
+>         "x": x,
+>         "bernoulli": bernoulli.pmf(x, prob),
+>         "exponential_form": exponential_form,
+>     }
+> )
+> print(table)
+> #>    x  bernoulli  exponential_form
+> #> 0  0   0.687831          0.687831
+> #> 1  1   0.312169          0.312169
+> print(np.max(np.abs(bernoulli.pmf(x, prob) - exponential_form)))
+> #> 2.220446049250313e-16
+> ```
+>
+> The value of `prob` is 0.312, so the natural parameter is $\eta= -0.79$. The two columns agree to within rounding error: the largest difference is 1.1e-16.
+
 # 2 Further reading
 
 - The [Fall 2024 course site for UC Berkeley’s Stat 210A, *Theoretical Statistics*](https://stat210a.berkeley.edu/fall-2024/) (Will Fithian) has a course reader on exponential families, sufficiency, completeness and [unbiased](estimation.llms.md#def-unbiased) estimation.
@@ -145,5 +232,13 @@ G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 200
 \[2\]
 
 A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
+
+\[3\]
+
+D. W. Hosmer and S. Lemeshow, *Applied logistic regression*. New York: Wiley, 1989.
+
+\[4\]
+
+W. N. Venables and B. D. Ripley, *Modern applied statistics with S*, 4th ed. New York: Springer, 2002. doi: [10.1007/978-0-387-21706-2](https://doi.org/10.1007/978-0-387-21706-2).
 
 Back to top

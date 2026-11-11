@@ -354,7 +354,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-10 18:13:30 (PST)</p>
+  <p class="date">Last modified: 2026-11-10 21:56:00 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -482,6 +482,100 @@ text-align: center;
 \]</span></p>
 <p>For the cyclone data, the rate set to the <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> is 5.538 cyclones per season, so the natural parameter is <span class="math inline">\(\eta= 1.712\)</span>. The natural parameter can be any real number, while the rate must be greater than zero.</p>
 </div>
+</section><section class="slide level2"><div id="exm-bernoulli-exponential-family" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (The Bernoulli distribution is an exponential family)</strong></span> &nbsp;</p>
+<!-- no-figure: the example checks an algebraic identity at two values of x -->
+<p>Let <span class="math inline">\(X\sim \operatorname{Bernoulli}(\pi)\)</span>, the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli">Bernoulli distribution</a> with success <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\pi\in (0, 1)\)</span>. Its <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> is <span class="math inline">\(\pi^{x} \mathopen{}\left(1 - \pi\right)\mathclose{}^{1 - x}\)</span> for <span class="math inline">\(x\in {\mathopen{}\left\{0, 1\right\}\mathclose{}}\)</span>. We rewrite it in the form of <a href="#/eq-exponential-family" class="quarto-xref">Equation&nbsp;1</a> by collecting the factors that have the <a href="https://morrison-lab.github.io/mds/algebra-basics.html#def-power-exponent">exponent</a> <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{f}\mathopen{}\left(x; \pi\right)\mathclose{}
+&amp;= \pi^{x} \mathopen{}\left(1 - \pi\right)\mathclose{}^{1 - x}
+&amp;&amp; \text{(Bernoulli mass function)}\\
+&amp;= \pi^{x} \mathopen{}\left(1 - \pi\right)\mathclose{}^{-x} \mathopen{}\left(1 - \pi\right)\mathclose{}
+&amp;&amp; \text{(a power with a sum of exponents is the product of the powers)}\\
+&amp;= \mathopen{}\left(\frac{\pi}{1 - \pi}\right)\mathclose{}^{x} \mathopen{}\left(1 - \pi\right)\mathclose{}
+&amp;&amp; \text{(powers with the same exponent combine)}\\
+&amp;= {\operatorname{exp}\mathopen{}\left\{{\operatorname{log}\mathopen{}\left\{\mathopen{}\left(\frac{\pi}{1 - \pi}\right)\mathclose{}^{x}\right\}\mathclose{}}\right\}\mathclose{}} \mathopen{}\left(1 - \pi\right)\mathclose{}
+&amp;&amp; \text{(a positive number is the exponential of its logarithm)}\\
+&amp;= {\operatorname{exp}\mathopen{}\left\{x\, {\operatorname{log}\mathopen{}\left\{\frac{\pi}{1 - \pi}\right\}\mathclose{}}\right\}\mathclose{}} \mathopen{}\left(1 - \pi\right)\mathclose{}
+&amp;&amp; \text{(the logarithm of a power is the exponent times the logarithm)}\\
+&amp;= {\operatorname{exp}\mathopen{}\left\{x\, {\operatorname{log}\mathopen{}\left\{\frac{\pi}{1 - \pi}\right\}\mathclose{}}\right\}\mathclose{}} {\operatorname{exp}\mathopen{}\left\{{\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}}\right\}\mathclose{}}
+&amp;&amp; \text{(a positive number is the exponential of its logarithm)}\\
+&amp;= {\operatorname{exp}\mathopen{}\left\{x\, {\operatorname{log}\mathopen{}\left\{\frac{\pi}{1 - \pi}\right\}\mathclose{}} + {\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}}\right\}\mathclose{}}
+&amp;&amp; \text{(the product of exponentials is the exponential of the sum)}
+\end{aligned}
+\]</span></p>
+<p>The <a href="./sufficiency.html#def-statistic">statistic</a> is <span class="math inline">\({T\mathopen{}\left(x\right)\mathclose{}} = x\)</span>, and <span class="math inline">\({{h\mathopen{}\left(x\right)\mathclose{}}} = 1\)</span>. The <a href="#/def-natural-parameter">natural parameter</a> is the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds">log odds</a>, <span class="math inline">\(\eta= {\operatorname{log}\mathopen{}\left\{\pi/ \mathopen{}\left(1 - \pi\right)\mathclose{}\right\}\mathclose{}}\)</span>. Inverting it gives <span class="math inline">\(\pi= {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}} / \mathopen{}\left(1 + {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}}\right)\mathclose{}\)</span>, so <span class="math inline">\(1 - \pi= 1 / \mathopen{}\left(1 + {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}}\right)\mathclose{}\)</span>, and the last term in the exponent is <span class="math inline">\({\operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}} = -{\operatorname{log}\mathopen{}\left\{1 + {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}}\right\}\mathclose{}}\)</span>. Hence the Bernoulli distributions are an <a href="#/def-exponential-family">exponential family</a> with <span class="math inline">\({A\mathopen{}\left(\eta\right)\mathclose{}} = {\operatorname{log}\mathopen{}\left\{1 + {\operatorname{exp}\mathopen{}\left\{\eta\right\}\mathclose{}}\right\}\mathclose{}}\)</span>.</p>
+<p>To check the algebra on data, we use the <code>birthwt</code> data, which record the birth weight of babies born at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied"><a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>, <!-- check-term-links: allow: "weight" here is body weight, not the weight of a matrix or model --> as distributed in R’s <code>MASS</code> package <span class="citation" data-cites="venables2002modern"><a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>. The variable <code>low</code> is 1 for a baby with low birth weight and 0 otherwise. We set the success probability to the <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> of <code>low</code>, and evaluate both sides of <a href="#/eq-exponential-family" class="quarto-xref">Equation&nbsp;1</a> at the two possible values of <span class="math inline">\(x\)</span>.</p>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-2" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-2-1">R</a></li>
+<li><a href="#tabset-2-2">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-2-1">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>low <span class="ot">&lt;-</span> MASS<span class="sc">::</span>birthwt<span class="sc">$</span>low</span>
+<span id="cb4-2"><a aria-label="2"></a>prob <span class="ot">&lt;-</span> <span class="fu">mean</span>(low)</span>
+<span id="cb4-3"><a aria-label="3"></a></span>
+<span id="cb4-4"><a aria-label="4"></a>natural_parameter <span class="ot">&lt;-</span> <span class="fu">log</span>(prob <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> prob))</span>
+<span id="cb4-5"><a aria-label="5"></a>exp_natural_parameter <span class="ot">&lt;-</span> <span class="fu">exp</span>(natural_parameter)</span>
+<span id="cb4-6"><a aria-label="6"></a>log_partition <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> exp_natural_parameter)</span>
+<span id="cb4-7"><a aria-label="7"></a></span>
+<span id="cb4-8"><a aria-label="8"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb4-9"><a aria-label="9"></a>exponent <span class="ot">&lt;-</span> natural_parameter <span class="sc">*</span> x <span class="sc">-</span> log_partition</span>
+<span id="cb4-10"><a aria-label="10"></a>exponential_form <span class="ot">&lt;-</span> <span class="fu">exp</span>(exponent)</span>
+<span id="cb4-11"><a aria-label="11"></a>bernoulli <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(x, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> prob)</span>
+<span id="cb4-12"><a aria-label="12"></a></span>
+<span id="cb4-13"><a aria-label="13"></a>abs_difference <span class="ot">&lt;-</span> <span class="fu">abs</span>(bernoulli <span class="sc">-</span> exponential_form)</span>
+<span id="cb4-14"><a aria-label="14"></a>max_difference <span class="ot">&lt;-</span> <span class="fu">max</span>(abs_difference)</span>
+<span id="cb4-15"><a aria-label="15"></a></span>
+<span id="cb4-16"><a aria-label="16"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(x, bernoulli, exponential_form)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["x"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["bernoulli"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["exponential_form"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"0","2":"0.687831","3":"0.687831"},{"1":"1","2":"0.312169","3":"0.312169"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>max_difference</span>
+<span id="cb5-2"><a aria-label="2"></a><span class="co">#&gt; [1] 1.11022e-16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-label="1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a aria-label="2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-3"><a aria-label="3"></a><span class="im">from</span> scipy.stats <span class="im">import</span> bernoulli</span>
+<span id="cb6-4"><a aria-label="4"></a></span>
+<span id="cb6-5"><a aria-label="5"></a>birthwt <span class="op">=</span> pd.read_csv(<span class="st">"data/birthwt.csv"</span>)</span>
+<span id="cb6-6"><a aria-label="6"></a>prob <span class="op">=</span> birthwt[<span class="st">"low"</span>].mean()</span>
+<span id="cb6-7"><a aria-label="7"></a></span>
+<span id="cb6-8"><a aria-label="8"></a>natural_parameter <span class="op">=</span> np.log(prob <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> prob))</span>
+<span id="cb6-9"><a aria-label="9"></a>log_partition <span class="op">=</span> np.log(<span class="dv">1</span> <span class="op">+</span> np.exp(natural_parameter))</span>
+<span id="cb6-10"><a aria-label="10"></a></span>
+<span id="cb6-11"><a aria-label="11"></a>x <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb6-12"><a aria-label="12"></a>exponential_form <span class="op">=</span> np.exp(natural_parameter <span class="op">*</span> x <span class="op">-</span> log_partition)</span>
+<span id="cb6-13"><a aria-label="13"></a></span>
+<span id="cb6-14"><a aria-label="14"></a>table <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb6-15"><a aria-label="15"></a>    {</span>
+<span id="cb6-16"><a aria-label="16"></a>        <span class="st">"x"</span>: x,</span>
+<span id="cb6-17"><a aria-label="17"></a>        <span class="st">"bernoulli"</span>: bernoulli.pmf(x, prob),</span>
+<span id="cb6-18"><a aria-label="18"></a>        <span class="st">"exponential_form"</span>: exponential_form,</span>
+<span id="cb6-19"><a aria-label="19"></a>    }</span>
+<span id="cb6-20"><a aria-label="20"></a>)</span>
+<span id="cb6-21"><a aria-label="21"></a><span class="bu">print</span>(table)</span>
+<span id="cb6-22"><a aria-label="22"></a><span class="co">#&gt;    x  bernoulli  exponential_form</span></span>
+<span id="cb6-23"><a aria-label="23"></a><span class="co">#&gt; 0  0   0.687831          0.687831</span></span>
+<span id="cb6-24"><a aria-label="24"></a><span class="co">#&gt; 1  1   0.312169          0.312169</span></span>
+<span id="cb6-25"><a aria-label="25"></a><span class="bu">print</span>(np.<span class="bu">max</span>(np.<span class="bu">abs</span>(bernoulli.pmf(x, prob) <span class="op">-</span> exponential_form)))</span>
+<span id="cb6-26"><a aria-label="26"></a><span class="co">#&gt; 2.220446049250313e-16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<p>The value of <code>prob</code> is 0.312, so the natural parameter is <span class="math inline">\(\eta= -0.79\)</span>. The two columns agree to within rounding error: the largest difference is 1.1e-16.</p>
+</div>
 </section><section id="sec-exponential-families-reading" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Further reading</h2>
 </section><section class="slide level2"><ul>
@@ -496,6 +590,14 @@ text-align: center;
 <div id="ref-dobson4e" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[2] </div>
 <div class="csl-right-inline">A. J. Dobson and A. G. Barnett, <em>An introduction to generalized linear models</em>, 4th ed. CRC press, 2018. doi: <a href="https://doi.org/10.1201/9781315182780">10.1201/9781315182780</a>.</div>
+</div>
+<div id="ref-hosmer1989applied" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">D. W. Hosmer and S. Lemeshow, <em>Applied logistic regression</em>. New York: Wiley, 1989.</div>
+</div>
+<div id="ref-venables2002modern" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">W. N. Venables and B. D. Ripley, <em>Modern applied statistics with <span>S</span></em>, 4th ed. New York: Springer, 2002. doi: <a href="https://doi.org/10.1007/978-0-387-21706-2">10.1007/978-0-387-21706-2</a>.</div>
 </div>
 </div>
 
