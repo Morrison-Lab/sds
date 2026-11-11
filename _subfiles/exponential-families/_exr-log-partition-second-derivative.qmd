@@ -1,0 +1,24 @@
+:::{#exr-log-partition-second-derivative}
+#### The second derivative of the log-partition function is the variance of the statistic
+
+In the setting of @exr-log-partition-derivative,
+differentiate both sides of
+
+$$
+\dif{\logpartitionf{\natparam}}{\natparam}
+= \int \statf{\rvar} \, \pdf\paren{\rvar ; \natparam} \, d\rvar
+$$
+
+with respect to $\natparam$.
+Assume that the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) of the
+[integral](https://morrison-lab.github.io/mds/measures-integrals.html#def-integral)
+is the integral of the derivative.
+Use @thm-log-partition-mean
+and the [second moment](https://morrison-lab.github.io/pds/variance-covariance.html#lem-second-moment-variance)
+to show that
+
+$$
+\dif{^2 \logpartitionf{\natparam}}{\natparam^2} = \Var{\statf{\Rvar}}.
+$$
+
+:::

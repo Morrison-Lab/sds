@@ -1,0 +1,88 @@
+:::{#exm-poisson-log-partition-variance}
+#### The variance of the Poisson distribution from its log-partition function
+
+<!-- no-figure: the example compares two numbers computed from the same data -->
+
+In @exm-poisson-log-partition-mean,
+the log-partition function is $\logpartitionf{\natparam} = \expf{\natparam}$ and the statistic is $\statf{\rvar} = \rvar$.
+By @thm-log-partition-variance,
+
+$$
+\Var{\Rvar}
+= \Var{\statf{\Rvar}}
+= \dif{^2 \logpartitionf{\natparam}}{\natparam^2}
+= \expf{\natparam}.
+$$
+
+Since $\expf{\natparam} = \rate$,
+we have $\Var{\Rvar} = \rate$,
+the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance)
+of the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson).
+
+To check @thm-log-partition-variance on data,
+we compute its two sides separately for the cyclone counts of @exm-poisson-exponential-family,
+with $\rate$ set to the [sample mean](exploratory-descriptive.qmd#def-sample-mean).
+The left side adds $\paren{\rvar - \rate}^2 \, \pdf\paren{\rvar ; \rate}$ over the counts from 0 to 100,
+and the right side is a second central difference of $\logpartitionf{\natparam}$ at $\natparam = \logf{\rate}$.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: poisson-log-partition-variance-r
+#| code-fold: false
+cyclones <- c(6, 5, 4, 6, 6, 3, 12, 7, 4, 2, 6, 7, 4)
+rate <- mean(cyclones)
+natural_parameter <- log(rate)
+
+counts <- 0:100
+squared_deviations <- (counts - rate)^2
+weighted_deviations <- squared_deviations * dpois(counts, rate)
+variance_statistic <- sum(weighted_deviations)
+
+log_partition <- exp
+step <- 1e-4
+log_partition_up <- log_partition(natural_parameter + step)
+log_partition_mid <- log_partition(natural_parameter)
+log_partition_down <- log_partition(natural_parameter - step)
+second_difference <- log_partition_up - 2 * log_partition_mid + log_partition_down
+second_derivative <- second_difference / step^2
+
+tibble::tibble(variance_statistic, second_derivative)
+```
+
+##### Python
+
+```{python}
+#| label: poisson-log-partition-variance-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+from scipy.stats import poisson
+
+cyclones = np.array([6, 5, 4, 6, 6, 3, 12, 7, 4, 2, 6, 7, 4])
+rate = cyclones.mean()
+natural_parameter = np.log(rate)
+
+counts = np.arange(0, 101)
+squared_deviations = (counts - rate) ** 2
+variance_statistic = np.sum(squared_deviations * poisson.pmf(counts, rate))
+
+log_partition = np.exp
+step = 1e-4
+log_partition_up = log_partition(natural_parameter + step)
+log_partition_mid = log_partition(natural_parameter)
+log_partition_down = log_partition(natural_parameter - step)
+second_difference = log_partition_up - 2 * log_partition_mid + log_partition_down
+second_derivative = second_difference / step**2
+
+pd.DataFrame({"variance_statistic": [variance_statistic], "second_derivative": [second_derivative]})
+```
+
+:::
+
+The two sides agree at `r round(variance_statistic, 3)`,
+and differ by `r format(abs(variance_statistic - second_derivative), digits = 2)`.
+That difference is numerical error.
+:::
