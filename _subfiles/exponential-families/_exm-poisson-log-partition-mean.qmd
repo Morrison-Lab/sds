@@ -18,8 +18,9 @@ $$
 $$
 
 Since $\expf{\natparam} = \rate$,
-the derivative is the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the
-[Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson), $\rate$.
+$\E{\Rvar} = \rate$,
+the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the
+[Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson).
 For the cyclone data, the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) at the
 [natural parameter](#def-natural-parameter) $\natparam = `r round(natural_parameter, 3)`$ is
 $\expf{\natparam} = `r round(exp(natural_parameter), 3)`$,
