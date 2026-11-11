@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-10 21:56:00 (PST)
+Last modified: 2026-11-10 22:36:29 (PST)
 
 Many of the distributions in this course, such as the [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli), [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) and [Normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) distributions, share one algebraic form for their [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). Distributions with that form are called an [exponential family](#def-exponential-family), and they share properties that make estimation easier. This page defines the form and its [natural parameter](#def-natural-parameter), and checks the form for the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) on data.
 
@@ -213,6 +213,93 @@ Many of the distributions in this course, such as the [Bernoulli](https://morris
 > ```
 >
 > The value of `prob` is 0.312, so the natural parameter is $\eta= -0.79$. The two columns agree to within rounding error: the largest difference is 1.1e-16.
+
+> **NOTE:**
+>
+> **Example 4 (The Gaussian distribution with known variance is an exponential family)**  
+>
+> Let $X\sim \operatorname{N}(\mu, \sigma^2)$, the [Gaussian distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal) with [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\mu\in \mathbb{R}$ and a [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\sigma^2> 0$ that we treat as known. Its [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) is $\mathopen{}\left(2 \pi \sigma^2\right)\mathclose{}^{-1/2} {\operatorname{exp}\mathopen{}\left\{-\mathopen{}\left(x- \mu\right)\mathclose{}^2 / \mathopen{}\left(2 \sigma^2\right)\mathclose{}\right\}\mathclose{}}$. We rewrite it in the form of [Equation 1](#eq-exponential-family) by expanding the [square](https://morrison-lab.github.io/mds/algebra-basics.html#def-square) in the [exponent](https://morrison-lab.github.io/mds/algebra-basics.html#def-power-exponent) and separating the factors that involve $\mu$:
+>
+> $$\begin{aligned}
+> \mathbb{f}\mathopen{}\left(x; \mu\right)\mathclose{}
+> &= \frac{1}{\sqrt{2 \pi \sigma^2}} \, {\operatorname{exp}\mathopen{}\left\{-\frac{\mathopen{}\left(x- \mu\right)\mathclose{}^2}{2 \sigma^2}\right\}\mathclose{}}
+> && \text{(Gaussian density)}\\
+> &= \frac{1}{\sqrt{2 \pi \sigma^2}} \, {\operatorname{exp}\mathopen{}\left\{-\frac{x^2 - 2 x\mu+ \mu^2}{2 \sigma^2}\right\}\mathclose{}}
+> && \text{(the square of a difference)}\\
+> &= \frac{1}{\sqrt{2 \pi \sigma^2}} \, {\operatorname{exp}\mathopen{}\left\{-\frac{x^2}{2 \sigma^2} + \frac{x\mu}{\sigma^2} - \frac{\mu^2}{2 \sigma^2}\right\}\mathclose{}}
+> && \text{(divide each term by the denominator)}\\
+> &= \frac{1}{\sqrt{2 \pi \sigma^2}} \, {\operatorname{exp}\mathopen{}\left\{-\frac{x^2}{2 \sigma^2}\right\}\mathclose{}} \, {\operatorname{exp}\mathopen{}\left\{\frac{\mu}{\sigma^2} x- \frac{\mu^2}{2 \sigma^2}\right\}\mathclose{}}
+> && \text{(the exponential of a sum is the product of the exponentials)}
+> \end{aligned}$$
+>
+> The [statistic](sufficiency.llms.md#def-statistic) is ${T\mathopen{}\left(x\right)\mathclose{}} = x$, and ${{h\mathopen{}\left(x\right)\mathclose{}}} = {\operatorname{exp}\mathopen{}\left\{-x^2 / \mathopen{}\left(2 \sigma^2\right)\mathclose{}\right\}\mathclose{}} / \sqrt{2 \pi \sigma^2}$, which does not involve $\mu$. The [natural parameter](#def-natural-parameter) is $\eta= \mu/ \sigma^2$. Inverting it gives $\mu= \sigma^2\eta$, so $\mu^2 / \mathopen{}\left(2 \sigma^2\right)\mathclose{} = \sigma^2\eta^2 / 2$. Hence the Gaussian distributions with a known variance are an [exponential family](#def-exponential-family) with ${A\mathopen{}\left(\eta\right)\mathclose{}} = \sigma^2\eta^2 / 2$.
+>
+> To check the algebra on data, we use the birth weights in grams from the `birthwt` data [\[3\]](#ref-hosmer1989applied), as distributed in R’s `MASS` package [\[4\]](#ref-venables2002modern). We set $\mu$ to the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) and $\sigma^2$ to the [sample variance](exploratory-descriptive.llms.md#def-sample-variance) of the birth weights, and evaluate both sides of [Equation 1](#eq-exponential-family) at every observed birth weight.
+>
+> ## R
+>
+> ``` downlit
+> bwt <- MASS::birthwt$bwt
+> mean_bwt <- mean(bwt)
+> sd_bwt <- sd(bwt)
+> variance <- sd_bwt^2
+>
+> natural_parameter <- mean_bwt / variance
+> log_partition <- variance * natural_parameter^2 / 2
+>
+> base_exponent <- -bwt^2 / (2 * variance)
+> base_scale <- sqrt(2 * pi * variance)
+> base_measure <- exp(base_exponent) / base_scale
+>
+> exponent <- natural_parameter * bwt - log_partition
+> exponential_form <- base_measure * exp(exponent)
+> normal <- dnorm(bwt, mean = mean_bwt, sd = sd_bwt)
+>
+> relative_difference <- abs(normal - exponential_form) / normal
+> max_relative_difference <- max(relative_difference)
+>
+> tibble::tibble(bwt, normal, exponential_form)
+> ```
+>
+> ``` downlit
+> max_relative_difference
+> #> [1] 3.52031e-15
+> ```
+>
+> ## Python
+>
+> ``` python
+> import numpy as np
+> import pandas as pd
+> from scipy.stats import norm
+>
+> birthwt = pd.read_csv("data/birthwt.csv")
+> bwt = birthwt["bwt"]
+> mean_bwt = bwt.mean()
+> variance = bwt.var(ddof=1)
+>
+> natural_parameter = mean_bwt / variance
+> log_partition = variance * natural_parameter**2 / 2
+>
+> base_measure = np.exp(-bwt**2 / (2 * variance)) / np.sqrt(2 * np.pi * variance)
+> exponential_form = base_measure * np.exp(natural_parameter * bwt - log_partition)
+> normal = norm.pdf(bwt, loc=mean_bwt, scale=np.sqrt(variance))
+>
+> table = pd.DataFrame(
+>     {"bwt": bwt, "normal": normal, "exponential_form": exponential_form}
+> )
+> print(table.head())
+> #>     bwt    normal  exponential_form
+> #> 0  2523  0.000463          0.000463
+> #> 1  2551  0.000473          0.000473
+> #> 2  2557  0.000475          0.000475
+> #> 3  2594  0.000487          0.000487
+> #> 4  2600  0.000489          0.000489
+> print(np.max(np.abs(normal - exponential_form) / normal))
+> #> 3.324739754359985e-15
+> ```
+>
+> For these data, $\eta= 0.00554$ per gram. The two columns agree to within rounding error: the largest relative difference is 3.5e-15.
 
 # 2 Further reading
 
