@@ -60,6 +60,5 @@ pd.DataFrame({"sample_mean": [sample_mean], "derivative": [derivative]})
 
 :::
 
-The two values agree:
-the derivative of the log-partition function at $\natparam$ is the sample mean, `r round(sample_mean, 3)`.
+The two printed values agree, at `r round(sample_mean, 3)`.
 :::
