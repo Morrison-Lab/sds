@@ -26,7 +26,8 @@ $$
 \end{aligned}
 $$
 
-The two derivatives are equal, because the two sides of @exr-log-partition-normalization are equal:
+The two derivatives are equal,
+because the two sides of @exr-log-partition-normalization are equal:
 
 $$
 \expf{\logpartitionf{\natparam}} \, \dif{\logpartitionf{\natparam}}{\natparam}

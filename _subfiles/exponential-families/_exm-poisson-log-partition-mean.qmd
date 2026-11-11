@@ -16,14 +16,15 @@ $$
 $$
 
 Since $\expf{\natparam} = \rate$,
-$\E{\Rvar} = \rate$,
+we have $\E{\Rvar} = \rate$,
 the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation)
 of the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson).
 
-For the cyclone counts of @exm-poisson-exponential-family,
-we compute the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative)
-at the [natural parameter](#def-natural-parameter) $\natparam = \logf{\rate}$,
+To check the theorem without using this formula,
+we compute the two sides separately for the cyclone counts of @exm-poisson-exponential-family,
 with $\rate$ set to the [sample mean](exploratory-descriptive.qmd#def-sample-mean).
+The left side sums $\rvar \, \pdf\paren{\rvar ; \rate}$ over the counts from 0 to 100,
+and the right side is a central difference of $\logpartitionf{\natparam}$ at $\natparam = \logf{\rate}$.
 
 ::: {.panel-tabset group="language"}
 
@@ -33,12 +34,19 @@ with $\rate$ set to the [sample mean](exploratory-descriptive.qmd#def-sample-mea
 #| label: poisson-log-partition-mean-r
 #| code-fold: false
 cyclones <- c(6, 5, 4, 6, 6, 3, 12, 7, 4, 2, 6, 7, 4)
-sample_mean <- mean(cyclones)
+rate <- mean(cyclones)
+natural_parameter <- log(rate)
 
-natural_parameter <- log(sample_mean)
-derivative <- exp(natural_parameter)
+counts <- 0:100
+weighted_masses <- counts * dpois(counts, rate)
+mean_statistic <- sum(weighted_masses)
 
-tibble::tibble(sample_mean, derivative)
+step <- 1e-6
+log_partition_up <- exp(natural_parameter + step)
+log_partition_down <- exp(natural_parameter - step)
+derivative <- (log_partition_up - log_partition_down) / (2 * step)
+
+tibble::tibble(mean_statistic, derivative)
 ```
 
 ##### Python
@@ -48,17 +56,24 @@ tibble::tibble(sample_mean, derivative)
 #| code-fold: false
 import numpy as np
 import pandas as pd
+from scipy.stats import poisson
 
 cyclones = np.array([6, 5, 4, 6, 6, 3, 12, 7, 4, 2, 6, 7, 4])
-sample_mean = cyclones.mean()
+rate = cyclones.mean()
+natural_parameter = np.log(rate)
 
-natural_parameter = np.log(sample_mean)
-derivative = np.exp(natural_parameter)
+counts = np.arange(0, 101)
+mean_statistic = np.sum(counts * poisson.pmf(counts, rate))
 
-pd.DataFrame({"sample_mean": [sample_mean], "derivative": [derivative]})
+step = 1e-6
+log_partition_up = np.exp(natural_parameter + step)
+log_partition_down = np.exp(natural_parameter - step)
+derivative = (log_partition_up - log_partition_down) / (2 * step)
+
+pd.DataFrame({"mean_statistic": [mean_statistic], "derivative": [derivative]})
 ```
 
 :::
 
-The two printed values agree, at `r round(sample_mean, 3)`.
+Both sides equal `r round(mean_statistic, 3)`, and they differ by `r format(abs(mean_statistic - derivative), digits = 2)`, the error of the central difference.
 :::
