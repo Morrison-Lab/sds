@@ -20,10 +20,10 @@ we have $\E{\Rvar} = \rate$,
 the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation)
 of the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson).
 
-To check the theorem without using this formula,
-we compute the two sides separately for the cyclone counts of @exm-poisson-exponential-family,
+To check @thm-log-partition-mean on data,
+we compute its two sides separately for the cyclone counts of @exm-poisson-exponential-family,
 with $\rate$ set to the [sample mean](exploratory-descriptive.qmd#def-sample-mean).
-The left side sums $\rvar \, \pdf\paren{\rvar ; \rate}$ over the counts from 0 to 100,
+The left side adds $\rvar \, \pdf\paren{\rvar ; \rate}$ over the counts from 0 to 100,
 and the right side is a central difference of $\logpartitionf{\natparam}$ at $\natparam = \logf{\rate}$.
 
 ::: {.panel-tabset group="language"}
