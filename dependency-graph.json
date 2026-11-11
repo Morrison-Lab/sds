@@ -5180,6 +5180,14 @@
    "sds/classification#def-agreement-table"
   ],
   [
+   "sds/classification#def-agent-only-rate",
+   "sds/classification#def-negative-classification"
+  ],
+  [
+   "sds/classification#def-agent-only-rate",
+   "sds/classification#def-positive-classification"
+  ],
+  [
    "sds/classification#def-agreement-table",
    "sds/classification#def-negative-classification"
   ],

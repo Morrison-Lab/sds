@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-10 14:19:03 (PST)
+Last modified: 2026-11-10 17:56:38 (PST)
 
 # 1 Introduction
 
@@ -444,7 +444,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> *Remark 2* (The PPV depends on the population, not only on the test). The sensitivity and specificity describe the test’s performance in a specified setting, and may differ across settings (for example, with the case mix of the people tested or the threshold used to call a result positive), but the ratio $\frac{1 - \pi}{\pi}$ in [Theorem 4](#thm-ppv-sens-spec-prev) describes the population being tested. When the disease is rare, that ratio is large, so even a small false positive rate can make the PPV low, as [Example 8](#exm-ppv-sens-spec-prev) shows.
+> *Remark 2* (The PPV depends on the population, not only on the test). The sensitivity and specificity describe the test’s performance in a specified setting, and may differ across settings (for example, with the case mix of the people tested or the threshold used to assign a [positive classification](#def-positive-classification)), but the ratio $\frac{1 - \pi}{\pi}$ in [Theorem 4](#thm-ppv-sens-spec-prev) describes the population being tested. When the disease is rare, that ratio is large, so even a small false positive rate can make the PPV low, as [Example 8](#exm-ppv-sens-spec-prev) shows.
 
 # 5 Agreement between two classifiers
 
@@ -622,7 +622,7 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 18 (Agent-only rate)** The **agent-only rate** of an agreement table ([Definition 13](#def-agreement-table)) is the proportion of observations that the agent calls positive and the reference calls negative:
+> **Definition 18 (Agent-only rate)** The **agent-only rate** of an agreement table ([Definition 13](#def-agreement-table)) is the proportion of observations that the agent assigns a [positive classification](#def-positive-classification) and the reference assigns a [negative classification](#def-negative-classification):
 >
 > $$p_{\text{agent}} \stackrel{\text{def}}{=}\frac{b}{n} \tag{42}$$
 
