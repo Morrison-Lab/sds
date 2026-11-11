@@ -16,9 +16,10 @@ $$
 
 ::: proof
 
-The identity is the solution to @exr-log-partition-derivative,
+The solution to @exr-log-partition-derivative,
 worked in @sol-log-partition-derivative,
-which uses the solution to @exr-log-partition-normalization,
+proves the statement.
+It uses the solution to @exr-log-partition-normalization,
 worked in @sol-log-partition-normalization.
 
 :::
