@@ -7,7 +7,7 @@ Let $\Rvar \sim \Bernoulli(\prob)$,
 the [Bernoulli distribution](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) with success [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\prob \in (0, 1)$.
 Its [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) is $\prob^{\rvar} \paren{1 - \prob}^{1 - \rvar}$ for $\rvar \in \set{0, 1}$.
 We rewrite it in the form of @eq-exponential-family
-by collecting the factors that have the exponent $\rvar$:
+by collecting the factors that have the [exponent](https://morrison-lab.github.io/mds/algebra-basics.html#def-power-exponent) $\rvar$:
 
 $$
 \begin{aligned}
