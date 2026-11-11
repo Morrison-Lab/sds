@@ -91,5 +91,5 @@ pd.DataFrame(
 The two sides agree at `r round(variance_statistic, 3)`,
 and differ by `r format(abs(variance_statistic - second_derivative), digits = 2)`.
 That difference is numerical error,
-from truncating the sum at 100 and from the finite step of the second difference.
+from stopping the counts at 100 and from the finite step of the second difference.
 :::
