@@ -9,7 +9,7 @@ $$
 &= \int \pdf\paren{\rvar ; \natparam} \, d\rvar
 && \text{(a density integrates to one)}\\
 &= \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar} - \logpartitionf{\natparam}} \, d\rvar
-&& \text{(@eq-exponential-family)}\\
+&& \text{(definition of an exponential family)}\\
 &= \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, \expf{-\logpartitionf{\natparam}} \, d\rvar
 && \text{(the exponential of a sum is the product of the exponentials)}\\
 &= \expf{-\logpartitionf{\natparam}} \int \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar}} \, d\rvar

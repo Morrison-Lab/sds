@@ -1,5 +1,3 @@
-<!-- Reads cyclones and natural_parameter from the R chunk in _exm-poisson-exponential-family.qmd, so include that file first. -->
-
 :::{#exm-poisson-log-partition-mean}
 #### The mean of the Poisson distribution from its log-partition function
 
@@ -19,10 +17,49 @@ $$
 
 Since $\expf{\natparam} = \rate$,
 $\E{\Rvar} = \rate$,
-the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the
-[Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson).
-For the cyclone data, the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) at the
-[natural parameter](#def-natural-parameter) $\natparam = `r round(natural_parameter, 3)`$ is
-$\expf{\natparam} = `r round(exp(natural_parameter), 3)`$,
-which equals the [sample mean](exploratory-descriptive.qmd#def-sample-mean) `r round(mean(cyclones), 3)`.
+the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation)
+of the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson).
+
+For the cyclone counts of @exm-poisson-exponential-family,
+we compute the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative)
+at the [natural parameter](#def-natural-parameter) $\natparam = \logf{\rate}$,
+with $\rate$ set to the [sample mean](exploratory-descriptive.qmd#def-sample-mean).
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: poisson-log-partition-mean-r
+#| code-fold: false
+cyclones <- c(6, 5, 4, 6, 6, 3, 12, 7, 4, 2, 6, 7, 4)
+sample_mean <- mean(cyclones)
+
+natural_parameter <- log(sample_mean)
+derivative <- exp(natural_parameter)
+
+tibble::tibble(sample_mean, derivative)
+```
+
+##### Python
+
+```{python}
+#| label: poisson-log-partition-mean-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+
+cyclones = np.array([6, 5, 4, 6, 6, 3, 12, 7, 4, 2, 6, 7, 4])
+sample_mean = cyclones.mean()
+
+natural_parameter = np.log(sample_mean)
+derivative = np.exp(natural_parameter)
+
+pd.DataFrame({"sample_mean": [sample_mean], "derivative": [derivative]})
+```
+
+:::
+
+The two values agree:
+the derivative of the log-partition function at $\natparam$ is the sample mean, `r round(sample_mean, 3)`.
 :::
