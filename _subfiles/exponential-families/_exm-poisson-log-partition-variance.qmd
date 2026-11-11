@@ -46,8 +46,8 @@ step <- 1e-4
 log_partition_up <- log_partition(natural_parameter + step)
 log_partition_mid <- log_partition(natural_parameter)
 log_partition_down <- log_partition(natural_parameter - step)
-second_difference <- log_partition_up - 2 * log_partition_mid + log_partition_down
-second_derivative <- second_difference / step^2
+second_diff <- log_partition_up - 2 * log_partition_mid + log_partition_down
+second_derivative <- second_diff / step^2
 
 tibble::tibble(variance_statistic, second_derivative)
 ```
@@ -74,8 +74,8 @@ step = 1e-4
 log_partition_up = log_partition(natural_parameter + step)
 log_partition_mid = log_partition(natural_parameter)
 log_partition_down = log_partition(natural_parameter - step)
-second_difference = log_partition_up - 2 * log_partition_mid + log_partition_down
-second_derivative = second_difference / step**2
+second_diff = log_partition_up - 2 * log_partition_mid + log_partition_down
+second_derivative = second_diff / step**2
 
 pd.DataFrame({"variance_statistic": [variance_statistic], "second_derivative": [second_derivative]})
 ```
