@@ -53,7 +53,7 @@ and checks the form for the [Poisson distribution](https://morrison-lab.github.i
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/exponential-families/_exm-normal-exponential-family.qmd >}}
+{{< include sds/_subfiles/exponential-families/_exm-gaussian-exponential-family.qmd >}}
 
 # Further reading {#sec-exponential-families-reading}
 
