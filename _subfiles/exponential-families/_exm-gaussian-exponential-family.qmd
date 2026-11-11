@@ -1,0 +1,110 @@
+:::{#exm-gaussian-exponential-family}
+#### The Gaussian distribution with known variance is an exponential family
+
+<!-- no-figure: the example checks an algebraic identity at the observed values -->
+
+Let $\Rvar \sim \Normal(\mean, \varpar)$,
+the [Gaussian distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal)
+with [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\mean \in \reals$
+and a [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar > 0$ that we treat as known.
+Its [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) is
+$\paren{2 \pi \varpar}^{-1/2} \expf{-\paren{\rvar - \mean}^2 / \paren{2 \varpar}}$.
+We rewrite it in the form of @eq-exponential-family
+by expanding the [square](https://morrison-lab.github.io/mds/algebra-basics.html#def-square)
+in the [exponent](https://morrison-lab.github.io/mds/algebra-basics.html#def-power-exponent)
+and separating the factors that involve $\mean$:
+
+$$
+\begin{aligned}
+\pdf\paren{\rvar ; \mean}
+&= \frac{1}{\sqrt{2 \pi \varpar}} \, \expf{-\frac{\paren{\rvar - \mean}^2}{2 \varpar}}
+&& \text{(Gaussian density)}\\
+&= \frac{1}{\sqrt{2 \pi \varpar}} \, \expf{-\frac{\rvar^2 - 2 \rvar \mean + \mean^2}{2 \varpar}}
+&& \text{(the square of a difference)}\\
+&= \frac{1}{\sqrt{2 \pi \varpar}} \, \expf{-\frac{\rvar^2}{2 \varpar} + \frac{\rvar \mean}{\varpar} - \frac{\mean^2}{2 \varpar}}
+&& \text{(divide each term by the denominator)}\\
+&= \frac{1}{\sqrt{2 \pi \varpar}} \, \expf{-\frac{\rvar^2}{2 \varpar}} \, \expf{\frac{\mean}{\varpar} \rvar - \frac{\mean^2}{2 \varpar}}
+&& \text{(the exponential of a sum is the product of the exponentials)}
+\end{aligned}
+$$
+
+The [statistic](sufficiency.qmd#def-statistic) is $\statf{\rvar} = \rvar$,
+and $\basemeasuref{\rvar} = \expf{-\rvar^2 / \paren{2 \varpar}} / \sqrt{2 \pi \varpar}$,
+which does not involve $\mean$.
+The [natural parameter](#def-natural-parameter) is $\natparam = \mean / \varpar$.
+Inverting it gives $\mean = \varpar \natparam$,
+so $\mean^2 / \paren{2 \varpar} = \varpar \natparam^2 / 2$.
+Hence the Gaussian distributions with a known variance are an [exponential family](#def-exponential-family) with
+$\logpartitionf{\natparam} = \varpar \natparam^2 / 2$.
+
+To check the algebra on data,
+we use the birth weights in grams from the `birthwt` data [@hosmer1989applied], <!-- check-term-links: allow: "weights" here is body weight, not the weights of a model -->
+as distributed in R's `MASS` package [@venables2002modern].
+We set $\mean$ to the [sample mean](exploratory-descriptive.qmd#def-sample-mean)
+and $\varpar$ to the [sample variance](exploratory-descriptive.qmd#def-sample-variance) of the birth weights,
+and evaluate both sides of @eq-exponential-family at every observed birth weight.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: gaussian-exponential-family-r
+#| code-fold: false
+bwt <- MASS::birthwt$bwt
+mean_bwt <- mean(bwt)
+sd_bwt <- sd(bwt)
+variance <- sd_bwt^2
+
+natural_parameter <- mean_bwt / variance
+log_partition <- variance * natural_parameter^2 / 2
+
+base_exponent <- -bwt^2 / (2 * variance)
+base_scale <- sqrt(2 * pi * variance)
+base_measure <- exp(base_exponent) / base_scale
+
+exponent <- natural_parameter * bwt - log_partition
+exponential_form <- base_measure * exp(exponent)
+normal <- dnorm(bwt, mean = mean_bwt, sd = sd_bwt)
+
+relative_difference <- abs(normal - exponential_form) / normal
+max_relative_difference <- max(relative_difference)
+
+tibble::tibble(bwt, normal, exponential_form)
+max_relative_difference
+```
+
+##### Python
+
+```{python}
+#| label: gaussian-exponential-family-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+from scipy.stats import norm
+
+birthwt = pd.read_csv("data/birthwt.csv")
+bwt = birthwt["bwt"]
+mean_bwt = bwt.mean()
+variance = bwt.var(ddof=1)
+
+natural_parameter = mean_bwt / variance
+log_partition = variance * natural_parameter**2 / 2
+
+base_measure = np.exp(-bwt**2 / (2 * variance)) / np.sqrt(2 * np.pi * variance)
+exponential_form = base_measure * np.exp(natural_parameter * bwt - log_partition)
+normal = norm.pdf(bwt, loc=mean_bwt, scale=np.sqrt(variance))
+
+table = pd.DataFrame(
+    {"bwt": bwt, "normal": normal, "exponential_form": exponential_form}
+)
+print(table.head())
+print(np.max(np.abs(normal - exponential_form) / normal))
+```
+
+:::
+
+For these data, $\natparam = `r signif(natural_parameter, 3)`$ per gram.
+The two columns agree to within rounding error:
+the largest relative difference is `r format(max_relative_difference, digits = 2)`.
+:::
