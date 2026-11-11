@@ -41,9 +41,10 @@ counts <- 0:100
 weighted_masses <- counts * dpois(counts, rate)
 mean_statistic <- sum(weighted_masses)
 
+log_partition <- exp
 step <- 1e-6
-log_partition_up <- exp(natural_parameter + step)
-log_partition_down <- exp(natural_parameter - step)
+log_partition_up <- log_partition(natural_parameter + step)
+log_partition_down <- log_partition(natural_parameter - step)
 derivative <- (log_partition_up - log_partition_down) / (2 * step)
 
 tibble::tibble(mean_statistic, derivative)
@@ -65,9 +66,10 @@ natural_parameter = np.log(rate)
 counts = np.arange(0, 101)
 mean_statistic = np.sum(counts * poisson.pmf(counts, rate))
 
+log_partition = np.exp
 step = 1e-6
-log_partition_up = np.exp(natural_parameter + step)
-log_partition_down = np.exp(natural_parameter - step)
+log_partition_up = log_partition(natural_parameter + step)
+log_partition_down = log_partition(natural_parameter - step)
 derivative = (log_partition_up - log_partition_down) / (2 * step)
 
 pd.DataFrame({"mean_statistic": [mean_statistic], "derivative": [derivative]})
@@ -75,5 +77,7 @@ pd.DataFrame({"mean_statistic": [mean_statistic], "derivative": [derivative]})
 
 :::
 
-Both sides equal `r round(mean_statistic, 3)`, and they differ by `r format(abs(mean_statistic - derivative), digits = 2)`, the error of the central difference.
+The two sides agree at `r round(mean_statistic, 3)`,
+and differ by `r format(abs(mean_statistic - derivative), digits = 2)`.
+That difference is numerical error.
 :::
