@@ -4,7 +4,7 @@
 <!-- no-figure: the example compares two numbers computed from the same data -->
 
 In @exm-poisson-log-partition-mean,
-the log-partition function is $\logpartitionf{\natparam} = \expf{\natparam}$ and the statistic is $\statf{\rvar} = \rvar$.
+the log-partition function is $\logpartitionf{\natparam} = \expf{\natparam}$ and the [statistic](sufficiency.qmd#def-statistic) is $\statf{\rvar} = \rvar$.
 By @thm-log-partition-variance,
 
 $$

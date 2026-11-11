@@ -1,9 +1,9 @@
 :::{#sol-log-partition-second-derivative}
 
-The left side of @exr-log-partition-second-derivative differentiates to the second derivative of $\logpartitionf{\natparam}$.
+The left side of @exr-log-partition-second-derivative differentiates to the [second derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-second-derivative) of $\logpartitionf{\natparam}$.
 On the right side,
-the derivative moves inside the integral,
-where only the density depends on $\natparam$:
+the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) moves inside the [integral](https://morrison-lab.github.io/mds/measures-integrals.html#def-integral),
+where only the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) depends on $\natparam$:
 
 $$
 \begin{aligned}
@@ -52,7 +52,7 @@ $$
 $$
 
 The last line rearranges the second moment of $\statf{\Rvar}$,
-which is its variance plus the square of its mean.
+which is its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) plus the [square](https://morrison-lab.github.io/mds/algebra-basics.html#def-square) of its [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation).
 Equating the two sides of @exr-log-partition-second-derivative gives the result.
 
 :::
