@@ -5,11 +5,14 @@
 
 Let $\Rvar \sim \Normal(\mean, \varpar)$,
 the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal)
-with mean $\mean \in \reals$ and a variance $\varpar > 0$ that we treat as known.
+with [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\mean \in \reals$
+and a [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar > 0$ that we treat as known.
 Its [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) is
 $\paren{2 \pi \varpar}^{-1/2} \expf{-\paren{\rvar - \mean}^2 / \paren{2 \varpar}}$.
 We rewrite it in the form of @eq-exponential-family
-by expanding the square in the exponent and separating the factors that involve $\mean$:
+by expanding the [square](https://morrison-lab.github.io/mds/algebra-basics.html#def-square)
+in the [exponent](https://morrison-lab.github.io/mds/algebra-basics.html#def-power-exponent)
+and separating the factors that involve $\mean$:
 
 $$
 \begin{aligned}
@@ -26,8 +29,7 @@ $$
 $$
 
 The [statistic](sufficiency.qmd#def-statistic) is $\statf{\rvar} = \rvar$,
-and the base measure is
-$\basemeasuref{\rvar} = \expf{-\rvar^2 / \paren{2 \varpar}} / \sqrt{2 \pi \varpar}$,
+and $\basemeasuref{\rvar} = \expf{-\rvar^2 / \paren{2 \varpar}} / \sqrt{2 \pi \varpar}$,
 which does not involve $\mean$.
 The [natural parameter](#def-natural-parameter) is $\natparam = \mean / \varpar$.
 Inverting it gives $\mean = \varpar \natparam$,
@@ -36,7 +38,7 @@ Hence the normal distributions with a known variance are an [exponential family]
 $\logpartitionf{\natparam} = \varpar \natparam^2 / 2$.
 
 To check the algebra on data,
-we use the birth weights in grams from the `birthwt` data [@hosmer1989applied],
+we use the birth weights in grams from the `birthwt` data [@hosmer1989applied], <!-- check-term-links: allow: "weights" here is body weight, not the weights of a model -->
 as distributed in R's `MASS` package [@venables2002modern].
 We set $\mean$ to the [sample mean](exploratory-descriptive.qmd#def-sample-mean)
 and $\varpar$ to the [sample variance](exploratory-descriptive.qmd#def-sample-variance) of the birth weights,
@@ -102,8 +104,8 @@ print(np.max(np.abs(normal - exponential_form) / normal))
 
 :::
 
-The sample mean is `r round(mean_bwt)` grams and the sample variance is `r format(round(variance), big.mark = ",")` squared grams,
-so the natural parameter is $\natparam = `r signif(natural_parameter, 3)`$ per gram.
+The data give $\mean = `r round(mean_bwt)`$ grams and $\varpar = `r format(round(variance), big.mark = ",")`$ squared grams,
+so $\natparam = `r signif(natural_parameter, 3)`$ per gram.
 The two columns agree to within rounding error:
 the largest relative difference is `r format(max_relative_difference, digits = 2)`.
 :::
