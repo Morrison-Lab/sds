@@ -1,0 +1,85 @@
+:::{#exm-poisson-sample-sufficient}
+#### Two sets of Poisson counts with the same total have a mass function quotient free of the parameter
+
+<!-- no-figure: the example compares four quotients computed from two sets of counts -->
+
+By @thm-exponential-family-sufficient,
+the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) of the counts is
+[sufficient](sufficiency.qmd#def-sufficient) for the [natural parameter](#def-natural-parameter) of the
+[Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson).
+So two sets of counts with the same sum differ in their joint
+[mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf)
+only by a factor that does not depend on the parameter.
+To check the result on data,
+we take the first three cyclone counts of @exm-poisson-exponential-family, 6, 5 and 4,
+and the counts 5, 5 and 5.
+Each set adds up to 15.
+We divide the joint mass function of the first set by that of the second at four values of $\rate$.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: poisson-sample-sufficient-r
+#| code-fold: false
+sample_a <- c(6, 5, 4)
+sample_b <- c(5, 5, 5)
+
+rates <- c(2, 4, 6, 8)
+n_obs <- length(sample_a)
+n_rates <- length(rates)
+
+counts_a <- rep(sample_a, times = n_rates)
+counts_b <- rep(sample_b, times = n_rates)
+rates_rep <- rep(rates, each = n_obs)
+
+log_mass_a <- dpois(counts_a, rates_rep, log = TRUE)
+log_mass_b <- dpois(counts_b, rates_rep, log = TRUE)
+log_matrix_a <- matrix(log_mass_a, nrow = n_obs)
+log_matrix_b <- matrix(log_mass_b, nrow = n_obs)
+
+log_joint_a <- colSums(log_matrix_a)
+log_joint_b <- colSums(log_matrix_b)
+masses_a <- exp(log_joint_a)
+masses_b <- exp(log_joint_b)
+ratio <- masses_a / masses_b
+
+tibble::tibble(rates, masses_a, masses_b, ratio)
+```
+
+##### Python
+
+```{python}
+#| label: poisson-sample-sufficient-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+from scipy.stats import poisson
+
+sample_a = np.array([6, 5, 4])
+sample_b = np.array([5, 5, 5])
+
+rates = np.array([2, 4, 6, 8])
+masses_a = [np.prod(poisson.pmf(sample_a, r)) for r in rates]
+masses_b = [np.prod(poisson.pmf(sample_b, r)) for r in rates]
+ratio = np.array(masses_a) / np.array(masses_b)
+
+pd.DataFrame(
+    {
+        "rates": rates,
+        "masses_a": masses_a,
+        "masses_b": masses_b,
+        "ratio": ratio,
+    }
+)
+```
+
+:::
+
+At every value of $\rate$,
+the first [mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf)
+is `r round(ratio[1], 4)` times the second.
+That factor is $\paren{5!}^3 / \paren{6! \, 5! \, 4!}$,
+which is free of $\rate$.
+:::
