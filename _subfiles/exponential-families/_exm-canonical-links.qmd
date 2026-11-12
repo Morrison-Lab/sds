@@ -3,33 +3,37 @@
 
 <!-- no-figure: the example derives two functions algebraically -->
 
-In each case, we differentiate the log-partition function to get the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation),
-then solve for $\natparam$:
+In each case, @thm-log-partition-mean says the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation)
+is the derivative of the log-partition function,
+so we differentiate it and then solve for $\natparam$:
 
 - **[Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson).**
-  In @exm-poisson-exponential-family, $\logpartitionf{\natparam} = \expf{\natparam}$, so
+  In @exm-poisson-exponential-family, $\logpartitionf{\natparam} = \expf{\natparam}$,
+  so the mean is:
 
   $$
   \begin{aligned}
   \mean
   &= \dif{\logpartitionf{\natparam}}{\natparam}
-  && \text{(@thm-log-partition-mean)}\\
+  && \text{(the mean is the derivative of the log-partition function)}\\
   &= \expf{\natparam}
   && \text{(the derivative of $\expf{u}$ is $\expf{u}$)}
   \end{aligned}
   $$
 
-  The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) inverts the [exponential function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function), so $\natparam = \logf{\mean}$.
+  The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) inverts the [exponential function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function),
+  so $\natparam = \logf{\mean}$.
   The [canonical link function](#def-canonical-link) is the logarithm.
 
 - **[Bernoulli distribution](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli).**
-  In @exm-bernoulli-exponential-family, $\logpartitionf{\natparam} = \logf{1 + \expf{\natparam}}$, so
+  In @exm-bernoulli-exponential-family, $\logpartitionf{\natparam} = \logf{1 + \expf{\natparam}}$,
+  so the mean is:
 
   $$
   \begin{aligned}
   \mean
   &= \dif{\logpartitionf{\natparam}}{\natparam}
-  && \text{(@thm-log-partition-mean)}\\
+  && \text{(the mean is the derivative of the log-partition function)}\\
   &= \frac{\expf{\natparam}}{1 + \expf{\natparam}}
   && \text{(chain rule: the derivative of } \logf{u} \text{ is } 1/u \text{ times the derivative of } u \text{)}
   \end{aligned}
