@@ -1,0 +1,18 @@
+:::{#def-canonical-link}
+#### Canonical link function
+
+Let $\Rvar$ have a [distribution](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) in an [exponential family](#def-exponential-family)
+with [natural parameter](#def-natural-parameter) $\natparam$,
+[statistic](sufficiency.qmd#def-statistic) $\statf{\rvar} = \rvar$,
+and log-partition function $\logpartition$.
+By @thm-log-partition-mean,
+the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of $\Rvar$ is
+$\mean = \dif{\logpartitionf{\natparam}}{\natparam}$.
+The **canonical link function** is the function that takes the mean to the natural parameter,
+the [inverse function](https://morrison-lab.github.io/mcs/functions.html#def-inverse-function) of that [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative):
+
+$$
+\natparam = \inv{\dif{\logpartition}{\natparam}}\paren{\mean}.
+$$
+
+:::
