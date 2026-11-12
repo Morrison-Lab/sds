@@ -73,6 +73,10 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/prediction/_rem-prediction-error-expected.qmd >}}
+
+{{< slidebreak >}}
+
 # Sample mean squared error of predictions {#sec-prediction-mse}
 
 <!-- No slidebreak here: the heading shares its slide with the def-prediction-mse div. -->
