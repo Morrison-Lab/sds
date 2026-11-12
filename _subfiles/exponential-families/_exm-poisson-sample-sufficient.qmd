@@ -1,0 +1,72 @@
+:::{#exm-poisson-sample-sufficient}
+#### Two Poisson samples with the same sum have a likelihood ratio free of the rate
+
+<!-- no-figure: the example compares four ratios computed from two samples -->
+
+By @thm-exponential-family-sufficient,
+the sum of the counts is sufficient for the natural parameter of the
+[Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson).
+So two samples with the same sum differ in their joint mass functions
+only by a factor that does not depend on the parameter.
+To check this on data,
+we take the first three cyclone counts of @exm-poisson-exponential-family, 6, 5 and 4,
+and the three equal counts 5, 5 and 5.
+Both samples sum to 15.
+We compute the ratio of their joint mass functions at four values of the rate $\rate$.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: poisson-sample-sufficient-r
+#| code-fold: false
+sample_a <- c(6, 5, 4)
+sample_b <- c(5, 5, 5)
+
+joint_mass <- function(x, rate) {
+  masses <- dpois(x, rate)
+  prod(masses)
+}
+
+rates <- c(2, 4, 6, 8)
+masses_a <- purrr::map_dbl(rates, \(r) joint_mass(sample_a, r))
+masses_b <- purrr::map_dbl(rates, \(r) joint_mass(sample_b, r))
+ratio <- masses_a / masses_b
+
+tibble::tibble(rates, masses_a, masses_b, ratio)
+```
+
+##### Python
+
+```{python}
+#| label: poisson-sample-sufficient-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+from scipy.stats import poisson
+
+sample_a = np.array([6, 5, 4])
+sample_b = np.array([5, 5, 5])
+
+rates = np.array([2, 4, 6, 8])
+masses_a = [np.prod(poisson.pmf(sample_a, r)) for r in rates]
+masses_b = [np.prod(poisson.pmf(sample_b, r)) for r in rates]
+ratio = np.array(masses_a) / np.array(masses_b)
+
+pd.DataFrame(
+    {
+        "rates": rates,
+        "masses_a": masses_a,
+        "masses_b": masses_b,
+        "ratio": ratio,
+    }
+)
+```
+
+:::
+
+The ratio is `r round(ratio[1], 4)` at every rate,
+which is the ratio of the products of factorials,
+$\paren{5!}^3 / \paren{6! \, 5! \, 4!}$.
+:::

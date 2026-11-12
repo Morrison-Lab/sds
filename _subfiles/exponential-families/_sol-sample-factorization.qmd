@@ -1,0 +1,28 @@
+:::{#sol-sample-factorization}
+
+The observations are independent, so the joint mass function is the product of the individual mass functions.
+Each factor has the form of @eq-exponential-family:
+
+$$
+\begin{aligned}
+\pdf\paren{\vx ; \natparam}
+&= \prod_{i=1}^n \pdf\paren{\rvar_\iobs ; \natparam}
+&& \text{(independent observations)}\\
+&= \prod_{i=1}^n \basemeasuref{\rvar_\iobs} \, \expf{\natparam \, \statf{\rvar_\iobs} - \logpartitionf{\natparam}}
+&& \text{(definition of an exponential family)}\\
+&= \prod_{i=1}^n \basemeasuref{\rvar_\iobs} \prod_{i=1}^n \expf{\natparam \, \statf{\rvar_\iobs} - \logpartitionf{\natparam}}
+&& \text{(the product of products is the product of the products)}\\
+&= \prod_{i=1}^n \basemeasuref{\rvar_\iobs} \, \expf{\sumin \paren{\natparam \, \statf{\rvar_\iobs} - \logpartitionf{\natparam}}}
+&& \text{(the product of exponentials is the exponential of the sum)}\\
+&= \prod_{i=1}^n \basemeasuref{\rvar_\iobs} \, \expf{\sumin \natparam \, \statf{\rvar_\iobs} - \sumin \logpartitionf{\natparam}}
+&& \text{(the sum of a difference is the difference of the sums)}\\
+&= \prod_{i=1}^n \basemeasuref{\rvar_\iobs} \, \expf{\natparam \sumin \statf{\rvar_\iobs} - \sumin \logpartitionf{\natparam}}
+&& \text{(a factor free of the index moves out of the sum)}\\
+&= \prod_{i=1}^n \basemeasuref{\rvar_\iobs} \, \expf{\natparam \sumin \statf{\rvar_\iobs} - n \, \logpartitionf{\natparam}}
+&& \text{(a sum of } n \text{ equal terms is } n \text{ times the term)}\\
+&= \expf{\natparam \sumin \statf{\rvar_\iobs} - n \, \logpartitionf{\natparam}} \prod_{i=1}^n \basemeasuref{\rvar_\iobs}
+&& \text{(multiplication is commutative)}
+\end{aligned}
+$$
+
+:::

@@ -1,0 +1,22 @@
+:::{#thm-exponential-family-sufficient}
+#### The sum of the statistic is sufficient in an exponential family
+
+Let $\dsn{X} \siid \pdf\paren{\rvar ; \natparam}$ be a sample of a
+[discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
+whose distribution is in an [exponential family](#def-exponential-family)
+with [natural parameter](#def-natural-parameter) $\natparam$
+and [statistic](sufficiency.qmd#def-statistic) $\stat$.
+Then the sum $\sumin \statf{\Rvar_\iobs}$ is
+[sufficient](sufficiency.qmd#def-sufficient) for $\natparam$.
+
+:::
+
+::: proof
+
+The solution to @exr-sample-factorization,
+worked in @sol-sample-factorization,
+writes the joint mass function as a function of $\natparam$ and the sum, times a function of the sample alone.
+That is the form of the [factorization theorem](sufficiency.qmd#thm-factorization),
+which proves the statement.
+
+:::

@@ -1,0 +1,16 @@
+:::{#exr-sample-factorization}
+#### The joint mass function of an exponential family sample factors through the sum of the statistic
+
+Let $\dsn{X} \siid \pdf\paren{\rvar ; \natparam}$ be a sample of a
+[discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
+whose [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf)
+has the form of @eq-exponential-family.
+Show that the joint mass function of the sample is
+
+$$
+\pdf\paren{\vx ; \natparam}
+= \expf{\natparam \sumin \statf{\rvar_\iobs} - n \, \logpartitionf{\natparam}}
+\prod_{i=1}^n \basemeasuref{\rvar_\iobs}.
+$$
+
+:::
