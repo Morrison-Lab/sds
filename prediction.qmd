@@ -73,6 +73,14 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/prediction/_def-squared-prediction-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_exm-squared-prediction-error.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/prediction/_rem-prediction-error-expected.qmd >}}
 
 {{< slidebreak >}}
