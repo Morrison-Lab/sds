@@ -3,8 +3,8 @@
 
 The prediction in @def-prediction-error can be a [fitted value](#def-fitted-value),
 for an observation used to fit the model,
-or a prediction for an observation that was not used to fit the model.
-Prediction error is oriented the same way as
+or a [prediction](#def-prediction) for an observation that was not used to fit the model.
+[Prediction error](#def-prediction-error) is oriented the same way as
 [estimation error](estimation.qmd#def-estimation-error):
 estimate minus true value.
 
@@ -18,7 +18,7 @@ $$
 $$
 
 For a fitted value,
-the prediction error is the negative of the residual
+the prediction error is the negative of the [residual](#def-residual)
 (@thm-prediction-error-residual),
 so the two differ only in orientation.
 
