@@ -18,7 +18,7 @@ whose log-density is linear in $x$;
 for every such family, the score with respect to the mean
 is $(x - \E{X})/\Var{X}$.
 Other members of the broader
-[exponential family](https://en.wikipedia.org/wiki/Exponential_family),
+[exponential family](exponential-families.qmd#def-exponential-family),
 such as the Weibull distribution with known shape $k \ne 1$,
 do not have this form.
 Exponential-family distributions share many special properties
