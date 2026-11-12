@@ -26,14 +26,23 @@ We divide the joint mass function of the first set by that of the second at four
 sample_a <- c(6, 5, 4)
 sample_b <- c(5, 5, 5)
 
-joint_mass <- function(x, rate) {
-  masses <- dpois(x, rate)
-  prod(masses)
-}
-
 rates <- c(2, 4, 6, 8)
-masses_a <- purrr::map_dbl(rates, \(r) joint_mass(sample_a, r))
-masses_b <- purrr::map_dbl(rates, \(r) joint_mass(sample_b, r))
+n_obs <- length(sample_a)
+n_rates <- length(rates)
+
+counts_a <- rep(sample_a, times = n_rates)
+counts_b <- rep(sample_b, times = n_rates)
+rates_rep <- rep(rates, each = n_obs)
+
+log_mass_a <- dpois(counts_a, rates_rep, log = TRUE)
+log_mass_b <- dpois(counts_b, rates_rep, log = TRUE)
+log_matrix_a <- matrix(log_mass_a, nrow = n_obs)
+log_matrix_b <- matrix(log_mass_b, nrow = n_obs)
+
+log_joint_a <- colSums(log_matrix_a)
+log_joint_b <- colSums(log_matrix_b)
+masses_a <- exp(log_joint_a)
+masses_b <- exp(log_joint_b)
 ratio <- masses_a / masses_b
 
 tibble::tibble(rates, masses_a, masses_b, ratio)
