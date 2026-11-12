@@ -83,6 +83,22 @@ and checks the form for the [Poisson distribution](https://morrison-lab.github.i
 
 {{< include sds/_subfiles/exponential-families/_exm-poisson-log-partition-mean.qmd >}}
 
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exponential-families/_exr-log-partition-second-derivative.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exponential-families/_sol-log-partition-second-derivative.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exponential-families/_thm-log-partition-variance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exponential-families/_exm-poisson-log-partition-variance.qmd >}}
+
 # Further reading {#sec-exponential-families-reading}
 
 - The [Fall 2024 course site for UC Berkeley's Stat 210A, *Theoretical Statistics*](https://stat210a.berkeley.edu/fall-2024/) (Will Fithian) has a course reader on exponential families, sufficiency, completeness and [unbiased](estimation.qmd#def-unbiased) estimation.

@@ -1,0 +1,24 @@
+:::{#thm-log-partition-variance}
+#### The variance of the statistic is the second derivative of the log-partition function
+
+Let $\Rvar$ have a [distribution](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) in an [exponential family](#def-exponential-family)
+with [natural parameter](#def-natural-parameter) $\natparam$,
+[statistic](sufficiency.qmd#def-statistic) $\stat$,
+and log-partition function $\logpartition$,
+and let $\natparam$ be in the interior of the allowed values.
+Then
+
+$$
+\Var{\statf{\Rvar}} = \dif{^2 \logpartitionf{\natparam}}{\natparam^2}.
+$$
+
+:::
+
+::: proof
+
+The solution to @exr-log-partition-second-derivative,
+worked in @sol-log-partition-second-derivative,
+proves the statement.
+It uses @thm-log-partition-mean.
+
+:::

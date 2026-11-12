@@ -1,0 +1,58 @@
+:::{#sol-log-partition-second-derivative}
+
+The left side of @exr-log-partition-second-derivative differentiates to the [second derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-second-derivative) of $\logpartitionf{\natparam}$.
+On the right side,
+the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) moves inside the [integral](https://morrison-lab.github.io/mds/measures-integrals.html#def-integral),
+where only the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) depends on $\natparam$:
+
+$$
+\begin{aligned}
+\dif{}{\natparam} \int \statf{\rvar} \, \pdf\paren{\rvar ; \natparam} \, d\rvar
+&= \int \statf{\rvar} \, \dif{\pdf\paren{\rvar ; \natparam}}{\natparam} \, d\rvar
+&& \text{(the derivative of the integral is the integral of the derivative)}
+\end{aligned}
+$$
+
+The derivative of the density follows from its form in @eq-exponential-family:
+
+$$
+\begin{aligned}
+\dif{\pdf\paren{\rvar ; \natparam}}{\natparam}
+&= \dif{}{\natparam} \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar} - \logpartitionf{\natparam}}
+&& \text{(definition of an exponential family)}\\
+&= \basemeasuref{\rvar} \, \expf{\natparam \, \statf{\rvar} - \logpartitionf{\natparam}} \, \dif{\paren{\natparam \, \statf{\rvar} - \logpartitionf{\natparam}}}{\natparam}
+&& \text{(chain rule)}\\
+&= \pdf\paren{\rvar ; \natparam} \, \dif{\paren{\natparam \, \statf{\rvar} - \logpartitionf{\natparam}}}{\natparam}
+&& \text{(definition of an exponential family)}\\
+&= \pdf\paren{\rvar ; \natparam} \, \paren{\statf{\rvar} - \dif{\logpartitionf{\natparam}}{\natparam}}
+&& \text{(the derivative of a difference is the difference of the derivatives)}
+\end{aligned}
+$$
+
+Substituting this derivative into the integral gives
+
+$$
+\begin{aligned}
+\int \statf{\rvar} \, \dif{\pdf\paren{\rvar ; \natparam}}{\natparam} \, d\rvar
+&= \int \statf{\rvar} \, \pdf\paren{\rvar ; \natparam} \, \paren{\statf{\rvar} - \dif{\logpartitionf{\natparam}}{\natparam}} \, d\rvar
+&& \text{(substitute the derivative of the density)}\\
+&= \int \paren{\sqf{\statf{\rvar}} \, \pdf\paren{\rvar ; \natparam} - \dif{\logpartitionf{\natparam}}{\natparam} \, \statf{\rvar} \, \pdf\paren{\rvar ; \natparam}} \, d\rvar
+&& \text{(distribute the product over the difference)}\\
+&= \int \sqf{\statf{\rvar}} \, \pdf\paren{\rvar ; \natparam} \, d\rvar - \int \dif{\logpartitionf{\natparam}}{\natparam} \, \statf{\rvar} \, \pdf\paren{\rvar ; \natparam} \, d\rvar
+&& \text{(the integral of a difference is the difference of the integrals)}\\
+&= \int \sqf{\statf{\rvar}} \, \pdf\paren{\rvar ; \natparam} \, d\rvar - \dif{\logpartitionf{\natparam}}{\natparam} \int \statf{\rvar} \, \pdf\paren{\rvar ; \natparam} \, d\rvar
+&& \text{(a factor free of the integration variable moves out of the integral)}\\
+&= \E{\sqf{\statf{\Rvar}}} - \dif{\logpartitionf{\natparam}}{\natparam} \, \E{\statf{\Rvar}}
+&& \text{(definition of the expectation)}\\
+&= \E{\sqf{\statf{\Rvar}}} - \sqf{\E{\statf{\Rvar}}}
+&& \text{(the derivative of the log-partition function is the mean of the statistic)}\\
+&= \Var{\statf{\Rvar}}
+&& \text{(the second moment is the variance plus the squared mean)}
+\end{aligned}
+$$
+
+The last line rearranges the second moment of $\statf{\Rvar}$,
+which is its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) plus the [square](https://morrison-lab.github.io/mds/algebra-basics.html#def-square) of its [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation).
+Equating the two sides of @exr-log-partition-second-derivative gives the result.
+
+:::
