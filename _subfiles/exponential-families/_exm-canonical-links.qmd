@@ -1,0 +1,20 @@
+:::{#exm-canonical-links}
+#### The canonical links of the Poisson and Bernoulli distributions
+
+<!-- no-figure: the example derives two functions algebraically -->
+
+For the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) of @exm-poisson-exponential-family,
+$\logpartitionf{\natparam} = \expf{\natparam}$,
+so the mean is $\mean = \dif{\logpartitionf{\natparam}}{\natparam} = \expf{\natparam}$.
+Solving for $\natparam$ gives $\natparam = \logf{\mean}$,
+so the canonical link function is the logarithm.
+
+For the [Bernoulli distribution](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) of @exm-bernoulli-exponential-family,
+$\logpartitionf{\natparam} = \logf{1 + \expf{\natparam}}$,
+so the mean is
+$\mean = \dif{\logpartitionf{\natparam}}{\natparam} = \expf{\natparam} / \paren{1 + \expf{\natparam}}$,
+which is the success [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\prob$.
+Solving for $\natparam$ gives $\natparam = \logf{\mean / \paren{1 - \mean}}$,
+so the canonical link function is the [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds) function,
+the logit.
+:::
