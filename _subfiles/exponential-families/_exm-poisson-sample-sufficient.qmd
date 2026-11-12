@@ -1,18 +1,20 @@
 :::{#exm-poisson-sample-sufficient}
-#### Two Poisson samples with the same sum have a likelihood ratio free of the rate
+#### Two sets of Poisson counts with the same total have a mass function quotient free of the parameter
 
-<!-- no-figure: the example compares four ratios computed from two samples -->
+<!-- no-figure: the example compares four quotients computed from two sets of counts -->
 
 By @thm-exponential-family-sufficient,
-the sum of the counts is sufficient for the natural parameter of the
+the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) of the counts is
+[sufficient](sufficiency.qmd#def-sufficient) for the [natural parameter](#def-natural-parameter) of the
 [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson).
-So two samples with the same sum differ in their joint mass functions
+So two sets of counts with the same total differ in their joint
+[mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf)
 only by a factor that does not depend on the parameter.
 To check this on data,
 we take the first three cyclone counts of @exm-poisson-exponential-family, 6, 5 and 4,
 and the three equal counts 5, 5 and 5.
-Both samples sum to 15.
-We compute the ratio of their joint mass functions at four values of the rate $\rate$.
+Both sets total 15.
+We divide the joint mass function of the first set by that of the second at four values of $\rate$.
 
 ::: {.panel-tabset group="language"}
 
@@ -66,7 +68,7 @@ pd.DataFrame(
 
 :::
 
-The ratio is `r round(ratio[1], 4)` at every rate,
-which is the ratio of the products of factorials,
-$\paren{5!}^3 / \paren{6! \, 5! \, 4!}$.
+The quotient is `r round(ratio[1], 4)` at every value of $\rate$,
+and equals $\paren{5!}^3 / \paren{6! \, 5! \, 4!}$,
+which is free of $\rate$.
 :::

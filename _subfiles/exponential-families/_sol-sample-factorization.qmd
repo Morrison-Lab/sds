@@ -1,6 +1,9 @@
 :::{#sol-sample-factorization}
 
-The observations are independent, so the joint mass function is the product of the individual mass functions.
+The [observations](exploratory-descriptive.qmd#def-observation) are
+[independent](https://morrison-lab.github.io/pds/independence.html#def-independence),
+so the joint [mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf)
+multiplies the individual mass functions.
 Each factor has the form of @eq-exponential-family:
 
 $$
