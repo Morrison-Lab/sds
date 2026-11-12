@@ -1,7 +1,7 @@
 ::: {#rem-prediction-error-expected}
 #### Expected squared prediction error
 
-The [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the squared [prediction error](#def-prediction-error)
+The [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [squared prediction error](#def-squared-prediction-error) $\sqprederr$
 for a [new observation](model-validation.qmd#def-new-observation)
 at a given [covariate](model-validation.qmd#def-covariate) value
 is the [expected squared prediction error](model-validation.qmd#def-epe).
