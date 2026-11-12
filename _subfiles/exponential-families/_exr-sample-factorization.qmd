@@ -11,7 +11,7 @@ Show that the joint [mass function](https://morrison-lab.github.io/pds/random-va
 $$
 \pdf\paren{\vx ; \natparam}
 = \expf{\natparam \sumin \statf{\rvar_\iobs} - n \, \logpartitionf{\natparam}}
-\prod_{i=1}^n \basemeasuref{\rvar_\iobs}.
+\prodin \basemeasuref{\rvar_\iobs}.
 $$
 
 :::
