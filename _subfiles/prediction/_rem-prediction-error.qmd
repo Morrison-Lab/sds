@@ -21,4 +21,9 @@ For a fitted value,
 the prediction error is the negative of the residual
 (@thm-prediction-error-residual),
 so the two differ only in orientation.
+
+The expected value of the squared prediction error
+for a [new observation](model-validation.qmd#def-new-observation)
+at a given [covariate](model-validation.qmd#def-covariate) value
+is the [expected squared prediction error](model-validation.qmd#def-epe).
 :::
