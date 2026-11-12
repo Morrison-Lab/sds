@@ -21,7 +21,7 @@ worked in @sol-sample-factorization,
 writes the joint [mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf)
 as a function of $\natparam$ and the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation),
 times a function of the data alone.
-That is the form of the [factorization theorem](sufficiency.qmd#thm-factorization),
+That form is the one in the [factorization theorem](sufficiency.qmd#thm-factorization),
 which proves the statement.
 
 :::

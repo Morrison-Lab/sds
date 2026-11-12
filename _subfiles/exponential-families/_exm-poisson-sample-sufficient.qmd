@@ -10,9 +10,9 @@ the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) of
 So two sets of counts with the same sum differ in their joint
 [mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf)
 only by a factor that does not depend on the parameter.
-To check this on data,
+To check the theorem on data,
 we take the first three cyclone counts of @exm-poisson-exponential-family, 6, 5 and 4,
-and the three equal counts 5, 5 and 5.
+and the counts 5, 5 and 5.
 Each set adds up to 15.
 We divide the joint mass function of the first set by that of the second at four values of $\rate$.
 
