@@ -6,7 +6,7 @@ Let $\dsn{X} \siid \pdf\paren{\rvar ; \natparam}$ be a
 [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
 whose [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf)
 has the form of @eq-exponential-family.
-Show that the joint mass function of the sample is
+Show that the joint [mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) of the sample is
 
 $$
 \pdf\paren{\vx ; \natparam}

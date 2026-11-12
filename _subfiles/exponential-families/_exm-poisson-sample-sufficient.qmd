@@ -7,7 +7,7 @@ By @thm-exponential-family-sufficient,
 the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) of the counts is
 [sufficient](sufficiency.qmd#def-sufficient) for the [natural parameter](#def-natural-parameter) of the
 [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson).
-So two sets of counts with the same total differ in their joint
+So two sets of counts with the same sum differ in their joint
 [mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf)
 only by a factor that does not depend on the parameter.
 To check this on data,
@@ -68,7 +68,8 @@ pd.DataFrame(
 
 :::
 
-The quotient is `r round(ratio[1], 4)` at every value of $\rate$,
-and equals $\paren{5!}^3 / \paren{6! \, 5! \, 4!}$,
-which is free of $\rate$.
+At every value of $\rate$,
+the first [mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf)
+is `r round(ratio[1], 4)` times the second.
+That factor is $\paren{5!}^3 / \paren{6! \, 5! \, 4!}$, which is free of $\rate$.
 :::
