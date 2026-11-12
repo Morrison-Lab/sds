@@ -169,6 +169,16 @@ format:
 - [Hua Zhou](https://hua-zhou.github.io/)'s [course page for "UCLA Biostat 257 - Statistical Computing" (2025 Spring)](https://ucla-biostat-257.github.io/2025spring/)
   has lectures on fitting generalized linear models and on quasi-Newton optimization.
   Its source is [on GitHub](https://github.com/ucla-biostat-257/2025spring) under the MIT License.
+- David Rocke's EPI 204 lecture
+  [*Logistic Regression and Likelihood*](https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-2021-04-01.mp4)
+  ([slides](https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-2%20Logistic%20Regression%20and%20Likelihood.pdf))
+  fits [logistic regression](#def-logistic-regression) by [maximum likelihood](intro-MLEs.qmd#def-mle)
+  and compares models by [deviance](#def-deviance) and [AIC](model-validation.qmd#def-aic)
+  [@rocke2021epi204].
+- Josh Starmer's StatQuest video
+  [*Logistic Regression Details Pt 2: Maximum Likelihood*](https://www.youtube.com/watch?v=BfKanl1aSG0)
+  shows how [maximum likelihood estimation](intro-MLEs.qmd#def-mle) fits a logistic regression curve
+  [@starmer2018logistic].
 
 # References {.unnumbered}
 
