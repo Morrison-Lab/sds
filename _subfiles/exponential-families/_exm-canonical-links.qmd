@@ -15,11 +15,11 @@ then solve for $\natparam$:
   &= \dif{\logpartitionf{\natparam}}{\natparam}
   && \text{(@thm-log-partition-mean)}\\
   &= \expf{\natparam}
-  && \text{(the derivative of the [exponential function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function) is itself)}
+  && \text{(the derivative of $\expf{u}$ is $\expf{u}$)}
   \end{aligned}
   $$
 
-  The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) inverts the exponential function, so $\natparam = \logf{\mean}$.
+  The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) inverts the [exponential function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function), so $\natparam = \logf{\mean}$.
   The [canonical link function](#def-canonical-link) is the logarithm.
 
 - **[Bernoulli distribution](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli).**
@@ -55,5 +55,5 @@ then solve for $\natparam$:
   $$
 
   The canonical link function is the [logit](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds),
-  also called the log odds function.
+  the function that takes a probability to its [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds).
 :::
