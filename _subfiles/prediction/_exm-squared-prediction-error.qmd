@@ -2,7 +2,7 @@
 #### Squared prediction error of one prediction
 <!-- no-figure: a single prediction and outcome; there is nothing to plot -->
 
-For the prediction $\fitted = 7$ of the observed outcome $y = 2$,
+For the [prediction](#def-prediction) $\fitted = 7$ of the observed outcome $y = 2$, <!-- check-term-links: allow: sds defines only the outcome vector, not a single outcome -->
 the [prediction error](#def-prediction-error) is $\prederr = 7 - 2 = 5$,
 so the [squared prediction error](#def-squared-prediction-error) is
 

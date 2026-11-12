@@ -2,8 +2,8 @@
 #### Squared prediction error
 
 The **squared prediction error** $\sqprederr$ of a [prediction](#def-prediction) $\fitted$
-of an observed outcome $y$
-is the square of its [prediction error](#def-prediction-error) $\prederr$:
+of an observed outcome $y$ <!-- check-term-links: allow: sds defines only the outcome vector, not a single outcome -->
+is the [square](https://morrison-lab.github.io/mds/algebra-basics.html#def-square) of its [prediction error](#def-prediction-error) $\prederr$:
 
 $$\sqprederr \eqdef \sqf{\fitted - y}.$$
 :::
