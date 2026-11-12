@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-12 14:03:38 (PST)
+Last modified: 2026-11-12 15:00:14 (PST)
 
 # 1 Introduction
 
@@ -170,7 +170,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 > # the maximum likelihood fit from glm()
 > coef(glm(irls_y ~ irls_x[, 2], family = binomial))
 > #>  (Intercept)  irls_x[, 2] 
-> #> -3.45716e-18  6.93147e-01
+> #> -2.25619e-16  6.93147e-01
 > ```
 >
 > The first step moves the [slope](correlation-regression.llms.md#def-slr-slope) to $0.6667$, which is $2/3$ ([the hand computation](#exr-irls-step)). After six steps the slope is $0.693147$, and [`glm()`](https://rdrr.io/r/stats/glm.html) reports $0.693147$. The slope settles at $\ln 2 = 0.693147$, half the natural logarithm of the [odds ratio](basic-statistical-methods.llms.md#def-odds-ratio) between the treatment group (recovery [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) $2$) and the other group (recovery odds $1/2$), since the groups are coded $\pm 1$.
@@ -521,7 +521,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 # 6 Further reading
 
 - [Hua Zhou](https://hua-zhou.github.io/)’s [course page for “UCLA Biostat 257 - Statistical Computing” (2025 Spring)](https://ucla-biostat-257.github.io/2025spring/) has lectures on fitting generalized linear models and on quasi-Newton optimization. Its source is [on GitHub](https://github.com/ucla-biostat-257/2025spring) under the MIT License.
-- David Rocke’s Epi 204 lecture [*Logistic Regression and Likelihood*](https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-2021-04-01.mp4) ([slides](https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-2%20Logistic%20Regression%20and%20Likelihood.pdf)) fits [logistic regression](#def-logistic-regression) by [maximum likelihood](intro-MLEs.llms.md#def-mle) and compares models by [deviance](#def-deviance) and [AIC](model-validation.llms.md#def-aic) [\[11\]](#ref-rocke2021epi204).
+- David Rocke’s EPI 204 lecture [*Logistic Regression and Likelihood*](https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-2021-04-01.mp4) ([slides](https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-2%20Logistic%20Regression%20and%20Likelihood.pdf)) fits [logistic regression](#def-logistic-regression) by [maximum likelihood](intro-MLEs.llms.md#def-mle) and compares models by [deviance](#def-deviance) and [AIC](model-validation.llms.md#def-aic) [\[11\]](#ref-rocke2021epi204).
 - Josh Starmer’s StatQuest video [*Logistic Regression Details Pt 2: Maximum Likelihood*](https://www.youtube.com/watch?v=BfKanl1aSG0) shows how [maximum likelihood estimation](intro-MLEs.llms.md#def-mle) fits a logistic regression curve [\[12\]](#ref-starmer2018logistic).
 
 # Definitions on this page
@@ -580,7 +580,7 @@ L. Fahrmeir and H. Kaufmann, “Consistency and asymptotic normality of the maxi
 
 \[11\]
 
-D. M. Rocke, “Epi 204 lecture notes, Spring 2021.” University of California, Davis, 2021. Available: <https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-Spring-2021.html>
+D. M. Rocke, “EPI 204 lecture notes, Spring 2021.” University of California, Davis, 2021. Available: <https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-Spring-2021.html>
 
 \[12\]
 
