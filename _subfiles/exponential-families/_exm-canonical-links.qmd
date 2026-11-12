@@ -4,7 +4,7 @@
 <!-- no-figure: the example derives two functions algebraically -->
 
 In each case, @thm-log-partition-mean says the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation)
-is the derivative of the log-partition function,
+is the [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) of the log-partition function,
 so we differentiate it and then solve for $\natparam$:
 
 - **[Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson).**
