@@ -1,0 +1,9 @@
+::: {#def-squared-prediction-error}
+#### Squared prediction error
+
+The **squared prediction error** $\sqprederr$ of a [prediction](#def-prediction) $\fitted$
+of an observed outcome $y$
+is the square of its [prediction error](#def-prediction-error) $\prederr$:
+
+$$\sqprederr \eqdef \sqf{\fitted - y}.$$
+:::
