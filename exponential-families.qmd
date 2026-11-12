@@ -125,7 +125,7 @@ and checks the form for the [Poisson distribution](https://morrison-lab.github.i
 
 # Further reading {#sec-exponential-families-reading}
 
-- The [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) chapter of the regression notes uses the logit link.
+- The [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) chapter of the regression notes uses the [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds) as its link.
   Linear models with a link function are called generalized linear models [@dobson4e, Chapter 3].
 
 - The [Fall 2024 course site for UC Berkeley's Stat 210A, *Theoretical Statistics*](https://stat210a.berkeley.edu/fall-2024/) (Will Fithian) has a course reader on exponential families, sufficiency, completeness and [unbiased](estimation.qmd#def-unbiased) estimation.
