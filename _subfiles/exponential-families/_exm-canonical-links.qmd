@@ -55,5 +55,5 @@ then solve for $\natparam$:
   $$
 
   The canonical link function is the [logit](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds),
-  the function that takes a probability to its [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds).
+  the function that takes a [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) to its [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds).
 :::
