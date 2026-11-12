@@ -3,18 +3,57 @@
 
 <!-- no-figure: the example derives two functions algebraically -->
 
-For the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) of @exm-poisson-exponential-family,
-$\logpartitionf{\natparam} = \expf{\natparam}$,
-so the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) is $\mean = \dif{\logpartitionf{\natparam}}{\natparam} = \expf{\natparam}$.
-Solving for $\natparam$ gives $\natparam = \logf{\mean}$,
-so the [canonical link function](#def-canonical-link) is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
+In each case, we differentiate the log-partition function to get the [mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation),
+then solve for $\natparam$:
 
-For the [Bernoulli distribution](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) of @exm-bernoulli-exponential-family,
-$\logpartitionf{\natparam} = \logf{1 + \expf{\natparam}}$,
-so the mean is
-$\mean = \dif{\logpartitionf{\natparam}}{\natparam} = \expf{\natparam} / \paren{1 + \expf{\natparam}}$,
-which is the success [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\prob$.
-Solving for $\natparam$ gives $\natparam = \logf{\mean / \paren{1 - \mean}}$,
-so the canonical link function is the [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds) function,
-also called the [logit](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds).
+- **Poisson distribution.**
+  In @exm-poisson-exponential-family, $\logpartitionf{\natparam} = \expf{\natparam}$, so
+
+  $$
+  \begin{aligned}
+  \mean
+  &= \dif{\logpartitionf{\natparam}}{\natparam}
+  && \text{(@thm-log-partition-mean)}\\
+  &= \expf{\natparam}
+  && \text{(the derivative of the exponential function is itself)}
+  \end{aligned}
+  $$
+
+  The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) inverts the exponential function, so $\natparam = \logf{\mean}$.
+  The [canonical link function](#def-canonical-link) is the logarithm.
+
+- **Bernoulli distribution.**
+  In @exm-bernoulli-exponential-family, $\logpartitionf{\natparam} = \logf{1 + \expf{\natparam}}$, so
+
+  $$
+  \begin{aligned}
+  \mean
+  &= \dif{\logpartitionf{\natparam}}{\natparam}
+  && \text{(@thm-log-partition-mean)}\\
+  &= \frac{\expf{\natparam}}{1 + \expf{\natparam}}
+  && \text{(chain rule: the derivative of } \logf{u} \text{ is } 1/u \text{ times the derivative of } u \text{)}
+  \end{aligned}
+  $$
+
+  We solve this equation for $\natparam$, one operation per line:
+
+  $$
+  \begin{aligned}
+  \mean \paren{1 + \expf{\natparam}} &= \expf{\natparam}
+  && \text{(multiply both sides by } 1 + \expf{\natparam} \text{)}\\
+  \mean + \mean \, \expf{\natparam} &= \expf{\natparam}
+  && \text{(distribute } \mean \text{ over the sum)}\\
+  \mean &= \expf{\natparam} - \mean \, \expf{\natparam}
+  && \text{(subtract } \mean \, \expf{\natparam} \text{ from both sides)}\\
+  \mean &= \expf{\natparam} \paren{1 - \mean}
+  && \text{(factor out } \expf{\natparam} \text{)}\\
+  \expf{\natparam} &= \frac{\mean}{1 - \mean}
+  && \text{(divide both sides by } 1 - \mean \text{)}\\
+  \natparam &= \logf{\frac{\mean}{1 - \mean}}
+  && \text{(take the logarithm of both sides)}
+  \end{aligned}
+  $$
+
+  The canonical link function is the [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds) function,
+  also called the logit.
 :::

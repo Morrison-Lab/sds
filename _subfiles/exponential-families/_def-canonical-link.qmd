@@ -12,7 +12,7 @@ The **canonical link function** is the function that takes the mean to the natur
 the [inverse function](https://morrison-lab.github.io/mcs/functions.html#def-inverse-function) of that [derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative):
 
 $$
-\natparam = \inv{\paren{\dif{\logpartition}{\natparam}}}\paren{\mean}.
+\natparam = \inv{\dif{\logpartition}{\natparam}}\paren{\mean}.
 $$
 
 :::
