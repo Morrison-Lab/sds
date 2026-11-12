@@ -172,13 +172,12 @@ format:
 - David Rocke's Epi 204 lecture
   [*Logistic Regression and Likelihood*](https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-2021-04-01.mp4)
   ([slides](https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-2%20Logistic%20Regression%20and%20Likelihood.pdf))
-  covers [maximum likelihood estimation](intro-MLEs.qmd#def-mle) for [logistic regression](#def-logistic-regression),
-  [deviance](#def-deviance),
-  and comparing models with [AIC](model-validation.qmd#def-aic)
+  fits [logistic regression](#def-logistic-regression) by [maximum likelihood](intro-MLEs.qmd#def-mle)
+  and compares models by [deviance](#def-deviance) and [AIC](model-validation.qmd#def-aic)
   [@rocke2021epi204].
 - Josh Starmer's StatQuest video
   [*Logistic Regression Details Pt 2: Maximum Likelihood*](https://www.youtube.com/watch?v=BfKanl1aSG0)
-  shows how maximum likelihood estimation fits a logistic regression curve
+  shows how [maximum likelihood estimation](intro-MLEs.qmd#def-mle) fits a logistic regression curve
   [@starmer2018logistic].
 
 # References {.unnumbered}
