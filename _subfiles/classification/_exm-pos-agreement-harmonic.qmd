@@ -30,6 +30,6 @@ $$ {#eq-exm-pos-agreement-harmonic}
 which matches @exm-positive-agreement.
 The lower positive predictive value (about 0.88)
 pulls the positive agreement down from the sensitivity (0.99),
-as in @exm-harmonic-mean.
+as in [the harmonic mean of 0.5 and 1](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#exm-harmonic-mean).
 
 :::

@@ -199,15 +199,7 @@ format:
 
 # Positive and negative agreement as harmonic means
 
-<!-- No slidebreak here: the heading shares its slide with the def-harmonic-mean div. -->
-
-{{< include sds/_subfiles/classification/_def-harmonic-mean.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/classification/_exm-harmonic-mean.qmd >}}
-
-{{< slidebreak >}}
+<!-- No slidebreak here: the heading shares its slide with the exr-pos-agreement-harmonic div. -->
 
 {{< include sds/_subfiles/classification/_exr-pos-agreement-harmonic.qmd >}}
 

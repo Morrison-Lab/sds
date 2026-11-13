@@ -2,7 +2,7 @@
 #### Negative agreement from NPV and specificity
 
 For an agreement table (@def-agreement-table) with $d > 0$,
-write the [harmonic mean](#def-harmonic-mean)
+write the [harmonic mean](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-harmonic-mean)
 of the estimated negative predictive value and specificity
 (@def-agreement-test-measures)
 in terms of the table's cells.

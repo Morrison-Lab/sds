@@ -2,7 +2,7 @@
 #### Positive agreement from PPV and sensitivity
 
 For an agreement table (@def-agreement-table) with $a > 0$,
-write the [harmonic mean](#def-harmonic-mean)
+write the [harmonic mean](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-harmonic-mean)
 of the estimated positive predictive value and sensitivity
 (@def-agreement-test-measures)
 in terms of the table's cells.
