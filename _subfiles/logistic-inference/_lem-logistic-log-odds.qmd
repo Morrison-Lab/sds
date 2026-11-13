@@ -1,0 +1,53 @@
+::: {#lem-logistic-log-odds}
+#### The log-odds in a logistic regression model
+
+In the [logistic regression model](#def-logistic-regression) of @eq-logistic-model,
+the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds) of $\Outvar = 1$ at [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vector $\vpredvar$ are
+
+$$
+\logoddsf{\vpredvar} = \dprod{\vcoef}{\vpredvar}.
+$$
+
+:::
+
+::: proof
+
+Write $u \eqdef \dprod{\vcoef}{\vpredvar}$ and $\prob \eqdef \sigmoidf{u}$, so that
+
+$$
+\ba
+1 - \prob
+&= 1 - \frac{1}{1 + \e{-u}}
+&& \text{(the logistic model)}
+\\
+&= \frac{1 + \e{-u}}{1 + \e{-u}} - \frac{1}{1 + \e{-u}}
+&& \text{(write } 1 \text{ over the denominator } 1 + \e{-u} \text{)}
+\\
+&= \frac{\paren{1 + \e{-u}} - 1}{1 + \e{-u}}
+&& \text{(subtract fractions with the same denominator)}
+\\
+&= \frac{\e{-u}}{1 + \e{-u}}.
+&& \text{(} \paren{1 + a} - 1 = a \text{)}
+\ea
+$$
+
+The first step substitutes the model of @eq-logistic-model.
+So the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) are
+
+$$
+\ba
+\frac{\prob}{1 - \prob}
+&= \frac{1 / \paren{1 + \e{-u}}}{\e{-u} / \paren{1 + \e{-u}}}
+&& \text{(the logistic model, and the display for } 1 - \prob \text{)}
+\\
+&= \frac{1}{\e{-u}}
+&& \text{(divide fractions with the same denominator)}
+\\
+&= \e{u},
+&& \text{(} 1 / \e{-u} = \e{u} \text{)}
+\ea
+$$
+
+and the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds) are $\logf{\e{u}} = u = \dprod{\vcoef}{\vpredvar}$.
+
+:::

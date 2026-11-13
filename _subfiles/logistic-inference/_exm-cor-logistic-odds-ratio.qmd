@@ -1,0 +1,21 @@
+::: {#exm-cor-logistic-odds-ratio}
+#### The odds ratio of treatment against control from the group counts
+<!-- no-figure: the example compares two numbers -->
+
+In the [six-patient trial](#exm-logistic-regression), $2$ of the $3$ treated patients and $1$ of the $3$ control patients recovered. <!-- check-term-links: allow: "control" here is a trial arm, not a case-control control -->
+The code computes the [odds ratio](categorical-tests.qmd#def-odds-ratio) of treatment against control from those counts, and the [odds multiplier](#def-odds-multiplier) under the [maximum likelihood fit](intro-MLEs.qmd#def-mle) of $\vpredvar' - \vpredvar = \tp{\paren{1, 1}} - \tp{\paren{1, -1}}$. <!-- check-term-links: allow: "control" here is a trial arm, not a case-control control -->
+
+```{r}
+#| code-fold: false
+# odds ratio from the counts: treated 2 of 3, control 1 of 3
+count_or <- ((2 / 3) / (1 / 3)) / ((1 / 3) / (2 / 3))
+wf_difference <- c(1, 1) - c(1, -1)
+wf_difference_terms <- coef(wf_fit) * wf_difference
+wf_difference_dot <- sum(wf_difference_terms)
+wf_difference_multiplier <- exp(wf_difference_dot)
+c(count_or = count_or, odds_multiplier = wf_difference_multiplier)
+```
+
+Both are $`r round(count_or, 4)`$, as @cor-logistic-odds-ratio states, because the model fits the two group [proportions](https://morrison-lab.github.io/mds/algebra-sums.html#def-proportion) exactly.
+
+:::

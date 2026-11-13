@@ -1,0 +1,23 @@
+::: {#exm-not-odds-multiplier}
+#### The risk ratio is not the odds multiplier
+<!-- no-figure: the example compares two numbers -->
+
+In the [six-patient trial](#exm-logistic-regression), the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of recovery under the [maximum likelihood fit](intro-MLEs.qmd#def-mle) is $2/3$ in the treatment group and $1/3$ in the control group. <!-- check-term-links: allow: "control" here is a trial arm, not a case-control control -->
+The code computes the [risk ratio](categorical-tests.qmd#def-risk-ratio) of treatment against control, <!-- check-term-links: allow: "control" here is a trial arm, not a case-control control -->
+and shows beside it the [odds multiplier](#def-odds-multiplier) of the change $\diff \vpredvar = \tp{\paren{0, 2}}$ from @exm-odds-multiplier.
+
+```{r}
+#| code-fold: false
+# fitted probabilities of recovery: control (x = -1), treatment (x = +1)
+wf_group_codes <- c(-1, 1)
+wf_groups <- tibble::tibble(wf_x = wf_group_codes)
+wf_probs <- predict(wf_fit, wf_groups, type = "response")
+wf_probs <- unname(wf_probs)
+wf_prob_ratio <- wf_probs[2] / wf_probs[1]
+c(risk_ratio = wf_prob_ratio, odds_multiplier = wf_multiplier)
+```
+
+The risk ratio is $`r round(wf_prob_ratio, 4)`$, but the odds multiplier is $`r round(wf_multiplier, 4)`$.
+The odds multiplier compares [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds), $2$ against $1/2$, while the risk ratio compares probabilities.
+
+:::

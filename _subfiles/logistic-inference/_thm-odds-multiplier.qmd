@@ -1,0 +1,51 @@
+::: {#thm-odds-multiplier}
+#### A change in the predictors multiplies the odds by its odds multiplier
+
+Let:
+
+- $\vpredvar$ be a [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vector in the [logistic regression model](#def-logistic-regression) of @eq-logistic-model.
+- $\diff \vpredvar$ be a change in the predictor vector, with first entry $0$.
+- $\vpredvar' \eqdef \vpredvar + \diff \vpredvar$.
+
+Then the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of $\Outvar = 1$ at $\vpredvar'$ are the odds at $\vpredvar$ times the [odds multiplier](#def-odds-multiplier) of $\diff \vpredvar$:
+
+$$
+\oddsf{\vpredvar'} = \oddsf{\vpredvar} \, \oddsfactorf{\diff \vpredvar}.
+$$
+
+:::
+
+::: proof
+
+The [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds) are the [natural logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log) of the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds),
+so the odds at a [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vector are $\e{}$ raised to the log-odds there,
+which @lem-logistic-log-odds gives.
+
+$$
+\ba
+\oddsf{\vpredvar'}
+&= \e{\dprod{\vcoef}{\vpredvar'}}
+&& \text{(log-odds of the model at } \vpredvar' \text{)}
+\\
+&= \e{\dprod{\vcoef}{\paren{\vpredvar + \diff \vpredvar}}}
+&& \text{(definition of } \vpredvar' \text{)}
+\\
+&= \e{\dprod{\vcoef}{\vpredvar} + \dprod{\vcoef}{\diff \vpredvar}}
+&& \text{(the dot product is linear in each slot)}
+\\
+&= \e{\dprod{\vcoef}{\vpredvar}} \, \e{\dprod{\vcoef}{\diff \vpredvar}}
+&& \text{(} \e{a + b} = \e{a} \e{b} \text{)}
+\\
+&= \oddsf{\vpredvar} \, \e{\dprod{\vcoef}{\diff \vpredvar}}
+&& \text{(log-odds of the model at } \vpredvar \text{)}
+\\
+&= \oddsf{\vpredvar} \, \oddsfactorf{\diff \vpredvar}.
+&& \text{(definition of the odds multiplier)}
+\ea
+$$
+
+The first and fifth steps use @lem-logistic-log-odds,
+the third step uses the [linearity of the dot product](https://morrison-lab.github.io/mds/linear-algebra-direct-sums.html#thm-dot-linear),
+and the last step uses @def-odds-multiplier.
+
+:::
