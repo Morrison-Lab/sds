@@ -1,0 +1,33 @@
+::: {#cor-logistic-odds-ratio}
+#### The odds ratio between two predictor vectors
+
+Let $\vpredvar$ and $\vpredvar'$ be [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vectors in the [logistic regression model](#def-logistic-regression) of @eq-logistic-model.
+The [odds ratio](basic-statistical-methods.qmd#def-odds-ratio) of $\vpredvar'$ compared with $\vpredvar$ is the [odds multiplier](#def-odds-multiplier) of their difference:
+
+$$
+\orf{\vpredvar', \vpredvar} = \oddsfactorf{\vpredvar' - \vpredvar}.
+$$
+
+:::
+
+::: proof
+
+Let $\diff \vpredvar \eqdef \vpredvar' - \vpredvar$, so that $\vpredvar' = \vpredvar + \diff \vpredvar$, and the first entry of $\diff \vpredvar$ is $1 - 1 = 0$.
+
+$$
+\ba
+\orf{\vpredvar', \vpredvar}
+&= \frac{\oddsf{\vpredvar'}}{\oddsf{\vpredvar}}
+&& \text{(definition of the odds ratio)}
+\\
+&= \frac{\oddsf{\vpredvar} \, \oddsfactorf{\diff \vpredvar}}{\oddsf{\vpredvar}}
+&& \text{(odds multiplier theorem)}
+\\
+&= \oddsfactorf{\diff \vpredvar}.
+&& \text{(divide numerator and denominator by } \oddsf{\vpredvar} > 0 \text{)}
+\ea
+$$
+
+The first step is the definition of the [odds ratio](basic-statistical-methods.qmd#def-odds-ratio), and the second is @thm-odds-multiplier.
+
+:::

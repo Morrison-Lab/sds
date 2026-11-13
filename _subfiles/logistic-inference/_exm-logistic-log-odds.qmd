@@ -1,0 +1,24 @@
+::: {#exm-logistic-log-odds}
+#### The log-odds of recovery in the six-patient trial
+<!-- no-figure: the example checks one number -->
+
+In the [six-patient trial](#exm-logistic-regression), a treated patient has $\vpredvar = \tp{\paren{1, 1}}$.
+Under the [maximum likelihood fit](intro-MLEs.qmd#def-mle), the code computes the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of recovery, its [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds), and the [dot product](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-dot-product) $\dprod{\hat{\vcoef}}{\vpredvar}$.
+
+```{r}
+#| code-fold: false
+# fitted probability of recovery for a treated patient (x = +1)
+wf_treated_data <- tibble::tibble(wf_x = 1)
+wf_prob_treated <- predict(wf_fit, wf_treated_data, type = "response")
+wf_prob_treated <- unname(wf_prob_treated)
+wf_log_odds_treated <- log(wf_prob_treated / (1 - wf_prob_treated))
+wf_coef <- coef(wf_fit)
+wf_dot_treated <- sum(wf_coef)
+c(prob = wf_prob_treated, log_odds = wf_log_odds_treated, dot = wf_dot_treated)
+```
+
+That probability is $`r round(wf_prob_treated, 4)`$,
+and both the log-odds and the dot product are $`r round(wf_dot_treated, 4)`$,
+as @lem-logistic-log-odds states.
+
+:::

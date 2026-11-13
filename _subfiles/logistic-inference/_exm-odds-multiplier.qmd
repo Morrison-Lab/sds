@@ -1,0 +1,20 @@
+::: {#exm-odds-multiplier}
+#### The odds multiplier of moving from control to treatment
+<!-- no-figure: the example computes a single number -->
+
+In the [six-patient trial](#exm-logistic-regression), moving a patient from the control group ($\predvar = -1$) to the treatment group ($\predvar = +1$) changes the predictor vector by $\diff \vpredvar = \tp{\paren{0, 2}}$. <!-- check-term-links: allow: "control" here is a trial arm, not a case-control control -->
+The code computes the [odds multiplier](#def-odds-multiplier) of that change under the [maximum likelihood fit](intro-MLEs.qmd#def-mle).
+
+```{r}
+#| code-fold: false
+# change in the predictor vector from control to treatment
+wf_change <- c(0, 2)
+wf_change_terms <- coef(wf_fit) * wf_change
+wf_change_dot <- sum(wf_change_terms)
+wf_multiplier <- exp(wf_change_dot)
+wf_multiplier
+```
+
+That odds multiplier is $\e{2 \hcoef{1}} = `r round(wf_multiplier, 4)`$.
+
+:::

@@ -25,6 +25,44 @@ format:
 
 {{< include sds/_subfiles/logistic-inference/_exm-logistic-regression.qmd >}}
 
+# Odds and the coefficients
+
+<!-- No slidebreak here: the heading shares its slide with the lemma. -->
+
+{{< include sds/_subfiles/logistic-inference/_lem-logistic-log-odds.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-logistic-log-odds.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_def-odds-multiplier.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-odds-multiplier.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-not-odds-multiplier.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_thm-odds-multiplier.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-thm-odds-multiplier.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_cor-logistic-odds-ratio.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-cor-logistic-odds-ratio.qmd >}}
+
 # Fitting by iteratively reweighted least squares
 
 <!-- No slidebreak here: the heading shares its slide with the source note. -->
