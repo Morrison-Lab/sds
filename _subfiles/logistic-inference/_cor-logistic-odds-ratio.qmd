@@ -2,7 +2,7 @@
 #### The odds ratio between two predictor vectors
 
 Let $\vpredvar$ and $\vpredvar'$ be [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vectors in the [logistic regression model](#def-logistic-regression) of @eq-logistic-model.
-The [odds ratio](basic-statistical-methods.qmd#def-odds-ratio) of $\vpredvar'$ compared with $\vpredvar$ is the [odds multiplier](#def-odds-multiplier) of their difference:
+The [odds ratio](categorical-tests.qmd#def-odds-ratio) of $\vpredvar'$ compared with $\vpredvar$ is the [odds multiplier](#def-odds-multiplier) of their difference:
 
 $$
 \orf{\vpredvar', \vpredvar} = \oddsfactorf{\vpredvar' - \vpredvar}.
@@ -28,6 +28,6 @@ $$
 \ea
 $$
 
-The first step is the definition of the [odds ratio](basic-statistical-methods.qmd#def-odds-ratio), and the second is @thm-odds-multiplier.
+The first step is the definition of the [odds ratio](categorical-tests.qmd#def-odds-ratio), and the second is @thm-odds-multiplier.
 
 :::

@@ -3,7 +3,7 @@
 <!-- no-figure: the example compares two numbers -->
 
 In the [six-patient trial](#exm-logistic-regression), $2$ of the $3$ treated patients and $1$ of the $3$ control patients recovered. <!-- check-term-links: allow: "control" here is a trial arm, not a case-control control -->
-The code computes the [odds ratio](basic-statistical-methods.qmd#def-odds-ratio) of treatment against control from those counts, and the [odds multiplier](#def-odds-multiplier) under the [maximum likelihood fit](intro-MLEs.qmd#def-mle) of $\vpredvar' - \vpredvar = \tp{\paren{1, 1}} - \tp{\paren{1, -1}}$. <!-- check-term-links: allow: "control" here is a trial arm, not a case-control control -->
+The code computes the [odds ratio](categorical-tests.qmd#def-odds-ratio) of treatment against control from those counts, and the [odds multiplier](#def-odds-multiplier) under the [maximum likelihood fit](intro-MLEs.qmd#def-mle) of $\vpredvar' - \vpredvar = \tp{\paren{1, 1}} - \tp{\paren{1, -1}}$. <!-- check-term-links: allow: "control" here is a trial arm, not a case-control control -->
 
 ```{r}
 #| code-fold: false
