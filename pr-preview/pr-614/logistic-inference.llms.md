@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-12 17:36:09 (PST)
+Last modified: 2026-11-12 18:12:48 (PST)
 
 # 1 Introduction
 
@@ -139,7 +139,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Example 4 (The risk ratio is not the odds multiplier)**  
 >
-> In the [six-patient trial](#exm-logistic-regression), the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of recovery under the [maximum likelihood fit](intro-MLEs.llms.md#def-mle) is $2/3$ in the treatment group and $1/3$ in the control group. The code computes the [risk ratio](basic-statistical-methods.llms.md#def-risk-ratio) of treatment against control, and shows beside it the [odds multiplier](#def-odds-multiplier) of the change $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= {\mathopen{}\left(0, 2\right)\mathclose{}}^{\top}$ from [Example 3](#exm-odds-multiplier).
+> In the [six-patient trial](#exm-logistic-regression), the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of recovery under the [maximum likelihood fit](intro-MLEs.llms.md#def-mle) is $2/3$ in the treatment group and $1/3$ in the control group. The code computes the [risk ratio](categorical-tests.llms.md#def-risk-ratio) of treatment against control, and shows beside it the [odds multiplier](#def-odds-multiplier) of the change $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= {\mathopen{}\left(0, 2\right)\mathclose{}}^{\top}$ from [Example 3](#exm-odds-multiplier).
 >
 > ``` downlit
 > # fitted probabilities of recovery: control (x = -1), treatment (x = +1)
@@ -216,7 +216,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Corollary 1 (The odds ratio between two predictor vectors)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ and $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}'$ be [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vectors in the [logistic regression model](#def-logistic-regression) of [Equation 1](#eq-logistic-model). The [odds ratio](basic-statistical-methods.llms.md#def-odds-ratio) of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}'$ compared with $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ is the [odds multiplier](#def-odds-multiplier) of their difference:
+> **Corollary 1 (The odds ratio between two predictor vectors)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ and $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}'$ be [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vectors in the [logistic regression model](#def-logistic-regression) of [Equation 1](#eq-logistic-model). The [odds ratio](categorical-tests.llms.md#def-odds-ratio) of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}'$ compared with $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ is the [odds multiplier](#def-odds-multiplier) of their difference:
 >
 > $${\text{ϙ}_{\omega}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}', \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}} = {\theta_{\omega}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}' - \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}.$$
 
@@ -236,13 +236,13 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 > && \text{(divide numerator and denominator by } {\operatorname{odds}\mathopen{}\left\{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right\}\mathclose{}} > 0 \text{)}
 > \end{aligned}$$
 >
-> The first step is the definition of the [odds ratio](basic-statistical-methods.llms.md#def-odds-ratio), and the second is [Theorem 1](#thm-odds-multiplier).
+> The first step is the definition of the [odds ratio](categorical-tests.llms.md#def-odds-ratio), and the second is [Theorem 1](#thm-odds-multiplier).
 
 > **NOTE:**
 >
 > **Example 6 (The odds ratio of treatment against control from the group counts)**  
 >
-> In the [six-patient trial](#exm-logistic-regression), $2$ of the $3$ treated patients and $1$ of the $3$ control patients recovered. The code computes the [odds ratio](basic-statistical-methods.llms.md#def-odds-ratio) of treatment against control from those counts, and the [odds multiplier](#def-odds-multiplier) under the [maximum likelihood fit](intro-MLEs.llms.md#def-mle) of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}' - \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= {\mathopen{}\left(1, 1\right)\mathclose{}}^{\top} - {\mathopen{}\left(1, -1\right)\mathclose{}}^{\top}$.
+> In the [six-patient trial](#exm-logistic-regression), $2$ of the $3$ treated patients and $1$ of the $3$ control patients recovered. The code computes the [odds ratio](categorical-tests.llms.md#def-odds-ratio) of treatment against control from those counts, and the [odds multiplier](#def-odds-multiplier) under the [maximum likelihood fit](intro-MLEs.llms.md#def-mle) of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}' - \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= {\mathopen{}\left(1, 1\right)\mathclose{}}^{\top} - {\mathopen{}\left(1, -1\right)\mathclose{}}^{\top}$.
 >
 > ``` downlit
 > # odds ratio from the counts: treated 2 of 3, control 1 of 3

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-12 17:36:09 (PST)
+Last modified: 2026-11-12 18:12:48 (PST)
 
 Before summarizing data, it helps to identify the **type** of each variable, since the appropriate descriptive methods depend on the type. Variables are broadly classified as either **numerical** or **categorical**, and within each class there are important subtypes.
 

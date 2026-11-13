@@ -6849,6 +6849,10 @@
   ],
   [
    "sds/logistic-inference#cor-logistic-odds-ratio",
+   "sds/categorical-tests#def-odds-ratio"
+  ],
+  [
+   "sds/logistic-inference#cor-logistic-odds-ratio",
    "sds/logistic-inference#def-logistic-regression"
   ],
   [
