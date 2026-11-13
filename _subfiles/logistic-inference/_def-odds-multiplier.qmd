@@ -4,12 +4,12 @@
 Let:
 
 - $\vcoef$ be the coefficient vector of a [logistic regression model](#def-logistic-regression).
-- $\diff \vpredvar$ be a change in the [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vector, whose first entry is $0$, because every predictor vector has first entry $1$.
+- $\diffvpredvar$ be a change in the [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vector, whose first entry is $0$, because every predictor vector has first entry $1$.
 
-The **odds multiplier** of $\diff \vpredvar$ is the [exponential](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function) of the [dot product](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-dot-product) of $\vcoef$ with $\diff \vpredvar$:
+The **odds multiplier** of $\diffvpredvar$ is the [exponential](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function) of the [dot product](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-dot-product) of $\vcoef$ with $\diffvpredvar$:
 
 $$
-\oddsfactorf{\diff \vpredvar} \eqdef \e{\dprod{\vcoef}{\diff \vpredvar}}.
+\oddsfactorf{\diffvpredvar} \eqdef \e{\dprod{\vcoef}{\diffvpredvar}}.
 $$
 
 :::

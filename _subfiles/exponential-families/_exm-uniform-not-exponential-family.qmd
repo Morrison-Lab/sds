@@ -1,5 +1,5 @@
 :::{#exm-uniform-not-exponential-family}
-#### The uniform distribution on $[0, \highend]$ is not an exponential family
+#### The uniform distribution on ${[0, \highend]}$ is not an exponential family
 
 <!-- no-figure: the example compares two density values at one point -->
 
