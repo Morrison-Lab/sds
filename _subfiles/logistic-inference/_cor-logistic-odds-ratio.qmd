@@ -12,7 +12,7 @@ $$
 
 ::: proof
 
-Let $\diff \vpredvar \eqdef \vpredvar' - \vpredvar$, so that $\vpredvar' = \vpredvar + \diff \vpredvar$, and the first entry of $\diff \vpredvar$ is $1 - 1 = 0$.
+Let $\diffvpredvar \eqdef \vpredvar' - \vpredvar$, so that $\vpredvar' = \vpredvar + \diffvpredvar$, and the first entry of $\diffvpredvar$ is $1 - 1 = 0$.
 
 $$
 \ba
@@ -20,10 +20,10 @@ $$
 &= \frac{\oddsf{\vpredvar'}}{\oddsf{\vpredvar}}
 && \text{(definition of the odds ratio)}
 \\
-&= \frac{\oddsf{\vpredvar} \, \oddsfactorf{\diff \vpredvar}}{\oddsf{\vpredvar}}
+&= \frac{\oddsf{\vpredvar} \, \oddsfactorf{\diffvpredvar}}{\oddsf{\vpredvar}}
 && \text{(odds multiplier theorem)}
 \\
-&= \oddsfactorf{\diff \vpredvar}.
+&= \oddsfactorf{\diffvpredvar}.
 && \text{(divide numerator and denominator by } \oddsf{\vpredvar} > 0 \text{)}
 \ea
 $$

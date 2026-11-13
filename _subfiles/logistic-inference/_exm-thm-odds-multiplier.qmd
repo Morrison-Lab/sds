@@ -2,9 +2,9 @@
 #### The treated odds from the control odds
 <!-- no-figure: the example checks one product of two numbers -->
 
-In the [six-patient trial](#exm-logistic-regression), take $\vpredvar = \tp{\paren{1, -1}}$, a control patient, and $\diff \vpredvar = \tp{\paren{0, 2}}$, so that $\vpredvar' = \tp{\paren{1, 1}}$ is a treated patient. <!-- check-term-links: allow: "control" here is a trial arm, not a case-control control -->
+In the [six-patient trial](#exm-logistic-regression), take $\vpredvar = \tp{\paren{1, -1}}$, a control patient, and $\diffvpredvar = \tp{\paren{0, 2}}$, so that $\vpredvar' = \tp{\paren{1, 1}}$ is a treated patient. <!-- check-term-links: allow: "control" here is a trial arm, not a case-control control -->
 Under the [maximum likelihood fit](intro-MLEs.qmd#def-mle), the code computes the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of recovery at both [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vectors,
-and the control odds times the [odds multiplier](#def-odds-multiplier) of $\diff \vpredvar$. <!-- check-term-links: allow: "control" here is a trial arm, not a case-control control -->
+and the control odds times the [odds multiplier](#def-odds-multiplier) of $\diffvpredvar$. <!-- check-term-links: allow: "control" here is a trial arm, not a case-control control -->
 
 ```{r}
 #| code-fold: false
