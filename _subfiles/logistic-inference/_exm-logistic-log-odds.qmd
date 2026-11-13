@@ -3,7 +3,7 @@
 <!-- no-figure: the example checks one number -->
 
 In the [six-patient trial](#exm-logistic-regression), a treated patient has $\vpredvar = \tp{\paren{1, 1}}$.
-Under the [maximum likelihood fit](intro-MLEs.qmd#def-mle), the code computes the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of recovery, its [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds), and the [dot product](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-dot-product) $\dprod{\hat{\vcoef}}{\vpredvar}$.
+Under the [maximum likelihood fit](intro-MLEs.qmd#def-mle), the code computes the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of recovery, its [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds), and the [dot product](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-dot-product) $\dprod{\hvcoef}{\vpredvar}$.
 
 ```{r}
 #| code-fold: false

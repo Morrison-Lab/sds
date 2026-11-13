@@ -15,6 +15,6 @@ wf_multiplier <- exp(wf_change_dot)
 wf_multiplier
 ```
 
-That odds multiplier is $\e{2 \hcoef{1}} = `r round(wf_multiplier, 4)`$.
+That odds multiplier is $\e{2 \ecoef{\predvar}} = `r round(wf_multiplier, 4)`$.
 
 :::
