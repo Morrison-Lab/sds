@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-11 03:54:24 (PST)
+Last modified: 2026-11-13 00:22:44 (PST)
 
 # 1 Overview of maximum likelihood estimation
 
@@ -2405,7 +2405,7 @@ $$\ell'= \frac{x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}}}{{\operator
 
 > **NOTE:**
 >
-> *Remark 12* (The score function in natural exponential families). This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in $x$; for every such family, the score with respect to the mean is $(x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}})/{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}$. Other members of the broader [exponential family](https://en.wikipedia.org/wiki/Exponential_family), such as the Weibull distribution with known shape $k \ne 1$, do not have this form. Exponential-family distributions share many special properties [\[1, Ch. 3\]](#ref-dobson4e), [\[7, Sec. 6.7\]](#ref-hoggtanis2015).
+> *Remark 12* (The score function in natural exponential families). This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in $x$; for every such family, the score with respect to the mean is $(x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}})/{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}$. Other members of the broader [exponential family](exponential-families.llms.md#def-exponential-family), such as the Weibull distribution with known shape $k \ne 1$, do not have this form. Exponential-family distributions share many special properties [\[1, Ch. 3\]](#ref-dobson4e), [\[7, Sec. 6.7\]](#ref-hoggtanis2015).
 
 > **NOTE:**
 >
@@ -4484,6 +4484,10 @@ Changing the sample size, the true $\mu$, or $\sigma^2$ in `do_n_sims()` shows h
 >
 > Note: the exponential distribution has ${\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \mu^2$, so ${\operatorname{SE}\mathopen{}\left(\hat\mu_{ML}\right)\mathclose{}} = \mu/\sqrt{n}$, which is estimated by ${\bar{x}}/\sqrt{n}$. More generally, the standard error of a sample mean is ${\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}}/\sqrt{n}$; here the standard error reduces to $\mu/\sqrt{n}$ because ${\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}} = \mu$ for the exponential distribution.
 
+# 7 Further reading
+
+- Josh Starmer’s StatQuest video [*Maximum Likelihood, clearly explained!!!*](https://www.youtube.com/watch?v=XepXtl9YKwc) introduces the idea of [maximum likelihood estimation](#def-mle) [\[28\]](#ref-starmer2017mle).
+
 # Definitions on this page
 
 - [Definition 1 (Likelihood of a single observation)](#def-lik-obs)
@@ -4618,5 +4622,9 @@ J. M. Hoenig and D. M. Heisey, “The abuse of power: The pervasive fallacy of p
 \[27\]
 
 D. G. Kleinbaum, L. L. Kupper, A. Nizam, K. Muller, and E. Rosenberg, *Applied regression analysis and other multivariable methods*, 5th ed. Cengage Learning, 2014. Available: <https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/>
+
+\[28\]
+
+J. Starmer, “Maximum likelihood, clearly explained.” StatQuest, video on YouTube, 2017. Available: <https://www.youtube.com/watch?v=XepXtl9YKwc>
 
 Back to top

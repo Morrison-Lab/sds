@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-11 03:54:24 (PST)
+Last modified: 2026-11-13 00:22:44 (PST)
 
 # 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -150,7 +150,7 @@ Last modified: 2026-11-11 03:54:24 (PST)
 
 > **NOTE:**
 >
-> *Remark 3* (Prediction errors and residuals). The prediction in [Definition 4](#def-prediction-error) can be a [fitted value](#def-fitted-value), for an observation used to fit the model, or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](estimation.llms.md#def-estimation-error): estimate minus true value.
+> *Remark 3* (Prediction errors and residuals). The [prediction](#def-prediction) in [Definition 4](#def-prediction-error) can be a [fitted value](#def-fitted-value), for an [observation](exploratory-descriptive.llms.md#def-observation) used to [fit](model-validation.llms.md#def-fitting-procedure) the [model](model-validation.llms.md#def-fitted-model), or a prediction for an observation that was not used to fit the model. [Prediction error](#def-prediction-error) is oriented the same way as [estimation error](estimation.llms.md#def-estimation-error): estimate minus true value.
 >
 > $$\begin{aligned}
 > {\varepsilon_{\text{pred}}}&= \hat y- y
@@ -159,7 +159,11 @@ Last modified: 2026-11-11 03:54:24 (PST)
 > && \text{(estimation error)}
 > \end{aligned}$$
 >
-> For a fitted value, the prediction error is the negative of the residual ([Theorem 1](#thm-prediction-error-residual)), so the two differ only in orientation.
+> For a fitted value, the prediction error is the negative of the [residual](#def-residual) ([Theorem 1](#thm-prediction-error-residual)), so the two differ only in orientation.
+
+> **NOTE:**
+>
+> *Remark 4* (Expected squared prediction error). The [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the squared [prediction error](#def-prediction-error) for a [new observation](model-validation.llms.md#def-new-observation) at a given [covariate](model-validation.llms.md#def-covariate) value is the [expected squared prediction error](model-validation.llms.md#def-epe).
 
 # 2 Sample mean squared error of predictions
 
@@ -173,7 +177,7 @@ Last modified: 2026-11-11 03:54:24 (PST)
 
 > **NOTE:**
 >
-> *Remark 4* (Prediction sMSE, estimator pMSE and RSS). [Definition 5](#def-prediction-mse) averages squared errors over observations, where the [pMSE of an estimator](estimation.llms.md#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the sMSE of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by $n$ ([sMSE and RSS](correlation-regression.llms.md#thm-mse-rss)):
+> *Remark 5* (Prediction sMSE, estimator pMSE and RSS). [Definition 5](#def-prediction-mse) averages squared errors over observations, where the [pMSE of an estimator](estimation.llms.md#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the sMSE of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by $n$ ([sMSE and RSS](correlation-regression.llms.md#thm-mse-rss)):
 >
 > $${\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} = \frac{1}{n} \text{RSS}(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}),
 > \qquad
@@ -235,7 +239,7 @@ Last modified: 2026-11-11 03:54:24 (PST)
 
 > **NOTE:**
 >
-> *Remark 5* (Estimation versus prediction). Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error (a pMSE for an estimator, an sMSE for predictions), but they aim at different targets:
+> *Remark 6* (Estimation versus prediction). Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error (a pMSE for an estimator, an sMSE for predictions), but they aim at different targets:
 >
 > - **Target.** An [estimate](estimation.llms.md#def-estimate) aims at a fixed, unknown [estimand](estimation.llms.md#def-estimand). A [prediction](#def-prediction) aims at an outcome $y$, which is a random quantity even when the model is known exactly.
 > - **Error.** The [estimation error](estimation.llms.md#def-estimation-error) is the estimate minus the estimand. The [prediction error](#def-prediction-error) is the prediction minus the outcome.

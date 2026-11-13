@@ -14,6 +14,16 @@
    "url": "https://morrison-lab.github.io/mcs/functions.html#def-function"
   },
   {
+   "id": "mcs/functions#def-inverse-function",
+   "site": "mcs",
+   "page": "functions",
+   "div": "def-inverse-function",
+   "kind": "def",
+   "title": "inverse function",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/functions.html#def-inverse-function"
+  },
+  {
    "id": "mcs/sets#def-closed-interval",
    "site": "mcs",
    "page": "sets",
@@ -22,6 +32,16 @@
    "title": "closed interval",
    "external": true,
    "url": "https://morrison-lab.github.io/mcs/sets.html#def-closed-interval"
+  },
+  {
+   "id": "mds/algebra-exponentials#def-exponential-function",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-exponential-function",
+   "kind": "def",
+   "title": "exponential function",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function"
   },
   {
    "id": "mds/algebra-exponentials#def-linear-function",
@@ -72,6 +92,36 @@
    "title": "term",
    "external": true,
    "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-term"
+  },
+  {
+   "id": "mds/calculus-derivatives#def-derivative",
+   "site": "mds",
+   "page": "calculus-derivatives",
+   "div": "def-derivative",
+   "kind": "def",
+   "title": "derivative",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative"
+  },
+  {
+   "id": "mds/linear-algebra-direct-sums#thm-dot-linear",
+   "site": "mds",
+   "page": "linear-algebra-direct-sums",
+   "div": "thm-dot-linear",
+   "kind": "thm",
+   "title": "dot linear",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-direct-sums.html#thm-dot-linear"
+  },
+  {
+   "id": "mds/linear-algebra-vectors#def-dot-product",
+   "site": "mds",
+   "page": "linear-algebra-vectors",
+   "div": "def-dot-product",
+   "kind": "def",
+   "title": "dot product",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-dot-product"
   },
   {
    "id": "mds/linear-algebra-vectors#def-mean",
@@ -162,6 +212,16 @@
    "title": "expectation",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/expectation.html#def-expectation"
+  },
+  {
+   "id": "pds/expectation#def-input",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-input",
+   "kind": "def",
+   "title": "input",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-input"
   },
   {
    "id": "pds/expectation#def-kl-divergence",
@@ -304,6 +364,16 @@
    "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-event"
   },
   {
+   "id": "pds/probability-basics#def-log-odds",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-log-odds",
+   "kind": "def",
+   "title": "log odds",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds"
+  },
+  {
    "id": "pds/probability-basics#def-odds",
    "site": "pds",
    "page": "probability-basics",
@@ -362,6 +432,16 @@
    "title": "continuous rv",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv"
+  },
+  {
+   "id": "pds/random-variables#def-discrete-rv",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-discrete-rv",
+   "kind": "def",
+   "title": "discrete rv",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv"
   },
   {
    "id": "pds/random-variables#def-pdf",
@@ -2431,6 +2511,15 @@
    "external": false
   },
   {
+   "id": "sds/exponential-families#def-canonical-link",
+   "site": "sds",
+   "page": "exponential-families",
+   "div": "def-canonical-link",
+   "kind": "def",
+   "title": "Canonical link function",
+   "external": false
+  },
+  {
    "id": "sds/exponential-families#def-exponential-family",
    "site": "sds",
    "page": "exponential-families",
@@ -2446,6 +2535,33 @@
    "div": "def-natural-parameter",
    "kind": "def",
    "title": "Natural parameter",
+   "external": false
+  },
+  {
+   "id": "sds/exponential-families#thm-exponential-family-sufficient",
+   "site": "sds",
+   "page": "exponential-families",
+   "div": "thm-exponential-family-sufficient",
+   "kind": "thm",
+   "title": "The sum of the statistic is sufficient in an exponential family",
+   "external": false
+  },
+  {
+   "id": "sds/exponential-families#thm-log-partition-mean",
+   "site": "sds",
+   "page": "exponential-families",
+   "div": "thm-log-partition-mean",
+   "kind": "thm",
+   "title": "The mean of the statistic is the derivative of the log-partition function",
+   "external": false
+  },
+  {
+   "id": "sds/exponential-families#thm-log-partition-variance",
+   "site": "sds",
+   "page": "exponential-families",
+   "div": "thm-log-partition-variance",
+   "kind": "thm",
+   "title": "The variance of the statistic is the second derivative of the log-partition function",
    "external": false
   },
   {
@@ -3160,6 +3276,15 @@
    "external": false
   },
   {
+   "id": "sds/logistic-inference#cor-logistic-odds-ratio",
+   "site": "sds",
+   "page": "logistic-inference",
+   "div": "cor-logistic-odds-ratio",
+   "kind": "cor",
+   "title": "The odds ratio between two predictor vectors",
+   "external": false
+  },
+  {
    "id": "sds/logistic-inference#cor-logistic-wald",
    "site": "sds",
    "page": "logistic-inference",
@@ -3214,6 +3339,15 @@
    "external": false
   },
   {
+   "id": "sds/logistic-inference#def-odds-multiplier",
+   "site": "sds",
+   "page": "logistic-inference",
+   "div": "def-odds-multiplier",
+   "kind": "def",
+   "title": "Odds multiplier",
+   "external": false
+  },
+  {
    "id": "sds/logistic-inference#def-pattern-events",
    "site": "sds",
    "page": "logistic-inference",
@@ -3250,6 +3384,15 @@
    "external": false
   },
   {
+   "id": "sds/logistic-inference#lem-logistic-log-odds",
+   "site": "sds",
+   "page": "logistic-inference",
+   "div": "lem-logistic-log-odds",
+   "kind": "lem",
+   "title": "The log-odds in a logistic regression model",
+   "external": false
+  },
+  {
    "id": "sds/logistic-inference#thm-deviance-drop",
    "site": "sds",
    "page": "logistic-inference",
@@ -3274,6 +3417,15 @@
    "div": "thm-logistic-mle-distribution",
    "kind": "thm",
    "title": "Approximate distribution of the fitted coefficients",
+   "external": false
+  },
+  {
+   "id": "sds/logistic-inference#thm-odds-multiplier",
+   "site": "sds",
+   "page": "logistic-inference",
+   "div": "thm-odds-multiplier",
+   "kind": "thm",
+   "title": "A change in the predictors multiplies the odds by its odds multiplier",
    "external": false
   },
   {
@@ -6120,6 +6272,38 @@
    "sds/exploratory-descriptive#def-standardization"
   ],
   [
+   "sds/exponential-families#def-canonical-link",
+   "mcs/functions#def-inverse-function"
+  ],
+  [
+   "sds/exponential-families#def-canonical-link",
+   "mds/calculus-derivatives#def-derivative"
+  ],
+  [
+   "sds/exponential-families#def-canonical-link",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "sds/exponential-families#def-canonical-link",
+   "pds/random-variables#def-random-variable"
+  ],
+  [
+   "sds/exponential-families#def-canonical-link",
+   "sds/exponential-families#def-exponential-family"
+  ],
+  [
+   "sds/exponential-families#def-canonical-link",
+   "sds/exponential-families#def-natural-parameter"
+  ],
+  [
+   "sds/exponential-families#def-canonical-link",
+   "sds/exponential-families#thm-log-partition-mean"
+  ],
+  [
+   "sds/exponential-families#def-canonical-link",
+   "sds/sufficiency#def-statistic"
+  ],
+  [
    "sds/exponential-families#def-exponential-family",
    "mcs/functions#def-function"
   ],
@@ -6137,6 +6321,82 @@
   ],
   [
    "sds/exponential-families#def-natural-parameter",
+   "sds/sufficiency#def-statistic"
+  ],
+  [
+   "sds/exponential-families#thm-exponential-family-sufficient",
+   "mds/algebra-sums#def-summation"
+  ],
+  [
+   "sds/exponential-families#thm-exponential-family-sufficient",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "sds/exponential-families#thm-exponential-family-sufficient",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "sds/exponential-families#thm-exponential-family-sufficient",
+   "pds/random-variables#def-random-variable"
+  ],
+  [
+   "sds/exponential-families#thm-exponential-family-sufficient",
+   "sds/exploratory-descriptive#def-sample"
+  ],
+  [
+   "sds/exponential-families#thm-exponential-family-sufficient",
+   "sds/exponential-families#def-exponential-family"
+  ],
+  [
+   "sds/exponential-families#thm-exponential-family-sufficient",
+   "sds/exponential-families#def-natural-parameter"
+  ],
+  [
+   "sds/exponential-families#thm-exponential-family-sufficient",
+   "sds/sufficiency#def-statistic"
+  ],
+  [
+   "sds/exponential-families#thm-exponential-family-sufficient",
+   "sds/sufficiency#def-sufficient"
+  ],
+  [
+   "sds/exponential-families#thm-exponential-family-sufficient",
+   "sds/sufficiency#thm-factorization"
+  ],
+  [
+   "sds/exponential-families#thm-log-partition-mean",
+   "pds/random-variables#def-random-variable"
+  ],
+  [
+   "sds/exponential-families#thm-log-partition-mean",
+   "sds/exponential-families#def-exponential-family"
+  ],
+  [
+   "sds/exponential-families#thm-log-partition-mean",
+   "sds/exponential-families#def-natural-parameter"
+  ],
+  [
+   "sds/exponential-families#thm-log-partition-mean",
+   "sds/sufficiency#def-statistic"
+  ],
+  [
+   "sds/exponential-families#thm-log-partition-variance",
+   "pds/random-variables#def-random-variable"
+  ],
+  [
+   "sds/exponential-families#thm-log-partition-variance",
+   "sds/exponential-families#def-exponential-family"
+  ],
+  [
+   "sds/exponential-families#thm-log-partition-variance",
+   "sds/exponential-families#def-natural-parameter"
+  ],
+  [
+   "sds/exponential-families#thm-log-partition-variance",
+   "sds/exponential-families#thm-log-partition-mean"
+  ],
+  [
+   "sds/exponential-families#thm-log-partition-variance",
    "sds/sufficiency#def-statistic"
   ],
   [
@@ -6584,6 +6844,26 @@
    "sds/logistic-inference#cor-logistic-wald"
   ],
   [
+   "sds/logistic-inference#cor-logistic-odds-ratio",
+   "pds/expectation#def-input"
+  ],
+  [
+   "sds/logistic-inference#cor-logistic-odds-ratio",
+   "sds/categorical-tests#def-odds-ratio"
+  ],
+  [
+   "sds/logistic-inference#cor-logistic-odds-ratio",
+   "sds/logistic-inference#def-logistic-regression"
+  ],
+  [
+   "sds/logistic-inference#cor-logistic-odds-ratio",
+   "sds/logistic-inference#def-odds-multiplier"
+  ],
+  [
+   "sds/logistic-inference#cor-logistic-odds-ratio",
+   "sds/logistic-inference#thm-odds-multiplier"
+  ],
+  [
    "sds/logistic-inference#cor-logistic-wald",
    "sds/intro-MLEs#def-wald-ci"
   ],
@@ -6608,6 +6888,22 @@
    "sds/logistic-inference#def-deviance"
   ],
   [
+   "sds/logistic-inference#def-odds-multiplier",
+   "mds/algebra-exponentials#def-exponential-function"
+  ],
+  [
+   "sds/logistic-inference#def-odds-multiplier",
+   "mds/linear-algebra-vectors#def-dot-product"
+  ],
+  [
+   "sds/logistic-inference#def-odds-multiplier",
+   "pds/expectation#def-input"
+  ],
+  [
+   "sds/logistic-inference#def-odds-multiplier",
+   "sds/logistic-inference#def-logistic-regression"
+  ],
+  [
    "sds/logistic-inference#def-pattern-events",
    "sds/logistic-inference#def-covariate-pattern"
   ],
@@ -6626,6 +6922,22 @@
   [
    "sds/logistic-inference#def-saturated-model",
    "pds/probability-basics#def-probability"
+  ],
+  [
+   "sds/logistic-inference#lem-logistic-log-odds",
+   "pds/expectation#def-input"
+  ],
+  [
+   "sds/logistic-inference#lem-logistic-log-odds",
+   "pds/probability-basics#def-log-odds"
+  ],
+  [
+   "sds/logistic-inference#lem-logistic-log-odds",
+   "pds/probability-basics#def-odds"
+  ],
+  [
+   "sds/logistic-inference#lem-logistic-log-odds",
+   "sds/logistic-inference#def-logistic-regression"
   ],
   [
    "sds/logistic-inference#thm-deviance-drop",
@@ -6698,6 +7010,38 @@
   [
    "sds/logistic-inference#thm-logistic-mle-distribution",
    "sds/logistic-inference#def-logistic-regression"
+  ],
+  [
+   "sds/logistic-inference#thm-odds-multiplier",
+   "mds/algebra-exponentials#def-natural-log"
+  ],
+  [
+   "sds/logistic-inference#thm-odds-multiplier",
+   "mds/linear-algebra-direct-sums#thm-dot-linear"
+  ],
+  [
+   "sds/logistic-inference#thm-odds-multiplier",
+   "pds/expectation#def-input"
+  ],
+  [
+   "sds/logistic-inference#thm-odds-multiplier",
+   "pds/probability-basics#def-log-odds"
+  ],
+  [
+   "sds/logistic-inference#thm-odds-multiplier",
+   "pds/probability-basics#def-odds"
+  ],
+  [
+   "sds/logistic-inference#thm-odds-multiplier",
+   "sds/logistic-inference#def-logistic-regression"
+  ],
+  [
+   "sds/logistic-inference#thm-odds-multiplier",
+   "sds/logistic-inference#def-odds-multiplier"
+  ],
+  [
+   "sds/logistic-inference#thm-odds-multiplier",
+   "sds/logistic-inference#lem-logistic-log-odds"
   ],
   [
    "sds/logistic-inference#thm-saturated-deviance",

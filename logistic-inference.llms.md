@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-11 03:54:24 (PST)
+Last modified: 2026-11-13 00:22:44 (PST)
 
 # 1 Introduction
 
@@ -42,7 +42,223 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > The fitted slope is $\hat{\beta}_{1} = 0.693$. The control group recovered at rate $1/3$ and the treatment group at $2/3$, so the model fits both group proportions exactly.
 
-# 2 Fitting by iteratively reweighted least squares
+# 2 Odds and the coefficients
+
+> **NOTE:**
+>
+> **Lemma 1 (The log-odds in a logistic regression model)** In the [logistic regression model](#def-logistic-regression) of [Equation 1](#eq-logistic-model), the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds) of $Y= 1$ at [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vector $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ are
+>
+> $${\eta\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}} = \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Write $u \stackrel{\text{def}}{=}\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ and $\pi\stackrel{\text{def}}{=}{\operatorname{expit}\mathopen{}\left(u\right)\mathclose{}}$, so that
+>
+> $$\begin{aligned}
+> 1 - \pi
+> &= 1 - \frac{1}{1 + \text{e}^{-u}}
+> && \text{(the logistic model)}
+> \\
+> &= \frac{1 + \text{e}^{-u}}{1 + \text{e}^{-u}} - \frac{1}{1 + \text{e}^{-u}}
+> && \text{(write } 1 \text{ over the denominator } 1 + \text{e}^{-u} \text{)}
+> \\
+> &= \frac{\mathopen{}\left(1 + \text{e}^{-u}\right)\mathclose{} - 1}{1 + \text{e}^{-u}}
+> && \text{(subtract fractions with the same denominator)}
+> \\
+> &= \frac{\text{e}^{-u}}{1 + \text{e}^{-u}}.
+> && \text{(} \mathopen{}\left(1 + a\right)\mathclose{} - 1 = a \text{)}
+> \end{aligned}$$
+>
+> The first step substitutes the model of [Equation 1](#eq-logistic-model). So the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) are
+>
+> $$\begin{aligned}
+> \frac{\pi}{1 - \pi}
+> &= \frac{1 / \mathopen{}\left(1 + \text{e}^{-u}\right)\mathclose{}}{\text{e}^{-u} / \mathopen{}\left(1 + \text{e}^{-u}\right)\mathclose{}}
+> && \text{(the logistic model, and the display for } 1 - \pi\text{)}
+> \\
+> &= \frac{1}{\text{e}^{-u}}
+> && \text{(divide fractions with the same denominator)}
+> \\
+> &= \text{e}^{u},
+> && \text{(} 1 / \text{e}^{-u} = \text{e}^{u} \text{)}
+> \end{aligned}$$
+>
+> and the [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds) are ${\operatorname{log}\mathopen{}\left\{\text{e}^{u}\right\}\mathclose{}} = u = \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$.
+
+> **NOTE:**
+>
+> **Example 2 (The log-odds of recovery in the six-patient trial)**  
+>
+> In the [six-patient trial](#exm-logistic-regression), a treated patient has $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= {\mathopen{}\left(1, 1\right)\mathclose{}}^{\top}$. Under the [maximum likelihood fit](intro-MLEs.llms.md#def-mle), the code computes the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of recovery, its [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds), and the [dot product](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-dot-product) $\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$.
+>
+> ``` downlit
+> # fitted probability of recovery for a treated patient (x = +1)
+> wf_treated_data <- tibble::tibble(wf_x = 1)
+> wf_prob_treated <- predict(wf_fit, wf_treated_data, type = "response")
+> wf_prob_treated <- unname(wf_prob_treated)
+> wf_log_odds_treated <- log(wf_prob_treated / (1 - wf_prob_treated))
+> wf_coef <- coef(wf_fit)
+> wf_dot_treated <- sum(wf_coef)
+> c(prob = wf_prob_treated, log_odds = wf_log_odds_treated, dot = wf_dot_treated)
+> #>     prob log_odds      dot 
+> #> 0.666667 0.693147 0.693147
+> ```
+>
+> That probability is $0.6667$, and both the log-odds and the dot product are $0.6931$, as [Lemma 1](#lem-logistic-log-odds) states.
+
+> **NOTE:**
+>
+> **Definition 2 (Odds multiplier)** Let:
+>
+> - $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}$ be the coefficient vector of a [logistic regression model](#def-logistic-regression).
+> - $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ be a change in the [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vector, whose first entry is $0$, because every predictor vector has first entry $1$.
+>
+> The **odds multiplier** of $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ is the [exponential](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function) of the [dot product](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-dot-product) of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}$ with $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$:
+>
+> $${\theta_{\omega}\mathopen{}\left(\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}} \stackrel{\text{def}}{=}\text{e}^{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}}.$$
+
+> **NOTE:**
+>
+> **Example 3 (The odds multiplier of moving from control to treatment)**  
+>
+> In the [six-patient trial](#exm-logistic-regression), moving a patient from the control group ($x= -1$) to the treatment group ($x= +1$) changes the predictor vector by $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= {\mathopen{}\left(0, 2\right)\mathclose{}}^{\top}$. The code computes the [odds multiplier](#def-odds-multiplier) of that change under the [maximum likelihood fit](intro-MLEs.llms.md#def-mle).
+>
+> ``` downlit
+> # change in the predictor vector from control to treatment
+> wf_change <- c(0, 2)
+> wf_change_terms <- coef(wf_fit) * wf_change
+> wf_change_dot <- sum(wf_change_terms)
+> wf_multiplier <- exp(wf_change_dot)
+> wf_multiplier
+> #> [1] 4
+> ```
+>
+> That odds multiplier is $\text{e}^{2 \hat{\beta}_{x}} = 4$.
+
+> **NOTE:**
+>
+> **Example 4 (The risk ratio is not the odds multiplier)**  
+>
+> In the [six-patient trial](#exm-logistic-regression), the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of recovery under the [maximum likelihood fit](intro-MLEs.llms.md#def-mle) is $2/3$ in the treatment group and $1/3$ in the control group. The code computes the [risk ratio](categorical-tests.llms.md#def-risk-ratio) of treatment against control, and shows beside it the [odds multiplier](#def-odds-multiplier) of the change $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= {\mathopen{}\left(0, 2\right)\mathclose{}}^{\top}$ from [Example 3](#exm-odds-multiplier).
+>
+> ``` downlit
+> # fitted probabilities of recovery: control (x = -1), treatment (x = +1)
+> wf_group_codes <- c(-1, 1)
+> wf_groups <- tibble::tibble(wf_x = wf_group_codes)
+> wf_probs <- predict(wf_fit, wf_groups, type = "response")
+> wf_probs <- unname(wf_probs)
+> wf_prob_ratio <- wf_probs[2] / wf_probs[1]
+> c(risk_ratio = wf_prob_ratio, odds_multiplier = wf_multiplier)
+> #>      risk_ratio odds_multiplier 
+> #>               2               4
+> ```
+>
+> The risk ratio is $2$, but the odds multiplier is $4$. The odds multiplier compares [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds), $2$ against $1/2$, while the risk ratio compares probabilities.
+
+> **NOTE:**
+>
+> **Theorem 1 (A change in the predictors multiplies the odds by its odds multiplier)** Let:
+>
+> - $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ be a [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vector in the [logistic regression model](#def-logistic-regression) of [Equation 1](#eq-logistic-model).
+> - $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ be a change in the predictor vector, with first entry $0$.
+> - $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}' \stackrel{\text{def}}{=}\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}+ \Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$.
+>
+> Then the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of $Y= 1$ at $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}'$ are the odds at $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ times the [odds multiplier](#def-odds-multiplier) of $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$:
+>
+> $${\operatorname{odds}\mathopen{}\left\{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}'\right\}\mathclose{}} = {\operatorname{odds}\mathopen{}\left\{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right\}\mathclose{}} \, {\theta_{\omega}\mathopen{}\left(\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. The [log-odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds) are the [natural logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log) of the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds), so the odds at a [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vector are $\text{e}^{}$ raised to the log-odds there, which [Lemma 1](#lem-logistic-log-odds) gives.
+>
+> $$\begin{aligned}
+> {\operatorname{odds}\mathopen{}\left\{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}'\right\}\mathclose{}}
+> &= \text{e}^{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}'}
+> && \text{(log-odds of the model at } \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}' \text{)}
+> \\
+> &= \text{e}^{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}+ \Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}
+> && \text{(definition of } \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}' \text{)}
+> \\
+> &= \text{e}^{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}} + \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}}
+> && \text{(the dot product is linear in each slot)}
+> \\
+> &= \text{e}^{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}} \, \text{e}^{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}}
+> && \text{(} \text{e}^{a + b} = \text{e}^{a} \text{e}^{b} \text{)}
+> \\
+> &= {\operatorname{odds}\mathopen{}\left\{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right\}\mathclose{}} \, \text{e}^{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}} \cdot \Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}}
+> && \text{(log-odds of the model at } \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\text{)}
+> \\
+> &= {\operatorname{odds}\mathopen{}\left\{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right\}\mathclose{}} \, {\theta_{\omega}\mathopen{}\left(\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}.
+> && \text{(definition of the odds multiplier)}
+> \end{aligned}$$
+>
+> The first and fifth steps use [Lemma 1](#lem-logistic-log-odds), the third step uses the [linearity of the dot product](https://morrison-lab.github.io/mds/linear-algebra-direct-sums.html#thm-dot-linear), and the last step uses [Definition 2](#def-odds-multiplier).
+
+> **NOTE:**
+>
+> **Example 5 (The treated odds from the control odds)**  
+>
+> In the [six-patient trial](#exm-logistic-regression), take $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= {\mathopen{}\left(1, -1\right)\mathclose{}}^{\top}$, a control patient, and $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= {\mathopen{}\left(0, 2\right)\mathclose{}}^{\top}$, so that $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}' = {\mathopen{}\left(1, 1\right)\mathclose{}}^{\top}$ is a treated patient. Under the [maximum likelihood fit](intro-MLEs.llms.md#def-mle), the code computes the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) of recovery at both [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vectors, and the control odds times the [odds multiplier](#def-odds-multiplier) of $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$.
+>
+> ``` downlit
+> # fitted odds of recovery: control (x = -1), treatment (x = +1)
+> wf_odds <- wf_probs / (1 - wf_probs)
+> c(
+>   odds_control = wf_odds[1],
+>   odds_treated = wf_odds[2],
+>   control_times_multiplier = wf_odds[1] * wf_multiplier
+> )
+> #>             odds_control             odds_treated control_times_multiplier 
+> #>                      0.5                      2.0                      2.0
+> ```
+>
+> The control odds are $0.5$, and $0.5 \times 4 = 2$ equals the treated odds, as [Theorem 1](#thm-odds-multiplier) states.
+
+> **NOTE:**
+>
+> **Corollary 1 (The odds ratio between two predictor vectors)** Let $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ and $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}'$ be [predictor](https://morrison-lab.github.io/pds/expectation.html#def-input) vectors in the [logistic regression model](#def-logistic-regression) of [Equation 1](#eq-logistic-model). The [odds ratio](categorical-tests.llms.md#def-odds-ratio) of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}'$ compared with $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ is the [odds multiplier](#def-odds-multiplier) of their difference:
+>
+> $${\text{ϙ}_{\omega}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}', \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}} = {\theta_{\omega}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}' - \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Let $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\stackrel{\text{def}}{=}\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}' - \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$, so that $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}' = \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}+ \Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$, and the first entry of $\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ is $1 - 1 = 0$.
+>
+> $$\begin{aligned}
+> {\text{ϙ}_{\omega}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}', \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}
+> &= \frac{{\operatorname{odds}\mathopen{}\left\{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}'\right\}\mathclose{}}}{{\operatorname{odds}\mathopen{}\left\{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right\}\mathclose{}}}
+> && \text{(definition of the odds ratio)}
+> \\
+> &= \frac{{\operatorname{odds}\mathopen{}\left\{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right\}\mathclose{}} \, {\theta_{\omega}\mathopen{}\left(\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}}{{\operatorname{odds}\mathopen{}\left\{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right\}\mathclose{}}}
+> && \text{(odds multiplier theorem)}
+> \\
+> &= {\theta_{\omega}\mathopen{}\left(\Delta\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}.
+> && \text{(divide numerator and denominator by } {\operatorname{odds}\mathopen{}\left\{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right\}\mathclose{}} > 0 \text{)}
+> \end{aligned}$$
+>
+> The first step is the definition of the [odds ratio](categorical-tests.llms.md#def-odds-ratio), and the second is [Theorem 1](#thm-odds-multiplier).
+
+> **NOTE:**
+>
+> **Example 6 (The odds ratio of treatment against control from the group counts)**  
+>
+> In the [six-patient trial](#exm-logistic-regression), $2$ of the $3$ treated patients and $1$ of the $3$ control patients recovered. The code computes the [odds ratio](categorical-tests.llms.md#def-odds-ratio) of treatment against control from those counts, and the [odds multiplier](#def-odds-multiplier) under the [maximum likelihood fit](intro-MLEs.llms.md#def-mle) of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}' - \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= {\mathopen{}\left(1, 1\right)\mathclose{}}^{\top} - {\mathopen{}\left(1, -1\right)\mathclose{}}^{\top}$.
+>
+> ``` downlit
+> # odds ratio from the counts: treated 2 of 3, control 1 of 3
+> count_or <- ((2 / 3) / (1 / 3)) / ((1 / 3) / (2 / 3))
+> wf_difference <- c(1, 1) - c(1, -1)
+> wf_difference_terms <- coef(wf_fit) * wf_difference
+> wf_difference_dot <- sum(wf_difference_terms)
+> wf_difference_multiplier <- exp(wf_difference_dot)
+> c(count_or = count_or, odds_multiplier = wf_difference_multiplier)
+> #>        count_or odds_multiplier 
+> #>               4               4
+> ```
+>
+> Both are $4$, as [Corollary 1](#cor-logistic-odds-ratio) states, because the model fits the two group [proportions](https://morrison-lab.github.io/mds/algebra-sums.html#def-proportion) exactly.
+
+# 3 Fitting by iteratively reweighted least squares
 
 > **NOTE:**
 >
@@ -75,7 +291,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 2 (Iteratively reweighted least squares (IRLS))** Suppose the outcomes follow the [logistic regression model](#def-logistic-regression). Let $X$ be the matrix whose rows are ${\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_{i}}^{\top}$. From a current [estimate](estimation.llms.md#def-estimate) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}^*$ with fitted [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\pi_{i}^*$ (collected in $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\pi}}\vphantom{\pi}}^*$), form
+> **Definition 3 (Iteratively reweighted least squares (IRLS))** Suppose the outcomes follow the [logistic regression model](#def-logistic-regression). Let $X$ be the matrix whose rows are ${\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_{i}}^{\top}$. From a current [estimate](estimation.llms.md#def-estimate) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}^*$ with fitted [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\pi_{i}^*$ (collected in $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\pi}}\vphantom{\pi}}^*$), form
 >
 > - the weights $w_{i} = \pi_{i}^* \mathopen{}\left(1 - \pi_{i}^*\right)\mathclose{}$, collected in the diagonal matrix $W$;
 > - the working responses $z_{i} = \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}^* \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_{i} + \mathopen{}\left(y_{i} - \pi_{i}^*\right)\mathclose{} / w_{i}$, collected in $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{z}}\vphantom{z}}$.
@@ -121,7 +337,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Theorem 1 (An IRLS step is a Newton-Raphson step and a Fisher scoring step)** Suppose the outcomes follow the [logistic regression model](#def-logistic-regression). One step of [iteratively reweighted least squares](#def-irls) from $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}^*$ equals
+> **Theorem 2 (An IRLS step is a Newton-Raphson step and a Fisher scoring step)** Suppose the outcomes follow the [logistic regression model](#def-logistic-regression). One step of [iteratively reweighted least squares](#def-irls) from $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}^*$ equals
 >
 > - one step of the [Newton-Raphson algorithm](intro-MLEs.llms.md#def-newton-raphson) on the [log-likelihood](intro-MLEs.llms.md#def-loglik) from $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}^*$, and
 > - one step of [Fisher scoring](intro-MLEs.llms.md#def-fisher-scoring) from $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}^*$:
@@ -131,7 +347,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Proof*. The [log-likelihood](intro-MLEs.llms.md#def-loglik) has [score](intro-MLEs.llms.md#def-score) ${X}^{\top} \mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}- \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\pi}}\vphantom{\pi}}\right)\mathclose{}$ and [Hessian](intro-MLEs.llms.md#def-hessian) $-{X}^{\top} W X$ at every $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}$ (with $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\pi}}\vphantom{\pi}}$ and $W$ computed from $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}$), and the Hessian does not involve the outcomes (proof of [Theorem 5](#thm-logistic-mle-distribution)). So the [observed information](intro-MLEs.llms.md#def-oinf) ${X}^{\top} W X$ equals the [expected information](intro-MLEs.llms.md#def-einf), and the Newton-Raphson and [Fisher scoring](intro-MLEs.llms.md#def-fisher-scoring) steps both equal [Equation 2](#eq-irls-newton).
+> *Proof*. The [log-likelihood](intro-MLEs.llms.md#def-loglik) has [score](intro-MLEs.llms.md#def-score) ${X}^{\top} \mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}- \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\pi}}\vphantom{\pi}}\right)\mathclose{}$ and [Hessian](intro-MLEs.llms.md#def-hessian) $-{X}^{\top} W X$ at every $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}$ (with $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\pi}}\vphantom{\pi}}$ and $W$ computed from $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}$), and the Hessian does not involve the outcomes (proof of [Theorem 6](#thm-logistic-mle-distribution)). So the [observed information](intro-MLEs.llms.md#def-oinf) ${X}^{\top} W X$ equals the [expected information](intro-MLEs.llms.md#def-einf), and the Newton-Raphson and [Fisher scoring](intro-MLEs.llms.md#def-fisher-scoring) steps both equal [Equation 2](#eq-irls-newton).
 >
 > For [IRLS](#def-irls), the working responses satisfy $W \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{z}}\vphantom{z}} = W X \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}^* + \mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}- \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\pi}}\vphantom{\pi}}^*\right)\mathclose{}$, so
 >
@@ -146,7 +362,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Example 2 (IRLS on the six-patient trial)** The code runs [IRLS](#def-irls) from $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}^* = \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{0}}\vphantom{0}}$ on the data of the [six-patient trial](#exm-logistic-regression) and compares the result with the coefficients from [`glm()`](https://rdrr.io/r/stats/glm.html).
+> **Example 7 (IRLS on the six-patient trial)** The code runs [IRLS](#def-irls) from $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}^* = \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{0}}\vphantom{0}}$ on the data of the [six-patient trial](#exm-logistic-regression) and compares the result with the coefficients from [`glm()`](https://rdrr.io/r/stats/glm.html).
 >
 > ``` downlit
 > # design matrix: intercept, group (-1 control, +1 treatment); y = 1: recovered
@@ -170,16 +386,16 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 > # the maximum likelihood fit from glm()
 > coef(glm(irls_y ~ irls_x[, 2], family = binomial))
 > #>  (Intercept)  irls_x[, 2] 
-> #> -3.45716e-18  6.93147e-01
+> #> -2.25619e-16  6.93147e-01
 > ```
 >
 > The first step moves the [slope](correlation-regression.llms.md#def-slr-slope) to $0.6667$, which is $2/3$ ([the hand computation](#exr-irls-step)). After six steps the slope is $0.693147$, and [`glm()`](https://rdrr.io/r/stats/glm.html) reports $0.693147$. The slope settles at $\ln 2 = 0.693147$, half the natural logarithm of the [odds ratio](basic-statistical-methods.llms.md#def-odds-ratio) between the treatment group (recovery [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) $2$) and the other group (recovery odds $1/2$), since the groups are coded $\pm 1$.
 
-# 3 Deviance
+# 4 Deviance
 
 > **NOTE:**
 >
-> **Definition 3 (Deviance)** The **deviance** of a fitted logistic regression with labels $y_i\in {\mathopen{}\left\{0, 1\right\}\mathclose{}}$ is minus twice its maximized log-likelihood:
+> **Definition 4 (Deviance)** The **deviance** of a fitted logistic regression with labels $y_i\in {\mathopen{}\left\{0, 1\right\}\mathclose{}}$ is minus twice its maximized log-likelihood:
 >
 > $$\operatorname{dev}\stackrel{\text{def}}{=}-2 \, {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}
 > = -2 \sum_{i=1}^n\mathopen{}\left\{y_i\ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} {\ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}}\right\}\mathclose{},
@@ -195,7 +411,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Example 3 (The deviance of the six-patient trial)** For the fit of [Example 1](#exm-logistic-regression), R’s `glm` reports the deviance. We check it against [Equation 3](#eq-deviance) computed by hand.
+> **Example 8 (The deviance of the six-patient trial)** For the fit of [Example 1](#exm-logistic-regression), R’s `glm` reports the deviance. We check it against [Equation 3](#eq-deviance) computed by hand.
 >
 > ``` downlit
 > # fitted probabilities of recovery
@@ -217,7 +433,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 4 (Null deviance)** The **null deviance** is the [deviance](#def-deviance) of the model with an intercept and no other predictors:
+> **Definition 5 (Null deviance)** The **null deviance** is the [deviance](#def-deviance) of the model with an intercept and no other predictors:
 >
 > $$\operatorname{dev}_0= -2 n \mathopen{}\left\{\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)\mathclose{} {\ln\mathopen{}\left(1 - \bar y\right)\mathclose{}}\right\}\mathclose{},
 > \tag{4}$$
@@ -226,7 +442,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Example 4 (The null deviance of the six-patient trial)** Three of the six patients recovered, so $\bar y= 1/2$ and [Equation 4](#eq-null-deviance) gives $\operatorname{dev}_0= 2 \times 6 \ln 2$.
+> **Example 9 (The null deviance of the six-patient trial)** Three of the six patients recovered, so $\bar y= 1/2$ and [Equation 4](#eq-null-deviance) gives $\operatorname{dev}_0= 2 \times 6 \ln 2$.
 >
 > ``` downlit
 > # null deviance from the formula with ybar = 1/2
@@ -246,7 +462,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Theorem 2 (The drop in deviance is the likelihood ratio statistic)** Let $\operatorname{dev}_0$ be the [null deviance](#def-null-deviance) and $\operatorname{dev}$ the [deviance](#def-deviance) of a logistic regression with $q$ predictors besides the intercept. Then the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat) of $H_0$: all $q$ slopes are zero is
+> **Theorem 3 (The drop in deviance is the likelihood ratio statistic)** Let $\operatorname{dev}_0$ be the [null deviance](#def-null-deviance) and $\operatorname{dev}$ the [deviance](#def-deviance) of a logistic regression with $q$ predictors besides the intercept. Then the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat) of $H_0$: all $q$ slopes are zero is
 >
 > $$\Lambda= \operatorname{dev}_0- \operatorname{dev}.$$
 
@@ -256,7 +472,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Example 5 (The likelihood ratio statistic of the treatment effect)** In the six-patient trial, $q = 1$.
+> **Example 10 (The likelihood ratio statistic of the treatment effect)** In the six-patient trial, $q = 1$.
 >
 > ``` downlit
 > # drop in deviance, the likelihood ratio statistic
@@ -269,15 +485,15 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Corollary 1 (Distribution of the drop in deviance)** Suppose the regularity conditions of [Wilks’ theorem](intro-MLEs.llms.md#thm-wilks) hold for the logistic regression model. Then for a large sample the drop in deviance $\operatorname{dev}_0- \operatorname{dev}$ has approximately a $\chi^2_q$ distribution when $H_0$ holds.
+> **Corollary 2 (Distribution of the drop in deviance)** Suppose the regularity conditions of [Wilks’ theorem](intro-MLEs.llms.md#thm-wilks) hold for the logistic regression model. Then for a large sample the drop in deviance $\operatorname{dev}_0- \operatorname{dev}$ has approximately a $\chi^2_q$ distribution when $H_0$ holds.
 
 > **NOTE:**
 >
-> *Proof*. By [Theorem 2](#thm-deviance-drop) the drop in deviance is the likelihood ratio statistic of $q$ constraints, and [Wilks’ theorem](intro-MLEs.llms.md#thm-wilks) gives its approximate distribution.
+> *Proof*. By [Theorem 3](#thm-deviance-drop) the drop in deviance is the likelihood ratio statistic of $q$ constraints, and [Wilks’ theorem](intro-MLEs.llms.md#thm-wilks) gives its approximate distribution.
 
 > **NOTE:**
 >
-> **Example 6 (Testing the treatment effect)** For the statistic of [Example 5](#exm-deviance-drop), the p-value comes from the chi-square distribution with $q = 1$ degree of freedom.
+> **Example 11 (Testing the treatment effect)** For the statistic of [Example 10](#exm-deviance-drop), the p-value comes from the chi-square distribution with $q = 1$ degree of freedom.
 >
 > ``` downlit
 > # upper tail of the chi-square distribution with 1 degree of freedom
@@ -288,15 +504,15 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > The p-value is $0.41$, so six patients give no evidence of a treatment effect.
 
-# 4 Covariate patterns and the saturated model
+# 5 Covariate patterns and the saturated model
 
 > **NOTE:**
 >
-> **Definition 5 (Covariate pattern)** A **covariate pattern** is a distinct value of the predictor vector among the observations $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_1, \dots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_n$. The $K$ distinct values are written $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(1)}, \dots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(K)}$, so $K\le n$.
+> **Definition 6 (Covariate pattern)** A **covariate pattern** is a distinct value of the predictor vector among the observations $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_1, \dots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_n$. The $K$ distinct values are written $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(1)}, \dots, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(K)}$, so $K\le n$.
 
 > **NOTE:**
 >
-> **Definition 6 (Replicates)** The **replicates** of the [covariate pattern](#def-covariate-pattern) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(k)}$ are the observations $i$ with $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(k)}$. Their number is written $m_k$, so $\sum_{k=1}^{K}m_k = n$.
+> **Definition 7 (Replicates)** The **replicates** of the [covariate pattern](#def-covariate-pattern) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(k)}$ are the observations $i$ with $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(k)}$. Their number is written $m_k$, so $\sum_{k=1}^{K}m_k = n$.
 
 > **NOTE:**
 >
@@ -304,7 +520,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 7 (Events at a covariate pattern)** The number of **events** at the [covariate pattern](#def-covariate-pattern) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(k)}$ is the sum of the binary outcomes over its [replicates](#def-replicates):
+> **Definition 8 (Events at a covariate pattern)** The number of **events** at the [covariate pattern](#def-covariate-pattern) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(k)}$ is the sum of the binary outcomes over its [replicates](#def-replicates):
 >
 > $$s_k = \sum_{i:\, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(k)}} y_i,$$
 >
@@ -312,7 +528,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Example 7 (Covariate patterns in the low-birth-weight data)** The `birthwt` data record whether each of 189 babies had low birth weight (`low = 1`, under 2.5 kg), along with the mother’s smoking status and race, among other predictors [\[8\]](#ref-hosmer1989applied). Take `smoke` (0 or 1) and `race` (1, 2 or 3) as the predictors. Counting the distinct pairs, and the babies and low-weight births at each, gives one row per [covariate pattern](#def-covariate-pattern).
+> **Example 12 (Covariate patterns in the low-birth-weight data)** The `birthwt` data record whether each of 189 babies had low birth weight (`low = 1`, under 2.5 kg), along with the mother’s smoking status and race, among other predictors [\[8\]](#ref-hosmer1989applied). Take `smoke` (0 or 1) and `race` (1, 2 or 3) as the predictors. Counting the distinct pairs, and the babies and low-weight births at each, gives one row per [covariate pattern](#def-covariate-pattern).
 >
 > ``` downlit
 > bw <- read.csv("data/birthwt.csv")
@@ -332,7 +548,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 8 (Saturated model (full model, maximal model))** The **saturated model** (also called the **full model** or **maximal model** [\[7, Sec. 5.5\]](#ref-dobson4e)) for binary outcomes gives each pattern its own free event [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability):
+> **Definition 9 (Saturated model (full model, maximal model))** The **saturated model** (also called the **full model** or **maximal model** [\[7, Sec. 5.5\]](#ref-dobson4e)) for binary outcomes gives each pattern its own free event [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability):
 >
 > $${\Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(k)}\right)\mathclose{}} = \pi_k,
 > \qquad k = 1, \dots, K,
@@ -348,7 +564,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Theorem 3 (The saturated model fits each pattern’s observed proportion)** The maximum likelihood estimate of $\pi_k$ in the [saturated model](#def-saturated-model) is the observed proportion of [events](#def-pattern-events) among the replicates of pattern $k$:
+> **Theorem 4 (The saturated model fits each pattern’s observed proportion)** The maximum likelihood estimate of $\pi_k$ in the [saturated model](#def-saturated-model) is the observed proportion of [events](#def-pattern-events) among the replicates of pattern $k$:
 >
 > $$\hat\pi_k = \frac{s_k}{m_k}.$$
 
@@ -358,14 +574,14 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 9 (Deviance relative to the saturated model)** The **deviance relative to the saturated model** of a fitted model is twice the amount by which its maximized log-likelihood ${\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}$ falls short of the maximized log-likelihood $\ell_{\mathrm{sat}}$ of the [saturated model](#def-saturated-model):
+> **Definition 10 (Deviance relative to the saturated model)** The **deviance relative to the saturated model** of a fitted model is twice the amount by which its maximized log-likelihood ${\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}$ falls short of the maximized log-likelihood $\ell_{\mathrm{sat}}$ of the [saturated model](#def-saturated-model):
 >
 > $$\operatorname{dev}_{\mathrm{sat}}= 2 \mathopen{}\left(\ell_{\mathrm{sat}}- {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}\right)\mathclose{}.
 > \tag{6}$$
 
 > **NOTE:**
 >
-> **Theorem 4 (The deviance relative to the saturated model, from grouped counts)** For a fitted logistic regression with fitted event probabilities $\hat\pi_k$ at the $K$ covariate patterns,
+> **Theorem 5 (The deviance relative to the saturated model, from grouped counts)** For a fitted logistic regression with fitted event probabilities $\hat\pi_k$ at the $K$ covariate patterns,
 >
 > $$\operatorname{dev}_{\mathrm{sat}}
 > = 2 \sum_{k=1}^{K}\mathopen{}\left\{s_k {\ln\mathopen{}\left(\frac{s_k}{m_k \hat\pi_k}\right)\mathclose{}}
@@ -376,7 +592,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Proof*. Grouping the outcomes by pattern, the [fitted model](model-validation.llms.md#def-fitted-model)’s [log-likelihood](intro-MLEs.llms.md#def-loglik) is ${\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}} = \sum_{k=1}^{K}\mathopen{}\left\{s_k \ln \hat\pi_k + \mathopen{}\left(m_k - s_k\right)\mathclose{} {\ln\mathopen{}\left(1 - \hat\pi_k\right)\mathclose{}}\right\}\mathclose{}$. By [Theorem 3](#thm-saturated-mle), the saturated log-likelihood is the same sum with $\hat\pi_k$ replaced by $s_k / m_k$. Subtracting the fitted from the saturated log-likelihood, term by term, replaces each ${\ln\mathopen{}\left(s_k / m_k\right)\mathclose{}} - \ln \hat\pi_k$ by ${\ln\mathopen{}\left(s_k / \mathopen{}\left(m_k \hat\pi_k\right)\mathclose{}\right)\mathclose{}}$, and likewise for the non-events. Multiplying by $2$, as [Equation 6](#eq-saturated-deviance) does, gives [Equation 7](#eq-saturated-deviance-grouped). A count of $0$ times $\ln 0$ is taken as $0$, its limit.
+> *Proof*. Grouping the outcomes by pattern, the [fitted model](model-validation.llms.md#def-fitted-model)’s [log-likelihood](intro-MLEs.llms.md#def-loglik) is ${\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}} = \sum_{k=1}^{K}\mathopen{}\left\{s_k \ln \hat\pi_k + \mathopen{}\left(m_k - s_k\right)\mathclose{} {\ln\mathopen{}\left(1 - \hat\pi_k\right)\mathclose{}}\right\}\mathclose{}$. By [Theorem 4](#thm-saturated-mle), the saturated log-likelihood is the same sum with $\hat\pi_k$ replaced by $s_k / m_k$. Subtracting the fitted from the saturated log-likelihood, term by term, replaces each ${\ln\mathopen{}\left(s_k / m_k\right)\mathclose{}} - \ln \hat\pi_k$ by ${\ln\mathopen{}\left(s_k / \mathopen{}\left(m_k \hat\pi_k\right)\mathclose{}\right)\mathclose{}}$, and likewise for the non-events. Multiplying by $2$, as [Equation 6](#eq-saturated-deviance) does, gives [Equation 7](#eq-saturated-deviance-grouped). A count of $0$ times $\ln 0$ is taken as $0$, its limit.
 
 > **NOTE:**
 >
@@ -384,21 +600,21 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Corollary 2 (The deviance is the saturated-model deviance shifted by a constant)** The [deviance](#def-deviance) of a fitted logistic regression and its [deviance relative to the saturated model](#def-saturated-deviance) differ by a constant that depends on the data and not on the fitted model:
+> **Corollary 3 (The deviance is the saturated-model deviance shifted by a constant)** The [deviance](#def-deviance) of a fitted logistic regression and its [deviance relative to the saturated model](#def-saturated-deviance) differ by a constant that depends on the data and not on the fitted model:
 >
 > $$\operatorname{dev}= \operatorname{dev}_{\mathrm{sat}}- 2 \ell_{\mathrm{sat}}.$$
 
 > **NOTE:**
 >
-> *Proof*. [Definition 3](#def-deviance) gives $\operatorname{dev}= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}$. Distributing the $2$ in [Equation 6](#eq-saturated-deviance) gives $\operatorname{dev}_{\mathrm{sat}}= 2 \ell_{\mathrm{sat}}- 2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}$. Substituting $\operatorname{dev}= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}$ into this expression gives $\operatorname{dev}_{\mathrm{sat}}= 2 \ell_{\mathrm{sat}}+ \operatorname{dev}$. Subtracting $2 \ell_{\mathrm{sat}}$ from both sides gives the claim.
+> *Proof*. [Definition 4](#def-deviance) gives $\operatorname{dev}= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}$. Distributing the $2$ in [Equation 6](#eq-saturated-deviance) gives $\operatorname{dev}_{\mathrm{sat}}= 2 \ell_{\mathrm{sat}}- 2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}$. Substituting $\operatorname{dev}= -2 {\ell\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\right)\mathclose{}}$ into this expression gives $\operatorname{dev}_{\mathrm{sat}}= 2 \ell_{\mathrm{sat}}+ \operatorname{dev}$. Subtracting $2 \ell_{\mathrm{sat}}$ from both sides gives the claim.
 
 > **NOTE:**
 >
-> *Remark 7* (Why the shift does not change the drop in deviance). The constant $2 \ell_{\mathrm{sat}}$ in [Corollary 2](#cor-deviance-shift) is the same for every model fit to the same data, because the saturated model depends only on the data. So the difference between the deviances of two models, such as the drop in deviance of [Theorem 2](#thm-deviance-drop), is the same whether it is computed from $\operatorname{dev}$ or from $\operatorname{dev}_{\mathrm{sat}}$. The two deviances differ in their size, though: when every pattern has one replicate, the saturated model fits every label exactly, $\ell_{\mathrm{sat}}= 0$, and $\operatorname{dev}_{\mathrm{sat}}= \operatorname{dev}$.
+> *Remark 7* (Why the shift does not change the drop in deviance). The constant $2 \ell_{\mathrm{sat}}$ in [Corollary 3](#cor-deviance-shift) is the same for every model fit to the same data, because the saturated model depends only on the data. So the difference between the deviances of two models, such as the drop in deviance of [Theorem 3](#thm-deviance-drop), is the same whether it is computed from $\operatorname{dev}$ or from $\operatorname{dev}_{\mathrm{sat}}$. The two deviances differ in their size, though: when every pattern has one replicate, the saturated model fits every label exactly, $\ell_{\mathrm{sat}}= 0$, and $\operatorname{dev}_{\mathrm{sat}}= \operatorname{dev}$.
 
 > **NOTE:**
 >
-> **Example 8 (The deviance of the low-birth-weight model, ungrouped and grouped)** Fit a logistic regression of low birth weight on smoking and race, once to the 189 individual babies and once to the 6 grouped counts of [Example 7](#exm-covariate-patterns). R’s [`deviance()`](https://rdrr.io/r/stats/deviance.html) is the deviance of [Definition 3](#def-deviance) for the first fit and the deviance relative to the saturated model of [Definition 9](#def-saturated-deviance) for the second. We check the second against [Equation 7](#eq-saturated-deviance-grouped) computed by hand.
+> **Example 13 (The deviance of the low-birth-weight model, ungrouped and grouped)** Fit a logistic regression of low birth weight on smoking and race, once to the 189 individual babies and once to the 6 grouped counts of [Example 12](#exm-covariate-patterns). R’s [`deviance()`](https://rdrr.io/r/stats/deviance.html) is the deviance of [Definition 4](#def-deviance) for the first fit and the deviance relative to the saturated model of [Definition 10](#def-saturated-deviance) for the second. We check the second against [Equation 7](#eq-saturated-deviance-grouped) computed by hand.
 >
 > ``` downlit
 > # fit to the individual babies
@@ -435,7 +651,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Example 9 (The shift between the two deviances)** For the two fits of [Example 8](#exm-saturated-deviance), [Corollary 2](#cor-deviance-shift) says that $\operatorname{dev}- \operatorname{dev}_{\mathrm{sat}}= -2 \ell_{\mathrm{sat}}$. The left side is 216.818. We compute the right side from the observed proportions of [Theorem 3](#thm-saturated-mle).
+> **Example 14 (The shift between the two deviances)** For the two fits of [Example 13](#exm-saturated-deviance), [Corollary 3](#cor-deviance-shift) says that $\operatorname{dev}- \operatorname{dev}_{\mathrm{sat}}= -2 \ell_{\mathrm{sat}}$. The left side is 216.818. We compute the right side from the observed proportions of [Theorem 4](#thm-saturated-mle).
 >
 > ``` downlit
 > # twice the saturated log-likelihood, from the observed proportions
@@ -456,11 +672,11 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 > #>            216.818            216.818
 > ```
 
-# 5 Confidence intervals for the coefficients
+# 6 Confidence intervals for the coefficients
 
 > **NOTE:**
 >
-> **Theorem 5 (Approximate distribution of the fitted coefficients)** Suppose the outcomes follow the [logistic regression model](#def-logistic-regression). Let $X$ be the matrix whose rows are ${\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i}^{\top}$, and let $W$ be the diagonal matrix with entries $\pi_i \mathopen{}\left(1 - \pi_i\right)\mathclose{}$. Under regularity conditions, for a large sample the fitted coefficients are approximately Gaussian,
+> **Theorem 6 (Approximate distribution of the fitted coefficients)** Suppose the outcomes follow the [logistic regression model](#def-logistic-regression). Let $X$ be the matrix whose rows are ${\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i}^{\top}$, and let $W$ be the diagonal matrix with entries $\pi_i \mathopen{}\left(1 - \pi_i\right)\mathclose{}$. Under regularity conditions, for a large sample the fitted coefficients are approximately Gaussian,
 >
 > $$\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}}\approx \operatorname{N}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}, {\mathopen{}\left({X}^{\top} W X\right)\mathclose{}}^{-1}\right)\mathclose{}.
 > \tag{8}$$
@@ -471,13 +687,13 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Corollary 3 (Wald interval for a logistic coefficient)** Let $\hat W$ be $W$ with each $\pi_i$ replaced by its fitted value. The estimated standard error of $\hat{\beta}_{j}$ is the square root of the diagonal entry of ${\mathopen{}\left({X}^{\top} \hat W X\right)\mathclose{}}^{-1}$ in the row and column of $\beta_{j}$; because $\beta_{0}$ comes first, that is the $(j+1)$th diagonal entry counting from $1$, and a [Wald confidence interval](intro-MLEs.llms.md#def-wald-ci) with level $1 - \alpha$ for $\beta_{j}$ is
+> **Corollary 4 (Wald interval for a logistic coefficient)** Let $\hat W$ be $W$ with each $\pi_i$ replaced by its fitted value. The estimated standard error of $\hat{\beta}_{j}$ is the square root of the diagonal entry of ${\mathopen{}\left({X}^{\top} \hat W X\right)\mathclose{}}^{-1}$ in the row and column of $\beta_{j}$; because $\beta_{0}$ comes first, that is the $(j+1)$th diagonal entry counting from $1$, and a [Wald confidence interval](intro-MLEs.llms.md#def-wald-ci) with level $1 - \alpha$ for $\beta_{j}$ is
 >
 > $$\hat{\beta}_{j} \pm z_{1 - \alpha/2} \, {\mathop{\widehat{\operatorname{se}}}\nolimits\mathopen{}\left(\hat{\beta}_{j}\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
-> **Example 10 (A Wald interval from six patients)** For the fit of [Example 1](#exm-logistic-regression), `vcov` returns ${\mathopen{}\left({X}^{\top} \hat W X\right)\mathclose{}}^{-1}$.
+> **Example 15 (A Wald interval from six patients)** For the fit of [Example 1](#exm-logistic-regression), `vcov` returns ${\mathopen{}\left({X}^{\top} \hat W X\right)\mathclose{}}^{-1}$.
 >
 > ``` downlit
 > # standard errors: square roots of the diagonal of (X'WX)^-1
@@ -493,11 +709,11 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 > #>  0.693  0.866 -1.004  2.391
 > ```
 >
-> The interval for $\beta_{1}$ is $(-1, 2.39)$. It contains $0$, consistent with the test of [Example 6](#exm-deviance-drop-distribution).
+> The interval for $\beta_{1}$ is $(-1, 2.39)$. It contains $0$, consistent with the test of [Example 11](#exm-deviance-drop-distribution).
 
 > **NOTE:**
 >
-> **Corollary 4 (Interval for the odds factor of a logistic coefficient)** If $\mathopen{}\left(L, U\right)\mathclose{}$ is a confidence interval for $\beta_{j}$ from [Corollary 3](#cor-logistic-wald), then $\mathopen{}\left(e^{L}, e^{U}\right)\mathclose{}$ is a confidence interval with the same level for $e^{\beta_{j}}$, the factor by which a one-unit increase in $x_j$, holding the other predictors fixed, multiplies the odds of $y= 1$.
+> **Corollary 5 (Interval for the odds factor of a logistic coefficient)** If $\mathopen{}\left(L, U\right)\mathclose{}$ is a confidence interval for $\beta_{j}$ from [Corollary 4](#cor-logistic-wald), then $\mathopen{}\left(e^{L}, e^{U}\right)\mathclose{}$ is a confidence interval with the same level for $e^{\beta_{j}}$, the factor by which a one-unit increase in $x_j$, holding the other predictors fixed, multiplies the odds of $y= 1$.
 
 > **NOTE:**
 >
@@ -505,7 +721,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Example 11 (How little six patients tell us)** The two groups of [Example 1](#exm-logistic-regression) sit two units apart on the $x$ scale, so the odds ratio between them is $e^{2 \beta_{1}}$.
+> **Example 16 (How little six patients tell us)** The two groups of [Example 1](#exm-logistic-regression) sit two units apart on the $x$ scale, so the odds ratio between them is $e^{2 \beta_{1}}$.
 >
 > ``` downlit
 > # fitted group odds ratio, and its interval: exponentiate twice the slope
@@ -518,21 +734,24 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > The fitted odds of recovery in the treatment group are $4$ times those in the control group, with interval $(0.13, 119.2)$. The interval runs from a strong harm to a large benefit. Its width shows how little information six observations carry about the slope.
 
-# 6 Further reading
+# 7 Further reading
 
 - [Hua Zhou](https://hua-zhou.github.io/)’s [course page for “UCLA Biostat 257 - Statistical Computing” (2025 Spring)](https://ucla-biostat-257.github.io/2025spring/) has lectures on fitting generalized linear models and on quasi-Newton optimization. Its source is [on GitHub](https://github.com/ucla-biostat-257/2025spring) under the MIT License.
+- David Rocke’s EPI 204 lecture [*Logistic Regression and Likelihood*](https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-2021-04-01.mp4) ([slides](https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-2%20Logistic%20Regression%20and%20Likelihood.pdf)) fits [logistic regression](#def-logistic-regression) by [maximum likelihood](intro-MLEs.llms.md#def-mle) and compares models by [deviance](#def-deviance) and [AIC](model-validation.llms.md#def-aic) [\[11\]](#ref-rocke2021epi204).
+- Josh Starmer’s StatQuest video [*Logistic Regression Details Pt 2: Maximum Likelihood*](https://www.youtube.com/watch?v=BfKanl1aSG0) shows how [maximum likelihood estimation](intro-MLEs.llms.md#def-mle) fits a logistic regression curve [\[12\]](#ref-starmer2018logistic).
 
 # Definitions on this page
 
 - [Definition 1 (Logistic regression)](#def-logistic-regression)
-- [Definition 2 (Iteratively reweighted least squares (IRLS))](#def-irls)
-- [Definition 3 (Deviance)](#def-deviance)
-- [Definition 4 (Null deviance)](#def-null-deviance)
-- [Definition 5 (Covariate pattern)](#def-covariate-pattern)
-- [Definition 6 (Replicates)](#def-replicates)
-- [Definition 7 (Events at a covariate pattern)](#def-pattern-events)
-- [Definition 8 (Saturated model (full model, maximal model))](#def-saturated-model)
-- [Definition 9 (Deviance relative to the saturated model)](#def-saturated-deviance)
+- [Definition 2 (Odds multiplier)](#def-odds-multiplier)
+- [Definition 3 (Iteratively reweighted least squares (IRLS))](#def-irls)
+- [Definition 4 (Deviance)](#def-deviance)
+- [Definition 5 (Null deviance)](#def-null-deviance)
+- [Definition 6 (Covariate pattern)](#def-covariate-pattern)
+- [Definition 7 (Replicates)](#def-replicates)
+- [Definition 8 (Events at a covariate pattern)](#def-pattern-events)
+- [Definition 9 (Saturated model (full model, maximal model))](#def-saturated-model)
+- [Definition 10 (Deviance relative to the saturated model)](#def-saturated-deviance)
 
 # References
 
@@ -575,5 +794,13 @@ Wikipedia contributors, “Saturated model — Wikipedia, the free encyclopedia.
 \[10\]
 
 L. Fahrmeir and H. Kaufmann, “Consistency and asymptotic normality of the maximum likelihood estimator in generalized linear models,” *The Annals of Statistics*, vol. 13, no. 1, pp. 342–368, 1985, doi: [10.1214/aos/1176346597](https://doi.org/10.1214/aos/1176346597).
+
+\[11\]
+
+D. M. Rocke, “EPI 204 lecture notes, Spring 2021.” University of California, Davis, 2021. Available: <https://dmrocke.ucdavis.edu/Class/EPI204-Spring-2021/EPI204-Spring-2021.html>
+
+\[12\]
+
+J. Starmer, “Logistic regression details, part 2: Maximum likelihood.” StatQuest, video on YouTube, 2018. Available: <https://www.youtube.com/watch?v=BfKanl1aSG0>
 
 Back to top

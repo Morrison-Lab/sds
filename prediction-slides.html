@@ -357,7 +357,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-11 03:54:24 (PST)</p>
+  <p class="date">Last modified: 2026-11-13 00:22:44 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -490,7 +490,7 @@ text-align: center;
 <p>The last two columns agree in every row, and the largest difference between them over all 189 babies is 0, as <a href="#/cor-residual-prediction-error" class="quarto-xref">Corollary&nbsp;1</a> says.</p>
 </div>
 </section><section class="slide level2"><div id="rem-prediction-error" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (Prediction errors and residuals). </span>The prediction in <a href="#/def-prediction-error" class="quarto-xref">Definition&nbsp;4</a> can be a <a href="#/def-fitted-value">fitted value</a>, for an observation used to fit the model, or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as <a href="./estimation.html#def-estimation-error">estimation error</a>: estimate minus true value.</p>
+<p><span class="proof-title"><em>Remark 3</em> (Prediction errors and residuals). </span>The <a href="#/def-prediction">prediction</a> in <a href="#/def-prediction-error" class="quarto-xref">Definition&nbsp;4</a> can be a <a href="#/def-fitted-value">fitted value</a>, for an <a href="./exploratory-descriptive.html#def-observation">observation</a> used to <a href="./model-validation.html#def-fitting-procedure">fit</a> the <a href="./model-validation.html#def-fitted-model">model</a>, or a prediction for an observation that was not used to fit the model. <a href="#/def-prediction-error">Prediction error</a> is oriented the same way as <a href="./estimation.html#def-estimation-error">estimation error</a>: estimate minus true value.</p>
 <p><span class="math display">\[
 \begin{aligned}
 {\varepsilon_{\text{pred}}}&amp;= \hat y- y
@@ -499,7 +499,10 @@ text-align: center;
 &amp;&amp; \text{(estimation error)}
 \end{aligned}
 \]</span></p>
-<p>For a fitted value, the prediction error is the negative of the residual (<a href="#/thm-prediction-error-residual" class="quarto-xref">Theorem&nbsp;1</a>), so the two differ only in orientation.</p>
+<p>For a fitted value, the prediction error is the negative of the <a href="#/def-residual">residual</a> (<a href="#/thm-prediction-error-residual" class="quarto-xref">Theorem&nbsp;1</a>), so the two differ only in orientation.</p>
+</div>
+</section><section class="slide level2"><div id="rem-prediction-error-expected" class="proof remark">
+<p><span class="proof-title"><em>Remark 4</em> (Expected squared prediction error). </span>The <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expected value</a> of the squared <a href="#/def-prediction-error">prediction error</a> for a <a href="./model-validation.html#def-new-observation">new observation</a> at a given <a href="./model-validation.html#def-covariate">covariate</a> value is the <a href="./model-validation.html#def-epe">expected squared prediction error</a>.</p>
 </div>
 </section><section id="sec-prediction-mse" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Sample mean squared error of predictions</h2>
@@ -509,7 +512,7 @@ text-align: center;
 <p>Source: <span class="citation" data-cites="wikipedia_mean_squared_prediction_error">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-prediction-mse" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Prediction sMSE, estimator pMSE and RSS). </span><a href="#/def-prediction-mse" class="quarto-xref">Definition&nbsp;5</a> averages squared errors over observations, where the <a href="./estimation.html#def-mse">pMSE of an estimator</a> takes an expectation over repeated samples. On the data used to fit the model, the sMSE of the fitted values is the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> divided by <span class="math inline">\(n\)</span> (<a href="./correlation-regression.html#thm-mse-rss">sMSE and RSS</a>):</p>
+<p><span class="proof-title"><em>Remark 5</em> (Prediction sMSE, estimator pMSE and RSS). </span><a href="#/def-prediction-mse" class="quarto-xref">Definition&nbsp;5</a> averages squared errors over observations, where the <a href="./estimation.html#def-mse">pMSE of an estimator</a> takes an expectation over repeated samples. On the data used to fit the model, the sMSE of the fitted values is the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> divided by <span class="math inline">\(n\)</span> (<a href="./correlation-regression.html#thm-mse-rss">sMSE and RSS</a>):</p>
 <p><span class="math display">\[{\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}} = \frac{1}{n} \text{RSS}(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}),
 \qquad
 \text{RSS}(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}) = n \, {\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}.\]</span></p>
@@ -603,7 +606,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </section><section id="sec-estimation-vs-prediction" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Estimation versus prediction</h2>
 </section><section class="slide level2"><!-- No slidebreak here: the heading shares its slide with the remark. --><div id="rem-estimation-vs-prediction" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Estimation versus prediction). </span>Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error (a pMSE for an estimator, an sMSE for predictions), but they aim at different targets:</p>
+<p><span class="proof-title"><em>Remark 6</em> (Estimation versus prediction). </span>Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error (a pMSE for an estimator, an sMSE for predictions), but they aim at different targets:</p>
 <ul>
 <li>
 <strong>Target.</strong> An <a href="./estimation.html#def-estimate">estimate</a> aims at a fixed, unknown <a href="./estimation.html#def-estimand">estimand</a>. A <a href="#/def-prediction">prediction</a> aims at an outcome <span class="math inline">\(y\)</span>, which is a random quantity even when the model is known exactly.</li>
