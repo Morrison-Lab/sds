@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-13 12:59:05 (PST)
+Last modified: 2026-11-13 19:59:45 (PST)
 
 # 1 Introduction
 
@@ -731,7 +731,9 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Example 16 (Positive agreement of the COVID-19 test as a harmonic mean)** For the agreement table of [Example 9](#exm-agreement-table-covid), the estimated positive predictive value is $693 / 786$ and the estimated sensitivity is $693 / 700$ ([Example 15](#exm-agreement-test-measures)). [Theorem 5](#thm-pos-agreement-harmonic) gives:
+> **Example 16 (Positive agreement of the COVID-19 test as a harmonic mean)**  
+>
+> For the agreement table of [Example 9](#exm-agreement-table-covid), the estimated positive predictive value is $693 / 786$ and the estimated sensitivity is $693 / 700$ ([Example 15](#exm-agreement-test-measures)). [Theorem 5](#thm-pos-agreement-harmonic) gives:
 >
 > $$\begin{aligned}
 > p_{\text{pos}}
