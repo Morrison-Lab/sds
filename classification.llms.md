@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-13 17:36:22 (PST)
+Last modified: 2026-11-13 21:19:38 (PST)
 
 # 1 Introduction
 
@@ -685,34 +685,7 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 20 (Harmonic mean)** The **harmonic mean** of two positive numbers $x$ and $y$ is the reciprocal of the average of their reciprocals:
->
-> $$H(x, y) \stackrel{\text{def}}{=}\frac{2}{\frac{1}{x} + \frac{1}{y}} \tag{45}$$
->
-> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_harmonic_mean).
-
-> **NOTE:**
->
-> **Example 16 (Harmonic mean of 0.5 and 1)** By [Definition 20](#def-harmonic-mean):
->
-> $$\begin{aligned}
-> H(0.5, 1)
-> &= \frac{2}{\frac{1}{0.5} + \frac{1}{1}}
-> && \text{(definition of } H \text{)} \\
-> &= \frac{2}{2 + 1}
-> && \text{(take each reciprocal)} \\
-> &= \frac{2}{3}
-> && \text{(add)} \\
-> &\approx 0.667
-> && \text{(divide)}
-> \end{aligned}
-> \tag{46}$$
->
-> The ordinary average of 0.5 and 1 is 0.75; the harmonic mean sits closer to the smaller number.
-
-> **NOTE:**
->
-> **Exercise 5 (Positive agreement from PPV and sensitivity)** For an agreement table ([Definition 13](#def-agreement-table)) with $a > 0$, write the [harmonic mean](#def-harmonic-mean) of the estimated positive predictive value and sensitivity ([Definition 19](#def-agreement-test-measures)) in terms of the table’s cells.
+> **Exercise 5 (Positive agreement from PPV and sensitivity)** For an agreement table ([Definition 13](#def-agreement-table)) with $a > 0$, write the [harmonic mean](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-harmonic-mean) of the estimated positive predictive value and sensitivity ([Definition 19](#def-agreement-test-measures)) in terms of the table’s cells.
 
 > **NOTE:**
 >
@@ -743,14 +716,14 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= \frac{2a}{2a + b + c}
 > && \text{(multiply)}
 > \end{aligned}
-> \tag{47}$$
+> \tag{45}$$
 
 > **NOTE:**
 >
-> **Theorem 5 (Positive agreement is a harmonic mean)** For an agreement table with $a > 0$, the positive agreement ([Definition 16](#def-positive-agreement)) is the harmonic mean ([Definition 20](#def-harmonic-mean)) of the estimated positive predictive value and sensitivity ([Definition 19](#def-agreement-test-measures)):
+> **Theorem 5 (Positive agreement is a harmonic mean)** For an agreement table with $a > 0$, the positive agreement ([Definition 16](#def-positive-agreement)) is the [harmonic mean](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-harmonic-mean) of the estimated positive predictive value and sensitivity ([Definition 19](#def-agreement-test-measures)):
 >
 > $$p_{\text{pos}} = H\mathopen{}\left(\widehat{\text{PPV}}, \widehat{\text{sensitivity}}\right)\mathclose{}
-> \tag{48}$$
+> \tag{46}$$
 
 > **NOTE:**
 >
@@ -758,7 +731,9 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Example 17 (Positive agreement of the COVID-19 test as a harmonic mean)** For the agreement table of [Example 9](#exm-agreement-table-covid), the estimated positive predictive value is $693 / 786$ and the estimated sensitivity is $693 / 700$ ([Example 15](#exm-agreement-test-measures)). [Theorem 5](#thm-pos-agreement-harmonic) gives:
+> **Example 16 (Positive agreement of the COVID-19 test as a harmonic mean)**  
+>
+> For the agreement table of [Example 9](#exm-agreement-table-covid), the estimated positive predictive value is $693 / 786$ and the estimated sensitivity is $693 / 700$ ([Example 15](#exm-agreement-test-measures)). [Theorem 5](#thm-pos-agreement-harmonic) gives:
 >
 > $$\begin{aligned}
 > p_{\text{pos}}
@@ -777,13 +752,13 @@ So far, we have compared a test with the true disease status. The same tools app
 > &\approx 0.933
 > && \text{(divide)}
 > \end{aligned}
-> \tag{49}$$
+> \tag{47}$$
 >
-> which matches [Example 12](#exm-positive-agreement). The lower positive predictive value (about 0.88) pulls the positive agreement down from the sensitivity (0.99), as in [Example 16](#exm-harmonic-mean).
+> which matches [Example 12](#exm-positive-agreement). The lower positive predictive value (about 0.88) pulls the positive agreement down from the sensitivity (0.99), as in [the harmonic mean of 0.5 and 1](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#exm-harmonic-mean).
 
 > **NOTE:**
 >
-> **Exercise 6 (Negative agreement from NPV and specificity)** For an agreement table ([Definition 13](#def-agreement-table)) with $d > 0$, write the [harmonic mean](#def-harmonic-mean) of the estimated negative predictive value and specificity ([Definition 19](#def-agreement-test-measures)) in terms of the table’s cells.
+> **Exercise 6 (Negative agreement from NPV and specificity)** For an agreement table ([Definition 13](#def-agreement-table)) with $d > 0$, write the [harmonic mean](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-harmonic-mean) of the estimated negative predictive value and specificity ([Definition 19](#def-agreement-test-measures)) in terms of the table’s cells.
 
 > **NOTE:**
 >
@@ -814,14 +789,14 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= \frac{2d}{2d + b + c}
 > && \text{(multiply)}
 > \end{aligned}
-> \tag{50}$$
+> \tag{48}$$
 
 > **NOTE:**
 >
-> **Theorem 6 (Negative agreement is a harmonic mean)** For an agreement table with $d > 0$, the negative agreement ([Definition 17](#def-negative-agreement)) is the harmonic mean ([Definition 20](#def-harmonic-mean)) of the estimated negative predictive value and specificity ([Definition 19](#def-agreement-test-measures)):
+> **Theorem 6 (Negative agreement is a harmonic mean)** For an agreement table with $d > 0$, the negative agreement ([Definition 17](#def-negative-agreement)) is the [harmonic mean](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-harmonic-mean) of the estimated negative predictive value and specificity ([Definition 19](#def-agreement-test-measures)):
 >
 > $$p_{\text{neg}} = H\mathopen{}\left(\widehat{\text{NPV}}, \widehat{\text{specificity}}\right)\mathclose{}
-> \tag{51}$$
+> \tag{49}$$
 
 > **NOTE:**
 >
@@ -829,7 +804,7 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Example 18 (Negative agreement of the COVID-19 test as a harmonic mean)** For the agreement table of [Example 9](#exm-agreement-table-covid), the estimated negative predictive value is $9{,}207 / 9{,}214$ and the estimated specificity is $9{,}207 / 9{,}300$ ([Example 15](#exm-agreement-test-measures)). [Theorem 6](#thm-neg-agreement-harmonic) gives:
+> **Example 17 (Negative agreement of the COVID-19 test as a harmonic mean)** For the agreement table of [Example 9](#exm-agreement-table-covid), the estimated negative predictive value is $9{,}207 / 9{,}214$ and the estimated specificity is $9{,}207 / 9{,}300$ ([Example 15](#exm-agreement-test-measures)). [Theorem 6](#thm-neg-agreement-harmonic) gives:
 >
 > $$\begin{aligned}
 > p_{\text{neg}}
@@ -848,7 +823,7 @@ So far, we have compared a test with the true disease status. The same tools app
 > &\approx 0.995
 > && \text{(divide)}
 > \end{aligned}
-> \tag{52}$$
+> \tag{50}$$
 >
 > which matches [Example 13](#exm-negative-agreement).
 
@@ -856,20 +831,20 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 21 (Chance agreement)** Let:
+> **Definition 20 (Chance agreement)** Let:
 >
 > - $A$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) that the agent makes a [positive classification](#def-positive-classification) for an observation drawn from a [population](exploratory-descriptive.llms.md#def-population), with [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement) $\neg A$.
 > - $R$ be the event that the reference makes a positive classification for the same observation, with complement $\neg R$.
 >
 > The **chance agreement** of the agent and the reference on that population is the [overall agreement](#def-overall-agreement) they would have if $A$ and $R$ were [statistically independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) with their marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\Pr\mathopen{}\left(A\right)\mathclose{}}$ and ${\Pr\mathopen{}\left(R\right)\mathclose{}}$:
 >
-> $$p_e \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(A\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(R\right)\mathclose{}} + {\Pr\mathopen{}\left(\neg A\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(\neg R\right)\mathclose{}} \tag{53}$$
+> $$p_e \stackrel{\text{def}}{=}{\Pr\mathopen{}\left(A\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(R\right)\mathclose{}} + {\Pr\mathopen{}\left(\neg A\right)\mathclose{}} \cdot{\Pr\mathopen{}\left(\neg R\right)\mathclose{}} \tag{51}$$
 >
 > Source: Cohen [\[7\]](#ref-cohen1960coefficient).
 
 > **NOTE:**
 >
-> **Example 19 (Chance agreement for the COVID-19 test)** Apply the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) to the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), with the test as the agent ($A = {+}$) and the disease status as the reference ($R = D$). By [Theorem 2](#thm-prob-positive), with [sensitivity](#def-sensitivity) $\text{sens} = 0.99$, [specificity](#def-specificity) $\text{spec} = 0.99$, and [prevalence](#def-prevalence) $\pi= {\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07$, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a [positive](#def-positive-classification) test is:
+> **Example 18 (Chance agreement for the COVID-19 test)** Apply the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) to the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), with the test as the agent ($A = {+}$) and the disease status as the reference ($R = D$). By [Theorem 2](#thm-prob-positive), with [sensitivity](#def-sensitivity) $\text{sens} = 0.99$, [specificity](#def-specificity) $\text{spec} = 0.99$, and [prevalence](#def-prevalence) $\pi= {\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07$, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a [positive](#def-positive-classification) test is:
 >
 > $$\begin{aligned}
 > {\Pr\mathopen{}\left({+}\right)\mathclose{}}
@@ -884,7 +859,7 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.0786
 > && \text{(add)}
 > \end{aligned}
-> \tag{54}$$
+> \tag{52}$$
 >
 > By the [complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0) and [Theorem 1](#thm-negative-classification-complement), the probability of a [negative](#def-negative-classification) test is:
 >
@@ -899,7 +874,7 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.9214
 > && \text{(subtract)}
 > \end{aligned}
-> \tag{55}$$
+> \tag{53}$$
 >
 > With ${\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07$ and ${\Pr\mathopen{}\left(\neg D\right)\mathclose{}} = 0.93$ ([Example 4](#exm-prevalence)), the [chance agreement](#def-chance-agreement) is:
 >
@@ -914,21 +889,21 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.862404
 > && \text{(add)}
 > \end{aligned}
-> \tag{56}$$
+> \tag{54}$$
 >
 > Because nearly everyone tests negative and does not have COVID-19, two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) classifiers with ${\Pr\mathopen{}\left({+}\right)\mathclose{}} = 0.0786$ and ${\Pr\mathopen{}\left(D\right)\mathclose{}} = 0.07$ would agree on about 86% of people by chance alone.
 
 > **NOTE:**
 >
-> **Definition 22 (Estimated chance agreement)** The **estimated chance agreement** of an [agreement table](#def-agreement-table) [estimates](estimation.llms.md#def-estimate) the [chance agreement](#def-chance-agreement) $p_e$ by replacing the marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\Pr\mathopen{}\left(A\right)\mathclose{}}$, ${\Pr\mathopen{}\left(R\right)\mathclose{}}$, ${\Pr\mathopen{}\left(\neg A\right)\mathclose{}}$, and ${\Pr\mathopen{}\left(\neg R\right)\mathclose{}}$ with the table’s marginal [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) $(a + b) / n$, $(a + c) / n$, $(c + d) / n$, and $(b + d) / n$:
+> **Definition 21 (Estimated chance agreement)** The **estimated chance agreement** of an [agreement table](#def-agreement-table) [estimates](estimation.llms.md#def-estimate) the [chance agreement](#def-chance-agreement) $p_e$ by replacing the marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\Pr\mathopen{}\left(A\right)\mathclose{}}$, ${\Pr\mathopen{}\left(R\right)\mathclose{}}$, ${\Pr\mathopen{}\left(\neg A\right)\mathclose{}}$, and ${\Pr\mathopen{}\left(\neg R\right)\mathclose{}}$ with the table’s marginal [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) $(a + b) / n$, $(a + c) / n$, $(c + d) / n$, and $(b + d) / n$:
 >
-> $$\widehat{p}_e \stackrel{\text{def}}{=}\frac{(a + b)(a + c) + (c + d)(b + d)}{n^2} \tag{57}$$
+> $$\widehat{p}_e \stackrel{\text{def}}{=}\frac{(a + b)(a + c) + (c + d)(b + d)}{n^2} \tag{55}$$
 >
 > Source: Cohen [\[7\]](#ref-cohen1960coefficient).
 
 > **NOTE:**
 >
-> **Example 20 (Estimated chance agreement for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 9](#exm-agreement-table-covid), the [estimated chance agreement](#def-estimated-chance-agreement) is:
+> **Example 19 (Estimated chance agreement for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 9](#exm-agreement-table-covid), the [estimated chance agreement](#def-estimated-chance-agreement) is:
 >
 > $$\begin{aligned}
 > \widehat{p}_e
@@ -943,21 +918,21 @@ So far, we have compared a test with the true disease status. The same tools app
 > &= 0.862404
 > && \text{(divide)}
 > \end{aligned}
-> \tag{58}$$
+> \tag{56}$$
 >
-> This [estimate](estimation.llms.md#def-estimate) equals the [chance agreement](#def-chance-agreement) $p_e = 0.862404$ of [Example 19](#exm-chance-agreement), because the table’s marginal [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) equal the marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\Pr\mathopen{}\left({+}\right)\mathclose{}}$, ${\Pr\mathopen{}\left(D\right)\mathclose{}}$, ${\Pr\mathopen{}\left({-}\right)\mathclose{}}$, and ${\Pr\mathopen{}\left(\neg D\right)\mathclose{}}$.
+> This [estimate](estimation.llms.md#def-estimate) equals the [chance agreement](#def-chance-agreement) $p_e = 0.862404$ of [Example 18](#exm-chance-agreement), because the table’s marginal [sample proportions](exploratory-descriptive.llms.md#def-sample-proportion) equal the marginal [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\Pr\mathopen{}\left({+}\right)\mathclose{}}$, ${\Pr\mathopen{}\left(D\right)\mathclose{}}$, ${\Pr\mathopen{}\left({-}\right)\mathclose{}}$, and ${\Pr\mathopen{}\left(\neg D\right)\mathclose{}}$.
 
 > **NOTE:**
 >
-> **Definition 23 (Cohen’s kappa)** For an agent and a reference with [chance agreement](#def-chance-agreement) $p_e < 1$, **Cohen’s kappa** is the agreement beyond chance, as a fraction of the largest possible agreement beyond chance, built from the [overall agreement](#def-overall-agreement) $p_o$ and the chance agreement $p_e$:
+> **Definition 22 (Cohen’s kappa)** For an agent and a reference with [chance agreement](#def-chance-agreement) $p_e < 1$, **Cohen’s kappa** is the agreement beyond chance, as a fraction of the largest possible agreement beyond chance, built from the [overall agreement](#def-overall-agreement) $p_o$ and the chance agreement $p_e$:
 >
-> $$\kappa \stackrel{\text{def}}{=}\frac{p_o - p_e}{1 - p_e} \tag{59}$$
+> $$\kappa \stackrel{\text{def}}{=}\frac{p_o - p_e}{1 - p_e} \tag{57}$$
 >
-> Source: Cohen [\[7\]](#ref-cohen1960coefficient); Wikipedia contributors [\[10\]](#ref-wikipedia_cohens_kappa).
+> Source: Cohen [\[7\]](#ref-cohen1960coefficient); Wikipedia contributors [\[9\]](#ref-wikipedia_cohens_kappa).
 
 > **NOTE:**
 >
-> **Example 21 (Cohen’s kappa for the COVID-19 test)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) in the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), the [overall agreement](#def-overall-agreement) is $p_o = 0.99$ ([Example 10](#exm-overall-agreement)) and the [chance agreement](#def-chance-agreement) is $p_e = 0.862404$ ([Example 19](#exm-chance-agreement)), so [Cohen’s kappa](#def-cohen-kappa) is:
+> **Example 20 (Cohen’s kappa for the COVID-19 test)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity) in the [population](exploratory-descriptive.llms.md#def-population) of [Example 4](#exm-prevalence), the [overall agreement](#def-overall-agreement) is $p_o = 0.99$ ([Example 10](#exm-overall-agreement)) and the [chance agreement](#def-chance-agreement) is $p_e = 0.862404$ ([Example 18](#exm-chance-agreement)), so [Cohen’s kappa](#def-cohen-kappa) is:
 >
 > $$\begin{aligned}
 > \kappa
@@ -970,19 +945,19 @@ So far, we have compared a test with the true disease status. The same tools app
 > &\approx 0.927
 > && \text{(divide)}
 > \end{aligned}
-> \tag{60}$$
+> \tag{58}$$
 
 > **NOTE:**
 >
-> **Definition 24 (Estimated Cohen’s kappa)** For an [agreement table](#def-agreement-table) with [estimated chance agreement](#def-estimated-chance-agreement) $\widehat{p}_e < 1$, the **estimated Cohen’s kappa** [estimates](estimation.llms.md#def-estimate) [Cohen’s kappa](#def-cohen-kappa) $\kappa$ from the [estimated overall agreement](#def-estimated-overall-agreement) $\widehat{p}_o$ and the estimated chance agreement $\widehat{p}_e$:
+> **Definition 23 (Estimated Cohen’s kappa)** For an [agreement table](#def-agreement-table) with [estimated chance agreement](#def-estimated-chance-agreement) $\widehat{p}_e < 1$, the **estimated Cohen’s kappa** [estimates](estimation.llms.md#def-estimate) [Cohen’s kappa](#def-cohen-kappa) $\kappa$ from the [estimated overall agreement](#def-estimated-overall-agreement) $\widehat{p}_o$ and the estimated chance agreement $\widehat{p}_e$:
 >
-> $$\hat{\kappa}\stackrel{\text{def}}{=}\frac{\widehat{p}_o - \widehat{p}_e}{1 - \widehat{p}_e} \tag{61}$$
+> $$\hat{\kappa}\stackrel{\text{def}}{=}\frac{\widehat{p}_o - \widehat{p}_e}{1 - \widehat{p}_e} \tag{59}$$
 >
-> Source: Cohen [\[7\]](#ref-cohen1960coefficient); Wikipedia contributors [\[10\]](#ref-wikipedia_cohens_kappa).
+> Source: Cohen [\[7\]](#ref-cohen1960coefficient); Wikipedia contributors [\[9\]](#ref-wikipedia_cohens_kappa).
 
 > **NOTE:**
 >
-> **Example 22 (Estimated Cohen’s kappa for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 9](#exm-agreement-table-covid), the [estimated overall agreement](#def-estimated-overall-agreement) is $\widehat{p}_o = 0.99$ ([Example 11](#exm-estimated-overall-agreement)) and the [estimated chance agreement](#def-estimated-chance-agreement) is $\widehat{p}_e = 0.862404$ ([Example 20](#exm-estimated-chance-agreement)), so the [estimated Cohen’s kappa](#def-estimated-cohen-kappa) is:
+> **Example 21 (Estimated Cohen’s kappa for the COVID-19 test)** For the [agreement table](#def-agreement-table) of [Example 9](#exm-agreement-table-covid), the [estimated overall agreement](#def-estimated-overall-agreement) is $\widehat{p}_o = 0.99$ ([Example 11](#exm-estimated-overall-agreement)) and the [estimated chance agreement](#def-estimated-chance-agreement) is $\widehat{p}_e = 0.862404$ ([Example 19](#exm-estimated-chance-agreement)), so the [estimated Cohen’s kappa](#def-estimated-cohen-kappa) is:
 >
 > $$\begin{aligned}
 > \hat{\kappa}
@@ -995,7 +970,7 @@ So far, we have compared a test with the true disease status. The same tools app
 > &\approx 0.927
 > && \text{(divide)}
 > \end{aligned}
-> \tag{62}$$
+> \tag{60}$$
 >
 > ``` downlit
 > kappa_from_table <- function(a, b, c, d) {
@@ -1008,11 +983,11 @@ So far, we have compared a test with the true disease status. The same tools app
 > #> [1] 0.927323
 > ```
 >
-> This [estimate](estimation.llms.md#def-estimate) equals [Cohen’s kappa](#def-cohen-kappa) $\kappa \approx 0.927$ of [Example 21](#exm-cohen-kappa-covid), because $\widehat{p}_o = p_o$ and $\widehat{p}_e = p_e$.
+> This [estimate](estimation.llms.md#def-estimate) equals [Cohen’s kappa](#def-cohen-kappa) $\kappa \approx 0.927$ of [Example 20](#exm-cohen-kappa-covid), because $\widehat{p}_o = p_o$ and $\widehat{p}_e = p_e$.
 
 > **NOTE:**
 >
-> **Example 23 (High agreement but low kappa)** Now apply the same test to $n = 100{,}000$ people in a [population](exploratory-descriptive.llms.md#def-population) where the [prevalence](#def-prevalence) is only 0.5%. Then:
+> **Example 22 (High agreement but low kappa)** Now apply the same test to $n = 100{,}000$ people in a [population](exploratory-descriptive.llms.md#def-population) where the [prevalence](#def-prevalence) is only 0.5%. Then:
 >
 > - $0.005 \times 100{,}000 = 500$ people have COVID-19 and $100{,}000 - 500 = 99{,}500$ do not;
 > - with 99% [sensitivity](#def-sensitivity), the test is positive for $a = 0.99 \times 500 = 495$ people with COVID-19 and negative for $c = 500 - 495 = 5$;
@@ -1033,13 +1008,13 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > The [estimated overall agreement](#def-estimated-overall-agreement) is still 0.99, but the [estimated Cohen’s kappa](#def-estimated-cohen-kappa) drops to about 0.49 and the [positive agreement](#def-positive-agreement) to about 0.50, while the [negative agreement](#def-negative-agreement) stays at about 0.995. The positive and negative agreements show where the classifiers disagree: the test and the reference agree on negatives and disagree on about half of the positive calls.
 >
-> Source: Feinstein and Cicchetti [\[11\]](#ref-feinstein1990high) (the first paradox).
+> Source: Feinstein and Cicchetti [\[10\]](#ref-feinstein1990high) (the first paradox).
 
 > **NOTE:**
 >
-> *Remark 3* (Kappa depends on prevalence). When both classifiers call one [class](#def-class) rarely, the [chance agreement](#def-chance-agreement) $p_e$ is close to 1, so the same [overall agreement](#def-overall-agreement) leaves little room for agreement beyond chance, and [Cohen’s kappa](#def-cohen-kappa) can be low even when the overall agreement is high, as [Example 23](#exm-kappa-paradox) shows. Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high) recommend reporting the [positive agreement](#def-positive-agreement) and [negative agreement](#def-negative-agreement) alongside Cohen’s kappa, so that poor agreement on the rarer class is not hidden.
+> *Remark 3* (Kappa depends on prevalence). When both classifiers call one [class](#def-class) rarely, the [chance agreement](#def-chance-agreement) $p_e$ is close to 1, so the same [overall agreement](#def-overall-agreement) leaves little room for agreement beyond chance, and [Cohen’s kappa](#def-cohen-kappa) can be low even when the overall agreement is high, as [Example 22](#exm-kappa-paradox) shows. Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high) recommend reporting the [positive agreement](#def-positive-agreement) and [negative agreement](#def-negative-agreement) alongside Cohen’s kappa, so that poor agreement on the rarer class is not hidden.
 >
-> Source: Feinstein and Cicchetti [\[11\]](#ref-feinstein1990high); Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high).
+> Source: Feinstein and Cicchetti [\[10\]](#ref-feinstein1990high); Cicchetti and Feinstein [\[8\]](#ref-cicchetti1990high).
 
 # Definitions on this page
 
@@ -1062,11 +1037,10 @@ So far, we have compared a test with the true disease status. The same tools app
 - [Definition 17 (Negative agreement)](#def-negative-agreement)
 - [Definition 18 (Agent-only rate)](#def-agent-only-rate)
 - [Definition 19 (Test measures estimated from an agreement table)](#def-agreement-test-measures)
-- [Definition 20 (Harmonic mean)](#def-harmonic-mean)
-- [Definition 21 (Chance agreement)](#def-chance-agreement)
-- [Definition 22 (Estimated chance agreement)](#def-estimated-chance-agreement)
-- [Definition 23 (Cohen’s kappa)](#def-cohen-kappa)
-- [Definition 24 (Estimated Cohen’s kappa)](#def-estimated-cohen-kappa)
+- [Definition 20 (Chance agreement)](#def-chance-agreement)
+- [Definition 21 (Estimated chance agreement)](#def-estimated-chance-agreement)
+- [Definition 22 (Cohen’s kappa)](#def-cohen-kappa)
+- [Definition 23 (Estimated Cohen’s kappa)](#def-estimated-cohen-kappa)
 
 # References
 
@@ -1104,13 +1078,9 @@ D. V. Cicchetti and A. R. Feinstein, “High agreement but low kappa: II. Resolv
 
 \[9\]
 
-Wikipedia contributors, “Harmonic mean — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Harmonic_mean>
-
-\[10\]
-
 Wikipedia contributors, “Cohen’s kappa — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Cohen%27s_kappa>
 
-\[11\]
+\[10\]
 
 A. R. Feinstein and D. V. Cicchetti, “High agreement but low kappa: I. The problems of two paradoxes,” *Journal of Clinical Epidemiology*, vol. 43, no. 6, pp. 543–549, 1990, doi: [10.1016/0895-4356(90)90158-L](https://doi.org/10.1016/0895-4356(90)90158-L).
 

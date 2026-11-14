@@ -124,6 +124,16 @@
    "url": "https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-dot-product"
   },
   {
+   "id": "mds/linear-algebra-vectors#def-harmonic-mean",
+   "site": "mds",
+   "page": "linear-algebra-vectors",
+   "div": "def-harmonic-mean",
+   "kind": "def",
+   "title": "harmonic mean",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-harmonic-mean"
+  },
+  {
    "id": "mds/linear-algebra-vectors#def-mean",
    "site": "mds",
    "page": "linear-algebra-vectors",
@@ -1329,15 +1339,6 @@
    "div": "def-estimated-overall-agreement",
    "kind": "def",
    "title": "Estimated overall agreement",
-   "external": false
-  },
-  {
-   "id": "sds/classification#def-harmonic-mean",
-   "site": "sds",
-   "page": "classification",
-   "div": "def-harmonic-mean",
-   "kind": "def",
-   "title": "Harmonic mean",
    "external": false
   },
   {
@@ -5613,11 +5614,11 @@
   ],
   [
    "sds/classification#thm-neg-agreement-harmonic",
-   "sds/classification#def-agreement-test-measures"
+   "mds/linear-algebra-vectors#def-harmonic-mean"
   ],
   [
    "sds/classification#thm-neg-agreement-harmonic",
-   "sds/classification#def-harmonic-mean"
+   "sds/classification#def-agreement-test-measures"
   ],
   [
    "sds/classification#thm-neg-agreement-harmonic",
@@ -5649,11 +5650,11 @@
   ],
   [
    "sds/classification#thm-pos-agreement-harmonic",
-   "sds/classification#def-agreement-test-measures"
+   "mds/linear-algebra-vectors#def-harmonic-mean"
   ],
   [
    "sds/classification#thm-pos-agreement-harmonic",
-   "sds/classification#def-harmonic-mean"
+   "sds/classification#def-agreement-test-measures"
   ],
   [
    "sds/classification#thm-pos-agreement-harmonic",
