@@ -1,5 +1,6 @@
 :::{#exm-pos-agreement-harmonic}
 #### Positive agreement of the COVID-19 test as a harmonic mean
+<!-- no-figure: the example computes one harmonic mean from two numbers in the agreement table -->
 
 For the agreement table of @exm-agreement-table-covid,
 the estimated positive predictive value is $693 / 786$
