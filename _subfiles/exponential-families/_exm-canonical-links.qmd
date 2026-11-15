@@ -61,5 +61,5 @@ so we differentiate it and then solve for $\natparam$:
   The canonical link function is the [logit](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds),
   the function that takes a [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) to its [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds).
   The [diagram linking probability, odds, and log-odds](https://morrison-lab.github.io/pds/probability-basics.html#fig-prob-odds-log-odds) shows the logit as its two upper arrows,
-  and the expit, which converts back, as its two lower arrows.
+  and the [expit](https://morrison-lab.github.io/mcs/functions.html#def-logistic-function), which converts back, as its two lower arrows.
 :::
