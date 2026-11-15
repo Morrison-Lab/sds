@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-15 11:45:22 (PST)
+Last modified: 2026-11-15 12:30:31 (PST)
 
 Many of the distributions in this course, such as the [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli), [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) and [Normal](https://morrison-lab.github.io/pds/random-variables.html#def-normal) distributions, share one algebraic form for their [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) or [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). Distributions with that form are called an [exponential family](#def-exponential-family), and they share properties that make estimation easier. This page defines the form and its [natural parameter](#def-natural-parameter), and checks the form for the [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#def-poisson) on data.
 
@@ -794,7 +794,7 @@ Many of the distributions in this course, such as the [Bernoulli](https://morris
 >   && \text{(take the logarithm of both sides)}
 >   \end{aligned}$$
 >
->   The canonical link function is the [logit](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds), the function that takes a [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) to its [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds). The [diagram linking probability, odds, and log-odds](https://morrison-lab.github.io/pds/probability-basics.html#fig-prob-odds-log-odds) shows the logit as its two upper arrows, and the expit, which converts back, as its two lower arrows.
+>   The canonical link function is the [logit](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds), the function that takes a [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) to its [log odds](https://morrison-lab.github.io/pds/probability-basics.html#def-log-odds). The [diagram linking probability, odds, and log-odds](https://morrison-lab.github.io/pds/probability-basics.html#fig-prob-odds-log-odds) shows the logit as its two upper arrows, and the [expit](https://morrison-lab.github.io/mcs/functions.html#def-logistic-function), which converts back, as its two lower arrows.
 
 # 5 Further reading
 
