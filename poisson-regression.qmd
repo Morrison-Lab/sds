@@ -18,7 +18,7 @@ resources:
 ```{r}
 #| label: python-packages
 #| include: false
-py_packages <- c("numpy", "pandas", "statsmodels")
+py_packages <- c("matplotlib", "numpy", "pandas", "statsmodels")
 reticulate::py_require(py_packages)
 ```
 
@@ -95,6 +95,38 @@ bikeshare_raw[["bikers", "temp", "workingday", "weathersit"]].head(6)
 
 The exercises follow the [Poisson regression](poisson-regression.qmd#def-poisson-regression) part of the book's Chapter 4 lab [@james2021islr2e, Section 4.7.7].
 Each solution shows the code in R and in Python.
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_exr-bikeshare-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_sol-bikeshare-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_exr-bikeshare-weather.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_sol-bikeshare-weather.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_exr-bikeshare-histogram.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_sol-bikeshare-histogram.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_exr-bikeshare-temp.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_sol-bikeshare-temp.qmd >}}
 
 {{< slidebreak >}}
 
