@@ -53,7 +53,7 @@ Given `cylinders` and `origin`, it falls to `r sprintf("%.2f", avg_rv$cylinders_
 as @thm-residual-variance-more-covariates requires.
 @fig-residual-variance-more-covariates-auto shows where the drop comes from:
 among the cars with 4 or 6 cylinders,
-the Japanese cars have a higher population mean `mpg` than the American and European cars,
+the Japanese cars have a higher [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) `mpg` than the American and European cars,
 so part of the spread within each cylinder count is a difference between origins.
 
 ::: {.panel-tabset group="language"}
