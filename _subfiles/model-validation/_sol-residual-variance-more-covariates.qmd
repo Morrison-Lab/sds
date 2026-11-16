@@ -1,0 +1,30 @@
+:::{#sol-residual-variance-more-covariates}
+
+Fix a covariate value $\predvar$.
+The [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance) holds for every distribution with a finite second moment,
+so it holds for the distribution of $\Outvar$ given $\Predvar = \predvar$.
+With $Z$ in the role of the conditioning variable, it gives
+
+$$
+\Var{\Outvar \mid \Predvar = \predvar}
+= \E{\Var{\Outvar \mid \Predvar = \predvar, Z} \mid \Predvar = \predvar}
++ \Var{\E{\Outvar \mid \Predvar = \predvar, Z} \mid \Predvar = \predvar}.
+$$
+
+The identity holds at every $\predvar$,
+so it holds with the random $\Predvar$ in place of $\predvar$.
+Take the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of both sides over $\Predvar$:
+
+$$
+\ba
+\E{\Var{\Outvar \mid \Predvar}}
+&= \E{\E{\Var{\Outvar \mid \Predvar, Z} \mid \Predvar} + \Var{\E{\Outvar \mid \Predvar, Z} \mid \Predvar}}
+&& \text{(the identity above, with } \Predvar \text{ in place of } \predvar \text{)} \\
+&= \E{\E{\Var{\Outvar \mid \Predvar, Z} \mid \Predvar}} + \E{\Var{\E{\Outvar \mid \Predvar, Z} \mid \Predvar}}
+&& \text{(linearity of expectation)} \\
+&= \E{\Var{\Outvar \mid \Predvar, Z}} + \E{\Var{\E{\Outvar \mid \Predvar, Z} \mid \Predvar}}
+&& \text{(law of iterated expectations)}
+\ea
+$$
+
+:::
