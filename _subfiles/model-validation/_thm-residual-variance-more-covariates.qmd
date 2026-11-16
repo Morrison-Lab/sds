@@ -1,8 +1,8 @@
 :::{#thm-residual-variance-more-covariates}
 #### A further covariate cannot raise the average residual variance
 
-Let $\Predvar$ and $Z$ be [covariates](#def-covariate) of one observation from a [population](exploratory-descriptive.qmd#def-population),
-and let $\Outvar$ be its outcome, with $\E{\Outvar^2} < \infty$.
+Let $\Predvar$ and $Z$ be [covariates](#def-covariate) of one [observation](exploratory-descriptive.qmd#def-observation) from a [population](exploratory-descriptive.qmd#def-population),
+and let $\Outvar$ be its [outcome](https://morrison-lab.github.io/pds/expectation.html#def-outcome), with $\E{\Outvar^2} < \infty$.
 
 The [residual variance](#def-irreducible-error) of $\Outvar$ given $\Predvar$ and $Z$, averaged over the covariate values,
 is at most the residual variance given $\Predvar$ alone, averaged in the same way:
@@ -14,8 +14,8 @@ $$ {#eq-residual-variance-more-covariates}
 :::
 
 ::: proof
-@exr-residual-variance-more-covariates splits the average residual variance given $\Predvar$ into two terms.
-The second term is the expectation of a [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which is never negative.
+@exr-residual-variance-more-covariates splits the average [residual variance](#def-irreducible-error) given $\Predvar$ into two terms.
+The second term is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of a [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which is never negative.
 
 $$
 \ba

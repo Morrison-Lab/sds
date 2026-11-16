@@ -1,14 +1,14 @@
 :::{#exr-residual-variance-more-covariates}
 #### Condition on one more covariate
 
-Let $\Predvar$ and $Z$ be [covariates](#def-covariate) of one observation from a [population](exploratory-descriptive.qmd#def-population),
-and let $\Outvar$ be its outcome, with $\E{\Outvar^2} < \infty$.
+Let $\Predvar$ and $Z$ be [covariates](#def-covariate) of one [observation](exploratory-descriptive.qmd#def-observation) from a [population](exploratory-descriptive.qmd#def-population),
+and let $\Outvar$ be its [outcome](https://morrison-lab.github.io/pds/expectation.html#def-outcome), with $\E{\Outvar^2} < \infty$.
 The [residual variance](#def-irreducible-error) given $\Predvar$, averaged over the covariate values, is $\E{\Var{\Outvar \mid \Predvar}}$.
 Measuring the further covariate $Z$ replaces it by $\E{\Var{\Outvar \mid \Predvar, Z}}$.
 Comparing the two says whether measuring $Z$ can shrink the part of the outcome that no [prediction](prediction.qmd#def-prediction) removes.
 
 ::: {.callout-tip title="Hint"}
-Apply the [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance) to the distribution of $\Outvar$ given $\Predvar = \predvar$,
+Apply the [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance) conditional on $\Predvar = \predvar$,
 with $Z$ in the role of the conditioning variable,
 and then average over $\Predvar$ with the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie).
 :::
