@@ -8,7 +8,7 @@ Measuring the further covariate $Z$ replaces it by $\E{\Var{\Outvar \mid \Predva
 Comparing the two says whether measuring $Z$ can shrink the part of the outcome that no [prediction](prediction.qmd#def-prediction) removes.
 
 ::: {.callout-tip title="Hint"}
-Apply the [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance) conditional on $\Predvar = \predvar$,
+Apply the [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance) [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) on $\Predvar = \predvar$,
 with $Z$ in the role of the conditioning variable,
 and then average over $\Predvar$ with the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie).
 :::

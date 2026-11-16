@@ -1,8 +1,8 @@
 :::{#sol-residual-variance-more-covariates}
 
 Fix a [covariate](#def-covariate) value $\predvar$.
-The [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance) holds for every random variable with a finite second moment,
-so it holds conditional on $\Predvar = \predvar$.
+The [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance) holds for every [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) with a finite second moment,
+so it holds [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) on $\Predvar = \predvar$.
 With $Z$ in the role of the conditioning variable, it gives
 
 $$

@@ -3,7 +3,7 @@
 
 Treat the 392 cars of the `Auto` data [@james2021islr2e] as the whole [population](exploratory-descriptive.qmd#def-population) of cars,
 with [outcome](https://morrison-lab.github.io/pds/expectation.html#def-outcome) `mpg`.
-The [mean function](#def-mean-function) of `mpg` given `cylinders` is then the population mean `mpg` of the cars with each number of cylinders,
+The [mean function](#def-mean-function) of `mpg` given `cylinders` is then the [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) `mpg` of the cars with each number of cylinders,
 and the [residual variance](#def-irreducible-error) at each number of cylinders is the [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of `mpg` among those cars.
 Averaging the residual variance over the cars gives $\E{\Var{\Outvar \mid \Predvar}}$, with $\Predvar$ the number of cylinders.
 Adding the [covariate](#def-covariate) $Z$, `origin` (American, European or Japanese), splits each group of cars by where they were built:

@@ -1,9 +1,9 @@
 :::{#rem-noise-conditional-covariates}
 #### The noise depends on which covariates it is conditional on
 
-The covariate $\Predvar$ in the definition of the [noise](#def-noise) can be a vector of several [covariates](#def-covariate).
+The [covariate](#def-covariate) $\Predvar$ in the definition of the [noise](#def-noise) can be a vector of several covariates.
 The noise is defined only once the covariates in $\Predvar$ are chosen.
-Adding a [covariate](#def-covariate) to $\Predvar$ changes the [mean function](#def-mean-function) $\truemean$,
+Adding a covariate to $\Predvar$ changes the [mean function](#def-mean-function) $\truemean$,
 so it changes the noise of the same [observation](exploratory-descriptive.qmd#def-observation).
 
 :::
