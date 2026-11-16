@@ -48,7 +48,7 @@ print(round((dev_cyl**2).mean(), 2), round((dev_cyl_origin**2).mean(), 2))
 
 :::
 
-The average [residual variance](#def-irreducible-error) of `mpg` given `cylinders` alone is `r sprintf("%.2f", avg_rv$cylinders)`.
+The [residual variance](#def-irreducible-error) of `mpg` given `cylinders` alone, averaged over the cars, is `r sprintf("%.2f", avg_rv$cylinders)`.
 Given `cylinders` and `origin`, it falls to `r sprintf("%.2f", avg_rv$cylinders_and_origin)`,
 as @thm-residual-variance-more-covariates requires.
 @fig-residual-variance-more-covariates-auto shows where the drop comes from:

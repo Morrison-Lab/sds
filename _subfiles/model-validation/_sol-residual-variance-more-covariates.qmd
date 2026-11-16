@@ -2,7 +2,7 @@
 
 Fix a [covariate](#def-covariate) value $\predvar$.
 The [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance) holds for every [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) with a finite second moment,
-so it holds [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) on $\Predvar = \predvar$.
+so it holds [conditional on](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) $\Predvar = \predvar$.
 With $Z$ in the role of the conditioning variable, it gives
 
 $$
@@ -11,7 +11,7 @@ $$
 + \Var{\E{\Outvar \mid \Predvar = \predvar, Z} \mid \Predvar = \predvar}.
 $$
 
-The identity holds at every $\predvar$,
+The equation holds at every $\predvar$,
 so it holds with the random $\Predvar$ in place of $\predvar$.
 Take the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of both sides over $\Predvar$:
 

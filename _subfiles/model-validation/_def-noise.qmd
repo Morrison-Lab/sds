@@ -4,7 +4,7 @@
 Let $\paren{\Predvar, \Outvar}$ be the [covariate](#def-covariate) and the outcome of one observation from a [population](exploratory-descriptive.qmd#def-population),
 and let $\truemean$ be the [mean function](#def-mean-function) of $\Outvar$ given $\Predvar$.
 
-The **[noise](https://en.wiktionary.org/wiki/noise)** $\noise$ of $\Outvar$ [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) on $\Predvar$
+The **[noise](https://en.wiktionary.org/wiki/noise)** $\noise$ of $\Outvar$ [conditional on](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) $\Predvar$
 is the [deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean)
 of the outcome $\Outvar$ from the mean function value $\truemeanf{\Predvar}$ at the observation's own covariate value:
 
