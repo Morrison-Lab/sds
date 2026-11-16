@@ -14,24 +14,18 @@ Adding the [covariate](#def-covariate) $Z$, `origin` (American, European or Japa
 
 ```{r}
 #| code-fold: show
-auto_rv <- read.csv("data/auto.csv") |>
+auto_rv <- readr::read_csv("data/auto.csv", show_col_types = FALSE) |>
   dplyr::filter(!is.na(horsepower))
 
-# The population variance of a group of cars: the mean squared deviation
-# from the group's own mean, dividing by the group size, not by one less.
-pop_var <- function(y) {
-  dev <- y - mean(y)
-  mean(dev^2)
-}
-
-# Give each car the residual variance of its group,
-# then average over the cars, so each group counts by its size.
+# Each car's squared deviation from the mean mpg of its group.
+# The mean of these over all cars is the average of the groups'
+# population variances, each group counted by its number of cars.
 avg_rv <- auto_rv |>
-  dplyr::mutate(rv_cyl = pop_var(mpg), .by = cylinders) |>
-  dplyr::mutate(rv_cyl_origin = pop_var(mpg), .by = c(cylinders, origin)) |>
+  dplyr::mutate(dev_cyl = mpg - mean(mpg), .by = cylinders) |>
+  dplyr::mutate(dev_cyl_origin = mpg - mean(mpg), .by = c(cylinders, origin)) |>
   dplyr::summarize(
-    cylinders = mean(rv_cyl),
-    cylinders_and_origin = mean(rv_cyl_origin)
+    cylinders = mean(dev_cyl^2),
+    cylinders_and_origin = mean(dev_cyl_origin^2)
   )
 avg_rv
 ```
@@ -44,11 +38,12 @@ import pandas as pd
 
 auto_rv = pd.read_csv("data/auto.csv").dropna(subset=["horsepower"])
 
-# Give each car the population variance of mpg in its group (ddof=0 divides by the group size),
-# then average over the cars, so each group counts by its size.
-rv_cyl = auto_rv.groupby("cylinders")["mpg"].transform(lambda y: y.var(ddof=0))
-rv_cyl_origin = auto_rv.groupby(["cylinders", "origin"])["mpg"].transform(lambda y: y.var(ddof=0))
-print(round(rv_cyl.mean(), 2), round(rv_cyl_origin.mean(), 2))
+# Each car's squared deviation from the mean mpg of its group.
+# The mean of these over all cars is the average of the groups'
+# population variances, each group counted by its number of cars.
+dev_cyl = auto_rv["mpg"] - auto_rv.groupby("cylinders")["mpg"].transform("mean")
+dev_cyl_origin = auto_rv["mpg"] - auto_rv.groupby(["cylinders", "origin"])["mpg"].transform("mean")
+print(round((dev_cyl**2).mean(), 2), round((dev_cyl_origin**2).mean(), 2))
 ```
 
 :::
@@ -67,30 +62,46 @@ so part of the spread within each cylinder count is a difference between origins
 
 ```{r}
 #| label: fig-residual-variance-more-covariates-auto
-#| fig-cap: "Miles per gallon against cylinders for the 392 cars of the `Auto` data, colored by origin. Each car is a point, spread sideways within its cylinder count so that the points do not overlap."
-#| fig-alt: "A strip plot of miles per gallon, from 9 to about 47, against cylinders, at 3, 4, 5, 6 and 8. Each car is a point, colored by origin: American, European or Japanese. The cars with 8 cylinders are all American, between 9 and about 27 miles per gallon. Among the cars with 4 cylinders, which span 18 to about 47, the Japanese cars sit higher on average than the American and European cars, which overlap. Most cars with 6 cylinders are American, and the few Japanese ones sit above the middle of the group. The cars with 3 cylinders are all Japanese, and the cars with 5 cylinders are all European."
-#| code-fold: true
-library(ggplot2)
-
+#| fig-cap: >-
+#|   Miles per gallon against cylinders for the 392 cars of the `Auto` data,
+#|   colored by origin.
+#|   Each car is a point, spread sideways within its cylinder count
+#|   so that the points do not overlap.
+#| fig-alt: >-
+#|   A strip plot of miles per gallon, from 9 to about 47,
+#|   against cylinders, at 3, 4, 5, 6 and 8.
+#|   Each car is a point, colored by origin: American, European or Japanese.
+#|   The cars with 8 cylinders are all American,
+#|   between 9 and about 27 miles per gallon.
+#|   Among the cars with 4 cylinders, which span 18 to about 47,
+#|   the Japanese cars sit higher on average
+#|   than the American and European cars, which overlap.
+#|   Most cars with 6 cylinders are American,
+#|   and the few Japanese ones sit above the middle of the group.
+#|   The cars with 3 cylinders are all Japanese,
+#|   and the cars with 5 cylinders are all European.
+#| code-fold: show
 # Name the origin codes, as the Auto documentation does.
 origin_names <- c("1" = "American", "2" = "European", "3" = "Japanese")
 auto_plot <- auto_rv |>
   dplyr::mutate(origin = origin_names[as.character(origin)])
 
-ggplot(auto_plot, aes(cylinders, mpg, colour = origin)) +
-  geom_point(
-    position = position_jitter(width = 0.25, height = 0, seed = 1),
-    alpha = 0.7
-  ) +
-  labs(x = "cylinders", y = "miles per gallon", colour = "origin") +
-  theme_minimal() +
-  theme(legend.position = "bottom")
+# Spread the cars sideways, never up or down, so no mpg value moves.
+jitter_sideways <- ggplot2::position_jitter(width = 0.25, height = 0, seed = 1)
+
+auto_plot |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = cylinders, y = mpg, colour = origin) +
+  ggplot2::geom_point(position = jitter_sideways, alpha = 0.7) +
+  ggplot2::labs(x = "cylinders", y = "miles per gallon", colour = "origin") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 ##### Python
 
 ```{python}
-#| code-fold: true
+#| code-fold: show
 import matplotlib.pyplot as plt
 import numpy as np
 
