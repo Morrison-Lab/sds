@@ -1,0 +1,20 @@
+::: {#exr-bikeshare-negative}
+
+#### Compare with linear regression
+
+Consider a [linear regression](basic-statistical-methods.qmd#def-linear-regression) of `bikers` on the same [covariates](model-validation.qmd#def-covariate) as the [Poisson regression model](poisson-regression.qmd#def-poisson-regression) of @exr-bikeshare-fit.
+A count is never negative.
+
+::: {.callout-tip}
+
+#### Hint
+
+`lm()` in R and `smf.ols()` in Python [fit](model-validation.qmd#def-fitted-model) the [linear regression](basic-statistical-methods.qmd#def-linear-regression).
+`fitted()` in R returns the [fitted values](prediction.qmd#def-fitted-value) of a model,
+and the `fittedvalues` attribute of a `statsmodels` fit holds them in Python.
+
+:::
+
+For each of the two [fitted models](model-validation.qmd#def-fitted-model), count the hours with a negative [fitted value](prediction.qmd#def-fitted-value).
+
+:::

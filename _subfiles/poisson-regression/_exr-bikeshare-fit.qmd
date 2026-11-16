@@ -1,0 +1,24 @@
+::: {#exr-bikeshare-fit}
+
+#### Fit a Poisson regression to bike rentals
+
+The [`Bikeshare` data](#sec-bikeshare-lab) count the bikes rented in each of many hours.
+Each count covers one hour,
+so every count has the same [exposure magnitude](https://morrison-lab.github.io/pds/distributions.html#def-exposure).
+Consider a [Poisson regression model](poisson-regression.qmd#def-poisson-regression) of the hourly count `bikers`
+on the [covariates](model-validation.qmd#def-covariate) `temp`, `workingday`, and `weathersit`,
+with `clear` as the [reference level](data.qmd#def-reference-level) of `weathersit`.
+
+::: {.callout-tip}
+
+#### Hint
+
+In R, `glm()` with `family = poisson` [fits](model-validation.qmd#def-fitted-model) the model.
+In Python, the `statsmodels` function `smf.glm()` fits it with `family=sm.families.Poisson()`.
+Both code `weathersit` as one [dummy variable](data.qmd#def-dummy-variable) for each level except the [reference level](data.qmd#def-reference-level).
+
+:::
+
+[Estimate](estimation.qmd#def-estimate) the coefficient of each [covariate](model-validation.qmd#def-covariate) in the model.
+
+:::

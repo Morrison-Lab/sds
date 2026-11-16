@@ -9,9 +9,18 @@ format:
     output-file: poisson-regression-handout.pdf
   docx:
     output-file: poisson-regression-handout.docx
+resources:
+  - data/bikeshare.csv
 ---
 
 {{< include sds/_subfiles/shared-config.qmd >}}
+
+```{r}
+#| label: python-packages
+#| include: false
+py_packages <- c("numpy", "pandas", "statsmodels")
+reticulate::py_require(py_packages)
+```
 
 # The model
 
@@ -39,3 +48,74 @@ to be the [exponential function](https://morrison-lab.github.io/mds/algebra-expo
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/poisson-regression/_exm-poisson-rate-ratio.qmd >}}
+
+# Lab: Poisson regression on bike rentals {#sec-bikeshare-lab}
+
+```{r}
+#| include: false
+bikeshare_raw <- readr::read_csv("data/bikeshare.csv", show_col_types = FALSE)
+bikeshare_n <- nrow(bikeshare_raw)
+```
+
+Hourly counts of bikes rented in a bike-sharing program in Washington, D.C.,
+on `r bikeshare_n` hours make up the `Bikeshare` data [@james2021islr2e, Section 4.6.2].
+The data are in [`data/bikeshare.csv`](data/bikeshare.csv), one line per hour,
+copied from the book's `ISLR2` R package.
+The exercises use these variables:
+
+- `bikers`: the [outcome](model-validation.qmd#def-outcome-vector), the number of bikes rented in that hour.
+- `temp`: the temperature, scaled to run from $0$ to $1$.
+- `workingday`: `1` on a working day and `0` otherwise.
+- `weathersit`: the weather, one of `clear`, `cloudy/misty`, `light rain/snow`, and `heavy rain/snow`.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| code-fold: show
+# The first rows of the four columns that the exercises use.
+bikeshare_raw |>
+  dplyr::select(bikers, temp, workingday, weathersit) |>
+  head()
+```
+
+##### Python
+
+```{python}
+#| code-fold: show
+import pandas as pd
+
+# The first rows of the four columns that the exercises use.
+bikeshare_raw = pd.read_csv("data/bikeshare.csv")
+bikeshare_raw[["bikers", "temp", "workingday", "weathersit"]].head(6)
+```
+
+:::
+
+The exercises follow the [Poisson regression](poisson-regression.qmd#def-poisson-regression) part of the book's Chapter 4 lab [@james2021islr2e, Section 4.7.7].
+Each solution shows the code in R and in Python.
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_exr-bikeshare-fit.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_sol-bikeshare-fit.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_exr-bikeshare-ratio.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_sol-bikeshare-ratio.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_exr-bikeshare-negative.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/poisson-regression/_sol-bikeshare-negative.qmd >}}

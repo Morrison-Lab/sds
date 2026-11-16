@@ -1,0 +1,45 @@
+::: {#sol-bikeshare-negative}
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| code-fold: show
+# Linear regression on the same covariates as the Poisson model.
+lin_r <- lm(bikers ~ temp + workingday + weathersit, data = bike)
+
+# Count the hours whose fitted value is below zero, for each model.
+fitted_lin_r <- fitted(lin_r)
+fitted_pois_r <- fitted(pois_r)
+n_neg_lin_r <- sum(fitted_lin_r < 0)
+n_neg_pois_r <- sum(fitted_pois_r < 0)
+c(linear = n_neg_lin_r, poisson = n_neg_pois_r)
+```
+
+##### Python
+
+```{python}
+#| code-fold: show
+# Linear regression on the same covariates as the Poisson model.
+lin_py = smf.ols(
+    "bikers ~ temp + workingday + C(weathersit, Treatment('clear'))",
+    data=bike,
+).fit()
+
+# Count the hours whose fitted value is below zero, for each model.
+n_neg_lin_py = int((lin_py.fittedvalues < 0).sum())
+n_neg_pois_py = int((pois_py.fittedvalues < 0).sum())
+{"linear": n_neg_lin_py, "poisson": n_neg_pois_py}
+```
+
+:::
+
+The [linear regression](basic-statistical-methods.qmd#def-linear-regression) gives a negative [fitted value](prediction.qmd#def-fitted-value) for `r n_neg_lin_r` hours,
+which is impossible for the [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of a count.
+
+The [Poisson regression model](poisson-regression.qmd#def-poisson-regression) gives a negative fitted value for `r n_neg_pois_r` hours,
+because its [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) is the [exponential function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function) of a [linear function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function),
+and the exponential function takes only positive values.
+
+:::
