@@ -10,7 +10,7 @@ one with `temp` $0.1$ higher than the other.
 
 #### Hint
 
-The model has no interactions or transformations involving `temp`,
+The [Poisson regression model](poisson-regression.qmd#def-poisson-regression) of @exr-bikeshare-fit has no interactions or transformations involving `temp`,
 so @thm-poisson-rate-ratio applies.
 
 :::

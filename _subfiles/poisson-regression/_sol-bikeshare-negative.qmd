@@ -6,6 +6,7 @@
 
 ```{r}
 #| code-fold: show
+# `bike`, `pois_r` and `pois_py` come from the solution to the fit exercise.
 # Linear regression on the same covariates as the Poisson model.
 lin_r <- lm(bikers ~ temp + workingday + weathersit, data = bike)
 
@@ -21,6 +22,7 @@ c(linear = n_neg_lin_r, poisson = n_neg_pois_r)
 
 ```{python}
 #| code-fold: show
+# `bike`, `pois_r` and `pois_py` come from the solution to the fit exercise.
 # Linear regression on the same covariates as the Poisson model.
 lin_py = smf.ols(
     "bikers ~ temp + workingday + C(weathersit, Treatment('clear'))",
