@@ -3,9 +3,9 @@
 Fix a [covariate](#def-covariate) value $\predvar$
 at which the [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) second moment $\E{\Outvar^2 \mid \Predvar = \predvar}$ is finite.
 Because $\E{\Outvar^2} < \infty$,
-the values of $\Predvar$ where it is infinite have probability zero.
+the values of $\Predvar$ where it is infinite have [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) zero.
 The [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance) holds for every [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) with a finite second moment,
-so it holds for $\Outvar$ under its distribution given $\Predvar = \predvar$.
+so it holds for $\Outvar$ given $\Predvar = \predvar$.
 With $Z$ in the role of the conditioning variable, it gives
 
 $$
