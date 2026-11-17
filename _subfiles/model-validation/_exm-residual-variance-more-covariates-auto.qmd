@@ -43,7 +43,8 @@ auto_rv = pd.read_csv("data/auto.csv").dropna(subset=["horsepower"])
 # population variances, each group counted by its number of cars.
 dev_cyl = auto_rv["mpg"] - auto_rv.groupby("cylinders")["mpg"].transform("mean")
 dev_cyl_origin = auto_rv["mpg"] - auto_rv.groupby(["cylinders", "origin"])["mpg"].transform("mean")
-print(round((dev_cyl**2).mean(), 2), round((dev_cyl_origin**2).mean(), 2))
+print("cylinders:", round((dev_cyl**2).mean(), 2))
+print("cylinders and origin:", round((dev_cyl_origin**2).mean(), 2))
 ```
 
 :::
@@ -102,6 +103,11 @@ auto_plot |>
 
 ```{python}
 #| code-fold: show
+#| fig-alt: >-
+#|   The same strip plot as in the R tab: miles per gallon against cylinders,
+#|   one point per car, colored by origin (American, European or Japanese).
+#|   The cars with 8 cylinders are all American;
+#|   among the cars with 4 or 6 cylinders the Japanese cars sit higher than the others.
 import matplotlib.pyplot as plt
 import numpy as np
 
