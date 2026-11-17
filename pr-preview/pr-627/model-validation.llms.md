@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-16 16:03:56 (PST)
+Last modified: 2026-11-16 18:41:22 (PST)
 
 # 1 Data sets, input matrices and outcome vectors
 
@@ -980,14 +980,15 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >
 > $${\operatorname{Var}\mathopen{}\left(Y\mid X\right)\mathclose{}}
 > = {\mathbb{E}\mathopen{}\left[{\operatorname{Var}\mathopen{}\left(Y\mid X, Z\right)\mathclose{}} \mid X\right]\mathclose{}}
-> + {\operatorname{Var}\mathopen{}\left({\mathbb{E}\mathopen{}\left[Y\mid X, Z\right]\mathclose{}} \mid X\right)\mathclose{}}.$$
+> + {\operatorname{Var}\mathopen{}\left({\mathbb{E}\mathopen{}\left[Y\mid X, Z\right]\mathclose{}} \mid X\right)\mathclose{}}.
+> \tag{36}$$
 >
-> Take the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of both sides over $X$. Two random variables that agree with probability one have the same expectation:
+> Take the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of both sides of [Equation 36](#eq-total-variance-given-covariate) over $X$. Two random variables that agree with probability one have the same expectation:
 >
 > $$\begin{aligned}
 > {\mathbb{E}\mathopen{}\left[{\operatorname{Var}\mathopen{}\left(Y\mid X\right)\mathclose{}}\right]\mathclose{}}
 > &= {\mathbb{E}\mathopen{}\left[{\mathbb{E}\mathopen{}\left[{\operatorname{Var}\mathopen{}\left(Y\mid X, Z\right)\mathclose{}} \mid X\right]\mathclose{}} + {\operatorname{Var}\mathopen{}\left({\mathbb{E}\mathopen{}\left[Y\mid X, Z\right]\mathclose{}} \mid X\right)\mathclose{}}\right]\mathclose{}}
-> && \text{(expectation of both sides of the equation above)} \\
+> && \text{(expectation of both sides)} \\
 > &= {\mathbb{E}\mathopen{}\left[{\mathbb{E}\mathopen{}\left[{\operatorname{Var}\mathopen{}\left(Y\mid X, Z\right)\mathclose{}} \mid X\right]\mathclose{}}\right]\mathclose{}} + {\mathbb{E}\mathopen{}\left[{\operatorname{Var}\mathopen{}\left({\mathbb{E}\mathopen{}\left[Y\mid X, Z\right]\mathclose{}} \mid X\right)\mathclose{}}\right]\mathclose{}}
 > && \text{(linearity of expectation)} \\
 > &= {\mathbb{E}\mathopen{}\left[{\operatorname{Var}\mathopen{}\left(Y\mid X, Z\right)\mathclose{}}\right]\mathclose{}} + {\mathbb{E}\mathopen{}\left[{\operatorname{Var}\mathopen{}\left({\mathbb{E}\mathopen{}\left[Y\mid X, Z\right]\mathclose{}} \mid X\right)\mathclose{}}\right]\mathclose{}}
@@ -1001,7 +1002,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > The [residual variance](#def-irreducible-error) of $Y$ given $X$ and $Z$, averaged over the covariate values, is at most the residual variance given $X$ alone, averaged in the same way:
 >
 > $${\mathbb{E}\mathopen{}\left[{\operatorname{Var}\mathopen{}\left(Y\mid X, Z\right)\mathclose{}}\right]\mathclose{}} \le {\mathbb{E}\mathopen{}\left[{\operatorname{Var}\mathopen{}\left(Y\mid X\right)\mathclose{}}\right]\mathclose{}}.
-> \tag{36}$$
+> \tag{37}$$
 
 > **NOTE:**
 >
@@ -1228,11 +1229,11 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >
 > $${\mathbb{E}\mathopen{}\left[{\mathopen{}\left(Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}^{2}\right]\mathclose{}}
 > = \sigma^2+ {\mathbb{E}\mathopen{}\left[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - {{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}}^{2}\right]\mathclose{}}.
-> \tag{37}$$
+> \tag{38}$$
 >
 > The noise has [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $0$ by [Theorem 1](#thm-noise-mean-zero), so the algebra used only one hypothesis about the [new observation](#def-new-observation): it is independent of the [training set](#def-training-set). Independence holds for a fresh observation, and it fails for an observation the procedure was trained on, whose noise helped determine the prediction. It also fails when the new observation depends on the training data (for example, a later time in the same series), or when the same [test set](#def-test-set) was used to choose the procedure.
 >
-> The algebra did not use that the new pair has the same [population distribution](exploratory-descriptive.llms.md#def-population-distribution) as the training data. Suppose the new pair came from a [population](exploratory-descriptive.llms.md#def-population) whose mean function differed from the training population’s. Then [Equation 37](#eq-epe-after-noise) would still hold, with the new population’s mean function and noise variance. Its [estimation-error](estimation.llms.md#def-estimation-error) term would include the [bias](estimation.llms.md#def-bias) from that difference. So it would no longer measure how well the procedure [estimates](estimation.llms.md#def-estimate) the training population’s mean function.
+> The algebra did not use that the new pair has the same [population distribution](exploratory-descriptive.llms.md#def-population-distribution) as the training data. Suppose the new pair came from a [population](exploratory-descriptive.llms.md#def-population) whose mean function differed from the training population’s. Then [Equation 38](#eq-epe-after-noise) would still hold, with the new population’s mean function and noise variance. Its [estimation-error](estimation.llms.md#def-estimation-error) term would include the [bias](estimation.llms.md#def-bias) from that difference. So it would no longer measure how well the procedure [estimates](estimation.llms.md#def-estimate) the training population’s mean function.
 
 > **NOTE:**
 >
@@ -1251,7 +1252,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >
 > $${\operatorname{ESPE}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}}
 > = \sigma^2+ {\operatorname{ESEE}\mathopen{}\left({{\hat{\mu}\mathopen{}\left(x\right)\mathclose{}}}\right)\mathclose{}}.
-> \tag{38}$$
+> \tag{39}$$
 
 > **NOTE:**
 >
@@ -1290,7 +1291,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 
 > **NOTE:**
 >
-> **Exercise 9 (Separate the bias)** [Equation 37](#eq-epe-after-noise) leaves one term that still mixes two ideas:
+> **Exercise 9 (Separate the bias)** [Equation 38](#eq-epe-after-noise) leaves one term that still mixes two ideas:
 >
 > $${\mathbb{E}\mathopen{}\left[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2}\right]\mathclose{}}.$$
 >
@@ -1366,7 +1367,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >
 > $${\mathbb{E}\mathopen{}\left[{\mathopen{}\left({\mu\mathopen{}\left(x\right)\mathclose{}} - \hat{y}\right)\mathclose{}}^{2}\right]\mathclose{}}
 > = {\mathopen{}\left({\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}}\right)\mathclose{}}^{2} + {\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}}.
-> \tag{39}$$
+> \tag{40}$$
 >
 > Neither cross term needed the noise to be normal, and neither assumed anything about the fitting procedure: $g$ can be a line, a tree or a neural network. This split is specific to squared-error loss, the loss of this chapter’s examples.
 
@@ -1389,7 +1390,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >
 > $${\operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}} = {\mathopen{}\left({\mathbb{B}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{}}^{2}
 > + {\mathbb{V}\mathopen{}\left[\hat{y}\right]\mathclose{}} + \sigma^2.
-> \tag{40}$$
+> \tag{41}$$
 
 > **NOTE:**
 >
@@ -1420,7 +1421,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > && \text{(definition of the variance)}
 > \end{aligned}$$
 >
-> Substituting the split of the pMSE into [Equation 38](#eq-epe-split-noise):
+> Substituting the split of the pMSE into [Equation 39](#eq-epe-split-noise):
 >
 > $$\begin{aligned}
 > {\operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}}
@@ -1443,7 +1444,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 39 (Flexibility)** Let $g_{1}$ and $g_{2}$ be [fitting procedures](#def-fitting-procedure) that each choose, by least squares, a [fitted model](#def-fitted-model) from a set of candidate [functions](https://morrison-lab.github.io/mcs/functions.html#def-function), $\mathcal{G}_{1}$ and $\mathcal{G}_{2}$ respectively. The procedure $g_{2}$ is **at least as flexible** as $g_{1}$ if every candidate of $g_{1}$ is also a candidate of $g_{2}$:
 >
 > $$\mathcal{G}_{1} \subseteq \mathcal{G}_{2}.
-> \tag{41}$$
+> \tag{42}$$
 
 > **NOTE:**
 >
@@ -1463,7 +1464,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > {\operatorname{Var}\mathopen{}\left({{\hat y_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}} &\ge {\operatorname{Var}\mathopen{}\left({{\hat y_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}},
 > \qquad l= 1, \ldots, L- 1.
 > \end{aligned}
-> \tag{42}$$
+> \tag{43}$$
 >
 > Source: James et al. [\[6, Sec. 2.2.2\]](#ref-james2021islr2e); Wikipedia contributors [\[11\]](#ref-wikipedia_bias_variance_tradeoff).
 
@@ -1648,7 +1649,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > \\
 > & \mathcal{D}_{\text{train}}= \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I_{\text{train}}}.
 > \end{aligned}
-> \tag{43}$$
+> \tag{44}$$
 >
 > Source: James et al. [\[6, pp. 198–201\]](#ref-james2021islr2e); Wikipedia contributors [\[3\]](#ref-wikipedia_training_validation_and_test_data_sets).
 
@@ -1671,7 +1672,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 43 (Validation set)** The **validation set** of a [training/validation/test split](#def-data-splits) is the [held-out set](#def-held-out-set) of observations indexed by $I_{\text{val}}$, used for [model selection](#def-model-selection) among candidate [fitted models](#def-fitted-model) fitted to the training set:
 >
 > $$\mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I_{\text{val}}}.
-> \tag{44}$$
+> \tag{45}$$
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_training_validation_and_test_data_sets).
 
@@ -1680,7 +1681,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 44 (Validation error)** The **validation error** of a [fitted model](#def-fitted-model) $\hat y$ fitted to a [training set](#def-training-set) $\mathcal{D}_{\text{train}}$ is its sample mean [loss](#def-observation-loss) $\ell_{i}$ on the [validation set](#def-validation-set), indexed by $I_{\text{val}}$:
 >
 > $$\overline{\operatorname{err}}_{\text{val}}\stackrel{\text{def}}{=}\frac{1}{\mathopen{}\left|I_{\text{val}}\right|\mathclose{}}\sum_{i\in I_{\text{val}}} \ell_{i}.
-> \tag{45}$$
+> \tag{46}$$
 
 > **NOTE:**
 >
@@ -1688,14 +1689,14 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >
 > $$\hat{l} \stackrel{\text{def}}{=}\arg \min_{l} \frac{1}{\mathopen{}\left|I_{\text{val}}\right|\mathclose{}}\sum_{i\in I_{\text{val}}}
 > {L\mathopen{}\left(y_{i}, {{\hat y_{l}}\mathopen{}\left(x_{i}\right)\mathclose{}}\right)\mathclose{}}.
-> \tag{46}$$
+> \tag{47}$$
 
 > **NOTE:**
 >
 > **Definition 46 (Test set)** The **test set** of a [training/validation/test split](#def-data-splits) is the [held-out set](#def-held-out-set) of observations indexed by $I_{\text{test}}$, on which the [fitted model](#def-fitted-model) ${\hat y_{\hat{l}}}$ that the [validation choice](#def-validation-choice) picks is scored:
 >
 > $$\mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I_{\text{test}}}.
-> \tag{47}$$
+> \tag{48}$$
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_training_validation_and_test_data_sets).
 
@@ -1704,7 +1705,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 47 (Test error)** The **test error** of a [fitted model](#def-fitted-model) $\hat y$ fitted to a [training set](#def-training-set) $\mathcal{D}_{\text{train}}$ is its sample mean [loss](#def-observation-loss) $\ell_{i}$ on the [test set](#def-test-set), indexed by $I_{\text{test}}$:
 >
 > $$\overline{\operatorname{err}}_{\text{test}}\stackrel{\text{def}}{=}\frac{1}{\mathopen{}\left|I_{\text{test}}\right|\mathclose{}}\sum_{i\in I_{\text{test}}} \ell_{i}.
-> \tag{48}$$
+> \tag{49}$$
 
 > **NOTE:**
 >
@@ -2070,7 +2071,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 51 (Folds)** A division of a [training set](#def-training-set) $\mathcal{D}_{\text{train}}$, indexed by $I$, into $k$ **folds** is a partition of $I$ into $k$ nonempty, disjoint subsets $\mathcal{F}_{1}, \ldots, \mathcal{F}_{k}$:
 >
 > $$\mathcal{F}_{1} \cup \cdots \cup \mathcal{F}_{k} = I.
-> \tag{49}$$
+> \tag{50}$$
 
 > **NOTE:**
 >
@@ -2081,14 +2082,14 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 52 (Fold size)** The **size** $n_{j}$ of [fold](#def-folds) $\mathcal{F}_{j}$ is the number of observations it contains:
 >
 > $$n_{j} \stackrel{\text{def}}{=}\mathopen{}\left|\mathcal{F}_{j}\right|\mathclose{}.
-> \tag{50}$$
+> \tag{51}$$
 
 > **NOTE:**
 >
 > **Definition 53 (Fold assignment)** Given [folds](#def-folds) $\mathcal{F}_{1}, \ldots, \mathcal{F}_{k}$, the **fold assignment** ${\kappa\mathopen{}\left(i\right)\mathclose{}}$ of observation $i$ is the index of the fold that contains it:
 >
 > $$i\in \mathcal{F}_{{\kappa\mathopen{}\left(i\right)\mathclose{}}}.
-> \tag{51}$$
+> \tag{52}$$
 
 > **NOTE:**
 >
@@ -2099,7 +2100,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 54 (Fold-out fitted model)** For [fold](#def-folds) $\mathcal{F}_{j}$, the **fold-out fitted model** ${\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}}$ is the [fitted model](#def-fitted-model) that a [fitting procedure](#def-fitting-procedure) $g$ produces from the observations outside that fold:
 >
 > $${\hat y^{(-j)}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{{\hat y_{\mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I\setminus \mathcal{F}_{j}}}}\mathopen{}\left(x\right)\mathclose{}}.
-> \tag{52}$$
+> \tag{53}$$
 
 > **NOTE:**
 >
@@ -2126,7 +2127,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 56 (Cross-validation estimate)** The $k$-fold cross-validation estimate $\widehat{\operatorname{Err}}_{\text{CV}(k)}$ is the [sMSE](prediction.llms.md#def-prediction-mse) of the predictions that each observation $i\in I$ of the training set receives from the [fold-out fitted model](#def-fold-out-fitted-model) of its [fold assignment](#def-fold-assignment) ${\kappa\mathopen{}\left(i\right)\mathclose{}}$ in $k$-fold cross-validation:
 >
 > $$\widehat{\operatorname{Err}}_{\text{CV}(k)} \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i\in I} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x_{i}\right)\mathclose{}} - y_{i}\right)\mathclose{}}^{2}.
-> \tag{53}$$
+> \tag{54}$$
 
 > **NOTE:**
 >
@@ -2134,11 +2135,11 @@ Last modified: 2026-11-16 16:03:56 (PST)
 
 > **NOTE:**
 >
-> **Exercise 13 (The cross-validation estimate, fold by fold)** Rewrite the [cross-validation estimate](#def-cv-estimate) [Equation 53](#eq-cv-estimate) as $1/n$ times a double sum: an outer sum over the fold numbers $j= 1, \ldots, k$ and an inner sum over the observations $i$ in [fold](#def-folds) $\mathcal{F}_{j}$.
+> **Exercise 13 (The cross-validation estimate, fold by fold)** Rewrite the [cross-validation estimate](#def-cv-estimate) [Equation 54](#eq-cv-estimate) as $1/n$ times a double sum: an outer sum over the fold numbers $j= 1, \ldots, k$ and an inner sum over the observations $i$ in [fold](#def-folds) $\mathcal{F}_{j}$.
 
 > **NOTE:**
 >
-> *Solution 13*. The [folds](#def-folds) $\mathcal{F}_{1}, \ldots, \mathcal{F}_{k}$ partition $I$, so summing over the observations of each fold and then over the folds adds each term of [Equation 53](#eq-cv-estimate) exactly once:
+> *Solution 13*. The [folds](#def-folds) $\mathcal{F}_{1}, \ldots, \mathcal{F}_{k}$ partition $I$, so summing over the observations of each fold and then over the folds adds each term of [Equation 54](#eq-cv-estimate) exactly once:
 >
 > $$\begin{aligned}
 > \widehat{\operatorname{Err}}_{\text{CV}(k)}
@@ -2155,7 +2156,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 
 > **NOTE:**
 >
-> *Solution 14*. For $i\in \mathcal{F}_{j}$, [Equation 51](#eq-fold-assignment) also puts $i$ in $\mathcal{F}_{{\kappa\mathopen{}\left(i\right)\mathclose{}}}$, and the folds are disjoint, so ${\kappa\mathopen{}\left(i\right)\mathclose{}} = j$. Starting from the grouped sum of [Solution 13](#sol-cv-estimate-by-fold):
+> *Solution 14*. For $i\in \mathcal{F}_{j}$, [Equation 52](#eq-fold-assignment) also puts $i$ in $\mathcal{F}_{{\kappa\mathopen{}\left(i\right)\mathclose{}}}$, and the folds are disjoint, so ${\kappa\mathopen{}\left(i\right)\mathclose{}} = j$. Starting from the grouped sum of [Solution 13](#sol-cv-estimate-by-fold):
 >
 > $$\begin{aligned}
 > \widehat{\operatorname{Err}}_{\text{CV}(k)}
@@ -2173,7 +2174,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Theorem 8 (The cross-validation estimate, fold by fold)** The [cross-validation estimate](#def-cv-estimate) sums, fold by fold, the squared errors of each fold’s observations under the [fitted model](#def-fitted-model) fitted without that [fold](#def-folds), and divides the total by $n$:
 >
 > $$\widehat{\operatorname{Err}}_{\text{CV}(k)} = \frac{1}{n} \sum_{j=1}^{k} \sum_{i\in \mathcal{F}_{j}} {\mathopen{}\left({\hat y^{(-j)}\mathopen{}\left(x_{i}\right)\mathclose{}} - y_{i}\right)\mathclose{}}^{2}.
-> \tag{54}$$
+> \tag{55}$$
 
 > **NOTE:**
 >
@@ -2184,7 +2185,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 57 (Fold mean squared error)** The **fold mean squared error** $\operatorname{MSE}_{j}$ of [fold](#def-folds) $\mathcal{F}_{j}$ is the [sMSE](prediction.llms.md#def-prediction-mse) of the [fold-out fitted model](#def-fold-out-fitted-model)’s [predictions](prediction.llms.md#def-prediction) for the $n_{j}$ ([fold size](#def-fold-size)) observations in that fold:
 >
 > $$\operatorname{MSE}_{j} \stackrel{\text{def}}{=}\frac{1}{n_{j}} \sum_{i\in \mathcal{F}_{j}} {\mathopen{}\left({\hat y^{(-j)}\mathopen{}\left(x_{i}\right)\mathclose{}} - y_{i}\right)\mathclose{}}^{2}.
-> \tag{55}$$
+> \tag{56}$$
 
 > **NOTE:**
 >
@@ -2192,7 +2193,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 
 > **NOTE:**
 >
-> *Remark 30* (What the cross-validation estimate estimates). Each [prediction](prediction.llms.md#def-prediction) in [Equation 53](#eq-cv-estimate) comes from a [fitted model](#def-fitted-model) that did not see the observation it predicts, so each squared error is scored as in [Theorem 7](#thm-held-out-unbiased). But the model for [fold](#def-folds) $\mathcal{F}_{j}$ was fitted to $n- n_{j}$ observations, not $n$, and the $k$ models differ from one another and from the model fitted to all $n$. So $\widehat{\operatorname{Err}}_{\text{CV}(k)}$ estimates the [expected generalization error](#def-expected-generalization-error) of the fitting *procedure* $g$ at the smaller training-set sizes $n- n_{j}$, which is ${\operatorname{Err}^{g}\mathopen{}\left(n(k- 1) / k\right)\mathclose{}}$ when every fold has $n/ k$ observations, rather than $\operatorname{Err}_{\mathcal{D}_{\text{train}}}$ for the one model fitted to all the data [\[4, Sec. 7.12\]](#ref-hastie2009elements).
+> *Remark 30* (What the cross-validation estimate estimates). Each [prediction](prediction.llms.md#def-prediction) in [Equation 54](#eq-cv-estimate) comes from a [fitted model](#def-fitted-model) that did not see the observation it predicts, so each squared error is scored as in [Theorem 7](#thm-held-out-unbiased). But the model for [fold](#def-folds) $\mathcal{F}_{j}$ was fitted to $n- n_{j}$ observations, not $n$, and the $k$ models differ from one another and from the model fitted to all $n$. So $\widehat{\operatorname{Err}}_{\text{CV}(k)}$ estimates the [expected generalization error](#def-expected-generalization-error) of the fitting *procedure* $g$ at the smaller training-set sizes $n- n_{j}$, which is ${\operatorname{Err}^{g}\mathopen{}\left(n(k- 1) / k\right)\mathclose{}}$ when every fold has $n/ k$ observations, rather than $\operatorname{Err}_{\mathcal{D}_{\text{train}}}$ for the one model fitted to all the data [\[4, Sec. 7.12\]](#ref-hastie2009elements).
 >
 > When every [fold](#def-folds) has $n_{j} = n/ k$ observations, $\widehat{\operatorname{Err}}_{\text{CV}(k)}$ is also the average of the $k$ [fold sMSEs](#def-fold-mse) $\operatorname{MSE}_{1}, \ldots, \operatorname{MSE}_{k}$, the form James et al. [\[6, Sec. 5.1.3\]](#ref-james2021islr2e) use.
 
@@ -2200,7 +2201,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >
 > *Remark 31* (Choosing the number of folds). The number of folds $k$ trades bias against variance in the cross-validation estimate itself [\[6, Sec. 5.1.4\]](#ref-james2021islr2e):
 >
-> - **Bias.** Each [fitted model](#def-fitted-model) in [Equation 53](#eq-cv-estimate) is fitted to about $n(k- 1) / k$ observations. A model fitted to fewer observations usually has a larger [generalization error](#def-generalization-error), so $\widehat{\operatorname{Err}}_{\text{CV}(k)}$ tends to overstate the [expected generalization error](#def-expected-generalization-error) of a model fitted to all $n$. The overstatement shrinks as $k$ grows.
+> - **Bias.** Each [fitted model](#def-fitted-model) in [Equation 54](#eq-cv-estimate) is fitted to about $n(k- 1) / k$ observations. A model fitted to fewer observations usually has a larger [generalization error](#def-generalization-error), so $\widehat{\operatorname{Err}}_{\text{CV}(k)}$ tends to overstate the [expected generalization error](#def-expected-generalization-error) of a model fitted to all $n$. The overstatement shrinks as $k$ grows.
 > - **Variance.** As $k$ grows, the $k$ training sets overlap more, so the $k$ [fitted models](#def-fitted-model) are more alike and their errors may be more strongly correlated. An average of strongly correlated errors varies more from one data set to another than an average of weakly correlated ones. This is a heuristic, not a theorem [\[4, Sec. 7.10\]](#ref-hastie2009elements). How correlated the errors are depends on how much the fitted model changes when one observation changes, so for a stable fitting method the variance need not rise with $k$.
 > - **Computation.** The model is fitted $k$ times.
 >
@@ -2208,7 +2209,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 
 > **NOTE:**
 >
-> **Example 37 (Cross-validation versus the generalization error)** This example applies $k$-fold cross-validation with $k= 5$ to the simulated training set of [Example 32](#exm-train-test-error-simulated), using only those 30 observations. The function `assign_folds()` assigns each observation to a fold at random, `cv_squared_errors()` fits the model once per fold without that fold and returns each observation’s squared prediction error, and `cv_mse()` averages them, which is [Equation 53](#eq-cv-estimate).
+> **Example 37 (Cross-validation versus the generalization error)** This example applies $k$-fold cross-validation with $k= 5$ to the simulated training set of [Example 32](#exm-train-test-error-simulated), using only those 30 observations. The function `assign_folds()` assigns each observation to a fold at random, `cv_squared_errors()` fits the model once per fold without that fold and returns each observation’s squared prediction error, and `cv_mse()` averages them, which is [Equation 54](#eq-cv-estimate).
 >
 > ``` downlit
 > assign_folds <- function(n, k) {
@@ -2439,7 +2440,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > mtcars_cv_range
 > ```
 >
-> Each row of [Table 4](#tbl-cv-mtcars-repeats) holds, for each degree, the square root of $\widehat{\operatorname{Err}}_{\text{CV}(4)}$ ([Equation 53](#eq-cv-estimate)) for one fold assignment. Across fold assignments, the estimate for one degree varied by as much as 0.32 mpg, but every assignment chose degree 2: the estimates moved, and the winner did not. A single run of $k$-fold cross-validation reports one of these rows, so a small difference between two models’ estimates may not survive a different split.
+> Each row of [Table 4](#tbl-cv-mtcars-repeats) holds, for each degree, the square root of $\widehat{\operatorname{Err}}_{\text{CV}(4)}$ ([Equation 54](#eq-cv-estimate)) for one fold assignment. Across fold assignments, the estimate for one degree varied by as much as 0.32 mpg, but every assignment chose degree 2: the estimates moved, and the winner did not. A single run of $k$-fold cross-validation reports one of these rows, so a small difference between two models’ estimates may not survive a different split.
 
 # 7 Leave-one-out cross-validation
 
@@ -2449,7 +2450,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >
 > 1.  How many cars are in each fold?
 > 2.  How many models are fit, and how many cars is each fitted to?
-> 3.  If we run the procedure twice, with two different random fold assignments, can the two values of $\widehat{\operatorname{Err}}_{\text{CV}(32)}$ ([Equation 53](#eq-cv-estimate)) differ?
+> 3.  If we run the procedure twice, with two different random fold assignments, can the two values of $\widehat{\operatorname{Err}}_{\text{CV}(32)}$ ([Equation 54](#eq-cv-estimate)) differ?
 
 > **NOTE:**
 >
@@ -2457,14 +2458,14 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >
 > 1.  $32 / 32 = 1$ car per fold.
 > 2.  One model per fold, so $32$ models, each fitted to the $32 - 1 = 31$ other cars.
-> 3.  No. With one car per fold, every assignment of cars to folds produces the same 32 fits, only numbered differently, and [Equation 53](#eq-cv-estimate) does not depend on the numbering. Unlike [Example 38](#exm-kfold-mtcars), the estimate is not random.
+> 3.  No. With one car per fold, every assignment of cars to folds produces the same 32 fits, only numbered differently, and [Equation 54](#eq-cv-estimate) does not depend on the numbering. Unlike [Example 38](#exm-kfold-mtcars), the estimate is not random.
 
 > **NOTE:**
 >
-> **Definition 58 (Leave-one-out cross-validation)** **Leave-one-out cross-validation (LOOCV)** is $k$-fold cross-validation with $k= n$, so that each of the $n$ [folds](#def-folds) holds one observation, and the [fold-out fitted model](#def-fold-out-fitted-model) ${\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(\cdot\right)\mathclose{}}$ of observation $i$’s [fold](#def-fold-assignment) is fitted to all observations except observation $i$. Its [cross-validation estimate](#def-cv-estimate) ([Equation 53](#eq-cv-estimate) with $k= n$) is
+> **Definition 58 (Leave-one-out cross-validation)** **Leave-one-out cross-validation (LOOCV)** is $k$-fold cross-validation with $k= n$, so that each of the $n$ [folds](#def-folds) holds one observation, and the [fold-out fitted model](#def-fold-out-fitted-model) ${\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(\cdot\right)\mathclose{}}$ of observation $i$’s [fold](#def-fold-assignment) is fitted to all observations except observation $i$. Its [cross-validation estimate](#def-cv-estimate) ([Equation 54](#eq-cv-estimate) with $k= n$) is
 >
 > $$\widehat{\operatorname{Err}}_{\text{CV}(n)} = \frac{1}{n} \sum_{i\in I} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x_{i}\right)\mathclose{}} - y_{i}\right)\mathclose{}}^{2}.
-> \tag{56}$$
+> \tag{57}$$
 >
 > Source: James et al. [\[6, Sec. 5.1.2\]](#ref-james2021islr2e); Wikipedia contributors [\[13\]](#ref-wikipedia_cross_validation_statistics).
 
@@ -2474,21 +2475,21 @@ Last modified: 2026-11-16 16:03:56 (PST)
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 15](#exr-loocv), part 3, worked in [Solution 15](#sol-loocv). It uses [Equation 53](#eq-cv-estimate) and [Equation 52](#eq-fold-out-fitted-model).
+> *Proof*. This is the solution to [Exercise 15](#exr-loocv), part 3, worked in [Solution 15](#sol-loocv). It uses [Equation 54](#eq-cv-estimate) and [Equation 53](#eq-fold-out-fitted-model).
 >
 > Each step below changes one thing.
 >
-> 1.  With $k = n$, the $n$ nonempty, disjoint [folds](#def-folds) of [Equation 49](#eq-folds) partition the $n$ indices of $I$, so each fold holds exactly one index. (A partition of $n$ indices into $n$ nonempty, disjoint subsets has one index per subset.)
+> 1.  With $k = n$, the $n$ nonempty, disjoint [folds](#def-folds) of [Equation 50](#eq-folds) partition the $n$ indices of $I$, so each fold holds exactly one index. (A partition of $n$ indices into $n$ nonempty, disjoint subsets has one index per subset.)
 >
-> 2.  For observation $i$, [Equation 51](#eq-fold-assignment) gives $i \in \mathcal{F}_{{\kappa\mathopen{}\left(i\right)\mathclose{}}}$, so $\mathcal{F}_{{\kappa\mathopen{}\left(i\right)\mathclose{}}} = {\mathopen{}\left\{i\right\}\mathclose{}}$. (Fold ${\kappa\mathopen{}\left(i\right)\mathclose{}}$ holds one index, and that index is $i$.)
+> 2.  For observation $i$, [Equation 52](#eq-fold-assignment) gives $i \in \mathcal{F}_{{\kappa\mathopen{}\left(i\right)\mathclose{}}}$, so $\mathcal{F}_{{\kappa\mathopen{}\left(i\right)\mathclose{}}} = {\mathopen{}\left\{i\right\}\mathclose{}}$. (Fold ${\kappa\mathopen{}\left(i\right)\mathclose{}}$ holds one index, and that index is $i$.)
 >
-> 3.  Let $g$ be the [fitting procedure](#def-fitting-procedure), which maps a [training set](#def-training-set) to a [fitted model](#def-fitted-model). The [fold-out fitted model](#def-fold-out-fitted-model) of observation $i$ is then ${\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\right)\mathclose{}} = {{\hat y_{\mathopen{}\left((x_{i'}, y_{i'})\right)\mathclose{}_{i' \in I \setminus {\mathopen{}\left\{i\right\}\mathclose{}}}}}\mathopen{}\left(x\right)\mathclose{}}$. ([Equation 52](#eq-fold-out-fitted-model) with $\mathcal{F}_{{\kappa\mathopen{}\left(i\right)\mathclose{}}} = {\mathopen{}\left\{i\right\}\mathclose{}}$.)
+> 3.  Let $g$ be the [fitting procedure](#def-fitting-procedure), which maps a [training set](#def-training-set) to a [fitted model](#def-fitted-model). The [fold-out fitted model](#def-fold-out-fitted-model) of observation $i$ is then ${\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x\right)\mathclose{}} = {{\hat y_{\mathopen{}\left((x_{i'}, y_{i'})\right)\mathclose{}_{i' \in I \setminus {\mathopen{}\left\{i\right\}\mathclose{}}}}}\mathopen{}\left(x\right)\mathclose{}}$. ([Equation 53](#eq-fold-out-fitted-model) with $\mathcal{F}_{{\kappa\mathopen{}\left(i\right)\mathclose{}}} = {\mathopen{}\left\{i\right\}\mathclose{}}$.)
 >
 > 4.  This model is fitted to every observation except observation $i$, and it does not involve ${\kappa\mathopen{}\left(i\right)\mathclose{}}$ itself. (Step 3 depends on $i$ and $g$ only.)
 >
-> 5.  Hence each term ${\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x_i\right)\mathclose{}} - y_i\right)\mathclose{}}^{2}$ of [Equation 53](#eq-cv-estimate) is the same for every fold assignment. (Each term depends only on the fitted model in step 4, $x_i$ and $y_i$.)
+> 5.  Hence each term ${\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x_i\right)\mathclose{}} - y_i\right)\mathclose{}}^{2}$ of [Equation 54](#eq-cv-estimate) is the same for every fold assignment. (Each term depends only on the fitted model in step 4, $x_i$ and $y_i$.)
 >
-> 6.  Therefore the sum over $i \in I$ in [Equation 53](#eq-cv-estimate), and its factor $1/n$, are the same for every fold assignment:
+> 6.  Therefore the sum over $i \in I$ in [Equation 54](#eq-cv-estimate), and its factor $1/n$, are the same for every fold assignment:
 >
 >     $$\widehat{\operatorname{Err}}_{\text{CV}(n)} = \frac{1}{n} \sum_{i \in I} {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x_i\right)\mathclose{}} - y_i\right)\mathclose{}}^{2}.$$
 >
@@ -2499,7 +2500,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 59 (Term vector)** Consider a model whose mean is a linear combination of $p^{*}$ terms $t_{1}(x), \ldots, t_{p^{*}}(x)$ of the covariate value, such as $1$, $x$ and $x^2$. The **term vector** $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}$ of observation $i$ is the column of its terms:
 >
 > $$\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i} \stackrel{\text{def}}{=}{\mathopen{}\left(t_{1}(x_{i}), \ldots, t_{p^{*}}(x_{i})\right)\mathclose{}}^{\top}.
-> \tag{57}$$
+> \tag{58}$$
 
 > **NOTE:**
 >
@@ -2510,7 +2511,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 60 (Cross-product matrix (sum-of-squares and cross-products matrix))** The **cross-product matrix** $A$ of [term vectors](#def-term-vector) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}$, $i\in I$, of a training set indexed by $I$, is the sum of their outer products:
 >
 > $$A\stackrel{\text{def}}{=}\sum_{i\in I} \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i} {\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}}^{\top}.
-> \tag{58}$$
+> \tag{59}$$
 
 > **NOTE:**
 >
@@ -2533,7 +2534,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 61 (Leverage)** Consider a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols), with [term vectors](#def-term-vector) $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}$, $i\in I$, and an invertible [cross-product matrix](#def-cross-product-matrix) $A$. The **leverage** of observation $i$ is [\[15\]](#ref-wikipedia_leverage_statistics)
 >
 > $$h_{i} \stackrel{\text{def}}{=}{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}}^{\top} A^{-1} \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}.
-> \tag{59}$$
+> \tag{60}$$
 >
 > Source: Wikipedia contributors [\[15\]](#ref-wikipedia_leverage_statistics).
 
@@ -2546,7 +2547,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Theorem 9 (Leave-one-out cross-validation for least squares)** For a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols) with every [leverage](#def-leverage) $h_{i} < 1$, the [leave-one-out estimate](#def-loocv) can be computed from the single fit to all $n$ observations, from its [fitted values](prediction.llms.md#def-fitted-value) $\hat y_{i}$, their [prediction errors](prediction.llms.md#def-prediction-error) ${\varepsilon_{\text{pred}}}_{i} = \hat y_{i} - y_{i}$, and the leverages:
 >
 > $$\widehat{\operatorname{Err}}_{\text{CV}(n)} = \frac{1}{n} \sum_{i\in I} {\mathopen{}\left(\frac{{\varepsilon_{\text{pred}}}_{i}}{1 - h_{i}}\right)\mathclose{}}^{2}.
-> \tag{60}$$
+> \tag{61}$$
 
 > **NOTE:**
 >
@@ -2558,7 +2559,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 
 > **NOTE:**
 >
-> **Example 39 (Leave-one-out cross-validation of the `mtcars` polynomials)** This example computes $\widehat{\operatorname{Err}}_{\text{CV}(32)}$ for the four `mtcars` polynomials of [Exercise 1](#exr-overfitting) in two ways: by fitting each model 32 times, as in [Equation 56](#eq-loocv), and by the single-fit formula of [Theorem 9](#thm-loocv-shortcut), with the leverages from [`hatvalues()`](https://rdrr.io/r/stats/influence.measures.html).
+> **Example 39 (Leave-one-out cross-validation of the `mtcars` polynomials)** This example computes $\widehat{\operatorname{Err}}_{\text{CV}(32)}$ for the four `mtcars` polynomials of [Exercise 1](#exr-overfitting) in two ways: by fitting each model 32 times, as in [Equation 57](#eq-loocv), and by the single-fit formula of [Theorem 9](#thm-loocv-shortcut), with the leverages from [`hatvalues()`](https://rdrr.io/r/stats/influence.measures.html).
 >
 > ``` downlit
 > loocv_by_formula <- function(formula, data) {
@@ -2591,10 +2592,10 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    1.06581e-14    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 1.1e-14, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
@@ -2608,7 +2609,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >
 > $${\widehat{\operatorname{Err}}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i\in I}
 > {\mathopen{}\left({\hat y^{(-{\kappa\mathopen{}\left(i\right)\mathclose{}})}\mathopen{}\left(x_{i}\right)\mathclose{}} - y_{i}\right)\mathclose{}}^{2}.
-> \tag{61}$$
+> \tag{62}$$
 
 > **NOTE:**
 >
@@ -2616,7 +2617,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >
 > $${g^{\text{CV}}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}
 > {\hat y_{\min \arg \min_{l} {\widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}}}.
-> \tag{62}$$
+> \tag{63}$$
 
 > **NOTE:**
 >
@@ -2634,7 +2635,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 64 (Nested cross-validation)** **Nested cross-validation** is $k$-fold cross-validation of the [cross-validation choice procedure](#def-cv-choice) $g^{\text{CV}}$: its estimate on a training set $\mathcal{D}_{\text{train}}$ is
 >
 > $${\widehat{\operatorname{Err}}^{g^{\text{CV}}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}.
-> \tag{63}$$
+> \tag{64}$$
 
 > **NOTE:**
 >
@@ -2657,7 +2658,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > **Definition 65 (Fold-based standard error)** The **fold-based standard error** $\operatorname{SE}_{\text{CV}(k)}$ of a $k$-fold [cross-validation estimate](#def-cv-estimate) is the [sample standard deviation](exploratory-descriptive.llms.md#def-sample-sd) of the $k$ [fold sMSEs](#def-fold-mse), divided by $\sqrt{k}$:
 >
 > $$\operatorname{SE}_{\text{CV}(k)} \stackrel{\text{def}}{=}\frac{{\mathop{\widehat{\operatorname{SD}}}\nolimits\mathopen{}\left(\operatorname{MSE}_{1}, \ldots, \operatorname{MSE}_{k}\right)\mathclose{}}}{\sqrt{k}}.
-> \tag{64}$$
+> \tag{65}$$
 
 > **NOTE:**
 >
@@ -2665,7 +2666,7 @@ Last modified: 2026-11-16 16:03:56 (PST)
 
 > **NOTE:**
 >
-> *Remark 42* (The fold-based standard error is only a rough guide). Hastie et al. [\[4, Sec. 7.10.1\]](#ref-hastie2009elements) draw standard-error bars computed from the per-fold errors as in [Equation 64](#eq-cv-se). That formula treats the $k$ fold errors as if they were independent, which they are not: every pair of folds shares $k- 2$ folds of training data. So $\operatorname{SE}_{\text{CV}(k)}$ is a rough indication of how much $\widehat{\operatorname{Err}}_{\text{CV}(k)}$ might change with a different sample, not a [standard error](estimation.llms.md#def-SE) of $\widehat{\operatorname{Err}}_{\text{CV}(k)}$.
+> *Remark 42* (The fold-based standard error is only a rough guide). Hastie et al. [\[4, Sec. 7.10.1\]](#ref-hastie2009elements) draw standard-error bars computed from the per-fold errors as in [Equation 65](#eq-cv-se). That formula treats the $k$ fold errors as if they were independent, which they are not: every pair of folds shares $k- 2$ folds of training data. So $\operatorname{SE}_{\text{CV}(k)}$ is a rough indication of how much $\widehat{\operatorname{Err}}_{\text{CV}(k)}$ might change with a different sample, not a [standard error](estimation.llms.md#def-SE) of $\widehat{\operatorname{Err}}_{\text{CV}(k)}$.
 
 > **NOTE:**
 >
@@ -2673,21 +2674,21 @@ Last modified: 2026-11-16 16:03:56 (PST)
 >
 > $${\operatorname{MSE}^{g}_{j}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n_{j}} \sum_{i\in \mathcal{F}_{j}}
 > {\mathopen{}\left({\hat y^{(-j)}\mathopen{}\left(x_{i}\right)\mathclose{}} - y_{i}\right)\mathclose{}}^{2}.
-> \tag{65}$$
+> \tag{66}$$
 
 > **NOTE:**
 >
 > **Definition 67 (Fold-based standard error of a named procedure)** The **fold-based standard error of procedure** $g$ on a training set $\mathcal{D}_{\text{train}}$, ${\operatorname{SE}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}$, is the [fold-based standard error](#def-cv-se) computed from the [fold sMSEs of](#def-fold-mse-indexed) $g$:
 >
 > $${\operatorname{SE}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{{\mathop{\widehat{\operatorname{SD}}}\nolimits\mathopen{}\left({\operatorname{MSE}^{g}_{1}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}, \ldots, {\operatorname{MSE}^{g}_{k}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}\right)\mathclose{}}}{\sqrt{k}}.
-> \tag{66}$$
+> \tag{67}$$
 
 > **NOTE:**
 >
 > **Definition 68 (One-standard-error rule)** Let $g_{1}, \ldots, g_{L}$ be candidate [fitting procedures](#def-fitting-procedure), each [at least as flexible](#def-flexibility) as the one before, cross-validated on a training set $\mathcal{D}_{\text{train}}$ with the same folds, and let $g_{l^*}$ be the one with the smallest [cross-validation estimate](#def-cv-estimate-indexed). The **one-standard-error rule** chooses the smallest $l$ whose estimate is within one [fold-based standard error](#def-cv-se-indexed) of the smallest:
 >
 > $${\widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \le {\widehat{\operatorname{Err}}^{g_{l^*}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} + {\operatorname{SE}^{g_{l^*}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}.
-> \tag{67}$$
+> \tag{68}$$
 >
 > Source: [\[4, Sec. 7.10.1\]](#ref-hastie2009elements), [\[6, Sec. 6.1.3\]](#ref-james2021islr2e).
 
@@ -2751,9 +2752,9 @@ Last modified: 2026-11-16 16:03:56 (PST)
 > >   ggplot2::theme_bw()
 > > ```
 > >
-> > [![Ten-fold cross-validation estimate against polynomial degree from 1 to 10, with error bars of one fold-based standard error. A dashed horizontal line sits one fold-based standard error above the smallest estimate.](model-validation_files/figure-html/one-se-rule-plot-1.png)](model-validation_files/figure-html/one-se-rule-plot-1.png "Figure 9: 10-fold cross-validation estimates, with bars of one fold-based standard error (Equation 64). The dashed line is one fold-based standard error above the smallest estimate.")
+> > [![Ten-fold cross-validation estimate against polynomial degree from 1 to 10, with error bars of one fold-based standard error. A dashed horizontal line sits one fold-based standard error above the smallest estimate.](model-validation_files/figure-html/one-se-rule-plot-1.png)](model-validation_files/figure-html/one-se-rule-plot-1.png "Figure 9: 10-fold cross-validation estimates, with bars of one fold-based standard error (Equation 65). The dashed line is one fold-based standard error above the smallest estimate.")
 > >
-> > Figure 9: 10-fold cross-validation estimates, with bars of one [fold-based standard error](#def-cv-se) ([Equation 64](#eq-cv-se)). The dashed line is one fold-based standard error above the smallest estimate.
+> > Figure 9: 10-fold cross-validation estimates, with bars of one [fold-based standard error](#def-cv-se) ([Equation 65](#eq-cv-se)). The dashed line is one fold-based standard error above the smallest estimate.
 >
 > The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization pRMSE of [Example 32](#exm-train-test-error-simulated) for each: 0.335 for degree 8 and 0.315 for degree 3.
 
