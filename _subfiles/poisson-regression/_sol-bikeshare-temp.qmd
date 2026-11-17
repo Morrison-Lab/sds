@@ -10,7 +10,7 @@
 #|   Scatterplot of the number of bikes rented in an hour
 #|   against the temperature.
 #|   The points drift upward from left to right,
-#|   and the vertical spread of the points widens as the temperature rises.
+#|   and the points spread more at warm temperatures than at cold ones.
 # Small, faint points, because thousands of hours overlap.
 bikeshare_raw |>
   ggplot2::ggplot() +
@@ -30,7 +30,7 @@ bikeshare_raw |>
 #|   Scatterplot of the number of bikes rented in an hour
 #|   against the temperature.
 #|   The points drift upward from left to right,
-#|   and the vertical spread of the points widens as the temperature rises.
+#|   and the points spread more at warm temperatures than at cold ones.
 # Small, faint points, because thousands of hours overlap.
 fig, ax = plt.subplots(figsize=(6, 4), layout="constrained")
 ax.scatter(bikeshare_raw["temp"], bikeshare_raw["bikers"], s=4, alpha=0.3);
