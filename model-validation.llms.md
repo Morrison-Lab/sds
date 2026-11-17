@@ -14,13 +14,13 @@ Code
 
 Published
 
-Last modified: 2026-11-17 10:41:33 (PST)
+Last modified: 2026-11-17 13:17:16 (PST)
 
 # 1 Data sets, input matrices and outcome vectors
 
 > **NOTE:**
 >
-> **Definition 1 (Data set)** A **data set** is a finite collection of $n$ labelled observations, that is, $n$ pairs $(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i, y_i)$, where $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i$ is an input vector and $y_i$ is the corresponding outcome:
+> **Definition 1 (Data set)** A **data set** is a finite collection of $n$ labeled observations, that is, $n$ pairs $(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i, y_i)$, where $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i$ is an input vector and $y_i$ is the corresponding outcome:
 >
 > $$\mathcal{D}\stackrel{\text{def}}{=}{\mathopen{}\left\{(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i, y_i) : i = 1, \ldots, n\right\}\mathclose{}} .
 > \tag{1}$$
@@ -2592,10 +2592,10 @@ Last modified: 2026-11-17 10:41:33 (PST)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    1.06581e-14    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 1.1e-14, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
