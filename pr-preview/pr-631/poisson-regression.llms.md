@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-16 20:21:42 (PST)
+Last modified: 2026-11-16 22:42:06 (PST)
 
 # 1 The model
 
@@ -309,7 +309,7 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 >   )
 > ```
 >
-> [![Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the vertical spread of the points widens as the temperature rises.](poisson-regression_files/figure-html/unnamed-chunk-13-1.png)](poisson-regression_files/figure-html/unnamed-chunk-13-1.png)
+> [![Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the points spread more at warm temperatures than at cold ones.](poisson-regression_files/figure-html/unnamed-chunk-13-1.png)](poisson-regression_files/figure-html/unnamed-chunk-13-1.png)
 >
 > ## Python
 >
@@ -324,7 +324,7 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 > plt.show()
 > ```
 >
-> [![Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the vertical spread of the points widens as the temperature rises.](poisson-regression_files/figure-html/unnamed-chunk-14-1.png)](poisson-regression_files/figure-html/unnamed-chunk-14-1.png)
+> [![Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the points spread more at warm temperatures than at cold ones.](poisson-regression_files/figure-html/unnamed-chunk-14-1.png)](poisson-regression_files/figure-html/unnamed-chunk-14-1.png)
 >
 > The counts rise with the temperature, with [sample correlation](exploratory-descriptive.llms.md#def-pearson-r) 0.45. The spread of the counts grows with their level. A [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) describes that pattern, because the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of a [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) variable is the same as its [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation).
 
