@@ -35,7 +35,93 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
 <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-2f864dea3a88ad6a30a035ab8c618cbd.css">
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VLDZY2T3JF"></script><script type="text/plain" cookie-consent="tracking">
 
@@ -267,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-16 19:45:49 (PST)</p>
+  <p class="date">Last modified: 2026-11-16 20:16:43 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -352,6 +438,320 @@ text-align: center;
 \end{aligned}
 \]</span></p>
 <p>A one-year age difference instead gives <span class="math inline">\({\operatorname{exp}\mathopen{}\left\{0.03\right\}\mathclose{}} \approx 1.030\)</span>, a 3% higher <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rate</a> per year of age. The ten-year rate ratio is the one-year rate ratio multiplied by itself ten times, <span class="math inline">\({\operatorname{exp}\mathopen{}\left\{0.3\right\}\mathclose{}} = \mathopen{}\left({\operatorname{exp}\mathopen{}\left\{0.03\right\}\mathclose{}}\right)\mathclose{}^{10}\)</span>, because rate ratios multiply across successive one-year steps.</p>
+</div>
+</section><section id="sec-bikeshare-lab" class="slide level2" data-number="3"><h2>
+<span class="header-section-number">3</span> Lab: Poisson regression on bike rentals</h2>
+</section><section class="slide level2"><p>Hourly counts of bikes rented in a bike-sharing program in Washington, D.C., on 8645 hours make up the <code>Bikeshare</code> data <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[1, Sec. 4.6.2]</a></span>. The data are in <a href="data/bikeshare.csv"><code>data/bikeshare.csv</code></a>, one line per hour, copied from the book’s <code>ISLR2</code> R package. The exercises use these variables:</p>
+<ul>
+<li>
+<code>bikers</code>: the <a href="./model-validation.html#def-outcome-vector">outcome</a>, the number of bikes rented in that hour.</li>
+<li>
+<code>temp</code>: the temperature, scaled to run from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>.</li>
+<li>
+<code>workingday</code>: <code>1</code> on a working day and <code>0</code> otherwise.</li>
+<li>
+<code>weathersit</code>: the weather, one of <code>clear</code>, <code>cloudy/misty</code>, <code>light rain/snow</code>, and <code>heavy rain/snow</code>.</li>
+</ul>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-1" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-1-1">R</a></li>
+<li><a href="#tabset-1-2">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># The first rows of the four columns that the exercises use.</span></span>
+<span id="cb1-2"><a aria-label="2"></a>bikeshare_raw <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a aria-label="3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(bikers, temp, workingday, weathersit) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a aria-label="4"></a>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["bikers"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["temp"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["workingday"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["weathersit"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"16","2":"0.24","3":"0","4":"clear"},{"1":"40","2":"0.22","3":"0","4":"clear"},{"1":"32","2":"0.22","3":"0","4":"clear"},{"1":"13","2":"0.24","3":"0","4":"clear"},{"1":"1","2":"0.24","3":"0","4":"clear"},{"1":"1","2":"0.24","3":"0","4":"cloudy/misty"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="co"># The first rows of the four columns that the exercises use.</span></span>
+<span id="cb2-4"><a aria-label="4"></a>bikeshare_raw <span class="op">=</span> pd.read_csv(<span class="st">"data/bikeshare.csv"</span>)</span>
+<span id="cb2-5"><a aria-label="5"></a>bikeshare_raw[[<span class="st">"bikers"</span>, <span class="st">"temp"</span>, <span class="st">"workingday"</span>, <span class="st">"weathersit"</span>]].head(<span class="dv">6</span>)</span>
+<span id="cb2-6"><a aria-label="6"></a><span class="co">#&gt;    bikers  temp  workingday    weathersit</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="co">#&gt; 0      16  0.24           0         clear</span></span>
+<span id="cb2-8"><a aria-label="8"></a><span class="co">#&gt; 1      40  0.22           0         clear</span></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="co">#&gt; 2      32  0.22           0         clear</span></span>
+<span id="cb2-10"><a aria-label="10"></a><span class="co">#&gt; 3      13  0.24           0         clear</span></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="co">#&gt; 4       1  0.24           0         clear</span></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="co">#&gt; 5       1  0.24           0  cloudy/misty</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<p>The exercises follow the <a href="./poisson-regression.html#def-poisson-regression">Poisson regression</a> part of the book’s Chapter 4 lab <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[1, Sec. 4.7.7]</a></span>. Each solution shows the code in R and in Python.</p>
+</section><section class="slide level2"><div id="exr-bikeshare-fit" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1 (Fit a Poisson regression to bike rentals)</strong></span> The <a href="#/sec-bikeshare-lab"><code>Bikeshare</code> data</a> count the bikes rented in each of many hours. Each count covers one hour, so every count has the same <a href="https://morrison-lab.github.io/pds/distributions.html#def-exposure">exposure magnitude</a>. Consider a <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> of the hourly count <code>bikers</code> on the <a href="./model-validation.html#def-covariate">covariates</a> <code>temp</code>, <code>workingday</code>, and <code>weathersit</code>, with <code>clear</code> as the <a href="./data.html#def-reference-level">reference level</a> of <code>weathersit</code>.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hint</strong></p>
+</div>
+<div class="callout-content">
+<p>In R, <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> with <code>family = poisson</code> <a href="./model-validation.html#def-fitted-model">fits</a> the model. In Python, the <code>statsmodels</code> function <code>smf.glm()</code> fits it with <code>family=sm.families.Poisson()</code>. Both code <code>weathersit</code> as one <a href="./data.html#def-dummy-variable">dummy variable</a> for each level except the <a href="./data.html#def-reference-level">reference level</a>.</p>
+</div>
+</div>
+</div>
+<p><a href="./estimation.html#def-estimate">Estimate</a> the coefficient of each <a href="./model-validation.html#def-covariate">covariate</a> in the model.</p>
+</div>
+</section><section class="slide level2"><div id="sol-bikeshare-fit" class="proof solution">
+<p><span class="proof-title"><em>Solution 1</em>. </span></p>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-2" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-2-1">R</a></li>
+<li><a href="#tabset-2-2">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-2-1">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># Make `clear` the first level of weathersit,</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="co"># so that glm() uses it as the reference level.</span></span>
+<span id="cb3-3"><a aria-label="3"></a>weather_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb3-4"><a aria-label="4"></a>  <span class="st">"clear"</span>, <span class="st">"cloudy/misty"</span>,</span>
+<span id="cb3-5"><a aria-label="5"></a>  <span class="st">"light rain/snow"</span>, <span class="st">"heavy rain/snow"</span></span>
+<span id="cb3-6"><a aria-label="6"></a>)</span>
+<span id="cb3-7"><a aria-label="7"></a>bike <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/bikeshare.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a aria-label="8"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">weathersit =</span> <span class="fu">factor</span>(weathersit, <span class="at">levels =</span> weather_levels))</span>
+<span id="cb3-9"><a aria-label="9"></a></span>
+<span id="cb3-10"><a aria-label="10"></a><span class="co"># Poisson regression of the hourly count on the three covariates.</span></span>
+<span id="cb3-11"><a aria-label="11"></a>pois_r <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb3-12"><a aria-label="12"></a>  bikers <span class="sc">~</span> temp <span class="sc">+</span> workingday <span class="sc">+</span> weathersit,</span>
+<span id="cb3-13"><a aria-label="13"></a>  <span class="at">family =</span> poisson,</span>
+<span id="cb3-14"><a aria-label="14"></a>  <span class="at">data =</span> bike</span>
+<span id="cb3-15"><a aria-label="15"></a>)</span>
+<span id="cb3-16"><a aria-label="16"></a>pois_coef <span class="ot">&lt;-</span> <span class="fu">coef</span>(pois_r)</span>
+<span id="cb3-17"><a aria-label="17"></a>pois_r <span class="sc">|&gt;</span></span>
+<span id="cb3-18"><a aria-label="18"></a>  parameters<span class="sc">::</span><span class="fu">parameters</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-19"><a aria-label="19"></a>  parameters<span class="sc">::</span><span class="fu">print_md</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 22%">
+<col style="width: 10%">
+<col style="width: 9%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: center;">Log-Mean</th>
+<th style="text-align: center;">SE</th>
+<th style="text-align: center;">95% CI</th>
+<th style="text-align: center;">z</th>
+<th style="text-align: center;">p</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: center;">3.89</td>
+<td style="text-align: center;">3.23e-03</td>
+<td style="text-align: center;">(3.88, 3.89)</td>
+<td style="text-align: center;">1202.49</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">temp</td>
+<td style="text-align: center;">2.13</td>
+<td style="text-align: center;">4.79e-03</td>
+<td style="text-align: center;">(2.12, 2.14)</td>
+<td style="text-align: center;">444.59</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">workingday</td>
+<td style="text-align: center;">-8.89e-03</td>
+<td style="text-align: center;">1.94e-03</td>
+<td style="text-align: center;">(-0.01, -5.08e-03)</td>
+<td style="text-align: center;">-4.57</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">weathersit (cloudy/misty)</td>
+<td style="text-align: center;">-0.04</td>
+<td style="text-align: center;">2.13e-03</td>
+<td style="text-align: center;">(-0.05, -0.04)</td>
+<td style="text-align: center;">-19.81</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">weathersit (light rain/snow)</td>
+<td style="text-align: center;">-0.43</td>
+<td style="text-align: center;">4.02e-03</td>
+<td style="text-align: center;">(-0.44, -0.42)</td>
+<td style="text-align: center;">-107.41</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">weathersit (heavy rain/snow)</td>
+<td style="text-align: center;">-0.76</td>
+<td style="text-align: center;">0.17</td>
+<td style="text-align: center;">(-1.11, -0.45)</td>
+<td style="text-align: center;">-4.57</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-label="1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a aria-label="2"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb4-3"><a aria-label="3"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb4-4"><a aria-label="4"></a></span>
+<span id="cb4-5"><a aria-label="5"></a>bike <span class="op">=</span> pd.read_csv(<span class="st">"data/bikeshare.csv"</span>)</span>
+<span id="cb4-6"><a aria-label="6"></a><span class="co"># Poisson regression of the hourly count on the three covariates,</span></span>
+<span id="cb4-7"><a aria-label="7"></a><span class="co"># with `clear` as the reference level of weathersit.</span></span>
+<span id="cb4-8"><a aria-label="8"></a>pois_py <span class="op">=</span> smf.glm(</span>
+<span id="cb4-9"><a aria-label="9"></a>    <span class="st">"bikers ~ temp + workingday + C(weathersit, Treatment('clear'))"</span>,</span>
+<span id="cb4-10"><a aria-label="10"></a>    data<span class="op">=</span>bike,</span>
+<span id="cb4-11"><a aria-label="11"></a>    family<span class="op">=</span>sm.families.Poisson(),</span>
+<span id="cb4-12"><a aria-label="12"></a>).fit()</span>
+<span id="cb4-13"><a aria-label="13"></a>pois_py.params.<span class="bu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb4-14"><a aria-label="14"></a><span class="co">#&gt; Intercept                                               3.885</span></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="co">#&gt; C(weathersit, Treatment('clear'))[T.cloudy/misty]      -0.042</span></span>
+<span id="cb4-16"><a aria-label="16"></a><span class="co">#&gt; C(weathersit, Treatment('clear'))[T.heavy rain/snow]   -0.761</span></span>
+<span id="cb4-17"><a aria-label="17"></a><span class="co">#&gt; C(weathersit, Treatment('clear'))[T.light rain/snow]   -0.432</span></span>
+<span id="cb4-18"><a aria-label="18"></a><span class="co">#&gt; temp                                                    2.129</span></span>
+<span id="cb4-19"><a aria-label="19"></a><span class="co">#&gt; workingday                                             -0.009</span></span>
+<span id="cb4-20"><a aria-label="20"></a><span class="co">#&gt; dtype: float64</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<p>Both tabs fit the same model with the same <a href="./data.html#def-reference-level">reference level</a>, <code>clear</code>, so their coefficient <a href="./estimation.html#def-estimate">estimates</a> agree. The coefficient estimate of <code>temp</code> is 2.13, a positive number, so the <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rate</a> of the <a href="./model-validation.html#def-fitted-model">fitted model</a> rises with the temperature.</p>
+</div>
+</section><section class="slide level2"><div id="exr-bikeshare-ratio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2 (Interpret the temperature coefficient)</strong></span> Use the <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> of <a href="#/exr-bikeshare-fit" class="quarto-xref">Exercise&nbsp;1</a>. Consider two hours with the same <code>workingday</code> and <code>weathersit</code>, one with <code>temp</code> <span class="math inline">\(0.1\)</span> higher than the other.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hint</strong></p>
+</div>
+<div class="callout-content">
+<p>The <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> of <a href="#/exr-bikeshare-fit" class="quarto-xref">Exercise&nbsp;1</a> has no interactions or transformations involving <code>temp</code>, so <a href="#/thm-poisson-rate-ratio" class="quarto-xref">Theorem&nbsp;1</a> applies.</p>
+</div>
+</div>
+</div>
+<p><a href="./estimation.html#def-estimate">Estimate</a> the <a href="./poisson-regression.html#def-rate-ratio">rate ratio</a> comparing the warmer hour with the cooler one.</p>
+</div>
+</section><section class="slide level2"><div id="sol-bikeshare-ratio" class="proof solution">
+<p><span class="proof-title"><em>Solution 2</em>. </span></p>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-3" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-3-1">R</a></li>
+<li><a href="#tabset-3-2">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-3-1">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="co"># The rate ratio for a 0.1 rise in temp is exp(0.1 * coefficient of temp).</span></span>
+<span id="cb5-2"><a aria-label="2"></a>ratio_r <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fl">0.1</span> <span class="sc">*</span> pois_coef[[<span class="st">"temp"</span>]])</span>
+<span id="cb5-3"><a aria-label="3"></a><span class="fu">round</span>(ratio_r, <span class="dv">3</span>)</span>
+<span id="cb5-4"><a aria-label="4"></a><span class="co">#&gt; [1] 1.237</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-label="1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a aria-label="2"></a></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="co"># The rate ratio for a 0.1 rise in temp is exp(0.1 * coefficient of temp).</span></span>
+<span id="cb6-4"><a aria-label="4"></a>ratio_py <span class="op">=</span> <span class="bu">float</span>(np.exp(<span class="fl">0.1</span> <span class="op">*</span> pois_py.params[<span class="st">"temp"</span>]))</span>
+<span id="cb6-5"><a aria-label="5"></a><span class="bu">round</span>(ratio_py, <span class="dv">3</span>)</span>
+<span id="cb6-6"><a aria-label="6"></a><span class="co">#&gt; 1.237</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<p>By <a href="#/thm-poisson-rate-ratio" class="quarto-xref">Theorem&nbsp;1</a> with <span class="math inline">\(a - b = 0.1\)</span>, the <a href="./poisson-regression.html#def-rate-ratio">rate ratio</a> is <span class="math inline">\({\operatorname{exp}\mathopen{}\left\{0.1 \beta_{\text{temp}}\right\}\mathclose{}}\)</span>, and its <a href="./estimation.html#def-estimate">estimate</a> is <span class="math inline">\({\operatorname{exp}\mathopen{}\left\{0.1 \hat{\beta}_{\text{temp}}\right\}\mathclose{}}\)</span>. That estimate is 1.24 in the R tab and 1.24 in the Python tab, so the <a href="./estimation.html#def-estimate">estimated</a> <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rate</a> of the warmer hour is about 1.24 times that of the cooler hour.</p>
+</div>
+</section><section class="slide level2"><div id="exr-bikeshare-negative" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 (Compare with linear regression)</strong></span> Consider a <a href="./correlation-regression.html#def-linear-regression">linear regression</a> of <code>bikers</code> on the same <a href="./model-validation.html#def-covariate">covariates</a> as the <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> of <a href="#/exr-bikeshare-fit" class="quarto-xref">Exercise&nbsp;1</a>. A count is never negative.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hint</strong></p>
+</div>
+<div class="callout-content">
+<p><code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> in R and <code>smf.ols()</code> in Python <a href="./model-validation.html#def-fitted-model">fit</a> the <a href="./correlation-regression.html#def-linear-regression">linear regression</a>. <code><a href="https://rdrr.io/r/stats/fitted.values.html">fitted()</a></code> in R returns the <a href="./prediction.html#def-fitted-value">fitted values</a> of a model, and the <code>fittedvalues</code> attribute of a <code>statsmodels</code> fit holds them in Python.</p>
+</div>
+</div>
+</div>
+<p>For each of the two <a href="./model-validation.html#def-fitted-model">fitted models</a>, count the hours with a negative <a href="./prediction.html#def-fitted-value">fitted value</a>.</p>
+</div>
+</section><section class="slide level2 smaller scrollable" id="references"><div id="sol-bikeshare-negative" class="proof solution">
+<p><span class="proof-title"><em>Solution 3</em>. </span></p>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-4" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-4-1">R</a></li>
+<li><a href="#tabset-4-2">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-4-1">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="co"># `bike`, `pois_r` and `pois_py` come from the solution to the fit exercise.</span></span>
+<span id="cb7-2"><a aria-label="2"></a><span class="co"># Linear regression on the same covariates as the Poisson model.</span></span>
+<span id="cb7-3"><a aria-label="3"></a>lin_r <span class="ot">&lt;-</span> <span class="fu">lm</span>(bikers <span class="sc">~</span> temp <span class="sc">+</span> workingday <span class="sc">+</span> weathersit, <span class="at">data =</span> bike)</span>
+<span id="cb7-4"><a aria-label="4"></a></span>
+<span id="cb7-5"><a aria-label="5"></a><span class="co"># Count the hours whose fitted value is below zero, for each model.</span></span>
+<span id="cb7-6"><a aria-label="6"></a>fitted_lin_r <span class="ot">&lt;-</span> <span class="fu">fitted</span>(lin_r)</span>
+<span id="cb7-7"><a aria-label="7"></a>fitted_pois_r <span class="ot">&lt;-</span> <span class="fu">fitted</span>(pois_r)</span>
+<span id="cb7-8"><a aria-label="8"></a>n_neg_lin_r <span class="ot">&lt;-</span> <span class="fu">sum</span>(fitted_lin_r <span class="sc">&lt;</span> <span class="dv">0</span>)</span>
+<span id="cb7-9"><a aria-label="9"></a>n_neg_pois_r <span class="ot">&lt;-</span> <span class="fu">sum</span>(fitted_pois_r <span class="sc">&lt;</span> <span class="dv">0</span>)</span>
+<span id="cb7-10"><a aria-label="10"></a><span class="fu">c</span>(<span class="at">linear =</span> n_neg_lin_r, <span class="at">poisson =</span> n_neg_pois_r)</span>
+<span id="cb7-11"><a aria-label="11"></a><span class="co">#&gt;  linear poisson </span></span>
+<span id="cb7-12"><a aria-label="12"></a><span class="co">#&gt;      20       0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-label="1"></a><span class="co"># `bike`, `pois_r` and `pois_py` come from the solution to the fit exercise.</span></span>
+<span id="cb8-2"><a aria-label="2"></a><span class="co"># Linear regression on the same covariates as the Poisson model.</span></span>
+<span id="cb8-3"><a aria-label="3"></a>lin_py <span class="op">=</span> smf.ols(</span>
+<span id="cb8-4"><a aria-label="4"></a>    <span class="st">"bikers ~ temp + workingday + C(weathersit, Treatment('clear'))"</span>,</span>
+<span id="cb8-5"><a aria-label="5"></a>    data<span class="op">=</span>bike,</span>
+<span id="cb8-6"><a aria-label="6"></a>).fit()</span>
+<span id="cb8-7"><a aria-label="7"></a></span>
+<span id="cb8-8"><a aria-label="8"></a><span class="co"># Count the hours whose fitted value is below zero, for each model.</span></span>
+<span id="cb8-9"><a aria-label="9"></a>n_neg_lin_py <span class="op">=</span> <span class="bu">int</span>((lin_py.fittedvalues <span class="op">&lt;</span> <span class="dv">0</span>).<span class="bu">sum</span>())</span>
+<span id="cb8-10"><a aria-label="10"></a>n_neg_pois_py <span class="op">=</span> <span class="bu">int</span>((pois_py.fittedvalues <span class="op">&lt;</span> <span class="dv">0</span>).<span class="bu">sum</span>())</span>
+<span id="cb8-11"><a aria-label="11"></a>{<span class="st">"linear"</span>: n_neg_lin_py, <span class="st">"poisson"</span>: n_neg_pois_py}</span>
+<span id="cb8-12"><a aria-label="12"></a><span class="co">#&gt; {'linear': 20, 'poisson': 0}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<p>The <a href="./correlation-regression.html#def-linear-regression">linear regression</a> gives a negative <a href="./prediction.html#def-fitted-value">fitted value</a> for 20 hours, which is impossible for the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expected value</a> of a count.</p>
+<p>The <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> gives a negative fitted value for 0 hours, because its <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rate</a> is the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function">exponential function</a> of a <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function">linear function</a>, and the exponential function takes only positive values.</p>
 </div>
 
 
@@ -541,7 +941,13 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     initRevealJsHtmlLink();
   }
 })();
-</script></section>
+</script><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-james2021islr2e" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">G. James, D. Witten, T. Hastie, and R. Tibshirani, <em>An introduction to statistical learning: With applications in <span>R</span></em>, 2nd ed. Springer, 2021. doi: <a href="https://doi.org/10.1007/978-1-0716-1418-1">10.1007/978-1-0716-1418-1</a>.</div>
+</div>
+</div>
+</section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

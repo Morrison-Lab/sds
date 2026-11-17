@@ -2,9 +2,19 @@
 
 Code
 
+- [Show All Code](javascript:void(0))
+
+- [Hide All Code](javascript:void(0))
+
+- 
+
+  ------------------------------------------------------------------------
+
+- [View Source](javascript:void(0))
+
 Published
 
-Last modified: 2026-11-16 19:45:49 (PST)
+Last modified: 2026-11-16 20:16:43 (PST)
 
 # 1 The model
 
@@ -95,9 +105,230 @@ A count [outcome](model-validation.llms.md#def-outcome-vector), such as the numb
 >
 > A one-year age difference instead gives ${\operatorname{exp}\mathopen{}\left\{0.03\right\}\mathclose{}} \approx 1.030$, a 3% higher [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) per year of age. The ten-year rate ratio is the one-year rate ratio multiplied by itself ten times, ${\operatorname{exp}\mathopen{}\left\{0.3\right\}\mathclose{}} = \mathopen{}\left({\operatorname{exp}\mathopen{}\left\{0.03\right\}\mathclose{}}\right)\mathclose{}^{10}$, because rate ratios multiply across successive one-year steps.
 
+# 3 Lab: Poisson regression on bike rentals
+
+Hourly counts of bikes rented in a bike-sharing program in Washington, D.C., on 8645 hours make up the `Bikeshare` data [\[1, Sec. 4.6.2\]](#ref-james2021islr2e). The data are in [`data/bikeshare.csv`](data/bikeshare.csv), one line per hour, copied from the book’s `ISLR2` R package. The exercises use these variables:
+
+- `bikers`: the [outcome](model-validation.llms.md#def-outcome-vector), the number of bikes rented in that hour.
+- `temp`: the temperature, scaled to run from $0$ to $1$.
+- `workingday`: `1` on a working day and `0` otherwise.
+- `weathersit`: the weather, one of `clear`, `cloudy/misty`, `light rain/snow`, and `heavy rain/snow`.
+
+## R
+
+Show code
+
+``` downlit
+# The first rows of the four columns that the exercises use.
+bikeshare_raw |>
+  dplyr::select(bikers, temp, workingday, weathersit) |>
+  head()
+```
+
+## Python
+
+Show code
+
+``` python
+import pandas as pd
+
+# The first rows of the four columns that the exercises use.
+bikeshare_raw = pd.read_csv("data/bikeshare.csv")
+bikeshare_raw[["bikers", "temp", "workingday", "weathersit"]].head(6)
+#>    bikers  temp  workingday    weathersit
+#> 0      16  0.24           0         clear
+#> 1      40  0.22           0         clear
+#> 2      32  0.22           0         clear
+#> 3      13  0.24           0         clear
+#> 4       1  0.24           0         clear
+#> 5       1  0.24           0  cloudy/misty
+```
+
+The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poisson-regression) part of the book’s Chapter 4 lab [\[1, Sec. 4.7.7\]](#ref-james2021islr2e). Each solution shows the code in R and in Python.
+
+> **NOTE:**
+>
+> **Exercise 1 (Fit a Poisson regression to bike rentals)** The [`Bikeshare` data](#sec-bikeshare-lab) count the bikes rented in each of many hours. Each count covers one hour, so every count has the same [exposure magnitude](https://morrison-lab.github.io/pds/distributions.html#def-exposure). Consider a [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of the hourly count `bikers` on the [covariates](model-validation.llms.md#def-covariate) `temp`, `workingday`, and `weathersit`, with `clear` as the [reference level](data.llms.md#def-reference-level) of `weathersit`.
+>
+> > **TIP:**
+> >
+> > In R, [`glm()`](https://rdrr.io/r/stats/glm.html) with `family = poisson` [fits](model-validation.llms.md#def-fitted-model) the model. In Python, the `statsmodels` function `smf.glm()` fits it with `family=sm.families.Poisson()`. Both code `weathersit` as one [dummy variable](data.llms.md#def-dummy-variable) for each level except the [reference level](data.llms.md#def-reference-level).
+>
+> [Estimate](estimation.llms.md#def-estimate) the coefficient of each [covariate](model-validation.llms.md#def-covariate) in the model.
+
+> **NOTE:**
+>
+> *Solution 1*.
+>
+> ## R
+>
+> Show code
+>
+> ``` downlit
+> # Make `clear` the first level of weathersit,
+> # so that glm() uses it as the reference level.
+> weather_levels <- c(
+>   "clear", "cloudy/misty",
+>   "light rain/snow", "heavy rain/snow"
+> )
+> bike <- readr::read_csv("data/bikeshare.csv", show_col_types = FALSE) |>
+>   dplyr::mutate(weathersit = factor(weathersit, levels = weather_levels))
+>
+> # Poisson regression of the hourly count on the three covariates.
+> pois_r <- glm(
+>   bikers ~ temp + workingday + weathersit,
+>   family = poisson,
+>   data = bike
+> )
+> pois_coef <- coef(pois_r)
+> pois_r |>
+>   parameters::parameters() |>
+>   parameters::print_md()
+> ```
+>
+> | Parameter | Log-Mean | SE | 95% CI | z | p |
+> |:---|:--:|:--:|:--:|:--:|:--:|
+> | (Intercept) | 3.89 | 3.23e-03 | (3.88, 3.89) | 1202.49 | \< .001 |
+> | temp | 2.13 | 4.79e-03 | (2.12, 2.14) | 444.59 | \< .001 |
+> | workingday | -8.89e-03 | 1.94e-03 | (-0.01, -5.08e-03) | -4.57 | \< .001 |
+> | weathersit (cloudy/misty) | -0.04 | 2.13e-03 | (-0.05, -0.04) | -19.81 | \< .001 |
+> | weathersit (light rain/snow) | -0.43 | 4.02e-03 | (-0.44, -0.42) | -107.41 | \< .001 |
+> | weathersit (heavy rain/snow) | -0.76 | 0.17 | (-1.11, -0.45) | -4.57 | \< .001 |
+>
+> ## Python
+>
+> Show code
+>
+> ``` python
+> import pandas as pd
+> import statsmodels.api as sm
+> import statsmodels.formula.api as smf
+>
+> bike = pd.read_csv("data/bikeshare.csv")
+> # Poisson regression of the hourly count on the three covariates,
+> # with `clear` as the reference level of weathersit.
+> pois_py = smf.glm(
+>     "bikers ~ temp + workingday + C(weathersit, Treatment('clear'))",
+>     data=bike,
+>     family=sm.families.Poisson(),
+> ).fit()
+> pois_py.params.round(3)
+> #> Intercept                                               3.885
+> #> C(weathersit, Treatment('clear'))[T.cloudy/misty]      -0.042
+> #> C(weathersit, Treatment('clear'))[T.heavy rain/snow]   -0.761
+> #> C(weathersit, Treatment('clear'))[T.light rain/snow]   -0.432
+> #> temp                                                    2.129
+> #> workingday                                             -0.009
+> #> dtype: float64
+> ```
+>
+> Both tabs fit the same model with the same [reference level](data.llms.md#def-reference-level), `clear`, so their coefficient [estimates](estimation.llms.md#def-estimate) agree. The coefficient estimate of `temp` is 2.13, a positive number, so the [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) of the [fitted model](model-validation.llms.md#def-fitted-model) rises with the temperature.
+
+> **NOTE:**
+>
+> **Exercise 2 (Interpret the temperature coefficient)** Use the [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of [Exercise 1](#exr-bikeshare-fit). Consider two hours with the same `workingday` and `weathersit`, one with `temp` $0.1$ higher than the other.
+>
+> > **TIP:**
+> >
+> > The [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of [Exercise 1](#exr-bikeshare-fit) has no interactions or transformations involving `temp`, so [Theorem 1](#thm-poisson-rate-ratio) applies.
+>
+> [Estimate](estimation.llms.md#def-estimate) the [rate ratio](poisson-regression.llms.md#def-rate-ratio) comparing the warmer hour with the cooler one.
+
+> **NOTE:**
+>
+> *Solution 2*.
+>
+> ## R
+>
+> Show code
+>
+> ``` downlit
+> # The rate ratio for a 0.1 rise in temp is exp(0.1 * coefficient of temp).
+> ratio_r <- exp(0.1 * pois_coef[["temp"]])
+> round(ratio_r, 3)
+> #> [1] 1.237
+> ```
+>
+> ## Python
+>
+> Show code
+>
+> ``` python
+> import numpy as np
+>
+> # The rate ratio for a 0.1 rise in temp is exp(0.1 * coefficient of temp).
+> ratio_py = float(np.exp(0.1 * pois_py.params["temp"]))
+> round(ratio_py, 3)
+> #> 1.237
+> ```
+>
+> By [Theorem 1](#thm-poisson-rate-ratio) with $a - b = 0.1$, the [rate ratio](poisson-regression.llms.md#def-rate-ratio) is ${\operatorname{exp}\mathopen{}\left\{0.1 \beta_{\text{temp}}\right\}\mathclose{}}$, and its [estimate](estimation.llms.md#def-estimate) is ${\operatorname{exp}\mathopen{}\left\{0.1 \hat{\beta}_{\text{temp}}\right\}\mathclose{}}$. That estimate is 1.24 in the R tab and 1.24 in the Python tab, so the [estimated](estimation.llms.md#def-estimate) [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) of the warmer hour is about 1.24 times that of the cooler hour.
+
+> **NOTE:**
+>
+> **Exercise 3 (Compare with linear regression)** Consider a [linear regression](correlation-regression.llms.md#def-linear-regression) of `bikers` on the same [covariates](model-validation.llms.md#def-covariate) as the [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of [Exercise 1](#exr-bikeshare-fit). A count is never negative.
+>
+> > **TIP:**
+> >
+> > [`lm()`](https://rdrr.io/r/stats/lm.html) in R and `smf.ols()` in Python [fit](model-validation.llms.md#def-fitted-model) the [linear regression](correlation-regression.llms.md#def-linear-regression). [`fitted()`](https://rdrr.io/r/stats/fitted.values.html) in R returns the [fitted values](prediction.llms.md#def-fitted-value) of a model, and the `fittedvalues` attribute of a `statsmodels` fit holds them in Python.
+>
+> For each of the two [fitted models](model-validation.llms.md#def-fitted-model), count the hours with a negative [fitted value](prediction.llms.md#def-fitted-value).
+
+> **NOTE:**
+>
+> *Solution 3*.
+>
+> ## R
+>
+> Show code
+>
+> ``` downlit
+> # `bike`, `pois_r` and `pois_py` come from the solution to the fit exercise.
+> # Linear regression on the same covariates as the Poisson model.
+> lin_r <- lm(bikers ~ temp + workingday + weathersit, data = bike)
+>
+> # Count the hours whose fitted value is below zero, for each model.
+> fitted_lin_r <- fitted(lin_r)
+> fitted_pois_r <- fitted(pois_r)
+> n_neg_lin_r <- sum(fitted_lin_r < 0)
+> n_neg_pois_r <- sum(fitted_pois_r < 0)
+> c(linear = n_neg_lin_r, poisson = n_neg_pois_r)
+> #>  linear poisson 
+> #>      20       0
+> ```
+>
+> ## Python
+>
+> Show code
+>
+> ``` python
+> # `bike`, `pois_r` and `pois_py` come from the solution to the fit exercise.
+> # Linear regression on the same covariates as the Poisson model.
+> lin_py = smf.ols(
+>     "bikers ~ temp + workingday + C(weathersit, Treatment('clear'))",
+>     data=bike,
+> ).fit()
+>
+> # Count the hours whose fitted value is below zero, for each model.
+> n_neg_lin_py = int((lin_py.fittedvalues < 0).sum())
+> n_neg_pois_py = int((pois_py.fittedvalues < 0).sum())
+> {"linear": n_neg_lin_py, "poisson": n_neg_pois_py}
+> #> {'linear': 20, 'poisson': 0}
+> ```
+>
+> The [linear regression](correlation-regression.llms.md#def-linear-regression) gives a negative [fitted value](prediction.llms.md#def-fitted-value) for 20 hours, which is impossible for the [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of a count.
+>
+> The [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) gives a negative fitted value for 0 hours, because its [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) is the [exponential function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function) of a [linear function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function), and the exponential function takes only positive values.
+
 # Definitions on this page
 
 - [Definition 1 (Poisson regression model)](#def-poisson-regression)
 - [Definition 2 (Rate ratio)](#def-rate-ratio)
 
 Back to top
+
+## References
+
+\[1\]
+
+G. James, D. Witten, T. Hastie, and R. Tibshirani, *An introduction to statistical learning: With applications in R*, 2nd ed. Springer, 2021. doi: [10.1007/978-1-0716-1418-1](https://doi.org/10.1007/978-1-0716-1418-1).
