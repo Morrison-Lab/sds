@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-17 03:03:07 (PST)
+Last modified: 2026-11-17 10:41:33 (PST)
 
 # 1 The model
 
@@ -144,7 +144,7 @@ bikeshare_raw[["bikers", "temp", "workingday", "weathersit"]].head(6)
 #> 5       1  0.24           0  cloudy/misty
 ```
 
-The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poisson-regression) part of the book’s Chapter 4 lab [\[1, Sec. 4.7.7\]](#ref-james2021islr2e). Each solution shows the code in R and in Python.
+The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poisson-regression) part of the book’s Chapter 4 lab [\[1, Sec. 4.7.7\]](#ref-james2021islr2e). Each solution shows the code in R and in Python. Where R code without the tidyverse would differ, an `R (base)` tab follows the `R` tab, which uses the tidyverse.
 
 > **NOTE:**
 >
@@ -190,7 +190,7 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 >
 > > **TIP:**
 > >
-> > [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) and [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) in R, and the `.groupby()` method of a pandas data frame in Python, compute a [sample mean](exploratory-descriptive.llms.md#def-sample-mean) within each group.
+> > [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) and [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) in R, [`tapply()`](https://rdrr.io/r/base/tapply.html) in R without the tidyverse, and the `.groupby()` method of a pandas data frame in Python, compute a [sample mean](exploratory-descriptive.llms.md#def-sample-mean) within each group.
 >
 > Which value of `weathersit` has the largest [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of `bikers`?
 
@@ -209,6 +209,23 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 >   dplyr::summarise(mean_bikers = mean(bikers)) |>
 >   dplyr::arrange(dplyr::desc(mean_bikers))
 > bikers_by_weather
+> ```
+>
+> ## R (base)
+>
+> Show code
+>
+> ``` downlit
+> # The sample mean of the hourly count for each weather, largest first.
+> bikers_by_weather_base <- tapply(
+>   bikeshare_raw$bikers,
+>   bikeshare_raw$weathersit,
+>   mean
+> )
+> bikers_by_weather_base <- sort(bikers_by_weather_base, decreasing = TRUE)
+> round(bikers_by_weather_base, 1)
+> #>           clear    cloudy/misty light rain/snow heavy rain/snow 
+> #>           155.0           135.5            86.4            36.0
 > ```
 >
 > ## Python
@@ -237,7 +254,7 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 >
 > > **TIP:**
 > >
-> > [`ggplot2::geom_histogram()`](https://ggplot2.tidyverse.org/reference/geom_histogram.html) in R and `ax.hist()` from matplotlib in Python draw a [histogram](exploratory-descriptive.llms.md#def-histogram).
+> > [`ggplot2::geom_histogram()`](https://ggplot2.tidyverse.org/reference/geom_histogram.html) in R, [`hist()`](https://rdrr.io/r/graphics/hist.html) in R without the tidyverse, and `ax.hist()` from matplotlib in Python draw a [histogram](exploratory-descriptive.llms.md#def-histogram).
 >
 > Draw a [histogram](exploratory-descriptive.llms.md#def-histogram) of `bikers`.
 
@@ -257,7 +274,30 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 >   ggplot2::labs(x = "Bikes rented in the hour", y = "Number of hours")
 > ```
 >
-> [![Histogram of the number of bikes rented per hour. The tallest bars are at the smallest counts, and the bars shrink steadily toward a long thin tail that reaches the largest counts.](poisson-regression_files/figure-html/unnamed-chunk-10-1.png)](poisson-regression_files/figure-html/unnamed-chunk-10-1.png)
+> [![Histogram of the number of bikes rented per hour. The tallest bars are at the smallest counts, and the bars shrink steadily toward a long thin tail that reaches the largest counts.](poisson-regression_files/figure-html/unnamed-chunk-11-1.png)](poisson-regression_files/figure-html/unnamed-chunk-11-1.png)
+>
+> ## R (base)
+>
+> Show code
+>
+> ``` downlit
+> # 30 bars of equal width, from the smallest count to the largest.
+> bikers_range <- range(bikeshare_raw$bikers)
+> bikers_breaks <- seq(
+>   bikers_range[1],
+>   bikers_range[2],
+>   length.out = 31 # check-unexplained-choices: allow
+> )
+> hist(
+>   bikeshare_raw$bikers,
+>   breaks = bikers_breaks, # check-unexplained-choices: allow
+>   main = NULL,
+>   xlab = "Bikes rented in the hour",
+>   ylab = "Number of hours"
+> )
+> ```
+>
+> [![Histogram of the number of bikes rented per hour. The tallest bars are at the smallest counts, and the bars shrink steadily toward a long thin tail that reaches the largest counts.](poisson-regression_files/figure-html/unnamed-chunk-12-1.png)](poisson-regression_files/figure-html/unnamed-chunk-12-1.png)
 >
 > ## Python
 >
@@ -273,7 +313,7 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 > plt.show()
 > ```
 >
-> [![Histogram of the number of bikes rented per hour. The tallest bars are at the smallest counts, and the bars shrink steadily toward a long thin tail that reaches the largest counts.](poisson-regression_files/figure-html/unnamed-chunk-11-1.png)](poisson-regression_files/figure-html/unnamed-chunk-11-1.png)
+> [![Histogram of the number of bikes rented per hour. The tallest bars are at the smallest counts, and the bars shrink steadily toward a long thin tail that reaches the largest counts.](poisson-regression_files/figure-html/unnamed-chunk-13-1.png)](poisson-regression_files/figure-html/unnamed-chunk-13-1.png)
 >
 > I chose 30 bars, which is about 288 hours per bar. Far fewer bars would hide the long right tail inside a few wide bars, and far more would leave most bars with only a few hours, so the outline would look ragged.
 >
@@ -285,7 +325,7 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 >
 > > **TIP:**
 > >
-> > [`ggplot2::geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html) in R and `ax.scatter()` from matplotlib in Python draw a [scatterplot](exploratory-descriptive.llms.md#def-scatterplot).
+> > [`ggplot2::geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html) in R, [`plot()`](https://rdrr.io/r/graphics/plot.default.html) in R without the tidyverse, and `ax.scatter()` from matplotlib in Python draw a [scatterplot](exploratory-descriptive.llms.md#def-scatterplot).
 >
 > Draw a [scatterplot](exploratory-descriptive.llms.md#def-scatterplot) of `bikers` against `temp`.
 
@@ -309,7 +349,27 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 >   )
 > ```
 >
-> [![Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the points spread more at warm temperatures than at cold ones.](poisson-regression_files/figure-html/unnamed-chunk-13-1.png)](poisson-regression_files/figure-html/unnamed-chunk-13-1.png)
+> [![Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the points spread more at warm temperatures than at cold ones.](poisson-regression_files/figure-html/unnamed-chunk-15-1.png)](poisson-regression_files/figure-html/unnamed-chunk-15-1.png)
+>
+> ## R (base)
+>
+> Show code
+>
+> ``` downlit
+> # Small, faint points, because thousands of hours overlap.
+> faint_black <- grDevices::adjustcolor("black", alpha.f = 0.3)
+> plot(
+>   bikeshare_raw$temp,
+>   bikeshare_raw$bikers,
+>   pch = 16,
+>   cex = 0.3,
+>   col = faint_black,
+>   xlab = "Temperature (scaled to 0 to 1)",
+>   ylab = "Bikes rented in the hour"
+> )
+> ```
+>
+> [![Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the points spread more at warm temperatures than at cold ones.](poisson-regression_files/figure-html/unnamed-chunk-16-1.png)](poisson-regression_files/figure-html/unnamed-chunk-16-1.png)
 >
 > ## Python
 >
@@ -324,7 +384,7 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 > plt.show()
 > ```
 >
-> [![Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the points spread more at warm temperatures than at cold ones.](poisson-regression_files/figure-html/unnamed-chunk-14-1.png)](poisson-regression_files/figure-html/unnamed-chunk-14-1.png)
+> [![Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the points spread more at warm temperatures than at cold ones.](poisson-regression_files/figure-html/unnamed-chunk-17-1.png)](poisson-regression_files/figure-html/unnamed-chunk-17-1.png)
 >
 > The counts rise with the temperature, with [sample correlation](exploratory-descriptive.llms.md#def-pearson-r) 0.45. The spread of the counts grows with their level. A [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) describes that pattern, because the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of a [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) variable is the same as its [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation).
 
@@ -377,6 +437,38 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 > | weathersit (light rain/snow) | -0.43 | 4.02e-03 | (-0.44, -0.42) | -107.41 | \< .001 |
 > | weathersit (heavy rain/snow) | -0.76 | 0.17 | (-1.11, -0.45) | -4.57 | \< .001 |
 >
+> ## R (base)
+>
+> Show code
+>
+> ``` downlit
+> # Make `clear` the first level of weathersit,
+> # so that glm() uses it as the reference level.
+> weather_levels <- c(
+>   "clear", "cloudy/misty",
+>   "light rain/snow", "heavy rain/snow"
+> )
+> # nolint next: undesirable_function_linter. This tab shows base R.
+> bike_base <- read.csv("data/bikeshare.csv")
+> bike_base$weathersit <- factor(bike_base$weathersit, levels = weather_levels)
+>
+> # Poisson regression of the hourly count on the three covariates.
+> pois_base <- glm(
+>   bikers ~ temp + workingday + weathersit,
+>   family = poisson,
+>   data = bike_base
+> )
+> pois_base_summary <- summary(pois_base)
+> round(pois_base_summary$coefficients, 3)
+> #>                           Estimate Std. Error  z value Pr(>|z|)
+> #> (Intercept)                  3.885      0.003 1202.490        0
+> #> temp                         2.129      0.005  444.587        0
+> #> workingday                  -0.009      0.002   -4.574        0
+> #> weathersitcloudy/misty      -0.042      0.002  -19.805        0
+> #> weathersitlight rain/snow   -0.432      0.004 -107.412        0
+> #> weathersitheavy rain/snow   -0.761      0.167   -4.566        0
+> ```
+>
 > ## Python
 >
 > Show code
@@ -404,7 +496,7 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 > #> dtype: float64
 > ```
 >
-> Both tabs fit the same model with the same [reference level](data.llms.md#def-reference-level), `clear`, so their coefficient [estimates](estimation.llms.md#def-estimate) agree. The coefficient estimate of `temp` is 2.13, a positive number, so the [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) of the [fitted model](model-validation.llms.md#def-fitted-model) rises with the temperature.
+> All three tabs fit the same model with the same [reference level](data.llms.md#def-reference-level), `clear`, so their coefficient [estimates](estimation.llms.md#def-estimate) agree. The coefficient estimate of `temp` is 2.13, a positive number, so the [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) of the [fitted model](model-validation.llms.md#def-fitted-model) rises with the temperature.
 
 > **NOTE:**
 >
