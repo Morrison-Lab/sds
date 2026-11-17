@@ -1,0 +1,19 @@
+::: {#exr-bikeshare-weather}
+
+#### The weather with the most rentals
+
+The [`Bikeshare` data](#sec-bikeshare-lab) record the weather of each hour as `weathersit`,
+and the number of bikes rented in that hour as `bikers`.
+A [covariate](model-validation.qmd#def-covariate) whose groups have very different [sample means](exploratory-descriptive.qmd#def-sample-mean) of the [outcome](model-validation.qmd#def-outcome-vector) is a promising one for a regression model.
+
+::: {.callout-tip}
+
+#### Hint
+
+`dplyr::group_by()` and `dplyr::summarise()` in R, and the `.groupby()` method of a pandas data frame in Python, compute a [sample mean](exploratory-descriptive.qmd#def-sample-mean) within each group.
+
+:::
+
+Which value of `weathersit` has the largest [sample mean](exploratory-descriptive.qmd#def-sample-mean) of `bikers`?
+
+:::

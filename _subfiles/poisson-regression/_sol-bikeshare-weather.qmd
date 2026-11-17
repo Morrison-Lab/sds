@@ -1,0 +1,42 @@
+::: {#sol-bikeshare-weather}
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| code-fold: show
+# The sample mean of the hourly count for each weather, largest first.
+bikers_by_weather <- bikeshare_raw |>
+  dplyr::group_by(weathersit) |>
+  dplyr::summarise(mean_bikers = mean(bikers)) |>
+  dplyr::arrange(dplyr::desc(mean_bikers))
+bikers_by_weather
+```
+
+##### Python
+
+```{python}
+#| code-fold: show
+# The sample mean of the hourly count for each weather, largest first.
+bikers_by_weather = (
+    bikeshare_raw.groupby("weathersit")["bikers"].mean().sort_values(ascending=False)
+)
+bikers_by_weather.round(1)
+```
+
+:::
+
+```{r}
+#| include: false
+weather_best <- bikers_by_weather$weathersit[1]
+weather_best_mean <- round(bikers_by_weather$mean_bikers[1], 1)
+weather_worst <- dplyr::last(bikers_by_weather$weathersit)
+weather_worst_mean <- bikers_by_weather$mean_bikers |> dplyr::last() |> round(1)
+```
+
+The [sample mean](exploratory-descriptive.qmd#def-sample-mean) of `bikers` is largest for `r weather_best` hours, at `r weather_best_mean` bikes.
+It is smallest for `r weather_worst` hours, at `r weather_worst_mean` bikes,
+so `weathersit` is a promising [covariate](model-validation.qmd#def-covariate).
+
+:::

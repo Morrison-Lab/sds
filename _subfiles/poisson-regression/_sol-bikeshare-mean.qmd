@@ -1,0 +1,33 @@
+::: {#sol-bikeshare-mean}
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| code-fold: show
+# The sample mean of the hourly counts, from the data loaded above.
+bikers_mean <- mean(bikeshare_raw$bikers)
+round(bikers_mean, 2)
+```
+
+##### Python
+
+```{python}
+#| code-fold: show
+# The sample mean of the hourly counts, from the data loaded above.
+bikers_mean = float(bikeshare_raw["bikers"].mean())
+round(bikers_mean, 2)
+```
+
+:::
+
+```{r}
+#| include: false
+bikers_mean_round <- round(bikers_mean, 1)
+```
+
+The [sample mean](exploratory-descriptive.qmd#def-sample-mean) of `bikers` is `r bikers_mean_round` bikes per hour.
+A [Poisson regression model](poisson-regression.qmd#def-poisson-regression) with no [covariates](model-validation.qmd#def-covariate) would [estimate](estimation.qmd#def-estimate) the [expected](https://morrison-lab.github.io/pds/expectation.html#def-expectation) hourly count by this sample mean.
+
+:::

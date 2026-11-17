@@ -1,0 +1,18 @@
+::: {#exr-bikeshare-histogram}
+
+#### A histogram of the hourly count
+
+The [`Bikeshare` data](#sec-bikeshare-lab) count the bikes rented in each of many hours, as `bikers`.
+A [histogram](exploratory-descriptive.qmd#def-histogram) shows the shape of the whole set of counts.
+
+::: {.callout-tip}
+
+#### Hint
+
+`ggplot2::geom_histogram()` in R and `ax.hist()` from matplotlib in Python draw a [histogram](exploratory-descriptive.qmd#def-histogram).
+
+:::
+
+Draw a [histogram](exploratory-descriptive.qmd#def-histogram) of `bikers`.
+
+:::
