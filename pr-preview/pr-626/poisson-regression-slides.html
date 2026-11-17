@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-16 15:10:00 (PST)</p>
+  <p class="date">Last modified: 2026-11-16 16:17:12 (PST)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -690,7 +690,7 @@ text-align: center;
 <p>By <a href="#/thm-poisson-rate-ratio" class="quarto-xref">Theorem&nbsp;1</a> with <span class="math inline">\(a - b = 0.1\)</span>, the <a href="./poisson-regression.html#def-rate-ratio">rate ratio</a> is <span class="math inline">\({\operatorname{exp}\mathopen{}\left\{0.1 \beta_{\text{temp}}\right\}\mathclose{}}\)</span>, and its <a href="./estimation.html#def-estimate">estimate</a> is <span class="math inline">\({\operatorname{exp}\mathopen{}\left\{0.1 \hat{\beta}_{\text{temp}}\right\}\mathclose{}}\)</span>. That estimate is 1.24 in the R tab and 1.24 in the Python tab, so the <a href="./estimation.html#def-estimate">estimated</a> <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rate</a> of the warmer hour is about 1.24 times that of the cooler hour.</p>
 </div>
 </section><section class="slide level2"><div id="exr-bikeshare-negative" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 (Compare with linear regression)</strong></span> Consider a <a href="./basic-statistical-methods.html#def-linear-regression">linear regression</a> of <code>bikers</code> on the same <a href="./model-validation.html#def-covariate">covariates</a> as the <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> of <a href="#/exr-bikeshare-fit" class="quarto-xref">Exercise&nbsp;1</a>. A count is never negative.</p>
+<p><span class="theorem-title"><strong>Exercise 3 (Compare with linear regression)</strong></span> Consider a <a href="./correlation-regression.html#def-linear-regression">linear regression</a> of <code>bikers</code> on the same <a href="./model-validation.html#def-covariate">covariates</a> as the <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> of <a href="#/exr-bikeshare-fit" class="quarto-xref">Exercise&nbsp;1</a>. A count is never negative.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -700,7 +700,7 @@ text-align: center;
 <p><strong>Hint</strong></p>
 </div>
 <div class="callout-content">
-<p><code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> in R and <code>smf.ols()</code> in Python <a href="./model-validation.html#def-fitted-model">fit</a> the <a href="./basic-statistical-methods.html#def-linear-regression">linear regression</a>. <code><a href="https://rdrr.io/r/stats/fitted.values.html">fitted()</a></code> in R returns the <a href="./prediction.html#def-fitted-value">fitted values</a> of a model, and the <code>fittedvalues</code> attribute of a <code>statsmodels</code> fit holds them in Python.</p>
+<p><code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> in R and <code>smf.ols()</code> in Python <a href="./model-validation.html#def-fitted-model">fit</a> the <a href="./correlation-regression.html#def-linear-regression">linear regression</a>. <code><a href="https://rdrr.io/r/stats/fitted.values.html">fitted()</a></code> in R returns the <a href="./prediction.html#def-fitted-value">fitted values</a> of a model, and the <code>fittedvalues</code> attribute of a <code>statsmodels</code> fit holds them in Python.</p>
 </div>
 </div>
 </div>
@@ -750,7 +750,7 @@ text-align: center;
 </div>
 </div>
 </div>
-<p>The <a href="./basic-statistical-methods.html#def-linear-regression">linear regression</a> gives a negative <a href="./prediction.html#def-fitted-value">fitted value</a> for 20 hours, which is impossible for the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expected value</a> of a count.</p>
+<p>The <a href="./correlation-regression.html#def-linear-regression">linear regression</a> gives a negative <a href="./prediction.html#def-fitted-value">fitted value</a> for 20 hours, which is impossible for the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expected value</a> of a count.</p>
 <p>The <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> gives a negative fitted value for 0 hours, because its <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rate</a> is the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function">exponential function</a> of a <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function">linear function</a>, and the exponential function takes only positive values.</p>
 </div>
 

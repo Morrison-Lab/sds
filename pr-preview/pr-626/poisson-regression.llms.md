@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-16 15:10:00 (PST)
+Last modified: 2026-11-16 16:17:12 (PST)
 
 # 1 The model
 
@@ -266,11 +266,11 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 
 > **NOTE:**
 >
-> **Exercise 3 (Compare with linear regression)** Consider a [linear regression](basic-statistical-methods.llms.md#def-linear-regression) of `bikers` on the same [covariates](model-validation.llms.md#def-covariate) as the [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of [Exercise 1](#exr-bikeshare-fit). A count is never negative.
+> **Exercise 3 (Compare with linear regression)** Consider a [linear regression](correlation-regression.llms.md#def-linear-regression) of `bikers` on the same [covariates](model-validation.llms.md#def-covariate) as the [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of [Exercise 1](#exr-bikeshare-fit). A count is never negative.
 >
 > > **TIP:**
 > >
-> > [`lm()`](https://rdrr.io/r/stats/lm.html) in R and `smf.ols()` in Python [fit](model-validation.llms.md#def-fitted-model) the [linear regression](basic-statistical-methods.llms.md#def-linear-regression). [`fitted()`](https://rdrr.io/r/stats/fitted.values.html) in R returns the [fitted values](prediction.llms.md#def-fitted-value) of a model, and the `fittedvalues` attribute of a `statsmodels` fit holds them in Python.
+> > [`lm()`](https://rdrr.io/r/stats/lm.html) in R and `smf.ols()` in Python [fit](model-validation.llms.md#def-fitted-model) the [linear regression](correlation-regression.llms.md#def-linear-regression). [`fitted()`](https://rdrr.io/r/stats/fitted.values.html) in R returns the [fitted values](prediction.llms.md#def-fitted-value) of a model, and the `fittedvalues` attribute of a `statsmodels` fit holds them in Python.
 >
 > For each of the two [fitted models](model-validation.llms.md#def-fitted-model), count the hours with a negative [fitted value](prediction.llms.md#def-fitted-value).
 
@@ -316,7 +316,7 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 > #> {'linear': 20, 'poisson': 0}
 > ```
 >
-> The [linear regression](basic-statistical-methods.llms.md#def-linear-regression) gives a negative [fitted value](prediction.llms.md#def-fitted-value) for 20 hours, which is impossible for the [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of a count.
+> The [linear regression](correlation-regression.llms.md#def-linear-regression) gives a negative [fitted value](prediction.llms.md#def-fitted-value) for 20 hours, which is impossible for the [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of a count.
 >
 > The [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) gives a negative fitted value for 0 hours, because its [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) is the [exponential function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function) of a [linear function](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function), and the exponential function takes only positive values.
 
