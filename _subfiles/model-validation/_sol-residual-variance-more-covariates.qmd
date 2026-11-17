@@ -21,16 +21,16 @@ $$
 \Var{\Outvar \mid \Predvar}
 = \E{\Var{\Outvar \mid \Predvar, Z} \mid \Predvar}
 + \Var{\E{\Outvar \mid \Predvar, Z} \mid \Predvar}.
-$$
+$$ {#eq-total-variance-given-covariate}
 
-Take the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of both sides over $\Predvar$.
+Take the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of both sides of @eq-total-variance-given-covariate over $\Predvar$.
 Two random variables that agree with probability one have the same expectation:
 
 $$
 \ba
 \E{\Var{\Outvar \mid \Predvar}}
 &= \E{\E{\Var{\Outvar \mid \Predvar, Z} \mid \Predvar} + \Var{\E{\Outvar \mid \Predvar, Z} \mid \Predvar}}
-&& \text{(expectation of both sides of the equation above)} \\
+&& \text{(expectation of both sides)} \\
 &= \E{\E{\Var{\Outvar \mid \Predvar, Z} \mid \Predvar}} + \E{\Var{\E{\Outvar \mid \Predvar, Z} \mid \Predvar}}
 && \text{(linearity of expectation)} \\
 &= \E{\Var{\Outvar \mid \Predvar, Z}} + \E{\Var{\E{\Outvar \mid \Predvar, Z} \mid \Predvar}}
