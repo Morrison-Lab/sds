@@ -10,7 +10,7 @@ A [covariate](model-validation.qmd#def-covariate) whose groups have very differe
 
 #### Hint
 
-`dplyr::group_by()` and `dplyr::summarise()` in R, and the `.groupby()` method of a pandas data frame in Python, compute a [sample mean](exploratory-descriptive.qmd#def-sample-mean) within each group.
+`dplyr::group_by()` and `dplyr::summarise()` in R, `tapply()` in base R, and the `.groupby()` method of a pandas data frame in Python, compute a [sample mean](exploratory-descriptive.qmd#def-sample-mean) within each group.
 
 :::
 
