@@ -2,7 +2,7 @@
 
 #### Data set
 
-A **data set** is a finite collection of $\nobs$ labelled observations,
+A **data set** is a finite collection of $\nobs$ labeled observations,
 that is, $\nobs$ pairs $(\vpredvar_\iobs, \outvar_\iobs)$,
 where $\vpredvar_\iobs$ is an input vector
 and $\outvar_\iobs$ is the corresponding outcome:
