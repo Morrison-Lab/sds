@@ -37,7 +37,7 @@ n_neg_pois_py = int((pois_py.fittedvalues < 0).sum())
 
 :::
 
-The [linear regression](basic-statistical-methods.qmd#def-linear-regression) gives a negative [fitted value](prediction.qmd#def-fitted-value) for `r n_neg_lin_r` hours,
+The [linear regression](correlation-regression.qmd#def-linear-regression) gives a negative [fitted value](prediction.qmd#def-fitted-value) for `r n_neg_lin_r` hours,
 which is impossible for the [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of a count.
 
 The [Poisson regression model](poisson-regression.qmd#def-poisson-regression) gives a negative fitted value for `r n_neg_pois_r` hours,
