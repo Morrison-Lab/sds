@@ -15,7 +15,8 @@ $$ {#eq-residual-variance-more-covariates}
 
 ::: proof
 @exr-residual-variance-more-covariates splits the [residual variance](#def-irreducible-error) given $\Predvar$, averaged over $\Predvar$, into two terms.
-The second term is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of a [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which is never negative.
+The second term is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of a [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),
+which is never negative.
 
 $$
 \ba
