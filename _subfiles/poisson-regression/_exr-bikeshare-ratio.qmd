@@ -1,0 +1,20 @@
+::: {#exr-bikeshare-ratio}
+
+#### Interpret the temperature coefficient
+
+Use the [Poisson regression model](poisson-regression.qmd#def-poisson-regression) of @exr-bikeshare-fit.
+Consider two hours with the same `workingday` and `weathersit`,
+one with `temp` $0.1$ higher than the other.
+
+::: {.callout-tip}
+
+#### Hint
+
+The [Poisson regression model](poisson-regression.qmd#def-poisson-regression) of @exr-bikeshare-fit has no interactions or transformations involving `temp`,
+so @thm-poisson-rate-ratio applies.
+
+:::
+
+[Estimate](estimation.qmd#def-estimate) the [rate ratio](poisson-regression.qmd#def-rate-ratio) comparing the warmer hour with the cooler one.
+
+:::
