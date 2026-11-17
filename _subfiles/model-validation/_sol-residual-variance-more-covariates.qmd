@@ -24,7 +24,7 @@ $$
 $$
 
 Take the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of both sides over $\Predvar$.
-Two random variables that are equal with probability one have the same expectation:
+Two random variables that agree with probability one have the same expectation:
 
 $$
 \ba
