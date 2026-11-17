@@ -85,7 +85,12 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
 Present a derivation as one or more exercises (`#exr-` divs),
 each followed in the same file by its solution (a `#sol-` div whose name matches the exercise, e.g. `#exr-foo` and `#sol-foo`),
 then the theorem (or corollary) that records the result,
-with a short `::: proof` that cites the exercises it rests on.
+with a `::: proof` that stands alone
+(Ezra, 2026-10-29; psw's [Writing for teaching](https://morrison-lab.github.io/psw/chapters/teaching.html)):
+it derives the result or cites earlier results,
+and does not only point back at the solution.
+It may also cite the exercises it rests on.
+A later argument cites the result div, never the solution.
 Split a long derivation into one exercise per step
 (for example: each partial derivative, solving the resulting equations, the second-derivative check),
 so no single solution packs several steps together.
