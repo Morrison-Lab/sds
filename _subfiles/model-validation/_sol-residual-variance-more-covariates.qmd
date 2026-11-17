@@ -1,0 +1,41 @@
+:::{#sol-residual-variance-more-covariates}
+
+Fix a [covariate](#def-covariate) value $\predvar$
+at which the [conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) second moment $\E{\Outvar^2 \mid \Predvar = \predvar}$ is finite.
+Because $\E{\Outvar^2} < \infty$,
+the values of $\Predvar$ where it is infinite have [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) zero.
+The [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance) holds for every [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) with a finite second moment,
+so it holds for $\Outvar$ given $\Predvar = \predvar$.
+With $Z$ in the role of the conditioning variable, it gives
+
+$$
+\Var{\Outvar \mid \Predvar = \predvar}
+= \E{\Var{\Outvar \mid \Predvar = \predvar, Z} \mid \Predvar = \predvar}
++ \Var{\E{\Outvar \mid \Predvar = \predvar, Z} \mid \Predvar = \predvar}.
+$$
+
+The equation holds at each such $\predvar$,
+so it holds with probability one with the random $\Predvar$ in place of $\predvar$:
+
+$$
+\Var{\Outvar \mid \Predvar}
+= \E{\Var{\Outvar \mid \Predvar, Z} \mid \Predvar}
++ \Var{\E{\Outvar \mid \Predvar, Z} \mid \Predvar}.
+$$ {#eq-total-variance-given-covariate}
+
+Take the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of both sides of @eq-total-variance-given-covariate over $\Predvar$.
+Two random variables that agree with probability one have the same expectation:
+
+$$
+\ba
+\E{\Var{\Outvar \mid \Predvar}}
+&= \E{\E{\Var{\Outvar \mid \Predvar, Z} \mid \Predvar} + \Var{\E{\Outvar \mid \Predvar, Z} \mid \Predvar}}
+&& \text{(expectation of both sides)} \\
+&= \E{\E{\Var{\Outvar \mid \Predvar, Z} \mid \Predvar}} + \E{\Var{\E{\Outvar \mid \Predvar, Z} \mid \Predvar}}
+&& \text{(linearity of expectation)} \\
+&= \E{\Var{\Outvar \mid \Predvar, Z}} + \E{\Var{\E{\Outvar \mid \Predvar, Z} \mid \Predvar}}
+&& \text{(law of iterated expectations)}
+\ea
+$$
+
+:::

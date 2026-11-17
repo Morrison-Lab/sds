@@ -1,0 +1,33 @@
+:::{#thm-residual-variance-more-covariates}
+#### A further covariate cannot raise the average residual variance
+
+Let $\Predvar$ and $Z$ be [covariates](#def-covariate) of one [observation](exploratory-descriptive.qmd#def-observation) from a [population](exploratory-descriptive.qmd#def-population),
+and let $\Outvar$ be its [outcome](https://morrison-lab.github.io/pds/expectation.html#def-outcome), with $\E{\Outvar^2} < \infty$.
+
+The [residual variance](#def-irreducible-error) of $\Outvar$ given $\Predvar$ and $Z$, averaged over the covariate values,
+is at most the residual variance given $\Predvar$ alone, averaged in the same way:
+
+$$
+\E{\Var{\Outvar \mid \Predvar, Z}} \le \E{\Var{\Outvar \mid \Predvar}}.
+$$ {#eq-residual-variance-more-covariates}
+
+:::
+
+::: proof
+@exr-residual-variance-more-covariates splits the [residual variance](#def-irreducible-error) given $\Predvar$, averaged over $\Predvar$, into two terms.
+The second term is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of a [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),
+which is never negative.
+
+$$
+\ba
+\E{\Var{\Outvar \mid \Predvar}}
+&= \E{\Var{\Outvar \mid \Predvar, Z}} + \E{\Var{\E{\Outvar \mid \Predvar, Z} \mid \Predvar}}
+&& \text{(the split of the exercise)} \\
+&\ge \E{\Var{\Outvar \mid \Predvar, Z}} + 0
+&& \text{(a variance is nonnegative, so its expectation is too)} \\
+&= \E{\Var{\Outvar \mid \Predvar, Z}}
+&& \text{(} a + 0 = a \text{)}
+\ea
+$$
+
+:::

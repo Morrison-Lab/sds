@@ -170,6 +170,10 @@ reticulate::py_require(
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_rem-noise-conditional-covariates.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_thm-noise-mean-zero.qmd >}}
 
 {{< slidebreak >}}
@@ -345,6 +349,22 @@ reticulate::py_require(
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_rem-irreducible-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exr-residual-variance-more-covariates.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-residual-variance-more-covariates.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_thm-residual-variance-more-covariates.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-residual-variance-more-covariates-auto.qmd >}}
 
 {{< slidebreak >}}
 

@@ -32,6 +32,7 @@ Imports:
     performance,
     plotly,
     purrr,
+    readr,
     reticulate,
     rjags,
     rmb,
