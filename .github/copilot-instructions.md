@@ -87,7 +87,8 @@ each followed in the same file by its solution (a `#sol-` div whose name matches
 then the theorem (or corollary) that records the result,
 with a `::: proof` that stands alone
 (Ezra, 2026-10-29; psw's [Writing for teaching](https://morrison-lab.github.io/psw/chapters/teaching.html)):
-it derives the result or cites earlier results, and does not only point back at the solution.
+it derives the result or cites earlier results,
+and does not only point back at the solution.
 It may also cite the exercises it rests on.
 A later argument cites the result div, never the solution.
 Split a long derivation into one exercise per step
