@@ -10,7 +10,7 @@ A [scatterplot](exploratory-descriptive.qmd#def-scatterplot) shows how the count
 
 #### Hint
 
-`ggplot2::geom_point()` in R, `plot()` in base R, and `ax.scatter()` from matplotlib in Python draw a [scatterplot](exploratory-descriptive.qmd#def-scatterplot).
+`ggplot2::geom_point()` in R, `plot()` in R without the tidyverse, and `ax.scatter()` from matplotlib in Python draw a [scatterplot](exploratory-descriptive.qmd#def-scatterplot).
 
 :::
 

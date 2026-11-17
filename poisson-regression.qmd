@@ -95,8 +95,8 @@ bikeshare_raw[["bikers", "temp", "workingday", "weathersit"]].head(6)
 
 The exercises follow the [Poisson regression](poisson-regression.qmd#def-poisson-regression) part of the book's Chapter 4 lab [@james2021islr2e, Section 4.7.7].
 Each solution shows the code in R and in Python.
-Where the tidyverse and base R would write it differently,
-an `R (base)` tab follows the tidyverse `R` tab.
+Where R code without the tidyverse would differ,
+an `R (base)` tab follows the `R` tab, which uses the tidyverse.
 
 {{< slidebreak >}}
 
