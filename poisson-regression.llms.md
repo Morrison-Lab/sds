@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-17 00:01:28 (PST)
+Last modified: 2026-11-17 03:03:07 (PST)
 
 # 1 The model
 
@@ -148,7 +148,189 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 
 > **NOTE:**
 >
-> **Exercise 1 (Fit a Poisson regression to bike rentals)** The [`Bikeshare` data](#sec-bikeshare-lab) count the bikes rented in each of many hours. Each count covers one hour, so every count has the same [exposure magnitude](https://morrison-lab.github.io/pds/distributions.html#def-exposure). Consider a [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of the hourly count `bikers` on the [covariates](model-validation.llms.md#def-covariate) `temp`, `workingday`, and `weathersit`, with `clear` as the [reference level](data.llms.md#def-reference-level) of `weathersit`.
+> **Exercise 1 (The average hourly count of bike rentals)** The [`Bikeshare` data](#sec-bikeshare-lab) count the bikes rented in each of many hours, as `bikers`. A first look at a count [outcome](model-validation.llms.md#def-outcome-vector) starts with its typical size.
+>
+> > **TIP:**
+> >
+> > [`mean()`](https://rdrr.io/r/base/mean.html) in R and the pandas `.mean()` method in Python compute a [sample mean](exploratory-descriptive.llms.md#def-sample-mean).
+>
+> Compute the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of `bikers`.
+
+> **NOTE:**
+>
+> *Solution 1*.
+>
+> ## R
+>
+> Show code
+>
+> ``` downlit
+> # The sample mean of the hourly counts, from the data loaded above.
+> bikers_mean <- mean(bikeshare_raw$bikers)
+> round(bikers_mean, 2)
+> #> [1] 143.79
+> ```
+>
+> ## Python
+>
+> Show code
+>
+> ``` python
+> # The sample mean of the hourly counts, from the data loaded above.
+> bikers_mean = float(bikeshare_raw["bikers"].mean())
+> round(bikers_mean, 2)
+> #> 143.79
+> ```
+>
+> The [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of `bikers` is 143.8 bikes per hour. A [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) with no [covariates](model-validation.llms.md#def-covariate) would [estimate](estimation.llms.md#def-estimate) the [expected](https://morrison-lab.github.io/pds/expectation.html#def-expectation) hourly count by this sample mean.
+
+> **NOTE:**
+>
+> **Exercise 2 (The weather with the most rentals)** The [`Bikeshare` data](#sec-bikeshare-lab) record the weather of each hour as `weathersit`, and the number of bikes rented in that hour as `bikers`. A [covariate](model-validation.llms.md#def-covariate) whose groups have very different [sample means](exploratory-descriptive.llms.md#def-sample-mean) of the [outcome](model-validation.llms.md#def-outcome-vector) is a promising one for a regression model.
+>
+> > **TIP:**
+> >
+> > [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) and [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) in R, and the `.groupby()` method of a pandas data frame in Python, compute a [sample mean](exploratory-descriptive.llms.md#def-sample-mean) within each group.
+>
+> Which value of `weathersit` has the largest [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of `bikers`?
+
+> **NOTE:**
+>
+> *Solution 2*.
+>
+> ## R
+>
+> Show code
+>
+> ``` downlit
+> # The sample mean of the hourly count for each weather, largest first.
+> bikers_by_weather <- bikeshare_raw |>
+>   dplyr::group_by(weathersit) |>
+>   dplyr::summarise(mean_bikers = mean(bikers)) |>
+>   dplyr::arrange(dplyr::desc(mean_bikers))
+> bikers_by_weather
+> ```
+>
+> ## Python
+>
+> Show code
+>
+> ``` python
+> # The sample mean of the hourly count for each weather, largest first.
+> bikers_by_weather = (
+>     bikeshare_raw.groupby("weathersit")["bikers"].mean().sort_values(ascending=False)
+> )
+> bikers_by_weather.round(1)
+> #> weathersit
+> #> clear              155.0
+> #> cloudy/misty       135.5
+> #> light rain/snow     86.4
+> #> heavy rain/snow     36.0
+> #> Name: bikers, dtype: float64
+> ```
+>
+> The [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of `bikers` is largest for clear hours, at 155 bikes. It is smallest for heavy rain/snow hours, at 36 bikes, so `weathersit` is a promising [covariate](model-validation.llms.md#def-covariate).
+
+> **NOTE:**
+>
+> **Exercise 3 (A histogram of the hourly count)** The [`Bikeshare` data](#sec-bikeshare-lab) count the bikes rented in each of many hours, as `bikers`. A [histogram](exploratory-descriptive.llms.md#def-histogram) shows the shape of the whole set of counts.
+>
+> > **TIP:**
+> >
+> > [`ggplot2::geom_histogram()`](https://ggplot2.tidyverse.org/reference/geom_histogram.html) in R and `ax.hist()` from matplotlib in Python draw a [histogram](exploratory-descriptive.llms.md#def-histogram).
+>
+> Draw a [histogram](exploratory-descriptive.llms.md#def-histogram) of `bikers`.
+
+> **NOTE:**
+>
+> *Solution 3*.
+>
+> ## R
+>
+> Show code
+>
+> ``` downlit
+> bikeshare_raw |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = bikers) +
+>   ggplot2::geom_histogram(bins = 30) + # check-unexplained-choices: allow
+>   ggplot2::labs(x = "Bikes rented in the hour", y = "Number of hours")
+> ```
+>
+> [![Histogram of the number of bikes rented per hour. The tallest bars are at the smallest counts, and the bars shrink steadily toward a long thin tail that reaches the largest counts.](poisson-regression_files/figure-html/unnamed-chunk-10-1.png)](poisson-regression_files/figure-html/unnamed-chunk-10-1.png)
+>
+> ## Python
+>
+> Show code
+>
+> ``` python
+> import matplotlib.pyplot as plt
+>
+> fig, ax = plt.subplots(figsize=(6, 4), layout="constrained")
+> ax.hist(bikeshare_raw["bikers"], bins=30);  # check-unexplained-choices: allow
+> ax.set_xlabel("Bikes rented in the hour");
+> ax.set_ylabel("Number of hours");
+> plt.show()
+> ```
+>
+> [![Histogram of the number of bikes rented per hour. The tallest bars are at the smallest counts, and the bars shrink steadily toward a long thin tail that reaches the largest counts.](poisson-regression_files/figure-html/unnamed-chunk-11-1.png)](poisson-regression_files/figure-html/unnamed-chunk-11-1.png)
+>
+> I chose 30 bars, which is about 288 hours per bar. Far fewer bars would hide the long right tail inside a few wide bars, and far more would leave most bars with only a few hours, so the outline would look ragged.
+>
+> The [histogram](exploratory-descriptive.llms.md#def-histogram) is right-skewed: the [sample median](exploratory-descriptive.llms.md#def-sample-median) of `bikers` is 109, below its [sample mean](exploratory-descriptive.llms.md#def-sample-mean) of 143.8. Counts cannot be negative, and nothing caps them, which is the situation that a [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) is built for.
+
+> **NOTE:**
+>
+> **Exercise 4 (Rentals against temperature)** The [`Bikeshare` data](#sec-bikeshare-lab) record the scaled temperature of each hour as `temp`, and the number of bikes rented in that hour as `bikers`. A [scatterplot](exploratory-descriptive.llms.md#def-scatterplot) shows how the counts change with a numerical [covariate](model-validation.llms.md#def-covariate).
+>
+> > **TIP:**
+> >
+> > [`ggplot2::geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html) in R and `ax.scatter()` from matplotlib in Python draw a [scatterplot](exploratory-descriptive.llms.md#def-scatterplot).
+>
+> Draw a [scatterplot](exploratory-descriptive.llms.md#def-scatterplot) of `bikers` against `temp`.
+
+> **NOTE:**
+>
+> *Solution 4*.
+>
+> ## R
+>
+> Show code
+>
+> ``` downlit
+> # Small, faint points, because thousands of hours overlap.
+> bikeshare_raw |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = temp, y = bikers) +
+>   ggplot2::geom_point(size = 0.5, alpha = 0.3) +
+>   ggplot2::labs(
+>     x = "Temperature (scaled to 0 to 1)",
+>     y = "Bikes rented in the hour"
+>   )
+> ```
+>
+> [![Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the points spread more at warm temperatures than at cold ones.](poisson-regression_files/figure-html/unnamed-chunk-13-1.png)](poisson-regression_files/figure-html/unnamed-chunk-13-1.png)
+>
+> ## Python
+>
+> Show code
+>
+> ``` python
+> # Small, faint points, because thousands of hours overlap.
+> fig, ax = plt.subplots(figsize=(6, 4), layout="constrained")
+> ax.scatter(bikeshare_raw["temp"], bikeshare_raw["bikers"], s=4, alpha=0.3);
+> ax.set_xlabel("Temperature (scaled to 0 to 1)");
+> ax.set_ylabel("Bikes rented in the hour");
+> plt.show()
+> ```
+>
+> [![Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the points spread more at warm temperatures than at cold ones.](poisson-regression_files/figure-html/unnamed-chunk-14-1.png)](poisson-regression_files/figure-html/unnamed-chunk-14-1.png)
+>
+> The counts rise with the temperature, with [sample correlation](exploratory-descriptive.llms.md#def-pearson-r) 0.45. The spread of the counts grows with their level. A [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) describes that pattern, because the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of a [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) variable is the same as its [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation).
+
+> **NOTE:**
+>
+> **Exercise 5 (Fit a Poisson regression to bike rentals)** The [`Bikeshare` data](#sec-bikeshare-lab) count the bikes rented in each of many hours. Each count covers one hour, so every count has the same [exposure magnitude](https://morrison-lab.github.io/pds/distributions.html#def-exposure). Consider a [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of the hourly count `bikers` on the [covariates](model-validation.llms.md#def-covariate) `temp`, `workingday`, and `weathersit`, with `clear` as the [reference level](data.llms.md#def-reference-level) of `weathersit`.
 >
 > > **TIP:**
 > >
@@ -158,7 +340,7 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 
 > **NOTE:**
 >
-> *Solution 1*.
+> *Solution 5*.
 >
 > ## R
 >
@@ -226,17 +408,17 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 
 > **NOTE:**
 >
-> **Exercise 2 (Interpret the temperature coefficient)** Use the [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of [Exercise 1](#exr-bikeshare-fit). Consider two hours with the same `workingday` and `weathersit`, one with `temp` $0.1$ higher than the other.
+> **Exercise 6 (Interpret the temperature coefficient)** Use the [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of [Exercise 5](#exr-bikeshare-fit). Consider two hours with the same `workingday` and `weathersit`, one with `temp` $0.1$ higher than the other.
 >
 > > **TIP:**
 > >
-> > The [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of [Exercise 1](#exr-bikeshare-fit) has no interactions or transformations involving `temp`, so [Theorem 1](#thm-poisson-rate-ratio) applies.
+> > The [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of [Exercise 5](#exr-bikeshare-fit) has no interactions or transformations involving `temp`, so [Theorem 1](#thm-poisson-rate-ratio) applies.
 >
 > [Estimate](estimation.llms.md#def-estimate) the [rate ratio](poisson-regression.llms.md#def-rate-ratio) comparing the warmer hour with the cooler one.
 
 > **NOTE:**
 >
-> *Solution 2*.
+> *Solution 6*.
 >
 > ## R
 >
@@ -266,7 +448,7 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 
 > **NOTE:**
 >
-> **Exercise 3 (Compare with linear regression)** Consider a [linear regression](correlation-regression.llms.md#def-linear-regression) of `bikers` on the same [covariates](model-validation.llms.md#def-covariate) as the [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of [Exercise 1](#exr-bikeshare-fit). A count is never negative.
+> **Exercise 7 (Compare with linear regression)** Consider a [linear regression](correlation-regression.llms.md#def-linear-regression) of `bikers` on the same [covariates](model-validation.llms.md#def-covariate) as the [Poisson regression model](poisson-regression.llms.md#def-poisson-regression) of [Exercise 5](#exr-bikeshare-fit). A count is never negative.
 >
 > > **TIP:**
 > >
@@ -276,7 +458,7 @@ The exercises follow the [Poisson regression](poisson-regression.llms.md#def-poi
 
 > **NOTE:**
 >
-> *Solution 3*.
+> *Solution 7*.
 >
 > ## R
 >
