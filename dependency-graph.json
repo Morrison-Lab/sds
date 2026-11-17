@@ -264,6 +264,16 @@
    "url": "https://morrison-lab.github.io/pds/expectation.html#def-new-observation"
   },
   {
+   "id": "pds/expectation#def-outcome",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-outcome",
+   "kind": "def",
+   "title": "outcome",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-outcome"
+  },
+  {
    "id": "pds/expectation#def-prediction",
    "site": "pds",
    "page": "expectation",
@@ -4020,7 +4030,7 @@
    "page": "model-validation",
    "div": "def-noise",
    "kind": "def",
-   "title": "Noise",
+   "title": "Noise of an outcome conditional on covariates",
    "external": false
   },
   {
@@ -4309,6 +4319,15 @@
    "div": "thm-prediction-bias-average-fit",
    "kind": "thm",
    "title": "The bias as the expected prediction minus the mean function",
+   "external": false
+  },
+  {
+   "id": "sds/model-validation#thm-residual-variance-more-covariates",
+   "site": "sds",
+   "page": "model-validation",
+   "div": "thm-residual-variance-more-covariates",
+   "kind": "thm",
+   "title": "A further covariate cannot raise the average residual variance",
    "external": false
   },
   {
@@ -7710,6 +7729,10 @@
   ],
   [
    "sds/model-validation#def-noise",
+   "pds/expectation#def-cond-expectation"
+  ],
+  [
+   "sds/model-validation#def-noise",
    "pds/variance-covariance#def-deviation-pop-mean"
   ],
   [
@@ -8211,6 +8234,34 @@
   [
    "sds/model-validation#thm-prediction-bias-average-fit",
    "sds/prediction#def-prediction"
+  ],
+  [
+   "sds/model-validation#thm-residual-variance-more-covariates",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "sds/model-validation#thm-residual-variance-more-covariates",
+   "pds/expectation#def-outcome"
+  ],
+  [
+   "sds/model-validation#thm-residual-variance-more-covariates",
+   "pds/variance-covariance#def-variance"
+  ],
+  [
+   "sds/model-validation#thm-residual-variance-more-covariates",
+   "sds/exploratory-descriptive#def-observation"
+  ],
+  [
+   "sds/model-validation#thm-residual-variance-more-covariates",
+   "sds/exploratory-descriptive#def-population"
+  ],
+  [
+   "sds/model-validation#thm-residual-variance-more-covariates",
+   "sds/model-validation#def-covariate"
+  ],
+  [
+   "sds/model-validation#thm-residual-variance-more-covariates",
+   "sds/model-validation#def-irreducible-error"
   ],
   [
    "sds/multiple-testing#def-bh",
