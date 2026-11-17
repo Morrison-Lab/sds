@@ -27,6 +27,30 @@ pois_r |>
   parameters::print_md()
 ```
 
+##### R (base)
+
+```{r}
+#| code-fold: show
+# Make `clear` the first level of weathersit,
+# so that glm() uses it as the reference level.
+weather_levels <- c(
+  "clear", "cloudy/misty",
+  "light rain/snow", "heavy rain/snow"
+)
+# nolint next: undesirable_function_linter. This tab shows base R.
+bike_base <- read.csv("data/bikeshare.csv")
+bike_base$weathersit <- factor(bike_base$weathersit, levels = weather_levels)
+
+# Poisson regression of the hourly count on the three covariates.
+pois_base <- glm(
+  bikers ~ temp + workingday + weathersit,
+  family = poisson,
+  data = bike_base
+)
+pois_base_summary <- summary(pois_base)
+round(pois_base_summary$coefficients, 3)
+```
+
 ##### Python
 
 ```{python}
@@ -53,7 +77,7 @@ pois_py.params.round(3)
 pois_temp <- round(pois_coef[["temp"]], 2)
 ```
 
-Both tabs fit the same model with the same [reference level](data.qmd#def-reference-level), `clear`,
+All three tabs fit the same model with the same [reference level](data.qmd#def-reference-level), `clear`,
 so their coefficient [estimates](estimation.qmd#def-estimate) agree.
 The coefficient estimate of `temp` is `r pois_temp`, a positive number,
 so the [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) of the [fitted model](model-validation.qmd#def-fitted-model) rises with the temperature.

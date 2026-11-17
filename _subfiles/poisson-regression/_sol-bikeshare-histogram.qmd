@@ -18,6 +18,31 @@ bikeshare_raw |>
   ggplot2::labs(x = "Bikes rented in the hour", y = "Number of hours")
 ```
 
+##### R (base)
+
+```{r}
+#| code-fold: show
+#| fig-alt: >-
+#|   Histogram of the number of bikes rented per hour.
+#|   The tallest bars are at the smallest counts,
+#|   and the bars shrink steadily toward a long thin tail
+#|   that reaches the largest counts.
+# 30 bars of equal width, from the smallest count to the largest.
+bikers_range <- range(bikeshare_raw$bikers)
+bikers_breaks <- seq(
+  bikers_range[1],
+  bikers_range[2],
+  length.out = 31 # check-unexplained-choices: allow
+)
+hist(
+  bikeshare_raw$bikers,
+  breaks = bikers_breaks, # check-unexplained-choices: allow
+  main = NULL,
+  xlab = "Bikes rented in the hour",
+  ylab = "Number of hours"
+)
+```
+
 ##### Python
 
 ```{python}

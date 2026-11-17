@@ -14,6 +14,20 @@ bikers_by_weather <- bikeshare_raw |>
 bikers_by_weather
 ```
 
+##### R (base)
+
+```{r}
+#| code-fold: show
+# The sample mean of the hourly count for each weather, largest first.
+bikers_by_weather_base <- tapply(
+  bikeshare_raw$bikers,
+  bikeshare_raw$weathersit,
+  mean
+)
+bikers_by_weather_base <- sort(bikers_by_weather_base, decreasing = TRUE)
+round(bikers_by_weather_base, 1)
+```
+
 ##### Python
 
 ```{python}

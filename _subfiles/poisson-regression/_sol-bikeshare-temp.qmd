@@ -22,6 +22,28 @@ bikeshare_raw |>
   )
 ```
 
+##### R (base)
+
+```{r}
+#| code-fold: show
+#| fig-alt: >-
+#|   Scatterplot of the number of bikes rented in an hour
+#|   against the temperature.
+#|   The points drift upward from left to right,
+#|   and the points spread more at warm temperatures than at cold ones.
+# Small, faint points, because thousands of hours overlap.
+faint_black <- grDevices::adjustcolor("black", alpha.f = 0.3)
+plot(
+  bikeshare_raw$temp,
+  bikeshare_raw$bikers,
+  pch = 16,
+  cex = 0.3,
+  col = faint_black,
+  xlab = "Temperature (scaled to 0 to 1)",
+  ylab = "Bikes rented in the hour"
+)
+```
+
 ##### Python
 
 ```{python}
