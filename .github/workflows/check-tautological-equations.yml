@@ -9,6 +9,8 @@
 #
 # Why it exists: Ezra, 2026-11-19, "more generally, should we check for
 # tautologies in rendered equations?" (Morrison-Lab/gha#2134).
+# The check came in Morrison-Lab/gha#2135. A manual run scans the whole tree,
+# and the hits it finds in older text are listed in Morrison-Lab/mds#841.
 
 name: Check tautological equations
 
