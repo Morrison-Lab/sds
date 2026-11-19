@@ -3,9 +3,9 @@
 
 Each term $\score_\iobs \tp{\score_\iobs}$ of the [empirical information matrix](#def-empirical-information)
 is the [self outer product](https://morrison-lab.github.io/mds/linear-algebra-inner-products.html#def-self-outer-product)
-of the $i$th observation's [score](#def-score).
+of the $i$th [observation](exploratory-descriptive.qmd#def-observation)'s [score](#def-score).
 At a [maximum likelihood estimate](#def-mle) that solves the [score equation](#def-score-equation),
-the score $\score$ of the whole sample is the zero vector,
+the score $\score$ of the whole [sample](exploratory-descriptive.qmd#def-sample) is the zero vector,
 so the second term of the empirical information is the zero matrix,
 and the empirical information is the sum of these self outer products.
 Econometrics sources call this sum the outer product of gradients,
