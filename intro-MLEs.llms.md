@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-17 13:17:16 (PST)
+Last modified: 2026-11-18 23:10:07 (PST)
 
 # 1 Overview of maximum likelihood estimation
 
@@ -1827,6 +1827,10 @@ The expected information is sometimes simpler to compute than the observed infor
 
 For $\operatorname{iid}$ data, $\frac{1}{n}I_e(\theta; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})$ is the sample covariance matrix (with divisor $n$) of the observations’ scores, so it estimates the covariance matrix of one observation’s score, $\mathcal{I}(\theta)/n$ ([Theorem 13](#thm-information-equality)). The empirical information needs only first derivatives, so it can be easier to compute than the observed information, and it can replace the observed information in the Newton-Raphson update.
 
+> **NOTE:**
+>
+> *Remark 12* (The empirical information as an outer product of gradients). Each term $\ell'_i{\ell'_i}^{\top}$ of the [empirical information matrix](#def-empirical-information) is the [self outer product](https://morrison-lab.github.io/mds/linear-algebra-inner-products.html#def-self-outer-product) of the $i$th [observation](exploratory-descriptive.llms.md#def-observation)’s [score](#def-score). At a [maximum likelihood estimate](#def-mle) that solves the [score equation](#def-score-equation), the score $\ell'$ of the whole [sample](exploratory-descriptive.llms.md#def-sample) is the [zero vector](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-zero-vector), so the second term of the empirical information is the [zero matrix](https://morrison-lab.github.io/mds/linear-algebra-matrices.html#def-zero-matrix), and the empirical information is the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) of these self outer products. Econometrics sources call this sum the [outer product](https://morrison-lab.github.io/mds/linear-algebra-inner-products.html#def-outer-product) of [gradients](https://morrison-lab.github.io/mds/vector-calculus.html#def-vector-derivative), and the Berndt-Hall-Hall-Hausman (BHHH) algorithm uses it in place of the [observed information](#def-oinf) in each Newton-Raphson step [\[24\]](#ref-wikipedia_bhhh).
+
 #### 2.0.6.2 Applying Newton-Raphson to the cyclone data
 
 > **NOTE:**
@@ -2405,7 +2409,7 @@ $$\ell'= \frac{x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}}}{{\operator
 
 > **NOTE:**
 >
-> *Remark 12* (The score function in natural exponential families). This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in $x$; for every such family, the score with respect to the mean is $(x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}})/{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}$. Other members of the broader [exponential family](exponential-families.llms.md#def-exponential-family), such as the Weibull distribution with known shape $k \ne 1$, do not have this form. Exponential-family distributions share many special properties [\[1, Ch. 3\]](#ref-dobson4e), [\[7, Sec. 6.7\]](#ref-hoggtanis2015).
+> *Remark 13* (The score function in natural exponential families). This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in $x$; for every such family, the score with respect to the mean is $(x - {\mathbb{E}\mathopen{}\left[X\right]\mathclose{}})/{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}$. Other members of the broader [exponential family](exponential-families.llms.md#def-exponential-family), such as the Weibull distribution with known shape $k \ne 1$, do not have this form. Exponential-family distributions share many special properties [\[1, Ch. 3\]](#ref-dobson4e), [\[7, Sec. 6.7\]](#ref-hoggtanis2015).
 
 > **NOTE:**
 >
@@ -3100,11 +3104,11 @@ The profile log-likelihood, $\ell_p(\sigma^2) = -\frac{n}{2}{\operatorname{log}\
 
 > **NOTE:**
 >
-> *Remark 13* (Differentiating with respect to the variance or the precision). Differentiating with respect to $\sigma^2$ as a single variable, rather than with respect to $\sigma$, keeps the algebra short. Replacing $\sigma^2$ with the precision $\tau\stackrel{\text{def}}{=}1/\sigma^2$ and differentiating with respect to $\tau$ can be shorter still, because $\tau$ enters the log-likelihood as $\frac{n}{2}\log\tau- \frac{\tau}{2}\sum_{i=1}^n(x_i- \mu)^2$. By the invariance of maximum likelihood estimates, $\hat{\tau}_{\text{ML}} = 1/\hat{\sigma}^2_{\text{ML}}$.
+> *Remark 14* (Differentiating with respect to the variance or the precision). Differentiating with respect to $\sigma^2$ as a single variable, rather than with respect to $\sigma$, keeps the algebra short. Replacing $\sigma^2$ with the precision $\tau\stackrel{\text{def}}{=}1/\sigma^2$ and differentiating with respect to $\tau$ can be shorter still, because $\tau$ enters the log-likelihood as $\frac{n}{2}\log\tau- \frac{\tau}{2}\sum_{i=1}^n(x_i- \mu)^2$. By the invariance of maximum likelihood estimates, $\hat{\tau}_{\text{ML}} = 1/\hat{\sigma}^2_{\text{ML}}$.
 
 > **NOTE:**
 >
-> *Remark 14* (The Gaussian variance MLE is biased). This MLE divides by $n$, so it is a biased estimator of $\sigma^2$ ([bias of the divide-by-](estimation.llms.md#exm-biased-variance-mle)$n$ estimator).
+> *Remark 15* (The Gaussian variance MLE is biased). This MLE divides by $n$, so it is a biased estimator of $\sigma^2$ ([bias of the divide-by-](estimation.llms.md#exm-biased-variance-mle)$n$ estimator).
 
 ## 4.5 Second derivatives
 
@@ -3208,15 +3212,15 @@ This example fits a Gaussian model to real data by maximum likelihood, and then 
 
 ### 5.0.1 Data
 
-The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) [\[24\]](#ref-HulleyStephen1998RToE).
+The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) [\[25\]](#ref-HulleyStephen1998RToE).
 
-The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo [\[24\]](#ref-HulleyStephen1998RToE). Women were followed for an average of 4.1 years [\[24\]](#ref-HulleyStephen1998RToE).
+The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo [\[25\]](#ref-HulleyStephen1998RToE). Women were followed for an average of 4.1 years [\[25\]](#ref-HulleyStephen1998RToE).
 
-The primary outcome was nonfatal myocardial infarction or CHD death [\[24\]](#ref-HulleyStephen1998RToE).
+The primary outcome was nonfatal myocardial infarction or CHD death [\[25\]](#ref-HulleyStephen1998RToE).
 
 We model the distribution of fasting glucose among HERS participants who do not have diabetes and do not exercise.
 
-The HERS data are distributed with Vittinghoff et al. [\[25\]](#ref-vittinghoff2e) on the book’s companion website:
+The HERS data are distributed with Vittinghoff et al. [\[26\]](#ref-vittinghoff2e) on the book’s companion website:
 
 ``` downlit
 # one unbroken string, so that link checkers test the whole URL:
@@ -3554,7 +3558,7 @@ power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 
 > **NOTE:**
 >
-> *Remark 15* (Choosing the alternative, and observed power). The alternative $\mu_1$ should be chosen before seeing the data, as a difference worth detecting. Power computed at $\mu_1 = \hat{\mu}$ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed [\[26\]](#ref-hoenig2001abuse).
+> *Remark 16* (Choosing the alternative, and observed power). The alternative $\mu_1$ should be chosen before seeing the data, as a difference worth detecting. Power computed at $\mu_1 = \hat{\mu}$ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed [\[27\]](#ref-hoenig2001abuse).
 
 ### 5.0.7 Simulation
 
@@ -3834,7 +3838,7 @@ Changing the sample size, the true $\mu$, or $\sigma^2$ in `do_n_sims()` shows h
 
 > **NOTE:**
 >
-> **Exercise 55 (Gaussian log-likelihood (adapted from Kleinbaum et al. [\[27\]](#ref-kleinbaum2014applied), Chapter 5))** Let $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}(\mu, \sigma^2)$.
+> **Exercise 55 (Gaussian log-likelihood (adapted from Kleinbaum et al. [\[28\]](#ref-kleinbaum2014applied), Chapter 5))** Let $X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}(\mu, \sigma^2)$.
 >
 > **(a)** Write the likelihood $\mathcal{L}(\mu, \sigma^2; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})$ for the observed data $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)$.
 >
@@ -4486,7 +4490,7 @@ Changing the sample size, the true $\mu$, or $\sigma^2$ in `do_n_sims()` shows h
 
 # 7 Further reading
 
-- Josh Starmer’s StatQuest video [*Maximum Likelihood, clearly explained!!!*](https://www.youtube.com/watch?v=XepXtl9YKwc) introduces the idea of [maximum likelihood estimation](#def-mle) [\[28\]](#ref-starmer2017mle).
+- Josh Starmer’s StatQuest video [*Maximum Likelihood, clearly explained!!!*](https://www.youtube.com/watch?v=XepXtl9YKwc) introduces the idea of [maximum likelihood estimation](#def-mle) [\[29\]](#ref-starmer2017mle).
 
 # Definitions on this page
 
@@ -4609,21 +4613,25 @@ Wikipedia contributors, “Prediction interval — Wikipedia, the free encyclope
 
 \[24\]
 
-S. Hulley *et al.*, “Randomized trial of estrogen plus progestin for secondary prevention of coronary heart disease in postmenopausal women,” *JAMA : the journal of the American Medical Association*, vol. 280, no. 7, pp. 605–613, 1998, doi: [10.1001/jama.280.7.605](https://doi.org/10.1001/jama.280.7.605).
+Wikipedia contributors, “Berndt–hall–hall–hausman algorithm — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Berndt%E2%80%93Hall%E2%80%93Hall%E2%80%93Hausman_algorithm>
 
 \[25\]
 
-E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
+S. Hulley *et al.*, “Randomized trial of estrogen plus progestin for secondary prevention of coronary heart disease in postmenopausal women,” *JAMA : the journal of the American Medical Association*, vol. 280, no. 7, pp. 605–613, 1998, doi: [10.1001/jama.280.7.605](https://doi.org/10.1001/jama.280.7.605).
 
 \[26\]
 
-J. M. Hoenig and D. M. Heisey, “The abuse of power: The pervasive fallacy of power calculations for data analysis,” *The American Statistician*, vol. 55, no. 1, pp. 19–24, 2001, doi: [10.1198/000313001300339897](https://doi.org/10.1198/000313001300339897).
+E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
 
 \[27\]
 
-D. G. Kleinbaum, L. L. Kupper, A. Nizam, K. Muller, and E. Rosenberg, *Applied regression analysis and other multivariable methods*, 5th ed. Cengage Learning, 2014. Available: <https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/>
+J. M. Hoenig and D. M. Heisey, “The abuse of power: The pervasive fallacy of power calculations for data analysis,” *The American Statistician*, vol. 55, no. 1, pp. 19–24, 2001, doi: [10.1198/000313001300339897](https://doi.org/10.1198/000313001300339897).
 
 \[28\]
+
+D. G. Kleinbaum, L. L. Kupper, A. Nizam, K. Muller, and E. Rosenberg, *Applied regression analysis and other multivariable methods*, 5th ed. Cengage Learning, 2014. Available: <https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/>
+
+\[29\]
 
 J. Starmer, “Maximum likelihood, clearly explained.” StatQuest, video on YouTube, 2017. Available: <https://www.youtube.com/watch?v=XepXtl9YKwc>
 
