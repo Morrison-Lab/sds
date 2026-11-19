@@ -28,3 +28,7 @@ than the observed information.
 {{< include sds/_subfiles/dobson-cyclone-example/_def-empirical-information.qmd >}}
 
 {{< include sds/_subfiles/dobson-cyclone-example/_prose-empirical-information.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_rem-empirical-information-opg.qmd >}}
