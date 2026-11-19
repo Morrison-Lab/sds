@@ -10,34 +10,11 @@ at a [new observation](#def-new-observation) with $\newpredvar = \predvar$.
 The fitted model comes from a [fitting procedure](#def-fitting-procedure) $\fitproc$
 applied to a random [training set](#def-training-set) $\trainset$ of $\nobs$ [observations](exploratory-descriptive.qmd#def-observation),
 so the fitted model is random.
-The expected value averages over $\trainset$ and over $\newoutvar$,
+The expected value is taken over $\trainset$ and over $\newoutvar$,
 so its value depends on $\fitproc$ and $\nobs$:
 
 $$
 \epe{\fitproc}{\nobs}{\predvar} \eqdef \E{\prederr_{*}\paren{\fitmodf{\trainset}}^2 \mid \newpredvar = \predvar}.
 $$ {#eq-epe}
-
-:::
-
-:::{#rem-epe-mse}
-#### The expected prediction error is a population mean squared error
-
-The expected prediction error is the [pMSE](estimation.qmd#def-mse)
-of the prediction $\predvalf{\predvar}$
-as a prediction of the new outcome $\newoutvar$.
-With squared-error loss, $\epl{\fitproc}{\nobs}{\predvar} = \epe{\fitproc}{\nobs}{\predvar}$.
-
-It differs from the pMSE of the same prediction as an estimator of the [mean function](#def-mean-function) value $\truemeanf{\predvar}$:
-@thm-epe-decomposition shows that it exceeds that pMSE by the noise variance.
-The acronym omits "squared" because "error" already means squared error here.
-Another loss gives an expected prediction loss, not an EPE.
-
-:::
-
-:::{#rem-source-epe}
-#### Source: Expected prediction error at a covariate value
-
-@hastie2009elements [section 7.3] write this quantity as $\generr(x_0)$
-for squared-error loss.
 
 :::
