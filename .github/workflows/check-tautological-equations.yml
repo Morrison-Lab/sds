@@ -1,0 +1,34 @@
+# Thin caller of Morrison-Lab/gha's reusable tautological-equation check.
+#
+# It expands the shared macros (latex-macros/macros.qmd) on each side of an
+# equality in math a PR touches, and fails when both sides render the same,
+# such as a definition whose macro expands to its own right-hand side.
+# It is diff-scoped, so it never reflags older text. Blocking.
+# Mark a deliberate reflexivity statement with
+# `<!-- check-tautological-equations: allow -->`.
+#
+# Why it exists: Ezra, 2026-11-19, "more generally, should we check for
+# tautologies in rendered equations?" (Morrison-Lab/gha#2134).
+
+name: Check tautological equations
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-tautological-equations.yml@v3
+    with:
+      # Only the public latex-macros submodule is needed for the macro table.
+      submodule-paths: latex-macros
+      # Vendored Quarto extensions are not ours to edit.
+      paths-ignore: '_extensions/**'
+      # A manual run has no PR to diff against; make it report the whole tree.
+      whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
