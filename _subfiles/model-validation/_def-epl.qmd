@@ -2,16 +2,15 @@
 #### Expected prediction loss at a covariate value
 
 The **expected prediction loss at $\predvar$**
-of a [fitting procedure](#def-fitting-procedure) $\fitproc$
-at training-set size $\nobs$
+of a [fitted model](#def-fitted-model) $\fitted = \fitmodf{\trainset}$
 is the expected [loss](#def-observation-loss) $\obsloss{*}\paren{\fitted}$
-of the [fitted model](#def-fitted-model) $\fitted = \fitmodf{\trainset}$
-that $\fitproc$ produces from $\trainset$,
-on a new outcome $\newoutvar$ with $\newpredvar = \predvar$,
-averaged over random [training sets](#def-training-set) $\trainset$ of $\nobs$ observations
+of the fitted model at a [new observation](#def-new-observation) $(\newpredvar, \newoutvar)$ with $\newpredvar = \predvar$.
+The fitted model comes from a [fitting procedure](#def-fitting-procedure) $\fitproc$
+applied to a random [training set](#def-training-set) $\trainset$ of $\nobs$ [observations](exploratory-descriptive.qmd#def-observation),
 drawn independently of $(\newpredvar, \newoutvar)$,
-and over $\newoutvar$.
-The [fitted model](#def-fitted-model) $\fitmodf{\trainset}$ is random because $\trainset$ is:
+so the fitted model is random.
+The expected loss averages over $\trainset$ and over $\newoutvar$,
+so its value depends on $\fitproc$ and $\nobs$:
 
 $$
 \epl{\fitproc}{\nobs}{\predvar} \eqdef \E{\obsloss{*}\paren{\fitmodf{\trainset}} \mid \newpredvar = \predvar}.
