@@ -1,0 +1,77 @@
+::: {#sol-bikeshare-temp}
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| code-fold: show
+#| fig-alt: >-
+#|   Scatterplot of the number of bikes rented in an hour
+#|   against the temperature.
+#|   The points drift upward from left to right,
+#|   and the points spread more at warm temperatures than at cold ones.
+# Small, faint points, because thousands of hours overlap.
+bikeshare_raw |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = temp, y = bikers) +
+  ggplot2::geom_point(size = 0.5, alpha = 0.3) +
+  ggplot2::labs(
+    x = "Temperature (scaled to 0 to 1)",
+    y = "Bikes rented in the hour"
+  )
+```
+
+##### R (base)
+
+```{r}
+#| code-fold: show
+#| fig-alt: >-
+#|   Scatterplot of the number of bikes rented in an hour
+#|   against the temperature.
+#|   The points drift upward from left to right,
+#|   and the points spread more at warm temperatures than at cold ones.
+# Small, faint points, because thousands of hours overlap.
+faint_black <- grDevices::adjustcolor("black", alpha.f = 0.3)
+plot(
+  bikeshare_raw$temp,
+  bikeshare_raw$bikers,
+  pch = 16,
+  cex = 0.3,
+  col = faint_black,
+  xlab = "Temperature (scaled to 0 to 1)",
+  ylab = "Bikes rented in the hour"
+)
+```
+
+##### Python
+
+```{python}
+#| code-fold: show
+#| fig-alt: >-
+#|   Scatterplot of the number of bikes rented in an hour
+#|   against the temperature.
+#|   The points drift upward from left to right,
+#|   and the points spread more at warm temperatures than at cold ones.
+# Small, faint points, because thousands of hours overlap.
+fig, ax = plt.subplots(figsize=(6, 4), layout="constrained")
+ax.scatter(bikeshare_raw["temp"], bikeshare_raw["bikers"], s=4, alpha=0.3);
+ax.set_xlabel("Temperature (scaled to 0 to 1)");
+ax.set_ylabel("Bikes rented in the hour");
+plt.show()
+```
+
+:::
+
+```{r}
+#| include: false
+temp_bikers_r <- cor(bikeshare_raw$temp, bikeshare_raw$bikers)
+temp_bikers_r_round <- round(temp_bikers_r, 2)
+```
+
+The counts rise with the temperature, with [sample correlation](exploratory-descriptive.qmd#def-pearson-r) `r temp_bikers_r_round`.
+The spread of the counts grows with their level.
+A [Poisson regression model](poisson-regression.qmd#def-poisson-regression) describes that pattern,
+because the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of a [Poisson](https://morrison-lab.github.io/pds/distributions.html#def-poisson) variable is the same as its [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation).
+
+:::

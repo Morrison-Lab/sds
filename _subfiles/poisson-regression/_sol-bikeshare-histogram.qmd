@@ -1,0 +1,86 @@
+::: {#sol-bikeshare-histogram}
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| code-fold: show
+#| fig-alt: >-
+#|   Histogram of the number of bikes rented per hour.
+#|   The tallest bars are at the smallest counts,
+#|   and the bars shrink steadily toward a long thin tail
+#|   that reaches the largest counts.
+bikeshare_raw |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = bikers) +
+  ggplot2::geom_histogram(bins = 30) + # check-unexplained-choices: allow
+  ggplot2::labs(x = "Bikes rented in the hour", y = "Number of hours")
+```
+
+##### R (base)
+
+```{r}
+#| code-fold: show
+#| fig-alt: >-
+#|   Histogram of the number of bikes rented per hour.
+#|   The tallest bars are at the smallest counts,
+#|   and the bars shrink steadily toward a long thin tail
+#|   that reaches the largest counts.
+# 30 bars of equal width, from the smallest count to the largest.
+bikers_range <- range(bikeshare_raw$bikers)
+bikers_breaks <- seq(
+  bikers_range[1],
+  bikers_range[2],
+  length.out = 31 # check-unexplained-choices: allow
+)
+hist(
+  bikeshare_raw$bikers,
+  breaks = bikers_breaks, # check-unexplained-choices: allow
+  main = NULL,
+  xlab = "Bikes rented in the hour",
+  ylab = "Number of hours"
+)
+```
+
+##### Python
+
+```{python}
+#| code-fold: show
+#| fig-alt: >-
+#|   Histogram of the number of bikes rented per hour.
+#|   The tallest bars are at the smallest counts,
+#|   and the bars shrink steadily toward a long thin tail
+#|   that reaches the largest counts.
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(6, 4), layout="constrained")
+ax.hist(bikeshare_raw["bikers"], bins=30);  # check-unexplained-choices: allow
+ax.set_xlabel("Bikes rented in the hour");
+ax.set_ylabel("Number of hours");
+plt.show()
+```
+
+:::
+
+```{r}
+#| include: false
+bikers_median <- median(bikeshare_raw$bikers)
+hours_per_bin <- nrow(bikeshare_raw) / 30
+hours_per_bin_round <- round(hours_per_bin)
+```
+
+I chose 30 bars,
+which is about `r hours_per_bin_round` hours per bar.
+Far fewer bars would hide the long right tail inside a few wide bars,
+and far more would leave most bars with only a few hours,
+so the outline would look ragged.
+
+The [histogram](exploratory-descriptive.qmd#def-histogram) is right-skewed:
+the [sample median](exploratory-descriptive.qmd#def-sample-median) of `bikers` is `r bikers_median`,
+below its [sample mean](exploratory-descriptive.qmd#def-sample-mean) of `r bikers_mean_round`.
+Counts cannot be negative,
+and nothing caps them,
+which is the situation that a [Poisson regression model](poisson-regression.qmd#def-poisson-regression) is built for.
+
+:::

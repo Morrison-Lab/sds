@@ -1,0 +1,19 @@
+::: {#exr-bikeshare-temp}
+
+#### Rentals against temperature
+
+The [`Bikeshare` data](#sec-bikeshare-lab) record the scaled temperature of each hour as `temp`,
+and the number of bikes rented in that hour as `bikers`.
+A [scatterplot](exploratory-descriptive.qmd#def-scatterplot) shows how the counts change with a numerical [covariate](model-validation.qmd#def-covariate).
+
+::: {.callout-tip}
+
+#### Hint
+
+`ggplot2::geom_point()` in R, `plot()` in R without the tidyverse, and `ax.scatter()` from matplotlib in Python draw a [scatterplot](exploratory-descriptive.qmd#def-scatterplot).
+
+:::
+
+Draw a [scatterplot](exploratory-descriptive.qmd#def-scatterplot) of `bikers` against `temp`.
+
+:::

@@ -1,0 +1,7 @@
+:::{#rem-source-epe}
+#### Source: Expected prediction error at a covariate value
+
+@hastie2009elements [section 7.3] write this quantity as $\generr(x_0)$
+for squared-error loss.
+
+:::

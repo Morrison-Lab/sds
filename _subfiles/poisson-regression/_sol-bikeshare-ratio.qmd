@@ -1,0 +1,39 @@
+::: {#sol-bikeshare-ratio}
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| code-fold: show
+# The rate ratio for a 0.1 rise in temp is exp(0.1 * coefficient of temp).
+ratio_r <- exp(0.1 * pois_coef[["temp"]])
+round(ratio_r, 3)
+```
+
+##### Python
+
+```{python}
+#| code-fold: show
+import numpy as np
+
+# The rate ratio for a 0.1 rise in temp is exp(0.1 * coefficient of temp).
+ratio_py = float(np.exp(0.1 * pois_py.params["temp"]))
+round(ratio_py, 3)
+```
+
+:::
+
+```{r}
+#| include: false
+ratio_r_round <- round(ratio_r, 2)
+ratio_py_round <- round(reticulate::py$ratio_py, 2)
+```
+
+By @thm-poisson-rate-ratio with $a - b = 0.1$,
+the [rate ratio](poisson-regression.qmd#def-rate-ratio) is $\expf{0.1 \coef{\text{temp}}}$,
+and its [estimate](estimation.qmd#def-estimate) is $\expf{0.1 \hcoef{\text{temp}}}$.
+That estimate is `r ratio_r_round` in the R tab and `r ratio_py_round` in the Python tab,
+so the [estimated](estimation.qmd#def-estimate) [event rate](https://morrison-lab.github.io/pds/distributions.html#def-event-rate) of the warmer hour is about `r ratio_r_round` times that of the cooler hour.
+
+:::

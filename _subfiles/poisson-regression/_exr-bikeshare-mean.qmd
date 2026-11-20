@@ -1,0 +1,18 @@
+::: {#exr-bikeshare-mean}
+
+#### The average hourly count of bike rentals
+
+The [`Bikeshare` data](#sec-bikeshare-lab) count the bikes rented in each of many hours, as `bikers`.
+A first look at a count [outcome](model-validation.qmd#def-outcome-vector) starts with its typical size.
+
+::: {.callout-tip}
+
+#### Hint
+
+`mean()` in R and the pandas `.mean()` method in Python compute a [sample mean](exploratory-descriptive.qmd#def-sample-mean).
+
+:::
+
+Compute the [sample mean](exploratory-descriptive.qmd#def-sample-mean) of `bikers`.
+
+:::

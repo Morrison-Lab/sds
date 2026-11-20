@@ -66,7 +66,14 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
   Run the same linters on a file before pushing with `lintr::lint("file.qmd", linters = lms::default_linters(nested_calls = TRUE))`.
 - **Math notation**: use semantic macros (`\coef{x}`, `\intcoef`, ...), index coefficients by their variable ($\beta_x$, not $\beta_1$), write inner products as dot products (`\dprod`) rather than transpose products, and derive a chain rule's inner derivative in its own aligned block. See "Math Notation" in `.github/copilot-instructions.md`.
 - **Definitions and results**: a prose statement plus a display equation inside the same div, built from terms already defined, compact and general; regression models by their conditional distribution given the covariates, followed by examples from most general to most specific and a remark for any commentary. One term per `#def-` div, aliases in the same div, and a second new term in its own div ([Writing for teaching](https://morrison-lab.github.io/psw/chapters/teaching.html)). See "Definitions and results" in `.github/copilot-instructions.md`.
-- **Derivations**: present them as exercise -> solution -> theorem -> proof, one exercise per step, with the proof citing the exercises; one operation per displayed line, each with its own justification, and never "cancel" as one step (removing parentheses, reordering, grouping, $a - a = 0$ and $a + 0 = a$ each get a line); start from the side that simplifies rather than adding and subtracting a term; one result per theorem div (a semicolon joining two results is a sign to split). See "Derivations" in `.github/copilot-instructions.md`.
+- **Derivations**: present them as exercise -> solution -> theorem -> proof, one exercise per step,
+  with a proof that stands alone and may also cite the exercises.
+  Give one operation per displayed line, each with its own justification,
+  and never "cancel" as one step
+  (removing parentheses, reordering, grouping, $a - a = 0$ and $a + 0 = a$ each get a line).
+  Start from the side that simplifies rather than adding and subtracting a term.
+  Give one result per theorem div (a semicolon joining two results is a sign to split).
+  See "Derivations" in `.github/copilot-instructions.md`.
 - **Attributions**: credit sources where readers can see them.
   Never credit the group's own sites or works, such as rme, lds, pds, the lab manual, papers and packages.
   Carry what those credit, and credit outside co-authors by name.
