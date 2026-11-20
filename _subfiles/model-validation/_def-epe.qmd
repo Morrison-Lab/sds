@@ -9,6 +9,7 @@ $\prederr_{*}\paren{\fitted} = \predvalf{\newpredvar} - \newoutvar$
 at a [new observation](#def-new-observation) with $\newpredvar = \predvar$.
 The fitted model comes from a [fitting procedure](#def-fitting-procedure) $\fitproc$
 applied to a random [training set](#def-training-set) $\trainset$ of $\nobs$ [observations](exploratory-descriptive.qmd#def-observation),
+drawn independently of $(\newpredvar, \newoutvar)$,
 so the fitted model is random.
 The expected value is taken over $\trainset$ and over $\newoutvar$,
 so its value depends on $\fitproc$ and $\nobs$:
