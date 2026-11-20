@@ -2,32 +2,18 @@
 #### Expected prediction loss at a covariate value
 
 The **expected prediction loss at $\predvar$**
-of a [fitting procedure](#def-fitting-procedure) $\fitproc$
-at training-set size $\nobs$
+of a [fitted model](#def-fitted-model) $\fitted = \fitmodf{\trainset}$
 is the expected [loss](#def-observation-loss) $\obsloss{*}\paren{\fitted}$
-of the [fitted model](#def-fitted-model) $\fitted = \fitmodf{\trainset}$
-that $\fitproc$ produces from $\trainset$,
-on a new outcome $\newoutvar$ with $\newpredvar = \predvar$,
-averaged over random [training sets](#def-training-set) $\trainset$ of $\nobs$ observations
+of the fitted model at a [new observation](#def-new-observation) $(\newpredvar, \newoutvar)$ with $\newpredvar = \predvar$.
+The fitted model comes from a [fitting procedure](#def-fitting-procedure) $\fitproc$
+applied to a random [training set](#def-training-set) $\trainset$ of $\nobs$ [observations](exploratory-descriptive.qmd#def-observation),
 drawn independently of $(\newpredvar, \newoutvar)$,
-and over $\newoutvar$.
-The [fitted model](#def-fitted-model) $\fitmodf{\trainset}$ is random because $\trainset$ is:
+so the fitted model is random.
+The expected loss is taken over $\trainset$ and over $\newoutvar$,
+so its value depends on $\fitproc$ and $\nobs$:
 
 $$
 \epl{\fitproc}{\nobs}{\predvar} \eqdef \E{\obsloss{*}\paren{\fitmodf{\trainset}} \mid \newpredvar = \predvar}.
 $$ {#eq-epl}
-
-:::
-
-:::{#rem-epl-generalization-error}
-#### The expected prediction loss and the generalization error
-
-The [generalization error](#def-generalization-error) $\generr_{\trainset}$
-holds the training set fixed and averages the loss over new covariate values too.
-The expected prediction loss at $\predvar$ averages over training sets as well,
-and holds the covariate value fixed.
-Neither is the [test error](#def-test-error):
-the test error is an average over a finite test set,
-so it estimates the generalization error without equalling it.
 
 :::

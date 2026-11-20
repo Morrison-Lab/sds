@@ -292,9 +292,15 @@ reticulate::py_require(
 
 {{< include sds/_subfiles/model-validation/_def-epl.qmd >}}
 
+{{< include sds/_subfiles/model-validation/_rem-epl-generalization-error.qmd >}}
+
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-epe.qmd >}}
+
+{{< include sds/_subfiles/model-validation/_rem-epe-mse.qmd >}}
+
+{{< include sds/_subfiles/model-validation/_rem-source-epe.qmd >}}
 
 {{< slidebreak >}}
 
