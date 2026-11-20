@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-19 15:54:18 (PST)
+Last modified: 2026-11-19 16:22:34 (PST)
 
 # 1 Data sets, input matrices and outcome vectors
 
@@ -631,7 +631,7 @@ Last modified: 2026-11-19 15:54:18 (PST)
 
 > **NOTE:**
 >
-> **Definition 35 (Expected prediction error at a covariate value)** The **expected prediction error at** $x$ (**EPE**; also the **expected squared prediction error**, **ESPE**) of a [fitted model](#def-fitted-model) $\hat y= {\hat y_{\mathcal{D}_{\text{train}}}}$ is the [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its squared [prediction error](prediction.llms.md#def-prediction-error) ${\varepsilon_{\text{pred}}}_{*}\mathopen{}\left(\hat y\right)\mathclose{} = {\hat y\mathopen{}\left(X_{*}\right)\mathclose{}} - Y_{*}$ at a [new observation](#def-new-observation) with $X_{*}= x$. The fitted model comes from a [fitting procedure](#def-fitting-procedure) $g$ applied to a random [training set](#def-training-set) $\mathcal{D}_{\text{train}}$ of $n$ [observations](exploratory-descriptive.llms.md#def-observation), so the fitted model is random. The expected value is taken over $\mathcal{D}_{\text{train}}$ and over $Y_{*}$, so its value depends on $g$ and $n$:
+> **Definition 35 (Expected prediction error at a covariate value)** The **expected prediction error at** $x$ (**EPE**; also the **expected squared prediction error**, **ESPE**) of a [fitted model](#def-fitted-model) $\hat y= {\hat y_{\mathcal{D}_{\text{train}}}}$ is the [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its squared [prediction error](prediction.llms.md#def-prediction-error) ${\varepsilon_{\text{pred}}}_{*}\mathopen{}\left(\hat y\right)\mathclose{} = {\hat y\mathopen{}\left(X_{*}\right)\mathclose{}} - Y_{*}$ at a [new observation](#def-new-observation) with $X_{*}= x$. The fitted model comes from a [fitting procedure](#def-fitting-procedure) $g$ applied to a random [training set](#def-training-set) $\mathcal{D}_{\text{train}}$ of $n$ [observations](exploratory-descriptive.llms.md#def-observation), drawn independently of $(X_{*}, Y_{*})$, so the fitted model is random. The expected value is taken over $\mathcal{D}_{\text{train}}$ and over $Y_{*}$, so its value depends on $g$ and $n$:
 >
 > $${\operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[{\varepsilon_{\text{pred}}}_{*}\mathopen{}\left({\hat y_{\mathcal{D}_{\text{train}}}}\right)\mathclose{}^2 \mid X_{*}= x\right]\mathclose{}}.
 > \tag{28}$$
