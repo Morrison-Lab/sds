@@ -1,0 +1,34 @@
+# Thin caller of Morrison-Lab/gha's reusable ball-neighborhood check.
+#
+# It flags a neighborhood written as a norm inequality, such as
+# `\norm{\vx - \vx^*} < \delta`, on lines a PR adds, and suggests
+# membership in a ball, `\vx \in \ball{\vx^*}{\delta}`.
+# It is diff-scoped, so it never reflags older text. Blocking.
+# Mark a line that is about the distance itself, such as the ball's own
+# definition, with `<!-- check-ball-neighborhoods: allow: <reason> -->`.
+#
+# Why it exists: Ezra, 2026-11-20, "should we add a psw principle for writing
+# this type of relationship using balls rather than inequalities?"
+# (Morrison-Lab/psw#684). The check came in Morrison-Lab/gha#2158; wiring is
+# Morrison-Lab/gha#2156. A manual run scans the whole tree.
+
+name: Check neighborhoods written as norm inequalities
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-ball-neighborhoods.yml@v3
+    with:
+      # Vendored Quarto extensions are not ours to edit.
+      paths-ignore: '_extensions/**'
+      # A manual run has no PR to diff against; make it report the whole tree.
+      whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
