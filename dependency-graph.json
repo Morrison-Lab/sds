@@ -7337,7 +7337,11 @@
   ],
   [
    "sds/model-validation#def-epe",
-   "sds/model-validation#def-epl"
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "sds/model-validation#def-epe",
+   "sds/exploratory-descriptive#def-observation"
   ],
   [
    "sds/model-validation#def-epe",
@@ -7346,6 +7350,14 @@
   [
    "sds/model-validation#def-epe",
    "sds/model-validation#def-fitting-procedure"
+  ],
+  [
+   "sds/model-validation#def-epe",
+   "sds/model-validation#def-new-observation"
+  ],
+  [
+   "sds/model-validation#def-epe",
+   "sds/model-validation#def-training-set"
   ],
   [
    "sds/model-validation#def-epe",
@@ -7353,11 +7365,19 @@
   ],
   [
    "sds/model-validation#def-epl",
+   "sds/exploratory-descriptive#def-observation"
+  ],
+  [
+   "sds/model-validation#def-epl",
    "sds/model-validation#def-fitted-model"
   ],
   [
    "sds/model-validation#def-epl",
    "sds/model-validation#def-fitting-procedure"
+  ],
+  [
+   "sds/model-validation#def-epl",
+   "sds/model-validation#def-new-observation"
   ],
   [
    "sds/model-validation#def-epl",

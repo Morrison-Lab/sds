@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-19 15:20:49 (PST)
+Last modified: 2026-11-19 18:10:36 (PST)
 
 # 1 Data sets, input matrices and outcome vectors
 
@@ -620,7 +620,7 @@ Last modified: 2026-11-19 15:20:49 (PST)
 
 > **NOTE:**
 >
-> **Definition 34 (Expected prediction loss at a covariate value)** The **expected prediction loss at** $x$ of a [fitting procedure](#def-fitting-procedure) $g$ at training-set size $n$ is the expected [loss](#def-observation-loss) $\ell_{*}\mathopen{}\left(\hat y\right)\mathclose{}$ of the [fitted model](#def-fitted-model) $\hat y= {\hat y_{\mathcal{D}_{\text{train}}}}$ that $g$ produces from $\mathcal{D}_{\text{train}}$, on a new outcome $Y_{*}$ with $X_{*}= x$, averaged over random [training sets](#def-training-set) $\mathcal{D}_{\text{train}}$ of $n$ observations drawn independently of $(X_{*}, Y_{*})$, and over $Y_{*}$. The [fitted model](#def-fitted-model) ${\hat y_{\mathcal{D}_{\text{train}}}}$ is random because $\mathcal{D}_{\text{train}}$ is:
+> **Definition 34 (Expected prediction loss at a covariate value)** The **expected prediction loss at** $x$ of a [fitted model](#def-fitted-model) $\hat y= {\hat y_{\mathcal{D}_{\text{train}}}}$ is the expected [loss](#def-observation-loss) $\ell_{*}\mathopen{}\left(\hat y\right)\mathclose{}$ of the fitted model at a [new observation](#def-new-observation) $(X_{*}, Y_{*})$ with $X_{*}= x$. The fitted model comes from a [fitting procedure](#def-fitting-procedure) $g$ applied to a random [training set](#def-training-set) $\mathcal{D}_{\text{train}}$ of $n$ [observations](exploratory-descriptive.llms.md#def-observation), drawn independently of $(X_{*}, Y_{*})$, so the fitted model is random. The expected loss is taken over $\mathcal{D}_{\text{train}}$ and over $Y_{*}$, so its value depends on $g$ and $n$:
 >
 > $${\operatorname{EPL}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[\ell_{*}\mathopen{}\left({\hat y_{\mathcal{D}_{\text{train}}}}\right)\mathclose{} \mid X_{*}= x\right]\mathclose{}}.
 > \tag{27}$$
@@ -631,7 +631,7 @@ Last modified: 2026-11-19 15:20:49 (PST)
 
 > **NOTE:**
 >
-> **Definition 35 (Expected prediction error at a covariate value)** The **expected prediction error at** $x$ (**EPE**; also the **expected squared prediction error**, **ESPE**) of a [fitting procedure](#def-fitting-procedure) $g$ at training-set size $n$ is its [expected prediction loss](#def-epl) under [squared-error loss](#rem-squared-error-loss), the expected value of the squared [prediction error](prediction.llms.md#def-prediction-error) ${\varepsilon_{\text{pred}}}_{*}\mathopen{}\left(\hat y\right)\mathclose{} = {\hat y\mathopen{}\left(X_{*}\right)\mathclose{}} - Y_{*}$ of the [fitted model](#def-fitted-model) $\hat y= {\hat y_{\mathcal{D}_{\text{train}}}}$ that $g$ produces from $\mathcal{D}_{\text{train}}$:
+> **Definition 35 (Expected prediction error at a covariate value)** The **expected prediction error at** $x$ (**EPE**; also the **expected squared prediction error**, **ESPE**) of a [fitted model](#def-fitted-model) $\hat y= {\hat y_{\mathcal{D}_{\text{train}}}}$ is the [expected value](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its squared [prediction error](prediction.llms.md#def-prediction-error) ${\varepsilon_{\text{pred}}}_{*}\mathopen{}\left(\hat y\right)\mathclose{} = {\hat y\mathopen{}\left(X_{*}\right)\mathclose{}} - Y_{*}$ at a [new observation](#def-new-observation) with $X_{*}= x$. The fitted model comes from a [fitting procedure](#def-fitting-procedure) $g$ applied to a random [training set](#def-training-set) $\mathcal{D}_{\text{train}}$ of $n$ [observations](exploratory-descriptive.llms.md#def-observation), drawn independently of $(X_{*}, Y_{*})$, so the fitted model is random. The expected value is taken over $\mathcal{D}_{\text{train}}$ and over $Y_{*}$, so its value depends on $g$ and $n$:
 >
 > $${\operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[{\varepsilon_{\text{pred}}}_{*}\mathopen{}\left({\hat y_{\mathcal{D}_{\text{train}}}}\right)\mathclose{}^2 \mid X_{*}= x\right]\mathclose{}}.
 > \tag{28}$$
@@ -2592,10 +2592,10 @@ Last modified: 2026-11-19 15:20:49 (PST)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    8.88178e-15    2.00000e+00
+> #>    1.06581e-14    2.00000e+00
 > ```
 >
-> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 1.1e-14, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
