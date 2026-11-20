@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-16 08:36:07 (PST)
+Last modified: 2026-11-20 15:22:05 (PST)
 
 # 1 Introduction
 
@@ -385,8 +385,8 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 > ``` downlit
 > # the maximum likelihood fit from glm()
 > coef(glm(irls_y ~ irls_x[, 2], family = binomial))
-> #> (Intercept) irls_x[, 2] 
-> #> 9.69253e-17 6.93147e-01
+> #>  (Intercept)  irls_x[, 2] 
+> #> -2.68880e-16  6.93147e-01
 > ```
 >
 > The first step moves the [slope](correlation-regression.llms.md#def-slr-slope) to $0.6667$, which is $2/3$ ([the hand computation](#exr-irls-step)). After six steps the slope is $0.693147$, and [`glm()`](https://rdrr.io/r/stats/glm.html) reports $0.693147$. The slope settles at $\ln 2 = 0.693147$, half the natural logarithm of the [odds ratio](basic-statistical-methods.llms.md#def-odds-ratio) between the treatment group (recovery [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) $2$) and the other group (recovery odds $1/2$), since the groups are coded $\pm 1$.
