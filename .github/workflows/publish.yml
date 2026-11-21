@@ -23,13 +23,13 @@ jobs:
     uses: Morrison-Lab/gha/.github/workflows/quarto-publish.yml@v3
     with:
       setup-r: true
+      # rjags 5-5 (CRAN, 2026-11-21) needs JAGS 5, but Ubuntu's jags package
+      # is 4.3.2, so pin the last 4.x release (rjags@4-18) until it is not.
       r-packages: |
         deps::.
         any::knitr
         any::rmarkdown
         any::tibble
-        # rjags 5-5 (CRAN, 2026-11-21) needs JAGS 5, but Ubuntu's jags
-        # package is 4.3.2, so pin the last 4.x release until it is not.
         rjags@4-18
       tinytex: true
       # rjags (a DESCRIPTION import) links against the JAGS system library,

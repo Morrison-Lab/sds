@@ -23,13 +23,13 @@ jobs:
     with:
       # Non-renv repo: install the packages the pages' chunks load.
       use-renv: false
+      # rjags 5-5 (CRAN, 2026-11-21) needs JAGS 5, but Ubuntu's jags package
+      # is 4.3.2, so pin the last 4.x release (rjags@4-18) until it is not.
       r-packages: |
         deps::.
         any::knitr
         any::rmarkdown
         any::tibble
-        # rjags 5-5 (CRAN, 2026-11-21) needs JAGS 5, but Ubuntu's jags
-        # package is 4.3.2, so pin the last 4.x release until it is not.
         rjags@4-18
       # The pages do not call this repo's own R functions, and the old workflow
       # never installed the package.
