@@ -26,9 +26,9 @@
     {
       "path": "anchor-index.py",
       "source_path": "anchor-index.py",
-      "commit": "4520162927a78dca41527432ab9559afb75bf2e8",
-      "sha256": "af2607818df04230334705f8c76881094d86253b1a5af34a949e55adee59438a",
-      "source_url": "https://github.com/Morrison-Lab/qwt/blob/4520162927a78dca41527432ab9559afb75bf2e8/anchor-index.py"
+      "commit": "8ec9168519369b0d53f10178c873291d68602666",
+      "sha256": "e90142cbbe3c62171c1cf756bd8626cc2624e2230a26f433e8b34e094a52cb91",
+      "source_url": "https://github.com/Morrison-Lab/qwt/blob/8ec9168519369b0d53f10178c873291d68602666/anchor-index.py"
     },
     {
       "path": "revealjs-html-links.lua",
