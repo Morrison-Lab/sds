@@ -39,6 +39,9 @@ Authoritative style guide: [UCD-SERG Lab Manual](https://ucd-serg.github.io/lab-
   (saved under `lds-theme`, falling back to `mln-theme`, shared with the slides and the other sites on this origin);
   `language-picker.html` --- the navbar dropdown that sets which R/Python tab is open in every `group="language"` tabset
   (copied from lds)
+- `anchor-landing.html`, `anchor-index.py` --- vendored from [`Morrison-Lab/qwt`](https://github.com/Morrison-Lab/qwt) by `.github/workflows/sync-site-scaffolding.yml`; do not edit them here.
+  `anchor-landing.html` keeps the reader's place while equations load, and sends a link to an id that moved to another page on to that page,
+  using `_site/anchor-index.json`, which the `anchor-index.py` `post-render` step writes
 - `styles.css` --- website styling; `styles-reveal.scss`, `qwt-reveal-toggle.html` (the same dropdown for slides), and the `revealjs-*.lua` filters drive the reveal.js slide output
 - `assets/`, `images/` --- static image and asset files (site pages, docs, CI/PR screenshots)
 - `.github/workflows/` --- CI workflow definitions
