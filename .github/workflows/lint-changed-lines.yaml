@@ -16,3 +16,6 @@ jobs:
     with:
       file-pattern: '[.]([Rr]|[Rr]md|[Qq]md)$'
       lms-ref: db62d0af4b618da4691ffa5d97d2656c4b286dd9
+      # rjags 5-5 (CRAN, 2026-11-21) needs JAGS 5, but Ubuntu's jags package
+      # is 4.3.2, so pin the last 4.x release until it is not.
+      extra-packages: rjags@4-18
