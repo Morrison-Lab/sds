@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="UTF-8">
+<meta name="generator" content="quarto-1.11.9">
+<title>Statistics for Data Science – Poisson Regression</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+<style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+<link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-2f864dea3a88ad6a30a035ab8c618cbd.css">
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VLDZY2T3JF"></script><script type="text/plain" cookie-consent="tracking">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VLDZY2T3JF', { 'anonymize_ip': true});
+  </script><script type="text/javascript" charset="UTF-8">
+  document.addEventListener('DOMContentLoaded', function () {
+  cookieconsent.run({
+    "notice_banner_type":"simple",
+    "consent_type":"implied",
+    "palette":"light",
+    "language":"en",
+    "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+    "notice_banner_reject_button_hide":false,
+    "preferences_center_close_button_hide":false,
+    "website_name":""
+    ,
+  "language":"en"
+    });
+  });
+  </script><link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<!--
+    Colour-theme dropdown for the qwt revealjs format: Light, Off-white,
+    Parchment, Dark. Pulled into every slide deck via the `include-in-header`
+    entry in the `revealjs:` block of `_quarto-website.yml`. Pairs with
+    `styles-reveal.scss`, which defines the palette CSS variables; the select
+    reads those vars so it stays legible in every palette. Light is the
+    default variable set, Off-white and Parchment are a data-palette attribute
+    on <html>, and Dark is the body.qwt-dark class. The choice is saved under
+    "lds-theme" (falling back to "mln-theme"), the key the website's theme
+    dropdown (theme-picker.html) uses, so it carries across the site and the decks. First-time visitors get
+    Dark if their system prefers it, and Off-white otherwise.
+  --><style>
+    #qwt-theme-select {
+      position: fixed;
+      bottom: 8px;
+      left: 8px;
+      /* Matches reveal.js's `.slide-number` and the `#revealjs-html-link` chip
+         from `revealjs-html-links.lua`; the three elements occupy different
+         corners so they don't overlap. Keep them aligned if you bump this. */
+      z-index: 31;
+      padding: 2px 4px;
+      border: 1px solid var(--qwt-border, rgba(0, 0, 0, 0.2));
+      border-radius: 4px;
+      background: var(--qwt-chip-bg, rgba(255, 255, 255, 0.8));
+      color: var(--qwt-fg, #000);
+      cursor: pointer;
+      font: 12px sans-serif;
+      opacity: 0.7;
+    }
+    #qwt-theme-select:hover,
+    #qwt-theme-select:focus-visible {
+      opacity: 1;
+      border-color: var(--qwt-fg, rgba(0, 0, 0, 0.4));
+    }
+    #qwt-theme-select:focus-visible {
+      outline: 2px solid var(--qwt-link, #2a76dd);
+      outline-offset: 2px;
+    }
+    @media print { #qwt-theme-select { display: none; } }
+  </style>
+<script>
+  (function () {
+    "use strict";
+    var KEY = "lds-theme";
+    var LEGACY_KEY = "mln-theme";
+    var DARK_CLASS = "qwt-dark";
+    var OPTIONS = [["light", "Light"], ["offwhite", "Off-white"], ["parchment", "Parchment"], ["dark", "Dark"]];
+    var root = document.documentElement;
+
+    function valid(choice) {
+      return OPTIONS.some(function (o) { return o[0] === choice; });
+    }
+
+    function stored() {
+      try { return localStorage.getItem(KEY) || localStorage.getItem(LEGACY_KEY); } catch (e) { return null; }
+    }
+
+    function initialTheme() {
+      var saved = stored();
+      if (valid(saved)) return saved;
+      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      }
+      return "offwhite";
+    }
+
+    function applyTheme(choice) {
+      if (choice === "offwhite" || choice === "parchment") {
+        root.setAttribute("data-palette", choice);
+      } else {
+        root.removeAttribute("data-palette");
+      }
+      // The body can be missing when this runs from <head>; init() re-applies it.
+      if (document.body) document.body.classList.toggle(DARK_CLASS, choice === "dark");
+    }
+
+    var start = initialTheme();
+    applyTheme(start); // set the palette before first paint
+
+    function init() {
+      if (document.getElementById("qwt-theme-select")) return;
+      applyTheme(start);
+      var sel = document.createElement("select");
+      sel.id = "qwt-theme-select";
+      sel.setAttribute("aria-label", "Colour theme");
+      OPTIONS.forEach(function (o) {
+        var opt = document.createElement("option");
+        opt.value = o[0];
+        opt.textContent = o[1];
+        sel.appendChild(opt);
+      });
+      sel.value = start;
+      sel.addEventListener("change", function () {
+        applyTheme(sel.value);
+        try { localStorage.setItem(KEY, sel.value); } catch (e) { /* private mode */ }
+      });
+      document.body.appendChild(sel);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
+  </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Poisson Regression</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">Last modified: 2026-11-20 08:55:07 (PST)</p>
+</section><section class="slide level2"><style>
+.quarto-figure-center > figure {
+text-align: center;
+}
+</style></section><section id="the-model" class="slide level2" data-number="1"><h2>
+<span class="header-section-number">1</span> The model</h2>
+</section><section class="slide level2"><p>A count <a href="./model-validation.html#def-outcome-vector">outcome</a>, such as the number of bike rentals in an hour, is not well described by a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-normal">normal distribution</a> when the counts are small, since the normal distribution puts <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> below zero, and a count is never below zero. A <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> takes the <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rate</a> to be the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function">exponential function</a> of a <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function">linear function</a> of the <a href="./model-validation.html#def-covariate">covariates</a>.</p>
+</section><section class="slide level2"><div id="def-poisson-regression" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Poisson regression model)</strong></span> Let <span class="math inline">\(Y\)</span> be a count <a href="./model-validation.html#def-outcome-vector">outcome</a>, <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\)</span> a <a href="./correlation-regression.html#def-slr-covariate-vector">covariate vector</a>, and <span class="math inline">\(T\)</span> the <a href="https://morrison-lab.github.io/pds/distributions.html#def-exposure">exposure magnitude</a> over which the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-event">events</a> in <span class="math inline">\(Y\)</span> are counted. A <strong>Poisson regression model</strong> assumes that, given <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> and <span class="math inline">\(T = t\)</span>, <span class="math inline">\(Y\)</span> has a <a href="https://morrison-lab.github.io/pds/distributions.html#def-poisson">Poisson distribution</a> with <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">mean</a> <span class="math inline">\(\mu(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}, t) = \lambda(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) \cdot t\)</span>, where the <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rate</a> <span class="math inline">\(\lambda(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span> has a <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log">log</a> that is a <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function">linear function</a> of the <a href="./model-validation.html#def-covariate">covariates</a>:</p>
+<p><span class="math display">\[
+{\ln\mathopen{}\left(\lambda(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\right)\mathclose{}} = \beta_0 + \beta_1 x_1 + \ldots+ \beta_p x_p.
+\]</span></p>
+</div>
+</section><section id="rate-ratios" class="slide level2" data-number="2"><h2>
+<span class="header-section-number">2</span> Rate ratios</h2>
+</section><section class="slide level2"><div id="def-rate-ratio" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Rate ratio)</strong></span> In a <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a>, the <strong>rate ratio</strong> comparing <a href="./logistic-inference.html#def-covariate-pattern">covariate pattern</a> <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> to covariate pattern <span class="math inline">\(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}}\)</span> is the <a href="https://morrison-lab.github.io/mds/algebra-sums.html#def-ratio">ratio</a> of their <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rates</a>:</p>
+<p><span class="math display">\[\text{ϙ}_{{\lambda}}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}: \mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}}) \stackrel{\text{def}}{=}\frac{\lambda(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})}{\lambda(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}})}.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="thm-poisson-rate-ratio" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Rate ratios in Poisson regression)</strong></span> In a <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a>, suppose <a href="./model-validation.html#def-covariate">covariate</a> <span class="math inline">\(x_j\)</span> enters the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function">linear function</a> <span class="math inline">\({\ln\mathopen{}\left(\lambda(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\right)\mathclose{}}\)</span> only through the single <a href="https://morrison-lab.github.io/mds/algebra-sums.html#def-term">term</a> <span class="math inline">\(\beta_j x_j\)</span> (no interactions or transformations involving <span class="math inline">\(x_j\)</span>). Let <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> and <span class="math inline">\(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}}\)</span> be two <a href="./logistic-inference.html#def-covariate-pattern">covariate patterns</a> that are identical except that <span class="math inline">\(x_j = a\)</span> and <span class="math inline">\(x^*_j = b\)</span>. Then</p>
+<p><span id="eq-poisson-rate-ratio"><span class="math display">\[\text{ϙ}_{{\lambda}}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}: \mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}}) = {\operatorname{exp}\mathopen{}\left\{\beta_j (a - b)\right\}\mathclose{}} \tag{1}\]</span></span></p>
+<p>and for any common <a href="https://morrison-lab.github.io/pds/distributions.html#def-exposure">exposure magnitude</a> <span class="math inline">\(t &gt; 0\)</span>, the <a href="https://morrison-lab.github.io/mds/algebra-sums.html#def-ratio">ratio</a> of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">means</a> is the same <a href="./poisson-regression.html#def-rate-ratio">rate ratio</a>:</p>
+<p><span class="math display">\[\frac{\mu(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}, t)}{\mu(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}}, t)} = \text{ϙ}_{{\lambda}}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}: \mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}})\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Because <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> and <span class="math inline">\(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}}\)</span> agree on every <a href="./model-validation.html#def-covariate">covariate</a> except <span class="math inline">\(x_j\)</span>, every <a href="https://morrison-lab.github.io/mds/algebra-sums.html#def-term">term</a> of <span class="math inline">\({\ln\mathopen{}\left(\lambda(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\right)\mathclose{}}\)</span> except <span class="math inline">\(\beta_j x_j\)</span> is shared with <span class="math inline">\({\ln\mathopen{}\left(\lambda(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}})\right)\mathclose{}}\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\ln\mathopen{}\left(\lambda(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\right)\mathclose{}} - {\ln\mathopen{}\left(\lambda(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}})\right)\mathclose{}}
+&amp;= \mathopen{}\left(\beta_0 + \beta_1 x_1 + \ldots+ {\color{red}{\beta_j a}} + \ldots+ \beta_p x_p\right)\mathclose{} \\
+&amp;\phantom{={}} - \mathopen{}\left(\beta_0 + \beta_1 x_1 + \ldots+ {\color{red}{\beta_j b}} + \ldots+ \beta_p x_p\right)\mathclose{}
+&amp;&amp; \text{(substitute the linear function)} \\
+&amp;= {\color{red}{\beta_j a}} - {\color{red}{\beta_j b}}
+&amp;&amp; \text{(cancel the shared terms)} \\
+&amp;= {\color{red}{\beta_j (a - b)}}
+&amp;&amp; \text{(factor out } \beta_j \text{)}
+\end{aligned}
+\]</span></p>
+<p>Then the <a href="./poisson-regression.html#def-rate-ratio">rate ratio</a> is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{ϙ}_{{\lambda}}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}: \mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}})
+&amp;= \frac{\lambda(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})}{\lambda(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}})}
+&amp;&amp; \text{(definition of rate ratio)} \\
+&amp;= \frac{{\operatorname{exp}\mathopen{}\left\{{\ln\mathopen{}\left(\lambda(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\right)\mathclose{}}\right\}\mathclose{}}}{{\operatorname{exp}\mathopen{}\left\{{\ln\mathopen{}\left(\lambda(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}})\right)\mathclose{}}\right\}\mathclose{}}}
+&amp;&amp; \text{(exponential undoes the log)} \\
+&amp;= {\operatorname{exp}\mathopen{}\left\{{\ln\mathopen{}\left(\lambda(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\right)\mathclose{}} - {\ln\mathopen{}\left(\lambda(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}})\right)\mathclose{}}\right\}\mathclose{}}
+&amp;&amp; \text{(quotient rule for exponentials)} \\
+&amp;= {\operatorname{exp}\mathopen{}\left\{\beta_j (a - b)\right\}\mathclose{}}
+&amp;&amp; \text{(substitute the difference of linear functions)}
+\end{aligned}
+\]</span></p>
+<p>For the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">means</a> at a common exposure <span class="math inline">\(t &gt; 0\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\mu(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}, t)}{\mu(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}}, t)}
+&amp;= \frac{\lambda(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) \cdot t}{\lambda(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}}) \cdot t}
+&amp;&amp; \text{(Poisson regression mean function)} \\
+&amp;= \frac{\lambda(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})}{\lambda(\mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}})}
+&amp;&amp; \text{(cancel } t &gt; 0 \text{)} \\
+&amp;= \text{ϙ}_{{\lambda}}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}: \mathord{{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^*}})
+&amp;&amp; \text{(definition of rate ratio)}
+\end{aligned}
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="exm-poisson-rate-ratio" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (Rate ratio for a ten-year age difference)</strong></span> &nbsp;</p>
+<!-- no-figure: a single number computed from one coefficient -->
+<p>Suppose a <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> for emergency-room visits includes age in years, <span class="math inline">\(x_1\)</span>, with coefficient <span class="math inline">\(\beta_1 = 0.03\)</span> and no interactions involving age. By <a href="#/thm-poisson-rate-ratio" class="quarto-xref">Theorem&nbsp;1</a> with <span class="math inline">\(a = 60\)</span> and <span class="math inline">\(b = 50\)</span>, the <a href="./poisson-regression.html#def-rate-ratio">rate ratio</a> comparing a 60-year-old to a 50-year-old with the same values of every other <a href="./model-validation.html#def-covariate">covariate</a> is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{ϙ}_{{\lambda}}(x_1 = 60 : x_1 = 50)
+&amp;= {\operatorname{exp}\mathopen{}\left\{\beta_1 (60 - 50)\right\}\mathclose{}}
+&amp;&amp; \text{(rate ratio theorem)} \\
+&amp;= {\operatorname{exp}\mathopen{}\left\{0.03 \cdot 10\right\}\mathclose{}}
+&amp;&amp; \text{(substitute } \beta_1 \text{ and subtract)} \\
+&amp;= {\operatorname{exp}\mathopen{}\left\{0.3\right\}\mathclose{}}
+&amp;&amp; \text{(multiply)} \\
+&amp;\approx 1.350
+&amp;&amp; \text{(evaluate)}
+\end{aligned}
+\]</span></p>
+<p>A one-year age difference instead gives <span class="math inline">\({\operatorname{exp}\mathopen{}\left\{0.03\right\}\mathclose{}} \approx 1.030\)</span>, a 3% higher <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rate</a> per year of age. The ten-year rate ratio is the one-year rate ratio multiplied by itself ten times, <span class="math inline">\({\operatorname{exp}\mathopen{}\left\{0.3\right\}\mathclose{}} = \mathopen{}\left({\operatorname{exp}\mathopen{}\left\{0.03\right\}\mathclose{}}\right)\mathclose{}^{10}\)</span>, because rate ratios multiply across successive one-year steps.</p>
+</div>
+</section><section id="sec-bikeshare-lab" class="slide level2" data-number="3"><h2>
+<span class="header-section-number">3</span> Lab: Poisson regression on bike rentals</h2>
+</section><section class="slide level2"><p>Hourly counts of bikes rented in a bike-sharing program in Washington, D.C., on 8645 hours make up the <code>Bikeshare</code> data <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[1, Sec. 4.6.2]</a></span>. The data are in <a href="data/bikeshare.csv"><code>data/bikeshare.csv</code></a>, one line per hour, copied from the book’s <code>ISLR2</code> R package. The exercises use these variables:</p>
+<ul>
+<li>
+<code>bikers</code>: the <a href="./model-validation.html#def-outcome-vector">outcome</a>, the number of bikes rented in that hour.</li>
+<li>
+<code>temp</code>: the temperature, scaled to run from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>.</li>
+<li>
+<code>workingday</code>: <code>1</code> on a working day and <code>0</code> otherwise.</li>
+<li>
+<code>weathersit</code>: the weather, one of <code>clear</code>, <code>cloudy/misty</code>, <code>light rain/snow</code>, and <code>heavy rain/snow</code>.</li>
+</ul>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-1" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-1-1">R</a></li>
+<li><a href="#tabset-1-2">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># The first rows of the four columns that the exercises use.</span></span>
+<span id="cb1-2"><a aria-label="2"></a>bikeshare_raw <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a aria-label="3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(bikers, temp, workingday, weathersit) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a aria-label="4"></a>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["bikers"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["temp"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["workingday"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["weathersit"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"16","2":"0.24","3":"0","4":"clear"},{"1":"40","2":"0.22","3":"0","4":"clear"},{"1":"32","2":"0.22","3":"0","4":"clear"},{"1":"13","2":"0.24","3":"0","4":"clear"},{"1":"1","2":"0.24","3":"0","4":"clear"},{"1":"1","2":"0.24","3":"0","4":"cloudy/misty"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="co"># The first rows of the four columns that the exercises use.</span></span>
+<span id="cb2-4"><a aria-label="4"></a>bikeshare_raw <span class="op">=</span> pd.read_csv(<span class="st">"data/bikeshare.csv"</span>)</span>
+<span id="cb2-5"><a aria-label="5"></a>bikeshare_raw[[<span class="st">"bikers"</span>, <span class="st">"temp"</span>, <span class="st">"workingday"</span>, <span class="st">"weathersit"</span>]].head(<span class="dv">6</span>)</span>
+<span id="cb2-6"><a aria-label="6"></a><span class="co">#&gt;    bikers  temp  workingday    weathersit</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="co">#&gt; 0      16  0.24           0         clear</span></span>
+<span id="cb2-8"><a aria-label="8"></a><span class="co">#&gt; 1      40  0.22           0         clear</span></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="co">#&gt; 2      32  0.22           0         clear</span></span>
+<span id="cb2-10"><a aria-label="10"></a><span class="co">#&gt; 3      13  0.24           0         clear</span></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="co">#&gt; 4       1  0.24           0         clear</span></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="co">#&gt; 5       1  0.24           0  cloudy/misty</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<p>The exercises follow the <a href="./poisson-regression.html#def-poisson-regression">Poisson regression</a> part of the book’s Chapter 4 lab <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[1, Sec. 4.7.7]</a></span>. Each solution shows the code in R and in Python. Where R code without the tidyverse would differ, an <code>R (base)</code> tab follows the <code>R</code> tab, which uses the tidyverse.</p>
+</section><section class="slide level2"><div id="exr-bikeshare-mean" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1 (The average hourly count of bike rentals)</strong></span> The <a href="#/sec-bikeshare-lab"><code>Bikeshare</code> data</a> count the bikes rented in each of many hours, as <code>bikers</code>. A first look at a count <a href="./model-validation.html#def-outcome-vector">outcome</a> starts with its typical size.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hint</strong></p>
+</div>
+<div class="callout-content">
+<p><code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> in R and the pandas <code>.mean()</code> method in Python compute a <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a>.</p>
+</div>
+</div>
+</div>
+<p>Compute the <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> of <code>bikers</code>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-bikeshare-mean" class="proof solution">
+<p><span class="proof-title"><em>Solution 1</em>. </span></p>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-2" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-2-1">R</a></li>
+<li><a href="#tabset-2-2">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-2-1">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># The sample mean of the hourly counts, from the data loaded above.</span></span>
+<span id="cb3-2"><a aria-label="2"></a>bikers_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(bikeshare_raw<span class="sc">$</span>bikers)</span>
+<span id="cb3-3"><a aria-label="3"></a><span class="fu">round</span>(bikers_mean, <span class="dv">2</span>)</span>
+<span id="cb3-4"><a aria-label="4"></a><span class="co">#&gt; [1] 143.79</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-label="1"></a><span class="co"># The sample mean of the hourly counts, from the data loaded above.</span></span>
+<span id="cb4-2"><a aria-label="2"></a>bikers_mean <span class="op">=</span> <span class="bu">float</span>(bikeshare_raw[<span class="st">"bikers"</span>].mean())</span>
+<span id="cb4-3"><a aria-label="3"></a><span class="bu">round</span>(bikers_mean, <span class="dv">2</span>)</span>
+<span id="cb4-4"><a aria-label="4"></a><span class="co">#&gt; 143.79</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<p>The <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> of <code>bikers</code> is 143.8 bikes per hour. A <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> with no <a href="./model-validation.html#def-covariate">covariates</a> would <a href="./estimation.html#def-estimate">estimate</a> the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expected</a> hourly count by this sample mean.</p>
+</div>
+</section><section class="slide level2"><div id="exr-bikeshare-weather" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2 (The weather with the most rentals)</strong></span> The <a href="#/sec-bikeshare-lab"><code>Bikeshare</code> data</a> record the weather of each hour as <code>weathersit</code>, and the number of bikes rented in that hour as <code>bikers</code>. A <a href="./model-validation.html#def-covariate">covariate</a> whose groups have very different <a href="./exploratory-descriptive.html#def-sample-mean">sample means</a> of the <a href="./model-validation.html#def-outcome-vector">outcome</a> is a promising one for a regression model.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hint</strong></p>
+</div>
+<div class="callout-content">
+<p><code><a href="https://dplyr.tidyverse.org/reference/group_by.html">dplyr::group_by()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">dplyr::summarise()</a></code> in R, <code><a href="https://rdrr.io/r/base/tapply.html">tapply()</a></code> in R without the tidyverse, and the <code>.groupby()</code> method of a pandas data frame in Python, compute a <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> within each group.</p>
+</div>
+</div>
+</div>
+<p>Which value of <code>weathersit</code> has the largest <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> of <code>bikers</code>?</p>
+</div>
+</section><section class="slide level2"><div id="sol-bikeshare-weather" class="proof solution">
+<p><span class="proof-title"><em>Solution 2</em>. </span></p>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-3" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-3-1">R</a></li>
+<li><a href="#tabset-3-2">R (base)</a></li>
+<li><a href="#tabset-3-3">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-3-1">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="co"># The sample mean of the hourly count for each weather, largest first.</span></span>
+<span id="cb5-2"><a aria-label="2"></a>bikers_by_weather <span class="ot">&lt;-</span> bikeshare_raw <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a aria-label="3"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(weathersit) <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a aria-label="4"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">mean_bikers =</span> <span class="fu">mean</span>(bikers)) <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a aria-label="5"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(mean_bikers))</span>
+<span id="cb5-6"><a aria-label="6"></a>bikers_by_weather</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["weathersit"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mean_bikers"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"clear","2":"155.0138"},{"1":"cloudy/misty","2":"135.4910"},{"1":"light rain/snow","2":"86.4213"},{"1":"heavy rain/snow","2":"36.0000"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="co"># The sample mean of the hourly count for each weather, largest first.</span></span>
+<span id="cb6-2"><a aria-label="2"></a>bikers_by_weather_base <span class="ot">&lt;-</span> <span class="fu">tapply</span>(</span>
+<span id="cb6-3"><a aria-label="3"></a>  bikeshare_raw<span class="sc">$</span>bikers,</span>
+<span id="cb6-4"><a aria-label="4"></a>  bikeshare_raw<span class="sc">$</span>weathersit,</span>
+<span id="cb6-5"><a aria-label="5"></a>  mean</span>
+<span id="cb6-6"><a aria-label="6"></a>)</span>
+<span id="cb6-7"><a aria-label="7"></a>bikers_by_weather_base <span class="ot">&lt;-</span> <span class="fu">sort</span>(bikers_by_weather_base, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-8"><a aria-label="8"></a><span class="fu">round</span>(bikers_by_weather_base, <span class="dv">1</span>)</span>
+<span id="cb6-9"><a aria-label="9"></a><span class="co">#&gt;           clear    cloudy/misty light rain/snow heavy rain/snow </span></span>
+<span id="cb6-10"><a aria-label="10"></a><span class="co">#&gt;           155.0           135.5            86.4            36.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-3-3">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-label="1"></a><span class="co"># The sample mean of the hourly count for each weather, largest first.</span></span>
+<span id="cb7-2"><a aria-label="2"></a>bikers_by_weather <span class="op">=</span> (</span>
+<span id="cb7-3"><a aria-label="3"></a>    bikeshare_raw.groupby(<span class="st">"weathersit"</span>)[<span class="st">"bikers"</span>].mean().sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-4"><a aria-label="4"></a>)</span>
+<span id="cb7-5"><a aria-label="5"></a>bikers_by_weather.<span class="bu">round</span>(<span class="dv">1</span>)</span>
+<span id="cb7-6"><a aria-label="6"></a><span class="co">#&gt; weathersit</span></span>
+<span id="cb7-7"><a aria-label="7"></a><span class="co">#&gt; clear              155.0</span></span>
+<span id="cb7-8"><a aria-label="8"></a><span class="co">#&gt; cloudy/misty       135.5</span></span>
+<span id="cb7-9"><a aria-label="9"></a><span class="co">#&gt; light rain/snow     86.4</span></span>
+<span id="cb7-10"><a aria-label="10"></a><span class="co">#&gt; heavy rain/snow     36.0</span></span>
+<span id="cb7-11"><a aria-label="11"></a><span class="co">#&gt; Name: bikers, dtype: float64</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<p>The <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> of <code>bikers</code> is largest for clear hours, at 155 bikes. It is smallest for heavy rain/snow hours, at 36 bikes, so <code>weathersit</code> is a promising <a href="./model-validation.html#def-covariate">covariate</a>.</p>
+</div>
+</section><section class="slide level2"><div id="exr-bikeshare-histogram" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 (A histogram of the hourly count)</strong></span> The <a href="#/sec-bikeshare-lab"><code>Bikeshare</code> data</a> count the bikes rented in each of many hours, as <code>bikers</code>. A <a href="./exploratory-descriptive.html#def-histogram">histogram</a> shows the shape of the whole set of counts.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hint</strong></p>
+</div>
+<div class="callout-content">
+<p><code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">ggplot2::geom_histogram()</a></code> in R, <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> in R without the tidyverse, and <code>ax.hist()</code> from matplotlib in Python draw a <a href="./exploratory-descriptive.html#def-histogram">histogram</a>.</p>
+</div>
+</div>
+</div>
+<p>Draw a <a href="./exploratory-descriptive.html#def-histogram">histogram</a> of <code>bikers</code>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-bikeshare-histogram" class="proof solution">
+<p><span class="proof-title"><em>Solution 3</em>. </span></p>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-4" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-4-1">R</a></li>
+<li><a href="#tabset-4-2">R (base)</a></li>
+<li><a href="#tabset-4-3">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-4-1">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>bikeshare_raw <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb8-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> bikers) <span class="sc">+</span></span>
+<span id="cb8-4"><a aria-label="4"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span> <span class="co"># check-unexplained-choices: allow</span></span>
+<span id="cb8-5"><a aria-label="5"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Bikes rented in the hour"</span>, <span class="at">y =</span> <span class="st">"Number of hours"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div>
+<figure><p><a href="poisson-regression_files/figure-html/unnamed-chunk-11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="poisson-regression_files/figure-html/unnamed-chunk-11-1.png" alt="Histogram of the number of bikes rented per hour. The tallest bars are at the smallest counts, and the bars shrink steadily toward a long thin tail that reaches the largest counts." width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="co"># 30 bars of equal width, from the smallest count to the largest.</span></span>
+<span id="cb9-2"><a aria-label="2"></a>bikers_range <span class="ot">&lt;-</span> <span class="fu">range</span>(bikeshare_raw<span class="sc">$</span>bikers)</span>
+<span id="cb9-3"><a aria-label="3"></a>bikers_breaks <span class="ot">&lt;-</span> <span class="fu">seq</span>(</span>
+<span id="cb9-4"><a aria-label="4"></a>  bikers_range[<span class="dv">1</span>],</span>
+<span id="cb9-5"><a aria-label="5"></a>  bikers_range[<span class="dv">2</span>],</span>
+<span id="cb9-6"><a aria-label="6"></a>  <span class="at">length.out =</span> <span class="dv">31</span> <span class="co"># check-unexplained-choices: allow</span></span>
+<span id="cb9-7"><a aria-label="7"></a>)</span>
+<span id="cb9-8"><a aria-label="8"></a><span class="fu">hist</span>(</span>
+<span id="cb9-9"><a aria-label="9"></a>  bikeshare_raw<span class="sc">$</span>bikers,</span>
+<span id="cb9-10"><a aria-label="10"></a>  <span class="at">breaks =</span> bikers_breaks, <span class="co"># check-unexplained-choices: allow</span></span>
+<span id="cb9-11"><a aria-label="11"></a>  <span class="at">main =</span> <span class="cn">NULL</span>,</span>
+<span id="cb9-12"><a aria-label="12"></a>  <span class="at">xlab =</span> <span class="st">"Bikes rented in the hour"</span>,</span>
+<span id="cb9-13"><a aria-label="13"></a>  <span class="at">ylab =</span> <span class="st">"Number of hours"</span></span>
+<span id="cb9-14"><a aria-label="14"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div>
+<figure><p><a href="poisson-regression_files/figure-html/unnamed-chunk-12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="poisson-regression_files/figure-html/unnamed-chunk-12-1.png" alt="Histogram of the number of bikes rented per hour. The tallest bars are at the smallest counts, and the bars shrink steadily toward a long thin tail that reaches the largest counts." width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-3">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-label="1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-2"><a aria-label="2"></a></span>
+<span id="cb10-3"><a aria-label="3"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>), layout<span class="op">=</span><span class="st">"constrained"</span>)</span>
+<span id="cb10-4"><a aria-label="4"></a>ax.hist(bikeshare_raw[<span class="st">"bikers"</span>], bins<span class="op">=</span><span class="dv">30</span>)<span class="op">;</span>  <span class="co"># check-unexplained-choices: allow</span></span>
+<span id="cb10-5"><a aria-label="5"></a>ax.set_xlabel(<span class="st">"Bikes rented in the hour"</span>)<span class="op">;</span></span>
+<span id="cb10-6"><a aria-label="6"></a>ax.set_ylabel(<span class="st">"Number of hours"</span>)<span class="op">;</span></span>
+<span id="cb10-7"><a aria-label="7"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div>
+<figure><p><a href="poisson-regression_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="poisson-regression_files/figure-html/unnamed-chunk-13-1.png" alt="Histogram of the number of bikes rented per hour. The tallest bars are at the smallest counts, and the bars shrink steadily toward a long thin tail that reaches the largest counts." width="576"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>I chose 30 bars, which is about 288 hours per bar. Far fewer bars would hide the long right tail inside a few wide bars, and far more would leave most bars with only a few hours, so the outline would look ragged.</p>
+<p>The <a href="./exploratory-descriptive.html#def-histogram">histogram</a> is right-skewed: the <a href="./exploratory-descriptive.html#def-sample-median">sample median</a> of <code>bikers</code> is 109, below its <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> of 143.8. Counts cannot be negative, and nothing caps them, which is the situation that a <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> is built for.</p>
+</div>
+</section><section class="slide level2"><div id="exr-bikeshare-temp" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4 (Rentals against temperature)</strong></span> The <a href="#/sec-bikeshare-lab"><code>Bikeshare</code> data</a> record the scaled temperature of each hour as <code>temp</code>, and the number of bikes rented in that hour as <code>bikers</code>. A <a href="./exploratory-descriptive.html#def-scatterplot">scatterplot</a> shows how the counts change with a numerical <a href="./model-validation.html#def-covariate">covariate</a>.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hint</strong></p>
+</div>
+<div class="callout-content">
+<p><code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">ggplot2::geom_point()</a></code> in R, <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> in R without the tidyverse, and <code>ax.scatter()</code> from matplotlib in Python draw a <a href="./exploratory-descriptive.html#def-scatterplot">scatterplot</a>.</p>
+</div>
+</div>
+</div>
+<p>Draw a <a href="./exploratory-descriptive.html#def-scatterplot">scatterplot</a> of <code>bikers</code> against <code>temp</code>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-bikeshare-temp" class="proof solution">
+<p><span class="proof-title"><em>Solution 4</em>. </span></p>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-5" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-5-1">R</a></li>
+<li><a href="#tabset-5-2">R (base)</a></li>
+<li><a href="#tabset-5-3">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-5-1">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="co"># Small, faint points, because thousands of hours overlap.</span></span>
+<span id="cb11-2"><a aria-label="2"></a>bikeshare_raw <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a aria-label="4"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> bikers) <span class="sc">+</span></span>
+<span id="cb11-5"><a aria-label="5"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a aria-label="6"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
+<span id="cb11-7"><a aria-label="7"></a>    <span class="at">x =</span> <span class="st">"Temperature (scaled to 0 to 1)"</span>,</span>
+<span id="cb11-8"><a aria-label="8"></a>    <span class="at">y =</span> <span class="st">"Bikes rented in the hour"</span></span>
+<span id="cb11-9"><a aria-label="9"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div>
+<figure><p><a href="poisson-regression_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="poisson-regression_files/figure-html/unnamed-chunk-15-1.png" alt="Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the points spread more at warm temperatures than at cold ones." width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="co"># Small, faint points, because thousands of hours overlap.</span></span>
+<span id="cb12-2"><a aria-label="2"></a>faint_black <span class="ot">&lt;-</span> grDevices<span class="sc">::</span><span class="fu">adjustcolor</span>(<span class="st">"black"</span>, <span class="at">alpha.f =</span> <span class="fl">0.3</span>)</span>
+<span id="cb12-3"><a aria-label="3"></a><span class="fu">plot</span>(</span>
+<span id="cb12-4"><a aria-label="4"></a>  bikeshare_raw<span class="sc">$</span>temp,</span>
+<span id="cb12-5"><a aria-label="5"></a>  bikeshare_raw<span class="sc">$</span>bikers,</span>
+<span id="cb12-6"><a aria-label="6"></a>  <span class="at">pch =</span> <span class="dv">16</span>,</span>
+<span id="cb12-7"><a aria-label="7"></a>  <span class="at">cex =</span> <span class="fl">0.3</span>,</span>
+<span id="cb12-8"><a aria-label="8"></a>  <span class="at">col =</span> faint_black,</span>
+<span id="cb12-9"><a aria-label="9"></a>  <span class="at">xlab =</span> <span class="st">"Temperature (scaled to 0 to 1)"</span>,</span>
+<span id="cb12-10"><a aria-label="10"></a>  <span class="at">ylab =</span> <span class="st">"Bikes rented in the hour"</span></span>
+<span id="cb12-11"><a aria-label="11"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div>
+<figure><p><a href="poisson-regression_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="poisson-regression_files/figure-html/unnamed-chunk-16-1.png" alt="Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the points spread more at warm temperatures than at cold ones." width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-3">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-label="1"></a><span class="co"># Small, faint points, because thousands of hours overlap.</span></span>
+<span id="cb13-2"><a aria-label="2"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>), layout<span class="op">=</span><span class="st">"constrained"</span>)</span>
+<span id="cb13-3"><a aria-label="3"></a>ax.scatter(bikeshare_raw[<span class="st">"temp"</span>], bikeshare_raw[<span class="st">"bikers"</span>], s<span class="op">=</span><span class="dv">4</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)<span class="op">;</span></span>
+<span id="cb13-4"><a aria-label="4"></a>ax.set_xlabel(<span class="st">"Temperature (scaled to 0 to 1)"</span>)<span class="op">;</span></span>
+<span id="cb13-5"><a aria-label="5"></a>ax.set_ylabel(<span class="st">"Bikes rented in the hour"</span>)<span class="op">;</span></span>
+<span id="cb13-6"><a aria-label="6"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div>
+<figure><p><a href="poisson-regression_files/figure-html/unnamed-chunk-17-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="poisson-regression_files/figure-html/unnamed-chunk-17-1.png" alt="Scatterplot of the number of bikes rented in an hour against the temperature. The points drift upward from left to right, and the points spread more at warm temperatures than at cold ones." width="576"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The counts rise with the temperature, with <a href="./exploratory-descriptive.html#def-pearson-r">sample correlation</a> 0.45. The spread of the counts grows with their level. A <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> describes that pattern, because the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> of a <a href="https://morrison-lab.github.io/pds/distributions.html#def-poisson">Poisson</a> variable is the same as its <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expected value</a>.</p>
+</div>
+</section><section class="slide level2"><div id="exr-bikeshare-fit" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5 (Fit a Poisson regression to bike rentals)</strong></span> The <a href="#/sec-bikeshare-lab"><code>Bikeshare</code> data</a> count the bikes rented in each of many hours. Each count covers one hour, so every count has the same <a href="https://morrison-lab.github.io/pds/distributions.html#def-exposure">exposure magnitude</a>. Consider a <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> of the hourly count <code>bikers</code> on the <a href="./model-validation.html#def-covariate">covariates</a> <code>temp</code>, <code>workingday</code>, and <code>weathersit</code>, with <code>clear</code> as the <a href="./data.html#def-reference-level">reference level</a> of <code>weathersit</code>.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hint</strong></p>
+</div>
+<div class="callout-content">
+<p>In R, <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> with <code>family = poisson</code> <a href="./model-validation.html#def-fitted-model">fits</a> the model. In Python, the <code>statsmodels</code> function <code>smf.glm()</code> fits it with <code>family=sm.families.Poisson()</code>. Both code <code>weathersit</code> as one <a href="./data.html#def-dummy-variable">dummy variable</a> for each level except the <a href="./data.html#def-reference-level">reference level</a>.</p>
+</div>
+</div>
+</div>
+<p><a href="./estimation.html#def-estimate">Estimate</a> the coefficient of each <a href="./model-validation.html#def-covariate">covariate</a> in the model.</p>
+</div>
+</section><section class="slide level2"><div id="sol-bikeshare-fit" class="proof solution">
+<p><span class="proof-title"><em>Solution 5</em>. </span></p>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-6" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-6-1">R</a></li>
+<li><a href="#tabset-6-2">R (base)</a></li>
+<li><a href="#tabset-6-3">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-6-1">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="co"># Make `clear` the first level of weathersit,</span></span>
+<span id="cb14-2"><a aria-label="2"></a><span class="co"># so that glm() uses it as the reference level.</span></span>
+<span id="cb14-3"><a aria-label="3"></a>weather_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb14-4"><a aria-label="4"></a>  <span class="st">"clear"</span>, <span class="st">"cloudy/misty"</span>,</span>
+<span id="cb14-5"><a aria-label="5"></a>  <span class="st">"light rain/snow"</span>, <span class="st">"heavy rain/snow"</span></span>
+<span id="cb14-6"><a aria-label="6"></a>)</span>
+<span id="cb14-7"><a aria-label="7"></a>bike <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/bikeshare.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-8"><a aria-label="8"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">weathersit =</span> <span class="fu">factor</span>(weathersit, <span class="at">levels =</span> weather_levels))</span>
+<span id="cb14-9"><a aria-label="9"></a></span>
+<span id="cb14-10"><a aria-label="10"></a><span class="co"># Poisson regression of the hourly count on the three covariates.</span></span>
+<span id="cb14-11"><a aria-label="11"></a>pois_r <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb14-12"><a aria-label="12"></a>  bikers <span class="sc">~</span> temp <span class="sc">+</span> workingday <span class="sc">+</span> weathersit,</span>
+<span id="cb14-13"><a aria-label="13"></a>  <span class="at">family =</span> poisson,</span>
+<span id="cb14-14"><a aria-label="14"></a>  <span class="at">data =</span> bike</span>
+<span id="cb14-15"><a aria-label="15"></a>)</span>
+<span id="cb14-16"><a aria-label="16"></a>pois_coef <span class="ot">&lt;-</span> <span class="fu">coef</span>(pois_r)</span>
+<span id="cb14-17"><a aria-label="17"></a>pois_r <span class="sc">|&gt;</span></span>
+<span id="cb14-18"><a aria-label="18"></a>  parameters<span class="sc">::</span><span class="fu">parameters</span>() <span class="sc">|&gt;</span></span>
+<span id="cb14-19"><a aria-label="19"></a>  parameters<span class="sc">::</span><span class="fu">print_md</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 22%">
+<col style="width: 10%">
+<col style="width: 9%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: center;">Log-Mean</th>
+<th style="text-align: center;">SE</th>
+<th style="text-align: center;">95% CI</th>
+<th style="text-align: center;">z</th>
+<th style="text-align: center;">p</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: center;">3.89</td>
+<td style="text-align: center;">3.23e-03</td>
+<td style="text-align: center;">(3.88, 3.89)</td>
+<td style="text-align: center;">1202.49</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">temp</td>
+<td style="text-align: center;">2.13</td>
+<td style="text-align: center;">4.79e-03</td>
+<td style="text-align: center;">(2.12, 2.14)</td>
+<td style="text-align: center;">444.59</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">workingday</td>
+<td style="text-align: center;">-8.89e-03</td>
+<td style="text-align: center;">1.94e-03</td>
+<td style="text-align: center;">(-0.01, -5.08e-03)</td>
+<td style="text-align: center;">-4.57</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">weathersit (cloudy/misty)</td>
+<td style="text-align: center;">-0.04</td>
+<td style="text-align: center;">2.13e-03</td>
+<td style="text-align: center;">(-0.05, -0.04)</td>
+<td style="text-align: center;">-19.81</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">weathersit (light rain/snow)</td>
+<td style="text-align: center;">-0.43</td>
+<td style="text-align: center;">4.02e-03</td>
+<td style="text-align: center;">(-0.44, -0.42)</td>
+<td style="text-align: center;">-107.41</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">weathersit (heavy rain/snow)</td>
+<td style="text-align: center;">-0.76</td>
+<td style="text-align: center;">0.17</td>
+<td style="text-align: center;">(-1.11, -0.45)</td>
+<td style="text-align: center;">-4.57</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="tabset-6-2">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="co"># Make `clear` the first level of weathersit,</span></span>
+<span id="cb15-2"><a aria-label="2"></a><span class="co"># so that glm() uses it as the reference level.</span></span>
+<span id="cb15-3"><a aria-label="3"></a>weather_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb15-4"><a aria-label="4"></a>  <span class="st">"clear"</span>, <span class="st">"cloudy/misty"</span>,</span>
+<span id="cb15-5"><a aria-label="5"></a>  <span class="st">"light rain/snow"</span>, <span class="st">"heavy rain/snow"</span></span>
+<span id="cb15-6"><a aria-label="6"></a>)</span>
+<span id="cb15-7"><a aria-label="7"></a><span class="co"># nolint next: undesirable_function_linter. This tab shows base R.</span></span>
+<span id="cb15-8"><a aria-label="8"></a>bike_base <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/bikeshare.csv"</span>)</span>
+<span id="cb15-9"><a aria-label="9"></a>bike_base<span class="sc">$</span>weathersit <span class="ot">&lt;-</span> <span class="fu">factor</span>(bike_base<span class="sc">$</span>weathersit, <span class="at">levels =</span> weather_levels)</span>
+<span id="cb15-10"><a aria-label="10"></a></span>
+<span id="cb15-11"><a aria-label="11"></a><span class="co"># Poisson regression of the hourly count on the three covariates.</span></span>
+<span id="cb15-12"><a aria-label="12"></a>pois_base <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb15-13"><a aria-label="13"></a>  bikers <span class="sc">~</span> temp <span class="sc">+</span> workingday <span class="sc">+</span> weathersit,</span>
+<span id="cb15-14"><a aria-label="14"></a>  <span class="at">family =</span> poisson,</span>
+<span id="cb15-15"><a aria-label="15"></a>  <span class="at">data =</span> bike_base</span>
+<span id="cb15-16"><a aria-label="16"></a>)</span>
+<span id="cb15-17"><a aria-label="17"></a>pois_base_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(pois_base)</span>
+<span id="cb15-18"><a aria-label="18"></a><span class="fu">round</span>(pois_base_summary<span class="sc">$</span>coefficients, <span class="dv">3</span>)</span>
+<span id="cb15-19"><a aria-label="19"></a><span class="co">#&gt;                           Estimate Std. Error  z value Pr(&gt;|z|)</span></span>
+<span id="cb15-20"><a aria-label="20"></a><span class="co">#&gt; (Intercept)                  3.885      0.003 1202.490        0</span></span>
+<span id="cb15-21"><a aria-label="21"></a><span class="co">#&gt; temp                         2.129      0.005  444.587        0</span></span>
+<span id="cb15-22"><a aria-label="22"></a><span class="co">#&gt; workingday                  -0.009      0.002   -4.574        0</span></span>
+<span id="cb15-23"><a aria-label="23"></a><span class="co">#&gt; weathersitcloudy/misty      -0.042      0.002  -19.805        0</span></span>
+<span id="cb15-24"><a aria-label="24"></a><span class="co">#&gt; weathersitlight rain/snow   -0.432      0.004 -107.412        0</span></span>
+<span id="cb15-25"><a aria-label="25"></a><span class="co">#&gt; weathersitheavy rain/snow   -0.761      0.167   -4.566        0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-6-3">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-label="1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb16-2"><a aria-label="2"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb16-3"><a aria-label="3"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb16-4"><a aria-label="4"></a></span>
+<span id="cb16-5"><a aria-label="5"></a>bike <span class="op">=</span> pd.read_csv(<span class="st">"data/bikeshare.csv"</span>)</span>
+<span id="cb16-6"><a aria-label="6"></a><span class="co"># Poisson regression of the hourly count on the three covariates,</span></span>
+<span id="cb16-7"><a aria-label="7"></a><span class="co"># with `clear` as the reference level of weathersit.</span></span>
+<span id="cb16-8"><a aria-label="8"></a>pois_py <span class="op">=</span> smf.glm(</span>
+<span id="cb16-9"><a aria-label="9"></a>    <span class="st">"bikers ~ temp + workingday + C(weathersit, Treatment('clear'))"</span>,</span>
+<span id="cb16-10"><a aria-label="10"></a>    data<span class="op">=</span>bike,</span>
+<span id="cb16-11"><a aria-label="11"></a>    family<span class="op">=</span>sm.families.Poisson(),</span>
+<span id="cb16-12"><a aria-label="12"></a>).fit()</span>
+<span id="cb16-13"><a aria-label="13"></a>pois_py.params.<span class="bu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb16-14"><a aria-label="14"></a><span class="co">#&gt; Intercept                                               3.885</span></span>
+<span id="cb16-15"><a aria-label="15"></a><span class="co">#&gt; C(weathersit, Treatment('clear'))[T.cloudy/misty]      -0.042</span></span>
+<span id="cb16-16"><a aria-label="16"></a><span class="co">#&gt; C(weathersit, Treatment('clear'))[T.heavy rain/snow]   -0.761</span></span>
+<span id="cb16-17"><a aria-label="17"></a><span class="co">#&gt; C(weathersit, Treatment('clear'))[T.light rain/snow]   -0.432</span></span>
+<span id="cb16-18"><a aria-label="18"></a><span class="co">#&gt; temp                                                    2.129</span></span>
+<span id="cb16-19"><a aria-label="19"></a><span class="co">#&gt; workingday                                             -0.009</span></span>
+<span id="cb16-20"><a aria-label="20"></a><span class="co">#&gt; dtype: float64</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<p>All three tabs fit the same model with the same <a href="./data.html#def-reference-level">reference level</a>, <code>clear</code>, so their coefficient <a href="./estimation.html#def-estimate">estimates</a> agree. The coefficient estimate of <code>temp</code> is 2.13, a positive number, so the <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rate</a> of the <a href="./model-validation.html#def-fitted-model">fitted model</a> rises with the temperature.</p>
+</div>
+</section><section class="slide level2"><div id="exr-bikeshare-ratio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6 (Interpret the temperature coefficient)</strong></span> Use the <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> of <a href="#/exr-bikeshare-fit" class="quarto-xref">Exercise&nbsp;5</a>. Consider two hours with the same <code>workingday</code> and <code>weathersit</code>, one with <code>temp</code> <span class="math inline">\(0.1\)</span> higher than the other.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hint</strong></p>
+</div>
+<div class="callout-content">
+<p>The <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> of <a href="#/exr-bikeshare-fit" class="quarto-xref">Exercise&nbsp;5</a> has no interactions or transformations involving <code>temp</code>, so <a href="#/thm-poisson-rate-ratio" class="quarto-xref">Theorem&nbsp;1</a> applies.</p>
+</div>
+</div>
+</div>
+<p><a href="./estimation.html#def-estimate">Estimate</a> the <a href="./poisson-regression.html#def-rate-ratio">rate ratio</a> comparing the warmer hour with the cooler one.</p>
+</div>
+</section><section class="slide level2"><div id="sol-bikeshare-ratio" class="proof solution">
+<p><span class="proof-title"><em>Solution 6</em>. </span></p>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-7" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-7-1">R</a></li>
+<li><a href="#tabset-7-2">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-7-1">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="co"># The rate ratio for a 0.1 rise in temp is exp(0.1 * coefficient of temp).</span></span>
+<span id="cb17-2"><a aria-label="2"></a>ratio_r <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fl">0.1</span> <span class="sc">*</span> pois_coef[[<span class="st">"temp"</span>]])</span>
+<span id="cb17-3"><a aria-label="3"></a><span class="fu">round</span>(ratio_r, <span class="dv">3</span>)</span>
+<span id="cb17-4"><a aria-label="4"></a><span class="co">#&gt; [1] 1.237</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-7-2">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-label="1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb18-2"><a aria-label="2"></a></span>
+<span id="cb18-3"><a aria-label="3"></a><span class="co"># The rate ratio for a 0.1 rise in temp is exp(0.1 * coefficient of temp).</span></span>
+<span id="cb18-4"><a aria-label="4"></a>ratio_py <span class="op">=</span> <span class="bu">float</span>(np.exp(<span class="fl">0.1</span> <span class="op">*</span> pois_py.params[<span class="st">"temp"</span>]))</span>
+<span id="cb18-5"><a aria-label="5"></a><span class="bu">round</span>(ratio_py, <span class="dv">3</span>)</span>
+<span id="cb18-6"><a aria-label="6"></a><span class="co">#&gt; 1.237</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<p>By <a href="#/thm-poisson-rate-ratio" class="quarto-xref">Theorem&nbsp;1</a> with <span class="math inline">\(a - b = 0.1\)</span>, the <a href="./poisson-regression.html#def-rate-ratio">rate ratio</a> is <span class="math inline">\({\operatorname{exp}\mathopen{}\left\{0.1 \beta_{\text{temp}}\right\}\mathclose{}}\)</span>, and its <a href="./estimation.html#def-estimate">estimate</a> is <span class="math inline">\({\operatorname{exp}\mathopen{}\left\{0.1 \hat{\beta}_{\text{temp}}\right\}\mathclose{}}\)</span>. That estimate is 1.24 in the R tab and 1.24 in the Python tab, so the <a href="./estimation.html#def-estimate">estimated</a> <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rate</a> of the warmer hour is about 1.24 times that of the cooler hour.</p>
+</div>
+</section><section class="slide level2"><div id="exr-bikeshare-negative" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7 (Compare with linear regression)</strong></span> Consider a <a href="./correlation-regression.html#def-linear-regression">linear regression</a> of <code>bikers</code> on the same <a href="./model-validation.html#def-covariate">covariates</a> as the <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> of <a href="#/exr-bikeshare-fit" class="quarto-xref">Exercise&nbsp;5</a>. A count is never negative.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hint</strong></p>
+</div>
+<div class="callout-content">
+<p><code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> in R and <code>smf.ols()</code> in Python <a href="./model-validation.html#def-fitted-model">fit</a> the <a href="./correlation-regression.html#def-linear-regression">linear regression</a>. <code><a href="https://rdrr.io/r/stats/fitted.values.html">fitted()</a></code> in R returns the <a href="./prediction.html#def-fitted-value">fitted values</a> of a model, and the <code>fittedvalues</code> attribute of a <code>statsmodels</code> fit holds them in Python.</p>
+</div>
+</div>
+</div>
+<p>For each of the two <a href="./model-validation.html#def-fitted-model">fitted models</a>, count the hours with a negative <a href="./prediction.html#def-fitted-value">fitted value</a>.</p>
+</div>
+</section><section class="slide level2 smaller scrollable" id="references"><div id="sol-bikeshare-negative" class="proof solution">
+<p><span class="proof-title"><em>Solution 7</em>. </span></p>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-8" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-8-1">R</a></li>
+<li><a href="#tabset-8-2">Python</a></li>
+</ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-8-1">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="co"># `bike`, `pois_r` and `pois_py` come from the solution to the fit exercise.</span></span>
+<span id="cb19-2"><a aria-label="2"></a><span class="co"># Linear regression on the same covariates as the Poisson model.</span></span>
+<span id="cb19-3"><a aria-label="3"></a>lin_r <span class="ot">&lt;-</span> <span class="fu">lm</span>(bikers <span class="sc">~</span> temp <span class="sc">+</span> workingday <span class="sc">+</span> weathersit, <span class="at">data =</span> bike)</span>
+<span id="cb19-4"><a aria-label="4"></a></span>
+<span id="cb19-5"><a aria-label="5"></a><span class="co"># Count the hours whose fitted value is below zero, for each model.</span></span>
+<span id="cb19-6"><a aria-label="6"></a>fitted_lin_r <span class="ot">&lt;-</span> <span class="fu">fitted</span>(lin_r)</span>
+<span id="cb19-7"><a aria-label="7"></a>fitted_pois_r <span class="ot">&lt;-</span> <span class="fu">fitted</span>(pois_r)</span>
+<span id="cb19-8"><a aria-label="8"></a>n_neg_lin_r <span class="ot">&lt;-</span> <span class="fu">sum</span>(fitted_lin_r <span class="sc">&lt;</span> <span class="dv">0</span>)</span>
+<span id="cb19-9"><a aria-label="9"></a>n_neg_pois_r <span class="ot">&lt;-</span> <span class="fu">sum</span>(fitted_pois_r <span class="sc">&lt;</span> <span class="dv">0</span>)</span>
+<span id="cb19-10"><a aria-label="10"></a><span class="fu">c</span>(<span class="at">linear =</span> n_neg_lin_r, <span class="at">poisson =</span> n_neg_pois_r)</span>
+<span id="cb19-11"><a aria-label="11"></a><span class="co">#&gt;  linear poisson </span></span>
+<span id="cb19-12"><a aria-label="12"></a><span class="co">#&gt;      20       0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-8-2">
+<div class="cell">
+<details open="" class="code-fold"><summary>[Code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-label="1"></a><span class="co"># `bike`, `pois_r` and `pois_py` come from the solution to the fit exercise.</span></span>
+<span id="cb20-2"><a aria-label="2"></a><span class="co"># Linear regression on the same covariates as the Poisson model.</span></span>
+<span id="cb20-3"><a aria-label="3"></a>lin_py <span class="op">=</span> smf.ols(</span>
+<span id="cb20-4"><a aria-label="4"></a>    <span class="st">"bikers ~ temp + workingday + C(weathersit, Treatment('clear'))"</span>,</span>
+<span id="cb20-5"><a aria-label="5"></a>    data<span class="op">=</span>bike,</span>
+<span id="cb20-6"><a aria-label="6"></a>).fit()</span>
+<span id="cb20-7"><a aria-label="7"></a></span>
+<span id="cb20-8"><a aria-label="8"></a><span class="co"># Count the hours whose fitted value is below zero, for each model.</span></span>
+<span id="cb20-9"><a aria-label="9"></a>n_neg_lin_py <span class="op">=</span> <span class="bu">int</span>((lin_py.fittedvalues <span class="op">&lt;</span> <span class="dv">0</span>).<span class="bu">sum</span>())</span>
+<span id="cb20-10"><a aria-label="10"></a>n_neg_pois_py <span class="op">=</span> <span class="bu">int</span>((pois_py.fittedvalues <span class="op">&lt;</span> <span class="dv">0</span>).<span class="bu">sum</span>())</span>
+<span id="cb20-11"><a aria-label="11"></a>{<span class="st">"linear"</span>: n_neg_lin_py, <span class="st">"poisson"</span>: n_neg_pois_py}</span>
+<span id="cb20-12"><a aria-label="12"></a><span class="co">#&gt; {'linear': 20, 'poisson': 0}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<p>The <a href="./correlation-regression.html#def-linear-regression">linear regression</a> gives a negative <a href="./prediction.html#def-fitted-value">fitted value</a> for 20 hours, which is impossible for the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expected value</a> of a count.</p>
+<p>The <a href="./poisson-regression.html#def-poisson-regression">Poisson regression model</a> gives a negative fitted value for 0 hours, because its <a href="https://morrison-lab.github.io/pds/distributions.html#def-event-rate">event rate</a> is the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function">exponential function</a> of a <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-linear-function">linear function</a>, and the exponential function takes only positive values.</p>
+</div>
+
+
+<script>
+const defaultAnchorIconFallback = "#";
+
+function getDefaultAnchorTemplate() {
+  const defaultAnchor = document.querySelector("a.anchorjs-link[data-anchorjs-icon]");
+  if (!defaultAnchor) {
+    return null;
+  }
+
+  return {
+    icon: defaultAnchor.getAttribute("data-anchorjs-icon"),
+    style: defaultAnchor.getAttribute("style")
+  };
+}
+
+function alignEquationAnchorWithDefault(anchor, template) {
+  if (!anchor) {
+    return;
+  }
+
+  anchor.classList.remove("external");
+
+  if (template && template.icon) {
+    anchor.setAttribute("data-anchorjs-icon", template.icon);
+    anchor.textContent = "";
+  } else if (!anchor.textContent) {
+    anchor.textContent = defaultAnchorIconFallback;
+  }
+
+  if (template && template.style) {
+    anchor.setAttribute("style", template.style);
+  } else {
+    anchor.removeAttribute("style");
+  }
+}
+
+function alignEquationAnchorsWithDefault() {
+  const template = getDefaultAnchorTemplate();
+  document.querySelectorAll("a.equation-anchor").forEach(function (anchor) {
+    alignEquationAnchorWithDefault(anchor, template);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const equations = document.querySelectorAll("span[id^='eq-']");
+  equations.forEach(function (equation) {
+    if (equation.querySelector(".equation-anchor")) {
+      return;
+    }
+
+    if (!equation.querySelector(".math.display")) {
+      return;
+    }
+
+    const id = equation.getAttribute("id");
+    if (!id) {
+      return;
+    }
+
+    equation.classList.add("equation-anchor-target");
+
+    const anchor = document.createElement("a");
+    anchor.className = "equation-anchor anchorjs-link";
+    anchor.href = "#" + id;
+    anchor.setAttribute("aria-label", "Permalink to this equation");
+    equation.appendChild(anchor);
+  });
+
+  alignEquationAnchorsWithDefault();
+});
+
+window.addEventListener("load", alignEquationAnchorsWithDefault);
+</script><script>
+(function () {
+  var css = [
+    "#revealjs-html-link {",
+    "  position: fixed;",
+    "  top: 8px;",
+    "  right: 8px;",
+    "  z-index: 31;",
+    "  font-size: 0.55em;",
+    "  line-height: 1;",
+    "}",
+    "#revealjs-html-link a {",
+    "  color: var(--qwt-muted, rgba(0, 0, 0, 0.5));",
+    "  text-decoration: none;",
+    "  border: 1px solid var(--qwt-border, rgba(0, 0, 0, 0.2));",
+    "  padding: 4px 8px;",
+    "  border-radius: 4px;",
+    "  background: var(--qwt-chip-bg, rgba(255, 255, 255, 0.8));",
+    "  transition: color 0.15s, background 0.15s, border-color 0.15s;",
+    "}",
+    "#revealjs-html-link a:hover {",
+    "  color: var(--qwt-fg, rgba(0, 0, 0, 0.9));",
+    "  background: var(--qwt-chip-bg-hover, rgba(255, 255, 255, 0.98));",
+    "  border-color: var(--qwt-fg, rgba(0, 0, 0, 0.4));",
+    "}"
+  ].join("\n");
+
+  function getHtmlBase() {
+    var url = window.location.href.split("#")[0];
+    return url.replace(/-slides\.html$/, ".html");
+  }
+
+  function getCurrentSectionId() {
+    if (typeof Reveal === "undefined" || !Reveal.getCurrentSlide) {
+      return null;
+    }
+    var slide = Reveal.getCurrentSlide();
+    if (!slide) {
+      return null;
+    }
+    // If the current slide itself has an id, use it
+    if (slide.id) {
+      return slide.id;
+    }
+    // Walk backwards through sibling sections to find the nearest one with an id
+    var sibling = slide.previousElementSibling;
+    while (sibling) {
+      if (sibling.tagName === "SECTION" && sibling.id) {
+        return sibling.id;
+      }
+      sibling = sibling.previousElementSibling;
+    }
+    // Fall back to the first section[id] inside the parent container
+    var parent = slide.parentElement;
+    if (parent && parent.tagName === "SECTION") {
+      var firstNamed = parent.querySelector("section[id]");
+      if (firstNamed) {
+        return firstNamed.id;
+      }
+    }
+    return null;
+  }
+
+  function updateHtmlLink() {
+    var anchor = document.getElementById("revealjs-html-anchor");
+    if (!anchor) {
+      return;
+    }
+    var sectionId = getCurrentSectionId();
+    anchor.href = getHtmlBase() + (sectionId ? "#" + sectionId : "");
+  }
+
+  function initRevealJsHtmlLink() {
+    var htmlBase = getHtmlBase();
+
+    // Don't add the link if the URL doesn't follow the -slides.html convention
+    if (htmlBase === window.location.href.split("#")[0]) {
+      return;
+    }
+
+    // Inject styles
+    var styleElement = document.createElement("style");
+    styleElement.textContent = css;
+    document.head.appendChild(styleElement);
+
+    // Create the link element and append it directly to body so it stays
+    // visible across all slides regardless of Reveal.js section visibility
+    var div = document.createElement("div");
+    div.id = "revealjs-html-link";
+    var anchor = document.createElement("a");
+    anchor.id = "revealjs-html-anchor";
+    anchor.href = htmlBase;
+    anchor.target = "_blank";
+    anchor.title = "View this section in the HTML notes";
+    anchor.setAttribute("aria-label", "View this section in the HTML notes");
+    anchor.innerHTML = "&#128196;&nbsp;Webpage version";
+    div.appendChild(anchor);
+    document.body.appendChild(div);
+
+    // Register Reveal.js slide-change listener to keep the link updated
+    if (typeof Reveal !== "undefined") {
+      Reveal.on("ready", updateHtmlLink);
+      Reveal.on("slidechanged", updateHtmlLink);
+    }
+
+    updateHtmlLink();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initRevealJsHtmlLink);
+  } else {
+    initRevealJsHtmlLink();
+  }
+})();
+</script><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-james2021islr2e" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">G. James, D. Witten, T. Hastie, and R. Tibshirani, <em>An introduction to statistical learning: With applications in <span>R</span></em>, 2nd ed. Springer, 2021. doi: <a href="https://doi.org/10.1007/978-1-0716-1418-1">10.1007/978-1-0716-1418-1</a>.</div>
+</div>
+</div>
+</section>
+</div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="site_libs/revealjs/plugin/notes/notes.js"></script><script src="site_libs/revealjs/plugin/search/search.js"></script><script src="site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"\u003ci class=\"fas fa-gear\">\u003c/i>","content":"\u003cul class=\"slide-menu-items\">\n\u003cli class=\"slide-tool-item active\" data-item=\"0\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\">\u003ckbd>f\u003c/kbd> Fullscreen\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"1\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\">\u003ckbd>s\u003c/kbd> Speaker View\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"2\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\">\u003ckbd>o\u003c/kbd> Slide Overview\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"3\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\">\u003ckbd>e\u003c/kbd> PDF Export Mode\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"4\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\">\u003ckbd>r\u003c/kbd> Scroll View Mode\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"5\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\">\u003ckbd>?\u003c/kbd> Keyboard Help\u003c/a>\u003c/li>\n\u003c/ul>"}],"openButton":true,"openButtonLabel":"Slide menu"},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script><script>
+    // Put each folded code cell inside the tab it belongs to.
+    // Quarto hoists the `details.code-fold` of a cross-referenced figure out of the figure,
+    // so an R and a Python tab end up with their folds stacked above the whole figure.
+    // For every language tabset, take the run of folds immediately before it (or before the figure
+    // that holds it), match each fold to a tab by language, and move it to the top of that tab.
+    // The selectors cover both the website tabsets (Bootstrap) and the slide tabsets (tabby).
+    document.querySelectorAll("div.panel-tabset").forEach(function (tabset) {
+      var anchor = tabset.closest("div.quarto-float") || tabset;
+      var panes = Array.prototype.slice.call(tabset.querySelectorAll(":scope > .tab-content > div"));
+      var tabs = Array.prototype.slice.call(tabset.querySelectorAll(":scope > ul > li > a"));
+      var folds = [];
+      var node = anchor.previousElementSibling;
+      while (node && node.matches("details.code-fold")) {
+        folds.unshift(node);
+        node = node.previousElementSibling;
+      }
+      if (folds.length === 0 || folds.length !== panes.length || tabs.length !== panes.length) {
+        return;
+      }
+      var language = function (fold) {
+        var code = fold.querySelector("pre.sourceCode");
+        var found = code && Array.prototype.find.call(code.classList, function (name) {
+          return name !== "sourceCode" && name !== "downlit" && name !== "code-with-copy";
+        });
+        return found ? found.toLowerCase() : "";
+      };
+      var used = {};
+      var unused = function () {
+        return tabs.findIndex(function (tab, j) {
+          return !used[j];
+        });
+      };
+      folds.forEach(function (fold) {
+        var index = tabs.findIndex(function (tab, j) {
+          return !used[j] && tab.textContent.trim().toLowerCase() === language(fold);
+        });
+        if (index < 0) {
+          index = unused();
+        }
+        used[index] = true;
+        panes[index].insertBefore(fold, panes[index].firstChild);
+      });
+    });
+    </script><script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/morrison-lab\.github\.io\/sds\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+          window.quartoDecorateExternalLinks = function (root) {
+         var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+              if (!link.classList.contains('no-external-icon')) {
+              }
+            }
+          }
+          };
+          window.quartoDecorateExternalLinks(window.document);
+        // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+        // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+        const hideOnEscAndFocusOut = {
+          name: 'hideOnEscAndFocusOut',
+          defaultValue: true,
+          fn(instance) {
+            const dismiss = () => {
+              // A show scheduled by the trigger delay would otherwise reopen it
+              instance.clearDelayTimeouts();
+              instance.hide();
+            };
+            const onKeyDown = (event) => {
+              if (event.key !== 'Escape') {
+                return;
+              }
+              // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+              // except an open reveal.js slide menu, which Esc should close too.
+              // The menu handles keys only when its keyboard option is on.
+              const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+                window.Reveal.getConfig().menu?.keyboard !== false;
+              if (!menuHandlesEsc) {
+                event.stopPropagation();
+              }
+              if (instance.popper.contains(window.document.activeElement)) {
+                // Disabled while refocusing so the focus trigger does not reopen it
+                instance.disable();
+                instance.reference.focus();
+                instance.enable();
+              }
+              dismiss();
+            };
+            const onFocusOut = (event) => {
+              const target = event.relatedTarget;
+              if (target && !instance.reference.contains(target) &&
+                  !instance.popper.contains(target)) {
+                dismiss();
+              }
+            };
+            // On the trigger too: a click trigger (code-annotations: select) has no
+            // blur handling. Attached for the instance's lifetime so leaving the
+            // trigger also cancels a show still pending on the trigger delay.
+            instance.reference.addEventListener('focusout', onFocusOut);
+            return {
+              onShow() {
+                window.document.addEventListener('keydown', onKeyDown, true);
+                instance.popper.addEventListener('focusout', onFocusOut);
+              },
+              onHide() {
+                window.document.removeEventListener('keydown', onKeyDown, true);
+                instance.popper.removeEventListener('focusout', onFocusOut);
+              },
+              onDestroy() {
+                instance.reference.removeEventListener('focusout', onFocusOut);
+              },
+            };
+          },
+        };
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+            plugins: [hideOnEscAndFocusOut],
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
+
+
+</body></html>
