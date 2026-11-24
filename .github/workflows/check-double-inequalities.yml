@@ -1,0 +1,34 @@
+# Thin caller of Morrison-Lab/gha's reusable double-inequality check.
+#
+# It flags a double inequality in math on lines a PR adds, such as
+# `a < x < b` or `0 \le p \le 1`, and suggests interval membership,
+# `x \in (a, b)` or `p \in [0, 1]` (psw's "Avoiding double inequalities").
+# It is diff-scoped, so it never reflags older text. Blocking.
+# Mark a line that needs the chain form with
+# `<!-- check-double-inequalities: allow: <reason> -->`.
+#
+# Why it exists: Ezra, 2026-11-24, on Morrison-Lab/pds#492, "why did you
+# write a double inequality? isn't there a psw rule against that?".
+# The check came in Morrison-Lab/gha#2189; wiring is Morrison-Lab/gha#2190.
+# A manual run scans the whole tree.
+
+name: Check math for double inequalities
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  check:
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-double-inequalities.yml@v3
+    with:
+      # Vendored Quarto extensions are not ours to edit.
+      paths-ignore: '_extensions/**'
+      # A manual run has no PR to diff against; make it report the whole tree.
+      whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
