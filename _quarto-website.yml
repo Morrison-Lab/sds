@@ -7,6 +7,11 @@ project:
     # Runs last: on a pull request's build it removes the pdf format from the working copy
     # unless the PR carries the `preview:pdf` label.
     - python3 tools/skip-pdf-in-previews.py
+  # Writes _site/anchor-index.json, which page holds each id, so that
+  # anchor-landing.html sends a link to an id that moved to another page on to
+  # the page that holds it now (course sites such as lds link to sds anchors).
+  post-render:
+    - anchor-index.py
   resources:
     - dependency-graph.js
     - dependency-graph.json
